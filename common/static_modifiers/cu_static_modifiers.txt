@@ -117,7 +117,6 @@ city = {
 	garrison_growth = 0.05
 	regiment_recruit_speed = 1
 	local_build_cost = -0.40
-	local_defensiveness = 0.1
 	local_state_maintenance_modifier = -0.10
 }
 
