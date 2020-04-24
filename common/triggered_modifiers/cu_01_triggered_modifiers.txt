@@ -2344,5 +2344,35 @@ insufficient_diplomatic_upkeep_10 = {
 		NOT = { dip_power = -999 }
 	}
 	reduced_liberty_desire = -100
-}				
+}
+
+protectorate_adm_tech_bonus = {
+	potential = {
+		is_subject_of_type = protectorate
+	}
+	trigger = {
+		NOT = { adm_tech = overlord }
+	}
+	adm_tech_cost_modifier = -0.15
+}
+
+protectorate_dip_tech_bonus = {
+	potential = {
+		is_subject_of_type = protectorate
+	}
+	trigger = {
+		NOT = { dip_tech = overlord }
+	}
+	dip_tech_cost_modifier = -0.15
+}	
+
+protectorate_mil_tech_bonus = {
+	potential = {
+		is_subject_of_type = protectorate
+	}
+	trigger = {
+		NOT = { mil_tech = overlord }
+	}
+	mil_tech_cost_modifier = -0.15
+}						
 	

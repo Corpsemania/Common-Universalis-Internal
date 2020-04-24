@@ -149,6 +149,17 @@ feudalism = {
 			}	
 		}
 		modifier = {
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = protectorate_institute_sharing
+				owner = {
+						is_subject_of_type = protectorate
+						overlord = { has_institution = feudalism }
+				}
+			}	
+		}
+		modifier = {
 			factor = 0.5
 			scale = yes
 			custom_trigger_tooltip = {
@@ -447,6 +458,17 @@ gunpowder = {
 			}
 		}
 		modifier = {
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = protectorate_institute_sharing
+				owner = {
+						is_subject_of_type = protectorate
+						overlord = { has_institution = gunpowder }
+				}
+			}	
+		}
+		modifier = {
 			factor = 0.5
 			scale = yes
 			custom_trigger_tooltip = {
@@ -743,6 +765,17 @@ renaissance = {
                     cu_not_terr_trigger = yes
 				}
 			}
+		}
+		modifier = {
+			factor = 0.1
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = protectorate_institute_sharing
+				owner = {
+						is_subject_of_type = protectorate
+						overlord = { has_institution = renaissance }
+				}
+			}	
 		}
 		modifier = {
 			factor = 0.5
@@ -1109,6 +1142,17 @@ printing_press = {
 					religion_group = ROOT
 				}
 			}
+		}
+		modifier = {
+			factor = 0.2
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = protectorate_institute_sharing
+				owner = {
+						is_subject_of_type = protectorate
+						overlord = { has_institution = printing_press }
+				}
+			}	
 		}
 		modifier = {
 			factor = 0.1
@@ -1502,6 +1546,17 @@ new_world_i = {
 					}
 				}
 			}
+		}
+		modifier = {
+			factor = 0.2
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = protectorate_institute_sharing
+				owner = {
+						is_subject_of_type = protectorate
+						overlord = { has_institution = new_world_i }
+				}
+			}	
 		}
 		modifier = {
 			factor = 0.4
@@ -2019,6 +2074,17 @@ global_trade = {
 		modifier = {
 			factor = 0.2
 			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = protectorate_institute_sharing
+				owner = {
+						is_subject_of_type = protectorate
+						overlord = { has_institution = global_trade }
+				}
+			}	
+		}
+		modifier = {
+			factor = 0.2
+			scale = yes
 			potential = {
 				OR = {
 					province_has_center_of_trade_of_level = 1
@@ -2331,7 +2397,7 @@ manufactories = {
 			has_building = weapons
 		}
 		modifier = {
-			factor = 0.3
+			factor = 0.15
 			scale = yes
 			custom_trigger_tooltip = {
 				tooltip = tooltip_celestial_empire_tech_share
@@ -2365,6 +2431,17 @@ manufactories = {
 					overlord = { has_institution = manufactories }
 				}
 			}
+		}
+		modifier = {
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = protectorate_institute_sharing
+				owner = {
+						is_subject_of_type = protectorate
+						overlord = { has_institution = manufactories }
+				}
+			}	
 		}
 		modifier = {
 			factor = 0.08
@@ -2631,6 +2708,17 @@ enlightenment = {
 			factor = 0.1
 			scale = yes
 			custom_trigger_tooltip = {
+				tooltip = protectorate_institute_sharing
+				owner = {
+						is_subject_of_type = protectorate
+						overlord = { has_institution = enlightenment }
+				}
+			}	
+		}
+		modifier = {
+			factor = 0.1
+			scale = yes
+			custom_trigger_tooltip = {
 				tooltip = tooltip_full_innovativeness
 				is_capital = yes
 				owner = {
@@ -2829,6 +2917,17 @@ industrial_revolution = {
 			scale = yes
 			base_production = 10
 			has_building = weapons
+		}
+		modifier = {
+			factor = 0.1
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = protectorate_institute_sharing
+				owner = {
+						is_subject_of_type = protectorate
+						overlord = { has_institution = industrial_revolution }
+				}
+			}	
 		}
 		modifier = {
 			factor = 0.1
