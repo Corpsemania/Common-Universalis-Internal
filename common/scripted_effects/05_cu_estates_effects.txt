@@ -444,6 +444,20 @@ cu_check_bur_reform = {
 		change_variable = { which = cu_var3 value = -2 }
 	}
 	
+	#Special
+	if = {
+		limit = { is_colonial_nation = yes }
+		change_variable = { which = cu_var3 value = -5 } #Burghers have high influence in colony, but colonies reform follow that of the overlord.
+	}
+	if = { #Prevent estate revolt in ai colonial nation since they blindly follow overlord reforms.
+		limit = { 
+			is_colonial_nation = yes
+			ai = yes
+			check_variable = { which = cu_var3 value = 0 }
+		}
+		set_variable = { which = cu_var3 value = 0 }
+	}
+	
 	set_variable = { which = bg_unrest value = 1.5 }
 	multiply_variable = { which = bg_unrest which = cu_var3 }
 	multiply_variable = { which = cu_var3 value = -1 }
@@ -699,6 +713,14 @@ cu_check_chu_reform = {
 			  change_variable = { which = cu_var3 value = 5 }
 		}
 	}
+	if = { #Prevent estate revolt in ai colonial nation since they blindly follow overlord reforms.
+		limit = { 
+			is_colonial_nation = yes
+			ai = yes
+			check_variable = { which = cu_var3 value = 0 }
+		}
+		set_variable = { which = cu_var3 value = 0 }
+	}
 	set_variable = { which = ch_unrest value = 1.5 }
 	multiply_variable = { which = ch_unrest which = cu_var3 }
 	multiply_variable = { which = cu_var3 value = -1 }
@@ -891,6 +913,14 @@ cu_check_nob_reform = {
 		limit = { has_reform = cu_religious_policy_1 }
 		change_variable = { which = cu_var3 value = -2 }
 	}
+	if = { #Prevent estate revolt in ai colonial nation since they blindly follow overlord reforms.
+		limit = { 
+			is_colonial_nation = yes
+			ai = yes
+			check_variable = { which = cu_var3 value = 0 }
+		}
+		set_variable = { which = cu_var3 value = 0 }
+	}
 	set_variable = { which = nb_unrest value = 1.5 }
 	multiply_variable = { which = nb_unrest which = cu_var3 }
 	multiply_variable = { which = cu_var3 value = -1 }
@@ -927,6 +957,14 @@ cu_check_els_reform = {
 			}
 		}
 		change_variable = { which = cu_var3 value = 3 }
+	}
+	if = { #Prevent estate revolt in ai colonial nation since they blindly follow overlord reforms.
+		limit = { 
+			is_colonial_nation = yes
+			ai = yes
+			check_variable = { which = cu_var3 value = 0 }
+		}
+		set_variable = { which = cu_var3 value = 0 }
 	}
 	if = { limit = { has_reform = constitution_reform } change_variable = { which = cu_var3 value = 5 } }
 	set_variable = { which = el_unrest value = 1.5 }

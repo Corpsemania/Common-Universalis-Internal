@@ -887,13 +887,18 @@ theodosian_walls = {
 }
 
 cu_civilian_integration = {
-    local_unrest = 5
+    local_unrest = -3
 	local_autonomy = -0.10
 	local_state_maintenance_modifier = 1
 }
 
+cu_diplomatic_integration = {
+	local_unrest = -9
+	local_autonomy = 0.10
+}
+
 cu_military_integration = {
-	local_unrest = 2
+	local_unrest = -6
 	land_forcelimit = -1
 }
 

@@ -3029,6 +3029,7 @@ noble_council = {
 	modifiers = {
 		max_absolutism = 10
 		yearly_absolutism = -0.1
+		yearly_corruption = 0.05
 		advisor_pool = 1
 	}
 	effect = {
@@ -3233,7 +3234,8 @@ clergy_reform = {
 	modifiers = {	
 		tolerance_own = 0.5
 		missionaries = 1
-		global_tax_modifier = -0.20
+		global_tax_modifier = -0.15
+		yearly_corruption = 0.05
 	}
 	effect = {
 		custom_tooltip = clergy_reform_estate_tt

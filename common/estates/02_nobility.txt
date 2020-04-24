@@ -256,7 +256,13 @@ estate_nobles =
 		}	
 		influence = 100
 	}
-	
+	influence_modifier = {
+		desc = EST_VAL_TRIBAL_NOBLE
+		trigger = {
+			government = tribe
+		}	
+		influence = -10
+	}
 	# Loyalty modifiers
 	loyalty_modifier = {
 		desc = EST_VAL_NOBLES_ADVANCE
