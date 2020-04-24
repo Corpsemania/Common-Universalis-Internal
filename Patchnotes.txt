@@ -12,6 +12,9 @@ Gameplay:
 4. Removed many cheat of normal ai. Improved ai behavior to ensure they can survive this change. 
 5. Added Pragmatic Sanction special reform for France.
 6. Fixed estate stability point growth.
+7. Re-added Protectorate subject type. Consumes GC to maintain.
+8. Added dynamic culture group mechanic, certain culture will switch cultural group when switching ownership.
+9. Aragonese and Catalan culture starts in Latin group. Can convert to Iberian group via decision.
 
 Interface
 1. Government reform now shows estate opinion of it. 
