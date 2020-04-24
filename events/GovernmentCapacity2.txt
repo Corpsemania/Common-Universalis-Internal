@@ -2006,8 +2006,8 @@ country_event = {
 					divide_variable = { which = plm value = 200 }
 					change_variable = { which = plm value = 0.05 }
 					multiply_variable = { which = pc which = plm }
-					multiply_variable = { which = plm value = 1.3 }
-					subtract_variable = { which = plm value = 0.015 }
+					multiply_variable = { which = plm value = 1.4 }
+					subtract_variable = { which = plm value = 0.01 }
 					multiply_variable = { which = po which = plm }
 					
 				}

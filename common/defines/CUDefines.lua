@@ -232,6 +232,8 @@ NDefines.NCountry.REVOLT_SIZE_BASE = 2
 NDefines.NCountry.REVOLT_TECH_IMPACT = 0.025
 NDefines.NCountry.OVERSEAS_CLIENT_STATES = 1
 NDefines.NCountry.BREAK_TRIBUTARY_STABILITY_PENALTY = 0
+NDefines.UNREST_REVOLT_FACTOR = 0.25 -- How much does each point of unrest contribute to chance of revolt uprising increasing (base)
+NDefines.UPRISING_INCREASE = 5
 --NCountryEnd
 
 --NEconomy

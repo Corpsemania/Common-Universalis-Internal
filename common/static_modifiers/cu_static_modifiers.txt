@@ -67,8 +67,8 @@ difficulty_normal_ai = {
 
 difficulty_hard_ai = {
 	global_manpower_modifier = 0.5
-	land_forcelimit_modifier = 0.125
-	naval_forcelimit_modifier = 0.125
+	land_forcelimit_modifier = 0.2
+	naval_forcelimit_modifier = 0.2
     manpower_recovery_speed = 0.2
 	land_morale = 0.05
 	shock_damage = 0.05
@@ -87,8 +87,8 @@ difficulty_hard_ai = {
 
 difficulty_very_hard_ai = {
 	global_manpower_modifier = 1
-	land_forcelimit_modifier = 0.25
-	naval_forcelimit_modifier = 0.25
+	land_forcelimit_modifier = 0.4
+	naval_forcelimit_modifier = 0.4
     manpower_recovery_speed = 0.4
 	land_morale = 0.1
 	ship_durability = 0.1
@@ -311,7 +311,6 @@ development = {
     local_missionary_strength = -0.0005
 	#garrison_size = 0.004
     local_colonial_growth = -2
-    global_colonial_growth = 0.02
     #allowed_num_of_buildings = 0.025
 	local_development_cost = 0.01
 	local_build_cost = 0.03
@@ -592,8 +591,8 @@ base_values = {
 	ae_impact = 0.10
 	improve_relation_modifier = -0.10
 	max_states = 1000
-	land_forcelimit = 4
-	naval_forcelimit = 4
+	land_forcelimit = 2
+	naval_forcelimit = 3
 }
 
 # AI 'cheats' that compensate for flaws in its long-term decision making, removing these may severely cripple the AI
@@ -626,6 +625,7 @@ war_taxes = {
 	land_maintenance_modifier = -0.20
 	naval_maintenance_modifier = -0.20
     war_exhaustion = 0.05
+	land_forcelimit = 2
 }
 
 stability = {
@@ -908,6 +908,7 @@ num_of_provinces = {
 country_development = {
 	yearly_tribal_allegiance = -0.005
 	horde_unity = -0.03
+    global_colonial_growth = 0.02
 }
 
 # Multiplied by Tribal Allegiance / 100

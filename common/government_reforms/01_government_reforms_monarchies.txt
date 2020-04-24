@@ -767,7 +767,7 @@ ottoman_government = {
 	modifiers = {		
 		stability_cost_modifier = 0.2
 		heir_chance = 0.25
-        war_exhaustion = -0.01		   
+        war_exhaustion = -0.02
 	}
 
 	

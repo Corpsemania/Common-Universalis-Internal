@@ -175,6 +175,7 @@ province_event = {
 					       mil_power = 200
 					 }
 				   }
+				   manpower_percentage = 0.1
 				}
 		}
 		hidden_effect = {
@@ -184,6 +185,7 @@ province_event = {
 		    clr_province_flag = cu_newly_conquered_province
 			remove_province_modifier = cu_local_autonomy_administration
 		}
+		owner = { add_manpower = -1 }
 		owner = { cu_subtract_mil_power_pac = yes }
 		add_province_modifier = {
 		    name = cu_military_integration

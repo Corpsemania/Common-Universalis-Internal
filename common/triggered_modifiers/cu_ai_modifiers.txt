@@ -591,6 +591,13 @@ cu_x_level = {
     }
 	trigger = {
 	}
+	
+	land_morale = 0.1
+	ship_durability = 0.1
+	shock_damage = 0.1
+	shock_damage_received = -0.1
+	fire_damage = 0.1
+	fire_damage_received = -0.1
 	global_manpower_modifier = 1
 	land_forcelimit_modifier = 0.50
 	global_regiment_cost = -0.25
