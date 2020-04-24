@@ -465,6 +465,7 @@ gunpowder = {
 				owner = {
 						is_subject_of_type = protectorate
 						overlord = { has_institution = gunpowder }
+						has_institution = feudalism
 				}
 			}	
 		}
@@ -774,6 +775,7 @@ renaissance = {
 				owner = {
 						is_subject_of_type = protectorate
 						overlord = { has_institution = renaissance }
+						has_institution = gunpowder
 				}
 			}	
 		}
@@ -1151,6 +1153,7 @@ printing_press = {
 				owner = {
 						is_subject_of_type = protectorate
 						overlord = { has_institution = printing_press }
+						has_institution = gunpowder
 				}
 			}	
 		}
@@ -1555,6 +1558,7 @@ new_world_i = {
 				owner = {
 						is_subject_of_type = protectorate
 						overlord = { has_institution = new_world_i }
+						has_institution = printing_press
 				}
 			}	
 		}
@@ -2079,6 +2083,7 @@ global_trade = {
 				owner = {
 						is_subject_of_type = protectorate
 						overlord = { has_institution = global_trade }
+						has_institution = new_world_i
 				}
 			}	
 		}
@@ -2440,6 +2445,7 @@ manufactories = {
 				owner = {
 						is_subject_of_type = protectorate
 						overlord = { has_institution = manufactories }
+						has_institution = global_trade
 				}
 			}	
 		}
@@ -2712,6 +2718,7 @@ enlightenment = {
 				owner = {
 						is_subject_of_type = protectorate
 						overlord = { has_institution = enlightenment }
+						has_institution = manufactories
 				}
 			}	
 		}
@@ -2926,6 +2933,7 @@ industrial_revolution = {
 				owner = {
 						is_subject_of_type = protectorate
 						overlord = { has_institution = industrial_revolution }
+						has_institution = enlightenment
 				}
 			}	
 		}

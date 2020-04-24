@@ -2351,7 +2351,12 @@ protectorate_adm_tech_bonus = {
 		is_subject_of_type = protectorate
 	}
 	trigger = {
-		NOT = { adm_tech = overlord }
+		overlord = { 
+			institution_difference = {
+				who = PREV
+				value = 1
+			}
+		}
 	}
 	adm_tech_cost_modifier = -0.15
 }
@@ -2361,7 +2366,12 @@ protectorate_dip_tech_bonus = {
 		is_subject_of_type = protectorate
 	}
 	trigger = {
-		NOT = { dip_tech = overlord }
+		overlord = { 
+			institution_difference = {
+				who = PREV
+				value = 1
+			}
+		}
 	}
 	dip_tech_cost_modifier = -0.15
 }	
@@ -2371,7 +2381,12 @@ protectorate_mil_tech_bonus = {
 		is_subject_of_type = protectorate
 	}
 	trigger = {
-		NOT = { mil_tech = overlord }
+		overlord = { 
+			institution_difference = {
+				who = PREV
+				value = 1
+			}
+		}
 	}
 	mil_tech_cost_modifier = -0.15
 }						
