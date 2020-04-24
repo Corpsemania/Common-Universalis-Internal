@@ -19,4 +19,4 @@ tags={
 }
 name="Common Universalis 4.9"
 supported_version="1.29.*"
-path="mod/Common Universalis"
+path="C:/Users/ASUS/Documents/Paradox Interactive/Europa Universalis IV/mod/Common Universalis"
