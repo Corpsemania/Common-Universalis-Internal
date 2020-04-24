@@ -82,8 +82,7 @@ country_event = {
 		clr_country_flag = ask_for_help_from_nobles
 		clr_country_flag = ask_for_help_from_church
 		clr_country_flag = ask_for_help_from_burghers
-		change_variable = { which = cu_var1 value = 50 }
-		cu_change_stability_point = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
