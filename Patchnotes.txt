@@ -2,6 +2,22 @@
 
 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Patchnote 4.95 Beta
+
+Gameplay:
+
+1. Province with 100% autonomy no longer consumes GC
+2. To prevent potential 100% autonomy spam, all provinces now consume 0.1 land forcelimit, and 100% autonomy reduces land forcelimit from development to zero.
+3. Besides that, province with 100% autonomy no longer produces anything rather than trade goods, but still cost 30% state maintenance.
+4. Removed many cheat of normal ai. Improved ai behavior to ensure they can survive this change. 
+5. Added Pragmatic Sanction special reform for France.
+6. Fixed estate stability point growth.
+
+Interface
+1. Government reform now shows estate opinion of it. 
+E.g. if an estate has +4(Support) opinion of an reform, this will increase estate stability growth by 4 * (estate_influence)/100 * estate loyalty modifier
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Patchnote 4.947
 
 Gameplay:
