@@ -1,0 +1,1966 @@
+namespace = govstart
+country_event = {
+	id = govstart.00
+	title = "govstart_titl"
+	desc = "govstart_desc"
+	picture = COLONIZATION_eventPicture
+	#fire_only_once = yes
+	hidden = yes
+	trigger = {
+		NOT = { 
+			has_country_flag = gov_start
+		}		
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	immediate = {
+		set_country_flag = gov_start
+	}
+	option = {
+		name = "govstart.a"
+		hidden_effect = {
+			if = {
+				limit = { check_variable = { which = ave_literacy value = 1.8 } }
+				add_government_reform = sovereign_code
+			}						
+		}
+	}
+}
+
+country_event = {
+	id = govstart.251
+	title = "govstart_titl"
+	desc = "govstart_desc"
+	picture = COLONIZATION_eventPicture
+	#fire_only_once = yes
+	hidden = yes
+	trigger = {
+		ai = yes
+		check_variable = { which = go value = 120 }  
+		OR = {
+			NOT = {
+				has_country_flag = refresh_gc_complete
+			}
+			had_country_flag = {
+				flag = refresh_gc_complete
+				days = 3650
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	immediate = {
+		country_event = { id = cugovernment.1 days = 1 } #Government Capacity Calculation
+	}
+	option = {
+		name = "govstart.a"
+		country_event = { id = cugovernment.1 days = 35 } #Government Capacity Calculation
+		set_country_flag = refresh_gc_complete
+	}
+}
+
+country_event = {
+	id = govstart.252 #Cam Uni
+	title = "govstart_titl"
+	desc = "govstart_desc"
+	picture = COLONIZATION_eventPicture
+	#fire_only_once = yes
+	hidden = yes
+	trigger = {
+		ai = yes
+		OR = {
+			tag = ENG
+			tag = GBR
+		}
+		treasury = 900
+		4370 = {
+			owner = {
+				OR = {
+					tag = ENG
+					tag = GBR
+				}
+			}
+			NOT = {
+				OR = {
+					has_building = university
+					has_construction = building
+				}
+			}
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	immediate = {
+		add_treasury = -700
+		4370 = {
+			add_building = university
+		}
+	}
+	option = {
+		name = "govstart.a"
+		
+	}
+}
+
+province_event = {
+	id = govstart.253 #Core Effect
+	title = "govstart_titl"
+	desc = "govstart_desc"
+	picture = COLONIZATION_eventPicture
+	is_triggered_only = yes
+	hidden = yes
+	
+	
+	option = {
+		name = "govstart.a"
+		if = {
+		    limit = { 
+			    OR = { #Reclaimed lost territory, transferred province due to forming/releasing new nation, integrated vassal etc. starts with max integrity
+				    is_core = owner
+					is_territorial_core = owner
+					has_province_flag = cu_colonial_transfer
+				}
+			}
+			clr_province_flag = cu_colonial_transfer
+			cu_calc_base_cultural_acceptance = yes
+			set_variable = { which = p_ca which = p_cab }
+			if = { #Colony set to best condition when transfered to colonial nation
+				limit = { has_province_flag = cu_colonial_transfer }
+				set_local_autonomy = 20
+				set_variable = { which = p_ca value = 100 }
+				cu_check_cultural_acceptance = yes
+			}
+		}
+		else_if = {
+		        limit = { is_colony = yes } #Colonial province starts with 70% of max integrity
+				cu_calc_base_cultural_acceptance = yes
+				set_variable = { which = p_ca which = p_cab }
+				multiply_variable = { which = p_ca value = 0.7 }
+				set_province_flag = cu_colony_flag
+		}
+		else_if = {
+				limit = {
+					has_owner_culture = yes #Same culture province starts with 50% of max integrity
+				}
+				set_province_flag = cu_newly_conquered_province
+				cu_calc_base_cultural_acceptance = yes
+				set_variable = { which = p_ca which = p_cab }
+				multiply_variable = { which = p_ca value = 0.5 }
+		}
+		else_if = {
+		        limit = {
+				       owner = { culture_group = ROOT }  #Culture from same group start with 40% of max integrity
+				}
+				set_province_flag = cu_newly_conquered_province
+				cu_calc_base_cultural_acceptance = yes
+				set_variable = { which = p_ca which = p_cab }
+				multiply_variable = { which = p_ca value = 0.4 }
+		}
+		else_if = {
+		        limit = {
+				       religion = owner  #Same religion start with 30% of max integrity
+				}
+				set_province_flag = cu_newly_conquered_province
+				cu_calc_base_cultural_acceptance = yes
+				set_variable = { which = p_ca which = p_cab }
+				multiply_variable = { which = p_ca value = 0.3 }
+		}
+		else_if = {
+		       limit = {
+				       religion_group = owner  #Same religion group start with 20% of max integrity
+				}
+				set_province_flag = cu_newly_conquered_province
+				cu_calc_base_cultural_acceptance = yes
+				set_variable = { which = p_ca which = p_cab }
+				multiply_variable = { which = p_ca value = 0.2 }
+		}
+		else = { #Start from ash
+		        set_province_flag = cu_newly_conquered_province
+				cu_calc_base_cultural_acceptance = yes
+				set_variable = { which = p_ca value = 0 }
+		}
+		
+		#Add province core
+		if = { #HRE Province waits two months before coring, so that the emperor has time to demand its return.
+			limit = { is_part_of_hre = yes }
+			province_event = { id = core.6 days = 180 }
+		}
+		else_if = { #Conquered colonial provinces, trigger slaughtering native effect
+		    limit = { 
+				has_province_flag = cu_newly_conquered_province
+				religion_group = pagan
+				owner = { 
+					OR = {
+						religion_group = christian 
+						religion_group = muslim
+						has_reform = cu_religious_policy_5
+					}
+					#NOT = { has_reform = cu_religious_policy_1 }
+					#NOT = { has_reform = cu_religious_policy_2 }
+				}
+				OR = { 
+						continent = north_america
+						continent = south_america
+						continent = new_world
+				}
+				NOT = { culture = owner }
+				owner = { mil_power = 0 }
+
+			}
+			set_province_flag = cu_wait_slaughter
+			add_core = owner
+		}
+		else_if = {
+		    limit = { #Mandate of Heaven mechanic
+				OR = {
+					superregion = china_superregion
+					culture_group = east_asian
+				}
+				AND = {
+						owner = {
+							capital_scope = { 
+									OR = {
+										region = south_china_region
+										region = xinan_region
+										region = north_china_region
+									} 
+							}	
+							OR = {
+								has_reform =  chinese_revolter
+								has_reform =  zhuhou
+								has_reform =  celestial_empire
+								has_reform =  celestial_empire_2
+								has_reform =  celestial_empire_3
+								
+							}
+						}
+				}
+			}
+			add_core = owner
+			if = {
+			    limit = { NOT = { check_variable = { which = p_ca value = 30 } } }
+				set_variable = { which = p_ca value = 30 }
+			}
+			else = { 
+				change_variable = { which = p_ca value = 10 }
+			}
+		}
+		else_if = {
+			limit = {
+			       is_permanent_claim = owner
+			}
+			add_core = owner
+			change_variable = { which = p_ca value = 10 }
+		}
+		else_if = {
+			limit = {
+			       is_claim = owner
+			}
+			add_core = owner
+			change_variable = { which = p_ca value = 5 }
+		}
+		else = {
+			add_core = owner
+		}
+		
+		cu_check_cultural_acceptance = yes
+	}
+}
+
+country_event = {
+	id = govstart.254#In case of bug
+	title = "govstart_titl"
+	desc = "govstart_desc"
+	picture = COLONIZATION_eventPicture
+	hidden = yes
+	trigger = {
+		has_reform = merchants_reform
+		num_of_provinces_in_states = 71
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+	immediate = {
+		add_government_reform = ord_reform
+	}
+	option = {
+		name = "govstart.a"
+		
+	}
+}
+country_event = {
+	id = govstart.255
+	title = "govstart_titl"
+	desc = "govstart_desc"
+	picture = COLONIZATION_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		set_country_flag = cu_stability_fixed
+		add_government_reform = colonial_government
+		if = { limit = { overlord = { has_reform = tax_policy_1 } }
+		add_government_reform = tax_policy_1
+		 }
+		if = { limit = { overlord = { has_reform = tax_policy_2 } }
+		add_government_reform = tax_policy_2
+		 }
+		if = { limit = { overlord = { has_reform = tax_policy_3 } }
+		add_government_reform = tax_policy_3
+		 }
+		if = { limit = { overlord = { has_reform = tax_policy_4 } }
+		add_government_reform = tax_policy_4
+		 }
+		if = { limit = { overlord = { has_reform = tax_policy_5 } }
+		add_government_reform = tax_policy_5
+		 }
+		if = { limit = { overlord = { has_reform = economic_policy_1 } }
+		add_government_reform = economic_policy_1
+		 }
+		if = { limit = { overlord = { has_reform = economic_policy_2 } }
+		add_government_reform = economic_policy_2
+		 }
+		if = { limit = { overlord = { has_reform = economic_policy_3 } }
+		add_government_reform = economic_policy_3
+		 }
+		if = { limit = { overlord = { has_reform = economic_policy_4 } }
+		add_government_reform = economic_policy_4
+		 }
+		if = { limit = { overlord = { has_reform = economic_policy_5 } }
+		add_government_reform = economic_policy_5
+		 }
+		if = { limit = { overlord = { has_reform = trade_policy_1 } }
+		add_government_reform = trade_policy_1
+		 }
+		if = { limit = { overlord = { has_reform = trade_policy_2 } }
+		add_government_reform = trade_policy_2
+		 }
+		if = { limit = { overlord = { has_reform = trade_policy_3 } }
+		add_government_reform = trade_policy_3
+		 }
+		if = { limit = { overlord = { has_reform = trade_policy_4 } }
+		add_government_reform = trade_policy_4
+		 }
+		if = { limit = { overlord = { has_reform = trade_policy_5 } }
+		add_government_reform = trade_policy_5
+		 }
+		if = { limit = { overlord = { has_reform = minimum_government_capacity } }
+		add_government_reform = minimum_government_capacity
+		 }
+		if = { limit = { overlord = { has_reform = shrink_government_capacity } }
+		add_government_reform = shrink_government_capacity
+		 }
+		if = { limit = { overlord = { has_reform = cur_government_capacity } }
+		add_government_reform = cur_government_capacity
+		 }
+		if = { limit = { overlord = { has_reform = expand_government_capacity } }
+		add_government_reform = expand_government_capacity
+		 }
+		if = { limit = { overlord = { has_reform = maximum_government_capacity } }
+		add_government_reform = maximum_government_capacity
+		 }
+		if = { limit = { overlord = { has_reform = cu_cultural_policy_1 } }
+		add_government_reform = cu_cultural_policy_1
+		 }
+		if = { limit = { overlord = { has_reform = cu_cultural_policy_2 } }
+		add_government_reform = cu_cultural_policy_2
+		 }
+		if = { limit = { overlord = { has_reform = cu_cultural_policy_3 } }
+		add_government_reform = cu_cultural_policy_3
+		 }
+		if = { limit = { overlord = { has_reform = cu_cultural_policy_4 } }
+		add_government_reform = cu_cultural_policy_4
+		 }
+		if = { limit = { overlord = { has_reform = cu_cultural_policy_5 } }
+		add_government_reform = cu_cultural_policy_5
+		 }
+		if = { limit = { overlord = { has_reform = cu_religious_policy_1 } }
+		add_government_reform = cu_religious_policy_1
+		 }
+		if = { limit = { overlord = { has_reform = cu_religious_policy_2 } }
+		add_government_reform = cu_religious_policy_2
+		 }
+		if = { limit = { overlord = { has_reform = cu_religious_policy_3 } }
+		add_government_reform = cu_religious_policy_3
+		 }
+		if = { limit = { overlord = { has_reform = cu_religious_policy_4 } }
+		add_government_reform = cu_religious_policy_4
+		 }
+		if = { limit = { overlord = { has_reform = cu_religious_policy_5 } }
+		add_government_reform = cu_religious_policy_5
+		 }
+		if = { limit = { overlord = { has_reform = feudal_conscription } }
+		add_government_reform = feudal_conscription
+		 }
+		if = { limit = { overlord = { has_reform = mercenary_conscription } }
+		add_government_reform = mercenary_conscription
+		 }
+		if = { limit = { overlord = { has_reform = military_household } }
+		add_government_reform = military_household
+		 }
+		if = { limit = { overlord = { has_reform = tribal_conscription } }
+		add_government_reform = tribal_conscription
+		 }
+		if = { limit = { overlord = { has_reform = volunteer_training } }
+		add_government_reform = volunteer_training
+		 }
+		if = { limit = { overlord = { has_reform = standing_army } }
+		add_government_reform = standing_army
+		 }
+		if = { limit = { overlord = { has_reform = limited_conscription } }
+		add_government_reform = limited_conscription
+		 }
+		if = { limit = { overlord = { has_reform = extensive_conscription } }
+		add_government_reform = extensive_conscription
+		 }
+		if = { limit = { overlord = { has_reform = education_policy_nobles } }
+		add_government_reform = education_policy_nobles
+		 }
+		if = { limit = { overlord = { has_reform = education_policy_church } }
+		add_government_reform = education_policy_church
+		 }
+		if = { limit = { overlord = { has_reform = education_policy_burghers } }
+		add_government_reform = education_policy_burghers
+		 }
+		if = { limit = { overlord = { has_reform = education_policy_public } }
+		add_government_reform = education_policy_public
+		 }
+		if = { limit = { overlord = { has_reform = education_policy_nobles } }
+		add_government_reform = education_policy_nobles
+		 }
+		clr_country_flag = chose_religious_policy_timer 
+		clr_country_flag = chose_cultural_policy_timer 
+		clr_country_flag = chose_tax_policy_timer
+		clr_country_flag = chose_economic_policy_timer
+		clr_country_flag = chose_gc_policy_timer
+		clr_country_flag = change_conscription_law
+		add_government_reform = noble_council
+		add_government_reform = mandate_system
+		add_government_reform = noble_election
+		if = { limit = { colonial_parent = { has_reform = oral_tradition } } add_government_reform = oral_tradition }
+		else_if = { limit = { colonial_parent = { has_reform = sovereign_code } } add_government_reform = sovereign_code }
+		else_if = { limit = { colonial_parent = { has_reform = divine_law } } add_government_reform = divine_law }
+		else = { add_government_reform = constitution_reform }		
+	}
+	option = {
+		name = "govstart.a"
+		clr_country_flag = cu_stability_fixed
+	}
+}
+country_event = {
+	id = govstart.256
+	title = "govstart_titl"
+	desc = "govstart_desc"
+	picture = COLONIZATION_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		set_country_flag = cu_stability_fixed
+				if = {
+					limit = {
+						OR = {
+							religion_group = muslim
+							religion_group = jewish_group
+							religion_group = dharmic 
+							government = theocracy
+						}
+					}
+					add_government_reform = divine_law
+					set_country_flag = gov_start
+				}
+				else_if = {
+				    limit = {
+					      OR = {
+					         religion_group = christian
+						     religion_group = eastern
+						  }
+						  NOT = { government = tribal }
+						  NOT = { is_primitive = yes }
+					}
+					add_government_reform = sovereign_code
+					set_country_flag = gov_start
+				}
+				else = {
+					add_government_reform = oral_tradition
+				}
+				if = {
+					limit = {
+						OR = {
+							has_reform = celestial_empire
+							has_reform = celestial_empire_2
+							has_reform = celestial_empire_3
+							has_reform = zhuhou
+							has_reform = chinese_revolter
+							has_reform = mamluk_government
+							tag = DAI 
+							tag = KOR							
+							government = republic
+							government = tribal
+						}
+					}
+					add_government_reform = noble_council
+				}
+				else_if = {
+					limit = {
+							OR = {
+								tag = ENG
+								tag = GBR
+								has_reform = english_monarchy
+							}
+					}
+					add_government_reform = eng_grand_charter
+					add_government_reform = noble_council
+				}
+				else_if = {
+					limit = {
+						OR = {
+							government = theocracy
+							has_reform = feudal_theocracy		
+						}
+					}
+					add_government_reform = clergy_reform
+				}
+				else_if = {
+						limit = {
+							OR = {
+								has_reform = autocracy_reform
+								has_reform = plutocratic_reform
+								has_reform = ottoman_government
+								has_reform = grand_duchy_reform
+								has_reform = principality
+								has_reform = tsardom
+								has_reform = prussian_monarchy
+								has_reform = mandala_reform
+								has_reform = shogunate
+								has_reform = daimyo
+								has_reform = indep_daimyo								
+								has_reform = cu_feudalism_reform
+								has_reform = indian_sultanate_reform
+								has_reform = nayankara_reform
+								has_reform = misl_confederacy_reform
+								has_reform = rajput_kingdom
+								has_reform = iqta
+							}
+						}
+					add_government_reform = court_despotism
+				}
+				else = { add_government_reform = court_despotism }				
+				if = {
+					limit = {
+						OR = {
+							has_reform = celestial_empire
+							has_reform = celestial_empire_2
+							has_reform = celestial_empire_3
+							has_reform = zhuhou
+							has_reform = chinese_revolter
+							tag = KOR
+							tag = DAI
+						}
+					}
+					add_government_reform = bureaucratic
+				}
+				else_if = {
+					limit = {
+						OR = {
+							government = tribal
+							has_reform = misl_confederacy_reform
+						}
+					}
+					add_government_reform = self_governance
+				}
+				else_if = {
+					limit = {
+						OR = {
+							has_reform = iqta
+							has_reform = colonial_government
+							has_reform = indian_sultanate_reform
+							has_reform = mandala_reform
+							has_reform = ottoman_government
+							government = republic
+						}
+					}
+					add_government_reform = mandate_system
+				}
+				else = {
+					add_government_reform = cu_feudalism_reform
+				}
+				if = {
+					limit = {						
+							OR = {
+								has_reform = venice_merchants_reform
+								has_reform = veche_republic								
+							}						
+					}
+					add_government_reform = merchants_reform
+				}
+				if = {
+					limit = {
+						OR = {
+							tag = ENG
+							government = republic
+							tag = PLC
+						}
+					}
+					add_government_reform = noble_election
+				}
+				else = {
+					add_government_reform = no_election
+				}
+				if = {
+					limit = {
+						tag = PLC
+					}
+					add_government_reform = elective_monarchy
+				}				
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_reform = shogunate
+								has_reform = daimyo
+								has_reform = indep_daimyo
+								has_reform = mamluk_government
+								has_reform = celestial_empire
+								has_reform = celestial_empire_2
+								has_reform = celestial_empire_3
+								has_reform = zhuhou
+								has_reform = chinese_revolter
+								has_reform = ottoman_government
+								has_reform = free_city
+								has_reform = trading_city
+								has_reform = colonial_government
+								has_reform = dutch_republic
+								has_reform = merchants_reform
+								has_reform = steppe_empire
+								has_reform = steppe_horde
+								has_reform = elective_monarchy
+								has_reform = siberian_tribe
+								has_reform = revolutionary_empire_reform
+								has_reform = revolutionary_republic_reform
+							}
+						}
+					}
+					add_government_reform = ord_reform
+				}
+				cu_reset_conscription_law = yes	#Initial Conscription Law 
+				add_government_reform = tax_policy_3
+				add_government_reform = cu_religious_policy_3
+				add_government_reform = cu_cultural_policy_3
+				add_government_reform = cur_government_capacity
+				add_government_reform = education_policy_church
+				add_government_reform = economic_policy_3				
+				add_government_reform = trade_policy_3				
+				while = {
+					limit = { NOT = { stability = 0 } }
+					add_stability = 1
+				}
+				clr_country_flag = chose_religious_policy_timer 
+				clr_country_flag = chose_cultural_policy_timer 
+				clr_country_flag = chose_tax_policy_timer
+				clr_country_flag = chose_economic_policy_timer
+				clr_country_flag = chose_gc_policy_timer
+				clr_country_flag = chose_trade_policy_timer
+				clr_country_flag = change_conscription_law
+	}
+	option = {
+		name = "govstart.a"
+		clr_country_flag = cu_stability_fixed
+	}
+}
+country_event = {
+	id = govstart.257
+	title = "govstart_titl"
+	desc = "govstart_desc"
+	picture = COLONIZATION_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	immediate = {
+		set_country_flag = cu_stability_fixed
+		if = { limit = { overlord = { has_reform = tax_policy_1 } }
+		add_government_reform = tax_policy_1
+		 }
+		if = { limit = { overlord = { has_reform = tax_policy_2 } }
+		add_government_reform = tax_policy_2
+		 }
+		if = { limit = { overlord = { has_reform = tax_policy_3 } }
+		add_government_reform = tax_policy_3
+		 }
+		if = { limit = { overlord = { has_reform = tax_policy_4 } }
+		add_government_reform = tax_policy_4
+		 }
+		if = { limit = { overlord = { has_reform = tax_policy_5 } }
+		add_government_reform = tax_policy_5
+		 }
+		if = { limit = { overlord = { has_reform = economic_policy_1 } }
+		add_government_reform = economic_policy_1
+		 }
+		if = { limit = { overlord = { has_reform = economic_policy_2 } }
+		add_government_reform = economic_policy_2
+		 }
+		if = { limit = { overlord = { has_reform = economic_policy_3 } }
+		add_government_reform = economic_policy_3
+		 }
+		if = { limit = { overlord = { has_reform = economic_policy_4 } }
+		add_government_reform = economic_policy_4
+		 }
+		if = { limit = { overlord = { has_reform = economic_policy_5 } }
+		add_government_reform = economic_policy_5
+		 }
+		if = { limit = { overlord = { has_reform = trade_policy_1 } }
+		add_government_reform = trade_policy_1
+		 }
+		if = { limit = { overlord = { has_reform = trade_policy_2 } }
+		add_government_reform = trade_policy_2
+		 }
+		if = { limit = { overlord = { has_reform = trade_policy_3 } }
+		add_government_reform = trade_policy_3
+		 }
+		if = { limit = { overlord = { has_reform = trade_policy_4 } }
+		add_government_reform = trade_policy_4
+		 }
+		if = { limit = { overlord = { has_reform = trade_policy_5 } }
+		add_government_reform = trade_policy_5
+		 }
+		if = { limit = { overlord = { has_reform = minimum_government_capacity } }
+		add_government_reform = minimum_government_capacity
+		 }
+		if = { limit = { overlord = { has_reform = shrink_government_capacity } }
+		add_government_reform = shrink_government_capacity
+		 }
+		if = { limit = { overlord = { has_reform = cur_government_capacity } }
+		add_government_reform = cur_government_capacity
+		 }
+		if = { limit = { overlord = { has_reform = expand_government_capacity } }
+		add_government_reform = expand_government_capacity
+		 }
+		if = { limit = { overlord = { has_reform = maximum_government_capacity } }
+		add_government_reform = maximum_government_capacity
+		 }
+		if = { limit = { overlord = { has_reform = cu_cultural_policy_1 } }
+		add_government_reform = cu_cultural_policy_1
+		 }
+		if = { limit = { overlord = { has_reform = cu_cultural_policy_2 } }
+		add_government_reform = cu_cultural_policy_2
+		 }
+		if = { limit = { overlord = { has_reform = cu_cultural_policy_3 } }
+		add_government_reform = cu_cultural_policy_3
+		 }
+		if = { limit = { overlord = { has_reform = cu_cultural_policy_4 } }
+		add_government_reform = cu_cultural_policy_4
+		 }
+		if = { limit = { overlord = { has_reform = cu_cultural_policy_5 } }
+		add_government_reform = cu_cultural_policy_5
+		 }
+		if = { limit = { overlord = { has_reform = cu_religious_policy_1 } }
+		add_government_reform = cu_religious_policy_1
+		 }
+		if = { limit = { overlord = { has_reform = cu_religious_policy_2 } }
+		add_government_reform = cu_religious_policy_2
+		 }
+		if = { limit = { overlord = { has_reform = cu_religious_policy_3 } }
+		add_government_reform = cu_religious_policy_3
+		 }
+		if = { limit = { overlord = { has_reform = cu_religious_policy_4 } }
+		add_government_reform = cu_religious_policy_4
+		 }
+		if = { limit = { overlord = { has_reform = cu_religious_policy_5 } }
+		add_government_reform = cu_religious_policy_5
+		 }
+		if = { limit = { overlord = { has_reform = feudal_conscription } }
+		add_government_reform = feudal_conscription
+		 }
+		if = { limit = { overlord = { has_reform = mercenary_conscription } }
+		add_government_reform = mercenary_conscription
+		 }
+		if = { limit = { overlord = { has_reform = military_household } }
+		add_government_reform = military_household
+		 }
+		if = { limit = { overlord = { has_reform = tribal_conscription } }
+		add_government_reform = tribal_conscription
+		 }
+		if = { limit = { overlord = { has_reform = volunteer_training } }
+		add_government_reform = volunteer_training
+		 }
+		if = { limit = { overlord = { has_reform = standing_army } }
+		add_government_reform = standing_army
+		 }
+		if = { limit = { overlord = { has_reform = limited_conscription } }
+		add_government_reform = limited_conscription
+		 }
+		if = { limit = { overlord = { has_reform = extensive_conscription } }
+		add_government_reform = extensive_conscription
+		 }
+		if = { limit = { overlord = { has_reform = education_policy_nobles } }
+		add_government_reform = education_policy_nobles
+		 }
+		if = { limit = { overlord = { has_reform = education_policy_church } }
+		add_government_reform = education_policy_church
+		 }
+		if = { limit = { overlord = { has_reform = education_policy_burghers } }
+		add_government_reform = education_policy_burghers
+		 }
+		if = { limit = { overlord = { has_reform = education_policy_public } }
+		add_government_reform = education_policy_public
+		 }
+		if = { limit = { overlord = { has_reform = education_policy_nobles } }
+		add_government_reform = education_policy_nobles
+		 }
+		while = {
+			limit = { NOT = { stability = 0 } }
+			add_stability = 1
+		}
+		clr_country_flag = chose_religious_policy_timer 
+		clr_country_flag = chose_cultural_policy_timer 
+		clr_country_flag = chose_tax_policy_timer
+		clr_country_flag = chose_economic_policy_timer
+		clr_country_flag = chose_gc_policy_timer
+		clr_country_flag = change_conscription_law
+		if = { limit = { overlord = { has_reform = court_despotism } }
+		add_government_reform = court_despotism
+		 }
+		if = { limit = { overlord = { has_reform = noble_council } }
+		add_government_reform = noble_council
+		 }
+		if = { limit = { overlord = { has_reform = parliament_reform } }
+		add_government_reform = parliament_reform
+		 }
+		if = { limit = { overlord = { has_reform = clergy_reform } }
+		add_government_reform = clergy_reform
+		 }
+		if = { limit = { overlord = { has_reform = self_governance } }
+		add_government_reform = self_governance
+		 }
+		if = { limit = { overlord = { has_reform = cu_feudalism_reform } }
+		add_government_reform = cu_feudalism_reform
+		 }
+		if = { limit = { overlord = { has_reform = bureaucratic } }
+		add_government_reform = bureaucratic
+		 }
+		if = { limit = { overlord = { has_reform = mandate_system } }
+		add_government_reform = mandate_system
+		 }
+		if = { limit = { overlord = { has_reform = oral_tradition } }
+		add_government_reform = oral_tradition
+		 }
+		if = { limit = { overlord = { has_reform = sovereign_code } }
+		add_government_reform = sovereign_code
+		 }
+		if = { limit = { overlord = { has_reform = divine_law } }
+		add_government_reform = divine_law
+		 }
+		if = { limit = { overlord = { has_reform = constitution_reform } }
+		add_government_reform = constitution_reform
+		 }
+		if = { limit = { overlord = { has_reform = no_election } }
+		add_government_reform = no_election
+		 }
+		if = { limit = { overlord = { has_reform = noble_election } }
+		add_government_reform = noble_election
+		 }
+		if = { limit = { overlord = { has_reform = burghers_election } }
+		add_government_reform = burghers_election
+		 }
+		if = { limit = { overlord = { has_reform = universal_suffrage } }
+		add_government_reform = universal_suffrage
+		 }
+		if = { limit = { NOT = { culture_group = east_asian } }
+			add_government_reform = ord_reform
+		}		
+	}
+	option = {
+		name = "govstart.a"
+		clr_country_flag = cu_stability_fixed
+	}
+}
+country_event = {
+	id = govstart.03
+	title = "govstart_titl"
+	desc = "govstart_desc"
+	picture = COLONIZATION_eventPicture
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+            factor = 0.5
+            adm_tech = 12
+        }
+		modifier = {
+            factor = 0.8
+            adm_tech = 8
+        }
+		modifier = {
+            factor = 0.9
+            religion_group = muslim
+        }
+		modifier = {
+            factor = 0.6
+            colony = 5
+        }
+		modifier = {
+            factor = 1.5
+            absolutism = 70
+        }
+		modifier = {
+            factor = 1.8
+            average_unrest = 3
+        }
+		modifier = {
+            factor = 1.9
+            has_reform = court_despotism
+        }
+		modifier = {
+            factor = 1.6
+            NOT = { colony = 1 }
+        }
+	}
+	trigger = {
+		adm_tech = 12
+		dip_tech = 12
+		absolutism = 35
+		cu_ai_reform_trigger = yes
+		NOT = { has_reform = bureaucratic }
+		NOT = { has_reform = mandate_system }
+		NOT = { has_reform = daimyo }
+		NOT = { has_reform = indep_daimyo }
+		NOT = { has_reform = shogunate }
+	}
+	option = {
+		name = "govstart.a"
+		add_government_reform = mandate_system
+		ai_chance = {
+			factor = 90
+		}
+	}
+	option = {
+		name = "govstart.b"
+		ai_chance = {
+			factor = 10
+		}
+	}
+}
+country_event = {
+	id = govstart.04
+	title = "govstart_titl"
+	desc = "govstart_desc"
+	picture = COLONIZATION_eventPicture
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+            factor = 0.5
+            NOT = { absolutism = 10 }
+        }
+		modifier = {
+            factor = 0.8
+            NOT = { ADM = 3 }
+        }
+		modifier = {
+            factor = 0.9
+			full_idea_group = influence_ideas
+        }
+		modifier = {
+            factor = 0.6
+            OR = {
+				estate_influence = {
+					estate = estate_church
+					influence = 90
+				}
+				estate_influence = {
+					estate = estate_nobles
+					influence = 90
+				}
+				estate_influence = {
+					estate = estate_burghers
+					influence = 90
+				}
+				estate_influence = {
+					estate = estate_cossacks
+					influence = 90
+				}
+			}
+        }
+		modifier = {
+            factor = 1.5
+            absolutism = 30
+        }
+		modifier = {
+            factor = 1.8
+            num_of_states = 10
+        }
+		modifier = {
+            factor = 1.9
+            has_reform = court_despotism
+        }
+		modifier = {
+            factor = 100
+            average_autonomy = 70
+        }
+	}
+	trigger = {
+		OR = {
+			AND = {
+				adm_tech = 18
+				full_idea_group = influence_ideas
+			}
+			adm_tech = 20
+		}
+		#NOT = { absolutism = 40 }
+		cu_ai_reform_trigger = yes
+		NOT = { has_reform = self_governance }
+		NOT = { has_reform = bureaucratic }
+		NOT = { has_reform = daimyo }
+		NOT = { has_reform = indep_daimyo }
+		NOT = { has_reform = shogunate }
+	}
+	option = {
+		name = "govstart.a"
+		add_government_reform = self_governance
+		ai_chance = {
+			factor = 15
+			modifier = {
+				factor = 0
+				absolutism = 35
+			}
+		}
+	}
+	option = {
+		name = "govstart.b"
+		ai_chance = {
+			factor = 85
+		}
+	}
+}
+country_event = {
+	id = govstart.05
+	title = "govstart_titl"
+	desc = "govstart_desc"
+	picture = COLONIZATION_eventPicture
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+            factor = 0.5
+            NOT = { average_unrest = -2 }
+        }
+		modifier = {
+            factor = 0.8
+            ADM = 4
+        }
+		modifier = {
+            factor = 0.9
+			adm_tech = 18
+        }
+		modifier = {
+            factor = 0.6
+            ADM = 5
+        }
+	}
+	trigger = {
+		NOT = { government = tribal }
+		NOT = { average_unrest = 1 }
+		all_owned_province = {			
+			OR = {
+				cu_is_terr_trigger = yes
+				NOT = { local_autonomy = 50 }
+			}
+		}
+		has_any_disaster = no
+		adm_tech = 18
+		cu_ai_reform_trigger = yes
+		NOT = { has_reform = daimyo }
+		NOT = { has_reform = indep_daimyo }
+		NOT = { has_reform = shogunate }
+	}
+	option = {
+		name = "govstart.a"
+		add_government_reform = bureaucratic
+	}
+}
+country_event = {
+	id = govstart.13
+	title = "govstart_titl"
+	desc = "govstart_desc"
+	picture = COLONIZATION_eventPicture
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+            factor = 0.5
+            has_reform = clergy_reform
+        }
+		modifier = {
+            factor = 0.8
+            adm_tech = 10
+        }
+		modifier = {
+            factor = 0.9
+            OR = {
+				religion_group = christian
+				religion_group = muslim
+				religion_group = jewish_group
+			}
+        }
+		modifier = {
+            factor = 0.6
+            estate_influence = {
+				estate = estate_church
+				influence = 90
+			}
+        }
+	}
+	trigger = {
+		tolerance_to_this = 5
+		OR = {
+			has_reform = clergy_reform
+			adm_tech = 4
+		}
+		estate_influence = {
+			estate = estate_church
+			influence = 60
+		}
+		cu_ai_reform_trigger = yes
+		NOT = { has_reform = constitution_reform }
+		NOT = { has_reform = divine_law }
+	}
+	option = {
+		name = "govstart.a"
+		add_government_reform = divine_law
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 10
+				has_reform = sovereign_code
+			}
+		}
+	}
+	option = {
+		name = "govstart.b"
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0
+				has_reform = oral_tradition
+			}
+		}
+	}
+}
+country_event = {
+	id = govstart.14
+	title = "govstart_titl"
+	desc = "govstart_desc"
+	picture = COLONIZATION_eventPicture
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+            factor = 0.5
+            absolutism = 70
+        }
+		modifier = {
+            factor = 0.8
+            ADM = 4
+        }
+		modifier = {
+            factor = 0.9
+			full_idea_group = bureaucratic_ideas
+        }
+		modifier = {
+            factor = 0.6
+			NOT = {
+				AND = {
+					estate_influence = {
+						estate = estate_church
+						influence = 80
+					}
+					estate_influence = {
+						estate = estate_nobles
+						influence = 80
+					}
+					estate_influence = {
+						estate = estate_burghers
+						influence = 80
+					}
+					estate_influence = {
+						estate = estate_cossacks
+						influence = 80
+					}
+				}
+			}
+        }
+		modifier = {
+            factor = 1.7
+            NOT = { absolutism = 30 }
+        }
+		modifier = {
+            factor = 0.7
+            has_reform = court_despotism
+        }
+		modifier = {
+            factor = 0.6
+            NOT = { average_autonomy = 50 }
+        }		
+	}
+	trigger = {
+		OR = {
+			AND = {
+				ADM = 4
+				absolutism = 45
+			}
+			absolutism = 60
+		}
+		adm_tech = 5
+		cu_ai_reform_trigger = yes
+		NOT = { has_reform = sovereign_code }
+		NOT = { has_reform = constitution_reform }
+	}
+	option = {
+		name = "govstart.a"
+		add_government_reform = sovereign_code
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 100
+				absolutism = 70
+			}
+			modifier = {
+				factor = 100
+				is_year = 1570
+			}
+		}
+	}
+	option = {
+		name = "govstart.b"
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				has_reform = oral_tradition
+			}
+		}
+	}
+}
+country_event = {
+	id = govstart.15
+	title = "govstart_titl"
+	desc = "govstart_desc"
+	picture = COLONIZATION_eventPicture
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+            factor = 0.5
+            full_idea_group = constitution_ideas
+        }
+		modifier = {
+            factor = 0.8
+            adm_tech = 22
+        }
+		modifier = {
+            factor = 0.9
+			adm_tech = 18
+        }
+		modifier = {
+            factor = 0.6
+            ADM = 5
+        }
+		modifier = {
+            factor = 0.7
+            OR = {
+				has_reform = burghers_election
+				has_reform = universal_suffrage
+				has_reform = parliament_reform
+			}
+        }
+		modifier = {
+            factor = 0.75
+            NOT = { absolutism = 75 }
+        }
+		modifier = {
+            factor = 0.85
+            check_variable = { which = ave_literacy value = 25 }
+        }
+	}
+	trigger = {
+		NOT = { government = tribal }
+		has_first_revolution_started = yes
+		OR = {
+			AND = {
+				OR = {
+					has_reform = parliament_reform
+					full_idea_group = constitution_ideas
+				}
+				OR = {
+					has_reform = burghers_election
+					has_reform = universal_suffrage
+				}
+				OR = {
+					AND = {
+						adm_tech = 18
+						custom_trigger_tooltip = {
+							tooltip = constitution_trigger_tooltip_0
+							check_variable = { which = ave_literacy value = 6 }
+						}
+					}
+					custom_trigger_tooltip = {
+						tooltip = constitution_trigger_tooltip_1
+						check_variable = { which = ave_literacy value = 10 }
+					}
+				}
+				#NOT = { absolutism = 50 }
+			}
+			adm_tech = 22
+			custom_trigger_tooltip = {
+				tooltip = constitution_trigger_tooltip_2
+				check_variable = { which = ave_literacy value = 25 }
+			}
+		}
+		cu_ai_reform_trigger = yes
+		NOT = { has_reform = papacy_reform }
+		NOT = { has_reform = leading_clergy_reform }
+		NOT = { has_reform = constitution_reform }
+		NOT = { has_reform = monastic_order_reform }		
+	}
+	option = {
+		name = "govstart.a"
+		add_government_reform = constitution_reform
+	}
+}
+country_event = {
+	id = govstart.23
+	title = "govstart_titl"
+	desc = "govstart_desc"
+	picture = COLONIZATION_eventPicture
+	mean_time_to_happen = {
+		months = 144
+		modifier = {
+            factor = 0.2
+            has_any_disaster = yes
+        }
+		modifier = {
+            factor = 0.8
+            absolutism = 70
+        }
+		modifier = {
+            factor = 0.9
+            absolutism = 60
+        }
+		modifier = {
+            factor = 0.6
+            has_reform = court_despotism
+        }
+		modifier = {
+            factor = 1.5
+            has_any_disaster = no
+        }
+		modifier = {
+            factor = 1.8
+            NOT = { absolutism = 55 }
+        }
+		modifier = {
+            factor = 1.9
+            has_reform = parliament_reform
+        }
+		modifier = {
+            factor = 1.6
+            has_reform = noble_council
+        }
+		modifier = {
+            factor = 3
+            government = republic 
+        }
+	}
+	trigger = {
+		OR = {
+			AND = { 
+				NOT = { has_reform = constitution_reform }
+				NOT = {	government = republic }
+				MIL = 4
+			}
+			AND = {
+				OR = { 
+					has_reform = constitution_reform
+					government = republic
+				}
+				absolutism = 50
+				MIL = 5
+			}
+			has_any_disaster = yes
+		}
+		cu_ai_reform_trigger = yes
+		NOT = { has_reform = no_election }
+	}
+	option = {
+		name = "govstart.a"
+		add_government_reform = no_election
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 40
+				has_reform = sovereign_code
+			}
+			modifier = {
+				factor = 50
+				absolutism = 50
+			}
+			modifier = {
+				factor = 80
+				absolutism = 80
+			}
+			modifier = {
+				factor = 40
+				has_reform = court_despotism
+			}
+		}
+	}
+	option = {
+		name = "govstart.b"
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 80
+				has_reform = parliament_reform
+			}
+			modifier = {
+				factor = 90
+				NOT = { absolutism = 30 }
+			}
+		}
+	}
+}
+country_event = {
+	id = govstart.24
+	title = "govstart_titl"
+	desc = "govstart_desc"
+	picture = COLONIZATION_eventPicture
+	mean_time_to_happen = {
+		months = 144
+		modifier = {
+            factor = 2.5
+            absolutism = 70
+        }
+		modifier = {
+            factor = 0.6
+			estate_influence = {
+				estate = estate_nobles
+				influence = 85
+			}
+		}
+		modifier = {
+            factor = 0.7
+            NOT = { absolutism = 30 }
+        }
+		modifier = {
+            factor = 2.7
+            has_reform = court_despotism
+        }
+	}
+	trigger = {
+		estate_influence = {
+			estate = estate_nobles
+			influence = 50
+		}
+		adm_tech = 12
+		#NOT = { absolutism = 75 }
+		cu_ai_reform_trigger = yes
+		NOT = { has_reform = noble_election }
+	}
+	option = {
+		name = "govstart.a"
+		add_government_reform = noble_election
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 100
+				estate_influence = {
+					estate = estate_nobles
+					influence = 90
+				}
+			}
+		}
+	}
+	option = {
+		name = "govstart.b"
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 100
+				absolutism = 90
+			}
+			modifier = {
+				factor = 50
+				has_reform = no_election
+			}
+		}
+	}
+}
+country_event = {
+	id = govstart.25
+	title = "govstart_titl"
+	desc = "govstart_desc"
+	picture = COLONIZATION_eventPicture
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+            factor = 0.5
+            full_idea_group = constitution_ideas
+        }
+		modifier = {
+            factor = 0.8
+            adm_tech = 22
+        }
+		modifier = {
+            factor = 0.9
+			has_reform = noble_election
+        }
+		modifier = {
+            factor = 0.6
+            adm_tech = 29
+        }
+		modifier = {
+           factor = 2.7
+           has_reform = no_election
+        }
+		modifier = {
+            factor = 3.75
+            absolutism = 70
+        }
+		modifier = {
+            factor = 3.75
+            has_reform = court_despotism
+        }
+		modifier = {
+            factor = 0.85
+            check_variable = { which = ave_literacy value = 35 }
+        }
+	}
+	trigger = {
+		NOT = { government = tribal }
+		has_reform = noble_election
+		#NOT = { absolutism = 55 }
+		OR = {
+			custom_trigger_tooltip = {
+				tooltip = burghers_election_trigger_tooltip_0
+				check_variable = { which = ave_literacy value = 12 }
+			}
+			AND = {
+				custom_trigger_tooltip = {
+					tooltip = burghers_election_trigger_tooltip_1
+					check_variable = { which = ave_literacy value = 8 }
+				}
+				OR = { 
+					has_reform = constitution_reform
+					government = republic
+				}
+			}
+			AND = {
+				custom_trigger_tooltip = {
+					tooltip = burghers_election_trigger_tooltip_2
+					check_variable = { which = ave_literacy value = 10 }
+				}
+				full_idea_group = constitution_ideas
+			}					
+		}
+		cu_ai_reform_trigger = yes
+		NOT = { has_reform = burghers_election }
+	}
+	option = {
+		name = "govstart.a"
+		add_government_reform = burghers_election
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 100
+				full_idea_group = constitution_ideas
+			}
+			modifier = {
+				factor = 1000
+				has_reform = parliament_reform
+			}
+		}
+	}
+	option = {
+		name = "govstart.b"
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 100
+				absolutism = 90
+			}
+			modifier = {
+				factor = 90
+				has_reform = no_election
+			}
+		}
+	}
+}
+country_event = {
+	id = govstart.26
+	title = "govstart_titl"
+	desc = "govstart_desc"
+	picture = COLONIZATION_eventPicture
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+            factor = 0.5
+            full_idea_group = constitution_ideas
+        }
+		modifier = {
+            factor = 0.8
+            adm_tech = 22
+        }
+		modifier = {
+            factor = 0.9
+			has_reform = burghers_election
+        }
+		modifier = {
+            factor = 0.6
+            adm_tech = 29
+        }
+		modifier = {
+           factor = 5
+           has_reform = no_election
+        }
+		modifier = {
+            factor = 6
+            absolutism = 70
+        }
+		modifier = {
+            factor = 7
+            has_reform = court_despotism
+        }
+		modifier = {
+            factor = 0.85
+            check_variable = { which = ave_literacy value = 65 }
+        }
+	}
+	trigger = {
+		NOT = { government = tribal }
+		has_first_revolution_started = yes
+		AND = {
+			has_reform = burghers_election
+			#NOT = { absolutism = 45 }
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = universal_suffrage_trigger_tooltip_0
+					check_variable = { which = ave_literacy value = 45 }
+				}
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = universal_suffrage_trigger_tooltip_1
+						check_variable = { which = ave_literacy value = 35 }
+					}
+					OR = { 
+						has_reform = constitution_reform
+						government = republic
+					}
+				}	
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = universal_suffrage_trigger_tooltip_2
+						check_variable = { which = ave_literacy value = 40 }
+					}
+					full_idea_group = constitution_ideas
+				}	
+			}
+		}
+		cu_ai_reform_trigger = yes
+		NOT = { has_reform = universal_suffrage }
+	}
+	option = {
+		name = "govstart.a"
+		add_government_reform = universal_suffrage
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 500
+				full_idea_group = constitution_ideas
+			}
+			modifier = {
+				factor = 1000
+				has_reform = parliament_reform
+			}
+		}
+	}
+	option = {
+		name = "govstart.b"
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 200
+				absolutism = 90
+			}
+			modifier = {
+				factor = 100
+				has_reform = no_election
+			}
+		}
+	}
+}
+country_event = {
+	id = govstart.27
+	title = "govstart_titl"
+	desc = "govstart_desc"
+	picture = COLONIZATION_eventPicture
+	hidden = yes
+	mean_time_to_happen = {
+		months = 36
+	}
+	trigger = {
+		OR = {
+			AND = {
+				NOT = {
+					mercantilism = 1 
+				}
+				has_reform = trade_policy_5
+			}
+			AND = {
+				NOT = {
+					AND = {
+						mercantilism = 25
+						NOT = { mercantilism = 26 }
+					}
+				}
+				has_reform = trade_policy_4
+			}
+			AND = {
+				NOT = {
+					AND = {
+						mercantilism = 50
+						NOT = { mercantilism = 51 }
+					}
+				}
+				has_reform = trade_policy_3
+			}
+			AND = {
+				NOT = {
+					AND = {
+						mercantilism = 75
+						NOT = { mercantilism = 76 }
+					}
+				}
+				has_reform = trade_policy_2
+			}
+			AND = {
+				NOT = {
+					mercantilism = 100
+				}
+				has_reform = trade_policy_1
+			}
+		}
+	}
+	option = {
+		name = "gov_start.a"
+		if = {
+			limit = {
+				AND = {
+					mercantilism = 1
+					has_reform = trade_policy_5
+				}
+			}
+			add_mercantilism = -1
+		}
+		else_if = {
+			limit = {
+				AND = {
+					NOT = {
+						AND = {
+							mercantilism = 25
+							NOT = { mercantilism = 26 }
+						}
+					}
+					has_reform = trade_policy_4
+				}
+			}
+			if = { limit = { NOT = { mercantilism = 25 } } add_mercantilism = 1 }
+			if = { limit = { mercantilism = 26 } add_mercantilism = -1 }
+		}
+		else_if = {
+			limit = {
+				AND = {
+					NOT = {
+						AND = {
+							mercantilism = 50
+							NOT = { mercantilism = 51 }
+						}
+					}
+					has_reform = trade_policy_3
+				}
+			}
+			if = { limit = { NOT = { mercantilism = 50 } } add_mercantilism = 1 }
+			if = { limit = { mercantilism = 51 } add_mercantilism = -1 }
+		}
+		else_if = {
+			limit = {
+				AND = {
+					NOT = {
+						AND = {
+							mercantilism = 65
+							NOT = { mercantilism = 66 }
+						}
+					}
+					has_reform = trade_policy_3
+					has_country_flag = encourage_the_mercantilist
+				}
+			}
+			if = { limit = { NOT = { mercantilism = 65 } } add_mercantilism = 1 }
+			if = { limit = { mercantilism = 66 } add_mercantilism = -1 }
+		}
+		else_if = {
+			limit = {
+				AND = {
+					NOT = {
+						AND = {
+							mercantilism = 35
+							NOT = { mercantilism = 36 }
+						}
+					}
+					has_reform = trade_policy_3
+					has_country_flag = encourage_the_free_trade
+				}
+			}
+			if = { limit = { NOT = { mercantilism = 35 } } add_mercantilism = 1 }
+			if = { limit = { mercantilism = 36 } add_mercantilism = -1 }
+		}
+		else_if = {
+			limit = {
+				AND = {
+					NOT = {
+						AND = {
+							mercantilism = 75
+							NOT = { mercantilism = 76 }
+						}
+					}
+					has_reform = trade_policy_2
+				}
+			}
+			if = { limit = { NOT = { mercantilism = 75 } } add_mercantilism = 1 }
+			if = { limit = { mercantilism = 76 } add_mercantilism = -1 }
+		}
+		else = {
+			add_mercantilism = 1
+		}
+	}
+}
+country_event = {
+	id = govstart.28
+	title = "tulip.21.t"
+	desc = "tulip.21.d"
+	picture = COLONIZATION_eventPicture
+	is_triggered_only = yes
+	option = {
+		   name = "tulip.21.a" #Increase Merchantilism
+		   hidden_effect = { set_country_flag = encourage_the_mercantilist }
+                   ai_chance = {
+                            factor = 50
+							modifier = {
+							       factor = 1.5
+								   num_of_colonists = 1
+								   NOT = { mercantilism = 50 }
+							}
+                            modifier = {
+                                   factor = 0.5
+                                   mercantilism = 40
+                            }
+                            modifier = {
+                                   factor = 0.25
+                                   mercantilism = 60
+                            }
+                            modifier = {
+                                   factor = 1.25
+                                   trade_income_percentage = 0.30
+                                   NOT = { trade_income_percentage = 0.50 }
+                            }
+                            modifier = {
+                                   factor = 1.5
+                                   trade_income_percentage = 0.50
+                                   NOT = { trade_income_percentage = 0.60 }
+                            }
+                            modifier = {
+                                   factor = 1.25
+                                   trade_income_percentage = 0.60
+                                   NOT = { trade_income_percentage = 0.70 }
+                            }
+                            modifier = {
+                                   factor = 0.8
+                                   trade_income_percentage = 0.70
+                                   NOT = { trade_income_percentage = 0.80 }
+                            }
+                            modifier = {
+                                   factor = 0.6
+                                   trade_income_percentage = 0.80
+                            }
+							modifier = {
+                                   factor = 0
+                                   corruption = 10
+                            }
+                   }
+	}
+	
+	option = {
+		name = "tulip.21.c" #Keep economy stable.
+	}
+
+    option = {
+		   name = "tulip.21.b" #Encourage Free Trade
+           hidden_effect = { set_country_flag = encourage_the_free_trade }
+                   ai_chance = {
+                            factor = 30
+                            modifier = {
+                                   factor = 0.1
+                                   NOT = { mercantilism = 20 }
+                            }
+                            modifier = {
+                                   factor = 2
+                                   mercantilism = 40
+                            }
+                            modifier = {
+                                   factor = 4
+                                   mercantilism = 60
+                            }
+                            modifier = {
+                                   factor = 0.8
+                                   trade_income_percentage = 0.30
+                                   NOT = { trade_income_percentage = 0.50 }
+                            }
+                            modifier = {
+                                   factor = 0.6
+                                   trade_income_percentage = 0.50
+                                   NOT = { trade_income_percentage = 0.60 }
+                            }
+                            modifier = {
+                                   factor = 0.8
+                                   trade_income_percentage = 0.60
+                                   NOT = { trade_income_percentage = 0.70 }
+                            }
+                            modifier = {
+                                   factor = 1.25
+                                   trade_income_percentage = 0.70
+                                   NOT = { trade_income_percentage = 0.80 }
+                            }
+                            modifier = {
+                                   factor = 1.5
+                                   trade_income_percentage = 0.80
+                            }
+                   }
+	}
+}
+
+#Colony growth to city
+province_event = {
+	id = govstart.29
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = COLONIZATION_eventPicture
+	hidden = yes
+	trigger = {
+		is_colony = no
+		has_province_flag = cu_colony_flag
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		clr_province_flag = cu_colony_flag
+		add_core = owner
+		cu_calc_base_cultural_acceptance = yes
+		add_local_autonomy = -50
+		set_variable = { which = p_ca value = 100 }
+		cu_check_cultural_acceptance = yes
+	}
+}

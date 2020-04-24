@@ -1,0 +1,43 @@
+
+
+commercial_privilege_granted = {
+       local_tax_modifier = -0.2
+	   province_trade_power_value = 0.01
+	   picture = "commerce_focus"
+}
+
+enclosure_forced = {
+       local_production_efficiency = -0.2
+	   province_trade_power_value = 0.01
+	   picture = "production_focus"
+}
+
+focus_on_agriculture = {
+       local_manpower_modifier = -0.2
+	   province_trade_power_value = 0.01
+       picture = "agriculture_focus"
+}
+
+import_food = {
+       local_manpower_modifier = -0.1
+	   province_trade_power_value = 0.01
+       picture = "development_cost"
+}
+
+export_food = {
+       province_trade_power_value = 0.01
+       picture = "development_cost"
+       local_manpower_modifier = -0.1
+}
+
+cu_improve_drainage = {
+     local_manpower_modifier = -0.2
+}
+
+cu_improve_sanitation = {
+     local_manpower_modifier = -0.2
+}
+
+recruited_foreign_legion = {
+     local_manpower = -1
+}

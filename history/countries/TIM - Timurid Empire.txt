@@ -1,0 +1,103 @@
+technology_group = muslim
+primary_culture = uzbehk
+add_accepted_culture = khorasani
+add_accepted_culture = persian
+religion = sunni
+government = tribal
+add_government_reform = steppe_empire
+government_rank = 3
+capital = 454 # Samarkand
+historical_rival = DLH
+historical_rival = MUL
+religious_school = hanafi_school
+
+1370.1.1 = {
+	monarch = {
+		name = "Timur"
+		dynasty = "Timurid"
+		adm = 4	
+		dip = 4	
+		mil = 5
+		leader = { name = "Timur"	type = general	fire = 6	shock = 6	manuever = 6	siege = 2 }
+	}
+	add_piety = 0.5
+}
+
+1383.1.1 = { leader = {	name = "Miran Shah"	type = general	fire = 3	shock = 3	manuever = 4	siege = 0	death_date = 1408.1.1 } }
+
+1384.1.1 = {
+	heir = {
+		name = "Khalil"
+		monarch_name = "Khalil Sultan"
+		dynasty = "Timurid"
+		birth_date = 1384.1.1
+		death_date = 1411.11.4
+		claim = 95
+		adm = 1
+		dip = 3
+		mil = 2
+	}
+}
+
+1405.1.1 = {
+	monarch = {
+		name = "Khalil"
+		dynasty = "Timurid"
+		adm = 1
+		dip = 3	
+		mil = 2
+	}
+}
+
+1409.1.1 = {
+	capital = 446
+	monarch = {
+		name = "Shah Rukh"
+		birth_date = 1377.8.20
+		dynasty = "Timurid"
+		adm = 4
+		dip = 3
+		mil = 5
+		culture = uzbehk
+		religion = sunni
+		leader = {
+			name = "Shah Rukh"
+			type = general
+			fire = 2
+			shock = 4
+			manuever = 3
+			siege = 1
+		}
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = scholar_personality
+	add_ruler_personality = architectural_visionary_personality
+	add_ruler_personality = benevolent_personality
+	queen = {
+		name = "Goharshad"
+		birth_date = 1370.1.1
+		death_date = 1457.7.19
+		dynasty = "Tarkhan"
+		culture = persian
+		adm = 4
+		dip = 5
+		mil = 3
+	}
+	add_piety = -0.4
+	add_ruler_modifier = {
+		name = shahrukhs_empire
+	}
+}
+
+1444.6.1 = { #Serious illness of Shahrukh. Goharshad makes Firuzshah (governor of Balkh) swear bayqat to Ala al-Dawla
+	heir = {
+		name = "Ala al-Dawla Abd Allah"
+		dynasty = "Timurid"
+		birth_date = 1417.1.1
+		death_date = 1457.7.19
+		adm = 4
+		dip = 3
+		mil = 2
+	}
+}
+

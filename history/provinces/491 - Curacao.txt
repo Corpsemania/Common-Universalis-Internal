@@ -1,0 +1,52 @@
+#491 - Curacao
+
+culture = arawak
+religion = animism
+capital = "Curacao"
+trade_goods = unknown
+hre = no
+base_tax = 2
+base_production = 3
+base_manpower = 1
+native_size = 5
+native_ferocity = 1
+native_hostileness = 6
+
+1499.1.1 = {
+	discovered_by = CAS
+	owner = CAS
+	controller = CAS
+	culture = castillian
+	add_core = CAS
+	religion = catholic
+	is_city = yes
+	trade_goods = sugar
+} # Christopher Columbus 
+1516.1.23 = {
+	discovered_by = SPA
+	owner = SPA
+	controller = SPA
+	add_core = SPA
+	remove_core = CAS
+}
+1634.1.1 = {
+	owner = NED
+	controller = NED
+	add_core = NED
+	culture = dutch
+	religion = reformed
+	capital = "Punda"
+	remove_core = SPA
+} # Dutch occupation, Punda is founded ( later: Willemstad )
+1807.1.1 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+	remove_core = NED
+} # Occupied by British forces
+1815.6.9 = {
+	owner = NED
+	controller = NED
+	add_core = NED
+	remove_core = GBR
+} # Restored to the Netherlands

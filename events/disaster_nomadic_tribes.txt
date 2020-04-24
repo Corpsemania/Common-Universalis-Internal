@@ -1,0 +1,118 @@
+namespace = disaster_nomadic_tribes
+# The nomadic_tribes revolted
+country_event = {
+	id = disaster_nomadic_tribes.0
+	title = disaster_nomadic_tribes.0.t
+	desc = disaster_nomadic_tribes.0.d
+	picture = nomadic_tribes_ESTATE_UPSET_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+
+	immediate = {
+	    hidden_effect = {
+			if = {
+				limit = { NOT = { check_variable = { which = nomadic_tribes_reform_progress value = 1 } } }
+				set_variable = { which = nomadic_tribes_reform_progress value = 0 }
+			}
+		}
+	}
+	option = {#OK
+		name = disaster_nomadic_tribes.0.a	
+		change_variable = { which = cu_var1 value = -150 }
+		cu_change_stability_point = yes
+		custom_tooltip = disaster_nomadic_tribes.0.a.tt
+		nomadic_tribes_rebels = 1
+	}
+	option = {#Make a Concessions
+		name = disaster_nomadic_tribes.0.b
+		change_variable = { which = nomadic_tribes_reform_progress value = 15 }
+		check_estate_reform_progress = yes
+		add_absolutism = -5
+		add_prestige = -5
+		add_estate_loyalty = {
+			estate = estate_nomadic_tribes
+			loyalty = 15
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nomadic_tribes
+			desc = EST_VAL_MAKE_CONCESSION
+			influence = 10
+			duration = 3650
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_MAKE_CONCESSION
+			influence = -10
+			duration = 3650
+		}
+		custom_tooltip = disaster_nomadic_tribes.0.b.tt
+	}
+	option = {#Bribe the leader
+		name = disaster_nomadic_tribes.0.c
+		add_adm_power = -100
+		add_corruption = 1
+		add_years_of_income = -1
+		add_estate_loyalty = {
+			estate = estate_nomadic_tribes
+			loyalty = 10
+		}
+		custom_tooltip = disaster_nomadic_tribes.0.a.tt
+	}
+}
+
+# END
+country_event = {
+	id = disaster_nomadic_tribes.1
+	title = disaster_nomadic_tribes.1.t
+	desc = disaster_nomadic_tribes.1.d
+	picture = nomadic_tribes_ESTATE_1_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = disaster_nomadic_tribes.1.a
+		change_variable = { which = cu_var1 value = 50 }
+		cu_change_stability_point = yes
+	}
+}
+
+# nomadic_tribes Rebels
+country_event = {
+	id = disaster_nomadic_tribes.2
+	title = disaster_nomadic_tribes.2.t
+	desc = disaster_nomadic_tribes.2.d
+	picture = nomadic_tribes_ESTATE_1_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {#Let them revolt
+		name = disaster_nomadic_tribes.2.a
+		random_owned_province = {
+			limit = { cu_not_terr_trigger = yes is_capital = no }
+			nomadic_tribes_rebels = 1
+		}
+	}
+	option = {#Harsh Treatment
+		name = disaster_nomadic_tribes.2.b
+		add_mil_power = -50
+	}
+	
+	option = {#Do a treaty
+		name = disaster_nomadic_tribes.2.c
+		add_estate_loyalty = {
+			estate = estate_nomadic_tribes
+			loyalty = 5
+		}
+		change_variable = { which = nomadic_tribes_reform_progress value = 5 }
+		check_estate_reform_progress = yes
+		random_owned_province = {
+			limit = { cu_not_terr_trigger = yes is_capital = no }
+			add_local_autonomy = 33
+		}
+		add_absolutism = -1
+		add_prestige = -10
+	}
+}
+

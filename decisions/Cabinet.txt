@@ -1,0 +1,27 @@
+country_decisions = {
+
+	open_cabinet = {
+		potential = {
+			ai = no
+			OR = {
+			     NOT = { has_country_flag = cabinet_panel_open }
+				 had_country_flag = {
+				         flag = cabinet_panel_open
+						 days = 1825
+				 }
+			}
+		}
+		allow = {
+		}
+		effect = {
+		    clr_country_flag = cabinet_panel_open
+		    set_country_flag = cabinet_panel_open
+			country_event = { id = cabinet.0 }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	
+}

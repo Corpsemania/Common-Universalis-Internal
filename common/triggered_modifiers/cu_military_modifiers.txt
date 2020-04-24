@@ -1,0 +1,606 @@
+# Triggered modifiers are here.
+# these are checked for each countries once/month and then applied.
+#
+# Effects are fully scriptable here.
+
+
+army_maintenance_90 = {
+     potential = {
+	        land_maintenance = 0.9
+	        NOT = { land_maintenance = 1 }
+	 }
+     trigger = {
+            land_maintenance = 0.9
+	        NOT = { land_maintenance = 1 }
+	}
+	manpower_recovery_speed = -0.1
+	army_tradition_decay = 0.005
+    global_regiment_recruit_speed = 0.1
+	land_attrition = 0.05
+	reinforce_speed = -0.05
+	free_leader_pool = -5
+	siege_ability = -0.05
+}
+
+army_maintenance_80 = {
+     potential = {
+	        land_maintenance = 0.8
+	        NOT = { land_maintenance = 0.9 }
+	 }
+     trigger = {
+            land_maintenance = 0.8
+	        NOT = { land_maintenance = 0.9 }
+	}
+        manpower_recovery_speed = -0.2
+	army_tradition_decay = 0.01
+    global_regiment_recruit_speed = 0.2
+	land_attrition = 0.1
+	reinforce_speed = -0.1
+	free_leader_pool = -10
+	siege_ability = -0.1
+}
+
+army_maintenance_70 = {
+     potential = {
+	        land_maintenance = 0.7
+	        NOT = { land_maintenance = 0.8 }
+	 }
+     trigger = {
+            land_maintenance = 0.7
+	        NOT = { land_maintenance = 0.8 }
+	}
+	manpower_recovery_speed = -0.3
+	army_tradition_decay = 0.015
+    global_regiment_recruit_speed = 0.3
+	land_attrition = 0.15
+	reinforce_speed = -0.15
+	free_leader_pool = -15
+	siege_ability = -0.2
+}
+
+army_maintenance_60 = {
+     potential = {
+	        land_maintenance = 0.6
+	        NOT = { land_maintenance = 0.7 }
+	 }
+     trigger = {
+            land_maintenance = 0.6
+	        NOT = { land_maintenance = 0.7 }
+	}
+	manpower_recovery_speed = -0.4
+	army_tradition_decay = 0.02
+    global_regiment_recruit_speed = 0.4
+	land_attrition = 0.2
+	reinforce_speed = -0.2
+	free_leader_pool = -20
+	siege_ability = -0.3
+}
+
+army_maintenance_50 = {
+     potential = {
+	        land_maintenance = 0.5
+	        NOT = { land_maintenance = 0.6 }
+	 }
+     trigger = {
+            land_maintenance = 0.5
+	        NOT = { land_maintenance = 0.6 }
+	}
+	manpower_recovery_speed = -0.5
+	army_tradition_decay = 0.025
+    global_regiment_recruit_speed = 0.5
+	land_attrition = 0.25
+	reinforce_speed = -0.25
+	free_leader_pool = -25
+	siege_ability = -0.4
+}
+
+army_maintenance_40 = {
+     potential = {
+	        land_maintenance = 0.4
+	        NOT = { land_maintenance = 0.5 }
+	 }
+     trigger = {
+            land_maintenance = 0.4
+	        NOT = { land_maintenance = 0.5 }
+	}
+	manpower_recovery_speed = -0.6
+	army_tradition_decay = 0.03
+    global_regiment_recruit_speed = 0.6
+	land_attrition = 0.3
+	reinforce_speed = -0.3
+	free_leader_pool = -30
+	siege_ability = -0.5
+}
+
+army_maintenance_30 = {
+     potential = {
+	        land_maintenance = 0.3
+	        NOT = { land_maintenance = 0.4 }
+	 }
+     trigger = {
+            land_maintenance = 0.3
+	        NOT = { land_maintenance = 0.4 }
+	}
+	manpower_recovery_speed = -0.7
+	army_tradition_decay = 0.035
+    global_regiment_recruit_speed = 0.7
+	land_attrition = 0.35
+	reinforce_speed = -0.35
+	free_leader_pool = -35
+	siege_ability = -0.6
+}
+
+army_maintenance_20 = {
+     potential = {
+	        land_maintenance = 0.2
+	        NOT = { land_maintenance = 0.3 }
+	 }
+     trigger = {
+            land_maintenance = 0.2
+	        NOT = { land_maintenance = 0.3 }
+	}
+	manpower_recovery_speed = -0.8
+	army_tradition_decay = 0.04
+    global_regiment_recruit_speed = 0.8
+	land_attrition = 0.4
+	reinforce_speed = -0.4
+	free_leader_pool = -40
+	siege_ability = -0.7
+}
+
+army_maintenance_10 = {
+     potential = {
+	        land_maintenance = 0.1
+	        NOT = { land_maintenance = 0.2 }
+	 }
+     trigger = {
+            land_maintenance = 0.1
+	        NOT = { land_maintenance = 0.2 }
+	}
+	manpower_recovery_speed = -0.9
+	army_tradition_decay = 0.045
+    global_regiment_recruit_speed = 0.9
+	land_attrition = 0.45
+	reinforce_speed = -0.45
+	free_leader_pool = -45
+	siege_ability = -0.8
+}
+
+army_maintenance_0 = {
+     potential = {
+	        land_maintenance = 0
+	        NOT = { land_maintenance = 0.1 }
+	 }
+     trigger = {
+            land_maintenance = 0
+	        NOT = { land_maintenance = 0.1 }
+	}
+	manpower_recovery_speed = -1
+	army_tradition_decay = 0.05
+    global_regiment_recruit_speed = 1
+	land_attrition = 0.5
+	reinforce_speed = -0.5
+	free_leader_pool = -49
+	siege_ability = -0.9
+}
+
+navy_maintenance_90 = {
+     potential = {
+	        naval_maintenance = 0.9
+	        NOT = { naval_maintenance = 1 }
+	 }
+     trigger = {
+	        naval_maintenance = 0.9
+	        NOT = { naval_maintenance = 1 }
+	}
+	sailors_recovery_speed = -0.05
+	navy_tradition_decay = 0.005
+    global_ship_recruit_speed = 0.10
+	naval_attrition = 0.05
+	ship_durability = -0.05
+	#free_leader_pool = -2
+}
+
+navy_maintenance_80 = {
+     potential = {
+	        naval_maintenance = 0.8
+	        NOT = { naval_maintenance = 0.9 }
+	 }
+     trigger = {
+	        naval_maintenance = 0.8
+	        NOT = { naval_maintenance = 0.9 }
+	}
+	sailors_recovery_speed = -0.1
+	navy_tradition_decay = 0.01
+    global_ship_recruit_speed = 0.20
+	naval_attrition = 0.1
+	ship_durability = -0.1
+	#free_leader_pool = -5
+}
+
+navy_maintenance_70 = {
+     potential = {
+	        naval_maintenance = 0.7
+	        NOT = { naval_maintenance = 0.8 }
+	 }
+     trigger = {
+	        naval_maintenance = 0.7
+	        NOT = { naval_maintenance = 0.8 }
+	}
+	sailors_recovery_speed = -0.15
+	navy_tradition_decay = 0.015
+    global_ship_recruit_speed = 0.3
+	naval_attrition = 0.15
+	ship_durability = -0.15
+	#free_leader_pool = -7
+}
+
+navy_maintenance_60 = {
+     potential = {
+	        naval_maintenance = 0.6
+	        NOT = { naval_maintenance = 0.7 }
+	 }
+     trigger = {
+	        naval_maintenance = 0.6
+	        NOT = { naval_maintenance = 0.7 }
+	}
+	sailors_recovery_speed = -0.2
+	navy_tradition_decay = 0.02
+    global_ship_recruit_speed = 0.4
+	naval_attrition = 0.2
+	ship_durability = -0.2
+	#free_leader_pool = -10
+}
+
+navy_maintenance_50 = {
+     potential = {
+	        naval_maintenance = 0.5
+	        NOT = { naval_maintenance = 0.6 }
+	 }
+     trigger = {
+	        naval_maintenance = 0.5
+	        NOT = { naval_maintenance = 0.6 }
+	}
+	sailors_recovery_speed = -0.25
+	navy_tradition_decay = 0.025
+    global_ship_recruit_speed = 0.5
+	naval_attrition = 0.25
+	ship_durability = -0.25
+	#free_leader_pool = -12
+}
+
+navy_maintenance_40 = {
+     potential = {
+	        naval_maintenance = 0.4
+	        NOT = { naval_maintenance = 0.5 }
+	 }
+     trigger = {
+	        naval_maintenance = 0.4
+	        NOT = { naval_maintenance = 0.5 }
+	}
+	sailors_recovery_speed = -0.3
+	navy_tradition_decay = 0.03
+    global_ship_recruit_speed = 0.6
+	naval_attrition = 0.3
+	ship_durability = -0.3
+	#free_leader_pool = -15
+}
+
+navy_maintenance_30 = {
+     potential = {
+	        naval_maintenance = 0.3
+	        NOT = { naval_maintenance = 0.4 }
+	 }
+     trigger = {
+	        naval_maintenance = 0.3
+	        NOT = { naval_maintenance = 0.4 }
+	}
+	sailors_recovery_speed = -0.35
+	navy_tradition_decay = 0.035
+    global_ship_recruit_speed = 0.7
+	naval_attrition = 0.35
+	ship_durability = -0.35
+	#free_leader_pool = -17
+}
+
+navy_maintenance_20 = {
+     potential = {
+	        naval_maintenance = 0.2
+	        NOT = { naval_maintenance = 0.3 }
+	 }
+     trigger = {
+	        naval_maintenance = 0.2
+	        NOT = { naval_maintenance = 0.3 }
+	}
+	sailors_recovery_speed = -0.4
+	navy_tradition_decay = 0.04
+    global_ship_recruit_speed = 0.8
+	naval_attrition = 0.4
+	ship_durability = -0.4
+	#free_leader_pool = -20
+}
+
+navy_maintenance_10 = {
+     potential = {
+	        naval_maintenance = 0.1
+	        NOT = { naval_maintenance = 0.2 }
+	 }
+     trigger = {
+	        naval_maintenance = 0.1
+	        NOT = { naval_maintenance = 0.2 }
+	}
+	sailors_recovery_speed = -0.45
+	navy_tradition_decay = 0.045
+    global_ship_recruit_speed = 0.9
+	naval_attrition = 0.45
+	ship_durability = -0.45
+	#free_leader_pool = -22
+}
+
+navy_maintenance_0 = {
+     potential = {
+	        naval_maintenance = 0
+	        NOT = { naval_maintenance = 0.1 }
+	 }
+     trigger = {
+	        naval_maintenance = 0
+	        NOT = { naval_maintenance = 0.1 }
+	}
+	sailors_recovery_speed = -0.5
+	navy_tradition_decay = 0.05
+    global_ship_recruit_speed = 1
+	naval_attrition = 0.5
+	ship_durability = -0.5
+	#free_leader_pool = -25
+}
+
+cu_ml_0 = {
+        potential = {
+		    check_variable = { which = cu_ml value = 0 }
+	        NOT = { check_variable = { which = cu_ml value = 10 } }
+			has_dlc = "Cradle of Civilization"
+	    }
+	    trigger = {
+		    custom_trigger_tooltip = {
+			      tooltip = cu_ml_tt_0
+			      NOT = { check_variable = { which = cu_ml value = 10 } }
+		          check_variable = { which = cu_ml value = 0 }  
+			}        
+	    }
+        yearly_army_professionalism = -0.01
+}
+
+cu_ml_10 = {
+        potential = {
+		    check_variable = { which = cu_ml value = 10 }
+	        NOT = { check_variable = { which = cu_ml value = 20 } }
+			has_dlc = "Cradle of Civilization"
+	    }
+	    trigger = {
+		    custom_trigger_tooltip = {
+			      tooltip = cu_ml_tt_10
+			      NOT = { check_variable = { which = cu_ml value = 20 } }
+		          check_variable = { which = cu_ml value = 10 }  
+			}        
+	    }
+        yearly_army_professionalism = -0.005
+		drill_gain_modifier = 0.1
+		army_tradition = 0.1
+}
+
+cu_ml_20 = {
+        potential = {
+		    check_variable = { which = cu_ml value = 20 }
+	        NOT = { check_variable = { which = cu_ml value = 30 } }
+			has_dlc = "Cradle of Civilization"
+	    }
+	    trigger = {
+		    custom_trigger_tooltip = {
+			      tooltip = cu_ml_tt_20
+			      NOT = { check_variable = { which = cu_ml value = 30 } }
+		          check_variable = { which = cu_ml value = 20 }  
+			}        
+	    }
+        yearly_army_professionalism = -0.001
+		drill_gain_modifier = 0.2
+		army_tradition = 0.2
+}
+
+cu_ml_30 = {
+        potential = {
+		    check_variable = { which = cu_ml value = 30 }
+	        NOT = { check_variable = { which = cu_ml value = 40 } }
+			has_dlc = "Cradle of Civilization"
+	    }
+	    trigger = {
+		    custom_trigger_tooltip = {
+			      tooltip = cu_ml_tt_30
+			      NOT = { check_variable = { which = cu_ml value = 40 } }
+		          check_variable = { which = cu_ml value = 30 }  
+			}        
+	    }
+        yearly_army_professionalism = 0.005
+		drill_gain_modifier = 0.3
+		army_tradition = 0.3
+}
+
+cu_ml_40 = {
+        potential = {
+		    check_variable = { which = cu_ml value = 40 }
+	        NOT = { check_variable = { which = cu_ml value = 50 } }
+			has_dlc = "Cradle of Civilization"
+	    }
+	    trigger = {
+		    custom_trigger_tooltip = {
+			      tooltip = cu_ml_tt_40
+			      NOT = { check_variable = { which = cu_ml value = 50 } }
+		          check_variable = { which = cu_ml value = 40 }  
+			}        
+	    }
+        yearly_army_professionalism = 0.01
+		drill_gain_modifier = 0.4
+		army_tradition = 0.4
+}
+
+cu_ml_50 = {
+        potential = {
+		    check_variable = { which = cu_ml value = 50 }
+	        NOT = { check_variable = { which = cu_ml value = 60 } }
+			has_dlc = "Cradle of Civilization"
+	    }
+	    trigger = {
+		    custom_trigger_tooltip = {
+			      tooltip = cu_ml_tt_50
+			      NOT = { check_variable = { which = cu_ml value = 60 } }
+		          check_variable = { which = cu_ml value = 50 }  
+			}        
+	    }
+        yearly_army_professionalism = 0.015
+		drill_gain_modifier = 0.5
+		army_tradition = 0.5
+}
+
+cu_ml_60 = {
+        potential = {
+		    check_variable = { which = cu_ml value = 60 }
+	        NOT = { check_variable = { which = cu_ml value = 70 } }
+			has_dlc = "Cradle of Civilization"
+	    }
+	    trigger = {
+		    custom_trigger_tooltip = {
+			      tooltip = cu_ml_tt_60
+			      NOT = { check_variable = { which = cu_ml value = 70 } }
+		          check_variable = { which = cu_ml value = 60 }  
+			}        
+	    }
+        yearly_army_professionalism = 0.02
+		drill_gain_modifier = 0.6
+		army_tradition = 0.6
+}
+
+cu_ml_70 = {
+        potential = {
+		    check_variable = { which = cu_ml value = 70 }
+	        NOT = { check_variable = { which = cu_ml value = 80 } }
+			has_dlc = "Cradle of Civilization"
+	    }
+	    trigger = {
+		    custom_trigger_tooltip = {
+			      tooltip = cu_ml_tt_70
+			      NOT = { check_variable = { which = cu_ml value = 80 } }
+		          check_variable = { which = cu_ml value = 70 }  
+			}        
+	    }
+        yearly_army_professionalism = 0.025
+		drill_gain_modifier = 0.7
+		army_tradition = 0.7
+}
+
+cu_ml_80 = {
+        potential = {
+		    check_variable = { which = cu_ml value = 80 }
+	        NOT = { check_variable = { which = cu_ml value = 90 } }
+			has_dlc = "Cradle of Civilization"
+	    }
+	    trigger = {
+		    custom_trigger_tooltip = {
+			      tooltip = cu_ml_tt_80
+			      NOT = { check_variable = { which = cu_ml value = 90 } }
+		          check_variable = { which = cu_ml value = 80 }  
+			}        
+	    }
+        yearly_army_professionalism = 0.03
+		drill_gain_modifier = 0.8
+		army_tradition = 0.8
+}
+
+cu_ml_90 = {
+        potential = {
+		    check_variable = { which = cu_ml value = 90 }
+	        NOT = { check_variable = { which = cu_ml value = 100 } }
+			has_dlc = "Cradle of Civilization"
+	    }
+	    trigger = {
+		    custom_trigger_tooltip = {
+			      tooltip = cu_ml_tt_90
+			      NOT = { check_variable = { which = cu_ml value = 100 } }
+		          check_variable = { which = cu_ml value = 90 }  
+			}        
+	    }
+        yearly_army_professionalism = 0.035
+		drill_gain_modifier = 0.9
+		army_tradition = 0.9
+}
+
+cu_ml_100 = {
+        potential = {
+		    check_variable = { which = cu_ml value = 100 }
+	        NOT = { check_variable = { which = cu_ml value = 110 } }
+			has_dlc = "Cradle of Civilization"
+	    }
+	    trigger = {
+		    custom_trigger_tooltip = {
+			      tooltip = cu_ml_tt_100
+			      NOT = { check_variable = { which = cu_ml value = 110 } }
+		          check_variable = { which = cu_ml value = 100 }  
+			}        
+	    }
+		yearly_army_professionalism = 0.04
+		drill_gain_modifier = 1
+		army_tradition = 1
+}
+
+cu_ml_110 = {
+        potential = {
+		    check_variable = { which = cu_ml value = 110 }
+	        NOT = { check_variable = { which = cu_ml value = 120 } }
+			has_dlc = "Cradle of Civilization"
+	    }
+	    trigger = {
+		    custom_trigger_tooltip = {
+			      tooltip = cu_ml_tt_110
+			      NOT = { check_variable = { which = cu_ml value = 120 } }
+		          check_variable = { which = cu_ml value = 110 }  
+			}        
+	    }
+        yearly_army_professionalism = 0.045
+		drill_gain_modifier = 1.1
+		army_tradition = 1.1
+}
+
+cu_ml_120 = {
+        potential = {
+		    check_variable = { which = cu_ml value = 120 }
+		    NOT = { check_variable = { which = cu_ml value = 130 } }
+			has_dlc = "Cradle of Civilization"
+	    }
+	    trigger = {
+		    custom_trigger_tooltip = {
+			      tooltip = cu_ml_tt_120
+				  NOT = { check_variable = { which = cu_ml value = 130 } }
+		          check_variable = { which = cu_ml value = 120 }  
+			}        
+	    }
+        yearly_army_professionalism = 0.05
+		drill_gain_modifier = 1.2
+		army_tradition = 1.2
+}
+
+cu_ml_130 = {
+        potential = {
+		    OR = {
+			    check_variable = { which = cu_ml value = 130 }
+				NOT = { check_variable = { which = cu_ml value = -100 } } #In case of bug
+			}
+			has_dlc = "Cradle of Civilization"
+	    }
+	    trigger = {
+		    custom_trigger_tooltip = {
+			      #tooltip = cu_ml_tt_130
+		          #check_variable = { which = cu_ml value = 130 }  
+			}        
+	    }
+        yearly_army_professionalism = 0.055
+		drill_gain_modifier = 1.3
+		army_tradition = 1.3
+}

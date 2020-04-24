@@ -1,0 +1,37 @@
+
+country_decisions = {
+
+	set_seat_in_parliament = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			ai = no
+			has_reform =  parliament_reform
+			any_owned_province = {
+				cu_not_terr_trigger = yes
+				has_seat_in_parliament = no 			                   
+			}
+		}
+		allow = {			         
+		}
+		effect = {
+			every_owned_province = {
+				limit = { 
+					cu_not_terr_trigger = yes
+					has_seat_in_parliament = no 			                   
+				}
+				set_seat_in_parliament = yes
+			} 
+			every_owned_province = {
+				limit = { 
+				   cu_is_terr_trigger = yes
+				   has_seat_in_parliament = yes 			                   
+				}
+				set_seat_in_parliament = no
+			}
+		}
+		ai_will_do = {
+			factor = 0			
+		}
+	}
+}			

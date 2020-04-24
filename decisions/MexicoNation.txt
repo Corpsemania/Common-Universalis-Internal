@@ -1,0 +1,171 @@
+country_decisions = {
+
+	mexico_nation = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = changed_from_colonial_nation }
+			is_nomad = no
+			NOT = { tag = AZE }
+			was_never_end_game_tag_trigger = yes
+			is_random_new_world = no			
+			OR = {
+				is_former_colonial_nation = yes
+				is_colonial_nation = yes
+			}
+			colonial_mexico = {
+				owned_by = ROOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3	
+				}
+			}
+		}
+		allow = {
+			adm_tech = 10
+			is_former_colonial_nation = yes
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			capital_scope = {
+				colonial_region = colonial_mexico
+				is_core = ROOT
+			}
+			NOT = { exists = MEX }
+		}
+		effect = {
+			change_tag = MEX
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			if = {
+				limit = {
+					culture_group = iberian
+					NOT = { primary_culture = mexican }
+				}
+				change_primary_culture = mexican
+				hidden_effect = {     
+                every_owned_province = {
+                    limit = { culture_group = iberian }
+                        change_culture = mexican
+                }
+                every_owned_province = { cu_reset_cultural_acceptance = yes }
+				}
+			}
+			colonial_mexico = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = MEX
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = changed_from_colonial_nation
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	mexico_nation_1 = {
+		major = yes
+		potential = {
+			is_random_new_world = no			
+			NOT = { has_country_flag = formed_mexico_flag }
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				ai = no
+				num_of_cities = 6
+			}			
+			religion = nahuatl
+			NOT = { has_reform = celestial_empire }
+			NOT = { exists = MEX }
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }			
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 852 
+				province_id = 850 
+				province_id = 2644 
+				province_id = 849
+				province_id = 2647
+				province_id = 854
+				province_id = 2624
+				province_id = 2646
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			has_institution = feudalism			
+			owns_core_province = 852
+			owns_core_province = 850
+			owns_core_province = 2644
+			owns_core_province = 849
+			owns_core_province = 2647
+			owns_core_province = 854
+			owns_core_province = 2624
+			owns_core_province = 2646
+		}
+		effect = {
+			change_tag = MEX
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}
+			mexico_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = MEX
+			}			
+			add_prestige = 25
+			set_country_flag = formed_mexico_flag
+			if = {
+				limit = { government = tribal }
+				add_government_reform = becomes_monarchy_reform
+				set_legacy_government = despotic_monarchy
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+
+}

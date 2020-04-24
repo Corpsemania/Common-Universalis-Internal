@@ -1,0 +1,174 @@
+country_decisions = {
+
+	incan_nation = {
+		major = yes
+		potential = {
+			is_random_new_world = no
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+            NOT = { tag = ROM }
+			NOT = { tag = INC }
+            NOT = { tag = ICN }
+            NOT = { tag = AZE }
+			religion = inti	
+			OR = {
+				ai = no
+				NOT = { exists = INC }
+			}
+			OR = {
+				culture_group = andean_group
+				primary_culture = cara
+				primary_culture = chachapoyan
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+			OR = {
+				ai = no
+				num_of_cities = 8
+			}
+		}
+		allow = {
+			NOT = { exists = INC }
+			is_at_war = no
+			is_subject = no
+			is_nomad = no
+			owns_core_province = 808 #Qusqu
+			owns_core_province = 813 #Kashamarka
+			owns_core_province = 810 #Wankawilka
+			owns_core_province = 814 #Wanuku
+			OR = {
+				owns_core_province = 804	#Puno
+				owns_core_province = 2831	#Tiwanuku
+			}
+			OR = {
+				owns_core_province = 812	#Chanchan
+				owns_core_province = 820	#Quito
+			}
+		}
+		effect = {
+			if = {
+				limit = { tag = CHM }
+				set_country_flag = INC_used_to_be_CHM
+			}
+			set_government_rank = 3
+			change_tag = INC			
+			peru_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { area = ucayali_area }
+					NOT = { area = beni_area }
+				}
+				add_permanent_claim = INC
+			}
+			upper_peru = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = INC
+			}			
+			southern_chile_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = INC
+			}
+			central_chile_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = INC
+			}
+			northern_chile_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = INC
+			}
+			tucuman_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = INC
+			}
+			cuyo_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = INC
+			}
+			add_prestige = 25
+			if = {
+				limit = { government = tribal }
+				add_government_reform = becomes_monarchy_reform
+				add_government_reform = court_despotism
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	
+	accept_andean_culture = {
+		major = yes
+		potential = {                                                
+			religion = inti	
+            has_country_flag = exile_country
+            NOT = { culture_group = andean_group }
+		}
+		allow = {
+			dominant_religion = inti
+			stability = 1	
+        }
+        effect = {
+            cu_change_stability_point_n100 = yes                        
+            every_owned_province = {
+                limit = { 
+                    culture_group = ROOT
+                    OR = {                         
+						tolerance_to_this = 4.1
+                        any_neighbor_province = { culture_group = andean_group }
+						continent = south_america
+						continent = north_america
+					}
+                }
+				set_province_flag = andean_culture_province				   
+            }
+			every_owned_province = {
+                limit = { has_province_flag = andean_culture_province 
+										 }
+					change_culture = peru_culture
+                    add_unrest = 5	
+					clr_province_flag = andean_culture_province
+            }
+            change_primary_culture = peru_culture
+			set_ruler_culture = peru_culture
+			set_heir_culture = peru_culture
+			hidden_effect = {     
+                every_owned_province = {
+                    limit = { culture_group = andean_group }
+                        add_unrest = -3
+                }
+                every_owned_province = { cu_reset_cultural_acceptance = yes }
+            }
+        }
+	}
+}	
+	
+	
+	

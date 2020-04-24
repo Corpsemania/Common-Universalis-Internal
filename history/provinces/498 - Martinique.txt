@@ -1,0 +1,43 @@
+#498 - Martinique
+
+culture = carib
+religion = animism
+capital = "Martinique"
+trade_goods = unknown
+hre = no
+base_tax = 3
+base_production = 4
+base_manpower = 1
+native_size = 40
+native_ferocity = 3
+native_hostileness = 6
+
+1502.6.15 = {
+	discovered_by = CAS
+	owner = CAS
+	controller = CAS
+	add_core = CAS
+	is_city = yes
+	culture = castillian
+	religion = catholic
+	trade_goods = sugar
+} # Christopher Columbus
+1516.1.23 = {
+	discovered_by = SPA
+	owner = SPA
+	controller = SPA
+	add_core = SPA
+}
+1635.1.1 = {
+	owner = FRA 
+	controller = FRA
+	add_core = FRA
+	remove_core = SPA
+	capital = "Saint-Pierre"
+	culture = cosmopolitan_french
+	religion = catholic 
+} # Colonized by France
+1794.1.1 = { controller = GBR owner = GBR add_core = GBR } # Occupied by British forces
+1802.3.25 = { controller = FRA owner = FRA }# Treaty of Amiens, returned to France
+1809.1.1 = { controller = GBR } # Occupied again
+1814.4.11 = { controller = FRA } # Treaty of Fontainebleu, Napoleon abdicates unconditionally

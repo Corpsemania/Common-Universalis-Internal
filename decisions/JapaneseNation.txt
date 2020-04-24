@@ -1,0 +1,195 @@
+country_decisions = {
+
+	# Unite Japan
+	unite_japan = {
+		major = yes
+		potential = {
+			NOT = { tag = JAP }
+			NOT = { has_country_flag = formed_japan_flag }
+			has_reform =  shogunate			
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1020
+				province_id = 1028
+			}
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			NOT = { exists = JAP }
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			num_of_cities = 25
+			owns = 1020
+			owns = 1028
+			prestige = 50
+			stability = 2
+			legitimacy = 90
+		}
+		effect = {
+			add_government_reform = ord_reform			
+			custom_tooltip = unite_japan_subject_tooltip
+			hidden_effect = {
+				every_subject_country = {
+					limit = {
+						has_reform =  daimyo
+					}
+					ROOT = {
+						free_vassal = PREV
+					}
+					add_government_reform = ord_reform
+					every_owned_province = {
+						remove_core = JAP
+					}
+				}
+			}
+			change_tag = JAP
+			cu_change_stability_point_n75 = yes
+			add_prestige = -25
+			add_legitimacy = -30
+			swap_non_generic_missions = yes
+			set_country_flag = formed_japan_flag			
+		}
+		ai_will_do = {
+			factor = 0			
+		}
+	}
+	
+	# United Japan
+	united_japan = {
+		major = yes
+		potential = {
+			has_reform =  shogunate
+			NOT = { has_country_flag = formed_japan_flag }
+			NOT = { exists = JAP }
+		}
+		allow = {
+			NOT = { exists = JAP }
+			is_free_or_tributary_trigger = yes
+			owns = 1020
+			owns = 1028
+			all_country = {
+				NOT = {
+					has_reform =  daimyo
+				}
+				NOT = {
+					has_reform =  indep_daimyo
+				}
+			}
+			num_of_cities = 40
+		}
+		effect = {
+			change_tag = JAP
+			set_country_flag = formed_japan_flag
+			set_country_flag = tennou
+			add_government_reform = ord_reform
+			set_government_rank = 3
+			add_legitimacy = 100
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			hidden_effect = {
+				define_ruler = {
+					dynasty = " "
+					MIL = 1
+					ADM = 1
+					DIP = 1
+					age = 20
+					claim = 100
+					female = no			
+				}
+				kill_heir = yes
+				add_country_modifier = {
+					name = "mikado_in_power"
+					duration = 10950
+				}
+			}
+			swap_non_generic_missions = yes
+			if = {
+				limit = { has_custom_ideas = no }
+				swap_free_idea_group = yes #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	# United Japan
+	united_japan_daimyo = {
+		major = yes
+		potential = {
+			NOT = { tag = JAP }
+			NOT = { has_country_flag = formed_japan_flag }
+			NOT = { has_reform =  shogunate }
+			NOT = { has_reform =  celestial_empire }
+			NOT = { has_reform =  celestial_empire_2 }
+			culture_group = japanese_g
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1020
+				province_id = 1028
+			}
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			NOT = { exists = JAP }
+			is_free_or_tributary_trigger = yes
+			owns = 1020
+			owns = 1028
+			all_country = {
+				OR = {
+					tag = ROOT
+					AND = {
+						NOT = { has_reform =  daimyo }
+						NOT = { has_reform =  indep_daimyo }
+						NOT = { has_reform =  shogunate }
+					}
+				}
+			}
+		}
+		effect = {
+			change_tag = JAP
+			set_country_flag = formed_japan_flag			
+			remove_non_electors_emperors_from_empire_effect = yes			 
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}	
+			if = {
+				limit = { has_custom_ideas = no }
+				swap_free_idea_group = yes #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	
+	
+	hire_ninjas = {
+		potential = {
+			always = no
+			has_reform =  daimyo
+			NOT = { has_country_modifier = ninjas }
+			advisor = spymaster
+		}
+	
+		allow = {
+			treasury = 100
+		}
+	
+		effect = {
+			add_country_modifier = {
+				name = ninjas
+				duration = 1825
+			}
+			add_treasury = -100
+		}
+	}	
+}

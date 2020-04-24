@@ -1,0 +1,869 @@
+estate_burghers =
+{
+	icon = 3
+	
+	color = { 35 35 150 }
+	
+	# Is estate kept in control of province on conquest?
+	keep_on_conquest = no		
+
+	# If true, country will get estate
+	trigger = {	
+		#NOT = { has_reform = merchants_reform }		
+		#NOT = { has_reform = trading_city }
+		#NOT = { has_reform = revolutionary_republic_reform }
+		NOT = { government = native }
+		NOT = { has_reform = siberian_tribe }
+		OR = {
+		    is_nomad = no
+			has_reform = steppe_empire
+		}		
+	    OR = {
+			AND = {
+				NOT = { has_reform = celestial_empire }
+				NOT = { has_reform = celestial_empire_2 }
+			}
+			has_dlc = "Mandate of Heaven"
+			NOT = { has_country_flag = no_more_celestial }
+	    }
+		NOT = { 
+			AND = {
+				has_country_flag = revoke_burghers
+				has_reform = court_despotism
+			}
+		}
+		NOT = { 
+			AND = {
+				has_country_flag = revoke_all_estates
+				has_reform = parliament_reform
+			}
+		}		
+	}
+	
+	# If true, province can be granted to estate
+	province_trigger = {
+		always = yes
+	}
+	
+	# Min autonomy in estate provinces
+	min_autonomy = 0
+	start_territory_weight = 0
+	wanted_territory_modifier = {
+		desc = EST_VAL_THEOCRACY
+		trigger = {
+			has_country_modifier = trade_limitation
+		}	
+		value = -5
+	}
+	# Estate cancels out the following multiplicative local autonomy effects:
+	#autonomy_does_not_affect = local_production_efficiency
+	#autonomy_does_not_affect = province_trade_power_modifier
+	#autonomy_does_not_affect = local_sailors_modifier
+
+	# These scale with loyalty & power
+	country_modifier_happy = {
+        yearly_corruption = 0.05
+		max_absolutism = -10
+		yearly_absolutism = -0.05
+	}
+	country_modifier_neutral = {
+        yearly_corruption = 0.1
+		max_absolutism = -10
+		yearly_absolutism = -0.10
+	}	
+	country_modifier_angry = {
+		trade_efficiency = -0.15
+        yearly_corruption = 0.15
+		max_absolutism = -10
+		yearly_absolutism = -0.15
+	}
+	
+	# These do not scale, but only applied in provinces owned by the estate
+	province_modifier_happy = {
+		province_trade_power_modifier = 0.35
+		local_production_efficiency = 0.40
+		local_autonomy = 0.02
+	}
+	province_modifier_neutral = {
+		local_production_efficiency = 0.25
+		province_trade_power_modifier = 0.20
+		local_autonomy = 0.04
+	}		
+	province_modifier_angry = {
+		local_unrest = 5
+		local_autonomy = 0.08
+	}	
+	
+	# Influence modifiers
+	base_influence = 0	
+	influence_modifier = {	
+		desc = EST_VAL_IMPERIAL_CITY
+		trigger = {
+			has_reform = free_city
+		}
+		influence = 20
+	}
+	influence_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER
+		trigger = {
+			OR = {
+				has_disaster = estate_nobility_disaster
+				has_disaster = estate_church_disaster
+			}
+		}	
+		influence = -40
+	}
+	influence_modifier = {
+		desc = EST_VAL_BURGHERS_ADVANCE
+		trigger = {
+			has_reform = constitution_reform
+		}	
+		influence = 10
+	}
+	influence_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER
+		trigger = {
+			has_reform = no_election
+		}	
+		influence = -5
+	}
+	influence_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER
+		trigger = {
+			has_reform = noble_election
+		}	
+		influence = -4
+	}
+	influence_modifier = {
+		desc = EST_VAL_BURGHERS_ADVANCE
+		trigger = {
+			has_reform = burghers_election
+		}	
+		influence = 5
+	}
+	influence_modifier = {
+		desc = EST_VAL_BURGHERS_ADVANCE
+		trigger = {
+			has_reform = universal_suffrage
+		}	
+		influence = 10
+	}
+	influence_modifier = {
+		desc = calc_estate
+		trigger = {
+			has_country_flag = useless_estates
+		}	
+		influence = -100
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_0
+		trigger = {
+			check_variable = { which = etib value = 5 }
+			NOT = { check_variable = { which = etib value = 10 } }
+		}	
+		influence = 5
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_1
+		trigger = {
+			check_variable = { which = etib value = 10 }
+			NOT = { check_variable = { which = etib value = 20 } }
+		}	
+		influence = 10
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_2
+		trigger = {
+			check_variable = { which = etib value = 20 }
+			NOT = { check_variable = { which = etib value = 30 } }
+		}	
+		influence = 20
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_3
+		trigger = {
+			check_variable = { which = etib value = 30 }
+			NOT = { check_variable = { which = etib value = 40 } }
+		}	
+		influence = 30
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_4
+		trigger = {
+			check_variable = { which = etib value = 40 }
+			NOT = { check_variable = { which = etib value = 50 } }
+		}	
+		influence = 40
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_5
+		trigger = {
+			check_variable = { which = etib value = 50 }
+			NOT = { check_variable = { which = etib value = 60 } }
+		}	
+		influence = 50
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_6
+		trigger = {
+			check_variable = { which = etib value = 60 }
+			NOT = { check_variable = { which = etib value = 70 } }
+		}	
+		influence = 60
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_7
+		trigger = {
+			check_variable = { which = etib value = 70 }
+			NOT = { check_variable = { which = etib value = 80 } }
+		}	
+		influence = 70
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_8
+		trigger = {
+			check_variable = { which = etib value = 80 }
+			NOT = { check_variable = { which = etib value = 90 } }
+		}	
+		influence = 80
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_9
+		trigger = {
+			check_variable = { which = etib value = 90 }
+			NOT = { check_variable = { which = etib value = 100 } }
+		}	
+		influence = 90
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_10
+		trigger = {
+			check_variable = { which = etib value = 100 }
+		}	
+		influence = 100
+	}
+	
+	#Loyalty
+	loyalty_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER_LOY
+		trigger = {
+			has_reform = noble_election
+		}	
+		loyalty = -10
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER_LOY
+		trigger = {
+			has_reform = no_election
+		}	
+		loyalty = -10
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_BURGHERS_ADVANCE
+		trigger = {
+			has_reform = constitution_reform
+		}	
+		loyalty = 15
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_BURGHERS_ADVANCE
+		trigger = {
+			has_reform = burghers_election
+		}	
+		loyalty = 5
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_BURGHERS_ADVANCE
+		trigger = {
+			has_reform = universal_suffrage
+		}	
+		loyalty = 15
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER_LOY
+		trigger = {
+			OR = {
+				has_disaster = estate_nobility_disaster
+				has_disaster = estate_church_disaster
+			}
+		}
+		loyalty = -20
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_UNREST
+		trigger = {
+			check_variable = { which = bg_unrest value = -10 }
+			NOT = { check_variable = { which = bg_unrest value = -5 } }
+		}	
+		loyalty = -10
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_UNREST
+		trigger = {
+			check_variable = { which = bg_unrest value = -15 }
+			NOT = { check_variable = { which = bg_unrest value = -10 } }
+		}	
+		loyalty = -15
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_UNREST
+		trigger = {
+			check_variable = { which = bg_unrest value = -20 }
+			NOT = { check_variable = { which = bg_unrest value = -15 } }
+		}	
+		loyalty = -20
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_UNREST
+		trigger = {
+			NOT = { check_variable = { which = bg_unrest value = -20 } }
+		}	
+		loyalty = -25
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_UNREST
+		trigger = {
+			check_variable = { which = bg_unrest value = 5 }
+			NOT = { check_variable = { which = bg_unrest value = 10 } }
+		}	
+		loyalty = 5
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_UNREST
+		trigger = {
+			check_variable = { which = bg_unrest value = 10 }
+			NOT = { check_variable = { which = bg_unrest value = 15 } }
+		}	
+		loyalty = 10
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_UNREST
+		trigger = {
+			check_variable = { which = bg_unrest value = 15 }
+			NOT = { check_variable = { which = bg_unrest value = 20 } }
+		}	
+		loyalty = 15
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_UNREST
+		trigger = {
+			check_variable = { which = bg_unrest value = 20 }
+		}	
+		loyalty = 20
+	}
+	
+	#Custom Names
+	custom_name = {
+		desc = estate_bourgeoisie
+		trigger = {
+			culture_group = french
+		}
+	}
+	custom_name = {
+		desc = estate_shangbang
+		trigger = {
+			culture_group = east_asian
+		}
+	}
+	custom_name = {
+		desc = estate_merchant_guilds
+		trigger = {
+			NOT = { religion_group = christian } #Diversify a bit more.
+		}
+	}
+	
+	# For province assignment
+	ai_grant_province = {
+		factor = 0
+	}	
+	
+	# Does the AI want to give any extra territory beyond the minimum?
+	ai_territory_modifier = {
+		trigger = {
+			government = monarchy
+			technology_group = western
+			num_of_cities = 10
+		}	
+		value = 10
+	}	
+	ai_territory_modifier = {
+		trigger = {
+			has_idea_group = trade_ideas
+			num_of_cities = 10
+		}	
+		value = 5			
+	}
+	ai_territory_modifier = {
+		trigger = {
+			has_idea_group = plutocracy_ideas
+			num_of_cities = 10
+		}	
+		value = 5		
+	}		
+
+	# Special interactions
+	interaction = {
+		name = "ASK_FOR_CONTRIBUTION"
+		icon = 6
+		
+		years_between_use = 5
+	
+		
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = estate_initialized
+				check_variable = { which = etib value = 0.1 } 
+			}	
+		}
+		
+		effect = {
+			hidden_effect = {
+				set_variable = { which = cu_var1 value = 0 }
+				set_variable = { which = cu_cash which = etib } 
+				export_to_variable = {
+					which = cu_var1
+					value = modifier:global_tax_modifier
+				}
+				change_variable = { which = cu_var1 value = 1 }
+				multiply_variable = { which = cu_cash which = cu_var1 }
+				set_variable = { which = t_dev value = 0 }
+				export_to_variable = {
+					which = t_dev
+					value = states_development
+				}
+				multiply_variable = { which = cu_cash which = t_dev }
+				multiply_variable = { which = cu_cash value = 0.005 }
+				set_variable = { which = cu_cash_display which = cu_cash }				
+				set_variable = { which = cu_var1 which = etib }
+				multiply_variable = { which = cu_var1 value = -0.5 }
+				set_variable = { which = cu_sta_display which = cu_var1 }				
+			}
+			cu_change_cash_hidden = yes 
+			custom_tooltip = cu_change_cash_bg		
+			cu_change_stability_point_hidden = yes
+			custom_tooltip = cu_change_stability_bt
+			add_estate_loyalty = {
+				estate = estate_burghers
+				loyalty = -15
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					estate_loyalty = {
+						estate = estate_burghers
+						loyalty = 50
+					}	
+				}
+			}
+			modifier = {
+				factor = 0
+				treasury = 1
+			}
+		}
+	}
+	
+	interaction = {
+		name = "FUND_THE_LOYALISTS"
+		icon = 7
+		
+		years_between_use = 15
+		
+		trigger = {
+		    dip_power = 100
+			custom_trigger_tooltip = {
+				tooltip = estate_initialized
+				check_variable = { which = etib value = 0.1 } 
+			}
+		}
+		
+		effect = {
+			add_dip_power = -100
+			hidden_effect = {
+				set_variable = { which = cu_var1 value = 0 }
+				set_variable = { which = cu_cash which = etib }
+				set_variable = { which = t_dev value = 0 }
+				export_to_variable = {
+					which = t_dev
+					value = states_development
+				}
+				multiply_variable = { which = cu_cash which = t_dev }
+				multiply_variable = { which = cu_cash value = -0.005 }
+				set_variable = { which = cu_cash_display which = cu_cash }			
+				set_variable = { which = cu_var1 which = etib }
+				multiply_variable = { which = cu_var1 value = 0.5 }
+				set_variable = { which = cu_sta_display which = cu_var1 }				
+			}
+			cu_change_cash_hidden = yes 
+			custom_tooltip = cu_change_cash_bt		
+			cu_change_stability_point_hidden = yes
+			custom_tooltip = cu_change_stability_bg
+			add_estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 10
+			}
+			add_estate_influence_modifier = {
+				estate = estate_burghers
+				desc = EST_VAL_FUND_THE_LOYALISTS
+				influence = -10
+				duration = 5475
+			}
+			add_estate_influence_modifier = {
+				estate = estate_government
+				desc = EST_VAL_FUND_THE_LOYALISTS
+				influence = 10
+				duration = 5475
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				estate_influence = {
+					estate = estate_burghers
+					influence = 60
+				}				
+			}
+			modifier = {
+				factor = 0
+				estate_loyalty = {
+					estate = estate_burghers
+					loyalty = 30
+				}				
+			}			
+		}
+	}
+	
+	interaction = {
+		name = "MARRY_WITH_ESTATE"
+		icon = 8
+		
+		
+		years_between_use = 0
+		
+		
+		trigger = {
+			cu_estate_marry_trigger = yes
+		}
+		
+		effect = {
+			set_country_flag = est_consort
+			add_estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 10
+			}
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = -15
+			}
+			add_estate_influence_modifier = {
+				estate = estate_burghers
+				desc = EST_VAL_MARRY_WITH_ESTATE
+				influence = 5
+				duration = 7300
+			}
+			add_estate_influence_modifier = {
+				estate = estate_government
+				desc = EST_VAL_MARRY_WITH_ESTATE
+				influence = -5
+				duration = 7300
+			}
+			hidden_effect = {
+				set_variable = { which = cu_var1 which = etib }
+				multiply_variable = { which = cu_var1 which = 0.1 }
+				set_variable = { which = cu_sta_display which = cu_var1 }				
+			}	
+			cu_change_stability_point_hidden = yes
+			custom_tooltip = cu_change_stability_bg
+		}
+		ai_will_do = {
+			factor = 0		
+		}
+	}
+	
+	interaction = {
+		name = "GRANT_AUTONOMY"
+		icon = 24
+		
+		
+		years_between_use = 20
+		
+		
+		trigger = {
+			any_owned_province = {
+				check_variable = { which = epimn value = 30 }
+			}
+		}
+		
+		effect = {
+			add_absolutism = -3
+			custom_tooltip = granted_auto_est
+			add_estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 20
+			}
+			add_estate_influence_modifier = {
+				estate = estate_burghers
+				desc = EST_VAL_GRANT_AUTONOMY
+				influence = 10
+				duration = 7300
+			}
+			add_estate_influence_modifier = {
+				estate = estate_government
+				desc = EST_VAL_GRANT_AUTONOMY
+				influence = -10
+				duration = 7300
+			}
+			hidden_effect = {
+				set_variable = { which = cu_var1 which = etib }
+				set_variable = { which = cu_sta_display which = cu_var1 }				
+				every_owned_province = {
+					limit = { check_variable = { which = epimn value = 40 } }
+					add_local_autonomy = 10
+					add_unrest = -2
+				}
+			}	
+			cu_change_stability_point_hidden = yes
+			custom_tooltip = cu_change_stability_bg
+		}
+		ai_will_do = {
+			factor = 0		
+		}
+	}
+	
+	interaction = {
+		name = "GRANT_ESTATE_OFFICIAL_POSITIONS"
+		icon = 17
+		
+		
+		years_between_use = 10
+		
+		
+		trigger = {
+			always = yes
+		}
+		
+		effect = {
+			add_absolutism = -5
+			add_corruption = 0.5
+			add_dip_power = -50
+			add_adm_power = -50
+			add_estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 20
+			}
+			hidden_effect = {
+				set_variable = { which = cu_var1 which = etib }
+				multiply_variable = { which = cu_var1 which = 0.33 }
+				set_variable = { which = cu_sta_display which = cu_var1 }	
+			}
+			cu_change_stability_point_hidden = yes
+			custom_tooltip = cu_change_stability_bg
+		}
+		ai_will_do = {
+			factor = 0		
+		}
+	}
+	
+	interaction = {
+		name = "DEMAND_WAR_SUPPORT"
+		icon = 12
+		
+		years_between_use = 25
+		
+		trigger = {
+			estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 40
+			}	
+			is_at_war = yes 
+			any_owned_province = {
+				check_variable = { which = epimb value = 30 }
+			}
+		}
+		
+		effect = {
+			custom_tooltip = add_manpower_est
+			add_dip_power = -125
+			add_absolutism = -5
+			hidden_effect = {
+				set_variable = { which = cu_var1 value = 0 }
+				every_owned_province = {
+					limit = { check_variable = { which = epimb value = 30 } }
+					owner = { add_manpower = 0.25 }
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	interaction = {
+		name = "COMISSION_MERCHANT_SHIPS_FOR_WAR"
+		icon = 18
+		
+		years_between_use = 30
+		
+		potential = {
+			num_of_ports = 1
+			primitives = no
+		}
+		
+		trigger = {
+			estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 30
+			}	
+			estate_influence = {
+				estate = estate_burghers
+				influence = 20
+			}
+			num_of_ports = 10
+			any_owned_province = {
+				has_port = yes
+				check_variable = { which = epimb value = 30 }
+			}
+		}
+		
+		effect = {
+			add_estate_loyalty = {
+				estate = estate_burghers
+				loyalty = -15
+			}
+			random_owned_province = {
+				limit = {
+					check_variable = { which = epimb value = 30 }
+					has_port = yes
+				}
+				add_unit_construction = {
+					amount = 1
+					type = heavy_ship
+					speed = 0.5
+					cost = 0
+				}
+			}
+			random_owned_province = {
+				limit = {
+					check_variable = { which = epimb value = 30 }
+					has_port = yes
+				}
+				add_unit_construction = {
+					amount = 1
+					type = heavy_ship
+					speed = 0.5
+					cost = 0
+				}
+			}
+			random_owned_province = {
+				limit = {
+					check_variable = { which = epimb value = 30 }
+					has_port = yes
+				}
+				add_unit_construction = {
+					amount = 1
+					type = heavy_ship
+					speed = 0.5
+					cost = 0
+				}
+			}
+			random_owned_province = {
+				limit = {
+					check_variable = { which = epimb value = 30 }
+					has_port = yes
+				}
+				add_unit_construction = {
+					amount = 1
+					type = heavy_ship
+					speed = 0.5
+					cost = 0
+				}
+			}
+			random_owned_province = {
+				limit = {
+					check_variable = { which = epimb value = 30 }
+					has_port = yes
+				}
+				add_unit_construction = {
+					amount = 1
+					type = heavy_ship
+					speed = 0.5
+					cost = 0
+				}
+			}
+			random_owned_province = {
+				limit = {
+					check_variable = { which = epimb value = 30 }
+					has_port = yes
+				}
+				add_unit_construction = {
+					amount = 1
+					type = heavy_ship
+					speed = 0.5
+					cost = 0
+				}
+			}
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	interaction = {
+		name = "CU_MILITARY_COUP"
+		icon = 32
+		years_between_use = 25
+		potential = {
+			NOT = { has_country_modifier = coup_timer }
+		}
+		trigger = {
+			mil_power = 200
+			estate_influence = {
+				estate = estate_burghers
+				influence = 30
+			}
+			NOT = {
+				estate_loyalty = {
+					estate = estate_burghers
+					loyalty = 30
+				}	
+			}
+		}
+		effect = {
+			add_mil_power = -200
+			set_country_flag = preparing_military_coup_flag
+			add_country_modifier = {
+					name =  preparing_military_coup
+					duration = 365						
+			}
+			hidden_effect = {
+				set_variable = { which = coup_support value = 0 }
+				set_country_flag = coup_against_burghers
+			}
+			custom_tooltip = preparing_military_coup_t
+			hidden_effect = {
+				add_country_modifier = {
+					name = coup_timer
+					duration = 7300
+					hidden = yes
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+			    factor = 0
+				NOT = { mil = 4 }
+			}
+			modifier = {
+			    factor = 0
+				stability = 0
+			}
+		}
+	}
+}

@@ -1,0 +1,2717 @@
+#List of Effects
+  #Public
+  #(country)cu_calc_country_dist: Recalculate all provinces to check if they are connected to capital
+  #(province)cu_calc_province_dist: Check if this province is connected to the capital
+
+  #Privite
+  #(country)cu_calc_country_dist_pri: Used for code simplicity
+
+
+#Related Modifier:
+  #(province)connect_to_capital: Province is connected to capital
+  #(province)connect_to_capital_oversea: Province is connected to capital(weak connection)[oversea]
+  #(province)connect_to_capital_far_1: Province distance to capital
+  #(province)connect_to_capital_far_2: Province distance to capital
+  #(province)connect_to_capital_far_3: Province distance to capital
+  #(province)connect_to_capital_far_4: Province distance to capital
+  #(province)connect_to_capital_far_5: Province distance to capital
+  #(province)connect_to_capital_far_6: Province distance to capital
+  #(province)connect_to_capital_far_7: Province distance to capital
+  #(province)connect_to_capital_far_8: Province distance to capital
+  #(province)connect_to_capital_far_9: Province distance to capital
+  #(province)connect_to_capital_far_10: Province distance to capital
+
+#Related Flag
+  #(country)capital_sea_route: Capital is connected to sea
+  
+cu_calc_country_absolute_dist = {
+	capital_scope = { 
+		save_event_target_as = cpd
+	}
+	if = {
+		limit = { has_country_flag = has_a_second_capital }
+		every_owned_province = {
+			limit = { has_province_modifier = second_capital }
+			save_event_target_as = scd
+		}
+	}
+	cu_calc_country_dist = yes
+	every_owned_province = {
+	    set_variable = { which = p_dist_tc value = 0 }
+		remove_province_modifier = connect_to_capital_far_1
+		remove_province_modifier = connect_to_capital_far_2
+		remove_province_modifier = connect_to_capital_far_3
+		remove_province_modifier = connect_to_capital_far_4
+		remove_province_modifier = connect_to_capital_far_5
+		remove_province_modifier = connect_to_capital_far_6
+		remove_province_modifier = connect_to_capital_far_7
+		remove_province_modifier = connect_to_capital_far_8
+		remove_province_modifier = connect_to_capital_far_9
+		remove_province_modifier = connect_to_capital_far_10
+		remove_province_modifier = connect_to_capital_far_11
+		remove_province_modifier = connect_to_capital_far_12
+		remove_province_modifier = connect_to_capital_far_13
+		remove_province_modifier = connect_to_capital_far_14
+		remove_province_modifier = connect_to_capital_far_15
+		remove_province_modifier = connect_to_capital_far_16
+		remove_province_modifier = connect_to_capital_far_17
+		remove_province_modifier = connect_to_capital_far_18
+		remove_province_modifier = connect_to_capital_far_19
+		remove_province_modifier = connect_to_capital_far_20
+		remove_province_modifier = connect_to_capital_far_21
+		remove_province_modifier = connect_to_capital_far_22
+		remove_province_modifier = connect_to_capital_far_23
+		remove_province_modifier = connect_to_capital_far_24
+		remove_province_modifier = connect_to_capital_far_25
+		remove_province_modifier = connect_to_capital_far_26
+		remove_province_modifier = connect_to_capital_far_27
+		remove_province_modifier = connect_to_capital_far_28
+		remove_province_modifier = connect_to_capital_far_29
+		remove_province_modifier = connect_to_capital_far_30
+		
+		if = {	
+			limit = { 
+				owner = {
+					has_country_flag = has_a_second_capital 
+				}
+			}
+			if = { 
+				limit = {
+				   OR = {
+					NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 25
+						}
+					}
+					NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 25
+					    }
+				    }
+				   }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_1
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 1 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 50
+						}
+					}
+					NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 50
+					    }
+				    }
+				   }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_2
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 2 }
+			}
+			else_if = { 
+				limit = {
+				   OR = {
+					NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 75
+						}
+					}
+					NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 75
+					    }
+				    }
+				   }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_3
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 3 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 100
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 100
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_4
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 4 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 125
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 125
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_5
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 5 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 150
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 150
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_6
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 6 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 200
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 200
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_7
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 7 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 250
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 250
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_8
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 8 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 300
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 300
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_9
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 9 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 350
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 350
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_10
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 10 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 400
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 400
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_11
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 11 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 500
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 500
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_12
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 12 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 600
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 600
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_13
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 13 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 700
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 700
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_14
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 14 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 800
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 800
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_15
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 15 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 900
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 900
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_16
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 16 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 1000
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 1000
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_17
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 17 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 1200
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 1200
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_18
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 18 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 1400
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 1400
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_19
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 19 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 1600
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 1600
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_20
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 20 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 1800
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 1800
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_21
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 21 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 2050
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 2050
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_22
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 22 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 2300
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 2300
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_23
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 23 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 2550
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 2550
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_24
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 24 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 2700
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 2700
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_25
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 25 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 3000
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 3000
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_26
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 26 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 3300
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 3300
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_27
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 27 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 3600
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 3600
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_28
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 28 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 3900
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 3900
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_29
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 29 }
+			}
+			else = { 
+				add_province_modifier = {
+					name = connect_to_capital_far_30
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 30 }
+			}
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 25
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_1
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 1 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 50
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_2
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 2 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 75
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_3
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 3 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 100
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_4
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 4 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 125
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_5
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 5 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 150
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_6
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 6 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 200
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_7
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 7 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 250
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_8
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 8 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 300
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_9
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 9 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 350
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_10
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 10 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 400
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_11
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 11 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 500
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_12
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 12 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 600
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_13
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 13 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 700
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_14
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 14 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 800
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_15
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 15 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 900
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_16
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 16 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 1000
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_17
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 17 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 1200
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_18
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 18 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 1400
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_19
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 19 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 1600
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_20
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 20 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 1800
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_21
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 21 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 2050
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_22
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 22 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 2300
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_23
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 23 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 2550
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_24
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 24 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 2700
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_25
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 25 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 3000
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_26
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 26 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 3300
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_27
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 27 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 3600
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_28
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 28 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 3900
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_29
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 29 }
+		}
+		else = {
+			add_province_modifier = {
+				name = connect_to_capital_far_30
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 30 }
+		}
+	
+	}
+	
+	
+}
+
+cu_calc_province_absolute_dist = {
+	remove_province_modifier = connect_to_capital_far_1
+	remove_province_modifier = connect_to_capital_far_2
+	remove_province_modifier = connect_to_capital_far_3
+	remove_province_modifier = connect_to_capital_far_4
+	remove_province_modifier = connect_to_capital_far_5
+	remove_province_modifier = connect_to_capital_far_6
+	remove_province_modifier = connect_to_capital_far_7
+	remove_province_modifier = connect_to_capital_far_8
+	remove_province_modifier = connect_to_capital_far_9
+	remove_province_modifier = connect_to_capital_far_10
+	remove_province_modifier = connect_to_capital_far_11
+	remove_province_modifier = connect_to_capital_far_12
+	remove_province_modifier = connect_to_capital_far_13
+	remove_province_modifier = connect_to_capital_far_14
+	remove_province_modifier = connect_to_capital_far_15
+	remove_province_modifier = connect_to_capital_far_16
+	remove_province_modifier = connect_to_capital_far_17
+	remove_province_modifier = connect_to_capital_far_18
+	remove_province_modifier = connect_to_capital_far_19
+	remove_province_modifier = connect_to_capital_far_20
+	remove_province_modifier = connect_to_capital_far_21
+	remove_province_modifier = connect_to_capital_far_22
+	remove_province_modifier = connect_to_capital_far_23
+	remove_province_modifier = connect_to_capital_far_24
+	remove_province_modifier = connect_to_capital_far_25
+	remove_province_modifier = connect_to_capital_far_26
+	remove_province_modifier = connect_to_capital_far_27
+	remove_province_modifier = connect_to_capital_far_28
+	remove_province_modifier = connect_to_capital_far_29
+	remove_province_modifier = connect_to_capital_far_30
+	set_province_flag = calc_target_pro
+	owner = { cu_calc_province_absolute_dist_countrywide = yes }
+}
+
+cu_calc_province_absolute_dist_countrywide = {
+    capital_scope = { 
+		save_event_target_as = cpd
+	}
+	if = {
+		limit = { has_country_flag = has_a_second_capital }
+		every_owned_province = {
+			limit = { has_province_modifier = second_capital }
+			save_event_target_as = scd
+		}
+	}
+	every_owned_province = {
+	    limit = { has_province_flag = calc_target_pro }
+		clr_province_flag = calc_target_pro
+		set_variable = { which = p_dist_tc value = 0 }
+		remove_province_modifier = connect_to_capital_far_1
+		remove_province_modifier = connect_to_capital_far_2
+		remove_province_modifier = connect_to_capital_far_3
+		remove_province_modifier = connect_to_capital_far_4
+		remove_province_modifier = connect_to_capital_far_5
+		remove_province_modifier = connect_to_capital_far_6
+		remove_province_modifier = connect_to_capital_far_7
+		remove_province_modifier = connect_to_capital_far_8
+		remove_province_modifier = connect_to_capital_far_9
+		remove_province_modifier = connect_to_capital_far_10
+		remove_province_modifier = connect_to_capital_far_11
+		remove_province_modifier = connect_to_capital_far_12
+		remove_province_modifier = connect_to_capital_far_13
+		remove_province_modifier = connect_to_capital_far_14
+		remove_province_modifier = connect_to_capital_far_15
+		remove_province_modifier = connect_to_capital_far_16
+		remove_province_modifier = connect_to_capital_far_17
+		remove_province_modifier = connect_to_capital_far_18
+		remove_province_modifier = connect_to_capital_far_19
+		remove_province_modifier = connect_to_capital_far_20
+		remove_province_modifier = connect_to_capital_far_21
+		remove_province_modifier = connect_to_capital_far_22
+		remove_province_modifier = connect_to_capital_far_23
+		remove_province_modifier = connect_to_capital_far_24
+		remove_province_modifier = connect_to_capital_far_25
+		remove_province_modifier = connect_to_capital_far_26
+		remove_province_modifier = connect_to_capital_far_27
+		remove_province_modifier = connect_to_capital_far_28
+		remove_province_modifier = connect_to_capital_far_29
+		remove_province_modifier = connect_to_capital_far_30
+	    if = {	
+			limit = { 
+				owner = {
+					has_country_flag = has_a_second_capital 
+				}
+			}
+			if = { 
+				limit = {
+				   OR = {
+					NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 25
+						}
+					}
+					NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 25
+					    }
+				    }
+				   }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_1
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 1 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 50
+						}
+					}
+					NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 50
+					    }
+				    }
+				   }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_2
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 2 }
+			}
+			else_if = { 
+				limit = {
+				   OR = {
+					NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 75
+						}
+					}
+					NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 75
+					    }
+				    }
+				   }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_3
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 3 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 100
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 100
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_4
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 4 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 125
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 125
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_5
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 5 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 150
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 150
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_6
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 6 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 200
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 200
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_7
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 7 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 250
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 250
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_8
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 8 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 300
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 300
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_9
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 9 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 350
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 350
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_10
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 10 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 400
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 400
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_11
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 11 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 500
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 500
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_12
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 12 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 600
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 600
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_13
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 13 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 700
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 700
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_14
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 14 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 800
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 800
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_15
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 15 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 900
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 900
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_16
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 16 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 1000
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 1000
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_17
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 17 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 1200
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 1200
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_18
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 18 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 1400
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 1400
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_19
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 19 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 1600
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 1600
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_20
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 20 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 1800
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 1800
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_21
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 21 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 2050
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 2050
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_22
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 22 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 2300
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 2300
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_23
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 23 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 2550
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 2550
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_24
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 24 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 2700
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 2700
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_25
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 25 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 3000
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 3000
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_26
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 26 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 3300
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 3300
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_27
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 27 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 3600
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 3600
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_28
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 28 }
+			}
+			else_if = { 
+				limit = {
+					OR = {
+					  NOT = {
+						province_distance = {
+							who = event_target:scd
+							distance = 3900
+						}
+					  }
+					  NOT = {
+					    province_distance = {
+						    who = event_target:cpd
+						    distance = 3900
+					    }
+				      }
+				    }
+				}
+				add_province_modifier = {
+					name = connect_to_capital_far_29
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 29 }
+			}
+			else = { 
+				add_province_modifier = {
+					name = connect_to_capital_far_30
+					duration = -1
+				}
+				set_variable = { which = p_dist_tc value = 30 }
+			}
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 25
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_1
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 1 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 50
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_2
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 2 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 75
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_3
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 3 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 100
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_4
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 4 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 125
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_5
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 5 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 150
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_6
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 6 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 200
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_7
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 7 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 250
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_8
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 8 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 300
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_9
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 9 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 350
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_10
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 10 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 400
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_11
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 11 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 500
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_12
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 12 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 600
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_13
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 13 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 700
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_14
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 14 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 800
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_15
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 15 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 900
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_16
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 16 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 1000
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_17
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 17 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 1200
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_18
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 18 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 1400
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_19
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 19 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 1600
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_20
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 20 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 1800
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_21
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 21 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 2050
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_22
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 22 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 2300
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_23
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 23 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 2550
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_24
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 24 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 2700
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_25
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 25 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 3000
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_26
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 26 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 3300
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_27
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 27 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 3600
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_28
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 28 }
+		}
+		else_if = { 
+			limit = {
+				NOT = {
+					province_distance = {
+						who = event_target:cpd
+						distance = 3900
+					}
+				}
+			}
+			add_province_modifier = {
+				name = connect_to_capital_far_29
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 29 }
+		}
+		else = {
+			add_province_modifier = {
+				name = connect_to_capital_far_30
+				duration = -1
+			}
+			set_variable = { which = p_dist_tc value = 30 }
+		}
+	
+	}	
+		
+	
+	
+}
+
+cu_calc_country_dist_pri = {
+    while = {
+	      limit = {
+		        any_owned_province = {
+				        NOT = { has_province_modifier = connect_to_capital }
+						OR = {
+						    has_building = road_1
+							has_building = road_2
+							has_building = road_3
+						}
+						OR = {
+						      any_neighbor_province = { #Land Connection
+							         owned_by = ROOT
+									 OR = {
+									       has_province_modifier = connect_to_capital
+										   has_province_modifier = connect_to_capital_oversea
+									 }
+							  }
+							  AND = { #Sea Connection
+							        OR = {
+									      has_building = dock
+										  has_building = drydock
+									}
+									owner = { has_country_flag = capital_sea_route } #Capital is connected to the sea
+									#is_blockaded = no
+							  }
+						}
+				}
+		  }
+		  every_owned_province = {
+	            limit = {
+				        NOT = { has_province_modifier = connect_to_capital }
+						OR = {
+						    has_building = road_1
+							has_building = road_2
+							has_building = road_3
+						}
+						OR = {
+						      any_neighbor_province = { #Land Connection
+							         owned_by = ROOT
+									 OR = {
+									       has_province_modifier = connect_to_capital
+										   has_province_modifier = connect_to_capital_oversea
+									 }
+							  }
+							  AND = { #Sea Connection
+							        OR = {
+									      has_building = dock
+										  has_building = drydock
+									}
+									owner = { has_country_flag = capital_sea_route } #Capital is connected to the sea
+									#is_blockaded = no
+							  }
+						}
+				
+				}
+                if = { #Land Connection
+				        limit = {
+						      any_neighbor_province = { 
+							         owned_by = ROOT
+									 has_province_modifier = connect_to_capital
+							  }
+						}
+						add_province_modifier = {
+		                      name = connect_to_capital    
+			                  duration = -1
+		                }
+						if = {
+						      limit = { has_province_modifier = connect_to_capital_oversea }
+							  remove_province_modifier = connect_to_capital_oversea
+						}
+						if = {
+						      limit = { 
+							        NOT = { owner = { has_country_flag = capital_sea_route } }
+                                    OR = {
+									      has_building = dock
+										  has_building = drydock
+									}
+							  }
+							  ROOT = { set_country_flag = capital_sea_route }
+						}
+				}
+				else_if = { #Sea Connection (Same Continent)
+				        limit = {
+						        owner = { has_country_flag = capital_sea_route }
+						        OR = {
+									    has_building = dock
+										has_building = drydock
+								}
+								is_overseas = no
+								#is_blockaded = no
+						}
+						add_province_modifier = {
+		                        name = connect_to_capital    
+			                    duration = -1
+		                }
+						if = {
+						        limit = { has_province_modifier = connect_to_capital_oversea }
+							    remove_province_modifier = connect_to_capital_oversea
+						}
+				}
+				else = {
+				        add_province_modifier = {
+		                        name = connect_to_capital_oversea    
+			                    duration = -1
+		                }
+				}
+                				
+		  }
+		  #Loop until no further province can be connected to capital
+	}
+}
+
+
+cu_calc_country_dist = {
+    every_owned_province = { #Initialize
+	    remove_province_modifier = connect_to_capital
+        remove_province_modifier = connect_to_capital_oversea	
+        clr_country_flag = capital_sea_route		
+	}
+   capital_scope = {	#IN CASE OF BUGS
+		add_province_modifier = {
+		     name = connect_to_capital    
+			 duration = -1
+		}
+	}
+	if = {
+		limit = {
+			OR = {
+				any_owned_province = {
+					limit = { has_province_modifier = second_capital }
+					OR = {
+						has_building = dock
+						has_building = drydock
+					}  
+				}
+				capital_scope = {
+					OR = {
+						has_building = dock
+						has_building = drydock
+					}  
+				}
+			}
+		}
+		set_country_flag = capital_sea_route	
+	}
+	every_owned_province = {	#IN CASE OF BUGS
+		limit = { has_province_modifier = second_capital }
+	    add_province_modifier = {
+		     name = connect_to_capital    
+			 duration = -1
+		}
+	}
+    cu_calc_country_dist_pri = yes
+}
+
+cu_calc_province_dist = {
+		owner = {
+			if = {
+				limit = {
+					OR = {
+						any_owned_province = {
+							limit = { has_province_modifier = second_capital }
+							OR = {
+								has_building = dock
+								has_building = drydock
+							}  
+						}
+						capital_scope = {
+							OR = {
+								has_building = dock
+								has_building = drydock
+							}  
+						}
+					}
+				}
+				set_country_flag = capital_sea_route	
+			}
+		}
+        if = {
+	            limit = {
+				        NOT = { has_province_modifier = connect_to_capital }
+						OR = {
+						    has_building = road_1
+							has_building = road_2
+							has_building = road_3
+						}
+						OR = {
+						      any_neighbor_province = { #Land Connection
+							         owner = {
+									      ROOT = { owned_by = PREV }
+									 }
+									 OR = {
+									       has_province_modifier = connect_to_capital
+										   has_province_modifier = connect_to_capital_oversea
+									 }
+							  }
+							  AND = { #Sea Connection
+							        OR = {
+									      has_building = dock
+										  has_building = drydock
+									}
+									owner = { has_country_flag = capital_sea_route } #Capital is connected to the sea
+							  }
+						}
+				
+				}
+                if = { #Land Connection
+				        limit = {
+						      any_neighbor_province = { 
+							         owner = {
+									      ROOT = { owned_by = PREV }
+									 }
+									 has_province_modifier = connect_to_capital
+							  }
+						}
+						add_province_modifier = {
+		                      name = connect_to_capital    
+			                  duration = -1
+		                }
+						if = {
+						      limit = { has_province_modifier = connect_to_capital_oversea }
+							  remove_province_modifier = connect_to_capital_oversea
+						}
+						if = {
+						      limit = { 
+							        NOT = { owner = { has_country_flag = capital_sea_route } }
+                                    OR = {
+									      has_building = dock
+										  has_building = drydock
+									}
+							  }
+							  owner = { set_country_flag = capital_sea_route }
+						}
+				}
+				else_if = { #Sea Connection (Same Continent)
+				        limit = {
+						        owner = { has_country_flag = capital_sea_route }
+						        OR = {
+									    has_building = dock
+										has_building = drydock
+								}
+								is_overseas = no
+						}
+						add_province_modifier = {
+		                        name = connect_to_capital    
+			                    duration = -1
+		                }
+						if = {
+						        limit = { has_province_modifier = connect_to_capital_oversea }
+							    remove_province_modifier = connect_to_capital_oversea
+						}
+				}
+				else = {
+				        add_province_modifier = {
+		                        name = connect_to_capital_oversea    
+			                    duration = -1
+		                }
+				}
+                owner = {
+			        cu_calc_country_dist_pri = yes
+			    }    				
+		}
+		
+}
+
+cu_country_trigger_dist_calc = {
+     if = {
+	     limit = { ai = no }
+		 if = {
+	        limit = { NOT = { has_country_flag = cu_calc_dist_cd } }
+			set_country_flag = cu_calc_dist_cd
+			#country_event = { id = cuglobal.92 days = 30 }
+	     }
+	 }
+     else = {
+	     if = {
+	        limit = { NOT = { has_country_flag = cu_calc_dist_cd } }
+			set_country_flag = cu_calc_dist_cd
+			#country_event = { id = cuglobal.92 days = 1825 }
+	     }
+	 }
+}
+
+
+
+cu_prov_trigger_dist_calc = {
+	 if = {
+	    limit = { owner = { ai = no } }
+		if = {
+		    limit = { owner = { NOT = { has_country_flag = cu_calc_dist_cd } } }
+			owner = {
+			      set_country_flag = cu_calc_dist_cd
+			      #country_event = { id = cuglobal.92 days = 30 }
+			}
+		}  
+	 }
+	 else = {
+	    if = {
+	        limit = { owner = { NOT = { has_country_flag = cu_calc_dist_cd } } }
+			owner = {
+			      set_country_flag = cu_calc_dist_cd
+			      #country_event = { id = cuglobal.92 days = 1825 }
+			} 
+	    }
+	 }
+}

@@ -1,0 +1,36 @@
+gov_zhuhou = {
+	rank = {
+		2 = ZHUHOU
+	}
+	
+	ruler_male = {
+		2 = ZHUHOU_LEADER
+	}
+	
+	ruler_female = {
+		2 = ZHUHOU_LEADER
+	}
+	
+	trigger = {
+		has_reform = zhuhou
+	}
+}
+
+gov_yijun = {
+	rank = {
+		1 = YIJUN
+	}
+	
+	ruler_male = {
+		1 = YIJUN_LEADER
+	}
+	
+	ruler_female = {
+		1 = YIJUN_LEADER
+	}
+	
+	trigger = {
+		has_reform =  
+	}
+}
+

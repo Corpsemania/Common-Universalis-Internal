@@ -1,0 +1,149 @@
+namespace = janissary_decadence
+
+
+
+# Janissary Decadence
+country_event = {
+	id = janissary_decadence.1
+	title = janissary_decadence.1.t
+	desc = janissary_decadence.1.d
+	picture = MILITARY_CAMP_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+	
+	
+	option = {		# Most worrisome
+		name = janissary_decadence.1.a
+		add_prestige = -20
+		remove_country_modifier = janissaries_upset
+		remove_country_modifier = janissary_landholders
+		remove_country_modifier = janissaries_denied_reward
+		set_country_flag = turarmydis
+	}
+}
+
+# Janissary Palace Coup
+country_event = {
+	id = janissary_decadence.2
+	title = janissary_decadence.2.t
+	desc = janissary_decadence.2.d
+	picture = ASSASSINATION_eventPicture
+	
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	
+	option = {		# Let a Sultan of their choice take control
+		name = janissary_decadence.2.a
+		if = {
+			limit = {
+				has_heir = yes
+			}
+			kill_heir = yes
+		}
+		change_variable = { which = cu_var1 value = -50 }
+		cu_change_stability_point = yes
+		define_ruler = {
+			ADM = 2
+			DIP = 2
+			MIL = 2
+		}
+	}
+	option = {		# Fight them!
+		name = janissary_decadence.2.b
+		capital_scope = {
+			spawn_rebels = {
+				type = noble_rebels
+				size = 3
+			}
+		}
+		change_variable = { which = cu_var1 value = -25 }
+		cu_change_stability_point = yes
+	}
+}
+
+# The Threat of the Janissaries
+country_event = {
+	id = janissary_decadence.3
+	title = janissary_decadence.3.t
+	desc = janissary_decadence.3.d
+	picture = BATTLE_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {		# It's time to curb their power
+		name = janissary_decadence.3.a
+		capital_scope = {
+			spawn_rebels = {
+				type = noble_rebels
+				size = 3
+				unrest = 10
+			}
+		}
+		add_mil_power = -50
+	}
+	option = {		# Leave them be
+		name = janissary_decadence.3.b
+		add_prestige = -25
+		add_legitimacy = -25
+	}
+}
+
+
+
+# Increased Recruiting
+country_event = {
+	id = janissary_decadence.4
+	title = janissary_decadence.4.t
+	desc = janissary_decadence.4.d
+	picture = MILITARY_CAMP_eventPicture
+	
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {		# Allow recruiting outside of the devsirme system
+		name = janissary_decadence.4.a
+		add_army_tradition = -50
+	}
+	option = {		# Keep the Janissary an elite force
+		name = janissary_decadence.4.b
+		add_mil_power = -200
+	}
+}
+
+
+
+
+
+
+
+# The Disbanding of the Janissaries
+country_event = {
+	id = janissary_decadence.100
+	title = janissary_decadence.100.t
+	desc = janissary_decadence.100.d
+	picture = LAND_MILITARY_eventPicture
+	
+	major = yes
+	is_triggered_only = yes
+		
+	
+	option = {		# Disband the Janissaries
+		name = janissary_decadence.100.a
+	}
+}
+

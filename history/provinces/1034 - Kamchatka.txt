@@ -1,0 +1,33 @@
+#1034 - Kamchatka
+
+
+culture = kamchatkan
+religion = tengri_pagan_reformed
+capital = "Kamchatka"
+
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+native_size = 50
+native_ferocity = 2
+native_hostileness = 5
+
+
+
+
+discovered_by = HOD
+discovered_by = CHU
+discovered_by = CHV
+discovered_by = KMC
+
+1647.1.1 = { discovered_by = RUS } # V. Atlasov
+
+1732.1.1 = {
+	owner = RUS
+	controller = RUS
+	culture = russian
+	religion = orthodox
+} # Conquered by Russia
+1740.1.1 = { capital = "Petropavlovsk" }
+1757.1.1 = { add_core = RUS }

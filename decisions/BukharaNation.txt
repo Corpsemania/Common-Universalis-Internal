@@ -1,0 +1,143 @@
+country_decisions = {
+
+	bukharan_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_bukhara_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+			      culture_group = south_turkic
+            primary_culture  = kirgiz
+            tag = SHY
+            }
+			has_reform =  steppe_horde
+			NOT = { exists = BUK }			
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 5
+				}
+			}
+			NOT = { has_country_flag = bukharan_nation }
+		}
+		provinces_to_highlight = {
+			province_id = 442
+			province_id = 454
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			has_institution = feudalism
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			owns_core_province = 442 #Bukhara
+			owns_core_province = 454 #Samarkand
+			NOT = { 
+				overlord_of = SIB
+			}
+		}
+		effect = {
+			set_country_flag = bukharan_nation
+			442 = {
+				move_capital_effect = yes
+			}
+			change_tag = BUK
+			change_primary_culture = uzbehk
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			add_prestige = 25
+			if = {
+				limit = {
+					NOT = { has_global_flag = bukhara_formed }
+				}
+				442 = {
+					add_base_manpower = 2 #Only the first time Bukhara is formed by anyone.
+				}
+			}
+			hidden_effect = {			
+                         if = {
+                               limit = { 
+                                        NOT = { exists = KZH } 
+                                        }
+                               every_province = {
+				                                         limit = {
+				                                         AND = {
+				                                         has_terrain = steppe				              
+                                                 owned_by = ROOT
+                                                 } }
+                                                 add_core = KZH                             
+                                                 } 
+                                        release = KZH
+                               }
+                         if = {
+                               limit = { exists = KZH }
+                                        every_province = {
+				                                         limit = {
+				                                         AND = {
+				                                         has_terrain = steppe				              
+                                                 owned_by = ROOT
+                                                 } }
+                                                 add_core = KZH
+                                                 cede_province = KZH                             
+                                                 } 
+                               }
+                         if = {
+                               limit = { 
+                                        NOT = { exists = SIB } 
+                                        }
+                                        release = SIB
+                                        }
+                         if = {
+                               limit = { exists = SIB }
+                                        every_province = {
+				                                         limit = {
+				                                          AND = {
+				                                         is_core = SIB				              
+                                                 owned_by = ROOT
+                                                 } }                                                 
+                                                 cede_province = SIB                             
+                                                 } 
+                               } 
+                               every_owned_province = { cu_reset_cultural_acceptance = yes }              
+                         }		
+			add_permanent_claim = 441 #Khiva
+			add_permanent_claim = 444 #Charjuy
+			add_permanent_claim = 453 #Qarshi
+			add_permanent_claim = 454 #Samarkand
+			add_permanent_claim = 457 #Tashkent
+			add_permanent_claim = 1967 #Khujand
+			add_permanent_claim = 1973 #Urgench
+			add_permanent_claim = 2363 #Khujand
+			add_government_reform = becomes_monarchy_reform
+			add_government_reform = court_despotism
+			add_government_reform = mandate_system
+			add_government_reform = feudal_conscription
+			change_technology_group = muslim
+			change_unit_type = muslim			
+			set_global_flag = bukhara_formed
+			set_country_flag = settled_steppe_horde
+			country_event = { id = ideagroups.1 } #Swap Ideas		
+			set_country_flag = formed_bukhara_flag
+		}
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { tag = SHY }
+			}
+		}
+	}
+}

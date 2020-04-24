@@ -1,0 +1,19 @@
+1 = {
+	#max_states = 1
+}
+2 = {
+	diplomatic_reputation = 0.5
+	improve_relation_modifier = 0.05
+    #max_states = 3
+	#global_autonomy = -0.01	
+	#yearly_absolutism = 0.025	
+}
+
+3 = {
+	diplomatic_reputation = 1
+    #max_states = 5
+	diplomats = 1	
+	improve_relation_modifier = 0.10
+	#global_autonomy = -0.03	
+	#yearly_absolutism = 0.075		
+}

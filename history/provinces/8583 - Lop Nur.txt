@@ -1,0 +1,22 @@
+#709 - Alxa
+
+owner = CHG
+controller = CHG
+add_core = CHG
+culture = yughur
+religion = vajrayana
+capital = "Lop"
+trade_goods = wool
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 0
+is_city = yes
+
+
+
+discovered_by = chinese
+discovered_by = nomad_group
+
+
+

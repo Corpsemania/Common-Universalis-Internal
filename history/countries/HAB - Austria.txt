@@ -1,0 +1,75 @@
+government = monarchy
+add_government_reform = feudalism_reform
+government_rank = 1
+primary_culture = austrian
+religion = catholic
+technology_group = western
+capital = 134 # Wien
+historical_friend = HUN
+historical_rival = TUR
+historical_rival = FRA
+national_focus = ADM
+
+1395.8.29 = {
+	monarch = {
+		name = "Albrecht IV"
+		dynasty = "von Habsburg"
+		adm = 1
+		dip = 1
+		mil = 3
+	}
+}
+
+1397.8.10 = {
+	heir = {
+		name = "Albrecht"
+		monarch_name = "Albrecht V"
+		dynasty = "von Habsburg"
+		birth_date = 1397.8.10
+		death_date = 1439.10.27
+		claim = 95
+		adm = 1
+		dip = 1
+		mil = 3
+	}
+}
+
+1404.9.14 = {
+	monarch = {
+		name = "Albrecht V"
+		dynasty = "von Habsburg"
+		birth_date = 1397.8.10
+		adm = 1
+		dip = 1
+		mil = 3
+	}
+}
+
+
+1439.10.27 = {
+	monarch = {
+		name = "Friedrich III"
+		dynasty = "von Habsburg"
+		birth_date = 1415.9.21
+		adm = 2
+		dip = 5
+		mil = 1
+	}
+	
+	clear_scripted_personalities = yes
+	add_ruler_personality = careful_personality
+}
+
+1440.2.22 = {
+	heir = {
+		name = "Ladislaus Postumus"
+		monarch_name = "Ladislaus Postumus"
+		dynasty = "von Habsburg"
+		birth_date = 1440.2.22
+		death_date = 1457.11.24
+		adm = 3
+		dip = 3
+		mil = 2
+	}
+}
+

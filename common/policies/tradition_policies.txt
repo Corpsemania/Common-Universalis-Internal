@@ -1,0 +1,371 @@
+warrior_class = {
+	monarch_power = ADM
+
+
+	potential = {
+		has_idea_group = aristocracy_ideas
+		has_idea_group = tradition_ideas
+		OR = {
+			full_idea_group = aristocracy_ideas
+			full_idea_group = tradition_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = aristocracy_ideas
+		full_idea_group = tradition_ideas
+	}
+
+
+	global_tax_modifier = -0.10
+	army_tradition = 1
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			religious_unity = 1
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { religious_unity = 0.8 }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { religious_unity = 0.6 }
+		}			
+		modifier = {
+			factor = 1.5
+			NOT = { religious_unity = 0.4 }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { religious_unity = 0.2 }
+		}			
+	}
+
+}
+
+sacrificial_rites = {
+	monarch_power = MIL
+
+
+	potential = {
+		has_idea_group = offensive_ideas
+		has_idea_group = tradition_ideas
+		OR = {
+			full_idea_group = offensive_ideas
+			full_idea_group = tradition_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = offensive_ideas
+		full_idea_group = tradition_ideas
+	}
+
+
+	land_morale = 0.10
+	ae_impact = 0.10
+
+	ai_will_do = {
+		factor = 1	
+	}
+
+}
+
+defend_our_custom = {
+	monarch_power = ADM
+
+
+	potential = {
+		has_idea_group = defensive_ideas
+		has_idea_group = tradition_ideas
+		OR = {
+			full_idea_group = defensive_ideas
+			full_idea_group = tradition_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = defensive_ideas
+		full_idea_group = tradition_ideas
+	}
+
+
+	global_missionary_strength = 0.01
+	tolerance_heathen = -2
+	tolerance_heretic = -1
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			religious_unity = 1
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { religious_unity = 0.8 }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { religious_unity = 0.6 }
+		}			
+		modifier = {
+			factor = 1.5
+			NOT = { religious_unity = 0.4 }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { religious_unity = 0.2 }
+		}			
+	}
+}
+
+levy_training = {
+	monarch_power = MIL
+
+
+	potential = {
+		has_idea_group = quality_ideas
+		has_idea_group = tradition_ideas
+		OR = {
+			full_idea_group = quality_ideas
+			full_idea_group = tradition_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = quality_ideas
+		full_idea_group = tradition_ideas
+	}
+
+
+	infantry_power = 0.15
+	land_maintenance_modifier = 0.1
+
+	ai_will_do = {
+		factor = 1		
+	}
+}
+
+self_sufficient_garrison = {
+	monarch_power = MIL
+
+
+	potential = {
+		has_idea_group = quantity_ideas
+		has_idea_group = tradition_ideas
+		OR = {
+			full_idea_group = quantity_ideas
+			full_idea_group = tradition_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = quantity_ideas
+		full_idea_group = tradition_ideas
+	}
+
+
+	global_manpower_modifier = -0.1
+	fort_maintenance_modifier = -0.15
+
+	ai_will_do = {
+		factor = 1		
+	}
+}
+
+treasure_fleet = {
+	monarch_power = ADM
+
+
+	potential = {
+		has_idea_group = naval_ideas
+		has_idea_group = tradition_ideas
+		OR = {
+			full_idea_group = naval_ideas
+			full_idea_group = tradition_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = naval_ideas
+		full_idea_group = tradition_ideas
+	}
+
+
+	global_foreign_trade_power = 0.10
+	heavy_ship_cost = 0.1
+
+	ai_will_do = {
+		factor = 1		
+	}
+}
+
+eunuch_agency = {
+	monarch_power = ADM
+
+
+	potential = {
+		has_idea_group = spy_ideas
+		has_idea_group = tradition_ideas
+		OR = {
+			full_idea_group = spy_ideas
+			full_idea_group = tradition_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = spy_ideas
+		full_idea_group = tradition_ideas
+	}
+
+
+	spy_offence = 0.2
+	yearly_corruption = 0.05
+
+	ai_will_do = {
+		factor = 1		
+	}
+}
+
+pivot_alliance = {
+	monarch_power = DIP
+
+
+	potential = {
+		has_idea_group = diplomatic_ideas
+		has_idea_group = tradition_ideas
+		OR = {
+			full_idea_group = diplomatic_ideas
+			full_idea_group = tradition_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = diplomatic_ideas
+		full_idea_group = tradition_ideas
+	}
+
+
+	improve_relation_modifier = 0.25
+	advisor_pool = -1
+
+	ai_will_do = {
+		factor = 1		
+	}
+}
+
+entrepot_trade = {
+	monarch_power = DIP
+
+
+	potential = {
+		has_idea_group = trade_ideas
+		has_idea_group = tradition_ideas
+		OR = {
+			full_idea_group = trade_ideas
+			full_idea_group = tradition_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = trade_ideas
+		full_idea_group = tradition_ideas
+	}
+
+
+	global_own_trade_power = 0.15
+	trade_steering = -0.15
+
+	ai_will_do = {
+		factor = 1		
+	}
+}
+
+
+overseas_cultivation = {
+	monarch_power = DIP
+
+
+	potential = {
+		has_idea_group = exploration_ideas
+		has_idea_group = tradition_ideas
+		OR = {
+			full_idea_group = exploration_ideas
+			full_idea_group = tradition_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = exploration_ideas
+		full_idea_group = tradition_ideas
+	}
+
+
+	global_colonial_growth = 15
+	development_cost = 0.06
+
+	ai_will_do = {
+		factor = 1		
+	}
+}
+
+whale_fishery = {
+	monarch_power = DIP
+
+
+	potential = {
+		has_idea_group = maritime_ideas
+		has_idea_group = tradition_ideas
+		OR = {
+			full_idea_group = maritime_ideas
+			full_idea_group = tradition_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = maritime_ideas
+		full_idea_group = tradition_ideas
+	}
+
+
+	global_tax_income = 12
+	naval_maintenance_modifier = 0.1
+
+	ai_will_do = {
+		factor = 1	
+                modifier = {
+			factor = 0
+			num_of_ports = 10
+		}		
+	}
+}
+
+cultural_assimilation_cu = {
+	monarch_power = DIP
+
+
+	potential = {
+		has_idea_group = expansion_ideas
+		has_idea_group = tradition_ideas
+		OR = {
+			full_idea_group = expansion_ideas
+			full_idea_group = tradition_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = expansion_ideas
+		full_idea_group = tradition_ideas
+	}
+
+
+	advisor_cost = 0.1
+	culture_conversion_cost = -0.1
+
+	ai_will_do = {
+		factor = 1	
+	}
+}

@@ -1,0 +1,175 @@
+graphical_culture = westerngfx
+
+color = { 241  238  61 }
+
+revolutionary_colors = { 241  238  61 }
+
+preferred_religion = reformed
+
+historical_score = 1500
+
+historical_idea_groups = {
+	economic_ideas
+	defensive_ideas	
+	diplomatic_ideas
+	innovativeness_ideas
+	trade_ideas
+	administrative_ideas	
+	humanist_ideas
+	quality_ideas
+}
+
+historical_units = {
+	western_medieval_infantry
+	chevauchee
+	western_men_at_arms
+        gendarme 
+	swiss_landsknechten
+	dutch_maurician
+	french_caracolle
+	anglofrench_line
+	french_dragoon
+	french_bluecoat
+	french_cuirassier
+	french_impulse
+	mixed_order_infantry
+	open_order_cavalry
+	napoleonic_square
+	napoleonic_lancers
+}
+
+
+# See Holland.txt for the details
+
+monarch_names = {
+	"Willem #0" = 100
+	"Lodewijk #0" = 40
+	"Frederik Hendrik #0" = 20
+	"Maurits #0" = 20
+	"Philip Willem #0" = 15
+	"Hendrik Lodewijk #0" = 15
+	"Karel #0 Lodewijk" = 15
+	"Lodewijk #0 Karel" = 15
+	"Abraham #0" = 0
+	"Adam #0" = 0
+	"Adriaen #0" = 10
+	"Albert #0" = 0
+	"Albert Jansz #0" = 0
+	"Andries #0" = 5
+	"Anthonis #0" = 5
+	"Anthonis Hendrik #0" = 0
+	"Arent #0" = 0
+	"Bastiaen #0" = 0
+	"Claes #0" = 5
+	"Coert #0" = 0
+	"Cornelis #0" = 10
+	"Cornelis Jacobsz #0" = 0
+	"Cornelis Jan #0" = 0
+	"Cristoffel #0" = 0
+	"Dirck #0" = 5
+	"Egbert #0" = 0
+	"Floris #0" = 0
+	"Frans #0" = 0
+	"Frans Willem #0" = 0
+	"Frederick #0" = 0
+	"Gerard #0" = 0
+	"Gerrit #0" = 5
+	"Gerrit Jacob #0" = 0
+	"Gijsbert #0" = 0
+	"Gillis #0" = 0
+	"Harmen #0" = 0
+	"Hendrik #0" = 10
+	"Herman Willem #0" = 0
+	"Jacob #0" = 20
+	"Jacob Cornelisz #0" = 0
+	"Jan #0" = 75
+	"Jan Baptiste #0" = 0
+	"Jan Cornelisz #0" = 0
+	"Jan Elias #0" = 0
+	"Jan Gerritsz #0" = 0
+	"Jan Jacob #0" = 0
+	"Jan Willem #0" = 0
+	"Jaspar #0" = 0
+	"Jeremias #0" = 0
+	"Joos #0" = 5
+	"Joris #0" = 0
+	"Karel #0" = 0
+	"Laurens #0" = 0
+	"Laurens Pietersz #0" = 0
+	"Lenaert #0" = 0
+	"Maerten #0" = 0
+	"Matthys #0" = 0
+	"Michiel #0" = 0
+	"Nicolaes #0" = 0
+	"Philip #0" = 0
+	"Pieter #0" = 20
+	"Pieter Jansz #0" = 0
+	"Pouwels #0" = 0
+	"Reinier #0" = 0
+	"Samuel #0" = 0
+	"Symon #0" = 0
+	"Willem Cornelisz #0" = 0
+	"Willem Hendrik #0" = 0
+	"Willem Pietersz #0" = 0
+	"Wouter #0" = 0
+}
+
+leader_names = {
+	"Alting" "Appelman" 
+	"Backer" "Basgen" "Bavinck" "Bicker" "Boelens" "Boom" "Boreel" "Brouwer" "Burgh" "Buys" 
+	"Camphuys" "Coomans" "Corver" "Cromhout" "Daendels" "Duyvel"
+	"de Bruijn" "de Graeff" "de Grande" "de Haan" "de Haze" "de Houtman" "de Jonge" "de Klerk" "de Laet" "de Lange" "de Maets" "de Meij" "de Moor" 
+	"de Ruyter" "de Veer" "de Verwer" "de Vicq" "de Vlamingh" "de Vries" "de Vroede" "de Vry" "de Wael" "de Weert" "de Wisselaer" "de Witt" 
+	"Gartman" "Geelvinck" "Graefland" 
+	"Hartog" "Hasselaer" "Hollandt" "Hooft" "Hudde" "Huydecoper" "Huyghens" "Huysman" 
+	"Kaekmes" "Kieft" "Kortenaer" "Krul" "Kuyper" 
+	"Leusden" "Maetsuycker" "Munter" "Nuyts" "Opmeer" 
+	"Reael" "Rendorp" "Reynst" "Roggeveen" "Ruysch" 
+	"Sautyn" "Schaep" "Sillemoer" "Speelman" "Spiegel" "Stanssen" "Steyn" "Stuyver" "Stuyvesant" "Swickers" 
+	"ten Hove" "Trip" "Tromp" "Valckenier" 
+	"van Aarssens" "van Amerongen" "van Baerle" "van Bambeek" "van Berghe" "van Beuningen" "van Beverwaarde" "van Bleiswijk" "van Borselen" "van Brandwijk" 
+	"van Breen" "van Cloon" "van Collen" "van Cuyck" "van de Poll" "van de Spiegel" "van de Vecht" "van de Voort" "van de Wert" "van den Bempden" "van den Berge" 
+	"van den Bosch" "van der Anxter" "van der Burgh" "van der Dussen" "van der Haar" "van der Heim" "van der Kerckhovenn" "van der Lijn" "van der Meer" 
+	"van der Parra" "van der Schelling" "van der Stel" "van der Vorm" "van Diemen" "van Doorn" "van Ecke" "van Egmont" "van Eijck" "van Empel" "van Everdingen" 
+	"van Foreest" "van Gelre" "van Ghistele" "van Goens" "van Goorle" "van Gruuthuse" "van Halmael" "van Heemskerck" "van Helsdingen" "van Hoorn" "van Hoornbeek" 
+	"van Hoppen" "van Hoppen" "van Imhoff" "van Lalaing" "van Lannoy" "van Leyden" "van Loon" "van Marwijck" "van Masch" "van Meurs" "van Nassau" "van Nassau-Breda" 
+	"van Neck" "van Nijvelt" "van Noort" "van Oldenbarnevelt" "van Ooy" "van Outhoorn" "van Overstraten" "van Rensselaer " "van Riebeeck" "van Riemsdijk" "van Rietvelt" 
+	"van Rijn" "van Schellinkhout" "van Slingelandt" "van Someren" "van Spilbergen" "van Steenre" "van Stryen" "van Swol" "van Teylingen" "van Twiller" "van Tyell" 
+	"van Veen" "van Vlaanderen" "van Vlooswyck" "van Warwyck" "van Wassenaer" "van Waveren" "van Zeeberg" "van Zuydoort" 
+	"Velters" "Verhulst" "Verschuere" "Verstegen" "Witsen" "Wormbouts" "Woutman" "Zwaardecroon"
+}
+
+ship_names = {
+	"Aartsengel Michael" "Admiraal Generaal" "Beurs van Amsterdam" "Blauwe Reiger" "Bloys van Treslong" "Burcht van Leiden" "Commercie van Amsterdam" "Dom van Utrecht"
+	"Drie Gebroeders" "David's Drie Helden" "Drie Koningen" "d'Unij" "Elf Steden" "Engel Gabriel" "Frederik Hendrik" "Gewapenden Ruijter" "Gouden Dolfijn" "Gouden Leeuw"
+	"Gouden Maan" "Graaf Willem" "Groot Hollandia" "Groote Liefde" "Halve Maan" "Hof Sint Janskerken" "Hof van Rheenen" "Hof van Souburg" "Hof van Zeeland"
+	"Hollandsche Tuin" "Huijs te Zwieten" "Huis te Jaarsveld" "Huis te Kruiningen" "Huis te Oostewijk" "Huis te Zwieten" "Huis Tijdverdrijf" "Huis van Groeningen"
+	"Huis van Nassau" "Huis van Raaphorst" "Kasteel van Medemblik" "Katwijk op Zee" "Keurvorst van Brandenburg" "Keurvorst van Saksen" "Keurvorstin van Brandenburg"
+	"Klein Frisia" "Klein Hollandia" "Klein Zutphen" "Kleine Harder" "Koning William" "Louisa Hendrika" "Maagd van Enkhuizen" "Marcus Curtius" "Postiljon van Smyrna"
+	"Prins Friso" "Prins Hendrik Casimir" "Prins Hendrik" "Prins Maurits" "Prins te Paard" "Prins van Portugal" "Prins Willem" "Prinses Aemilia" "Prinses Albertina"
+	"Prinses Maria" "Prinses Roijael Maria" "Provincie Utrecht" "Provincie van Holland" "Raadhuis van Haarlem" "Roode Leeuw" "Salomons Oordeel" "Schager Roos"
+	"Sint Andries" "Sint Jacob" "Sint Laurens" "Sint Maria" "Sint Matheeus" "Sint Pieter" "Stad en Lande" "Stad Gouda" "Stad Haarlem" "Stad Utrecht" "Ter Goes"
+	"Ter Veere" "Verenigde Provinciën" "Vergulden Draeck" "Vliegende Vis" "Vogel Phesant" "Vogel Struis" "Wakende Boei" "Wakende Kraan" "Wapen van Edam"
+	"Wapen van Haarlem" "Wapen van Holland" "Wapen van Leijden" "Wapen van Nassau" "Wapen van Utrecht" "Wapen van Zeeland" "Willem van Nieuhoff" "Witte Lam"
+	"Zwarte Arend" "Zwarte Bul" Aemilia Agatha Ajax Akerboom Alida Alkmaar Alliantie Alphen Amalia Amazoon Amphitrite Amsterdam Arend Argo Arnhem Assendelft Banier
+	Barbestein Batavia Batavier Beekvliet Beemster Beemsterlust Beliona Beschermer Boekenrode Boetzelaar Bommel Braave Brakel Breda Brederode Brielle Broederschap
+	Brutus Buis Bul Burgvliet Caleb Callantsoog Castricum Catharina Cerberus Convertine Curacao Dalem Damiaten Dankbaarheid Delfland Delft Deutekom Deventer Diepenheim
+	Dieren Doesburg Doggersbank Dolfijn Dordrecht Draak Drakestein Drente Drielst Duinveld Duivenvoorde Echo Edam Eendracht Eenhoorn Elswoud Engel Erfprins
+	Fortuin Friesland Galei Gelderland Geloof Gideon Glindhorst Goes Gouda Gouderak Haarlem Haarlemmerhout Hardenbroek Harderwijk Havik Hector Heemstede Hersteller
+	Het Loo Hilverbeek Hilversum Hollandia Hoop Jaarsveld Jonas Jozua Jupiter Kalandsoog Kameel Kampen Kampveere Kennemerland Koevorden Komeet Kooge Landman Landskroon
+	Leeuwarden Leeuwenhorst Liefde Loosdregt Luipaard Lynx Maan Maarseveen Maas Margarethe Mars Matenes Medusa Meermin Mercuur Middelbare Middelburg Morgenstar
+	Moriaanshoofd Naerden Neptunus Noorderkwartier Olifant Omlandia Oostergo Oosterwijk Oranjeboom Oudshoorn Overijssel Overwinnaer Pacificatie Parel Pelikaan Pijl
+	Post Prins Raaf Ramhorst Reebok Reigersberg Rijnland Rosenkranz Salamander Schieland Schonauwen Souterwoude Spiegel Spion Starrenburg Stavoren Susanna Tholen
+	Tijdverdrijf Tijger Triton Tromp Unie Utrecht Valk Veere Velsen Vlaming Vlissingen Voorzichtigheid Vrede Vrijheid Waag Waakzamheid Walcheren Wassenaer Westergo
+	Westfriesland Weststellingwerft Windhond Wolf Wolfswinkel Wreker Zeelandia Zeepaard Zephier Zierikzee Zon Zuiderhuis Zuileveld Zutphen Zwaan Zwaluw Zwanenburg
+	Zwieten
+}
+
+
+army_names = {
+	"Staatse Leger" "Prinselijk Leger" "Leger van $PROVINCE$" 
+}
+
+fleet_names = {
+	"Staatse Vloot" "Noordzee Vloot" "Oostzee Vloot" "Oost-Indië Vloot" "West-Indië Vloot" "Middellandsezee Vloot"	"Vloot van $PROVINCE$" 
+}

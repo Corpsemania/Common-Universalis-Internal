@@ -1,0 +1,17 @@
+#1193 - Menabe
+
+
+culture = madagasque
+religion = shamanism #Fetishism
+capital = "Morondava"
+
+hre = no
+base_tax = 3
+base_production = 3
+base_manpower = 3
+native_size = 40
+native_ferocity = 4
+native_hostileness = 9
+discovered_by = east_african
+
+1500.8.20 = { discovered_by = POR } #Diego Dias

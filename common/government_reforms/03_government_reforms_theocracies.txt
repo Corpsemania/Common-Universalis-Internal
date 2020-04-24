@@ -1,0 +1,231 @@
+theocracy_mechanic = {
+	has_devotion = yes
+	rulers_can_be_generals = no
+	heirs_can_be_generals = no
+	royal_marriage = no
+	different_religion_acceptance = -20
+	different_religion_group_acceptance = -50
+	religion = yes
+	heir = yes
+	basic_reform = yes # = invisible/does not take up a slot
+	valid_for_nation_designer = no
+	modifiers = {
+		min_autonomy = 15
+		tolerance_own = 1
+		religious_unity = 0.1
+	}
+}
+
+#Leadership
+leading_clergy_reform = {
+    potential = {
+		NOT = { adm_tech = 1  }
+	}
+	allow_normal_conversion = no
+	legacy_equivalent = theocratic_government
+	icon = "religious_leader"
+	valid_for_nation_designer = yes
+	nation_designer_cost = 0
+	
+}
+
+monastic_order_reform = {
+	potential = {
+		has_reform = monastic_order_reform
+	}
+	rulers_can_be_generals = yes
+	heirs_can_be_generals = yes
+	valid_for_nation_designer = yes
+	nation_designer_cost = 10
+	icon = "monks"
+	allow_normal_conversion = no
+	legacy_equivalent = monastic_order_government
+	monastic = yes
+	lock_level_when_selected = yes
+	fixed_rank = 1
+}
+
+papacy_reform = {
+	potential = {
+		tag = PAP
+	}
+
+	
+	valid_for_nation_designer = no
+	icon = "papacy"
+	allow_normal_conversion = no
+	legacy_equivalent = papal_government
+	papacy = yes
+	allow_convert = no
+	lock_level_when_selected = yes
+	fixed_rank = 2
+
+	custom_attributes = {
+		locked_government_type = yes
+	}
+}
+
+
+#Internal vs External Mission
+
+internal_mission_reform = {
+	icon = "clergyman"
+	allow_normal_conversion = no
+	potential = {
+		NOT = { adm_tech = 1  }
+	}
+	modifiers = {
+		max_states = 1
+	}
+}
+
+external_mission_reform = {
+	icon = "soldiers"
+	allow_normal_conversion = no
+	potential = {
+		NOT = { adm_tech = 1  }
+	}
+	modifiers = {
+		max_states = 1
+	}
+}
+
+#Divine Cause
+
+safeguard_holy_sites_reform = {
+	icon = "church"
+	allow_normal_conversion = no
+	potential = {
+		NOT = { adm_tech = 1  }
+	}
+	modifiers = {
+		max_states = 1
+	}
+}
+
+combat_heresy_reform = {
+	icon = "soldiers_2"
+	allow_normal_conversion = no
+	potential = {
+		NOT = { adm_tech = 1  }
+	}
+	modifiers = {
+		max_states = 1
+	}
+}
+
+expel_heathens_reform = {
+	icon = "landscape"
+	allow_normal_conversion = no
+	potential = {
+		NOT = { adm_tech = 1  }
+	}
+	modifiers = {
+		max_states = 1
+	}
+}
+
+#Clergy in Administration
+
+subservient_administrators_reform = {
+	icon = "paper_with_seal"
+	allow_normal_conversion = no
+	potential = {
+		NOT = { adm_tech = 1  }
+	}
+	modifiers = {
+		max_states = 1
+	}
+}
+
+religious_administrators_reform = {
+	icon = "paper_with_seal_3"
+	allow_normal_conversion = no
+	potential = {
+		NOT = { adm_tech = 1  }
+	}
+	modifiers = {
+		max_states = 1
+	}
+}
+
+#Secularization
+
+maintain_religious_head_reform = {
+	icon = "nobleman"
+	allow_normal_conversion = no
+	potential = {
+		NOT = { adm_tech = 1  }
+	}
+	modifiers = {
+		max_states = 1
+	}
+}
+
+hereditary_religious_leadership_reform = {
+	potential = {
+		NOT = { adm_tech = 1  }
+	}
+	icon = "muslim_highlighted"
+	allow_normal_conversion = no
+	effect = {
+		set_country_flag = populists_in_government
+		change_government = monarchy
+		add_government_reform = feudal_theocracy
+	}
+	ai = {
+		factor = 0
+	}
+}
+
+crown_leader_reform = {
+	icon = "crown_highlighted"
+	allow_normal_conversion = no
+	potential = {
+		NOT = { adm_tech = 1  }
+	}
+	trigger = {
+		NOT = { has_government_attribute_short_desc = locked_government_type }
+	}
+	effect = {
+		set_country_flag = populists_in_government
+		lose_reforms = 2
+		change_government = monarchy
+	}
+	ai = {
+		factor = 0
+	}
+}
+
+proclaim_republic_reform = {
+	icon = "parliament_highlighted"
+	allow_normal_conversion = no
+	potential = {
+		NOT = { adm_tech = 1  }
+	}
+	trigger = {
+		NOT = { has_government_attribute_short_desc = locked_government_type }
+	}
+	effect = {
+		set_country_flag = populists_in_government
+		lose_reforms = 1
+		change_government = republic
+	}
+	ai = {
+		factor = 0
+	}
+}
+
+battle_pope_reform = {
+	icon = "soldiers_6"
+	allow_normal_conversion = no
+	potential = {
+		NOT = { adm_tech = 1  }
+	}
+
+	rulers_can_be_generals = yes
+
+	modifiers = {
+		max_states = 1
+	}
+}

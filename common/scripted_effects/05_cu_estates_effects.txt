@@ -1,0 +1,2280 @@
+burghers_change_reform_effect = {
+	trigger_switch = {
+		on_trigger = has_country_flag
+		b_ask_for_tax_policy_5 = {
+			add_government_reform = tax_policy_5
+			clr_country_flag = b_ask_for_tax_policy_5
+		}
+		b_ask_for_tax_policy_4 = {
+			add_government_reform = tax_policy_4
+			clr_country_flag = b_ask_for_tax_policy_4
+		}
+		b_ask_for_tax_policy_3 = {
+			add_government_reform = tax_policy_3
+			clr_country_flag = b_ask_for_tax_policy_3
+		}
+		b_ask_for_tax_policy_2 = {
+			add_government_reform = tax_policy_2
+			clr_country_flag = b_ask_for_tax_policy_2
+		}
+		b_ask_for_tax_policy_1 = {
+			add_government_reform = tax_policy_1
+			clr_country_flag = b_ask_for_tax_policy_1
+		}
+		b_ask_for_cu_religious_policy_5 = {
+			add_government_reform = cu_religious_policy_5
+			clr_country_flag = b_ask_for_cu_religious_policy_5
+		}
+		b_ask_for_cu_religious_policy_4 = {
+			add_government_reform = cu_religious_policy_4
+			clr_country_flag = b_ask_for_cu_religious_policy_4
+		}
+		b_ask_for_cu_religious_policy_3 = {
+			add_government_reform = cu_religious_policy_3
+			clr_country_flag = b_ask_for_cu_religious_policy_3
+		}
+		b_ask_for_cu_religious_policy_2 = {
+			add_government_reform = cu_religious_policy_2
+			clr_country_flag = b_ask_for_cu_religious_policy_2
+		}
+		b_ask_for_cu_religious_policy_1 = {
+			add_government_reform = cu_religious_policy_1
+			clr_country_flag = b_ask_for_cu_religious_policy_1
+		}
+		b_ask_for_cu_cultural_policy_1 = {
+			add_government_reform = cu_cultural_policy_1
+			clr_country_flag = b_ask_for_cu_cultural_policy_1
+		}
+		b_ask_for_cu_cultural_policy_2 = {
+			add_government_reform = cu_cultural_policy_2
+			clr_country_flag = b_ask_for_cu_cultural_policy_2
+		}
+		b_ask_for_cu_cultural_policy_3 = {
+			add_government_reform = cu_cultural_policy_3
+			clr_country_flag = b_ask_for_cu_cultural_policy_3
+		}
+		b_ask_for_cu_cultural_policy_4 = {
+			add_government_reform = cu_cultural_policy_4
+			clr_country_flag = b_ask_for_cu_cultural_policy_4
+		}
+		b_ask_for_cu_cultural_policy_5 = {
+			add_government_reform = cu_cultural_policy_5
+			clr_country_flag = b_ask_for_cu_cultural_policy_5
+		}
+		b_ask_for_volunteer_training = {
+			add_government_reform = volunteer_training
+			clr_country_flag = b_ask_for_volunteer_training
+		}
+		b_ask_for_standing_army = {
+			add_government_reform = standing_army
+			clr_country_flag = b_ask_for_standing_army
+		}
+		b_ask_for_limited_conscription = {
+			add_government_reform = limited_conscription
+			clr_country_flag = b_ask_for_limited_conscription
+		}
+		b_ask_for_education_policy_burghers = {
+			add_government_reform = education_policy_burghers
+			clr_country_flag = b_ask_for_education_policy_burghers
+		}
+		b_ask_for_education_policy_public = {
+			add_government_reform = education_policy_public
+			clr_country_flag = b_ask_for_education_policy_public
+		}
+		b_ask_for_parliament_reform = {
+			add_government_reform = parliament_reform
+			clr_country_flag = b_ask_for_parliament_reform
+		}
+		b_ask_for_bureaucratic = {
+			add_government_reform = bureaucratic
+			clr_country_flag = b_ask_for_bureaucratic
+		}
+		b_ask_for_constitution = {
+			add_government_reform = constitution_reform
+			clr_country_flag = b_ask_for_constitution
+		}
+		b_ask_for_burghers_election = {
+			add_government_reform = burghers_election
+			clr_country_flag = b_ask_for_burghers_election
+		}
+		b_ask_for_universal_suffrage = {
+			add_government_reform = universal_suffrage
+			clr_country_flag = b_ask_for_universal_suffrage
+		}
+	}
+}
+
+church_change_reform_effect = {
+	trigger_switch = {
+		on_trigger = has_country_flag
+		c_ask_for_tax_policy_1 = {
+			add_government_reform = tax_policy_1
+			clr_country_flag = c_ask_for_tax_policy_1
+		}
+		c_ask_for_tax_policy_2 = {
+			add_government_reform = tax_policy_2
+			clr_country_flag = c_ask_for_tax_policy_2
+		}
+		c_ask_for_tax_policy_3 = {
+			add_government_reform = tax_policy_3
+			clr_country_flag = c_ask_for_tax_policy_3
+		}
+		c_ask_for_tax_policy_4 = {
+			add_government_reform = tax_policy_4
+			clr_country_flag = c_ask_for_tax_policy_4
+		}
+		c_ask_for_tax_policy_5 = {
+			add_government_reform = tax_policy_5
+			clr_country_flag = c_ask_for_tax_policy_5
+		}
+		c_ask_for_cu_religious_policy_1 = {
+			add_government_reform = cu_religious_policy_1
+			clr_country_flag = c_ask_for_cu_religious_policy_1
+		}
+		c_ask_for_cu_religious_policy_2 = {
+			add_government_reform = cu_religious_policy_2
+			clr_country_flag = c_ask_for_cu_religious_policy_2
+		}
+		c_ask_for_cu_religious_policy_3 = {
+			add_government_reform = cu_religious_policy_3
+			clr_country_flag = c_ask_for_cu_religious_policy_3
+		}
+		c_ask_for_cu_religious_policy_4 = {
+			add_government_reform = cu_religious_policy_4
+			clr_country_flag = c_ask_for_cu_religious_policy_4
+		}
+		c_ask_for_cu_religious_policy_5 = {
+			add_government_reform = cu_religious_policy_5
+			clr_country_flag = c_ask_for_cu_religious_policy_5
+		}
+		c_ask_for_cu_cultural_policy_1 = {
+			add_government_reform = cu_cultural_policy_1
+			clr_country_flag = c_ask_for_cu_cultural_policy_1
+		}
+		c_ask_for_cu_cultural_policy_2 = {
+			add_government_reform = cu_cultural_policy_2
+			clr_country_flag = c_ask_for_cu_cultural_policy_2
+		}
+		c_ask_for_cu_cultural_policy_3 = {
+			add_government_reform = cu_cultural_policy_3
+			clr_country_flag = c_ask_for_cu_cultural_policy_3
+		}
+		c_ask_for_cu_cultural_policy_4 = {
+			add_government_reform = cu_cultural_policy_4
+			clr_country_flag = c_ask_for_cu_cultural_policy_4
+		}
+		c_ask_for_cu_cultural_policy_5 = {
+			add_government_reform = cu_cultural_policy_5
+			clr_country_flag = c_ask_for_cu_cultural_policy_5
+		}
+		c_ask_for_education_policy_church = {
+			add_government_reform = education_policy_church
+			clr_country_flag = c_ask_for_education_policy_church
+		}
+		c_ask_for_clergy_reform = {
+			add_government_reform = clergy_reform
+			clr_country_flag = c_ask_for_clergy_reform
+		}
+		c_ask_for_divine_law = {
+			add_government_reform = divine_law
+			clr_country_flag = c_ask_for_divine_law
+		}
+	}
+}
+
+noble_change_reform_effect = {
+	trigger_switch = {
+		on_trigger = has_country_flag
+		n_ask_for_tax_policy_2 = {
+			add_government_reform = tax_policy_2
+			clr_country_flag = n_ask_for_tax_policy_2
+		}
+		n_ask_for_tax_policy_3 = {
+			add_government_reform = tax_policy_3
+			clr_country_flag = n_ask_for_tax_policy_3
+		}
+		n_ask_for_tax_policy_4 = {
+			add_government_reform = tax_policy_4
+			clr_country_flag = n_ask_for_tax_policy_4
+		}
+		n_ask_for_tax_policy_5 = {
+			add_government_reform = tax_policy_5
+			clr_country_flag = n_ask_for_tax_policy_5
+		}
+		n_ask_for_oral_tradition = {
+			add_government_reform = noble_council
+			clr_country_flag = n_ask_for_noble_council
+		}
+		n_ask_for_noble_election = {
+			add_government_reform = noble_election
+			clr_country_flag = n_ask_for_noble_election
+		}
+		n_ask_for_feudalism = {
+			add_government_reform = cu_feudalism_reform
+			clr_country_flag = n_ask_for_feudalism
+		}
+		n_ask_for_self_governance = {
+			add_government_reform = self_governance
+			clr_country_flag = n_ask_for_self_governance
+		}
+		n_ask_for_education_policy_nobles = {
+			add_government_reform = education_policy_nobles
+			clr_country_flag = n_ask_for_education_policy_nobles
+		}
+		n_ask_for_cu_cultural_policy_4 = {
+			add_government_reform = cu_cultural_policy_4
+			clr_country_flag = n_ask_for_cu_cultural_policy_4
+		}
+		n_ask_for_cu_cultural_policy_3 = {
+			add_government_reform = cu_cultural_policy_3
+			clr_country_flag = n_ask_for_cu_cultural_policy_3
+		}
+		n_ask_for_cu_cultural_policy_2 = {
+			add_government_reform = cu_cultural_policy_2
+			clr_country_flag = n_ask_for_cu_cultural_policy_2
+		}
+		n_ask_for_cu_cultural_policy_1 = {
+			add_government_reform = cu_cultural_policy_1
+			clr_country_flag = n_ask_for_cu_cultural_policy_1
+		}
+		n_ask_for_feudal_conscription = {
+			add_government_reform = feudal_conscription
+			clr_country_flag = n_ask_for_feudal_conscription
+		}
+	}
+}
+
+else_change_reform_effect = {
+	trigger_switch = {
+		on_trigger = has_country_flag
+		e_ask_for_tax_policy_4 = {
+			add_government_reform = tax_policy_4
+			clr_country_flag = e_ask_for_tax_policy_4
+		}
+		e_ask_for_tax_policy_3 = {
+			add_government_reform = tax_policy_3
+			clr_country_flag = e_ask_for_tax_policy_3
+		}
+		e_ask_for_tax_policy_2 = {
+			add_government_reform = tax_policy_2
+			clr_country_flag = e_ask_for_tax_policy_2
+		}
+		e_ask_for_tax_policy_1 = {
+			add_government_reform = tax_policy_1
+			clr_country_flag = e_ask_for_tax_policy_1
+		}
+		e_ask_for_oral_tradition = {
+			add_government_reform = oral_tradition
+			clr_country_flag = e_ask_for_oral_tradition
+		}
+		e_ask_for_self_governance = {
+			add_government_reform = self_governance
+			clr_country_flag = e_ask_for_self_governance
+		}
+		e_ask_for_cu_cultural_policy_4 = {
+			add_government_reform = cu_cultural_policy_4
+			clr_country_flag = e_ask_for_cu_cultural_policy_4
+		}
+		e_ask_for_cu_cultural_policy_3 = {
+			add_government_reform = cu_cultural_policy_3
+			clr_country_flag = e_ask_for_cu_cultural_policy_3
+		}
+		e_ask_for_cu_cultural_policy_2 = {
+			add_government_reform = cu_cultural_policy_2
+			clr_country_flag = e_ask_for_cu_cultural_policy_2
+		}
+		e_ask_for_cu_cultural_policy_1 = {
+			add_government_reform = cu_cultural_policy_1
+			clr_country_flag = e_ask_for_cu_cultural_policy_1
+		}
+	}
+}
+
+cu_check_bur_reform = {
+	set_variable = { which = cu_var3 value = 0 }
+	#Burghers do things very differnently depending on their influence
+	if = { #Burghers have high influence to persue their vision
+		limit = { 
+			estate_influence = { estate = estate_burghers	influence = 40	}
+		}
+		#Central Power - persue parliament
+		if = {
+			limit = { has_reform = parliament_reform }
+			change_variable = { which = cu_var3 value = -5 }
+		}
+		else_if = { #Favors noble council if the 'noble' is consisted of burghers 
+			limit = { 
+				has_reform = noble_council
+				OR = {
+					has_reform = merchants_reform
+					has_reform = trading_city
+				}
+			}
+			change_variable = { which = cu_var3 value = -4 }
+		}
+		else = { #Against all other political power
+			change_variable = { which = cu_var3 value = 5 }
+		}
+		#Election - persue burghers election, universal suffrage is also acceptable
+		if = {
+			limit = { has_reform = burghers_election }
+			change_variable = { which = cu_var3 value = -5 }
+		}
+		else_if = {
+			limit = { has_reform = universal_suffrage }
+			change_variable = { which = cu_var3 value = -2 }
+		}
+		else = { #Outraged without election right
+			change_variable = { which = cu_var3 value = 6 }
+		}
+		#Law - persue constitution, against all other legislations
+		if = {
+			limit = { has_reform = constitution_reform }
+			change_variable = { which = cu_var3 value = -4 }
+		}
+		else = {
+			change_variable = { which = cu_var3 value = 4 }
+		}
+		#Province Governance - persue self governance,  bureaucracy is slightly favored, against feudalism and mandate system.
+		if = {
+			limit = { has_reform = self_governance }
+			change_variable = { which = cu_var3 value = -3 }
+		}
+		else_if = {
+			limit = { has_reform = bureaucratic }
+			change_variable = { which = cu_var3 value = -1 }
+		}
+		else = {
+			change_variable = { which = cu_var3 value = 3 }
+		}	
+	}
+	else = { #Without enough political power, the burghers will slightly support absolute monarchy to fight against other estate.
+		#Central Power - persue parliament
+		if = {
+			limit = { has_reform = parliament_reform }
+			change_variable = { which = cu_var3 value = -5 }
+		}
+		else_if = { #Favors noble council if the 'noble' is consisted of burghers 
+			limit = { 
+				has_reform = noble_council
+				OR = {
+					has_reform = merchants_reform
+					has_reform = trading_city
+				}
+			}
+			change_variable = { which = cu_var3 value = -4 }
+		}
+		else_if = { #Support monarch power to fight other estates
+			limit = { has_reform = court_despotism }
+			change_variable = { which = cu_var3 value = -2 }
+		}
+		else = { #Against all other estate power
+			change_variable = { which = cu_var3 value = 5 }
+		}
+		#Election - persue burghers election and universal suffrage
+		if = {
+			limit = { has_reform = burghers_election }
+			change_variable = { which = cu_var3 value = -5 }
+		}
+		else_if = {
+			limit = { has_reform = universal_suffrage }
+			change_variable = { which = cu_var3 value = -5 }
+		}
+		else_if = { #Not so angered if no estate gets elected at all
+			limit = { has_reform = no_election }
+			change_variable = { which = cu_var3 value = 2 }
+		}
+		else = { 
+			change_variable = { which = cu_var3 value = 4 }
+		}
+		#Law - support constitution, reluctantly accept sovereign code, against other legislations
+		if = {
+			limit = { has_reform = constitution_reform }
+			change_variable = { which = cu_var3 value = -4 }
+		}
+		else_if = {
+			limit = { has_reform = sovereign_code }
+			change_variable = { which = cu_var3 value = -1 }
+		}
+		else = {
+			change_variable = { which = cu_var3 value = 4 }
+		}
+		#Province Governance - persue self governance and bureaucracy, against feudalism and mandate system.
+		if = {
+			limit = { has_reform = self_governance }
+			change_variable = { which = cu_var3 value = -3 }
+		}
+		else_if = {
+			limit = { has_reform = bureaucratic }
+			change_variable = { which = cu_var3 value = -3 }
+		}
+		else = {
+			change_variable = { which = cu_var3 value = 3 }
+		}
+	
+	}
+	#Education - support burghers education and public education
+	if = {
+		limit = { has_reform = education_policy_burghers }
+		change_variable = { which = cu_var3 value = -4 }
+	}
+	else_if = {
+		limit = { has_reform = education_policy_public } #Education for the poor may be expansive, but they do make good workers...
+		change_variable = { which = cu_var3 value = -3 }
+	}
+	else = {
+		change_variable = { which = cu_var3 value = 3 }
+	}
+	
+	#Religious policy - Slightly against church's unification effort, but not really a matter of concern
+	if = {#religion1
+		limit = { has_reform = cu_religious_policy_5 }
+		change_variable = { which = cu_var3 value = 3 }
+	}
+	else_if = {#religion2
+		limit = { has_reform = cu_religious_policy_4 }
+		change_variable = { which = cu_var3 value = 1 }
+	}
+	else_if = {#religion3
+		limit = { has_reform = cu_religious_policy_2 }
+		change_variable = { which = cu_var3 value = -1 }
+	}
+	else_if = {#religion4
+		limit = { has_reform = cu_religious_policy_1 }
+		change_variable = { which = cu_var3 value = -2 }
+	}
+	
+	set_variable = { which = bg_unrest value = 1.5 }
+	multiply_variable = { which = bg_unrest which = cu_var3 }
+	multiply_variable = { which = cu_var3 value = -1 }
+}
+cu_check_chu_reform = {
+	set_variable = { which = cu_var3 value = 0 }	
+
+	
+	if = {#noble_election
+		limit = {
+			has_reform = noble_election
+			has_estate = estate_church
+		}
+		change_variable = { which = cu_var3 value = -4 }
+	}
+	else_if = { #Shishen are not nobles, they don't want this
+		limit = {
+			has_reform = noble_election
+			has_estate = estate_shizu
+		}
+		change_variable = { which = cu_var3 value = 1 }
+	}
+	else_if = {
+		limit = { 
+			OR = {
+				has_reform = burghers_election
+				has_reform = universal_suffrage
+			}
+		}
+		change_variable = { which = cu_var3 value = 4 }
+	}
+	else_if = { #Seek election right when having high influence
+		limit = {
+		    has_estate = estate_church
+			estate_influence = {	estate = estate_church	influence = 50	}
+		}
+		change_variable = { which = cu_var3 value = 5 }
+	}
+	else_if = { #Seek election right when having high influence
+		limit = {
+			has_estate = estate_church
+		}
+		change_variable = { which = cu_var3 value = 5 }
+	}
+	else = { #Shishen is fine without election
+		change_variable = { which = cu_var3 value = -1 }
+	}
+	if = {
+	     limit = { has_estate = estate_church }
+		 if = {#Persue divine_law when having high influence
+			limit = {
+				NOT = { has_reform = divine_law }
+				estate_influence = {	estate = estate_church	influence = 50	}
+			}
+			if = { #Oppose constitution
+				limit = { has_reform = constitution_reform } 
+				change_variable = { which = cu_var3 value = 6 }
+			}
+			else_if = {
+				limit = { has_reform = sovereign_code } #Slightly support despotism
+				change_variable = { which = cu_var3 value = 4 }
+			}
+			else = {
+				change_variable = { which = cu_var3 value = 5 }
+			}
+		}
+		else_if = { #It is good anyway
+			limit = { has_reform = divine_law }
+			change_variable = { which = cu_var3 value = -5 }
+		}
+		else_if = {
+			limit = { has_reform = sovereign_code } #Slightly oppose sovereign code
+			change_variable = { which = cu_var3 value = 2 }
+		}
+		else_if = {
+			limit = { has_reform = oral_tradition } #Slightly support oral tradition
+			change_variable = { which = cu_var3 value = -2 }
+		}
+	}
+	else_if = { #Shizu loves oral tradition
+		limit = { has_estate = estate_shizu }
+		if = {
+			limit = { has_reform = oral_tradition } 
+			change_variable = { which = cu_var3 value = -5 }
+		}
+		else_if = {
+			limit = { has_reform = sovereign_code } # support despotism
+			change_variable = { which = cu_var3 value = -3 }
+		}
+		else = {
+			change_variable = { which = cu_var3 value = 3 }
+		}
+	}
+	
+	if = {
+		limit = { has_estate = estate_church }
+		if = {
+			limit = { has_reform = fra_pragmatic_sanction }
+			change_variable = { which = cu_var3 value = 2 }
+		}
+		if = {#Persue clergy_reform when having high influence
+			limit = {
+				NOT = { has_reform = clergy_reform }
+				estate_influence = { estate = estate_church	influence = 50	}
+			}
+			change_variable = { which = cu_var3 value = 5 }
+		}
+		else_if = { #It is good anyway
+			limit = { has_reform = clergy_reform }
+			change_variable = { which = cu_var3 value = -5 }
+		}
+		else_if = { #When having low influence, clergy will somewhat support despotism
+			limit = { has_reform = court_despotism } #When having low influence 
+			change_variable = { which = cu_var3 value = -2 }
+		}
+		else_if = { #accept noble council and parliament with divine law since they have power in there too
+			limit = { 
+				has_reform = divine_law		
+			} 
+			change_variable = { which = cu_var3 value = 0 }
+		}
+		else = {
+			change_variable = { which = cu_var3 value = 2 }
+		}
+	}
+	else_if = { #Shishen likes clergy reform(a court ruled by confucious group? wonderful) and noble council, dislike despotism, hate parliament
+		limit = { has_estate = estate_shizu }
+		if = {
+			limit = {
+				has_reform = clergy_reform
+			}
+			change_variable = { which = cu_var3 value = -4 }
+		}
+		else_if = {
+			limit = {
+				has_reform = noble_council
+			}
+			change_variable = { which = cu_var3 value = -2 }
+		}
+		else_if = {
+			limit = {
+				has_reform = court_despotism
+			}
+			change_variable = { which = cu_var3 value = 2 }
+		}
+		else = { #Parliament
+			change_variable = { which = cu_var3 value = 4 }
+		}
+		#Only shishen care about realm governance
+		if = {
+			limit = {
+				has_reform = self_governance
+			}
+			change_variable = { which = cu_var3 value = -4 }
+		}
+		else_if = {
+			limit = {
+				has_reform = cu_feudalism_reform
+			}
+			change_variable = { which = cu_var3 value = 4 }
+		}
+		else_if = {
+			limit = {
+				has_reform = mandate_system
+			}
+			change_variable = { which = cu_var3 value = 2 }
+		}
+		else = { 
+			change_variable = { which = cu_var3 value = -1 }
+		}
+	}
+	
+	if = {#education - likes church education, dislikes burgers and public education
+		limit = {
+			has_reform = education_policy_church
+		}
+		change_variable = { which = cu_var3 value = -4 }
+	}
+	else_if = {
+		limit = { has_reform = education_policy_burghers }
+		change_variable = { which = cu_var3 value = 3 }
+	}
+	else_if = {
+		limit = { has_reform = education_policy_public }
+		change_variable = { which = cu_var3 value = 5 }
+	}
+	else = {
+		change_variable = { which = cu_var3 value = 1 }
+	}
+	if = {
+	       limit = { has_estate = estate_church } #church religious policy - likes religious unity and hates tolerance
+		    if = { 
+				limit = { has_reform = cu_religious_policy_1 }
+				change_variable = { which = cu_var3 value = 5 }
+			}
+			else_if = {
+				limit = { has_reform = cu_religious_policy_2 }
+				change_variable = { which = cu_var3 value = 3 }
+			}
+			else_if = {
+				limit = { has_reform = cu_religious_policy_3 }
+				change_variable = { which = cu_var3 value = 0 }
+			}
+			else_if = {
+				limit = { has_reform = cu_religious_policy_4 }
+				change_variable = { which = cu_var3 value = -3 }
+			}
+			else_if = {
+				limit = { has_reform = cu_religious_policy_5 }
+				change_variable = { which = cu_var3 value = -5 }
+			}
+	}
+	else = { #shizu religious policy - prefers a balanced or slightly unity policy, dislike fanatical ideas
+		    if = { 
+				limit = { has_reform = cu_religious_policy_1 }
+				change_variable = { which = cu_var3 value = 3 }
+			}
+			else_if = {
+				limit = { has_reform = cu_religious_policy_2 }
+				change_variable = { which = cu_var3 value = 1 }
+			}
+			else_if = {
+				limit = { has_reform = cu_religious_policy_3 }
+				change_variable = { which = cu_var3 value = -1 }
+			}
+			else_if = {
+				limit = { has_reform = cu_religious_policy_4 }
+				change_variable = { which = cu_var3 value = -1 }
+			}
+			else_if = {
+				limit = { has_reform = cu_religious_policy_5 }
+				change_variable = { which = cu_var3 value = 2 }
+			}
+	}
+	
+	
+
+	if = {
+		limit = {
+			has_estate = estate_shizu
+			
+		}
+		if = {
+		       limit = { NOT = { has_reform = bureaucratic } }
+				change_variable = { which = cu_var3 value = 3 }
+		}
+		if = {
+		       limit = { NOT = { has_country_modifier = gentrys_landholding } }
+			   change_variable = { which = cu_var3 value = 5 }
+		}
+		if = {
+			  limit = { NOT = { meritocracy = 60 } }
+			  change_variable = { which = cu_var3 value = 5 }
+		}
+	}
+	set_variable = { which = ch_unrest value = 1.5 }
+	multiply_variable = { which = ch_unrest which = cu_var3 }
+	multiply_variable = { which = cu_var3 value = -1 }
+}
+
+cu_check_nob_reform = {
+	set_variable = { which = cu_var3 value = 0 }
+	
+	if = {
+		limit = {
+			has_reform = noble_election
+		}
+		change_variable = { which = cu_var3 value = -5 }
+	}
+	else_if = {
+		limit = { 
+			has_reform = burghers_election
+		}
+		change_variable = { which = cu_var3 value = 3 }
+	}
+	else_if = {
+		limit = { 
+			has_reform = universal_suffrage
+		}
+		change_variable = { which = cu_var3 value = 5 }
+	}
+	else_if = {
+		limit = {
+			OR = {
+			    AND = {
+					has_estate = estate_nobles
+					estate_influence = { estate = estate_nobles	influence = 50	}
+				}
+			    AND = {
+					has_estate = estate_qinwang
+					estate_influence = { estate = estate_qinwang  influence = 50 } 	  
+				}
+			}
+		}
+		change_variable = { which = cu_var3 value = 5 }
+	}
+	else = {
+		change_variable = { which = cu_var3 value = 2 }
+	}
+	#Special Reform for england
+	if = {
+			limit = { 
+				has_reform = eng_grand_charter
+			}
+			change_variable = { which = cu_var3 value = -1 }
+	}
+	if = { #persues noble_council if influence is high
+		limit = {
+			NOT = { has_reform = noble_council }
+			OR = {
+			    AND = {
+					has_estate = estate_nobles
+					estate_influence = { estate = estate_nobles	influence = 50	}
+				}
+			    AND = {
+					has_estate = estate_qinwang
+					estate_influence = { estate = estate_qinwang  influence = 50 } 	  
+				}
+			}
+		}
+		change_variable = { which = cu_var3 value = 5 }
+	}
+	else_if = { #loves noble_council
+		limit = {
+			has_reform = noble_council
+		}
+		change_variable = { which = cu_var3 value = -5 }
+	}
+	else_if = { #if influence is low, support parliament too
+		limit = {
+			has_reform = parliament_reform
+		}
+		change_variable = { which = cu_var3 value = -2 }
+	}
+	else_if = { #dislike despotism
+		limit = {
+			has_reform = court_despotism
+		}
+		change_variable = { which = cu_var3 value = 2 }
+	}
+	else = {  #oppose clergy
+		change_variable = { which = cu_var3 value = 3 }
+	}
+	if = { #realm policy - loves feudalism and self governance
+		limit = {
+			NOT = { has_reform = cu_feudalism_reform }
+			NOT = { has_reform = self_governance }
+			has_institution = feudalism #Without feudalism they do not care much about realm governance
+		}
+		if = {
+		      limit = { has_reform = mandate_system }
+			  change_variable = { which = cu_var3 value = 2 } #dislike mandate system
+		}
+		else = {
+			  change_variable = { which = cu_var3 value = 5 } # hates bureaucracy
+		}
+	}
+	else_if = {
+		limit = { has_reform = cu_feudalism_reform }
+		change_variable = { which = cu_var3 value = -4 }
+	}
+	else_if = {
+		limit = { has_reform = self_governance }
+		change_variable = { which = cu_var3 value = -5 } #Self Governance are even better!
+	}
+
+	if = { #Law policy
+		limit = {
+			OR = { #If influence is high, oppose religious law and constitution
+				AND = {
+					has_estate = estate_nobles
+					estate_influence = { estate = estate_nobles	influence = 50	}
+				}
+			    AND = {
+					has_estate = estate_qinwang
+					estate_influence = { estate = estate_qinwang  influence = 50 } 	  
+				}
+			}
+		}
+		if = {
+		      limit = { has_reform = constitution_reform }
+			  change_variable = { which = cu_var3 value = 4 }
+		}
+		else_if = {
+			  limit = { has_reform = divine_law }
+			  change_variable = { which = cu_var3 value = 5 }
+		}
+		else_if = {
+		      limit = { has_reform = sovereign_code }
+			  change_variable = { which = cu_var3 value = -1 }
+		}
+		else = { #Oral tradition is the best
+			  change_variable = { which = cu_var3 value = -4 }
+		}
+	}
+	else = {
+		if = {
+		      limit = { has_reform = constitution_reform } #If influence is low, more acceptable to sovereign code and constitution
+			  change_variable = { which = cu_var3 value = 2 }
+		}
+		else_if = {
+			  limit = { has_reform = divine_law }
+			  change_variable = { which = cu_var3 value = 4 }
+		}
+		else_if = {
+		      limit = { has_reform = sovereign_code }
+			  change_variable = { which = cu_var3 value = -3 }
+		}
+		else = { #Oral tradition is the best
+			  change_variable = { which = cu_var3 value = -4 }
+		}
+	}
+	
+	if = { #education
+		limit = { has_reform = education_policy_nobles } #loves noble education
+		change_variable = { which = cu_var3 value = -4 }
+	}
+	else_if = {
+		limit = { has_reform = education_policy_church } #Church education is fine too
+		change_variable = { which = cu_var3 value = -2 }
+	}
+	else_if = {
+		limit = { has_reform = education_policy_burghers } #Education for the rich? Not much a problem...
+		change_variable = { which = cu_var3 value = 1 }
+	}
+	else_if = {
+		limit = { has_reform = education_policy_public } #Education for everyone? Must be kidding
+		change_variable = { which = cu_var3 value = 4 }
+	}
+	
+	#Religious policy, slightly support tolerance - just oppose church
+	if = { #religion1
+		limit = { has_reform = cu_religious_policy_5 }
+		change_variable = { which = cu_var3 value = 2 }
+	}
+	else_if = {#religion2
+		limit = { has_reform = cu_religious_policy_4 }
+		change_variable = { which = cu_var3 value = 1 }
+	}
+	else_if = {#religion3
+		limit = { has_reform = cu_religious_policy_2 }
+		change_variable = { which = cu_var3 value = -1 }
+	}
+	else_if = { #religion4
+		limit = { has_reform = cu_religious_policy_1 }
+		change_variable = { which = cu_var3 value = -2 }
+	}
+	set_variable = { which = nb_unrest value = 1.5 }
+	multiply_variable = { which = nb_unrest which = cu_var3 }
+	multiply_variable = { which = cu_var3 value = -1 }
+}
+
+
+cu_check_els_reform = {
+	set_variable = { which = cu_var3 value = 0 }
+
+	
+	if = {#oral_tradition
+		limit = {
+			NOT = { has_reform = oral_tradition }
+		}
+		change_variable = { which = cu_var3 value = 3 }
+	}
+	else = {
+		change_variable = { which = cu_var3 value = -3 }
+	}
+	if = {#self_governance
+		limit = {
+			NOT = { has_reform = self_governance }
+		}
+		change_variable = { which = cu_var3 value = 3 }
+	}
+	else = {
+		change_variable = { which = cu_var3 value = -3 }
+	}
+	if = {
+		limit = { 
+			OR = {
+				has_reform = burghers_election
+				has_reform = universal_suffrage
+			}
+		}
+		change_variable = { which = cu_var3 value = 3 }
+	}
+	if = { limit = { has_reform = constitution_reform } change_variable = { which = cu_var3 value = 5 } }
+	set_variable = { which = el_unrest value = 1.5 }
+	multiply_variable = { which = el_unrest which = cu_var3 }
+	multiply_variable = { which = cu_var3 value = -1 }
+}
+
+bur_modifiers_remove = {
+	remove_province_modifier = local_bur_lv_10
+	remove_province_modifier = local_bur_lv_9
+	remove_province_modifier = local_bur_lv_8
+	remove_province_modifier = local_bur_lv_7
+	remove_province_modifier = local_bur_lv_6
+	remove_province_modifier = local_bur_lv_5
+	remove_province_modifier = local_bur_lv_4
+	remove_province_modifier = local_bur_lv_3
+	remove_province_modifier = local_bur_lv_2
+	remove_province_modifier = local_bur_lv_1
+	remove_province_modifier = local_bur_lv_0
+}
+
+bur_modifiers_add = {
+	if = { limit = { check_variable = { which = epimg value = 100 } } add_province_modifier = { name = local_bur_lv_10 duration = -1 } }
+	else_if = { limit = { check_variable = { which = epimg value = 90 } } add_province_modifier = { name = local_bur_lv_9 duration = -1 } }
+	else_if = { limit = { check_variable = { which = epimg value = 80 } } add_province_modifier = { name = local_bur_lv_8 duration = -1 } }
+	else_if = { limit = { check_variable = { which = epimg value = 70 } } add_province_modifier = { name = local_bur_lv_7 duration = -1 } }
+	else_if = { limit = { check_variable = { which = epimg value = 60 } } add_province_modifier = { name = local_bur_lv_6 duration = -1 } }
+	else_if = { limit = { check_variable = { which = epimg value = 50 } } add_province_modifier = { name = local_bur_lv_5 duration = -1 } }
+	else_if = { limit = { check_variable = { which = epimg value = 40 } } add_province_modifier = { name = local_bur_lv_4 duration = -1 } }
+	else_if = { limit = { check_variable = { which = epimg value = 30 } } add_province_modifier = { name = local_bur_lv_3 duration = -1 } }
+	else_if = { limit = { check_variable = { which = epimg value = 20 } } add_province_modifier = { name = local_bur_lv_2 duration = -1 } }
+	else_if = { limit = { check_variable = { which = epimg value = 10 } } add_province_modifier = { name = local_bur_lv_1 duration = -1 } }
+	else = { add_province_modifier = { name = local_bur_lv_0 duration = -1 } }
+}
+
+estate_revolt_siege_effect = {
+	if = {
+		limit = {
+			FROM = { tag = REB }
+			controlled_by = owner
+			owner = {
+				has_estate = estate_church
+				OR = {
+					has_disaster = estate_church_disaster
+					has_country_flag = church_side_against_government
+				}
+			}
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = EST_VAL_REBEL_CRUSHED
+			influence = -1
+			duration = 3650
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_REBEL_CRUSHED
+			influence = 1
+			duration = 3650
+		}
+		change_variable = { which = church_reform_progress value = -1 }
+		check_estate_reform_progress = yes
+	}
+	else_if = {
+		limit = {
+			has_rebel_faction = church_rebels
+			owner = { has_estate = estate_church }
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = EST_VAL_AUTHORITY_CRUSHED
+			influence = 1
+			duration = 3650
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_AUTHORITY_CRUSHED
+			influence = -1
+			duration = 3650
+		}
+		change_variable = { which = church_reform_progress value = 3 }
+		check_estate_reform_progress = yes
+	}
+	if = {
+		limit = {
+			FROM = { tag = REB }
+			controlled_by = owner
+			owner = {
+				has_estate = estate_nobles
+				OR = {
+					has_disaster = estate_nobility_disaster
+					has_country_flag = nobles_side_against_government
+				}
+			}
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nobles
+			desc = EST_VAL_REBEL_CRUSHED
+			influence = -1
+			duration = 3650
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_REBEL_CRUSHED
+			influence = 1
+			duration = 3650
+		}
+		change_variable = { which = nobles_reform_progress value = -1 }
+		check_estate_reform_progress = yes
+	}
+	else_if = {
+		limit = {
+			has_rebel_faction = nobles_rebels
+			owner = { has_estate = estate_nobles }
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nobles
+			desc = EST_VAL_AUTHORITY_CRUSHED
+			influence = 1
+			duration = 3650
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_AUTHORITY_CRUSHED
+			influence = -1
+			duration = 3650
+		}
+		change_variable = { which = nobles_reform_progress value = 3 }
+		check_estate_reform_progress = yes
+	}
+	if = {
+		limit = {
+			FROM = { tag = REB }
+			controlled_by = owner
+			owner = {
+				has_estate = estate_burghers
+				OR = {
+					has_disaster = estate_burghers_disaster
+					has_country_flag = burghers_side_against_government
+				}
+			}
+		}
+		add_estate_influence_modifier = {
+			estate = estate_burghers
+			desc = EST_VAL_REBEL_CRUSHED
+			influence = -1
+			duration = 3650
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_REBEL_CRUSHED
+			influence = 1
+			duration = 3650
+		}
+		change_variable = { which = burghers_reform_progress value = -1 }
+		check_estate_reform_progress = yes
+	}
+	else_if = {
+		limit = {
+			has_rebel_faction = burghers_rebels
+			owner = { has_estate = estate_burghers }
+		}
+		add_estate_influence_modifier = {
+			estate = estate_burghers
+			desc = EST_VAL_AUTHORITY_CRUSHED
+			influence = 1
+			duration = 3650
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_AUTHORITY_CRUSHED
+			influence = -1
+			duration = 3650
+		}
+		change_variable = { which = burghers_reform_progress value = 3 }
+		check_estate_reform_progress = yes
+	}
+	if = {
+		limit = {
+			enemy_unit = {
+				unit_owner = {
+					tag = REB
+				}
+			}
+			unit_owner = {
+				if = {
+					limit = {
+						has_estate = estate_nomadic_tribes
+						OR = {
+							has_disaster = estate_nomadic_tribes_disaster
+							has_country_flag = nomadic_tribes_side_against_government
+						}
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_nomadic_tribes
+					desc = EST_VAL_REBEL_CRUSHED
+					influence = -1
+					duration = 3650
+				}
+				add_estate_influence_modifier = {
+					estate = estate_government
+					desc = EST_VAL_REBEL_CRUSHED
+					influence = 1
+					duration = 3650
+				}
+				change_variable = { which = nomadic_tribes_reform_progress value = -2 }
+				check_estate_reform_progress = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			unit_owner = {
+				tag = REB
+			}
+		}			
+		enemy_unit = {
+			unit_owner = {
+				if = {
+					limit = {
+						has_estate = estate_nomadic_tribes
+						OR = {
+							has_disaster = estate_nomadic_tribes_disaster
+							has_country_flag = nomadic_tribes_side_against_government
+						}
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_nomadic_tribes
+					desc = EST_VAL_AUTHORITY_CRUSHED
+					influence = 1
+					duration = 3650
+				}
+				add_estate_influence_modifier = {
+					estate = estate_government
+					desc = EST_VAL_AUTHORITY_CRUSHED
+					influence = -1
+					duration = 3650
+				}
+				change_variable = { which = nomadic_tribes_reform_progress value = 3 }
+				check_estate_reform_progress = yes
+			}
+		}
+	}
+	if = {
+		limit = {
+			enemy_unit = {
+				unit_owner = {
+					tag = REB
+				}
+			}
+			unit_owner = {
+				if = {
+					limit = {
+						has_estate = estate_shizu
+						OR = {
+							has_disaster = estate_shishen_disaster
+							has_country_flag = shishen_side_against_government
+						}
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_shizu
+					desc = EST_VAL_REBEL_CRUSHED
+					influence = -1
+					duration = 3650
+				}
+				add_estate_influence_modifier = {
+					estate = estate_government
+					desc = EST_VAL_REBEL_CRUSHED
+					influence = 1
+					duration = 3650
+				}
+				change_variable = { which = shishen_reform_progress value = -2 }
+				check_estate_reform_progress = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			unit_owner = {
+				tag = REB
+			}
+		}			
+		enemy_unit = {
+			unit_owner = {
+				if = {
+					limit = {
+						has_estate = estate_shizu
+						OR = {
+							has_disaster = estate_shishen_disaster
+							has_country_flag = shishen_side_against_government
+						}
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_shizu
+					desc = EST_VAL_AUTHORITY_CRUSHED
+					influence = 1
+					duration = 3650
+				}
+				add_estate_influence_modifier = {
+					estate = estate_government
+					desc = EST_VAL_AUTHORITY_CRUSHED
+					influence = -1
+					duration = 3650
+				}
+				change_variable = { which = shishen_reform_progress value = 3 }
+				check_estate_reform_progress = yes
+			}
+		}
+	}
+	if = {
+		limit = {
+			enemy_unit = {
+				unit_owner = {
+					tag = REB
+				}
+			}
+			unit_owner = {
+				if = {
+					limit = {
+						has_estate = estate_qinwang
+						OR = {
+							has_disaster = estate_qinwang_disaster
+							has_country_flag = qinwang_side_against_government
+						}
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_qinwang
+					desc = EST_VAL_REBEL_CRUSHED
+					influence = -1
+					duration = 3650
+				}
+				add_estate_influence_modifier = {
+					estate = estate_government
+					desc = EST_VAL_REBEL_CRUSHED
+					influence = 1
+					duration = 3650
+				}
+				change_variable = { which = qinwang_reform_progress value = -2 }
+				check_estate_reform_progress = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			unit_owner = {
+				tag = REB
+			}
+		}			
+		enemy_unit = {
+			unit_owner = {
+				if = {
+					limit = {
+						has_estate = estate_qinwang
+						OR = {
+							has_disaster = estate_qinwang_disaster
+							has_country_flag = qinwang_side_against_government
+						}
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_qinwang
+					desc = EST_VAL_AUTHORITY_CRUSHED
+					influence = 1
+					duration = 3650
+				}
+				add_estate_influence_modifier = {
+					estate = estate_government
+					desc = EST_VAL_AUTHORITY_CRUSHED
+					influence = -1
+					duration = 3650
+				}
+				change_variable = { which = qinwang_reform_progress value = 3 }
+				check_estate_reform_progress = yes
+			}
+		}
+	}
+}
+
+estate_revolt_battle_effect = {
+	if = {
+		limit = {
+			enemy_unit = {
+				unit_owner = {
+					tag = REB
+				}
+			}
+			unit_owner = {
+				if = {
+					limit = {
+						has_estate = estate_church
+						OR = {
+							has_disaster = estate_church_disaster
+							has_country_flag = church_side_against_government
+						}
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_church
+					desc = EST_VAL_REBEL_CRUSHED
+					influence = -1
+					duration = 3650
+				}
+				add_estate_influence_modifier = {
+					estate = estate_government
+					desc = EST_VAL_REBEL_CRUSHED
+					influence = 1
+					duration = 3650
+				}
+				change_variable = { which = church_reform_progress value = -2 }
+				check_estate_reform_progress = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			unit_owner = {
+				tag = REB
+			}
+		}			
+		enemy_unit = {
+			unit_owner = {
+				if = {
+					limit = {
+						has_estate = estate_church
+						OR = {
+							has_disaster = estate_church_disaster
+							has_country_flag = church_side_against_government
+						}
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_church
+					desc = EST_VAL_AUTHORITY_CRUSHED
+					influence = 1
+					duration = 3650
+				}
+				add_estate_influence_modifier = {
+					estate = estate_government
+					desc = EST_VAL_AUTHORITY_CRUSHED
+					influence = -1
+					duration = 3650
+				}
+				change_variable = { which = church_reform_progress value = 3 }
+				check_estate_reform_progress = yes
+			}
+		}
+	}
+	if = {
+		limit = {
+			enemy_unit = {
+				unit_owner = {
+					tag = REB
+				}
+			}
+			unit_owner = {
+				if = {
+					limit = {
+						has_estate = estate_burghers
+						OR = {
+							has_disaster = estate_burghers_disaster
+							has_country_flag = burghers_side_against_government
+						}
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_burghers
+					desc = EST_VAL_REBEL_CRUSHED
+					influence = -1
+					duration = 3650
+				}
+				add_estate_influence_modifier = {
+					estate = estate_government
+					desc = EST_VAL_REBEL_CRUSHED
+					influence = 1
+					duration = 3650
+				}
+				change_variable = { which = burghers_reform_progress value = -2 }
+				check_estate_reform_progress = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			unit_owner = {
+				tag = REB
+			}
+		}			
+		enemy_unit = {
+			unit_owner = {
+				if = {
+					limit = {
+						has_estate = estate_burghers
+						OR = {
+							has_disaster = estate_burghers_disaster
+							has_country_flag = burghers_side_against_government
+						}
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_burghers
+					desc = EST_VAL_AUTHORITY_CRUSHED
+					influence = 1
+					duration = 3650
+				}
+				add_estate_influence_modifier = {
+					estate = estate_government
+					desc = EST_VAL_AUTHORITY_CRUSHED
+					influence = -1
+					duration = 3650
+				}
+				change_variable = { which = burghers_reform_progress value = 3 }
+				check_estate_reform_progress = yes
+			}
+		}
+	}
+	if = {
+		limit = {
+			enemy_unit = {
+				unit_owner = {
+					tag = REB
+				}
+			}
+			unit_owner = {
+				if = {
+					limit = {
+						has_estate = estate_nobles
+						OR = {
+							has_disaster = estate_nobility_disaster
+							has_country_flag = nobles_side_against_government
+						}
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_nobles
+					desc = EST_VAL_REBEL_CRUSHED
+					influence = -1
+					duration = 3650
+				}
+				add_estate_influence_modifier = {
+					estate = estate_government
+					desc = EST_VAL_REBEL_CRUSHED
+					influence = 1
+					duration = 3650
+				}
+				change_variable = { which = nobles_reform_progress value = -2 }
+				check_estate_reform_progress = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			unit_owner = {
+				tag = REB
+			}
+		}			
+		enemy_unit = {
+			unit_owner = {
+				if = {
+					limit = {
+						has_estate = estate_nobles
+						OR = {
+							has_disaster = estate_nobility_disaster
+							has_country_flag = nobles_side_against_government
+						}
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_nobles
+					desc = EST_VAL_AUTHORITY_CRUSHED
+					influence = 1
+					duration = 3650
+				}
+				add_estate_influence_modifier = {
+					estate = estate_government
+					desc = EST_VAL_AUTHORITY_CRUSHED
+					influence = -1
+					duration = 3650
+				}
+				change_variable = { which = nobles_reform_progress value = 3 }
+				check_estate_reform_progress = yes
+			}
+		}
+	}
+	if = {
+		limit = {
+			enemy_unit = {
+				unit_owner = {
+					tag = REB
+				}
+			}
+			unit_owner = {
+				if = {
+					limit = {
+						has_estate = estate_nomadic_tribes
+						OR = {
+							has_disaster = estate_nomadic_tribes_disaster
+							has_country_flag = nomadic_tribes_side_against_government
+						}
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_nomadic_tribes
+					desc = EST_VAL_REBEL_CRUSHED
+					influence = -1
+					duration = 3650
+				}
+				add_estate_influence_modifier = {
+					estate = estate_government
+					desc = EST_VAL_REBEL_CRUSHED
+					influence = 1
+					duration = 3650
+				}
+				change_variable = { which = nomadic_tribes_reform_progress value = -2 }
+				check_estate_reform_progress = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			unit_owner = {
+				tag = REB
+			}
+		}			
+		enemy_unit = {
+			unit_owner = {
+				if = {
+					limit = {
+						has_estate = estate_nomadic_tribes
+						OR = {
+							has_disaster = estate_nomadic_tribes_disaster
+							has_country_flag = nomadic_tribes_side_against_government
+						}
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_nomadic_tribes
+					desc = EST_VAL_AUTHORITY_CRUSHED
+					influence = 1
+					duration = 3650
+				}
+				add_estate_influence_modifier = {
+					estate = estate_government
+					desc = EST_VAL_AUTHORITY_CRUSHED
+					influence = -1
+					duration = 3650
+				}
+				change_variable = { which = nomadic_tribes_reform_progress value = 3 }
+				check_estate_reform_progress = yes
+			}
+		}
+	}
+	if = {
+		limit = {
+			enemy_unit = {
+				unit_owner = {
+					tag = REB
+				}
+			}
+			unit_owner = {
+				if = {
+					limit = {
+						has_estate = estate_shizu
+						OR = {
+							has_disaster = estate_shishen_disaster
+							has_country_flag = shishen_side_against_government
+						}
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_shizu
+					desc = EST_VAL_REBEL_CRUSHED
+					influence = -1
+					duration = 3650
+				}
+				add_estate_influence_modifier = {
+					estate = estate_government
+					desc = EST_VAL_REBEL_CRUSHED
+					influence = 1
+					duration = 3650
+				}
+				change_variable = { which = shishen_reform_progress value = -2 }
+				check_estate_reform_progress = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			unit_owner = {
+				tag = REB
+			}
+		}			
+		enemy_unit = {
+			unit_owner = {
+				if = {
+					limit = {
+						has_estate = estate_shizu
+						OR = {
+							has_disaster = estate_shishen_disaster
+							has_country_flag = shishen_side_against_government
+						}
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_shizu
+					desc = EST_VAL_AUTHORITY_CRUSHED
+					influence = 1
+					duration = 3650
+				}
+				add_estate_influence_modifier = {
+					estate = estate_government
+					desc = EST_VAL_AUTHORITY_CRUSHED
+					influence = -1
+					duration = 3650
+				}
+				change_variable = { which = shishen_reform_progress value = 3 }
+				check_estate_reform_progress = yes
+			}
+		}
+	}
+	if = {
+		limit = {
+			enemy_unit = {
+				unit_owner = {
+					tag = REB
+				}
+			}
+			unit_owner = {
+				if = {
+					limit = {
+						has_estate = estate_qinwang
+						OR = {
+							has_disaster = estate_qinwang_disaster
+							has_country_flag = qinwang_side_against_government
+						}
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_qinwang
+					desc = EST_VAL_REBEL_CRUSHED
+					influence = -1
+					duration = 3650
+				}
+				add_estate_influence_modifier = {
+					estate = estate_government
+					desc = EST_VAL_REBEL_CRUSHED
+					influence = 1
+					duration = 3650
+				}
+				change_variable = { which = qinwang_reform_progress value = -2 }
+				check_estate_reform_progress = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			unit_owner = {
+				tag = REB
+			}
+		}			
+		enemy_unit = {
+			unit_owner = {
+				if = {
+					limit = {
+						has_estate = estate_qinwang
+						OR = {
+							has_disaster = estate_qinwang_disaster
+							has_country_flag = qinwang_side_against_government
+						}
+					}
+				}
+				add_estate_influence_modifier = {
+					estate = estate_qinwang
+					desc = EST_VAL_AUTHORITY_CRUSHED
+					influence = 1
+					duration = 3650
+				}
+				add_estate_influence_modifier = {
+					estate = estate_government
+					desc = EST_VAL_AUTHORITY_CRUSHED
+					influence = -1
+					duration = 3650
+				}
+				change_variable = { which = qinwang_reform_progress value = 3 }
+				check_estate_reform_progress = yes
+			}
+		}
+	}
+}
+
+move_a_reform_for_church = {
+	if = {
+		limit = { has_reform = cu_religious_policy_1 }
+		add_government_reform = cu_religious_policy_2
+	}
+	else_if = {
+		limit = { has_reform = cu_religious_policy_2 }
+		add_government_reform = cu_religious_policy_3
+	}
+	else_if = {#higher tax1
+		limit = { has_reform = tax_policy_1 }
+		add_government_reform = tax_policy_2
+	}
+	else_if = {#higher tax2
+		limit = { has_reform = tax_policy_2 }
+		add_government_reform = tax_policy_3
+	}
+	else_if = {#divine_law
+		limit = {
+			NOT = { has_reform = divine_law }
+			OR = {
+				has_reform = clergy_reform
+				adm_tech = 4
+			}
+		}
+		add_government_reform = divine_law
+	}
+	else_if = {#clergy_reform
+		limit = {
+			NOT = { has_reform = clergy_reform }
+			OR = {
+				has_reform = cu_religious_policy_5
+				has_reform = cu_religious_policy_4
+			}
+			religious_unity = 1
+		}
+		add_government_reform = clergy_reform
+	}
+	else_if = {#education
+		limit = {
+			NOT = { has_reform = education_policy_church }
+			adm_tech = 3
+			stability = 0
+		}
+		add_government_reform = education_policy_church
+	}
+	else_if = {#culture3
+		limit = { has_reform = cu_religious_policy_3 }
+		add_government_reform = cu_religious_policy_4
+	}
+	else_if = {#culture4
+		limit = { has_reform = cu_religious_policy_4 }
+		add_government_reform = cu_religious_policy_5
+	}
+	else_if = {#culture1
+		limit = { has_reform = cu_cultural_policy_1 }
+		add_government_reform = cu_cultural_policy_2
+	}
+	else_if = {#culture2
+		limit = { has_reform = cu_cultural_policy_2 }
+		add_government_reform = cu_cultural_policy_3
+	}
+	else_if = {#higher tax3
+		limit = { has_reform = tax_policy_3 }
+		add_government_reform = tax_policy_4
+	}
+	else_if = {#higher tax4
+		limit = { has_reform = tax_policy_4 }
+		add_government_reform = tax_policy_5
+	}
+	else_if = {#culture3
+		limit = { has_reform = cu_cultural_policy_3 }
+		add_government_reform = cu_cultural_policy_4
+	}
+	else_if = {#culture4
+		limit = { has_reform = cu_cultural_policy_4 }
+		add_government_reform = cu_cultural_policy_5
+	}
+}
+
+move_a_reform_for_nobles = {
+	if = {#higher tax1
+		limit = { has_reform = tax_policy_1 }
+		add_government_reform = tax_policy_2
+	}
+	else_if = {#higher tax2
+		limit = { has_reform = tax_policy_2 }
+		add_government_reform = tax_policy_3
+	}
+	else_if = {#oral_tradition
+		limit = {
+			NOT = { has_reform = oral_tradition }
+		}
+		add_government_reform = oral_tradition
+	}
+	else_if = {#noble_election
+		limit = {
+			NOT = { has_reform = noble_election }
+			adm_tech = 12
+			NOT = { absolutism = 75 }
+		}
+		add_government_reform = noble_election
+	}
+	else_if = {#feudalism
+		limit = {
+			NOT = { has_reform = cu_feudalism_reform }
+			adm_tech = 3
+			has_institution = feudalism
+		}
+		add_government_reform = cu_feudalism_reform
+	}
+	else_if = {#self_governance
+		limit = {
+			NOT = { has_reform = self_governance }
+			NOT = { absolutism = 40 }
+		}
+		add_government_reform = self_governance
+	}
+	else_if = {#higher tax3
+		limit = { has_reform = tax_policy_3 }
+		add_government_reform = tax_policy_4
+	}
+	else_if = {#higher tax4
+		limit = { has_reform = tax_policy_4 }
+		add_government_reform = tax_policy_5
+	}
+	else_if = {#education
+		limit = {
+			NOT = { has_reform = education_policy_nobles }
+			adm_tech = 3
+			stability = 0
+		}
+		add_government_reform = education_policy_nobles
+	}
+	else_if = {#culture4
+		limit = { has_reform = cu_cultural_policy_5 }
+		add_government_reform = cu_cultural_policy_4
+	}
+	else_if = {#culture3
+		limit = { has_reform = cu_cultural_policy_4 }
+		add_government_reform = cu_cultural_policy_3
+	}
+	else_if = {#feudal_conscription
+		limit = { 
+			NOT = { has_reform = feudal_conscription } 
+			OR = {
+				has_reform = standing_army
+				has_reform = limited_conscription
+				has_reform = extensive_conscription
+				has_reform = volunteer_training
+				has_reform = mercenary_conscription
+			}	
+		}
+		add_government_reform = feudal_conscription
+	}
+	else_if = {#culture1
+		limit = { has_reform = cu_cultural_policy_3 }
+		add_government_reform = cu_cultural_policy_2
+	}
+	else_if = {#culture2
+		limit = { has_reform = cu_cultural_policy_2 }
+		add_government_reform = cu_cultural_policy_1
+	}
+}
+
+move_a_reform_for_burghers = {
+	if = {#lower tax1
+		limit = { has_reform = tax_policy_5 }
+		add_government_reform = tax_policy_4
+	}
+	else_if = {#lower tax2
+		limit = { has_reform = tax_policy_4 }
+		add_government_reform = tax_policy_3
+	}
+	else_if = {#parliament
+		limit = {
+			NOT = { has_reform = parliament_reform }
+			NOT = { government = tribal }
+			OR = {
+				adm_tech = 18
+				AND = {
+					adm_tech = 12
+					custom_trigger_tooltip = {
+						tooltip = parliament_reform_trigger_tooltip_0
+						check_variable = { which = ave_literacy value = 8 }
+					}
+				}
+				AND = {
+					OR = {
+						AND = {
+							any_neighbor_country = {
+								has_reform = parliament_reform
+							}						
+							custom_trigger_tooltip = {
+								tooltip = parliament_reform_trigger_tooltip_2
+								check_variable = { which = ave_literacy value = 6 }
+							}
+						}
+						AND = {
+							full_idea_group = constitution_ideas
+							custom_trigger_tooltip = {
+								tooltip = parliament_reform_trigger_tooltip_3
+								check_variable = { which = ave_literacy value = 4 }
+							}
+						}
+					}
+					adm_tech = 8
+				}
+			}
+		}
+		add_government_reform = parliament_reform
+	}
+	else_if = {#constitution
+		limit = { 
+			NOT = { has_reform = constitution_reform }
+			OR = {
+				AND = {
+					OR = {
+						has_reform = parliament_reform
+						full_idea_group = constitution_ideas
+					}
+					OR = {
+						has_reform = burghers_election
+						has_reform = universal_suffrage
+					}
+					OR = {
+						AND = {
+							adm_tech = 18
+							custom_trigger_tooltip = {
+								tooltip = constitution_trigger_tooltip_0
+								check_variable = { which = ave_literacy value = 6 }
+							}
+						}
+						custom_trigger_tooltip = {
+							tooltip = constitution_trigger_tooltip_1
+							check_variable = { which = ave_literacy value = 10 }
+						}
+					}
+					NOT = { absolutism = 50 }
+				}
+				
+				custom_trigger_tooltip = {
+					tooltip = constitution_trigger_tooltip_2
+					check_variable = { which = ave_literacy value = 25 }
+				}
+				AND = {
+					adm_tech = 22
+					custom_trigger_tooltip = {
+						tooltip = constitution_trigger_tooltip_3
+						check_variable = { which = ave_literacy value = 15 }
+					}
+				}
+			}
+		}
+		add_government_reform = constitution_reform
+	}
+	else_if = {#education1
+		limit = {
+			NOT = { has_reform = education_policy_burghers }
+			NOT = { has_reform = education_policy_public }
+			adm_tech = 15
+			stability = 0
+			has_institution = printing_press
+		}
+		add_government_reform = education_policy_burghers
+	}
+	else_if = {#election1
+		limit = {
+			NOT = { has_reform = burghers_election }
+			NOT = { has_reform = universal_suffrage }
+			NOT = { absolutism = 55 }
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = burghers_election_trigger_tooltip_0
+					check_variable = { which = ave_literacy value = 12 }
+				}
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = burghers_election_trigger_tooltip_1
+						check_variable = { which = ave_literacy value = 8 }
+					}
+					OR = { 
+						has_reform = constitution_reform
+						has_reform = noble_election
+						has_reform = eng_grand_charter							
+					}
+				}
+				AND = {
+					custom_trigger_tooltip = {
+						tooltip = burghers_election_trigger_tooltip_2
+						check_variable = { which = ave_literacy value = 10 }
+					}
+					full_idea_group = constitution_ideas
+				}					
+			}
+		}
+		add_government_reform = burghers_election
+	}
+	else_if = {#education2
+		limit = {
+			NOT = { has_reform = education_policy_public }
+			adm_tech = 19
+			stability = 0
+			has_institution = printing_press
+		}
+		add_government_reform = education_policy_public
+	}
+	else_if = {#smaller army
+		limit = {
+			has_reform = extensive_conscription
+		}
+		add_government_reform = limited_conscription
+	}
+	else_if = {#smaller army
+		limit = {
+			has_reform = limited_conscription
+		}
+		add_government_reform = standing_army
+	}
+	else_if = {#election2
+		limit = {
+			NOT = { has_reform = universal_suffrage }
+			OR = {
+				AND = {
+					has_reform = burghers_election
+					NOT = { absolutism = 45 }
+					OR = {
+						custom_trigger_tooltip = {
+							tooltip = universal_suffrage_trigger_tooltip_0
+							check_variable = { which = ave_literacy value = 45 }
+						}
+						AND = {
+							custom_trigger_tooltip = {
+								tooltip = universal_suffrage_trigger_tooltip_1
+								check_variable = { which = ave_literacy value = 35 }
+							}
+							OR = { 
+								has_reform = constitution_reform
+								#has_reform = power_seperation
+								government = republic
+							}
+						}	
+						AND = {
+							custom_trigger_tooltip = {
+								tooltip = universal_suffrage_trigger_tooltip_2
+								check_variable = { which = ave_literacy value = 40 }
+							}
+							full_idea_group = constitution_ideas
+						}	
+					}
+				}
+				AND = {
+					has_country_modifier = state_in_mobilization
+					custom_trigger_tooltip = {
+						tooltip = universal_suffrage_trigger_tooltip_3
+						check_variable = { which = ave_literacy value = 20 }
+					}
+					war_exhaustion = 10
+					NOT = { manpower_percentage = 0.25 }
+					adm_tech = 12
+				}
+			}
+		}
+		add_government_reform = universal_suffrage
+	}
+	else_if = {#volunteer army
+		limit = {
+			has_reform = feudal_conscription
+			mil_tech = 7
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = has_fulfill_at_least_a_mil_idea_group
+					OR = {
+						full_idea_group = aristocracy_ideas
+						full_idea_group = plutocracy_ideas
+						full_idea_group = offensive_ideas
+						full_idea_group = defensive_ideas
+						full_idea_group = quality_ideas
+						full_idea_group = quantity_ideas
+						full_idea_group = militarist_ideas
+					}
+				}
+				mil_tech = 12
+			}
+			mil_power = 200
+			army_tradition = 20
+			stability = 1
+			OR = {
+				AND = {
+					NOT = { has_reform = celestial_empire }
+					NOT = { has_reform = celestial_empire_2 }
+				}
+				NOT = { has_reform = military_household }
+				custom_trigger_tooltip = {
+					tooltip = tooltip_celestial_army_reform
+					NOT = { has_country_modifier = weisuo_system }
+					OR = {
+						AND = {
+							full_idea_group = defensive_ideas
+							full_idea_group = quantity_ideas
+						}
+						AND = {
+							full_idea_group = defensive_ideas
+							full_idea_group = tradition_ideas
+						}
+						AND = {
+							full_idea_group = quantity_ideas
+							full_idea_group = tradition_ideas
+						}
+						check_variable = { which = army_reform_acceptance value = 6 }
+					}
+				}
+			} 
+			custom_trigger_tooltip = {
+				tooltip = tooltip_positive_militarism
+				has_global_modifier_value = {
+					which = yearly_army_professionalism
+					value = 0.001
+				}
+			}
+			OR = {
+				custom_trigger_tooltip = {
+				   tooltip = tooltip_ave_literacy_5
+				   check_variable = { which = ave_literacy value = 5 }
+				}
+				AND = {
+					custom_trigger_tooltip = {
+						 tooltip = tooltip_ave_literacy_3
+						 check_variable = { which = ave_literacy value = 3 }
+					}
+					mil = 4
+					mil_tech = 9
+					army_tradition = 30
+				}	
+			}
+		}
+		add_government_reform = volunteer_training
+	}
+	else_if = {#lower tax3
+		limit = { has_reform = tax_policy_3 }
+		add_government_reform = tax_policy_2
+	}
+	else_if = {#bureaucratic
+		limit = { 
+			NOT = { has_reform = bureaucratic }
+			NOT = { average_unrest = 1 }
+			all_state_province = {					
+				NOT = { local_autonomy = 50 }
+			}
+			has_any_disaster = no
+			adm_tech = 18
+		}
+		add_government_reform = bureaucratic
+	}
+	else_if = {#religion1
+		limit = { has_reform = cu_religious_policy_5 }
+		add_government_reform = cu_religious_policy_4
+	}
+	else_if = {#religion2
+		limit = { has_reform = cu_religious_policy_4 }
+		add_government_reform = cu_religious_policy_3
+	}
+	else_if = {#culture1
+		limit = { has_reform = cu_cultural_policy_1 }
+		add_government_reform = cu_cultural_policy_2
+	}
+	else_if = {#culture2
+		limit = { has_reform = cu_cultural_policy_2 }
+		add_government_reform = cu_cultural_policy_3
+	}
+	else_if = {#lower tax4
+		limit = { has_reform = tax_policy_2 }
+		add_government_reform = tax_policy_1
+	}
+	else_if = {#religion3
+		limit = { has_reform = cu_religious_policy_3 }
+		add_government_reform = cu_religious_policy_2
+	}
+	else_if = {#religion4
+		limit = { has_reform = cu_religious_policy_2 }
+		add_government_reform = cu_religious_policy_1
+	}
+	else_if = {#culture3
+		limit = { has_reform = cu_cultural_policy_3 }
+		add_government_reform = cu_cultural_policy_4
+	}
+	else_if = {#culture4
+		limit = { has_reform = cu_cultural_policy_4 }
+		add_government_reform = cu_cultural_policy_5
+	}
+}
+
+
+check_estate_reform_progress = {
+	if = {
+		limit = { check_variable = { which = church_reform_progress value = 100 } }
+		move_a_reform_for_church = yes
+		change_variable = { which = church_reform_progress value = -100 }
+	}
+	else_if = {
+		limit = { NOT = { check_variable = { which = church_reform_progress value = 0 } } }
+		set_variable = { which = church_reform_progress value = 0 }
+	}
+	if = {
+		limit = { check_variable = { which = shishen_reform_progress value = 100 } }
+		move_a_reform_for_church = yes
+		change_variable = { which = shishen_reform_progress value = -100 }
+	}
+	else_if = {
+		limit = { NOT = { check_variable = { which = shishen_reform_progress value = 0 } } }
+		set_variable = { which = shishen_reform_progress value = 0 }
+	}
+	if = {
+		limit = { check_variable = { which = qinwang_reform_progress value = 100 } }
+		move_a_reform_for_nobles = yes
+		change_variable = { which = qinwang_reform_progress value = -100 }
+	}
+	else_if = {
+		limit = { NOT = { check_variable = { which = qinwang_reform_progress value = 0 } } }
+		set_variable = { which = qinwang_reform_progress value = 0 }
+	}
+	if = {
+		limit = { check_variable = { which = nobles_reform_progress value = 100 } }
+		move_a_reform_for_nobles = yes
+		change_variable = { which = nobles_reform_progress value = -100 }
+	}
+	else_if = {
+		limit = { NOT = { check_variable = { which = nobles_reform_progress value = 0 } } }
+		set_variable = { which = nobles_reform_progress value = 0 }
+	}
+	if = {
+		limit = { check_variable = { which = burghers_reform_progress value = 100 } }
+		move_a_reform_for_burghers = yes
+		change_variable = { which = burghers_reform_progress value = -100 }
+	}
+	else_if = {
+		limit = { NOT = { check_variable = { which = burghers_reform_progress value = 0 } } }
+		set_variable = { which = burghers_reform_progress value = 0 }
+	}
+	if = {
+		limit = { check_variable = { which = nomadic_tribes_reform_progress value = 100 } }
+		add_absolutism = -50
+		change_variable = { which = nomadic_tribes_reform_progress value = -100 }
+	}
+	else_if = {
+		limit = { NOT = { check_variable = { which = nomadic_tribes_reform_progress value = 0 } } }
+		set_variable = { which = nomadic_tribes_reform_progress value = 0 }
+	}
+}
+
+
+
+
+
+
+
+

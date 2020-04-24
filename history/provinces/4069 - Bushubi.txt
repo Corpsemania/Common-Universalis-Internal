@@ -1,0 +1,21 @@
+#Bushubi
+
+
+culture = rwandan
+religion = shamanism #Fetishism
+capital = "Bushubi"
+
+hre = no
+base_tax = 3
+base_production = 3
+base_manpower = 3
+native_size = 40
+native_ferocity = 4
+native_hostileness = 9
+discovered_by = central_african
+
+1750.1.1 = { #Bugesera divided between Rwanda and Burundi
+	owner = BUU
+	controller = BUU
+	add_core = BUU
+}

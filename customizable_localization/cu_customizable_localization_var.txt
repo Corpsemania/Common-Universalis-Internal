@@ -1,0 +1,461 @@
+defined_text = {
+    name = p_cayg_tt
+	random = no
+	
+	text = {
+		localisation_key = p_cayg_tt_p
+		trigger = {
+			check_variable = { which = p_cayg value = 0 }
+		}
+	}
+	text = {
+		localisation_key = p_cayg_tt_n
+		trigger = {
+			NOT = { check_variable = { which = p_cayg value = 0 } }
+		}
+	}
+}
+
+defined_text = {
+    name = p_caygd_tt
+	random = no
+	
+	text = {
+		localisation_key = p_caygd_tt_p
+		trigger = {
+			check_variable = { which = p_caygd value = 0 }
+		}
+	}
+	text = {
+		localisation_key = p_caygd_tt_n
+		trigger = {
+			NOT = { check_variable = { which = p_caygd value = 0 } }
+		}
+	}
+}
+
+defined_text = {
+    name = p_caygdd_tt
+	random = no
+	
+	text = {
+		localisation_key = p_caygdd_tt_p
+		trigger = {
+			check_variable = { which = p_caygdd value = 0 }
+		}
+	}
+	text = {
+		localisation_key = p_caygdd_tt_n
+		trigger = {
+			NOT = { check_variable = { which = p_caygdd value = 0 } }
+		}
+	}
+}
+
+defined_text = {
+    name = p_caygc_tt
+	random = no
+	
+	text = {
+		localisation_key = p_caygc_tt_n
+		trigger = {
+			check_variable = { which = p_caygdd value = 100 }
+		}
+	}
+	text = {
+		localisation_key = p_caygc_tt_p
+		trigger = {
+			NOT = { check_variable = { which = p_caygdd value = 100 } }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_st_growth_tt
+	random = no
+	
+	text = {
+		localisation_key = cu_st_growth_tt_p
+		trigger = {
+			check_variable = { which = cu_st_growth value = 0 }
+		}
+	}
+	text = {
+		localisation_key = cu_st_growth_tt_n
+		trigger = {
+			NOT = { check_variable = { which = cu_st_growth value = 0 } }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_st_growth_ett
+	random = no
+	
+	text = {
+		localisation_key = cu_st_growth_ett_p
+		trigger = {
+			check_variable = { which = cu_st_growth_e value = 0 }
+		}
+	}
+	text = {
+		localisation_key = cu_st_growth_ett_n
+		trigger = {
+			NOT = { check_variable = { which = cu_st_growth_e value = 0 } }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_st_growth_ntt
+	random = no
+	
+	text = {
+		localisation_key = cu_st_growth_ntt_p
+		trigger = {
+			check_variable = { which = cu_st_growth_n value = 0 }
+		}
+	}
+	text = {
+		localisation_key = cu_st_growth_ntt_n
+		trigger = {
+			NOT = { check_variable = { which = cu_st_growth_n value = 0 } }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_stc_modifier_tt
+	random = no
+	
+	text = {
+		localisation_key = cu_stc_modifier_tt_n
+		trigger = {
+			check_variable = { which = cu_stc_modifier value = 100 }
+		}
+	}
+	text = {
+		localisation_key = cu_stc_modifier_tt_p
+		trigger = {
+			NOT = { check_variable = { which = cu_stc_modifier value = 100 } }
+		}
+	}
+}
+
+defined_text = {
+    name = r_ac_tt
+	random = no
+	
+	text = {
+		localisation_key = r_ac_tt_p
+		trigger = {
+			check_variable = { which = r_ac value = 0 }
+		}
+	}
+	text = {
+		localisation_key = r_ac_tt_n
+		trigger = {
+			NOT = { check_variable = { which = r_ac value = 0 } }
+		}
+	}
+}
+
+defined_text = {
+    name = r_uc_tt
+	random = no
+	
+	text = {
+		localisation_key = r_uc_tt_p
+		trigger = {
+			check_variable = { which = r_uc value = 0 }
+		}
+	}
+	text = {
+		localisation_key = r_uc_tt_n
+		trigger = {
+			NOT = { check_variable = { which = r_uc value = 0 } }
+		}
+	}
+}
+
+defined_text = {
+    name = food_sur_tt
+	random = no
+	
+	text = {
+		localisation_key = food_sur_tt_p
+		trigger = {
+			check_variable = { which = food_sur value = 0 }
+		}
+	}
+	text = {
+		localisation_key = food_sur_tt_n
+		trigger = {
+			NOT = { check_variable = { which = food_sur value = 0 } }
+		}
+	}
+}
+
+
+defined_text = {
+    name = ucdev_dm_tt
+	random = no
+	
+	text = {
+		localisation_key = ucdev_dm_tt_p
+		trigger = {
+			check_variable = { which = ucdev_dm value = 0 }
+		}
+	}
+	text = {
+		localisation_key = ucdev_dm_tt_n
+		trigger = {
+			NOT = { check_variable = { which = ucdev_dm value = 0 } }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_st_growth_govtt
+	random = no
+	
+	text = {
+		localisation_key = cu_st_growth_govtt_p 
+		trigger = {
+			check_variable = { which = cu_st_gov value = 0 }
+		}
+	}
+	text = {
+		localisation_key = cu_st_growth_govtt_n 
+		trigger = {
+			NOT = { check_variable = { which = cu_st_gov value = 0 } }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_st_growth_nobtt
+	random = no
+	
+	text = {
+		localisation_key = cu_st_growth_nobtt_p #Nobles
+		trigger = {
+			has_estate = estate_nobles
+			check_variable = { which = cu_st_nob value = 0 }
+		}
+	}
+	text = {
+		localisation_key = cu_st_growth_nobtt_n #Nobles
+		trigger = {
+			has_estate = estate_nobles
+			NOT = { check_variable = { which = cu_st_nob value = 0 } }
+		}
+	}
+	text = {
+		localisation_key = cu_st_growth_qintt_p #Qinwang
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			has_estate = estate_qinwang
+			check_variable = { which = cu_st_nob value = 0 }
+		}
+	}
+	text = {
+		localisation_key = cu_st_growth_qintt_n #Qinwang
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			has_estate = estate_qinwang
+			NOT = { check_variable = { which = cu_st_nob value = 0 } }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt #None
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_st_growth_chutt
+	random = no
+	
+	text = {
+		localisation_key = cu_st_growth_chutt_p #Church
+		trigger = {
+			has_estate = estate_church
+			check_variable = { which = cu_st_chu value = 0 }
+		}
+	}
+	text = {
+		localisation_key = cu_st_growth_chutt_n #Church
+		trigger = {
+			has_estate = estate_church
+			NOT = { check_variable = { which = cu_st_chu value = 0 } }
+		}
+	}
+	text = {
+		localisation_key = cu_st_growth_shitt_p #Shizu
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu 
+			check_variable = { which = cu_st_chu value = 0 }
+		}
+	}
+	text = {
+		localisation_key = cu_st_growth_shitt_n #Shizu
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+			NOT = { check_variable = { which = cu_st_chu value = 0 } }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt #None
+		trigger = {
+			NOT = { has_estate = estate_church }
+			NOT = { has_estate = estate_shizu }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_st_growth_burtt
+	random = no
+	
+	text = {
+		localisation_key = cu_st_growth_burtt_p #Burghers
+		trigger = {
+			has_estate = estate_burghers
+			check_variable = { which = cu_st_bur value = 0 }
+		}
+	}
+	text = {
+		localisation_key = cu_st_growth_burtt_n #Burghers
+		trigger = {
+			has_estate = estate_burghers
+			NOT = { check_variable = { which = cu_st_bur value = 0 } }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt #None
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_st_growth_elstt
+	random = no
+	
+	text = {
+		localisation_key = cu_st_growth_tritt_p #Nobles
+		trigger = {
+			has_estate = estate_nomadic_tribes
+			check_variable = { which = cu_st_els value = 0 }
+		}
+	}
+	text = {
+		localisation_key = cu_st_growth_tritt_n #Nobles
+		trigger = {
+			has_estate = estate_nomadic_tribes
+			NOT = { check_variable = { which = cu_st_els value = 0 } }
+		}
+	}
+	text = {
+		localisation_key = cu_st_growth_costt_p #Qinwang
+		trigger = {
+			NOT = { has_estate = estate_nomadic_tribes }
+			has_estate = estate_cossacks
+			check_variable = { which = cu_st_els value = 0 }
+		}
+	}
+	text = {
+		localisation_key = cu_st_growth_costt_n #Qinwang
+		trigger = {
+			NOT = { has_estate = estate_nomadic_tribes }
+			has_estate = estate_cossacks
+			NOT = { check_variable = { which = cu_st_els value = 0 } }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt #None
+		trigger = {
+			NOT = { has_estate = estate_nomadic_tribes }
+			NOT = { has_estate = estate_cossacks }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_st_growth_nftt
+	random = no
+	
+	text = {
+		localisation_key = cu_st_growth_nftt_p
+		trigger = {
+			check_variable = { which = cu_st_growth_nf value = 0 }
+		}
+	}
+	text = {
+		localisation_key = cu_st_growth_nftt_n
+		trigger = {
+			NOT = { check_variable = { which = cu_st_growth_nf value = 0 } }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_st_growth_pwtt
+	random = no
+	
+	text = {
+		localisation_key = cu_st_growth_pwtt_p
+		trigger = {
+			check_variable = { which = cu_st_growth_pw value = 0 }
+		}
+	}
+	text = {
+		localisation_key = cu_st_growth_pwtt_n
+		trigger = {
+			NOT = { check_variable = { which = cu_st_growth_pw value = 0 } }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_st_growth_nett
+	random = no
+	
+	text = {
+		localisation_key = cu_st_growth_nett_p
+		trigger = {
+			check_variable = { which = cu_st_growth_nett value = 0 }
+		}
+	}
+	text = {
+		localisation_key = cu_st_growth_nett_n
+		trigger = {
+			NOT = { check_variable = { which = cu_st_growth_nett value = 0 } }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_st_growth_utt
+	random = no
+	
+	text = {
+		localisation_key = cu_st_growth_utt_p
+		trigger = {
+			check_variable = { which = cu_st_growth_utt value = 0 }
+		}
+	}
+	text = {
+		localisation_key = cu_st_growth_utt_n
+		trigger = {
+			NOT = { check_variable = { which = cu_st_growth_utt value = 0 } }
+		}
+	}
+}

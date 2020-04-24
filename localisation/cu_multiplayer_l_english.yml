@@ -1,0 +1,6 @@
+﻿l_english:
+ cu_observer_country_title: "Become Observer"
+ cu_observer_country_desc: "Observer cannot interact with other countries."
+ cu_observer: "Observer"
+ desc_cu_observer: "Observer cannot interact with other countries."
+ OBSERVER_DIP: "Observer cannot interact with other countries."

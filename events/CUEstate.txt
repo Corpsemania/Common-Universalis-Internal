@@ -1,0 +1,885 @@
+namespace = cuestate
+country_event = {
+	id = cuestate.0
+	title = "cuestate_titl"
+	desc = "cuestate_desc"
+	picture = COLONIZATION_eventPicture
+	hidden = yes
+	#is_triggered_only = yes
+	trigger = {
+		OR = {
+			NOT = {	has_country_flag = cu_calc_estates_pause }
+			AND = {
+				had_country_flag = {
+					flag = cu_calc_estates_pause
+					days = 365  
+				}
+				ai = no
+			}
+			AND = {
+				had_country_flag = {
+					flag = cu_calc_estates_pause
+					days = 1865  
+				}
+				ai = yes
+			}
+		}
+		primitives = no
+	}
+	option = {
+		name = "cuestate.a"
+		set_variable = { which = etie value = 0 }
+		set_variable = { which = etib value = 0 }
+		set_variable = { which = etic value = 0 }
+		set_variable = { which = etin value = 0 }
+		set_variable = { which = etig value = 0 }
+		set_variable = { which = t_dev value = 0 }
+		set_country_flag = cu_calc_estates_pause
+		every_owned_province = {
+			limit = { 
+				is_state = yes
+				is_state_core = owner
+			}
+			province_event = { id = cuestate.01 }
+		}
+		if = { 
+		      limit = { NOT = { has_country_flag = cu_estate_system_set } } 
+			  country_event = { id = cuestate.03 } 
+		}#Autonomy Set
+			  country_event = { id = cuestate.02 }
+	}
+}
+province_event = {				#because of bugs there will use two events
+	id = cuestate.01
+	title = "cuestate_titl"
+	desc = "cuestate_desc"
+	picture = COLONIZATION_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	option = {
+		if = {
+			limit = { 
+				is_state = yes
+				is_state_core = owner
+			}
+			bur_modifiers_remove = yes
+			set_variable = { which = epimb value = 0 }
+			set_variable = { which = epimc value = 0 }
+			set_variable = { which = epimn value = 0 }
+			set_variable = { which = epime value = 0 }
+			set_variable = { which = epimg value = 0 }
+			set_variable = { which = p_dev value = 0 }
+			export_to_variable = {
+				which = p_dev
+				value = development
+			}
+				#For estates
+					set_variable = { which = epim value = 5 }#Estate Influnce Modifier
+					#Calc Start
+						if = { 
+							limit = { owner = { ai = yes } } 
+							change_variable = { which = epim value = -2 } 
+						}
+						if = { 
+							limit = { is_capital = yes } 
+							change_variable = { which = epim value = -5 } 
+						}
+						if = { 
+							limit = { has_province_modifier = cu_lower_estate_influence } 
+							change_variable = { which = epim value = -5 } 
+						}
+						if = { 
+							limit = { has_province_modifier = inspection_tour_local } 
+							change_variable = { which = epim value = -1 } 
+						}
+						if = { 
+							limit = { NOT = { owner = { ADM = 3 } } } 
+							change_variable = { which = epim value = 2 } 
+						}
+						if = { 
+							limit = { owner = { ADM = 4 }  } 
+							change_variable = { which = epim value = -1 } 
+						}
+						if = { 
+							limit = { owner = { ADM = 5 }  } 
+							change_variable = { which = epim value = -2 } 
+						}
+						if = { 
+							limit = { owner = { legitimacy_equivalent = 95 } } 
+							change_variable = { which = epim value = -1 } 
+						}
+						if = { 
+							limit = { owner = { NOT = { legitimacy_equivalent = 75 } } } 
+							change_variable = { which = epim value = 1 } 
+						}	
+						if = { 
+							limit = { owner = { NOT = { legitimacy_equivalent = 55 } } } 
+							change_variable = { which = epim value = 1 } 
+						}
+						if = { 
+							limit = { owner = { NOT = { legitimacy_equivalent = 35 } } } 
+							change_variable = { which = epim value = 2 } 
+						}
+						set_variable = { which = cu_var2 value = 0 }
+						#estate_burghers
+						if = { 
+							limit = { owner = { has_estate = estate_burghers } }
+							set_variable = { which = cu_var1 value = 0 }
+							set_variable = { which = cu_var2 value = 0 }
+							set_variable = { which = cu_var3 value = 0 }
+							export_to_variable = {
+								which = cu_var2
+								value = base_tax
+							}
+							export_to_variable = {
+								which = cu_var3
+								value = base_production
+							}
+							change_variable = { which = cu_var2 which = cu_var3 }
+							divide_variable = { which = cu_var2 which = p_dev }
+							multiply_variable = { which = cu_var2 value = 100 }
+							change_variable = { which = epimb which = epim }
+							if = { limit = { owner = { has_country_modifier = trade_limitation } } change_variable = { which = epimb value = -16 } }
+							if = { 
+								limit = { owner = { OR = { has_reform = free_city has_reform = merchants_reform has_reform = trading_city } } } 
+								multiply_variable = { which = epimb value = 5 }
+							}
+							change_variable = { which = epimb which = cu_var2 }
+							change_variable = { which = cu_var1 which = literacy }
+							multiply_variable = { which = cu_var1 value = 0.8 }
+							change_variable = { which = epimb which = cu_var1 }
+							if = { limit = { province_has_center_of_trade_of_level = 3 }  change_variable = { which = epimb value = 32 } }
+							else_if = { limit = { province_has_center_of_trade_of_level = 2 }  change_variable = { which = epimb value = 16 } }
+							else_if = { limit = { province_has_center_of_trade_of_level = 1 }  change_variable = { which = epimb value = 8 } }
+							if = { limit = { has_province_modifier = new_estate_rise_b }  change_variable = { which = epimb value = 50 } }
+							if = { limit = { has_province_flag = cu_hlr_former_member_fre }  change_variable = { which = epimb value = 20 } }
+							if = { limit = { owner = { OR = { has_reform = burghers_election has_reform = universal_suffrage } } } multiply_variable = { which = epimb value = 1.05 } }
+							if = { limit = { owner = { has_country_modifier = artisan_regulation } } multiply_variable = { which = epimb value = 0.88 } }
+							if = { limit = { NOT = { check_variable = { which = epimb value = 0 } } } set_variable = { which = epimb value = 1 } }
+						}
+						#estate_church
+						if = { 
+							limit = { owner = { OR = { has_estate = estate_shizu has_estate = estate_church } } }
+							set_variable = { which = cu_var1 value = 0 }
+							set_variable = { which = cu_var2 value = 0 }
+							set_variable = { which = cu_var3 value = 0 }
+							export_to_variable = {
+								which = cu_var3
+								value = tolerance_to_this
+							}
+							if = { limit = { has_building = temple } multiply_variable = { which = cu_var3 value = 3 } }
+							else_if = { limit = { has_building = cathedral } multiply_variable = { which = cu_var3 value = 3.5 } }
+							else = { multiply_variable = { which = cu_var3 value = 2.5 } }
+							change_variable = { which = cu_var2 which = cu_var3 }
+							change_variable = { which = epimc which = epim }
+							change_variable = { which = epimc which = cu_var2 }
+							if = { 
+								limit = { owner = { has_estate = estate_shizu } } 
+								export_to_variable = {
+									which = cu_var2
+									value = base_manpower
+								}
+								divide_variable = { which = cu_var2 which = p_dev }
+								multiply_variable = { which = cu_var2 value = 80 }
+								change_variable = { which = cu_var2 value = 5 }
+								if = {
+									limit = { owner = { has_country_modifier = measuring_land } }
+									multiply_variable = { which = cu_var2 value = 0.8 }
+								}
+								change_variable = { which = epimc which = cu_var2 } 
+							}
+							if = { limit = { owner = { government = theocracy } } change_variable = { which = epimc value = 35 } }
+							if = { limit = { owner = { has_reform = divine_law } } change_variable = { which = epimc value = 1.5 } }
+							if = { limit = { owner = { religion = catholic } } change_variable = { which = epimc value = 8 } }
+							if = { limit = { owner = { religion = orthodox } } change_variable = { which = epimc value = 4 } }
+							if = { limit = { owner = { religion_group = muslim } } change_variable = { which = epimc value = 2 } }
+							set_variable = { which = cu_var1 value = 100 }
+							subtract_variable = { which = cu_var1 which = literacy }
+							multiply_variable = { which = cu_var1 value = 0.3 }
+							change_variable = { which = epimc which = cu_var1 }
+							if = { limit = { has_province_modifier = new_estate_rise_c }  change_variable = { which = epimc value = 50 } }
+							if = { limit = { has_province_flag = cu_hlr_former_member_the }  change_variable = { which = epimc value = 20 } }
+							if = { limit = { owner = { has_reform = elective_monarchy } }  multiply_variable = { which = epimc value = 1.05 } }
+							if = { limit = { owner = { OR = { has_reform = burghers_election has_reform = universal_suffrage } } } multiply_variable = { which = epimc value = 0.95 } }
+							if = { limit = { NOT = { check_variable = { which = epimc value = 0 } } } set_variable = { which = epimc value = 1 } }
+						}
+						#estate_nobles
+						if = { 
+							limit = { owner = { OR = { has_estate = estate_qinwang has_estate = estate_nobles } } }
+							set_variable = { which = cu_var1 value = 0 }
+							set_variable = { which = cu_var2 value = 0 }
+							set_variable = { which = cu_var3 value = 0 }
+							export_to_variable = {
+								which = cu_var2
+								value = base_manpower
+							}
+							divide_variable = { which = cu_var2 which = p_dev }
+							multiply_variable = { which = cu_var2 value = 100 }
+							if = { limit = { owner = { government = republic } } change_variable = { which = cu_var3 value = -5 } }
+							if = { limit = { owner = { government = monarchy } } change_variable = { which = cu_var3 value = 7 } }
+							if = { limit = { owner = { has_reform = cu_feudalism_reform } } change_variable = { which = cu_var3 value = 5 } }
+							if = { limit = { OR = { has_building = fort_15th has_building = fort_16th has_building = fort_17th has_building = fort_18th } } change_variable = { which = cu_var3 value = 10 } }
+							if = { limit = { OR = { has_province_modifier = mamluks_corruption } } change_variable = { which = cu_var3 value = 33 } } 
+							change_variable = { which = cu_var2 which = cu_var3 }
+							change_variable = { which = epimn which = epim }
+							if = { limit = { has_province_modifier = new_estate_rise_n }  change_variable = { which = epimn value = 50 } }
+							if = { limit = { has_province_flag = cu_hlr_former_member_els }  change_variable = { which = epimn value = 20 } }
+							if = { limit = { owner = { has_country_modifier = start_of_circle } } change_variable = { which = epimn value = 75 } }
+							change_variable = { which = epimn which = cu_var2 }
+							if = { limit = { owner = { has_reform = elective_monarchy } }  multiply_variable = { which = epimn value = 1.05 } }
+							if = { limit = { owner = { has_estate = estate_qinwang } } multiply_variable = { which = epimn value = 0.75 } }
+							if = { limit = { owner = { OR = { has_reform = burghers_election has_reform = universal_suffrage } } } multiply_variable = { which = epimn value = 0.95 } }
+							if = { limit = { NOT = { check_variable = { which = epimn value = 0 } } } set_variable = { which = epimn value = 1 } }
+						}
+						#estate_nomadic_tribes
+						if = { 
+							limit = { owner = { OR = { has_estate = estate_cossacks has_estate = estate_nomadic_tribes } } }
+							set_variable = { which = cu_var1 value = 0 }
+							set_variable = { which = cu_var2 value = 0 }
+							set_variable = { which = cu_var3 value = 0 }
+							export_to_variable = {
+								which = cu_var2
+								value = development
+							}
+							multiply_variable = { which = cu_var2 value = -1.2 }
+							set_variable = { which = epime which = epim }
+							change_variable = { which = epime value = 50 }
+							if = { limit = { has_province_modifier = new_estate_rise_e }  change_variable = { which = epime value = 50 } }
+							change_variable = { which = epime which = cu_var2 }
+							if = { limit = { owner = { has_reform = steppe_empire } } change_variable = { which = epime value = -25 } }
+							change_variable = { which = cu_var1 value = 40 }
+							subtract_variable = { which = cu_var1 which = literacy }
+							change_variable = { which = epime which = cu_var1 }
+							if = { limit = { owner = { government = tribal } } change_variable = { which = epime value = 50 } }
+							else = { multiply_variable = { which = epime value = 0.25 } }
+							if = { limit = { owner = { has_reform = elective_monarchy } }  multiply_variable = { which = epime value = 1.05 } }
+							if = { limit = { NOT = { check_variable = { which = epime value = 0 } } } set_variable = { which = epime value = 1 } }
+						}
+				#For government
+					set_variable = { which = epimg value = 12.5 }
+					#Calc Start
+						if = { 
+							limit = { is_capital = yes } 
+							change_variable = { which = epimg value = 256 } 
+						}
+						if = { 
+							limit = { has_province_modifier = inspection_tour_local } 
+							change_variable = { which = epimg value = 1 } 
+						}
+						if = { 
+							limit = { has_province_modifier = cu_lower_estate_influence } 
+							change_variable = { which = epimg value = 5 } 
+						}
+						if = { 
+							limit = { NOT = { owner = { ADM = 3 } } } 
+							change_variable = { which = epimg value = -2 } 
+						}
+						else_if = { 
+							limit = { NOT = { owner = { ADM = 2 } } } 
+							change_variable = { which = epimg value = -4 } 
+						}
+						if = { 
+							limit = { owner = { ADM = 4 }  } 
+							change_variable = { which = epimg value = 2 } 
+						}
+						if = {
+						  limit = { owner = { adm_tech = 31 } }
+						  change_variable = { which = epimg value = 30 }
+						}
+						else_if = {
+							limit = { owner = { adm_tech = 26 } }
+							change_variable = { which = epimg value = 25 }
+						}
+						else_if = {
+							limit = { owner = { adm_tech = 23 } }
+							change_variable = { which = epimg value = 20 }
+						}
+						else_if = {
+							limit = { owner = { adm_tech = 18 } }
+							change_variable = { which = epimg value = 15 }
+						}
+						else_if = {
+							limit = { owner = { adm_tech = 12 } }
+							change_variable = { which = epimg value = 10 }
+						}
+						else_if = {
+							limit = { owner = { adm_tech = 8 } }
+							change_variable = { which = epimg value = 5 }
+						}
+						set_variable = { which = cu_var1 value = 0 }
+						set_variable = { which = cu_var2 value = 0 }
+						set_variable = { which = cu_var3 value = 0 }
+						export_to_variable = {
+							which = cu_var1
+							value = modifier:administrative_efficiency
+							who = owner
+						}
+						multiply_variable = { which = cu_var1 value = 100 }
+						export_to_variable = {
+							which = cu_var3
+							value = trigger_value:absolutism
+							who = owner
+						} 
+						subtract_variable = { which = cu_var3 value = 30 }
+						multiply_variable = { which = cu_var3 value = 0.33 }
+						export_to_variable = {
+							which = cu_var2
+							value = trigger_value:corruption
+							who = owner
+						} 
+						multiply_variable = { which = cu_var2 value = -0.01 }
+						change_variable = { which = cu_var2 value = 1 }
+						change_variable = { which = epimg which = cu_var1 }
+						change_variable = { which = epimg which = cu_var3 }
+						if = { 
+							limit = { has_province_modifier = second_capital } 
+							multiply_variable = { which = epimg value = 1.5 } 
+						}
+						if = { limit = { owner = { has_reform = minimum_government_capacity } } change_variable = { which = cu_var2 value = -0.15 } }
+						else_if = { limit = { owner = { has_reform = shrink_government_capacity } } change_variable = { which = cu_var2 value = -0.075 } }
+						else_if = { limit = { owner = { has_reform = expand_government_capacity } } change_variable = { which = cu_var2 value = 0.075 } }
+						else_if = { limit = { owner = { has_reform = maximum_government_capacity } } change_variable = { which = cu_var2 value = 0.15 } }
+						if = { limit = { has_building = town_hall } change_variable = { which = cu_var2 value = 0.2 } }
+						else_if = { limit = { has_building = courthouse } change_variable = { which = cu_var2 value = 0.1 } }
+						if = { limit = { owner = { has_reform = bureaucratic } } change_variable = { which = cu_var2 value = 0.3 } }
+						else_if = { limit = { owner = { has_reform = mandate_system } } change_variable = { which = cu_var2 value = 0.15 } }
+						if = { limit = { has_seat_in_parliament = yes } change_variable = { which = cu_var2 value = 0.125 } }
+						if = { limit = { owner = { has_reform = elective_monarchy } }  multiply_variable = { which = epimg value = 0.95 } }
+						multiply_variable = { which = epimg which = cu_var2 }
+						if = { limit = { NOT = { check_variable = { which = epimg value = 0 } } } set_variable = { which = epimg value = 1 } }
+					#TOTAL CALC
+						set_variable = { which = cu_var1 value = 0 }
+						change_variable = { which = cu_var1 which = epimg }
+						change_variable = { which = cu_var1 which = epimn }
+						change_variable = { which = cu_var1 which = epimb }
+						change_variable = { which = cu_var1 which = epime }
+						change_variable = { which = cu_var1 which = epimc }
+						divide_variable = { which = epimc which = cu_var1 } 
+						divide_variable = { which = epime which = cu_var1 } 
+						divide_variable = { which = epimn which = cu_var1 } 
+						divide_variable = { which = epimb which = cu_var1 } 
+						divide_variable = { which = epimg which = cu_var1 } 
+						multiply_variable = { which = epimg value = 100 }
+						multiply_variable = { which = epimb value = 100 }
+						multiply_variable = { which = epimc value = 100 }
+						multiply_variable = { which = epimn value = 100 }
+						multiply_variable = { which = epime value = 100 }
+						if = { 
+							limit = { 
+								owner = { OR = { has_estate = estate_cossacks has_estate = estate_nomadic_tribes } } 
+							} 
+							set_variable = { which = cu_var3 value = 0 }
+							change_variable = { which = cu_var3 which = epime }
+							multiply_variable = { which = cu_var3 which = p_dev } 
+							owner = { set_variable = { which = cu_var3 which = PREV } change_variable = { which = etie which = cu_var3 } } 
+						}
+						if = { 
+							limit = { 
+								owner = { OR = { has_estate = estate_nobles has_estate = estate_qinwang } } 
+							} 
+							set_variable = { which = cu_var3 value = 0 }
+							change_variable = { which = cu_var3 which = epimn }
+							multiply_variable = { which = cu_var3 which = p_dev } 
+							owner = { set_variable = { which = cu_var3 which = PREV } change_variable = { which = etin which = cu_var3 } } 
+						}
+						if = { 
+							limit = { 
+								owner = { OR = { has_estate = estate_shizu has_estate = estate_church } } 
+							} 
+							set_variable = { which = cu_var3 value = 0 }
+							change_variable = { which = cu_var3 which = epimc }
+							multiply_variable = { which = cu_var3 which = p_dev }  
+							owner = { set_variable = { which = cu_var3 which = PREV } change_variable = { which = etic which = cu_var3 } } 
+						}
+						if = { 
+							limit = { 
+								owner = { has_estate = estate_burghers } 
+							} 
+							set_variable = { which = cu_var3 value = 0 }
+							change_variable = { which = cu_var3 which = epimb }
+							multiply_variable = { which = cu_var3 which = p_dev } 
+							owner = { set_variable = { which = cu_var3 which = PREV } change_variable = { which = etib which = cu_var3 } } 
+						}
+						set_variable = { which = cu_var3 value = 0 }
+						change_variable = { which = cu_var3 which = epimg }
+						multiply_variable = { which = cu_var3 which = p_dev } 
+						owner = { set_variable = { which = cu_var3 which = PREV } change_variable = { which = etig which = cu_var3 } } 
+					#Granting time!
+						if = {
+							limit = {
+								AND = {
+									check_variable = { which = epimb which = epimn }
+									check_variable = { which = epimb which = epimc }
+									check_variable = { which = epimb which = epime }
+									owner = { has_estate = estate_burghers }
+								}
+							}
+							set_estate = estate_burghers
+							set_estate = estate_burghers
+						}
+						else_if = {
+							limit = {
+								AND = {
+									check_variable = { which = epimn which = epimc }
+									check_variable = { which = epimn which = epime }
+									owner = {
+										OR = {
+											has_estate = estate_nobles
+											has_estate = estate_qinwang
+										}
+									}
+									
+								}
+							}
+							if = { limit = { owner = { has_estate = estate_nobles } } set_estate = estate_nobles set_estate = estate_nobles }
+							else_if = { limit = { owner = { has_estate = estate_qinwang } } set_estate = estate_qinwang set_estate = estate_qinwang }
+						}
+						else_if = {
+							limit = {
+								AND = {
+									check_variable = { which = epime which = epimc }
+									owner = {
+										OR = {
+											has_estate = estate_cossacks
+											has_estate = estate_nomadic_tribes
+										}
+									}
+								}
+							}
+							if = { limit = { owner = { has_estate = estate_nomadic_tribes } } set_estate = estate_nomadic_tribes set_estate = estate_nomadic_tribes }
+							else_if = { limit = { owner = { has_estate = estate_cossacks } } set_estate = estate_cossacks set_estate = estate_cossacks }
+						}
+						else_if = {
+							limit = {
+								owner = {
+									OR = {
+										has_estate = estate_shizu
+										has_estate = estate_church
+									}
+								}
+							}
+							if = { limit = { owner = { has_estate = estate_church } } set_estate = estate_church set_estate = estate_church }
+							else_if = { limit = { owner = { has_estate = estate_shizu } } set_estate = estate_shizu set_estate = estate_shizu }
+						}
+						bur_modifiers_add = yes
+		}
+	}
+}
+country_event = {
+	id = cuestate.02
+	title = "cuestate_titl"
+	desc = "cuestate_desc"
+	picture = COLONIZATION_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	option = {
+		name = "cuestate.a"
+		export_to_variable = {
+			which = t_dev
+			value = states_development
+		}
+		divide_variable = { which = etie which = t_dev }
+		divide_variable = { which = etib which = t_dev }
+		divide_variable = { which = etic which = t_dev }
+		divide_variable = { which = etin which = t_dev }
+		divide_variable = { which = etig which = t_dev }
+		clr_country_flag = cu_calc_estates_pause
+		set_country_flag = cu_calc_estates_pause
+		set_country_flag = cu_estate_system_set
+		
+		if = { #Estimate cash/stability point effect for estate interactions
+		      limit = { ai = no }
+			  GetEstateInteractionCost = yes
+		}
+	}
+}
+country_event = {
+	id = cuestate.03
+	title = "cuestate_titl"
+	desc = "cuestate_desc"
+	picture = COLONIZATION_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	option = {
+		name = "cuestate.a"
+		every_owned_province = {
+			set_variable = { which = cu_var1 value = 0 }
+			export_to_variable = {
+				which = cu_var1
+				value = modifier:local_autonomy
+			}
+			if = {	limit = { owner = { ai = yes } } change_variable = { which = cu_var1 value = 0.04 } }
+			divide_variable = { which = cu_var1 value = 0.114 }
+			multiply_variable = { which = cu_var1 value = 50 }
+			while = {
+				limit = { check_variable = { which = cu_var1 value = 1 } }
+				add_local_autonomy = 1
+				subtract_variable = { which = cu_var1 value = 1 }
+			}
+		}
+	}
+}
+
+country_event = {
+	id = cuestate.11
+	title = "DEMAND_WAR_SUPPORT"
+	desc = "cuestate.11_desc"
+	picture = CONQUEST_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			set_variable = { which = cu_cash which = etin } 
+			export_to_variable = {
+				which = t_dev
+				value = states_development
+			}
+			multiply_variable = { which = cu_cash which = t_dev }
+			multiply_variable = { which = cu_cash value = 0.01 }
+			multiply_variable = { which = cu_cash value = 0.25 }
+			set_variable = { which = cu_cash_display which = cu_cash }				 
+		}
+	}
+	option = {
+		name = cuestate.11.a
+		custom_tooltip = add_manpower_est
+		add_dip_power = -100
+		add_absolutism = -10
+		hidden_effect = {			
+			every_owned_province = {
+				limit = { check_variable = { which = epimn value = 30 } }
+				owner = { add_manpower = 0.50 }
+			}
+		}
+		add_country_modifier = {
+			name = estate_nobles_war_support
+			duration = -1
+		}
+		ai_chance = {
+			factor = 100
+		}
+	}
+	option = {
+		name = cuestate.11.b
+		custom_tooltip = cu_add_cash
+		add_dip_power = -150
+		add_absolutism = -10
+		hidden_effect = {
+			cu_change_cash = yes
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+country_event = {
+	id = cuestate.12
+	title = "cuestate_titl"
+	desc = "cuestate_desc"
+	picture = COLONIZATION_eventPicture
+	hidden = yes
+	trigger = {
+		has_country_flag = at_war_bef
+		is_at_war = no
+	}
+	option = {
+		name = "cuestate.a"
+		clr_country_flag = at_war_bef
+		remove_country_modifier = estate_shizu_war_support
+		every_owned_province = {
+			kill_units = {
+				who = owner
+				type = estate_shizu_inf_30
+			}
+			kill_units = {
+				who = owner
+				type = estate_shizu_inf_20
+			}
+			kill_units = {
+				who = owner
+				type = estate_shizu_inf_10
+			}
+			kill_units = {
+				who = owner
+				type = estate_shizu_inf_0
+			}
+		}
+		remove_country_modifier = estate_nobles_war_support
+		remove_country_modifier = estate_nomadic_tribes_war_support
+		remove_country_modifier = estate_church_war_support
+	}
+}
+
+
+country_event = {
+	id = cuestate.14
+	title = "DEMAND_WAR_SUPPORT"
+	desc = "cuestate.11_desc"
+	picture = CONQUEST_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			set_variable = { which = cu_cash which = etie } 
+			export_to_variable = {
+				which = t_dev
+				value = states_development
+			}
+			multiply_variable = { which = cu_cash which = t_dev }
+			multiply_variable = { which = cu_cash value = 0.01 }
+			multiply_variable = { which = cu_cash value = 0.25 }			 
+		}
+	}
+	option = {
+		name = cuestate.11.a
+		custom_tooltip = add_manpower_est
+		add_dip_power = -100
+		add_absolutism = -15
+		hidden_effect = {
+			every_owned_province = {
+				limit = { check_variable = { which = epime value = 30 } }
+				owner = { add_manpower = 0.33 }
+			}
+		}
+		add_country_modifier = {
+			name = estate_nomadic_tribes_war_support
+			duration = -1
+		}
+		ai_chance = {
+			factor = 100
+		}
+	}
+	option = {
+		name = cuestate.11.b
+		custom_tooltip = cu_add_cash
+		add_dip_power = -150
+		add_absolutism = -5
+		hidden_effect = {
+			cu_change_cash = yes
+		}
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+	
+province_event = {
+	id = cuestate.21#MAM
+	title = "cuestate_titl"
+	desc = "cuestate_desc"
+	picture = COLONIZATION_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	trigger = {
+		has_province_modifier = mamluks_corruption
+		owner = { tag = TUR }
+		has_estate = estate_nobles
+		cu_not_terr_trigger = yes
+	}
+	option = {
+		name = "cuestate.a"
+		remove_province_modifier = mamluks_corruption
+		set_province_flag = mam_cor
+	}
+}
+country_event = {
+	id = cuestate.22#Something else
+	title = "cuestate_tit2"
+	desc = "cuestate_desc2"
+	picture = COLONIZATION_eventPicture
+	trigger = {
+		OR = {
+			AND = {
+				NOT = { absolutism = 50 }
+				corruption = 30
+			}
+			AND = {
+				NOT = { absolutism = 60 }
+				corruption = 40
+			}
+			AND = {
+				NOT = { absolutism = 70 }
+				corruption = 50
+			}
+			AND = {
+				NOT = { absolutism = 80 }
+				corruption = 60
+			}
+			AND = {
+				NOT = { absolutism = 90 }
+				corruption = 70
+			}
+			AND = {
+				NOT = { absolutism = 100 }
+				corruption = 80
+			}
+			corruption = 90
+		}
+		OR = {
+			has_country_flag = revoke_nobles
+			has_country_flag = revoke_church
+			has_country_flag = revoke_cossacks
+			has_country_flag = revoke_shishen
+			has_country_flag = revoke_dhimmi
+			has_country_flag = revoke_burghers 
+		}
+		stability = 0
+	}
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 0.8
+			NOT = { absolutism = 40 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { absolutism = 30 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { absolutism = 20 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { absolutism = 10 } 
+		}
+		modifier = {
+			factor = 1.5
+			ADM = 6
+		}
+		modifier = {
+			factor = 1.5
+			ADM = 5
+		}
+		modifier = {
+			factor = 1.5
+			ADM = 4
+		}
+		modifier = {
+			factor = 0.7
+			NOT = { ADM = 3 }
+		}
+		modifier = {
+			factor = 0.7
+			NOT = { ADM = 2 }
+		}
+	}
+	option = {
+		name = "cuestate.d"
+		hidden_effect = {
+			clr_country_flag = revoke_nobles
+			clr_country_flag = revoke_church
+			clr_country_flag = revoke_cossacks
+			clr_country_flag = revoke_shishen
+			clr_country_flag = revoke_dhimmi
+			clr_country_flag = revoke_burghers 
+		}
+		change_variable = { which = cu_var1 value = -100 }
+		cu_change_stability_point = yes
+		add_corruption = 10
+		change_adm = -2
+	}
+}
+country_event = {
+	id = cuestate.23#Something else
+	title = "cuestate_tit2"
+	desc = "cuestate_desc3"
+	picture = COLONIZATION_eventPicture
+	trigger = {
+		NOT = { absolutism = 50 }
+		OR = {
+			has_country_flag = revoke_nobles
+			has_country_flag = revoke_church
+			has_country_flag = revoke_cossacks
+			has_country_flag = revoke_shishen
+			has_country_flag = revoke_dhimmi
+			has_country_flag = revoke_burghers 
+		}
+		corruption = 15
+		NOT = { stability = 0 }
+	}
+	mean_time_to_happen = {
+		months = 480
+		modifier = {
+			factor = 0.8
+			NOT = { absolutism = 40 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { absolutism = 30 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { absolutism = 20 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = { absolutism = 10 } 
+		}
+		modifier = {
+			factor = 1.5
+			ADM = 6
+		}
+		modifier = {
+			factor = 1.5
+			ADM = 5
+		}
+		modifier = {
+			factor = 1.5
+			ADM = 4
+		}
+		modifier = {
+			factor = 0.7
+			NOT = { ADM = 3 }
+		}
+		modifier = {
+			factor = 0.7
+			NOT = { ADM = 2 }
+		}
+		modifier = {
+			factor = 0.7
+			NOT = { stability = -1 }
+		}
+		modifier = {
+			factor = 0.7
+			NOT = { stability = -2 }
+		}
+	}
+	option = {
+		name = "cuestate.d"
+		hidden_effect = {
+			clr_country_flag = revoke_nobles
+			clr_country_flag = revoke_church
+			clr_country_flag = revoke_cossacks
+			clr_country_flag = revoke_shishen
+			clr_country_flag = revoke_dhimmi
+			clr_country_flag = revoke_burghers 
+		}
+		change_variable = { which = cu_var1 value = -200 }
+		cu_change_stability_point = yes
+		add_corruption = 20
+	}
+}
+province_event = {
+	id = cuestate.24#HLR
+	title = "cuestate_titl"
+	desc = "cuestate_desc"
+	picture = COLONIZATION_eventPicture
+	hidden = yes
+	trigger = {
+		OR = {
+			has_province_flag = cu_hlr_former_member_els
+			has_province_flag = cu_hlr_former_member_fre
+			has_province_flag = cu_hlr_former_member_the
+		}
+		owner = { absolutism = 60 }
+		NOT = { local_autonomy = 50 }
+	}
+	mean_time_to_happen = {
+		months = 240
+	}
+	option = {
+		name = "cuestate.a"
+		remove_province_modifier = mamluks_corruption
+		set_province_flag = mam_cor
+	}
+}

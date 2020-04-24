@@ -1,0 +1,536 @@
+########################################
+# Events for Maya
+#
+# written by Sara Wendel-Örtqvist
+####################################
+
+namespace = flavor_may
+normal_or_historical_nations = yes
+
+# Popol Vuh
+country_event = {
+	id = flavor_may.1
+	title = flavor_may.1.t
+	desc = flavor_may.1.d
+	picture = BIG_BOOK_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			tag = MAY
+			tag = KIC
+			tag = ITZ
+			tag = XIU
+			tag = COC
+		}
+		religion_group = christian
+		any_owned_province = {
+			NOT = {
+				religion_group = christian
+			}
+		}
+		NOT = {
+			has_country_modifier = may_popol_vuh
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = flavor_may.1.a
+		add_country_modifier = {
+			name = "may_popol_vuh"
+			duration = 3650
+		}
+		hidden_effect = {
+   		 set_variable = { which = cu_var1 value = 1 }
+		}
+		cu_change_cultural_legacy = yes
+		custom_tooltip = cu_change_cultural_legacy_1t
+	}
+	option = {
+		name = flavor_may.1.b
+		add_prestige = 5
+		add_papal_influence = 2
+	}
+}
+
+# League of Mayapan
+country_event = {
+	id = flavor_may.2
+	title = flavor_may.2.t
+	desc = flavor_may.2.d
+	picture = CIVIL_WAR_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		OR = {
+			tag = MAY
+			tag = KIC
+			tag = ITZ
+			tag = XIU
+			tag = COC
+		}
+		NOT = {
+			has_country_flag = may_league_mayapan_flag
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 22
+	}
+	
+	option = {
+		name = flavor_may.2.a
+		set_country_flag = may_league_mayapan_flag
+		add_prestige = 10
+		if = {
+			limit = {
+				exists = KIC
+				NOT = {
+					ROOT = {
+						tag = KIC
+					}
+				}
+			}
+			reverse_add_opinion = { who = KIC modifier = stronger_alone }
+		}
+		if = {
+			limit = {
+				exists = COC
+				NOT = {
+					ROOT = {
+						tag = COC
+					}
+				}
+			}
+			reverse_add_opinion = { who = COC modifier = stronger_alone }
+		}
+		if = {
+			limit = {
+				exists = XIU
+				NOT = {
+					ROOT = {
+						tag = XIU
+					}
+				}
+			}
+			reverse_add_opinion = { who = XIU modifier = stronger_alone }	
+		}
+		if = {
+			limit = {
+				exists = MAY
+				NOT = {
+					ROOT = {
+						tag = MAY
+					}
+				}
+			}
+			reverse_add_opinion = { who = MAY modifier = stronger_alone }
+		}
+		if = {
+			limit = {
+				exists = ITZ
+				NOT = {
+					ROOT = {
+						tag = ITZ
+					}
+				}
+			}
+			reverse_add_opinion = { who = ITZ modifier = stronger_alone }
+		}
+	}
+	option = {
+		name = flavor_may.2.b
+		set_country_flag = may_league_mayapan_flag
+		if = {
+			limit = {
+				exists = KIC
+				NOT = {
+					ROOT = {
+						tag = KIC
+					}
+				}
+			}
+			reverse_add_opinion = { who = KIC modifier = league_mayapan }
+		}
+		if = {
+			limit = {
+				exists = COC
+				NOT = {
+					ROOT = {
+						tag = COC
+					}
+				}
+			}
+			reverse_add_opinion = { who = COC modifier = league_mayapan }
+		}
+		if = {
+			limit = {
+				exists = XIU
+				NOT = {
+					ROOT = {
+						tag = XIU
+					}
+				}
+			}
+			reverse_add_opinion = { who = XIU modifier = league_mayapan }
+		}
+		if = {
+			limit = {
+				exists = MAY
+				NOT = {
+					ROOT = {
+						tag = MAY
+					}
+				}
+			}
+			reverse_add_opinion = { who = MAY modifier = league_mayapan }
+		}
+		if = {
+			limit = {
+				exists = ITZ
+				NOT = {
+					ROOT = {
+						tag = ITZ
+					}
+				}
+			}
+			reverse_add_opinion = { who = ITZ modifier = league_mayapan }
+		}
+	
+	}
+}
+
+### Conversion of Itza to Catholic by Spain ###
+# Kan Ek and the Prophecy
+country_event = {
+	id = flavor_may.3
+	title = flavor_may.3.t
+	desc = flavor_may.3.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	trigger = {
+		OR = {
+			tag = MAY
+			tag = KIC
+			tag = ITZ
+			tag = XIU
+			tag = COC
+		}
+		NOT = {
+			OR = {
+				religion = catholic
+				has_country_flag = may_kan_ek_flag
+			}
+		}
+		knows_country = SPA
+		SPA = {
+			religion = catholic
+			knows_country = ROOT
+			any_owned_province = {
+				OR = {
+					region = carribeans_region
+					region = colombia_region
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 32
+	}
+	
+	option = {
+		name = flavor_may.3.a
+		change_religion = catholic
+		cu_change_stability_point_n75 = yes
+		SPA = {
+			add_opinion = { who = ROOT modifier = may_convert }
+			country_event = {
+				id = flavor_may.4
+				days = 7
+				tooltip = flavor_may.4.tt
+			}
+		}
+	}
+	option = {
+		name = flavor_may.3.b
+		add_prestige = 5
+		set_country_flag = may_kan_ek_flag
+	}
+}
+
+# SPAIN GETS BONUS
+country_event = {
+	id = flavor_may.4
+	title = flavor_may.4.t
+	desc = flavor_may.4.d
+	picture = RELIGION_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_may.4.a
+		add_prestige = 10
+		add_papal_influence = 2
+	}
+}
+
+# The Franciscan Friars
+country_event = {
+	id = flavor_may.5
+	title = flavor_may.5.t
+	desc = flavor_may.5.d
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	trigger = {
+		OR = {
+			tag = MAY
+			tag = KIC
+			tag = ITZ
+			tag = XIU
+			tag = COC
+		}
+		NOT = {
+			OR = {
+				religion = catholic
+				has_country_flag = may_franciscan_friars_flag
+			}
+		}
+		SPA = {
+			religion = catholic
+			OR = {
+				any_owned_province = {
+					any_neighbor_province = {
+						owner = {
+							OR = {
+								tag = MAY
+								tag = ITZ
+							}
+						}
+					}
+				}
+				ROOT = {
+					had_country_flag = { flag = may_kan_ek_flag days = 7300 }
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 32
+	}
+	
+	option = {
+		name = flavor_may.5.a
+		change_religion = catholic
+		cu_change_stability_point_n75 = yes
+		SPA = {
+			add_opinion = { who = ROOT modifier = may_convert }
+			country_event = {
+				id = flavor_may.4
+				days = 7
+				tooltip = flavor_may.4.tt
+			}
+		}
+	}
+	option = {
+		name = flavor_may.5.b
+		add_prestige = 10
+		set_country_flag = may_franciscan_friars_flag
+	}
+}
+
+# Maya Sacrifice
+country_event = {
+	id = flavor_may.6
+	title = flavor_may.6.t
+	desc = flavor_may.6.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+	
+	trigger = {
+		OR = {
+			tag = MAY
+			tag = KIC
+			tag = ITZ
+			tag = XIU
+			tag = COC
+		}
+		war_with = SPA
+		NOT = {
+			religion = catholic
+		}
+		SPA = {
+			religion = catholic
+			OR = {
+				any_owned_province = {
+					any_neighbor_province = {
+						owner = {
+							OR = {
+								tag = MAY
+								tag = KIC
+								tag = ITZ
+								tag = XIU
+								tag = COC
+							}
+						}
+					}
+				}
+				ROOT = {
+					had_country_flag = { flag = may_kan_ek_flag days = 7300 }
+				}
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 32
+	}
+	
+	option = {
+		name = flavor_may.6.a
+		change_religion = catholic
+		cu_change_stability_point_n75 = yes
+		SPA = {
+			add_opinion = { who = ROOT modifier = may_convert }
+			country_event = {
+				id = flavor_may.4
+				days = 7
+				tooltip = flavor_may.4.tt
+			}
+		}
+	}
+	option = {
+		name = flavor_may.6.b
+		add_prestige = 10
+		tooltip = {
+			random_owned_province = {
+				limit = {
+					OR = {
+						has_port = yes
+						any_neighbor_province = {
+							owned_by = SPA
+						}
+					}
+				}
+				add_claim = SPA
+			}
+		}
+		SPA = {
+			country_event = {
+				id = flavor_may.7
+				days = 7
+				tooltip = flavor_may.7.tt
+			}
+		}
+	}
+}
+
+# SPAIN GETS CLAIMS
+country_event = {
+	id = flavor_may.7
+	title = flavor_may.7.t
+	desc = flavor_may.7.d
+	picture = RELIGION_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_may.7.a
+		add_prestige = 10
+		add_papal_influence = 2
+		FROM = {
+			random_owned_province = {
+				limit = {
+					OR = {
+						has_port = yes
+						any_neighbor_province = {
+							owned_by = SPA
+						}
+					}
+				}
+				add_claim = SPA
+			}
+		}
+	}
+}
+
+#Chichen Itza
+country_event = {
+	id = flavor_may.20
+	title = flavor_may.20.t
+	desc = flavor_may.20.d
+	picture = RELIGION_eventPicture
+	
+	trigger = {
+		NOT = { religion = mesoamerican_religion }
+		NOT = { has_country_flag = fle_chichen_itza }
+		owns = 846		
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = fle_chichen_itza				
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = { #Destroy the Temple
+		name = flavor_may.20.a
+		ai_chance = { factor = 1 }
+		add_years_of_income = 0.01
+		846 = {			
+			add_unrest = 5
+		}
+	}
+	
+	option = { #This is a fascinating religion, let us embrace it instead.
+		ai_chance = { factor = 1 }
+		name = flavor_may.20.b
+		trigger = {
+			OR = {
+				religion_group = pagan
+				AND = {
+					OR = {
+						has_reform = cu_religious_policy_1
+						has_reform = cu_religious_policy_2
+					}
+					has_country_flag = exile_country
+				}
+			}
+			is_colonial_nation = no
+			NOT = { religion = nahuatl }            
+			NOT = { religion = inti }
+		}
+		change_religion = mesoamerican_religion	
+		set_ruler_religion = mesoamerican_religion
+		set_heir_religion = mesoamerican_religion
+		add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}
+		hidden_effect = {
+   		   set_variable = { which = cu_var1 value = 10 }
+		}
+		cu_change_cultural_legacy = yes
+		custom_tooltip = cu_change_cultural_legacy_10t	
+	}
+	option = { #Let them worship the idol.
+		name = flavor_may.20.c
+		trigger = { full_idea_group = humanist_ideas }
+		ai_chance = { factor = 0 }
+		cu_change_stability_point_n75 = yes
+		846 = {			
+			add_base_tax = 1
+		}
+	}
+	
+}

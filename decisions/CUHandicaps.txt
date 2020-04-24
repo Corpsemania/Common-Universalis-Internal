@@ -1,0 +1,55 @@
+country_decisions = {
+
+    cu_handicap = {
+		potential = {
+			ai = no
+			NOT = { has_global_flag = cu_handicap_open }		
+            NOT = { has_global_flag = cu_handicap_set }			
+		}
+		allow = {
+		}
+		effect = {
+		    set_global_flag = cu_handicap_open
+			country_event = { id = custart.04 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+    
+	cu_fast_mode = {
+		potential = {
+			ai = no
+			NOT = { has_global_flag = cu_fast_mode }
+            NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+		allow = {
+		}
+		effect = {
+		    set_global_flag = cu_fast_mode
+			custom_tooltip = cu_fast_mode_tt
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	
+	cu_normal_mode = {
+		potential = {
+			ai = no
+			has_global_flag = cu_fast_mode
+		}
+		allow = {
+		}
+		effect = {
+		    clr_global_flag = cu_fast_mode
+			custom_tooltip = cu_normal_mode_tt
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+}

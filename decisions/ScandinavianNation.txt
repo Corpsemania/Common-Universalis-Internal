@@ -1,0 +1,208 @@
+country_decisions = {
+
+	scandinavian_nation = {
+		major = yes
+		potential = {
+		    #has_global_flag = test_version
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_scandinavia_flag }
+			was_never_end_game_tag_trigger = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = SCA }
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+			NOT = { tag = EUU }
+			culture_group = scandinavian
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		allow = {
+			adm_tech = 12
+			total_development = 300
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			owns_core_province = 1		# Uppland
+			owns_core_province = 6		# Skane
+			owns_core_province = 7		# Vastergotland
+			owns_core_province = 12		# Sjaelland
+			owns_core_province = 15		# Jylland
+			owns_core_province = 17		# Akershus
+		}
+		effect = {
+			change_tag = SCA
+						set_country_flag = formed_scandinavia_flag
+
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			scandinavia_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = SCA
+			}	
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 10
+            if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			hidden_effect = { every_owned_province = { cu_reset_cultural_acceptance = yes } }
+			
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	scandinavian_nation_diplomatically = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = formed_scandinavia_flag }
+			was_never_end_game_tag_trigger = yes
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			tag = DAN
+			NOT = { exists = SCA }			
+			culture_group = scandinavian			
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 10
+					adm_tech = 20
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		allow = {			
+			adm_tech = 12
+			is_subject = no
+			is_nomad = no
+			is_at_war = no			
+			NOT = {
+			    scandinavia_region = {
+				 AND = {
+				  NOT = { owned_by = ROOT }
+                  NOT = {				  
+				    owner = {
+				     OR = {
+					       junior_union_with = ROOT
+						   vassal_of = ROOT
+					 }
+					}
+				  } 
+			     }
+				}
+			}
+			OR = {
+				SWE = { NOT = { liberty_desire = 50 } }	
+				NOT = { exists = SWE }
+			}
+			OR = {
+				NOR = { NOT = { liberty_desire = 50 } }	
+				NOT = { exists = NOR }
+			}
+		}
+		effect = {
+			set_country_flag = formed_scandinavia_flag
+		    every_subject_country = {
+			    limit = { 
+				           capital_scope = { region = scandinavia_region } 
+						   culture_group = scandinavian
+						   NOT = { total_development = 200 }
+				}
+				ROOT = { inherit = PREV } 
+			}
+			scandinavia_region = {
+			    limit = { 
+				           owner = {
+						        OR = {
+					                junior_union_with = ROOT
+						            vassal_of = ROOT
+					            } 
+						   
+						   }		   
+			    }
+				cede_province = ROOT
+				add_core = ROOT
+			}
+			change_tag = SCA
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 3 } }
+				set_government_rank = 3
+			}
+			scandinavia_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = SCA
+			}	
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 30
+            if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			hidden_effect = { every_owned_province = { cu_reset_cultural_acceptance = yes } }
+			
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+}

@@ -1,0 +1,510 @@
+country_decisions = {
+
+	restore_roman_empire = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = restored_rome_flag }
+			owns = 118
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { exists = BRM }
+                                                NOT = { tag = BYZ }
+			NOT = { tag = PAP }
+			NOT = { exists = ROM }
+            is_emperor = no
+            is_part_of_hre = no			
+		}
+        provinces_to_highlight = {
+			OR = {
+                region = italy_region
+                region = france_region
+                region = iberia_region
+                area = tripolitania_area  
+                area = algiers_area
+                area = djerba_area
+                area = tunisia_area
+                area = carinthia_area
+                area = tirol_area
+                area = inner_austria_area                             
+                area = kabylia_area
+                area = western_morocco_area
+                area = northern_morocco_area      
+                area = east_adriatic_coast_area                                                      
+	            province_id = 236		# London			
+	            province_id = 96		# Zeeland	
+                province_id = 134		# Vienna			
+			}
+            NOT ={ area = macaronesia_area }
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}			
+		allow = {
+			italy_region = {
+				type = all
+				owned_by = ROOT
+			}
+			france_region = {
+				type = all
+				owned_by = ROOT
+			}
+                                                 aragon_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                 catalonia_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                valencia_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                lower_andalucia_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                upper_andalucia_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                castille_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                toledo_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                asturias_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                basque_country = {
+				type = all
+				owned_by = ROOT
+			}
+                                                leon_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                beieras_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                alentejo_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                 tripolitania_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                algiers_area= {
+				type = all
+				owned_by = ROOT
+			}
+                                                djerba_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                tunisia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kabylia_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                western_morocco_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                northern_morocco_area = {
+				type = all
+				owned_by = ROOT
+			}
+			carinthia_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                tirol_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                inner_austria_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                east_adriatic_coast_area = {
+				type = all
+				owned_by = ROOT
+			}
+			owns = 236 # London			
+			owns = 96 # Zeeland
+			owns = 134 # Vienna
+			is_at_war = no
+			is_subject = no
+			is_nomad = no
+		}
+		effect = {			
+			change_tag = ROM			
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			set_government_rank = 3
+			add_prestige = 50
+			add_core = 118 # Rome
+                                  custom_tooltip = reclaim_empire
+                                  hidden_effect = {
+                                  every_province = {
+ 				limit = {
+					NOT = { owned_by = ROOT }
+                                OR = {  
+                                region = italy_region
+                                region = mashriq_region
+                                region = france_region
+                                region = balkan_region
+                                region = anatolia_region 
+                                area = algiers_area
+                                area = djerba_area
+                                area = tunisia_area                         
+                                area = kabylia_area
+                                area = western_morocco_area
+                                area = northern_morocco_area
+                                area = tripolitania_area
+                                area = tabuk_area
+                                area = hautes_plaines_area
+                                area = ouled_nail_area
+                                area = wessex_area
+                                area = home_counties_area
+                                area = east_anglia_area
+                                area = wales_area
+                                area = west_midlands_area
+                                area = east_midlands_area
+                                area = yorkshire_area
+                                area = north_rhine_area
+                                area = lower_rhineland_area 
+                                province_id = 1756		# Bessarabia
+                                province_id = 246		# Northumberland
+                                province_id = 247		# Cumbria
+				}}
+				add_permanent_claim = ROM
+			}
+                        iberia_region = {
+ 				limit = {
+					NOT = { owned_by = ROOT }
+                                        NOT = { area = macaronesia_area }
+				}
+				add_permanent_claim = ROM
+			} 
+                        egypt_region  = {
+ 				limit = {
+					NOT = { owned_by = ROOT }
+                                        NOT = { area = lower_nubia_area }
+				}
+				add_permanent_claim = ROM
+			} 
+                        south_german_region = {
+ 				limit = {
+					NOT = { owned_by = ROOT }
+                                        NOT = { area = franconia_area }
+				}
+				add_permanent_claim = ROM
+			}
+                        low_countries_region = {
+ 				limit = {
+					NOT = { owned_by = ROOT }
+                                        NOT = { area = frisia_area }
+				}
+				add_permanent_claim = ROM
+			}
+                        carpathia_region = {
+ 				limit = {
+					NOT = { owned_by = ROOT }
+                                        NOT = { area = moldavia_area }
+				}
+				add_permanent_claim = ROM
+			}
+                        caucasia_region = {
+ 				limit = {
+					NOT = { owned_by = ROOT }
+                                        NOT = { area = circassia_area }
+                                        NOT = { area = dagestan_area }
+				}
+				add_permanent_claim = ROM
+			} }			
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			set_country_flag = restored_rome_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+    form_latin_empire = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_latin_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = BYZ }
+            NOT = { exists = LTE }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = TUR }
+			NOT = { tag = RUM }
+			NOT = { tag = PAP }
+            is_emperor = no
+            is_part_of_hre = no	
+            owns = 151             # Constantinople		
+			religion = catholic
+            OR = {
+				current_age = age_of_discovery
+				current_age = age_of_reformation
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 151 # Constantinople
+				province_id = 149	# Edirne
+				province_id = 144  # Epiros
+				province_id = 147	# Salonica
+				province_id = 148	# Macedonia
+				province_id = 146	# Athens
+				province_id = 145	# Morea
+				province_id = 1773	# Achea
+				province_id = 316	# Bithynia
+				province_id = 317	# Bursa
+				province_id = 318	# Smyrna
+				province_id = 1853	# Kozani
+				province_id = 2296	# Biga
+			}
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			owns = 151             # Constantinople
+			owns = 149	# Edirne
+			owns = 144             # Epiros
+			owns = 147	# Salonica
+			owns = 148	# Macedonia
+			owns = 146	# Athens
+			owns = 145	# Morea
+			owns = 1773	# Achea
+			owns = 316	# Bithynia
+			owns = 317	# Bursa
+			owns = 318	# Smyrna
+			owns = 1853	# Kozani
+			owns = 2296	# Biga
+			is_at_war = no
+			is_subject = no
+			is_nomad = no
+		}
+		effect = {
+			151 = {
+				move_capital_effect = yes
+                                                                change_culture = ROOT 
+				change_religion = ROOT
+			}
+			change_tag = LTE			
+			every_province = {
+				limit = {
+					is_core = BYZ
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = LTE
+			}			
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 20
+			LTE = {
+				add_core = 151 # Constantinople
+			}			
+			if = {
+				limit = { has_global_flag = hagia_sophia_now_mosque }
+				clr_global_flag = hagia_sophia_now_mosque
+				show_ambient_object = hagia_sophia
+				hide_ambient_object = hagia_sophia_minarets
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_government_rank = 3			
+			set_country_flag = formed_latin_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	release_latin_empire = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_latin_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = BYZ }
+            NOT = { exists = LTE }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = TUR }
+			NOT = { tag = RUM } 
+            NOT = { tag = BYZ }
+            NOT = {
+                capital_scope = {
+				        region = balkan_region
+                        region = anatolia_region
+			    }
+            }	
+            owns = 151             # Constantinople
+            OR = {
+				current_age = age_of_discovery
+				current_age = age_of_reformation
+			}		
+			religion = catholic
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 151 # Constantinople
+				province_id = 149	# Edirne
+				province_id = 144  # Epiros
+				province_id = 147	# Salonica
+				province_id = 148	# Macedonia
+				province_id = 146	# Athens
+				province_id = 145	# Morea
+				province_id = 1773	# Achea
+				province_id = 316	# Bithynia
+				province_id = 317	# Bursa
+				province_id = 318	# Smyrna
+				province_id = 1853	# Kozani
+				province_id = 2296	# Biga
+			}
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			owns = 151             # Constantinople
+			owns = 149	# Edirne
+			owns = 144             # Epiros
+			owns = 147	# Salonica
+			owns = 148	# Macedonia
+			owns = 146	# Athens
+			owns = 145	# Morea
+			owns = 1773	# Achea
+			owns = 316	# Bithynia
+			owns = 317	# Bursa
+			owns = 318	# Smyrna
+			owns = 1853	# Kozani
+			owns = 2296	# Biga
+			is_at_war = no
+			is_subject = no
+			is_nomad = no
+		}
+		effect = {                                         
+             custom_tooltip = latin_empire 
+             hidden_effect = {
+             every_province = {
+				limit = {
+					OR = {
+					          region = anatolia_region
+							  area = thrace_area
+							  culture = greek                     
+                    }
+					           owned_by = ROOT                                                                                   
+				}
+			               add_core = LTE                                                               
+                     remove_core = ROOT
+                     } }
+			release = LTE
+      hidden_effect = {
+      LTE = {
+      create_alliance = ROOT
+			set_capital = 151 # Constantinople
+			hidden_effect = { cu_calc_country_absolute_dist = yes }
+      151 = {				
+				change_culture = ROOT 
+				change_religion = ROOT				
+			}
+      define_ruler = {
+			dynasty = ROOT
+      DIP = 1			
+			ADM = 1
+			MIL = 1
+            }
+            change_primary_culture = ROOT 
+            change_religion = ROOT						        
+            change_technology_group = western
+			      change_unit_type = western
+            set_ruler_culture = ROOT
+            set_ruler_religion = ROOT
+            add_legitimacy = 50
+            change_government = monarchy
+            add_accepted_culture = greek
+			every_province = {
+				limit = {
+					is_core = BYZ
+					NOT = { owned_by = LTE }
+				}
+				add_permanent_claim = LTE
+			}			
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 20			
+			add_core = 151 # Constantinople						
+			if = {
+				limit = { has_global_flag = hagia_sophia_now_mosque }
+				clr_global_flag = hagia_sophia_now_mosque
+				show_ambient_object = hagia_sophia
+				hide_ambient_object = hagia_sophia_minarets
+			}
+			set_government_rank = 3
+      add_adm_power = 300
+      add_dip_power = 300
+      add_mil_power = 300
+      add_treasury = 500
+      add_manpower = 20
+      infantry = 151
+      infantry = 151
+      infantry = 151
+      infantry = 151
+      infantry = 151
+      infantry = 151
+      infantry = 151
+      infantry = 151
+      infantry = 151
+      infantry = 151
+			every_owned_province = { cu_reset_cultural_acceptance = yes }
+			set_country_flag = formed_latin_flag
+          }
+		} }
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+}

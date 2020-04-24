@@ -1,0 +1,104 @@
+improved_relation_cu = {
+	opinion = 0
+	months = 0
+	yearly_decay = 2
+	max = 200
+	max_vassal = 200
+	max_in_other_direction = 100
+}
+
+opinion_tribute_rejected = {
+    opinion = -100
+	yearly_decay = 3
+	min = -100
+}
+
+opinion_celestial_vassalege_rejected = {
+    opinion = -100
+	yearly_decay = 2
+	min = -100
+}
+opinion_tribute_empty_receiver = {
+        opinion = -30
+	yearly_decay = 3
+	min = -30
+}
+
+opinion_tribute_money = {
+    opinion = 30
+	yearly_decay = -3
+	max = 60
+}
+
+opinion_tribute_student = {
+    opinion = 15
+	yearly_decay = -3
+	max = 30
+}
+
+opinion_tribute_empty = {
+    opinion = -30
+	yearly_decay = 2
+	min = -60
+}
+
+opinion_tribute_good_reward = {
+    opinion = 30
+	yearly_decay = -2
+	max = 30
+}
+
+opinion_tribute_bad_reward = {
+    opinion = -30
+	yearly_decay = 2
+	min = -30
+}
+
+opinion_tribute_normal_reward = {
+    opinion = 10
+	yearly_decay = -2
+	max = 10
+}
+
+opinion_tribute_target = {
+    opinion = 5
+}
+
+opinion_tribute_target = {
+    opinion = 5
+}
+
+opinion_horde_plundering = {
+    opinion = -30
+	yearly_decay = 2
+	min = -90
+}
+
+opinion_improve_royal_relation = {
+    opinion = 40
+	yearly_decay = -2
+	max = 40
+}
+
+opinion_treaty_of_flanders = {
+        opinion = 20
+	yearly_decay = -2
+	max = 20
+}
+
+cu_assistance_given = {
+    opinion = 30
+	yearly_decay = -1
+	max = 30
+}
+
+cu_assistance_denied = {
+    opinion = -30
+	yearly_decay = 1
+	min = -30
+}
+opinion_cu_steal_money = {
+    opinion = -40
+	yearly_decay = 1
+	min = -200
+}						  

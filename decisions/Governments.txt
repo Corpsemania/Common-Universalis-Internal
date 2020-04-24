@@ -1,0 +1,25 @@
+﻿#replaced by government reforms
+#Added an easter egg event tree
+country_decisions = {
+    cu_chrismas_gift = {
+		potential = {
+		    has_global_flag = test_version
+            NOT = { check_variable = { which = cu_chrismas_gift_timer value = 101 } }	
+		}
+		allow = {
+		    is_month = 12
+		}
+		effect = {
+		    custom_tooltip = cu_chrismas_gift_tooltip
+            if = {
+			      limit = { tag = FIN }
+				  add_treasury = 1
+			}
+			hidden_effect = { change_variable = { which = cu_chrismas_gift_timer value = 1 } }
+            country_event = { id = help.000 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

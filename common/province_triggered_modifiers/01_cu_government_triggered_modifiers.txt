@@ -1,0 +1,76 @@
+cu_terr_abandon = {
+	potential = {
+		is_state = no
+		OR = {
+			is_territorial_core = owner
+			is_core = owner
+		}
+		owner = { ai = no }
+	}
+	trigger = {
+		
+	}
+	local_tax_modifier = -1
+	local_production_efficiency = -1
+	local_manpower_modifier = -1		
+	local_sailors_modifier = -1
+	advisor_cost = 0.025
+	yearly_absolutism = -0.075
+	
+	on_deactivation = {
+		#remove_province_modifier = cu_terr_abandon
+    } 
+}
+
+#Sample
+noble_reduce_tax_1 = {
+	 potential = {
+		owner = { is_variable_equal = { which = noble_tax_lev value = 1 } }
+		OR = {
+			has_estate = estate_nobles
+			has_estate = estate_qinwang
+		}
+	}
+	
+	trigger = {		
+		
+	}
+	local_tax_modifier = -0.10
+	local_production_efficiency = -0.10
+	local_manpower_modifier = 0.10
+}
+
+noble_reduce_tax_2 = {
+	 potential = {
+		owner = { is_variable_equal = { which = noble_tax_lev value = 2 } }
+		OR = {
+			has_estate = estate_nobles
+			has_estate = estate_qinwang
+		}
+	}
+	
+	trigger = {		
+		
+	}
+	local_tax_modifier = -0.20
+	local_production_efficiency = -0.20
+	local_manpower_modifier = 0.20
+}
+
+noble_reduce_tax_3 = {
+	 potential = {
+		owner = { is_variable_equal = { which = noble_tax_lev value = 3 } }
+		OR = {
+			has_estate = estate_nobles
+			has_estate = estate_qinwang
+		}
+	}
+	
+	trigger = {		
+		
+	}
+	local_tax_modifier = -0.30
+	local_production_efficiency = -0.30
+	local_manpower_modifier = 0.30
+}
+

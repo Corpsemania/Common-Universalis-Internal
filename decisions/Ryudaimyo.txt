@@ -1,0 +1,34 @@
+country_decisions = {
+	ryu_daimyo = {
+		major = yes
+		potential = {
+			tag = RYU
+			NOT = { has_reform = daimyo }
+			NOT = { has_reform = indep_daimyo }
+			is_subject = yes
+			overlord = { has_reform = shogunate }
+		}
+		allow = {
+			overlord = { 
+				has_reform = shogunate 
+				has_opinion = {
+					who = ROOT
+					value = 50
+				}
+			} 
+		}
+		effect = {
+			add_years_of_income = -0.3
+			add_government_reform = daimyo
+			overlord = {
+				create_subject = {
+					subject_type = daimyo_vassal
+					subject = RYU
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+}

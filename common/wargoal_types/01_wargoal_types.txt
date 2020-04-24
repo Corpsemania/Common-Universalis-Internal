@@ -1,0 +1,227 @@
+ctake_province_brother = {
+	type = superiority
+	
+	badboy_factor = 0.80
+	prestige_factor = 1
+	peace_cost_factor = 0.40
+	
+	allowed_provinces = {
+		culture = FROM
+	}
+	
+	peace_options = {
+		po_demand_provinces
+	}
+	
+	allow_leader_change = yes
+	
+	war_name = BROTHER_WAR_NAME
+}
+
+take_province_ps = {
+	type = superiority
+	
+	badboy_factor = 0.75
+	prestige_factor = 1
+	peace_cost_factor = 1.00
+	
+	allowed_provinces = {
+		OR = { 
+                       is_overseas = yes
+                       owner = {
+                               is_colonial_nation = yes 
+                       }
+                }
+	}
+	
+	peace_options = {
+		po_demand_provinces
+	}
+	
+	allow_leader_change = yes
+	
+	war_name = PLACE_SUN_WAR_NAME
+}
+
+take_province_gunpowder_diplomacy = {
+	type = blockade_ports
+	badboy_factor = 1
+	prestige_factor = 1
+	peace_cost_factor = 0.7
+	
+	allowed_provinces = {
+		has_port = yes
+	}
+	
+	peace_options = {
+		po_demand_provinces
+		po_gold
+		po_become_vassal
+		po_trade_power
+	}
+	transfer_trade_cost_factor = 0.5	
+	allow_leader_change = yes
+	
+	war_name = GUNPOWDER_DIPLOMACY_WAR_NAME
+}
+wargoal_hyw = {
+	type = take_core
+
+	attacker = {
+		badboy_factor = 0.33
+		prestige_factor = 1
+		peace_cost_factor = 0.66
+
+		allowed_provinces = {
+			is_core = ROOT
+		}
+		
+	    peace_options = {
+		   po_demand_provinces
+	    }
+		
+		prov_desc = ALL_CORES
+	}
+	
+	defender = {
+		badboy_factor = 0.5
+		prestige_factor = 1
+		peace_cost_factor = 1
+
+		allowed_provinces = {
+			is_core = FROM
+		}
+		
+		peace_options = {
+		   po_demand_provinces
+		   po_form_personal_union = yes
+	    }
+		prov_desc = ALL_CORES	
+	}
+	
+	allow_leader_change = yes
+	war_name = CORE_WAR_NAME
+}
+
+wargoal_hyw_bur = {
+	type = superiority
+	
+	badboy_factor = 0.75
+	prestige_factor = 1
+	peace_cost_factor = 0.9
+	
+	allowed_provinces = {
+	         OR = {
+                        is_claim = FROM
+                        is_core = FROM
+                 }
+	}
+	
+	peace_options = {
+	       po_gold
+		   po_concede_defeat
+		   po_humiliate_rival
+		   po_demand_provinces
+	}
+	
+	allow_leader_change = yes
+	
+	war_name = AID_ALLY_WAR_NAME
+}
+
+superiority_sunset = {
+	type = superiority
+	
+	badboy_factor = 1.25
+	prestige_factor = 2
+	peace_cost_factor = 0.25
+	
+	allowed_provinces = {
+		NOT = { continent = north_america }
+                NOT = { continent = south_america }
+	}
+	
+	peace_options = {
+		   po_demand_provinces
+		   po_gold
+	}
+	
+	allow_leader_change = yes
+	
+	war_name = SUNSET_WAR_NAME
+}
+
+superiority_sunset_eu = {
+	type = superiority
+	
+	badboy_factor = 1
+	prestige_factor = 2
+	peace_cost_factor = 0.33
+	
+	allowed_provinces = {
+		OR = { 
+                        continent = north_america 
+                        continent = south_america 
+                }
+	}
+	
+	peace_options = {
+		   po_demand_provinces
+		   po_gold
+		   po_become_vassal
+	}
+	allow_leader_change = yes
+	
+	war_name = SUNSET_WAR_EU_NAME
+}
+
+take_province_the_chosen_path = {
+	type = superiority
+	
+	badboy_factor = 0.75
+	prestige_factor = 1
+	peace_cost_factor = 0.75	
+	
+	allowed_provinces = {
+		always = yes
+	}
+	
+	peace_options = {
+		   po_demand_provinces
+		   po_gold
+		   po_become_vassal
+		   po_return_cores
+	}
+	
+	war_name = CHOSEN_PATH_WAR_NAME
+}
+
+superiority_circle_of_destiny = {
+	type = superiority
+	
+	badboy_factor = 0.75
+	prestige_factor = 1.25
+	peace_cost_factor = 0.7	
+	
+	allowed_provinces = {
+	        OR = {
+                     any_neighbor_province = {
+			  owned_by = ROOT
+		     }
+                     is_core = ROOT
+                }
+	}
+	
+	peace_options = {
+		   po_demand_provinces
+		   po_gold
+		   po_become_vassal
+		   po_revoke_cores
+		   po_release_vassals
+		   po_release_annexed
+		   po_return_cores
+		   po_change_religion
+	}
+	
+	war_name = CIRCLE_WAR_NAME	
+}

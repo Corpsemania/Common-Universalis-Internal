@@ -1,0 +1,84 @@
+cu_great_wall_1 = {
+     local_defensiveness = 0.1
+}
+
+cu_great_wall_2 = {
+	 fort_level = 1
+	 local_defensiveness = 0.1
+}
+
+cu_great_wall_3 = {
+	 fort_level = 1
+	 local_defensiveness = 0.3
+}
+
+cu_notre_dome = {
+	 prestige = 0.5
+	 picture = "cu_notre_dame"
+}
+
+cu_hagia_sophia = {
+     war_exhaustion_cost = -0.1
+	 picture = "cu_hagia_sophia"
+}
+
+cu_piazza_san_marco = {
+	 trade_efficiency = 0.05
+	 picture = "cu_piazza_san_marco"
+}
+
+cu_forbidden_palace = {
+     stability_cost_modifier = -0.1
+	 picture = "cu_forbidden_palace"
+}
+
+taj_mahal_local = {
+        local_tax_modifier = 0.25
+	local_unrest = -5
+        local_development_cost = -0.20
+        province_trade_power_value = 10
+	picture = "cu_taj_mahal"
+}
+
+cu_dome_of_the_rock = {
+    religious_unity = 0.1
+	picture = "cu_dome_of_the_rock"
+}
+
+cu_kofukuji_naru = {
+    defensiveness = 0.05
+	picture = "cu_kofukuji_naru"
+}
+
+cu_great_mosque_of_djenne = {
+    global_tax_modifier = 0.05
+    picture = "cu_great_mosque_of_djenne"
+}
+
+cu_umayyad_mosque = {
+   local_build_cost = -0.1
+   prestige = 0.25
+   picture = "cu_umayyad_mosque"
+}
+
+cu_machu_picchu = {
+   local_build_cost = -0.1
+   local_development_cost = -0.1
+   local_friendly_movement_speed = 0.1
+   local_hostile_movement_speed = 0.1
+   picture = "cu_machu_picchu"
+}
+
+cu_shwedagon_pagoda = {
+   picture = "cu_shwedagon_pagoda"
+}
+
+cu_templo_mayor_tenochtitlan = {
+    prestige = 0.25    
+    picture = "cu_templo_mayor_tenochtitlan"
+}
+
+cu_borobudur_temple = {
+    prestige = 0.25    
+    picture = "cu_borobudur_temple"
+}

@@ -1,0 +1,130 @@
+country_decisions = {
+
+      raising_horde = {
+		potential = {
+			is_nomad = yes
+                        any_owned_province = {
+			        is_core = owner
+                                base_tax = 2
+                                base_production = 2
+                                base_manpower = 2
+                                NOT = { has_province_flag = province_raise_horde }
+		        }
+                        NOT = { has_country_modifier = horde_raising_army }
+                        OR = { 
+                              NOT = { has_country_flag = horde_raising_army }
+                              had_country_flag = { flag = horde_raising_army
+                                                   days = 365 } 
+                        }
+		}
+		allow = {
+                        is_month = 3
+                        NOT = {  is_month = 7 }
+                        prestige = 5
+                        mil_power = 50
+		}
+		effect = {
+                        add_prestige = -5
+                        add_mil_power = -50
+                        clr_country_flag = horde_raising_army 
+                        set_country_flag = horde_raising_army #Refresh
+                        add_country_modifier = {
+                               name = horde_raising_army
+                               duration = 90
+                        }
+			country_event = { id = horde.30 }     # Inform the player
+		}
+		ai_will_do = {
+			factor = 1
+                        modifier = {
+                              factor = 0  # Don't do stupid things!
+                              is_at_war = no
+                        }
+	        }
+       }
+
+      plundering_neighbor = {
+		potential = {
+			has_reform =  steppe_horde
+                        NOT = { has_country_modifier = horde_plundering }
+                        any_neighbor_country = {
+                                NOT = { 
+                                   OR = {
+                                          war_with = ROOT 
+                                          truce_with = ROOT 
+                                          alliance_with = ROOT
+                                          junior_union_with = ROOT
+                                          senior_union_with = ROOT
+                                          vassal_of = ROOT 
+                                          overlord_of = ROOT
+                                   }
+                                } 
+			}
+		}
+		allow = {
+                        is_month = 3
+                        NOT = {  is_month = 10 }
+                        prestige = 10
+                        manpower_percentage = 0.3
+                        is_at_war = no
+		}
+		effect = {
+                        add_prestige = -10
+                        country_event = { id = horde.4 }     # Inform the player
+                        add_country_modifier = {
+                               name = horde_plundering
+                               duration = -1
+                        }
+		}
+		ai_will_do = {
+			factor = 1
+                        modifier = {
+                              factor = 0  # Don't do stupid things!
+                              is_at_war = yes
+                        }
+	        }
+       }
+	   
+	   horde_war_effort = {
+		potential = {
+		    has_reform =  steppe_horde
+			NOT = { has_country_modifier = horde_war_effort_modifier }
+			NOT  = { has_country_flag = horde_war_effort_flag }
+			any_neighbor_country = {
+			        NOT = { 
+                                   OR = {
+                                          war_with = ROOT 
+                                          truce_with = ROOT 
+                                          alliance_with = ROOT
+                                          junior_union_with = ROOT
+                                          senior_union_with = ROOT
+                                          vassal_of = ROOT 
+                                          overlord_of = ROOT
+                                   }
+                    } 
+			       total_development = ROOT
+			}
+		}
+		allow = {
+            is_at_war = no
+			dip_power = 100
+			mil_power = 50
+			horde_unity = 50
+		}
+		effect = {
+		    add_dip_power = -100
+			add_mil_power = -50
+			add_country_modifier = {
+			       name = horde_war_effort_modifier
+				   duration = 365
+			}
+			set_country_flag = horde_war_effort_flag
+			custom_tooltip = horde_war_effort_tt
+		}
+		ai_will_do = {
+			factor = 0 #AI uses it through event
+                        
+		}		
+	   }
+
+}

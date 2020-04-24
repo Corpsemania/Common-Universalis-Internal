@@ -1,0 +1,39 @@
+name = "War of the Eight States' Independence"
+
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 702
+}
+
+1439.12.19 = {
+	add_attacker = AZE
+	add_defender = IRF
+}
+
+1440.5.11 = {
+	battle = {
+		name = "Battle of Onondaga"
+		location = 697
+		attacker = {
+			commander = "Moctezuma"
+			infantry = 24000
+                        cavalry = 2000
+			losses = 67	# percent
+			country = AZE
+		}
+		defender = {
+			commander = "Hiawatha"
+			infantry = 11000
+			losses = 53	# percent
+			country = IRF
+		}
+		result = no
+	}
+}
+1441.11.12 = {
+	rem_attacker = AZE
+	rem_defender = IRF
+}
+
+

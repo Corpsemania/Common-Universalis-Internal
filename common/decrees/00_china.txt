@@ -1,0 +1,204 @@
+# cost is the Meritocracy cost
+# duration is in days
+# ai_will_do has to be 10 for AI to do it (with >=99 Meritocracy).
+
+expand_bureaucracy_decree = {
+	cost = 15
+	duration = 3650
+	modifier = {
+		administrative_efficiency = 0.05
+	}
+	ai_will_do = {
+		factor = 100
+		modifier = {
+			factor = 0.1
+			NOT = { meritocracy = 60 }
+		}
+	}
+}
+
+focus_on_internal_matter_decree = {
+	cost = 10
+	duration = 3650
+	modifier = {
+	    global_autonomy = -0.03		
+	}
+	ai_will_do = {
+		factor = 100
+		modifier = {
+			factor = 0.1
+			NOT = { meritocracy = 60 }
+		}
+	}
+}
+
+strengthen_religious_unity_decree = {
+	cost = 10
+	duration = 3650
+	modifier = {
+		global_missionary_strength = 0.005
+	}
+	ai_will_do = {
+		factor = 50
+		modifier = {
+			factor = 0.1
+			NOT = { meritocracy = 60 }
+		}
+	}
+}
+
+tax_reform_decree = {
+	cost = 15
+	duration = 3650
+	modifier = {
+		global_tax_modifier = 0.15
+	}
+	ai_will_do = {
+		factor = 100
+		modifier = {
+			factor = 0.1
+			NOT = { meritocracy = 60 }
+		}
+		modifier = {
+			factor = 0.1
+			NOT = { tax_income_percentage = 0.25 }
+		}
+		modifier = {
+			factor = 1.5
+			tax_income_percentage = 0.3
+		}
+		modifier = {
+			factor = 1.5
+			tax_income_percentage = 0.35
+		}
+		modifier = {
+			factor = 1.5
+			tax_income_percentage = 0.4
+		}
+		modifier = {
+			factor = 1.5
+			tax_income_percentage = 0.45
+		}
+		modifier = {
+			factor = 1.5
+			tax_income_percentage = 0.5
+		}
+		modifier = {
+			factor = 1.5
+			tax_income_percentage = 0.55
+		}
+		modifier = {
+			factor = 1.5
+			tax_income_percentage = 0.6
+		}
+	}
+}
+
+fight_corruption_decree = {
+	cost = 15
+	duration = 3650
+	modifier = {
+	    yearly_corruption = -0.1
+	}
+	ai_will_do = {
+		factor = 50
+		modifier = {
+			factor = 0.1
+			NOT = { meritocracy = 60 }
+		}
+		modifier = {
+			factor = 3
+			navy_tradition = 50
+		}
+	}
+}
+
+increase_tariff_control_decree = {
+	cost = 10
+	duration = 3650
+	modifier = {
+		global_prov_trade_power_modifier = 0.25
+	}
+	ai_will_do = {
+		factor = 100
+		modifier = {
+			factor = 0.1
+			NOT = { meritocracy = 70 }
+		}
+		modifier = {
+			factor = 0.1
+			NOT = { trade_income_percentage = 0.25 }
+		}
+		modifier = {
+			factor = 1.5
+			trade_income_percentage = 0.3
+		}
+		modifier = {
+			factor = 1.5
+			trade_income_percentage = 0.35
+		}
+		modifier = {
+			factor = 1.5
+			trade_income_percentage = 0.4
+		}
+		modifier = {
+			factor = 1.5
+			trade_income_percentage = 0.45
+		}
+		modifier = {
+			factor = 1.5
+			trade_income_percentage = 0.5
+		}
+		modifier = {
+			factor = 1.5
+			trade_income_percentage = 0.55
+		}
+		modifier = {
+			factor = 1.5
+			trade_income_percentage = 0.6
+		}
+	}
+}
+
+organize_corvee_decree = {
+	cost = 20
+	duration = 3650
+	modifier = {
+		development_cost = -0.05
+		build_time = -0.2
+	}
+	ai_will_do = {
+		factor = 50
+		modifier = {
+			factor = 0.1
+			NOT = { meritocracy = 70 }
+		}
+		modifier = {
+			factor = 0
+			is_in_important_war = yes
+		}
+	}
+}
+
+train_new_army_decree = {
+	cost = 10
+	duration = 3650
+	modifier = {
+		manpower_recovery_speed = 0.1
+	}
+	ai_will_do = {
+		factor = 100
+		modifier = {
+			factor = 0
+			NOT = { meritocracy = 70 }
+		}
+		modifier = {
+			factor = 0.1
+			is_at_war = no
+		}
+		modifier = {
+			factor = 10
+			is_in_important_war = yes
+		}
+	}
+}

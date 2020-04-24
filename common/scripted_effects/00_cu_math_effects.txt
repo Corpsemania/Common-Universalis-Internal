@@ -1,0 +1,63 @@
+#Mathmetical functions and other tools
+
+#ABS[cu_var1] 
+cu_abs = {
+	if = { limit = { NOT = { check_variable = { which = cu_var1 value = 0 } } } multiply_variable = { which = cu_var1 value = -1 } }
+}
+
+
+#SQRT[cu_var1]:cu_var2 = sqrt(cu_var1), cu_var3 is used as a temperal variable
+cu_sqrt = {
+	set_variable = { which = cu_var3 which = cu_var1 }
+	set_variable = { which = cu_var2 value = 0 }
+	set_variable = { which = tempa value = 1 }
+	divide_variable = { which = cu_var3 value = 2 }
+    while = {
+		limit = { check_variable = { which = tempa value = 0.001 } }
+		set_variable = { which = cu_var2 which = cu_var3 }
+		set_variable = { which = cu_var3 which = cu_var1 }
+		divide_variable = { which = cu_var3 which = cu_var2 }
+		change_variable = { which = cu_var3 which = cu_var2 }
+		divide_variable = { which = cu_var3 value = 2 }
+		set_variable = { which = tempa which = cu_var3 }
+		subtract_variable = { which = tempa which = cu_var2 }
+		abs = yes
+	}
+	set_variable = { which = tempa value = 0 }
+}
+
+
+
+#Create a random number between 0-100 as cu_rd
+cu_random_number = {
+    set_variable = { which = cu_rd which = cu_rd1 }
+    random_list = {
+	    50 = { set_variable = { which = cu_rd1 value = 0 } }
+		50 = { set_variable = { which = cu_rd1 value = 50 } }
+	}
+	random_list = {
+	    50 = { change_variable = { which = cu_rd1 value = 25 } }
+		50 = {}
+	}
+	random_list = {
+	    50 = { change_variable = { which = cu_rd1 value = 13 } }
+		50 = {}
+	}
+	random_list = {
+	    50 = { change_variable = { which = cu_rd1 value = 6 } }
+		50 = {}
+	}
+	random_list = {
+	    50 = { change_variable = { which = cu_rd1 value = 3 } }
+		50 = {}
+	}
+	random_list = {
+	    50 = { change_variable = { which = cu_rd1 value = 2 } }
+		50 = {}
+	}
+	random_list = {
+	    50 = { change_variable = { which = cu_rd1 value = 1 } }
+		50 = {}
+	}
+}	
+

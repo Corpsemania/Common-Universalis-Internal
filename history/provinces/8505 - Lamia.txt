@@ -1,0 +1,34 @@
+# 8505 - Lamia
+
+
+add_core = SIC
+add_core = BYZ
+is_city = yes
+culture = greek
+religion = orthodox 
+capital = "Lamia"
+trade_goods = fish
+hre = no 
+base_tax = 3 
+base_production = 3 
+base_manpower = 3 
+discovered_by = eastern
+discovered_by = western
+discovered_by = muslim
+discovered_by = ottoman
+
+owner = ATH 
+controller = ATH
+
+1453.5.30 = { add_core = TUR } # The fall of the Byzantine Empire
+1458.1.1 = { owner = TUR controller = TUR }
+1502.1.1 = { remove_core = BYZ }
+1555.1.1 = { unrest = 5  } # General discontent with the Janissaries' dominance
+1556.1.1 = { unrest = 0 }
+1620.1.1 = { unrest = 5 } # General discontent and occasional rebellions
+1640.1.1 = { unrest = 2 }
+1660.1.1 = { unrest = 0 }
+1690.1.1 = { base_tax = 3 base_production = 3 } #The Decentralizing Effect of the Provincial System
+1750.1.1 = {
+	add_core = GRE 
+}

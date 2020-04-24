@@ -1,0 +1,411 @@
+estate_government = {
+	icon = 11
+	
+	color = { 65 115 240 }
+	
+	# Is estate kept in control of province on conquest?
+	keep_on_conquest = no	
+
+	# If true, country will get estate
+	trigger = {	
+		always = yes		
+	}
+	
+	# If true, province can be granted to estate
+	province_trigger = {
+		always = yes
+	}	
+	
+	# They want to control at least this % of the country's non-overseas development, if # of home provinecs is above set amount
+	min_territory = 0
+	start_territory_weight = 0
+	
+	# Giving territory affects power this much compared to base
+	territory_power_modifier = 0.4
+	
+	# Min autonomy in estate provinces
+	min_autonomy = 0
+	
+	# Estate cancels out the following multiplicative local autonomy effects:
+	autonomy_does_not_affect = local_manpower_modifier
+
+	# These scale with loyalty & power
+	country_modifier_happy = {
+	    yearly_absolutism = 0.5
+	}
+	country_modifier_neutral = {
+	    yearly_absolutism = 0.5
+	}	
+	country_modifier_angry = {
+	    yearly_absolutism = 0.5
+	}
+	
+	# These do not scale, but only applied in provinces owned by the estate
+	province_modifier_happy = {
+		local_development_cost = -0.03
+		local_state_maintenance_modifier = 0.5
+	}
+	province_modifier_neutral = {
+		local_development_cost = -0.03
+		local_state_maintenance_modifier = 0.5
+	}	
+	province_modifier_angry = {
+		local_development_cost = -0.03
+		local_state_maintenance_modifier = 0.5
+	}		
+	
+	# Influence modifiers
+	base_influence = 0
+	influence_modifier = {
+		desc = calc_estate
+		trigger = {
+			has_country_flag = useless_estates
+		}	
+		influence = -100
+	}
+	influence_modifier = {
+		desc = EST_VAL_NOMADIC_TRIBES_ADVANCE
+		trigger = {
+			has_reform = oral_tradition
+		}
+		influence = -10
+	}
+	influence_modifier = {	
+		desc = EST_VAL_IMPERIAL_CITY
+		trigger = {
+			has_reform = free_city
+		}
+		influence = -20
+	}
+	influence_modifier = {
+		desc = EST_VAL_BURGHERS_ADVANCE
+		trigger = {
+			has_reform = constitution_reform
+		}	
+		influence = -10
+	}
+	influence_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER
+		trigger = {
+			has_reform = noble_election
+		}	
+		influence = -10
+	}
+	influence_modifier = {
+		desc = EST_VAL_NOBLES_ADVANCE
+		trigger = {
+			has_reform = noble_council
+		}	
+		influence = -5
+	}
+	influence_modifier = {
+		desc = EST_VAL_NOBLES_ADVANCE
+		trigger = {
+			has_reform = sovereign_code
+		}	
+		influence = 5
+	}
+	influence_modifier = {
+		desc = EST_VAL_NOBLES_ADVANCE
+		trigger = {
+			has_reform = elective_monarchy
+		}
+		influence = -10
+	}
+	#influence_modifier = {
+		#desc = EST_VAL_CELESTIAL_EMPIRE
+		#trigger = {
+			#has_reform = celestial_empire
+		#}		
+		#influence = -10
+	#}
+	influence_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER
+		trigger = {
+			has_reform = cu_feudalism_reform
+		}
+		influence = -10
+	}
+	influence_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER
+		trigger = {
+			has_reform = self_governance
+		}
+		influence = -20
+	}
+	influence_modifier = {
+		desc = EST_VAL_CHURCH_ADVANCE
+		trigger = {
+			has_reform = clergy_reform
+		}
+		influence = -10
+	}
+	influence_modifier = {
+		desc = EST_VAL_CHURCH_ADVANCE
+		trigger = {
+			has_reform = divine_law
+		}
+		influence = -10
+	}
+	influence_modifier = {
+		desc = EST_VAL_THEOCRACY
+		trigger = {
+			government = theocracy
+		}	
+		influence = -15
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_0
+		trigger = {
+			check_variable = { which = etig value = 5 }
+			NOT = { check_variable = { which = etig value = 10 } }
+		}	
+		influence = 5
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_1
+		trigger = {
+			check_variable = { which = etig value = 10 }
+			NOT = { check_variable = { which = etig value = 20 } }
+		}	
+		influence = 10
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_2
+		trigger = {
+			check_variable = { which = etig value = 20 }
+			NOT = { check_variable = { which = etig value = 30 } }
+		}	
+		influence = 20
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_3
+		trigger = {
+			check_variable = { which = etig value = 30 }
+			NOT = { check_variable = { which = etig value = 40 } }
+		}	
+		influence = 30
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_4
+		trigger = {
+			check_variable = { which = etig value = 40 }
+			NOT = { check_variable = { which = etig value = 50 } }
+		}	
+		influence = 40
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_5
+		trigger = {
+			check_variable = { which = etig value = 50 }
+			NOT = { check_variable = { which = etig value = 60 } }
+		}	
+		influence = 50
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_6
+		trigger = {
+			check_variable = { which = etig value = 60 }
+			NOT = { check_variable = { which = etig value = 70 } }
+		}	
+		influence = 60
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_7
+		trigger = {
+			check_variable = { which = etig value = 70 }
+			NOT = { check_variable = { which = etig value = 80 } }
+		}	
+		influence = 70
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_8
+		trigger = {
+			check_variable = { which = etig value = 80 }
+			NOT = { check_variable = { which = etig value = 90 } }
+		}	
+		influence = 80
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_9
+		trigger = {
+			check_variable = { which = etig value = 90 }
+			NOT = { check_variable = { which = etig value = 100 } }
+		}	
+		influence = 90
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_10
+		trigger = {
+			check_variable = { which = etig value = 100 }
+		}	
+		influence = 100
+	}
+	loyalty_modifier = {
+		desc = EST_BASE
+		trigger = {
+			NOT = { government = native }
+		}
+		loyalty = 100
+	}
+	# For province assignment
+	ai_grant_province = {
+		factor = 0
+	}
+	#Special Interactions
+	interaction = {
+		name = "MANAGE_TRADING_COMPANY"
+		icon = 19
+		years_between_use = 0
+		potential = {	
+            OR = {
+                num_of_colonists = 1
+                has_country_flag = india_company
+                has_country_flag = indochina_company
+                has_country_flag = indonesia_company
+                has_country_flag = china_company
+                has_country_flag = japan_korea_company
+                has_country_flag = persia_company
+                has_country_flag = south_africa_company
+                has_country_flag = east_africa_company
+                has_country_flag = west_africa_company
+            } 
+            ai = no
+		}
+		trigger = {
+            num_of_ports = 1
+			num_of_colonists = 1
+			has_institution = new_world_i
+		}
+		effect = {
+			country_event = { id = company.0 }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	
+	interaction = {
+		name = "CU_PRESTIGE_SHOP"
+		icon = 6
+		years_between_use = 0
+        potential = {
+			ai = no
+			NOT = { has_country_flag = prestige_shop_open }
+		}
+		trigger = {
+			prestige = 0
+		}
+		effect = {
+			set_country_flag = prestige_shop_open
+			country_event = { id = state.4 }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	interaction = {
+		name = "REORGANIZE_GOVERNMENT"
+		icon = 39
+		years_between_use = 20
+		trigger = {
+			NOT = { has_country_modifier = reorganizing_government }	
+		    stability = 1
+			corruption = 1
+			adm_power = 100
+		}
+		effect = {
+
+			add_adm_power = -150
+			set_country_flag = reorganizing_government_flag
+			add_country_modifier = {
+				name =  reorganizing_government
+                duration = -1						
+			}
+			custom_tooltip = reorganize_government_t
+		}
+		ai_will_do = {
+			factor = 10
+			modifier = {
+			     factor = 0
+				 NOT = { adm = 3 }
+			}
+			modifier = {
+			     factor = 0
+				 NOT = { corruption = 15 }
+			}
+			modifier = {
+			     factor = 10
+				 corruption = 25
+			}
+		}
+	}
+	
+	interaction = {
+		name = "CU_STRENGTHEN_GOVERNMENT"
+		icon = 30
+		years_between_use = 10
+		potential = {
+			NOT = {
+				OR = {
+					meritocracy = 1
+					devotion = 1
+				}
+			}
+		}
+		trigger = {
+		    adm_power = 100
+			dip_power = 100
+		    mil_power = 100
+		}
+		effect = {
+		    add_adm_power = -100
+			add_dip_power = -100
+            add_mil_power = -100
+			add_country_modifier = {
+				name =  cu_strengthen_government_m    
+                duration = 3650		
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+			     factor = 0
+				 NOT = { 
+                        OR = {
+						       legitimacy = 50
+							   republican_tradition = 50
+							   horde_unity = 50
+						}
+				 }
+			}
+		}
+	}
+	
+	
+	interaction = {
+		name = "COURT_DECISIONS"
+		icon = 1
+		years_between_use = 0
+		potential = {
+			government = monarchy
+            NOT = { has_reform =  elective_monarchy }
+            NOT = { has_country_flag = enacting_court_decisions }
+			ai = no
+		}
+		trigger = {
+            legitimacy = 50
+		}
+		effect = {
+			set_country_flag = enacting_court_decisions
+            set_ruler_flag = enacting_court_decisions_ai
+            country_event = { id = state.1 }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+}

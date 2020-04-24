@@ -1,0 +1,52 @@
+edict_industrial_focus = {
+	potential = {
+		always = yes
+	}
+	
+	allow = {
+		has_institution = manufactories
+	}
+	
+	modifier = {
+	    local_production_efficiency = 0.2
+		province_trade_power_modifier = -0.5
+	}
+	
+	color = { 39 64 139  }
+	
+	ai_will_do = {
+		factor = 3
+		modifier = {
+			factor = 2
+			any_province_in_state = {
+				has_building = workshop
+			}
+		}
+		modifier = {
+			factor = 3
+			any_province_in_state = {
+				has_building = counting_house
+			}
+		}
+		modifier = {
+			factor = 5
+			any_province_in_state = {
+				has_building = weapons
+			}
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = go value = 100 }
+		}
+		modifier = {
+			factor = 0.1
+			check_variable = { which = go value = 130 }
+		}
+		modifier = {
+			factor = 0
+			all_province_in_state = {
+				cu_oversea_trigger = yes
+			}
+		}
+	}
+}

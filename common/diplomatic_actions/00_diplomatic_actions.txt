@@ -1,0 +1,873 @@
+# INSTRUCTIONS:
+#
+# condition				A diplomatic action can have any number of condition blocks, each with its own
+#						tooltip, potential and allow section
+#
+# 	tooltip					Sets a custom text string similar to the hardcoded limits
+# 							If no tooltip is scripted, the tooltip for the actual trigger will be shown
+#							Note that the custom tooltip is only shown if the allow trigger is NOT met
+#
+# 	potential				Determines if the trigger is applicable or not
+# 	allow					Determines if the action is valid or not
+#
+# effect				A diplomatic action can only have one effect block
+
+# ROOT					actor
+# FROM					target
+
+########################################
+# DIPLOMATIC ACTIONS
+########################################
+# royal_marriage
+# declarewar
+# requestpeace
+# support_independence_action
+# allianceaction
+# embargoaction
+# annexationaction
+# integrationaction
+# vassalaction
+# guaranteeaction
+# warningaction
+# threaten_war
+# milaccess
+# fleet_access
+# offer_fleet_access
+# offermilaccess
+# insultaction
+# giftaction
+# claimaction
+# callaction
+# offerloan
+# warsubsidy
+# sellprov
+# imperial_relations_action
+# religious_unity_action
+# grant_electorate
+# remove_electorate
+# grant_freecity
+# remove_freecity
+# demand_unlawful_territory_action
+# call_crusade_action
+# excommunicate_action
+# enforce_peace
+# improve_relation
+# fabricate_claim
+# justify_trade_conflict
+# transfer_trade_power
+# infiltrate_administration
+# sabotage_reputation
+# support_rebels
+# sow_discontent
+# study_technology
+# agitate_for_liberty
+# form_coalition
+# request_to_join_federation
+# invite_to_federation
+# support_heir
+# break_marriage
+# designate_march
+# ask_for_march
+# sell_ships_action
+# counterespionage
+# abandon_union_action
+
+sabotage_reputation = {
+    condition = {
+		tooltip = OBSERVER_DIP
+		potential = {
+                OR = {
+				     has_country_flag = cu_observer_country
+					 FROM = { has_country_flag = cu_observer_country }
+				}
+		}
+		allow = {
+		        NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+	}
+}
+
+sellprov = {
+    condition = {
+		tooltip = OBSERVER_DIP
+		potential = {
+                OR = {
+				     has_country_flag = cu_observer_country
+					 FROM = { has_country_flag = cu_observer_country }
+				}
+		}
+		allow = {
+		        NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+	}
+}
+
+fabricate_claim = {
+      condition = {
+		tooltip = OBSERVER_DIP
+		potential = {
+                OR = {
+				     has_country_flag = cu_observer_country
+					 FROM = { has_country_flag = cu_observer_country }
+				}
+		}
+		allow = {
+		        NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+	}
+}
+
+sell_ships_action = {
+    condition = {
+		tooltip = OBSERVER_DIP
+		potential = {
+                OR = {
+				     has_country_flag = cu_observer_country
+					 FROM = { has_country_flag = cu_observer_country }
+				}
+		}
+		allow = {
+		        NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+	}
+}
+
+offerloan = {
+    condition = {
+		tooltip = OBSERVER_DIP
+		potential = {
+                OR = {
+				     has_country_flag = cu_observer_country
+					 FROM = { has_country_flag = cu_observer_country }
+				}
+		}
+		allow = {
+		        NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+	}
+}
+
+sow_discontent = {
+    condition = {
+		tooltip = OBSERVER_DIP
+		potential = {
+                OR = {
+				     has_country_flag = cu_observer_country
+					 FROM = { has_country_flag = cu_observer_country }
+				}
+		}
+		allow = {
+		        NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+	}
+}
+
+giftaction = {
+    condition = {
+		tooltip = OBSERVER_DIP
+		potential = {
+                OR = {
+				     has_country_flag = cu_observer_country
+					 FROM = { has_country_flag = cu_observer_country }
+				}
+		}
+		allow = {
+		        NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+	} 
+}
+
+
+
+allianceaction = {
+    
+    condition = { #AI only
+		 tooltip = AIDIP
+	     potential = {
+		       
+		 }
+		 allow = {
+		       OR = {
+			           ROOT = { ai = no }
+					      NOT = {
+					       AND = {
+						        NOT = { ROOT = { religion_group = FROM } }
+                                NOT = { ROOT = { has_reform = cu_religious_policy_1 } }	
+                                NOT = { ROOT = { has_reform = cu_religious_policy_2 } }								
+						   }
+                          }
+                          ROOT = {
+				                     has_opinion = {
+					                     who = FROM
+					                     value = 50
+				                      }
+						  }		
+						FROM = {
+							NOT = { has_country_modifier = foreign_ignorance }
+						}				  
+					   
+			   }
+		 }
+	}
+
+
+}
+
+guaranteeaction = {
+    condition = {
+		tooltip = OBSERVER_DIP
+		potential = {
+                OR = {
+				     has_country_flag = cu_observer_country
+					 FROM = { has_country_flag = cu_observer_country }
+				}
+		}
+		allow = {
+		        NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+	}
+    condition = { #AI only
+		 tooltip = AIDIP
+	     potential = {
+		       
+		 }
+		 allow = {
+		       OR = {
+			         ROOT = { ai = no }
+					 AND = {
+					   ROOT = {
+				                     has_opinion = {
+					                     who = FROM
+					                     value = 0
+				                      }
+			           }
+					   NOT = { #Specific CB
+					        ROOT = {
+							       has_casus_belli = {
+								          type = cb_conquest
+	                                      target = FROM
+								   }
+							}
+					   }
+					   NOT = { 
+					        ROOT = {
+							       has_casus_belli = {
+								          type = cb_core
+	                                      target = FROM
+								   }
+							}
+					   }
+					   NOT = {
+					        ROOT = {
+							       has_casus_belli = {
+								          type = cb_take_mandate
+	                                      target = FROM
+								   }
+							}
+					   }
+					   NOT = {
+					        ROOT = {
+							       has_casus_belli = {
+								          type = cb_chinese_unification
+	                                      target = FROM
+								   }
+							}
+					   }
+					}
+			   }
+		 }
+	}
+}
+
+excommunicate_action = {
+    condition = {
+		tooltip = OBSERVER_DIP
+		potential = {
+                OR = {
+				     has_country_flag = cu_observer_country
+					 FROM = { has_country_flag = cu_observer_country }
+				}
+		}
+		allow = {
+		        NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+	}
+          condition = {
+		 tooltip = MARWAR
+	      	 potential = {
+		 }
+		 allow = {
+		          OR = {
+                                 ai = no
+                                 FROM = { overextension_percentage = 1 }
+                                 AND = {
+                                      ROOT = {
+                                          has_opinion_modifier = {
+			                        modifier = aggressive_expansion
+			                        who = FROM
+		                          }
+			              }
+                                      NOT = { 
+                                              ROOT = {
+				                     has_opinion = {
+					                 who = FROM
+					                 value = -50
+				                      }
+			                      }
+                                      }
+                                 }
+                          }
+		 }
+	    }
+}
+
+declarewar = {
+    condition = {
+		tooltip = OBSERVER_DIP
+		potential = {
+                OR = {
+				     has_country_flag = cu_observer_country
+					 FROM = { has_country_flag = cu_observer_country }
+				}
+		}
+		allow = {
+		        NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+	}
+    condition = {
+		tooltip = DECLAREWAR_HRE
+		potential = {
+                        #FROM = { has_regency = no }
+		}
+		allow = {
+		    OR = {
+			        ai = no
+				    dip = 2
+				    mil = 2
+					ruler_has_personality = bold_fighter_personality
+					is_part_of_hre = no
+                    FROM = { is_part_of_hre = no }
+			}
+			OR = { 
+			                    
+			                    AND = {
+										 NOT = {
+								                any_country = {
+												     is_emperor = yes
+					                                 alliance_with = ROOT
+                                                }          		 
+										 }
+								}
+                                is_part_of_hre = no
+                                FROM = { is_part_of_hre = no }
+                                is_emperor = yes
+                                FROM = { is_emperor = yes }
+                                is_rival = FROM
+                                FROM = {
+                                        is_rival = ROOT
+                                }
+                                AND = {
+                                        ai = yes
+                                        is_year = 1600
+                                        OR = {
+                                               tag = BRA
+                                               tag = PRU
+                                               tag = GER
+                                        }
+                                }
+                                any_country = {
+					                    is_emperor = yes
+                                        OR = {
+                                               is_rival = FROM
+                                               FROM = {
+                                                        is_rival = PREV
+                                               }
+                                        }
+				                }
+                                any_country = {
+					                         is_emperor = yes
+                                             OR = {
+                                                  is_rival = ROOT
+                                                  ROOT = {
+                                                        is_rival = PREV
+                                                  }
+                                             }
+                                }
+                                is_league_enemy = FROM
+                                FROM = {
+                                        any_owned_province = {
+					                             is_core = ROOT
+                                        }
+				                }
+                                has_opinion_modifier = {
+			                        modifier = insulted
+			                        who = FROM
+		                        }
+                                FROM = {  # Coalition
+                                         coalition_target = ROOT
+                                         NOT = { ROOT = { is_in_coalition_war = yes } }
+		                                 num_of_coalition_members = 3
+                                }
+                                is_revolution_target = yes # Revolution
+                                FROM = { is_revolution_target = yes } # Revolution
+                        }
+		}
+	}
+	condition = {
+		tooltip = DECLAREWAR_CELESTIAL
+		potential = {
+                    is_subject_of_type = tributary_state
+					FROM = { is_subject_of_type = tributary_state }
+		}
+		allow = {
+		    NOT = { has_global_flag = celestial_peace_enforced }
+		}
+	}
+}
+
+royal_marriage = {
+    condition = {
+		tooltip = OBSERVER_DIP
+		potential = {
+                OR = {
+				     has_country_flag = cu_observer_country
+					 FROM = { has_country_flag = cu_observer_country }
+				}
+		}
+		allow = {
+		        NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+	}
+	condition = {
+		tooltip = MARWAR
+		potential = {
+		}
+		allow = {
+			NOT = { war_with = FROM }
+		}
+	}
+	condition = {
+		tooltip = MARDOMINION
+		potential = {
+                    is_subject_of_type = dominion
+		}
+		allow = {
+		    NOT = { is_subject_of_type = dominion }
+		}
+	}
+	condition = {
+		tooltip = MARDOMINION
+		potential = {
+                FROM = { is_subject_of_type = dominion }
+		}
+		allow = {
+		    FROM = { NOT = { is_subject_of_type = dominion } }   
+		}
+	}
+}
+
+demand_unlawful_territory_action = {
+    condition = {
+		tooltip = OBSERVER_DIP
+		potential = {
+                OR = {
+				     has_country_flag = cu_observer_country
+					 FROM = { has_country_flag = cu_observer_country }
+				}
+		}
+		allow = {
+		        NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+	}
+	condition = {
+		tooltip = DEMAND_UNLAW_RELATION
+		potential = {
+		}
+		allow = {
+			OR = {
+				is_part_of_hre = no
+				FROM = { ai = no }
+				NOT = {
+					ROOT = {
+						has_opinion = {
+							who = FROM
+							value = 100
+						}
+					}
+				}
+					
+			}
+		}
+	}
+}
+
+enforce_peace = {
+    condition = {
+		tooltip = OBSERVER_DIP
+		potential = {
+                OR = {
+				     has_country_flag = cu_observer_country
+					 FROM = { has_country_flag = cu_observer_country }
+				}
+		}
+		allow = {
+		        NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+	}
+	condition = {
+		tooltip = DAIMYO_ENFORCE_PEACE
+		potential = {
+                        government = shogunate
+                        FROM = { 
+                                      government = daimyo
+                        } 
+		}
+		allow = {
+			NOT = { 
+                                FROM = { 
+                                         vassal_of = ROOT
+                                } 
+                        }
+		}
+	}
+}
+
+annexationaction = {
+    condition = {
+		tooltip = OBSERVER_DIP
+		potential = {
+                OR = {
+				     has_country_flag = cu_observer_country
+					 FROM = { has_country_flag = cu_observer_country }
+				}
+		}
+		allow = {
+		        NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+	}
+	condition = {
+		tooltip = ANNEX_DOMINION
+		potential = {
+			FROM = { 
+			   is_subject_of_type = dominion
+			   is_subject_of = ROOT
+			}
+		}
+		allow = {		        
+				 has_reform = confederate
+		}
+	}
+	condition = {
+		tooltip = ANNEX_TOO_LOW
+		potential = {
+			FROM = {
+				vassal_of = ROOT
+			}
+		}
+		allow = {
+			FROM = {
+				has_opinion = {
+					who = ROOT
+					value = 190
+				}
+			}
+		}
+	}
+    condition = {
+		tooltip = CELESTIALDIP
+		potential = {
+		}
+		allow = {
+			NOT = { has_country_modifier = foreign_ignorance }
+		}
+	}
+    condition = {
+		tooltip = ANNEXINVALID
+		potential = {
+			tag = AZE
+			ai = yes
+		}
+		allow = {
+			FROM = {
+				NOT = { tag = AZC }
+			}
+		}
+	}
+	
+	#condition = {
+	#	tooltip = ANNEXINVALID
+	#	potential = {
+	#		FROM = {
+	#			vassal_of = ROOT
+	#		}
+	#	}
+	#	allow = {
+	#		FROM = {
+	#			years_in_vassalage_under = {
+	#				who = ROOT
+	#				years = 10
+	#			}
+	#		}
+	#	}
+	#}
+}
+
+integrationaction = {
+    condition = {
+		tooltip = OBSERVER_DIP
+		potential = {
+                OR = {
+				     has_country_flag = cu_observer_country
+					 FROM = { has_country_flag = cu_observer_country }
+				}
+		}
+		allow = {
+		        NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+	}
+	condition = {
+		tooltip = INTEGRATETOOLOWDESC
+		potential = {
+			senior_union_with = FROM
+		}
+		allow = {
+			FROM = {
+				has_opinion = {
+					who = ROOT
+					value = 190
+				}
+			}
+		}
+	}
+	#condition = {
+	#	tooltip = INTEGRATEINVALID
+	#	potential = {
+	#		senior_union_with = FROM
+	#	}
+	#	allow = {
+	#		FROM = {
+	#			years_in_union_under = {
+	#				who = ROOT
+	#				years = 50
+	#			}
+	#		}
+	#	}
+	#}
+}
+
+vassalaction = {
+    condition = {
+		tooltip = OBSERVER_DIP
+		potential = {
+                OR = {
+				     has_country_flag = cu_observer_country
+					 FROM = { has_country_flag = cu_observer_country }
+				}
+		}
+		allow = {
+		        NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+	}
+	condition = {
+		tooltip = VASSALINVALID
+		potential = {
+		}
+		allow = {
+			alliance_with = FROM
+			FROM = {
+				has_opinion = {
+					who = ROOT
+					value = 190
+				}
+			}
+			FROM = { is_at_war = no }
+		}
+	}
+        condition = {
+		tooltip = CELESTIALDIP
+		potential = {
+		}
+		allow = {
+			NOT = { has_country_modifier = foreign_ignorance }
+		}
+	}
+}
+
+abandon_union_action = {
+    condition = {
+		tooltip = OBSERVER_DIP
+		potential = {
+                OR = {
+				     has_country_flag = cu_observer_country
+					 FROM = { has_country_flag = cu_observer_country }
+				}
+		}
+		allow = {
+		        NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+	}
+	condition = {
+		potential = {
+		}
+		allow = {
+			ROOT = {
+				senior_union_with = FROM
+				is_at_war = no
+			}
+		}
+	}
+}
+
+
+
+
+form_coalition = {
+    condition = {
+		tooltip = OBSERVER_DIP
+		potential = {
+                OR = {
+				     has_country_flag = cu_observer_country
+					 FROM = { has_country_flag = cu_observer_country }
+				}
+		}
+		allow = {
+		        NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+	}
+	condition = {
+		tooltip = MINAGGRESSIVEEXPANSION
+		potential = {	
+		}
+		allow = {
+			has_opinion_modifier = {
+				modifier = aggressive_expansion
+				who = FROM
+			}		
+			NOT = {
+				has_opinion_modifier = {
+					modifier = aggressive_expansion
+					who = FROM
+					value = -40
+				}
+			}
+		}
+	}
+}
+
+threaten_war = {
+    condition = {
+		tooltip = OBSERVER_DIP
+		potential = {
+                OR = {
+				     has_country_flag = cu_observer_country
+					 FROM = { has_country_flag = cu_observer_country }
+				}
+		}
+		allow = {
+		        NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+	}
+	condition = {
+		tooltip = CELESTIALWAR
+		potential = {
+		}
+		allow = {
+			NOT = { has_country_modifier = foreign_ignorance }
+		}
+	}
+        condition = {
+		tooltip = HRETHREATENWAR
+		potential = {
+		}
+		allow = {
+			OR = { 
+                                is_part_of_hre = no
+                                FROM = { is_part_of_hre = no }
+                        }
+		}
+	}
+}
+
+condottieri_action = {
+    condition = {
+		tooltip = OBSERVER_DIP
+		potential = {
+                OR = {
+				     has_country_flag = cu_observer_country
+					 FROM = { has_country_flag = cu_observer_country }
+				}
+		}
+		allow = {
+		        NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+	}
+	condition = {
+		tooltip = CONDOTTIERITT
+		potential = {
+		}
+		allow = {
+			NOT = { full_idea_group = administrative_ideas }
+		}
+	}
+}
+
+tributary_state_action = {
+    condition = {
+		tooltip = OBSERVER_DIP
+		potential = {
+                OR = {
+				     has_country_flag = cu_observer_country
+					 FROM = { has_country_flag = cu_observer_country }
+				}
+		}
+		allow = {
+		        NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+	}
+	condition = {
+		tooltip = TRIBUTARYTT
+		potential = {
+		      NOT = {
+			      FROM = { 
+                    government = zhuhou
+					government = chinese_revolter
+					government = celestial_empire
+					government = celestial_empire_2
+			      }
+              }
+		}
+		allow = {
+			#NOT = { full_idea_group = administrative_ideas }
+		}
+	}
+}
+
+ask_for_tributary_state_action = {
+    condition = {
+		tooltip = OBSERVER_DIP
+		potential = {
+                OR = {
+				     has_country_flag = cu_observer_country
+					 FROM = { has_country_flag = cu_observer_country }
+				}
+		}
+		allow = {
+		        NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+	}
+	condition = {
+		tooltip = TRIBUTARYTT
+		potential = {
+		      NOT = {
+                    government = zhuhou
+					government = chinese_revolter
+					government = celestial_empire
+					government = celestial_empire_2
+              }
+		}
+		allow = {
+			#NOT = { full_idea_group = administrative_ideas }
+		}
+	}
+}
+

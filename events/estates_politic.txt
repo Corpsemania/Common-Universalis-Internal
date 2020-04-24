@@ -1,0 +1,1431 @@
+namespace = cuestate
+#1000+
+
+#burghers high emi
+country_event = {
+	id = cuestate.1000
+	title = cuestate.1000.t
+	desc = cuestate.1000.d
+	picture = BURGHER_ESTATE_eventPicture
+	
+	trigger = {
+	    has_global_flag = test_version
+		has_dlc = "The Cossacks"
+		has_estate = estate_burghers
+		estate_influence = {
+			estate = estate_burghers
+			influence = 45
+		}
+		check_variable = { which = emib value = 70 }
+		OR = {
+			NOT = { has_country_flag = bur_ask_reform }
+			had_country_flag = { flag = bur_ask_reform days = 1800 }
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 72
+		modifier = {
+			factor = 0.8
+			NOT = { army_size_percentage = 0.8 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { army_size_percentage = 0.5 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { manpower_percentage = 0.33 }
+		}
+		modifier = {
+			factor = 0.5
+			war_exhaustion = 10
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = emib value = 90 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = {
+				estate_loyalty = {
+					estate = estate_burghers
+					loyalty = 40
+				}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			estate_influence = {
+				estate = estate_burghers
+				influence = 80
+			}
+		}
+	}
+
+	immediate = {
+		clr_country_flag = bur_ask_reform
+		set_country_flag = bur_ask_reform
+		if = {#lower tax1
+			limit = { has_reform = tax_policy_5 }
+			set_country_flag = b_ask_for_tax_policy_4
+		}
+		else_if = {#lower tax2
+			limit = { has_reform = tax_policy_4 }
+			set_country_flag = b_ask_for_tax_policy_3
+		}
+		else_if = {#parlament
+			limit = {
+				NOT = { has_reform = parliament_reform }
+				NOT = { government = tribal }
+				OR = {
+					adm_tech = 18
+					AND = {
+						adm_tech = 12
+						custom_trigger_tooltip = {
+							tooltip = parliament_reform_trigger_tooltip_0
+							check_variable = { which = ave_literacy value = 8 }
+						}
+					}
+					AND = {
+						OR = {
+							AND = {
+								any_neighbor_country = {
+									has_reform = parliament_reform
+								}						
+								custom_trigger_tooltip = {
+									tooltip = parliament_reform_trigger_tooltip_2
+									check_variable = { which = ave_literacy value = 6 }
+								}
+							}
+							AND = {
+								full_idea_group = constitution_ideas
+								custom_trigger_tooltip = {
+									tooltip = parliament_reform_trigger_tooltip_3
+									check_variable = { which = ave_literacy value = 4 }
+								}
+							}
+						}
+						adm_tech = 8
+					}
+				}
+			}
+			set_country_flag = b_ask_for_parliament_reform
+		}
+		else_if = {#constitution
+			limit = { 
+				NOT = { has_reform = constitution_reform }
+				OR = {
+					AND = {
+						OR = {
+							has_reform = parliament_reform
+							full_idea_group = constitution_ideas
+						}
+						OR = {
+							has_reform = burghers_election
+							has_reform = universal_suffrage
+						}
+						OR = {
+							AND = {
+								adm_tech = 18
+								custom_trigger_tooltip = {
+									tooltip = constitution_trigger_tooltip_0
+									check_variable = { which = ave_literacy value = 6 }
+								}
+							}
+							custom_trigger_tooltip = {
+								tooltip = constitution_trigger_tooltip_1
+								check_variable = { which = ave_literacy value = 10 }
+							}
+						}
+						NOT = { absolutism = 50 }
+					}
+					
+					custom_trigger_tooltip = {
+						tooltip = constitution_trigger_tooltip_2
+						check_variable = { which = ave_literacy value = 25 }
+					}
+					AND = {
+						adm_tech = 22
+						custom_trigger_tooltip = {
+							tooltip = constitution_trigger_tooltip_3
+							check_variable = { which = ave_literacy value = 15 }
+						}
+					}
+				}
+			}
+			set_country_flag = b_ask_for_constitution
+		}
+		else_if = {#education1
+			limit = {
+				NOT = { has_reform = education_policy_burghers }
+				NOT = { has_reform = education_policy_public }
+				adm_tech = 15
+				stability = 0
+				has_institution = printing_press
+			}
+			set_country_flag = b_ask_for_education_policy_burghers
+		}
+		else_if = {#election1
+			limit = {
+				NOT = { has_reform = burghers_election }
+				NOT = { has_reform = universal_suffrage }
+				NOT = { absolutism = 55 }
+				OR = {
+					custom_trigger_tooltip = {
+						tooltip = burghers_election_trigger_tooltip_0
+						check_variable = { which = ave_literacy value = 12 }
+					}
+					AND = {
+						custom_trigger_tooltip = {
+							tooltip = burghers_election_trigger_tooltip_1
+							check_variable = { which = ave_literacy value = 8 }
+						}
+						OR = { 
+							has_reform = constitution_reform
+							has_reform = noble_election
+                            has_reform = eng_grand_charter							
+						}
+					}
+					AND = {
+						custom_trigger_tooltip = {
+							tooltip = burghers_election_trigger_tooltip_2
+							check_variable = { which = ave_literacy value = 10 }
+						}
+						full_idea_group = constitution_ideas
+					}					
+				}
+			}
+			set_country_flag = b_ask_for_burghers_election
+		}
+		else_if = {#education2
+			limit = {
+				NOT = { has_reform = education_policy_public }
+				adm_tech = 19
+				stability = 0
+				has_institution = printing_press
+			}
+			set_country_flag = b_ask_for_education_policy_public
+		}
+		else_if = {#smaller army
+			limit = {
+				has_reform = extensive_conscription
+			}
+			set_country_flag = b_ask_for_limited_conscription
+		}
+		else_if = {#smaller army
+			limit = {
+				has_reform = limited_conscription
+			}
+			set_country_flag = b_ask_for_standing_army
+		}
+		else_if = {#election2
+			limit = {
+				NOT = { has_reform = universal_suffrage }
+				OR = {
+					AND = {
+						has_reform = burghers_election
+						NOT = { absolutism = 45 }
+						OR = {
+							custom_trigger_tooltip = {
+								tooltip = universal_suffrage_trigger_tooltip_0
+								check_variable = { which = ave_literacy value = 45 }
+							}
+							AND = {
+								custom_trigger_tooltip = {
+									tooltip = universal_suffrage_trigger_tooltip_1
+									check_variable = { which = ave_literacy value = 35 }
+								}
+								OR = { 
+									has_reform = constitution_reform
+									#has_reform = power_seperation
+									government = republic
+								}
+							}	
+							AND = {
+								custom_trigger_tooltip = {
+									tooltip = universal_suffrage_trigger_tooltip_2
+									check_variable = { which = ave_literacy value = 40 }
+								}
+								full_idea_group = constitution_ideas
+							}	
+						}
+					}
+					AND = {
+						has_country_modifier = state_in_mobilization
+						custom_trigger_tooltip = {
+							tooltip = universal_suffrage_trigger_tooltip_3
+							check_variable = { which = ave_literacy value = 20 }
+						}
+						war_exhaustion = 10
+						NOT = { manpower_percentage = 0.25 }
+						adm_tech = 12
+					}
+				}
+			}
+			set_country_flag = b_ask_for_universal_suffrage
+		}
+		else_if = {#volunteer army
+			limit = {
+				has_reform = feudal_conscription
+				mil_tech = 7
+                OR = {
+					custom_trigger_tooltip = {
+						tooltip = has_fulfill_at_least_a_mil_idea_group
+						OR = {
+							full_idea_group = aristocracy_ideas
+							full_idea_group = plutocracy_ideas
+							full_idea_group = offensive_ideas
+							full_idea_group = defensive_ideas
+							full_idea_group = quality_ideas
+							full_idea_group = quantity_ideas
+							full_idea_group = militarist_ideas
+						}
+					}
+					mil_tech = 12
+                }
+				mil_power = 200
+				army_tradition = 20
+				stability = 1
+				OR = {
+					AND = {
+						NOT = { has_reform = celestial_empire }
+						NOT = { has_reform = celestial_empire_2 }
+					}
+					NOT = { has_reform = military_household }
+					custom_trigger_tooltip = {
+						tooltip = tooltip_celestial_army_reform
+						NOT = { has_country_modifier = weisuo_system }
+						OR = {
+							AND = {
+								full_idea_group = defensive_ideas
+								full_idea_group = quantity_ideas
+							}
+							AND = {
+								full_idea_group = defensive_ideas
+								full_idea_group = tradition_ideas
+							}
+							AND = {
+								full_idea_group = quantity_ideas
+								full_idea_group = tradition_ideas
+							}
+							check_variable = { which = army_reform_acceptance value = 6 }
+						}
+					}
+				} 
+				custom_trigger_tooltip = {
+					tooltip = tooltip_positive_militarism
+					has_global_modifier_value = {
+						which = yearly_army_professionalism
+						value = 0.001
+					}
+				}
+				OR = {
+					custom_trigger_tooltip = {
+					   tooltip = tooltip_ave_literacy_5
+					   check_variable = { which = ave_literacy value = 5 }
+					}
+					AND = {
+						custom_trigger_tooltip = {
+							 tooltip = tooltip_ave_literacy_3
+							 check_variable = { which = ave_literacy value = 3 }
+						}
+						mil = 4
+						mil_tech = 9
+						army_tradition = 30
+					}	
+				}
+			}
+			set_country_flag = b_ask_for_volunteer_training
+		}
+		else_if = {#lower tax3
+			limit = { has_reform = tax_policy_3 }
+			set_country_flag = b_ask_for_tax_policy_2
+		}
+		else_if = {#bureaucratic
+			limit = { 
+				NOT = { has_reform = bureaucratic }
+				NOT = { average_unrest = 1 }
+				all_state_province = {					
+					NOT = { local_autonomy = 50 }
+				}
+				has_any_disaster = no
+				adm_tech = 18
+			}
+			set_country_flag = b_ask_for_bureaucratic
+		}
+		else_if = {#religion1
+			limit = { has_reform = cu_religious_policy_5 }
+			set_country_flag = b_ask_for_cu_religious_policy_4
+		}
+		else_if = {#religion2
+			limit = { has_reform = cu_religious_policy_4 }
+			set_country_flag = b_ask_for_cu_religious_policy_3
+		}
+		else_if = {#culture1
+			limit = { has_reform = cu_cultural_policy_1 }
+			set_country_flag = b_ask_for_cu_cultural_policy_2
+		}
+		else_if = {#culture2
+			limit = { has_reform = cu_cultural_policy_2 }
+			set_country_flag = b_ask_for_cu_cultural_policy_3
+		}
+		else_if = {#lower tax4
+			limit = { has_reform = tax_policy_2 }
+			set_country_flag = b_ask_for_tax_policy_1
+		}
+		else_if = {#religion3
+			limit = { has_reform = cu_religious_policy_3 }
+			set_country_flag = b_ask_for_cu_religious_policy_2
+		}
+		else_if = {#religion4
+			limit = { has_reform = cu_religious_policy_2 }
+			set_country_flag = b_ask_for_cu_religious_policy_1
+		}
+		else_if = {#culture3
+			limit = { has_reform = cu_cultural_policy_3 }
+			set_country_flag = b_ask_for_cu_cultural_policy_4
+		}
+		else_if = {#culture4
+			limit = { has_reform = cu_cultural_policy_4 }
+			set_country_flag = b_ask_for_cu_cultural_policy_5
+		}
+	}
+	
+	option = {#accept
+		name = cuestate.1000.a
+		burghers_change_reform_effect = yes
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = 30
+		}
+		add_absolutism = -15
+		custom_tooltip = reset_estate_mil_to_zero
+		hidden_effect = {
+			set_variable = { which = emib value = 0 }
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 1.5
+				NOT = { army_size_percentage = 0.8 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { army_size_percentage = 0.5 }
+			}
+			modifier = {
+				factor = 3
+				NOT = { army_size_percentage = 0.3 }
+			}
+			modifier = {
+				factor = 5
+				NOT = { army_size_percentage = 0.1 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { manpower_percentage = 0.33 }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { manpower_percentage = 0.6 }
+			}
+		}
+	}
+	option = {#refuse
+		name = cuestate.1000.b
+		trigger = { NOT = { has_country_flag = defeated_by_estate } }
+		custom_tooltip = add_estate_mil_5_emilb
+		hidden_effect = {
+			change_variable = { which = emib value = 10 }
+		}
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = -20
+		}
+		#rebel...
+		if = {
+			limit = {
+				NOT = {
+					estate_loyalty = {
+						estate = estate_burghers
+						loyalty = 50
+					}
+				}
+			}
+			random_owned_province = {
+				limit = {
+					is_state = yes
+					controlled_by = ROOT
+					check_variable = { which = epimb value = 40 }
+				}
+				spawn_rebels = {
+					type = burghers_rebels
+					size = 1
+				}
+			}
+			random_owned_province = {
+				limit = {
+					is_state = yes
+					controlled_by = ROOT
+					check_variable = { which = epimb value = 40 }
+				}
+				spawn_rebels = {
+					type = burghers_rebels
+					size = 1
+				}
+			}
+			random_owned_province = {
+				limit = {
+					is_state = yes
+					controlled_by = ROOT
+					check_variable = { which = epimb value = 40 }
+				}
+				spawn_rebels = {
+					type = burghers_rebels
+					size = 1
+				}
+			}
+		}
+		ai_chance = {
+			factor = 20
+			modifier = {
+				factor = 0.5
+				war_exhaustion = 5
+			}
+			modifier = {
+				factor = 0.5
+				war_exhaustion = 10
+			}
+			modifier = {
+				factor = 0.2
+				war_exhaustion = 15
+			}
+		}
+	}
+	option = {#gugugu
+		name = cuestate.1000.c
+		trigger = {
+			NOT = { check_variable = { which = emib value = 90 } }
+			NOT = { has_country_flag = defeated_by_estate }
+		}
+		custom_tooltip = add_estate_mil_30_emilb
+		hidden_effect = {
+			change_variable = { which = emib value = 30 }
+		}
+		ai_chance = {
+			factor = 50
+		}
+	}
+}
+
+#church high emi
+country_event = {
+	id = cuestate.1001
+	title = cuestate.1000.t
+	desc = cuestate.1001.d
+	picture = CHURCH_ESTATE_1_eventPicture
+	
+	trigger = {
+	    has_global_flag = test_version
+		OR = {
+			NOT = { has_country_flag = chu_ask_reform }
+			had_country_flag = { flag = chu_ask_reform days = 1800 }
+		}
+		has_dlc = "The Cossacks"
+		OR = {
+			AND = {
+				has_estate = estate_shizu
+				estate_influence = {
+					estate = estate_shizu
+					influence = 45
+				}
+			}
+			AND = {
+				has_estate = estate_church
+				estate_influence = {
+					estate = estate_church
+					influence = 45
+				}
+			}
+		}
+		check_variable = { which = emic value = 70 }
+	}
+	
+	mean_time_to_happen = {
+		months = 72
+		modifier = {
+			factor = 0.8
+			NOT = { army_size_percentage = 0.8 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { army_size_percentage = 0.5 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { manpower_percentage = 0.33 }
+		}
+		modifier = {
+			factor = 0.5
+			war_exhaustion = 10
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = emic value = 90 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = {
+				estate_loyalty = {
+					estate = estate_church
+					loyalty = 40
+				}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			estate_influence = {
+				estate = estate_church
+				influence = 80
+			}
+		}
+	}
+
+	immediate = {
+		clr_country_flag = chu_ask_reform
+		set_country_flag = chu_ask_reform
+		if = {
+			limit = { has_reform = cu_religious_policy_1 }
+			set_country_flag = c_ask_for_cu_religious_policy_2
+		}
+		else_if = {
+			limit = { has_reform = cu_religious_policy_2 }
+			set_country_flag = c_ask_for_cu_religious_policy_3
+		}
+		else_if = {#higher tax1
+			limit = { has_reform = tax_policy_1 }
+			set_country_flag = c_ask_for_tax_policy_2
+		}
+		else_if = {#higher tax2
+			limit = { has_reform = tax_policy_2 }
+			set_country_flag = c_ask_for_tax_policy_3
+		}
+		else_if = {#divine_law
+			limit = {
+				NOT = { has_reform = divine_law }
+				OR = {
+					has_reform = clergy_reform
+					adm_tech = 4
+				}
+			}
+			set_country_flag = c_ask_for_divine_law
+		}
+		else_if = {#clergy_reform
+			limit = {
+				NOT = { has_reform = clergy_reform }
+				OR = {
+					has_reform = cu_religious_policy_5
+					has_reform = cu_religious_policy_4
+				}
+				religious_unity = 1
+			}
+			set_country_flag = c_ask_for_clergy_reform
+		}
+		else_if = {#education
+			limit = {
+				NOT = { has_reform = education_policy_church }
+				adm_tech = 3
+				stability = 0
+			}
+			set_country_flag = c_ask_for_education_policy_church
+		}
+		else_if = {#culture3
+			limit = { has_reform = cu_religious_policy_3 }
+			set_country_flag = c_ask_for_cu_religious_policy_4
+		}
+		else_if = {#culture4
+			limit = { has_reform = cu_religious_policy_4 }
+			set_country_flag = c_ask_for_cu_religious_policy_5
+		}
+		else_if = {#culture1
+			limit = { has_reform = cu_cultural_policy_1 }
+			set_country_flag = c_ask_for_cu_cultural_policy_2
+		}
+		else_if = {#culture2
+			limit = { has_reform = cu_cultural_policy_2 }
+			set_country_flag = c_ask_for_cu_cultural_policy_3
+		}
+		else_if = {#higher tax3
+			limit = { has_reform = tax_policy_3 }
+			set_country_flag = c_ask_for_tax_policy_4
+		}
+		else_if = {#higher tax4
+			limit = { has_reform = tax_policy_4 }
+			set_country_flag = c_ask_for_tax_policy_5
+		}
+		else_if = {#culture3
+			limit = { has_reform = cu_cultural_policy_3 }
+			set_country_flag = c_ask_for_cu_cultural_policy_4
+		}
+		else_if = {#culture4
+			limit = { has_reform = cu_cultural_policy_4 }
+			set_country_flag = c_ask_for_cu_cultural_policy_5
+		}
+	}
+	
+	option = {#accept
+		name = cuestate.1000.a
+		add_absolutism = -15
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 1.5
+				NOT = { army_size_percentage = 0.8 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { army_size_percentage = 0.5 }
+			}
+			modifier = {
+				factor = 3
+				NOT = { army_size_percentage = 0.3 }
+			}
+			modifier = {
+				factor = 5
+				NOT = { army_size_percentage = 0.1 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { manpower_percentage = 0.33 }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { manpower_percentage = 0.6 }
+			}
+		}
+		church_change_reform_effect = yes
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 30
+		}
+		add_estate_loyalty = {
+			estate = estate_shizu
+			loyalty = 30
+		}
+		custom_tooltip = reset_estate_mil_to_zero
+		hidden_effect = {
+			set_variable = { which = emic value = 0 }
+		}
+	}
+	option = {#refuse
+		name = cuestate.1000.b
+		trigger = { NOT = { has_country_flag = defeated_by_estate } }
+		custom_tooltip = add_estate_mil_5_emilc
+		hidden_effect = {
+			change_variable = { which = emic value = 5 }
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -20
+		}
+		add_estate_loyalty = {
+			estate = estate_shizu
+			loyalty = -20
+		}
+		#rebel...
+		if = {
+			limit = {
+				NOT = {
+					OR = {
+						estate_loyalty = {
+							estate = estate_church
+							loyalty = 50
+						}
+						estate_loyalty = {
+							estate = estate_shizu
+							loyalty = 50
+						}
+					}
+				}
+			}
+			random_owned_province = {
+				limit = {
+					is_state = yes
+					controlled_by = ROOT
+					check_variable = { which = epimc value = 40 }
+				}
+				spawn_rebels = {
+					type = church_rebels
+					size = 1
+				}
+			}
+			random_owned_province = {
+				limit = {
+					is_state = yes
+					controlled_by = ROOT
+					check_variable = { which = epimc value = 40 }
+				}
+				spawn_rebels = {
+					type = church_rebels
+					size = 1
+				}
+			}
+			random_owned_province = {
+				limit = {
+					is_state = yes
+					controlled_by = ROOT
+					check_variable = { which = epimc value = 40 }
+				}
+				spawn_rebels = {
+					type = church_rebels
+					size = 1
+				}
+			}
+		}
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 0.5
+				war_exhaustion = 5
+			}
+			modifier = {
+				factor = 0.5
+				war_exhaustion = 10
+			}
+			modifier = {
+				factor = 0.2
+				war_exhaustion = 15
+			}
+		}
+	}
+	option = {#gugugu
+		name = cuestate.1000.c
+		trigger = {
+			NOT = { has_country_flag = defeated_by_estate }
+			NOT = { check_variable = { which = emic value = 90 } }
+		}
+		custom_tooltip = add_estate_mil_30_emilc
+		hidden_effect = {
+			change_variable = { which = emic value = 30 }
+		}
+		ai_chance = {
+			factor = 50
+		}
+	}
+}
+
+#noble high emi
+country_event = {
+	id = cuestate.1002
+	title = cuestate.1000.t
+	desc = {
+		trigger = {
+			has_estate = estate_nobles
+		}
+		desc = cuestate.1002.d1
+	} 
+	desc = {
+		trigger = {
+			has_estate = estate_qinwang
+		}
+		desc = cuestate.1002.d2
+	} 
+	picture = NOBLE_ESTATE_eventPicture
+	
+	trigger = {
+	    has_global_flag = test_version
+		OR = {
+			NOT = { has_country_flag = nob_ask_reform }
+			had_country_flag = { flag = nob_ask_reform days = 1800 }
+		}
+		has_dlc = "The Cossacks"
+		OR = {
+			AND = {
+				has_estate = estate_nobles
+				estate_influence = {
+					estate = estate_nobles
+					influence = 45
+				}
+			}
+			AND = {
+				has_estate = estate_qinwang
+				estate_influence = {
+					estate = estate_qinwang
+					influence = 45
+				}
+			}
+		}
+		check_variable = { which = emin value = 70 }
+	}
+	
+	mean_time_to_happen = {
+		months = 72
+		modifier = {
+			factor = 0.8
+			NOT = { army_size_percentage = 0.8 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { army_size_percentage = 0.5 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { manpower_percentage = 0.33 }
+		}
+		modifier = {
+			factor = 0.5
+			war_exhaustion = 10
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = emin value = 90 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = {
+				estate_loyalty = {
+					estate = estate_qinwang
+					loyalty = 40
+				}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			estate_influence = {
+				estate = estate_qinwang
+				influence = 80
+			}
+		}
+		modifier = {
+			factor = 0.8
+			NOT = {
+				estate_loyalty = {
+					estate = estate_nobles
+					loyalty = 40
+				}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			estate_influence = {
+				estate = estate_nobles
+				influence = 80
+			}
+		}
+	}
+
+	immediate = {
+		clr_country_flag = nob_ask_reform
+		set_country_flag = nob_ask_reform
+		if = {#higher tax1
+			limit = { has_reform = tax_policy_1 }
+			set_country_flag = n_ask_for_tax_policy_2
+		}
+		else_if = {#higher tax2
+			limit = { has_reform = tax_policy_2 }
+			set_country_flag = n_ask_for_tax_policy_3
+		}
+		else_if = {#oral_tradition
+			limit = {
+				NOT = { has_reform = oral_tradition }
+			}
+			set_country_flag = n_ask_for_oral_tradition
+		}
+		else_if = {#noble_election
+			limit = {
+				NOT = { has_reform = noble_election }
+				adm_tech = 12
+				NOT = { absolutism = 75 }
+			}
+			set_country_flag = n_ask_for_noble_election
+		}
+		else_if = {#feudalism
+			limit = {
+				NOT = { has_reform = cu_feudalism_reform }
+				adm_tech = 3
+				has_institution = feudalism
+			}
+			set_country_flag = n_ask_for_feudalism
+		}
+		else_if = {#self_governance
+			limit = {
+				NOT = { has_reform = self_governance }
+				NOT = { absolutism = 40 }
+			}
+			set_country_flag = n_ask_for_self_governance
+		}
+		else_if = {#higher tax3
+			limit = { has_reform = tax_policy_3 }
+			set_country_flag = n_ask_for_tax_policy_4
+		}
+		else_if = {#higher tax4
+			limit = { has_reform = tax_policy_4 }
+			set_country_flag = n_ask_for_tax_policy_5
+		}
+		else_if = {#education
+			limit = {
+				NOT = { has_reform = education_policy_nobles }
+				adm_tech = 3
+				stability = 0
+			}
+			set_country_flag = n_ask_for_education_policy_nobles
+		}
+		else_if = {#culture4
+			limit = { has_reform = cu_cultural_policy_5 }
+			set_country_flag = n_ask_for_cu_cultural_policy_4
+		}
+		else_if = {#culture3
+			limit = { has_reform = cu_cultural_policy_4 }
+			set_country_flag = n_ask_for_cu_cultural_policy_3
+		}
+		else_if = {#feudal_conscription
+			limit = { 
+				NOT = { has_reform = feudal_conscription } 
+				OR = {
+					has_reform = standing_army
+					has_reform = limited_conscription
+					has_reform = extensive_conscription
+					has_reform = volunteer_training
+					has_reform = mercenary_conscription
+				}	
+			}
+			set_country_flag = n_ask_for_feudal_conscription
+		}
+		else_if = {#culture1
+			limit = { has_reform = cu_cultural_policy_3 }
+			set_country_flag = n_ask_for_cu_cultural_policy_2
+		}
+		else_if = {#culture2
+			limit = { has_reform = cu_cultural_policy_2 }
+			set_country_flag = n_ask_for_cu_cultural_policy_1
+		}
+	}
+	
+	option = {#accept
+		name = cuestate.1000.a
+		add_absolutism = -15
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 1.5
+				NOT = { army_size_percentage = 0.8 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { army_size_percentage = 0.5 }
+			}
+			modifier = {
+				factor = 3
+				NOT = { army_size_percentage = 0.3 }
+			}
+			modifier = {
+				factor = 5
+				NOT = { army_size_percentage = 0.1 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { manpower_percentage = 0.33 }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { manpower_percentage = 0.6 }
+			}
+		}
+		noble_change_reform_effect = yes
+		add_estate_loyalty = {
+			estate = estate_qinwang
+			loyalty = 30
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 30
+		}
+		custom_tooltip = reset_estate_mil_to_zero
+		hidden_effect = {
+			set_variable = { which = emin value = 0 }
+		}
+	}
+	option = {#refuse
+		name = cuestate.1000.b
+		trigger = { NOT = { has_country_flag = defeated_by_estate } }
+		custom_tooltip = add_estate_mil_5_emiln
+		hidden_effect = {
+			change_variable = { which = emin value = 5 }
+		}
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -20
+		}
+		add_estate_loyalty = {
+			estate = estate_qinwang
+			loyalty = -20
+		}
+		#rebel...
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						estate_loyalty = {
+							estate = estate_qinwang
+							loyalty = 50
+						}
+					}
+					NOT = {
+						estate_loyalty = {
+							estate = estate_nobles
+							loyalty = 50
+						}
+					}
+				}
+			}
+			random_owned_province = {
+				limit = {
+					is_state = yes
+					controlled_by = ROOT
+					check_variable = { which = epimn value = 40 }
+				}
+				spawn_rebels = {
+					type = nobles_rebels
+					size = 1
+				}
+			}
+			random_owned_province = {
+				limit = {
+					is_state = yes
+					controlled_by = ROOT
+					check_variable = { which = epimn value = 40 }
+				}
+				spawn_rebels = {
+					type = nobles_rebels
+					size = 1
+				}
+			}
+			random_owned_province = {
+				limit = {
+					is_state = yes
+					controlled_by = ROOT
+					check_variable = { which = epimn value = 40 }
+				}
+				spawn_rebels = {
+					type = nobles_rebels
+					size = 1
+				}
+			}
+		}
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 0.5
+				war_exhaustion = 5
+			}
+			modifier = {
+				factor = 0.5
+				war_exhaustion = 10
+			}
+			modifier = {
+				factor = 0.2
+				war_exhaustion = 15
+			}
+		}
+	}
+	option = {#gugugu
+		name = cuestate.1000.c
+		trigger = {
+			NOT = { check_variable = { which = emin value = 90 } }
+			NOT = { has_country_flag = defeated_by_estate }
+		}
+		custom_tooltip = add_estate_mil_30_emiln
+		hidden_effect = {
+			change_variable = { which = emin value = 30 }
+		}
+		ai_chance = {
+			factor = 50
+		}
+	}
+}
+
+#tribe&cossack high emi
+country_event = {
+	id = cuestate.1003
+	title = cuestate.1000.t
+	desc = {
+		trigger = { has_estate = estate_cossacks }
+		desc = cuestate.1003.d1
+	}
+	desc = {
+		trigger = { has_estate = estate_nomadic_tribes }
+		desc = cuestate.1003.d2
+	}
+	picture = COSSACK_ESTATE_eventPicture
+	
+	trigger = {
+	    has_global_flag = test_version
+		OR = {
+			NOT = { has_country_flag = els_ask_reform }
+			had_country_flag = { flag = els_ask_reform days = 1800 }
+		}
+		has_dlc = "The Cossacks"
+		OR = {
+			AND = {
+				has_estate = estate_cossacks
+				estate_influence = {
+					estate = estate_cossacks
+					influence = 45
+				}
+			}
+			AND = {
+				has_estate = estate_nomadic_tribes
+				estate_influence = {
+					estate = estate_nomadic_tribes
+					influence = 45
+				}
+			}
+		}
+		check_variable = { which = emie value = 70 }
+	}
+	
+	mean_time_to_happen = {
+		months = 72
+		modifier = {
+			factor = 0.8
+			NOT = { army_size_percentage = 0.8 }
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { army_size_percentage = 0.5 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { manpower_percentage = 0.33 }
+		}
+		modifier = {
+			factor = 0.5
+			war_exhaustion = 10
+		}
+		modifier = {
+			factor = 0.8
+			check_variable = { which = emie value = 90 }
+		}
+		modifier = {
+			factor = 0.8
+			NOT = {
+				estate_loyalty = {
+					estate = estate_nomadic_tribes
+					loyalty = 40
+				}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			estate_influence = {
+				estate = estate_nomadic_tribes
+				influence = 80
+			}
+		}
+		modifier = {
+			factor = 0.8
+			NOT = {
+				estate_loyalty = {
+					estate = estate_cossacks
+					loyalty = 40
+				}
+			}
+		}
+		modifier = {
+			factor = 0.8
+			estate_influence = {
+				estate = estate_cossacks
+				influence = 80
+			}
+		}
+	}
+
+	immediate = {
+		clr_country_flag = els_ask_reform
+		set_country_flag = els_ask_reform
+		if = {#lower tax1
+			limit = { has_reform = tax_policy_5 }
+			set_country_flag = e_ask_for_tax_policy_4
+		}
+		else_if = {
+			limit = { has_reform = tax_policy_4 }
+			set_country_flag = e_ask_for_tax_policy_3
+		}
+		else_if = {
+			limit = { has_reform = tax_policy_3 }
+			set_country_flag = e_ask_for_tax_policy_2
+		}
+		else_if = {
+			limit = { has_reform = tax_policy_2 }
+			set_country_flag = e_ask_for_tax_policy_1
+		}
+		else_if = {#oral_tradition
+			limit = {
+				NOT = { has_reform = oral_tradition }
+			}
+			set_country_flag = e_ask_for_oral_tradition
+		}
+		else_if = {#self_governance
+			limit = {
+				NOT = { has_reform = self_governance }
+				NOT = { absolutism = 40 }
+			}
+			set_country_flag = e_ask_for_self_governance
+		}
+		else_if = {#culture4
+			limit = { has_reform = cu_cultural_policy_1 }
+			set_country_flag = e_ask_for_cu_cultural_policy_2
+		}
+		else_if = {#culture4
+			limit = { has_reform = cu_cultural_policy_2 }
+			set_country_flag = e_ask_for_cu_cultural_policy_3
+		}
+		else_if = {#culture4
+			limit = { has_reform = cu_cultural_policy_3 }
+			set_country_flag = e_ask_for_cu_cultural_policy_4
+		}
+	}
+	
+	option = {#accept
+		name = cuestate.1000.a
+		else_change_reform_effect = yes
+		add_absolutism = -10
+		add_estate_loyalty = {
+			estate = estate_cossacks
+			loyalty = 30
+		}
+		add_estate_loyalty = {
+			estate = estate_nomadic_tribes
+			loyalty = 30
+		}
+		custom_tooltip = reset_estate_mil_to_zero
+		hidden_effect = {
+			set_variable = { which = emie value = 0 }
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 1.5
+				NOT = { army_size_percentage = 0.8 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { army_size_percentage = 0.5 }
+			}
+			modifier = {
+				factor = 3
+				NOT = { army_size_percentage = 0.3 }
+			}
+			modifier = {
+				factor = 5
+				NOT = { army_size_percentage = 0.1 }
+			}
+			modifier = {
+				factor = 2
+				NOT = { manpower_percentage = 0.33 }
+			}
+			modifier = {
+				factor = 1.5
+				NOT = { manpower_percentage = 0.6 }
+			}
+		}
+	}
+	option = {#refuse
+		name = cuestate.1000.b
+		trigger = { NOT = { has_country_flag = defeated_by_estate } }
+		custom_tooltip = add_estate_mil_5_emile
+		hidden_effect = {
+			change_variable = { which = emie value = 5 }
+		}
+		add_estate_loyalty = {
+			estate = estate_nomadic_tribes
+			loyalty = -20
+		}
+		add_estate_loyalty = {
+			estate = estate_cossacks
+			loyalty = -20
+		}
+		#rebel...
+		if = {
+			limit = {
+				OR = {
+					NOT = {
+						estate_loyalty = {
+							estate = estate_cossacks
+							loyalty = 50
+						}
+					}
+					NOT = {
+						estate_loyalty = {
+							estate = estate_nomadic_tribes
+							loyalty = 50
+						}
+					}
+				}
+			}
+			random_owned_province = {
+				limit = {
+					is_state = yes
+					controlled_by = ROOT
+					check_variable = { which = epime value = 40 }
+				}
+				spawn_rebels = {
+					type = nomand_rebels
+					size = 1
+				}
+			}
+			random_owned_province = {
+				limit = {
+					is_state = yes
+					controlled_by = ROOT
+					check_variable = { which = epime value = 40 }
+				}
+				spawn_rebels = {
+					type = nomand_rebels
+					size = 1
+				}
+			}
+			random_owned_province = {
+				limit = {
+					is_state = yes
+					controlled_by = ROOT
+					check_variable = { which = epime value = 40 }
+				}
+				spawn_rebels = {
+					type = nomand_rebels
+					size = 1
+				}
+			}
+		}
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 0.5
+				war_exhaustion = 5
+			}
+			modifier = {
+				factor = 0.5
+				war_exhaustion = 10
+			}
+			modifier = {
+				factor = 0.2
+				war_exhaustion = 15
+			}
+		}
+	}
+	option = {#gugugu
+		name = cuestate.1000.c
+		trigger = {
+			NOT = { has_country_flag = defeated_by_estate }
+			NOT = { check_variable = { which = emie value = 90 } }
+		}
+		custom_tooltip = add_estate_mil_30_emile
+		hidden_effect = {
+			change_variable = { which = emie value = 30 }
+		}
+		ai_chance = {
+			factor = 50
+		}
+	}
+}

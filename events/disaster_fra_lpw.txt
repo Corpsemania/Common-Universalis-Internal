@@ -1,0 +1,219 @@
+namespace = disaster_public_weal
+country_event = {
+	id = disaster_public_weal.1
+	title = "disaster_public_weal.1.t"
+	desc = "disaster_public_weal.1.d"
+	picture = CIVIL_WAR_eventPicture
+
+	major = yes
+	fire_only_once = yes
+	#is_triggered_only = yes
+	
+	trigger = {
+		any_known_country = {
+				is_subject_of_type = french_vassal
+		}
+		tag = FRA
+		OR = {
+			exists = BUR
+			exists = BRG
+		}
+		NOT = {
+			any_known_country = {
+				OR = {
+				  junior_union_with = ROOT
+				  senior_union_with = ROOT
+				  vassal_of = ROOT
+				  overlord_of = ROOT
+				}
+				ai = no
+			}
+		}
+		has_global_flag = lpw_test_enable
+	}
+	
+	mean_time_to_happen = {
+		months = 270
+		modifier = {
+			factor = 0.9
+			calc_true_if = {
+				any_known_country = {
+					is_subject_of_type = french_vassal
+				}
+				amount = 3
+			}
+		}
+		modifier = {
+			factor = 1.05
+			DIP = 5
+		}
+		modifier = {
+			factor = 1.05
+			DIP = 5
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { DIP = 3 }
+		}
+		modifier = {
+			factor = 1.05
+			absolutism = 80
+		}
+		modifier = {
+			factor = 0.95
+			NOT = { absolutism = 20 }
+		}
+		modifier = {
+			factor = 0.95
+			exists = BRG
+		}
+	}
+	
+	immediate = {
+		add_yearly_manpower = -2.5
+	}
+	
+	option = {			
+		name = "disaster_public_weal.1.a"#How dare they!
+		custom_tooltip = lpw_timer_tooltip
+		set_country_flag = lpw_timer_four_months
+		hidden_effect = {
+			every_country = {
+				limit = { 
+					OR = {
+						is_subject_of_type = french_vassal
+						tag = BUR
+						tag = BRG
+						tag = BRI
+						tag = PAL
+						tag = LOR
+					}
+					NOT = { tag = FOI }
+				}
+				form_coalition_against = FRA
+				if = { 
+					limit = { exists = BUR }
+					create_alliance = BUR
+				}
+				else = {
+					create_alliance = BRG
+				}
+				if = { limit = { is_subject_of_type = french_vassal } set_country_flag = lpw_fra_vassal }
+			}
+			FOX = {	
+				create_alliance = FRA
+			}
+			NEV = {	
+				create_alliance = FRA
+			}
+			if = { 
+				limit = { 
+					OR = {
+						PRO = {
+							has_opinion = {
+								who = ROOT
+								value = 70
+							}
+						}
+						ai = yes
+					}
+					PRO = { ai = yes }
+				}
+				PRO = {
+					set_country_flag = support_fra_war
+				}
+			}
+			PRO = { country_event = { id = disaster_public_weal.2 } }
+			FRA = {
+				if = { 
+					limit = { exists = BUR }
+					declare_war_with_cb = {
+						who = BUR
+						casus_belli = cb_forced_break_alliance 
+					}
+				}
+				else = {
+					declare_war_with_cb = {
+						who = BRG
+						casus_belli = cb_forced_break_alliance 
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = {#PRO SUPPORT 
+	id = disaster_public_weal.2
+	title = "disaster_public_weal.2.t"
+	desc = "disaster_public_weal.2.d"
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "disaster_public_weal.2.a"
+		add_manpower = -10
+		add_trust = {
+			who = FRA
+			value = 25
+			mutual = yes
+		}
+		hidden_effect = {
+			FRA = {
+				random_owned_province = {
+					limit = { controlled_by = FRA }
+					add_unit_construction = {
+						type = infantry
+						amount = 10
+						speed = 0.5
+						cost = 0
+					}
+				}
+			}
+		}
+	}
+	option = {
+		name = "disaster_public_weal.2.b"
+		add_manpower = -2.5
+		add_trust = {
+			who = FRA
+			value = 5
+			mutual = yes
+		}
+		hidden_effect = {
+			FRA = {
+				add_manpower = 2.5
+			}
+		}
+	}
+	option = {
+		name = "disaster_public_weal.2.c"
+		add_trust = {
+			who = FRA
+			value = -5
+			mutual = yes
+		}
+	}
+	option = {
+		name = "disaster_public_weal.2.d"
+		add_manpower = -5
+		set_country_flag = pro_support_bur
+		add_trust = {
+			who = FRA
+			value = -25
+			mutual = yes
+		}
+		hidden_effect = {
+			BUR = {
+				add_manpower = 5
+			}
+			BRG = {
+				add_manpower = 5
+			}
+		}
+	}
+}
+
+#country_event = {
+	

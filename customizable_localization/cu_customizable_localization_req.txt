@@ -1,0 +1,35 @@
+defined_text = {
+    name = cu_req_150adm_tt
+	random = no
+	
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			adm_power = 150
+		}
+	}
+	text = {
+		localisation_key = cu_req_150adm_tt_u
+		trigger = {
+			NOT = { adm_power = 150  }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_not_stabimproving_tt
+	random = no
+	
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_country_modifier = cu_stability_effort }
+		}
+	}
+	text = {
+		localisation_key = cu_not_stabimproving_tt_u
+		trigger = {
+			has_country_modifier = cu_stability_effort
+		}
+	}
+}

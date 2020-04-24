@@ -1,0 +1,51 @@
+edict_resettlement_focus = {
+	potential = {
+		always = yes		#we support "potential" if modders want to have lots and just show some.
+	}
+	
+	allow = {
+		has_institution = new_world_i
+	}
+	
+	modifier = {
+		global_tax_income = -6
+		local_build_time = -0.1
+		#Immigration Pull: +100%
+	}
+	
+	color = { 192 255 62 }
+	
+	ai_will_do = {
+		factor = 3
+		modifier = {
+			factor = 0
+			all_province_in_state = {
+				cu_oversea_trigger = no
+			}
+		}
+		modifier = {
+			factor = 4
+			all_province_in_state = {
+				continent = north_america
+			}
+		}
+		modifier = {
+			factor = 2
+			all_province_in_state = {
+				continent = south_america
+			}
+		}
+		modifier = {
+		    factor = 2
+			num_of_colonists = 1
+		}
+		modifier = {
+		    factor = 0
+			num_of_loans = 1
+		}
+		modifier = {
+		    factor = 2
+			monthly_income = 12
+		}
+	}
+}

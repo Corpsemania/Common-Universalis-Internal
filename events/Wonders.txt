@@ -1,0 +1,721 @@
+namespace = wonder
+
+### Taj Mahal
+
+#Start
+
+country_event = {
+        id = wonder.1
+	title = "flavor_taj_mahal.1.t"
+	desc = "flavor_taj_mahal.1.d"
+	picture = GREAT_BUILDING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = flavor_taj_mahal.1.a
+		custom_tooltip = flavor_taj_mahal.1.at
+	}
+}
+
+
+#Import Materials from all over Asia
+
+country_event = {
+        id = wonder.2
+	title = "flavor_taj_mahal.2.t"
+	desc = "flavor_taj_mahal.2.d"
+	picture = GREAT_BUILDING_eventPicture
+	
+	trigger = {
+               has_country_flag = build_the_taj_mahal
+               NOT = { has_global_flag = the_taj_mahal }
+               NOT = { has_country_flag = taj_mahal_completed }
+               NOT = { has_country_modifier = taj_mahal_halt }
+               NOT = { has_country_flag = taj_mahal_import_materials }
+               owns = 524
+        }
+
+        mean_time_to_happen = {
+               months = 24
+               modifier = {
+                        factor = 0.5
+                        is_year = 1650
+               }
+        }
+
+	option = {              # Import!
+		name = flavor_taj_mahal.2.a
+                add_dip_power = -50
+                add_treasury = -500
+                set_country_flag = taj_mahal_import_materials
+		custom_tooltip = flavor_taj_mahal.2.at
+                ai_chance = { 
+                                 factor = 1
+                                 modifier = {
+                                        factor = 0
+                                        NOT = { treasury = 500 }
+                                 }
+                }
+	}
+
+        option = {              # Let's put it down a little while
+		name = flavor_taj_mahal.2.b
+                add_prestige = -20
+                add_country_modifier = {
+                           name = taj_mahal_halt
+                           duration = 1460
+                }
+		custom_tooltip = flavor_taj_mahal.2.bt
+                ai_chance = { 
+                                 factor = 1
+                                 modifier = {
+                                        factor = 0
+                                        treasury = 500 
+                                 }
+                }
+	}
+}
+
+#Construction Begins
+
+country_event = {
+        id = wonder.3
+	title = "flavor_taj_mahal.3.t"
+	desc = "flavor_taj_mahal.3.d"
+	picture = GREAT_BUILDING_eventPicture
+	
+	trigger = {
+               has_country_flag = build_the_taj_mahal
+               NOT = { has_global_flag = the_taj_mahal }
+               NOT = { has_country_flag = taj_mahal_completed }
+               NOT = { has_country_modifier = taj_mahal_halt }
+               NOT = { has_country_flag = taj_mahal_construction_begin }
+               has_country_flag = taj_mahal_import_materials
+               owns = 524
+        }
+
+        mean_time_to_happen = {
+               months = 24
+               modifier = {
+                        factor = 0.5
+                        is_year = 1650
+               }
+        }
+
+	option = {              # Begins!
+		name = flavor_taj_mahal.3.a
+                set_country_flag = taj_mahal_construction_begin
+                add_adm_power = -200
+                add_country_modifier = {
+                           name = construct_taj_mahal
+                           duration = -1
+                }
+		custom_tooltip = flavor_taj_mahal.3.at
+                ai_chance = { 
+                                 factor = 1
+                                 modifier = {
+                                        factor = 0
+                                        NOT = { adm_power = 100 }
+                                 }
+                }
+	}
+
+        option = {              # Let's put it down a little while
+		name = flavor_taj_mahal.3.b
+                add_prestige = -20
+                add_country_modifier = {
+                           name = taj_mahal_halt
+                           duration = 1460
+                }
+		custom_tooltip = flavor_taj_mahal.3.bt
+                ai_chance = { 
+                                 factor = 1
+                                 modifier = {
+                                        factor = 0
+                                        adm_power = 100 
+                                 }
+                }
+	}
+}
+
+
+#Dismantle the scaffold
+
+country_event = {
+        id = wonder.4
+	title = "flavor_taj_mahal.4.t"
+	desc = "flavor_taj_mahal.4.d"
+	picture = GREAT_BUILDING_eventPicture
+	
+	trigger = {
+               has_country_flag = build_the_taj_mahal
+               NOT = { has_global_flag = the_taj_mahal }
+               NOT = { has_country_flag = taj_mahal_completed }
+               NOT = { has_country_modifier = taj_mahal_halt }
+               had_country_flag = { flag = taj_mahal_construction_begin 
+                                    days = 730 }
+               NOT = { has_country_flag = taj_mahal_dismantle_scaffold }
+               has_country_flag = taj_mahal_import_materials
+               owns = 524
+        }
+
+        mean_time_to_happen = {
+               months = 6
+               modifier = {
+                        factor = 0.5
+                        is_year = 1650
+               }
+        }
+
+
+	option = {              # Continue.
+		name = flavor_taj_mahal.4.a
+                set_country_flag = taj_mahal_dismantle_scaffold
+                add_treasury = -500
+                add_manpower = -0.2
+		custom_tooltip = flavor_taj_mahal.4.at
+                ai_chance = { 
+                                 factor = 1
+                                 modifier = {
+                                        factor = 0
+                                        NOT = { treasury = 250 }
+                                 }
+                }
+	}
+
+        option = {              # Let's put it down a little while
+		name = flavor_taj_mahal.4.b
+                add_prestige = -20
+                add_country_modifier = {
+                           name = taj_mahal_halt
+                           duration = 1460
+                }
+		custom_tooltip = flavor_taj_mahal.4.bt
+                ai_chance = { 
+                                 factor = 1
+                                 modifier = {
+                                        factor = 0
+                                        treasury = 250 
+                                 }
+                }
+	}
+}
+
+
+#Material Stolen
+
+country_event = {
+        id = wonder.5
+	title = "flavor_taj_mahal.5.t"
+	desc = "flavor_taj_mahal.5.d"
+	picture = GREAT_BUILDING_eventPicture
+	
+	trigger = {
+               has_country_flag = build_the_taj_mahal
+               NOT = { has_global_flag = the_taj_mahal }
+               NOT = { has_country_flag = taj_mahal_completed }
+               NOT = { has_country_modifier = taj_mahal_halt }
+               has_country_flag = taj_mahal_import_materials
+               owns = 524
+        }
+
+        mean_time_to_happen = {
+               months = 60
+        }
+
+	option = {              # Import again!
+		name = flavor_taj_mahal.5.a
+                add_dip_power = -25
+                add_treasury = -500
+                ai_chance = { 
+                                 factor = 1
+                                 modifier = {
+                                        factor = 0
+                                        NOT = { treasury = 125 }
+                                 }
+                }
+	}
+
+        option = {              # We have to wait...
+		name = flavor_taj_mahal.5.b
+                add_prestige = -10
+                add_country_modifier = {
+                           name = taj_mahal_halt
+                           duration = 365
+                }
+		custom_tooltip = flavor_taj_mahal.5.bt
+                ai_chance = { 
+                                 factor = 1
+                                 modifier = {
+                                        factor = 0
+                                        treasury = 125 
+                                 }
+                }
+	}
+}
+
+#Fire!
+
+country_event = {
+        id = wonder.6
+	title = "flavor_taj_mahal.6.t"
+	desc = "flavor_taj_mahal.6.d"
+	picture = GREAT_BUILDING_eventPicture
+	
+	trigger = {
+               has_country_flag = build_the_taj_mahal
+               NOT = { has_global_flag = the_taj_mahal }
+               NOT = { has_country_flag = taj_mahal_completed }
+               NOT = { has_country_modifier = taj_mahal_halt }
+               has_country_flag = taj_mahal_import_materials
+               owns = 524
+        }
+
+        mean_time_to_happen = {
+               months = 36500
+        }
+
+	option = {              # Nooooooo!!!!!!!!
+		name = flavor_taj_mahal.6.a
+                custom_tooltip = flavor_taj_mahal.6.at
+                clr_country_flag = taj_mahal_import_materials
+                clr_country_flag = taj_mahal_dismantle_scaffold
+                clr_country_flag = build_the_taj_mahal
+	}
+}
+
+#Construction ended as the province is captured
+
+country_event = {
+        id = wonder.7
+	title = "flavor_taj_mahal.7.t"
+	desc = "flavor_taj_mahal.7.d"
+	picture = GREAT_BUILDING_eventPicture
+	
+	trigger = {
+               has_country_flag = build_the_taj_mahal
+               NOT = { has_global_flag = the_taj_mahal }
+               NOT = { has_country_flag = taj_mahal_completed }
+               NOT = { owns = 524 }
+        }
+
+        mean_time_to_happen = {
+               days = 1
+        }
+
+	option = {              # Nooooooo!!!!!!!!
+		name = flavor_taj_mahal.6.a
+                custom_tooltip = flavor_taj_mahal.6.at
+                clr_country_flag = taj_mahal_import_materials
+                clr_country_flag = taj_mahal_dismantle_scaffold
+                clr_country_flag = build_the_taj_mahal
+	}
+}
+
+
+#Taj Mahal Complete!
+
+country_event = {
+        id = wonder.0
+	title = "flavor_taj_mahal.0.t"
+	desc = "flavor_taj_mahal.0.d"
+	picture = GREAT_BUILDING_eventPicture
+	major = yes
+	trigger = {
+               has_country_flag = build_the_taj_mahal
+               NOT = { has_global_flag = the_taj_mahal }
+               NOT = { has_country_flag = taj_mahal_completed }
+               NOT = { has_country_modifier = taj_mahal_halt }
+               has_country_flag = taj_mahal_import_materials
+               had_country_flag = { flag = taj_mahal_dismantle_scaffold
+                                    days = 3650 }
+               owns = 524
+        }
+
+        mean_time_to_happen = {
+               months = 120
+               modifier = {
+                        factor = 0.75
+                        is_year = 1650
+               }
+        }
+
+	option = {              # Great!
+		name = flavor_taj_mahal.0.a
+                add_prestige = 200
+                add_legitimacy = 100
+                cu_change_stability_point_p100 = yes
+				add_adm_power = 200
+                set_global_flag = the_taj_mahal
+                set_country_flag = taj_mahal_completed
+                remove_country_modifier = construct_taj_mahal
+                add_country_modifier = {
+                             name = taj_mahal_global
+                             duration = 4380
+                }
+                524 = {
+                     add_base_tax = 3
+                     add_permanent_province_modifier = {
+                                name = taj_mahal_local
+                                duration = -1
+                     }
+	        }
+        }
+}
+
+### Babylon Tower
+
+#Start
+
+country_event = {
+    id = wonder.8
+	title = "wonder.8.t"
+	desc = "wonder.8.d"
+	picture = GREAT_BUILDING_eventPicture
+	major = yes
+	is_triggered_only = yes
+
+	option = { #You must be kidding...
+		name = "wonder.8.a"
+		
+		set_country_flag = building_babylon_tower_timer
+		add_country_modifier = {
+		      name = building_babylon_tower
+			  duration = -1
+		}
+		random_owned_province = {
+		     limit = { is_capital = yes }
+			 add_province_modifier = {
+			       name = building_babylon_tower_prov
+				   duration = -1
+			 }
+		}
+		
+		hidden_effect = {
+		      if = {
+			        limit = { NOT = { check_variable = { which = babylon_tower_counter value = 0 } } }
+					set_variable = { which = babylon_tower_counter value = 0 }
+			  }
+		}
+		custom_tooltip = wonder.8.at
+		
+		ai_chance = {
+		       factor = 1
+		}
+	}
+	
+	option = { #No difference actually...
+		name = "wonder.8.b"
+		
+		set_country_flag = building_babylon_tower_timer
+		add_country_modifier = {
+		      name = building_babylon_tower
+			  duration = -1
+		}
+		random_owned_province = {
+		     limit = { is_capital = yes }
+			 add_province_modifier = {
+			       name = building_babylon_tower_prov
+				   duration = -1
+			 }
+		}
+		
+		hidden_effect = {
+		      if = {
+			        limit = { NOT = { check_variable = { which = babylon_tower_counter value = 0 } } }
+					set_variable = { which = babylon_tower_counter value = 0 }
+			  }
+		}
+		custom_tooltip = wonder.8.at
+		
+		ai_chance = {
+		       factor = 0
+		}
+	}
+}
+
+#The Tower Collapsed ( in construction )...
+
+country_event = {
+    id = wonder.81
+	title = "wonder.81.t"
+	desc = "wonder.81.d"
+	picture = GREAT_BUILDING_eventPicture
+	major = yes
+	trigger = {
+	        has_country_modifier = building_babylon_tower
+			any_owned_province = {
+			       has_province_modifier = building_babylon_tower_prov
+			}
+	}
+	
+	mean_time_to_happen = {
+	    months = 120
+		modifier = {
+		    factor = 2
+			check_variable = { which = babylon_tower_counter value = 1 }
+		}
+		modifier = {
+		    factor = 2
+			check_variable = { which = babylon_tower_counter value = 2 }
+		}
+		modifier = {
+		    factor = 2
+			check_variable = { which = babylon_tower_counter value = 3 }
+		}
+		modifier = {
+		    factor = 2
+			check_variable = { which = babylon_tower_counter value = 4 }
+		}
+		modifier = {
+		    factor = 2
+			check_variable = { which = babylon_tower_counter value = 5 }
+		}
+		modifier = {
+		    factor = 2
+			check_variable = { which = babylon_tower_counter value = 6 }
+		}
+		modifier = {
+		    factor = 2
+			check_variable = { which = babylon_tower_counter value = 7 }
+		}
+		modifier = {
+		    factor = 2
+			check_variable = { which = babylon_tower_counter value = 8 }
+		}
+		modifier = {
+		    factor = 2
+			check_variable = { which = babylon_tower_counter value = 9 }
+		}
+		modifier = {
+		    factor = 2
+			check_variable = { which = babylon_tower_counter value = 10 }
+		}
+	}
+
+	option = { #I know it will come like this!
+		name = "wonder.81.a"
+		remove_country_modifier = building_babylon_tower
+		clr_country_flag = building_babylon_tower_timer
+		random_owned_province = {
+		     limit = { has_province_modifier = building_babylon_tower_prov }
+			 remove_province_modifier = building_babylon_tower_prov
+			 add_unrest = 10
+		}
+		cu_change_stability_point_n150 = yes
+		add_prestige = -100
+		hidden_effect = {
+		      if = {
+			        limit = { NOT = { check_variable = { which = babylon_tower_counter value = 1 } } }
+					set_variable = { which = babylon_tower_counter value = 1 }
+					else = {
+					           change_variable = { which = babylon_tower_counter value = 1 }
+					}
+			  }
+		}
+		custom_tooltip = wonder.81.at
+	}
+	
+	option = { #I know it will come like this!
+		name = "wonder.81.b"
+		remove_country_modifier = building_babylon_tower
+		clr_country_flag = building_babylon_tower_timer
+		random_owned_province = {
+		     limit = { has_province_modifier = building_babylon_tower_prov }
+			 remove_province_modifier = building_babylon_tower_prov
+			 add_unrest = 10
+		}
+		cu_change_stability_point_n150 = yes
+		add_prestige = -100
+		hidden_effect = {
+		      if = {
+			        limit = { NOT = { check_variable = { which = babylon_tower_counter value = 1 } } }
+					set_variable = { which = babylon_tower_counter value = 1 }
+					else = {
+					           change_variable = { which = babylon_tower_counter value = 1 }
+					}
+			  }
+		}
+		custom_tooltip = wonder.81.bt
+	}
+}
+
+#The Tower Collapsed ( completed )...
+
+country_event = {
+    id = wonder.82
+	title = "wonder.82.t"
+	desc = "wonder.82.d"
+	picture = GREAT_BUILDING_eventPicture
+	major = yes
+	trigger = {
+	        has_global_flag = babylon_tower_built
+			any_owned_province = {
+			       has_province_modifier = babylon_tower_modifier
+			}
+			had_global_flag = {
+			      flag = babylon_tower_built
+				  days = 7300
+			}
+	}
+	
+	mean_time_to_happen = {
+	    months = 240
+		modifier = {
+		    factor = 2
+			check_variable = { which = babylon_tower_counter value = 1 }
+		}
+		modifier = {
+		    factor = 2
+			check_variable = { which = babylon_tower_counter value = 2 }
+		}
+		modifier = {
+		    factor = 2
+			check_variable = { which = babylon_tower_counter value = 3 }
+		}
+		modifier = {
+		    factor = 2
+			check_variable = { which = babylon_tower_counter value = 4 }
+		}
+		modifier = {
+		    factor = 2
+			check_variable = { which = babylon_tower_counter value = 5 }
+		}
+		modifier = {
+		    factor = 2
+			check_variable = { which = babylon_tower_counter value = 6 }
+		}
+		modifier = {
+		    factor = 2
+			check_variable = { which = babylon_tower_counter value = 7 }
+		}
+		modifier = {
+		    factor = 2
+			check_variable = { which = babylon_tower_counter value = 8 }
+		}
+		modifier = {
+		    factor = 2
+			check_variable = { which = babylon_tower_counter value = 9 }
+		}
+		modifier = {
+		    factor = 2
+			check_variable = { which = babylon_tower_counter value = 10 }
+		}
+	}
+
+	option = { #I know it will come like this!
+		name = "wonder.82.a"
+		clr_global_flag = babylon_tower_built
+		random_owned_province = {
+		     limit = { has_province_modifier = babylon_tower_modifier }
+			 remove_province_modifier = babylon_tower_modifier
+			 add_unrest = 20
+		}
+		cu_change_stability_point_n150 = yes
+		add_prestige = -200
+		hidden_effect = {
+		      if = {
+			        limit = { NOT = { check_variable = { which = babylon_tower_counter value = 1 } } }
+					set_variable = { which = babylon_tower_counter value = 1 }
+					else = {
+					           change_variable = { which = babylon_tower_counter value = 1 }
+					}
+			  }
+		}
+		custom_tooltip = wonder.82.at
+	}
+	
+	option = { #I know it will come like this!
+		name = "wonder.82.b"
+		clr_global_flag = babylon_tower_built
+		random_owned_province = {
+		     limit = { has_province_modifier = babylon_tower_modifier }
+			 remove_province_modifier = babylon_tower_modifier
+			 add_unrest = 20
+		}
+		cu_change_stability_point_n150 = yes
+		add_prestige = -200
+		hidden_effect = {
+		      if = {
+			        limit = { NOT = { check_variable = { which = babylon_tower_counter value = 1 } } }
+					set_variable = { which = babylon_tower_counter value = 1 }
+					else = {
+					           change_variable = { which = babylon_tower_counter value = 1 }
+					}
+			  }
+		}
+		custom_tooltip = wonder.82.bt
+	}
+}
+
+#Babylon Tower Built
+
+province_event = {
+    id = wonder.83
+	title = "wonder.83.t"
+	desc = "wonder.83.d"
+	picture = GREAT_BUILDING_eventPicture
+	major = yes
+	trigger = {
+	        NOT = { has_global_flag = babylon_tower_built }
+			has_province_modifier = building_babylon_tower_prov
+			owner = {
+			       had_country_flag = {
+				           flag = building_babylon_tower_timer
+						   days = 36500
+				   }
+			}
+	}
+	mean_time_to_happen = {
+	      months = 120
+	}
+	
+	option = { #Hurrah!
+	        name = "wonder.83.a"
+			remove_province_modifier = building_babylon_tower_prov
+			add_permanent_province_modifier = {
+			       name = babylon_tower_modifier
+				   duration = -1
+			}
+			owner = {
+			       remove_country_modifier = building_babylon_tower
+				   clr_country_flag = building_babylon_tower_timer
+			       cu_change_stability_point_p100 = yes
+				   add_prestige = 100
+				   add_country_modifier = {
+				           name = babylon_tower_country
+						   duration = 8760
+				   }
+			}
+	}
+}
+
+#Babylon Tower Cancelled ( due to the loss of the province)
+
+country_event = {
+    id = wonder.84
+	title = "wonder.84.t"
+	desc = "wonder.84.d"
+	picture = GREAT_BUILDING_eventPicture
+	major = yes
+	trigger = { 
+	        has_country_modifier = building_babylon_tower
+			NOT = {
+			       any_owned_province = {
+				        has_province_modifier = building_babylon_tower_prov
+				   }
+			}
+	}
+	mean_time_to_happen = {
+	      months = 1
+	}
+	
+	option = { #Well...
+	        name = "wonder.84.a"
+			remove_country_modifier = building_babylon_tower
+			clr_country_flag = building_babylon_tower_timer
+			add_prestige = -50
+			cu_change_stability_point_n75 = yes
+	}
+}

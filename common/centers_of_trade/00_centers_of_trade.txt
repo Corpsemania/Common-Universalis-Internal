@@ -1,0 +1,90 @@
+
+staple_port = {
+    level = 1
+    type = coastal
+    province_modifiers = {
+        province_trade_power_value = 5
+    }
+}
+
+entrepot = {
+    level = 2
+    cost = 9999999
+    type = coastal
+    province_modifiers = {
+        province_trade_power_value = 10
+        local_development_cost = -0.05
+        local_institution_spread = 0.05
+		local_state_maintenance_modifier = 0.20
+    }
+	#global_modifiers = {
+		#naval_forcelimit = 2
+	#}
+}
+
+world_port = {
+    level = 3
+    cost = 9999999
+    type = coastal
+    province_modifiers = {
+        province_trade_power_value = 25
+        local_institution_spread = 0.1
+		local_state_maintenance_modifier = 0.4
+		local_development_cost = -0.075
+    }
+    state_modifiers = {
+        local_development_cost = -0.025
+        local_sailors_modifier = 1
+		local_institution_spread = 0.05
+        allowed_num_of_buildings = 1
+    }
+    global_modifiers = {
+		trade_efficiency = 0.005
+		trade_steering = 0.005
+		trade_range_modifier = 0.02
+    }
+}
+
+
+emporium = {
+    level = 1
+    type = inland
+    province_modifiers = {
+        province_trade_power_value = 5
+    }
+}
+
+market_town = {
+    level = 2
+    cost = 9999999
+    type = inland
+    province_modifiers = {
+        province_trade_power_value = 10
+        local_development_cost = -0.05
+		local_institution_spread = 0.05
+		local_state_maintenance_modifier = 0.20
+    }
+}
+
+world_trade_center = {
+    level = 3
+    cost = 9999999
+    type = inland
+    province_modifiers = {
+        province_trade_power_value = 25
+        local_institution_spread = 0.1
+		local_state_maintenance_modifier = 0.4
+		local_development_cost = -0.075
+    }
+    state_modifiers = {
+        local_development_cost = -0.025
+		local_institution_spread = 0.05
+        local_manpower_modifier = 0.33
+        allowed_num_of_buildings = 1
+    }
+	global_modifiers = {
+		trade_efficiency = 0.005
+		trade_steering = 0.005
+		trade_range_modifier = 0.02
+    }
+}

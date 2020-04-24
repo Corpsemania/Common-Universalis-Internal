@@ -1,0 +1,93 @@
+cu_planting_coffee = {
+       trade_goods_size_modifier = -0.25
+}
+
+cu_planting_cotton = {
+       trade_goods_size_modifier = -0.25
+}
+
+cu_planting_sugar = {
+       trade_goods_size_modifier = -0.25
+}
+
+cu_planting_tobacco = {
+       trade_goods_size_modifier = -0.25
+}
+
+cu_planting_cocoa = {
+       trade_goods_size_modifier = -0.25
+}
+
+cu_planting_silk = {
+       trade_goods_size_modifier = -0.25
+}
+
+cu_planting_dyes = {
+       trade_goods_size_modifier = -0.25
+}
+
+cu_planting_spices = {
+       trade_goods_size_modifier = -0.25
+}
+
+cu_planting_tea = {
+       trade_goods_size_modifier = -0.25
+}
+
+cu_new_plantation = {
+       trade_goods_size_modifier = -0.15
+	   local_development_cost = -0.05
+}
+
+cu_dig_for_minerals = {
+      local_manpower_modifier = -0.25
+}
+
+gold_mine_discovered = {
+      local_development_cost = -0.1
+}
+
+copper_mine_discovered = {
+      trade_goods_size_modifier = -0.2
+}
+
+iron_mine_discovered = {
+      trade_goods_size_modifier = -0.2
+}
+
+unexploited_gold_mine = {
+      global_tax_income = 1
+}
+
+unexploited_copper_mine = {
+      trade_goods_size = 1
+}
+
+unexploited_iron_mine = {
+      trade_goods_size = 1
+}
+
+cu_foster_industry_cloth = {
+	production_efficiency = -0.25
+	trade_goods_size_modifier = -0.25
+}
+
+cu_foster_industry_paper = {
+	production_efficiency = -0.25
+	trade_goods_size_modifier = -0.25
+}
+
+cu_foster_industry_glass = {
+	production_efficiency = -0.25
+	trade_goods_size_modifier = -0.25
+}
+
+cu_foster_industry_naval = {
+	production_efficiency = -0.25
+	trade_goods_size_modifier = -0.25
+}
+
+cu_foster_industry_chinaware = {
+	production_efficiency = -0.25
+	trade_goods_size_modifier = -0.25
+}

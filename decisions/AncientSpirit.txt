@@ -1,0 +1,74 @@
+country_decisions = {
+
+      seek_a_prophet = {
+		potential = {
+                        religion_group = pagan
+                        OR = {
+                                 has_reform =  tribal_despotism
+                                 has_reform =  tribal_kingdom
+                                 has_reform =  tribal_federation                                 
+                                 government = native
+                                 has_reform =  siberian_tribe
+                                 NOT = { num_of_cities = 30 }
+                        }
+                        NOT = { is_religion_reformed = yes }
+			NOT = { has_reform =  steppe_horde }
+                        NOT = { technology_group = western }
+                        NOT = { has_country_flag = has_prophet }
+                        NOT = { has_ruler_flag = seeking_prophet }
+                        NOT = { has_ruler_flag = sought_prophet }
+		}
+		allow = {
+                        adm = 1
+                        dip = 1
+                        mil = 1
+                        is_at_war = no
+                        #legitimacy = 80
+                        treasury = 30
+		}
+		effect = {
+                        change_adm = -1
+                        change_dip = -1
+                        change_mil = -1
+                        add_treasury = -30
+                        add_legitimacy = -10
+                        set_ruler_flag = seeking_prophet
+			country_event = { id = ancients.00 }    
+		}
+		ai_will_do = {
+			factor = 1
+                        modifier = {
+                              factor = 0  
+                              OR = {
+                                    NOT = { legitimacy = 95 }
+                                    NOT = { adm = 4 }
+                                    NOT = { dip = 4 }
+                                    NOT = { mil = 4 }
+                              }
+                        }
+	        }
+       }
+
+      seek_prophecy = {
+		potential = {
+                        religion_group = pagan
+                        NOT = { has_country_flag = in_prophecy }
+                        has_country_flag = has_prophet
+		}
+		allow = {
+
+		}
+		effect = {
+                        set_country_flag = in_prophecy
+			country_event = { id = 4860103 }    
+		}
+		ai_will_do = {
+			factor = 1
+                        modifier = {
+                              factor = 0  # Don't do stupid things!
+                              NOT = { legitimacy = 95 }
+                        }
+	        }
+       }
+
+}

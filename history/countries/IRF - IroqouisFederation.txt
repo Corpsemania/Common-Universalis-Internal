@@ -1,0 +1,7 @@
+government = native 
+government_rank = 3
+primary_culture = iroquois
+religion = totemism
+technology_group = high_american
+capital = 960 #Onondaga
+historical_rival = AZE

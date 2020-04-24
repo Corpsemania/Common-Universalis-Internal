@@ -1,0 +1,108 @@
+country_decisions = {
+# The Dai Viet Empire
+	united_dai_viet = {
+		major = yes
+		potential = {
+			tag = DAI
+			NOT = { government_rank = 3 }
+			owns = 605
+			owns = 2376
+			owns = 2377
+			has_country_flag = developed_southern_provinces
+			trade_income_percentage = 0.5
+			exists = QNG
+		}
+		allow = {
+			stability = 3
+			owns = 605
+			owns = 2376
+			owns = 2377
+			is_at_war = no
+			is_subject = no
+			}
+		effect = {			
+			set_government_rank = 3
+			add_legitimacy = 100
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}	
+# Development of the Southern Provinces
+	southern_provinces = {
+		major = yes
+		potential = {
+			tag = DAI
+			owns = 605
+			owns = 2376
+			owns = 2377
+			NOT = {
+			has_country_flag = developed_southern_provinces
+			}
+			stability = 2
+		}
+		allow = {
+			owns = 605
+			owns = 2376
+			owns = 2377
+			adm_power = 200
+			dip_power = 200
+			mil_power = 200
+			legitimacy = 60
+			}
+		effect = {
+			605 ={
+					add_base_tax = 1
+					add_base_production = 2
+					add_base_manpower = 2
+				}
+			2376 ={
+					add_base_tax = 2
+					add_base_production = 3
+					add_base_manpower = 3
+				}
+			2377 ={
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 2
+				}
+			add_adm_power = -150
+			add_dip_power = -150
+			add_mil_power = -150
+			set_country_flag = developed_southern_provinces
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+# Fortified Capital
+	move_capital_to_hue = {
+		major = yes
+		potential = {
+			tag = DAI
+			is_subject = no
+			is_at_war = no
+			NOT = { capital = 2373 }
+			owns = 2373
+			government_rank = 3 
+			exists = YUE
+		}
+		allow = {
+			is_subject = no
+			is_at_war = no
+			owns = 2373
+			exists = YUE
+		}
+		effect = {
+			set_capital = 2373
+			hidden_effect = { cu_calc_country_absolute_dist = yes }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}
+			

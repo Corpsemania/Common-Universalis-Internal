@@ -1,0 +1,17 @@
+monetary_support = {
+	trigger = {
+		always = yes
+	}
+	
+	effect = {
+		add_years_of_income = -0.2
+		custom_tooltip = parliament_bribe_20t
+		hidden_effect = {
+		     country_event = { id = parlaments.999}
+		}
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}

@@ -1,0 +1,6 @@
+government = monarchy
+add_government_reform = chinese_revolter
+technology_group = nomad_group
+primary_culture = manchu
+religion = confucianism
+capital = 2108

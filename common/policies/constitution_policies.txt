@@ -1,0 +1,325 @@
+compromising_legislation = {
+	monarch_power = ADM
+
+
+	potential = {
+		has_idea_group = aristocracy_ideas
+		has_idea_group = constitution_ideas
+		OR = {
+			full_idea_group = aristocracy_ideas
+			full_idea_group = constitution_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = aristocracy_ideas
+		full_idea_group = constitution_ideas
+	}
+
+
+	global_autonomy = 0.03 
+	advisor_cost = -0.05
+
+	ai_will_do = {
+		factor = 1	
+	}
+
+}
+
+justified_expansion = {
+	monarch_power = MIL
+
+
+	potential = {
+		has_idea_group = offensive_ideas
+		has_idea_group = constitution_ideas
+		OR = {
+			full_idea_group = offensive_ideas
+			full_idea_group = constitution_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = offensive_ideas
+		full_idea_group = constitution_ideas
+	}
+
+
+	province_warscore_cost = 0.1
+	ae_impact = -0.10
+
+	ai_will_do = {
+		factor = 1	
+	}
+
+}
+
+finest_hour = {
+	monarch_power = MIL
+
+
+	potential = {
+		has_idea_group = defensive_ideas
+		has_idea_group = constitution_ideas
+		OR = {
+			full_idea_group = defensive_ideas
+			full_idea_group = constitution_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = defensive_ideas
+		full_idea_group = constitution_ideas
+	}
+
+
+	war_exhaustion = -0.05
+	development_cost = 0.15
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			is_at_war = no
+		}
+		modifier = {
+			factor = 0
+			NOT = { war_exhaustion = 5 }
+		}	
+	}
+}
+
+officiers_political_restriction = {
+	monarch_power = ADM
+
+
+	potential = {
+		has_idea_group = quality_ideas
+		has_idea_group = constitution_ideas
+		OR = {
+			full_idea_group = quality_ideas
+			full_idea_group = constitution_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = quality_ideas
+		full_idea_group = constitution_ideas
+	}
+
+
+	free_leader_pool = -20
+	yearly_corruption = -0.05
+
+	ai_will_do = {
+		factor = 1		
+		modifier = {
+			factor = 0
+			is_at_war = no
+		}
+	}
+}
+
+armament_supervision = {
+	monarch_power = MIL
+
+
+	potential = {
+		has_idea_group = quantity_ideas
+		has_idea_group = constitution_ideas
+		OR = {
+			full_idea_group = quantity_ideas
+			full_idea_group = constitution_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = quantity_ideas
+		full_idea_group = constitution_ideas
+	}
+
+
+	state_maintenance_modifier = 0.2
+	land_morale = 0.1
+
+	ai_will_do = {
+		factor = 1		
+	}
+}
+
+department_of_admiralty = {
+	monarch_power = DIP
+
+
+	potential = {
+		has_idea_group = naval_ideas
+		has_idea_group = constitution_ideas
+		OR = {
+			full_idea_group = naval_ideas
+			full_idea_group = constitution_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = naval_ideas
+		full_idea_group = constitution_ideas
+	}
+
+
+	navy_tradition = 1
+	advisor_cost = 0.1
+
+	ai_will_do = {
+		factor = 1		
+	}
+}
+
+national_security_act = {
+	monarch_power = ADM
+
+
+	potential = {
+		has_idea_group = spy_ideas
+		has_idea_group = constitution_ideas
+		OR = {
+			full_idea_group = spy_ideas
+			full_idea_group = constitution_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = spy_ideas
+		full_idea_group = constitution_ideas
+	}
+
+
+	global_spy_defence = 0.2
+	advisor_pool = -1
+
+	ai_will_do = {
+		factor = 1		
+	}
+}
+
+splendid_isolation = {
+	monarch_power = DIP
+
+
+	potential = {
+		has_idea_group = diplomatic_ideas
+		has_idea_group = constitution_ideas
+		OR = {
+			full_idea_group = diplomatic_ideas
+			full_idea_group = constitution_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = diplomatic_ideas
+		full_idea_group = constitution_ideas
+	}
+
+
+	diplomats = 1
+	diplomatic_upkeep = -1
+
+	ai_will_do = {
+		factor = 1		
+		modifier = {
+		      factor = 0
+			  NOT = { tag = ENG }
+			  NOT = { tag = GBR }
+			  NOT = { tag = IRE }
+		}
+	}
+}
+
+open_door = {
+	monarch_power = DIP
+
+
+	potential = {
+		has_idea_group = trade_ideas
+		has_idea_group = constitution_ideas
+		OR = {
+			full_idea_group = trade_ideas
+			full_idea_group = constitution_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = trade_ideas
+		full_idea_group = constitution_ideas
+	}
+
+
+	global_own_trade_power = -0.10
+	global_foreign_trade_power = 0.10
+
+	ai_will_do = {
+		factor = 1		
+	}
+}
+
+
+oversea_dominion = {
+	monarch_power = DIP
+
+
+	potential = {
+		has_idea_group = exploration_ideas
+		has_idea_group = constitution_ideas
+		OR = {
+			full_idea_group = exploration_ideas
+			full_idea_group = constitution_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = exploration_ideas
+		full_idea_group = constitution_ideas
+	}
+
+
+	liberty_desire_from_subject_development = -0.1
+	colonists = -1
+
+	ai_will_do = {
+		factor = 1	
+        modifier = {
+			factor = 0
+			NOT = { is_year = 1750 }
+		}			
+	}
+}
+
+enforced_seamanship = {
+	monarch_power = DIP
+
+
+	potential = {
+		has_idea_group = maritime_ideas
+		has_idea_group = constitution_ideas
+		OR = {
+			full_idea_group = maritime_ideas
+			full_idea_group = constitution_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = maritime_ideas
+		full_idea_group = constitution_ideas
+	}
+
+
+	global_sailors_modifier = 0.1
+	naval_morale = -0.1
+
+	ai_will_do = {
+		factor = 1	
+                modifier = {
+			factor = 0
+			num_of_ports = 10
+		}		
+	}
+}

@@ -1,0 +1,504 @@
+cu_art_power_n4 = {
+	potential = {
+	        check_variable = { which = art_power_c value = -25 }
+	        NOT = { check_variable = { which = art_power_c value = -8 } }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_n3t
+				NOT = { check_variable = { which = art_power_c value = -15 } }
+			}
+	        
+	}
+	embracement_cost = 0.2
+	innovativeness_gain = -0.20
+	prestige = -1
+	rebel_support_efficiency = -0.2
+	idea_cost = 0.1
+	harmonization_speed = -0.2
+	ae_impact = 0.2
+}
+
+cu_art_power_n3 = {
+	potential = {
+	        check_variable = { which = art_power_c value = -25 }
+	        NOT = { check_variable = { which = art_power_c value = -8 } }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_n3t
+				NOT = { check_variable = { which = art_power_c value = -15 } }
+			}
+	        
+	}
+	embracement_cost = 0.15
+	innovativeness_gain = -0.15
+	prestige = -0.75
+	rebel_support_efficiency = -0.15
+	idea_cost = 0.075
+	harmonization_speed = -0.15
+	ae_impact = 0.15
+}
+
+cu_art_power_n2 = {
+	potential = {
+	        check_variable = { which = art_power_c value = -15 }
+	        NOT = { check_variable = { which = art_power_c value = -2 } }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_n2t
+				NOT = { check_variable = { which = art_power_c value = -8 } }
+			}
+	        
+	}
+	embracement_cost = 0.1
+	innovativeness_gain = -0.10
+	prestige = -0.5
+	rebel_support_efficiency = -0.1
+	idea_cost = 0.05
+	harmonization_speed = -0.1
+	ae_impact = 0.1
+}
+
+cu_art_power_n1 = {
+	potential = {
+	        check_variable = { which = art_power_c value = -8 }
+	        NOT = { check_variable = { which = art_power_c value = 0 } }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_n1t
+				NOT = { check_variable = { which = art_power_c value = -2 } }
+			}
+	        
+	}
+	embracement_cost = 0.05
+	innovativeness_gain = -0.05
+	prestige = -0.25
+	rebel_support_efficiency = -0.05
+	idea_cost = 0.025
+	harmonization_speed = -0.05
+	ae_impact = 0.05
+}
+
+
+
+cu_art_power_1 = {
+	potential = {
+	        NOT = { check_variable = { which = art_power_c value = 4 } }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_1t
+				check_variable = { which = art_power_c value = 1 }
+			}
+	        
+	}
+	embracement_cost = -0.02
+	innovativeness_gain = 0.02
+	prestige = 0.3
+	rebel_support_efficiency = 0.02
+	idea_cost = -0.01
+	harmonization_speed = 0.02
+	ae_impact = -0.01
+	diplomatic_reputation = 0.1
+}
+
+cu_art_power_2 = {
+	potential = {
+	        check_variable = { which = art_power_c value = 1 }
+	        NOT = { check_variable = { which = art_power_c value = 10 } }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_2t
+				check_variable = { which = art_power_c value = 4 }
+			}
+	}
+	embracement_cost = -0.04
+	innovativeness_gain = 0.04
+	prestige = 0.6
+	rebel_support_efficiency = 0.04
+	idea_cost = -0.02
+	harmonization_speed = 0.04
+	ae_impact = -0.02
+	diplomatic_reputation = 0.2
+}
+
+cu_art_power_3 = {
+	potential = {
+	        check_variable = { which = art_power_c value = 4 }
+	        NOT = { check_variable = { which = art_power_c value = 20 } }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_3t
+				check_variable = { which = art_power_c value = 10 }
+			}
+	}
+	embracement_cost = -0.06
+	innovativeness_gain = 0.06
+	prestige = 1
+	rebel_support_efficiency = 0.06
+	idea_cost = -0.03
+	harmonization_speed = 0.06
+	ae_impact = -0.03
+	diplomatic_reputation = 0.3
+}
+
+cu_art_power_4 = {
+	potential = {
+	        check_variable = { which = art_power_c value = 10 }
+	        NOT = { check_variable = { which = art_power_c value = 40 } }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_4t
+				check_variable = { which = art_power_c value = 20 }
+			}
+	}
+	embracement_cost = -0.08
+	innovativeness_gain = 0.08
+	prestige = 1.4
+	rebel_support_efficiency = 0.08
+	idea_cost = -0.04
+	harmonization_speed = 0.08
+	ae_impact = -0.04
+	diplomatic_reputation = 0.4
+}
+
+cu_art_power_5 = {
+	potential = {
+	        NOT = { check_variable = { which = art_power_c value = 70 } }
+			check_variable = { which = art_power_c value = 20 }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_5t
+				check_variable = { which = art_power_c value = 40 }
+			}
+	}
+	embracement_cost = -0.1
+	innovativeness_gain = 0.1
+	prestige = 1.8
+	rebel_support_efficiency = 0.1
+	idea_cost = -0.05
+	harmonization_speed = 0.1
+	ae_impact = -0.05
+	diplomatic_reputation = 0.5
+}
+
+cu_art_power_6 = {
+	potential = {
+	        NOT = { check_variable = { which = art_power_c value = 110 } }
+			check_variable = { which = art_power_c value = 40 }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_6t
+				check_variable = { which = art_power_c value = 70 }
+			}
+	}
+	embracement_cost = -0.12
+	innovativeness_gain = 0.12
+	prestige = 2.3
+	rebel_support_efficiency = 0.12
+	idea_cost = -0.06
+	harmonization_speed = 0.12
+	ae_impact = -0.06
+	diplomatic_reputation = 0.6
+}
+
+cu_art_power_7 = {
+	potential = {
+	        NOT = { check_variable = { which = art_power_c value = 160 } }
+			check_variable = { which = art_power_c value = 70 }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_7t
+				check_variable = { which = art_power_c value = 110 }
+			}
+	}
+	embracement_cost = -0.14
+	innovativeness_gain = 0.14
+	prestige = 2.8
+	rebel_support_efficiency = 0.14
+	idea_cost = -0.07
+	harmonization_speed = 0.14
+	ae_impact = -0.07
+	diplomatic_reputation = 0.7
+}
+
+cu_art_power_8 = {
+	potential = {
+	        NOT = { check_variable = { which = art_power_c value = 220 } }
+			check_variable = { which = art_power_c value = 110 }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_8t
+				check_variable = { which = art_power_c value = 160 }
+			}
+	}
+	embracement_cost = -0.16
+	innovativeness_gain = 0.16
+	prestige = 3.3
+	rebel_support_efficiency = 0.16
+	idea_cost = -0.08
+	harmonization_speed = 0.16
+	ae_impact = -0.08
+	diplomatic_reputation = 0.8
+}
+
+cu_art_power_9 = {
+	potential = {
+	        NOT = { check_variable = { which = art_power_c value = 290 } }
+			check_variable = { which = art_power_c value = 160 }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_9t
+				check_variable = { which = art_power_c value = 220 }
+			}
+	}
+	embracement_cost = -0.16
+	innovativeness_gain = 0.20
+	prestige = 3.8
+	rebel_support_efficiency = 0.16
+	idea_cost = -0.08
+	harmonization_speed = 0.16
+	ae_impact = -0.09
+	diplomatic_reputation = 0.9
+}
+
+cu_art_power_10 = {
+	potential = {
+	        NOT = { check_variable = { which = art_power_c value = 370 } }
+			check_variable = { which = art_power_c value = 220 }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_10t
+				check_variable = { which = art_power_c value = 290 }
+			}
+	}
+	embracement_cost = -0.2
+	innovativeness_gain = 0.21
+	prestige = 4.3
+	rebel_support_efficiency = 0.2
+	idea_cost = -0.1
+	harmonization_speed = 0.2
+	ae_impact = -0.1
+	diplomatic_reputation = 1
+}
+
+cu_art_power_11 = {
+	potential = {
+	        NOT = { check_variable = { which = art_power_c value = 460 } }
+			check_variable = { which = art_power_c value = 290 }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_11t
+				check_variable = { which = art_power_c value = 370 }
+			}
+	}
+	embracement_cost = -0.22
+	innovativeness_gain = 0.22
+	prestige = 4.8
+	rebel_support_efficiency = 0.22
+	idea_cost = -0.11
+	harmonization_speed = 0.22
+	ae_impact = -0.11
+	diplomatic_reputation = 1.1
+}
+
+cu_art_power_12 = {
+	potential = {
+	        NOT = { check_variable = { which = art_power_c value = 560 } }
+			check_variable = { which = art_power_c value = 370 }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_12t
+				check_variable = { which = art_power_c value = 460 }
+			}
+	}
+	embracement_cost = -0.24
+	innovativeness_gain = 0.24
+	prestige = 5.3
+	rebel_support_efficiency = 0.24
+	idea_cost = -0.12
+	harmonization_speed = 0.24
+	ae_impact = -0.12
+	diplomatic_reputation = 1.2
+}
+
+cu_art_power_13 = {
+	potential = {
+	        NOT = { check_variable = { which = art_power_c value = 670 } }
+			check_variable = { which = art_power_c value = 460 }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_13t
+				check_variable = { which = art_power_c value = 560 }
+			}
+	}
+	embracement_cost = -0.26
+	innovativeness_gain = 0.26
+	prestige = 5.8
+	rebel_support_efficiency = 0.26
+	idea_cost = -0.13
+	harmonization_speed = 0.26
+	ae_impact = -0.13
+	diplomatic_reputation = 1.3
+}
+
+cu_art_power_14 = {
+	potential = {
+	        NOT = { check_variable = { which = art_power_c value = 790 } }
+			check_variable = { which = art_power_c value = 560 }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_14t
+				check_variable = { which = art_power_c value = 670 }
+			}
+	}
+	embracement_cost = -0.28
+	innovativeness_gain = 0.28
+	prestige = 6.3
+	rebel_support_efficiency = 0.28
+	idea_cost = -0.14
+	harmonization_speed = 0.28
+	ae_impact = -0.14
+	diplomatic_reputation = 1.4
+}
+
+cu_art_power_15 = {
+	potential = {
+	        NOT = { check_variable = { which = art_power_c value = 920 } }
+			check_variable = { which = art_power_c value = 670 }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_15t
+				check_variable = { which = art_power_c value = 790 }
+			}
+	}
+	embracement_cost = -0.3
+	innovativeness_gain = 0.3
+	prestige = 6.8
+	rebel_support_efficiency = 0.3
+	idea_cost = -0.15
+	harmonization_speed = 0.3
+	ae_impact = -0.15
+	diplomatic_reputation = 1.5
+}
+
+cu_art_power_16 = {
+	potential = {
+	        NOT = { check_variable = { which = art_power_c value = 1060 } }
+			check_variable = { which = art_power_c value = 790 }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_16t
+				check_variable = { which = art_power_c value = 920 }
+			}
+	}
+	embracement_cost = -0.32
+	innovativeness_gain = 0.32
+	prestige = 7.4
+	rebel_support_efficiency = 0.32
+	idea_cost = -0.16
+	harmonization_speed = 0.32
+	ae_impact = -0.16
+	diplomatic_reputation = 1.6
+}
+
+cu_art_power_17 = {
+	potential = {
+	        NOT = { check_variable = { which = art_power_c value = 1210 } }
+			check_variable = { which = art_power_c value = 920 }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_17t
+				check_variable = { which = art_power_c value = 1060 }
+			}
+	}
+	embracement_cost = -0.34
+	innovativeness_gain = 0.34
+	prestige = 8
+	rebel_support_efficiency = 0.34
+	idea_cost = -0.17
+	harmonization_speed = 0.34
+	ae_impact = -0.17
+	diplomatic_reputation = 1.7
+}
+
+cu_art_power_18 = {
+	potential = {
+	        NOT = { check_variable = { which = art_power_c value = 1370 } }
+			check_variable = { which = art_power_c value = 1060 }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_18t
+				check_variable = { which = art_power_c value = 1210 }
+			}
+	}
+	embracement_cost = -0.36
+	innovativeness_gain = 0.36
+	prestige = 8.6
+	rebel_support_efficiency = 0.36
+	idea_cost = -0.18
+	harmonization_speed = 0.36
+	ae_impact = -0.18
+	diplomatic_reputation = 1.8
+}
+
+cu_art_power_19 = {
+	potential = {
+	        NOT = { check_variable = { which = art_power_c value = 1540 } }
+			check_variable = { which = art_power_c value = 1210 }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_19t
+				check_variable = { which = art_power_c value = 1370 }
+			}
+	}
+	embracement_cost = -0.38
+	innovativeness_gain = 0.38
+	prestige = 9.3
+	rebel_support_efficiency = 0.38
+	idea_cost = -0.19
+	harmonization_speed = 0.38
+	ae_impact = -0.19
+	diplomatic_reputation = 1.9
+}
+
+cu_art_power_20 = {
+	potential = {
+	        check_variable = { which = art_power_c value = 1370 }
+    }
+	trigger = {
+	        custom_trigger_tooltip = {
+			    tooltip = cu_art_power_20t
+				check_variable = { which = art_power_c value = 1540 }
+			}
+	}
+	embracement_cost = -0.4
+	innovativeness_gain = 0.4
+	prestige = 10
+	rebel_support_efficiency = 0.4
+	idea_cost = -0.2
+	harmonization_speed = 0.4
+	ae_impact = -0.2
+	diplomatic_reputation = 2
+}

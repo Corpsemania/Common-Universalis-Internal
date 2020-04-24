@@ -1,0 +1,21 @@
+bookmark =
+{
+	name = "GC_STEPPE_BOOKMARK"
+	desc = "GC_STEPPE_BOOKMARK_DESC"
+	date = 1444.11.11
+	
+	center = 1785
+	
+	country = OIR
+	country = KHA
+	country = TIM
+	country = KAZ
+        country = GOL
+	country = CHG
+	country = NOG
+	country = KRC
+        effect = {
+
+	}
+	
+}

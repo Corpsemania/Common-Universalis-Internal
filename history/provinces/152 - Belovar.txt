@@ -1,0 +1,38 @@
+#152 - Varazd
+
+owner = CRO
+controller = CRO
+culture = croatian
+religion = catholic
+capital = "Varazdin"
+trade_goods = cloth
+hre = no
+base_tax = 4
+base_production = 4
+base_manpower = 1
+estate = estate_nobles
+is_city = yes
+
+add_core = CRO
+discovered_by = KAZ
+discovered_by = CRI
+discovered_by = GOL
+discovered_by = AST
+discovered_by = QAS
+discovered_by = western
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = ottoman
+
+
+1526.8.30 = {
+	owner = HAB
+	controller = HAB
+	add_core = HAB
+	add_core = TRA
+} #Battle of Mohacs
+1567.1.1 = { religion = reformed } # Synod of Debrecen
+1570.1.1 = { remove_core = TRA } #Treaty of Speyer
+1604.1.1 = { revolt = { type = noble_rebels size = 2 } controller = REB } # The nobility in Royal Hungary rebelled
+1606.1.1 = { revolt = {} controller = HAB }
+

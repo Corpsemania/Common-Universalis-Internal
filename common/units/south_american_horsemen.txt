@@ -1,0 +1,22 @@
+# American Horsemen
+
+unit_type = south_american
+type = cavalry
+trigger = {
+	OR = {
+		has_institution = new_world_i	
+		OR = {
+			capital_scope = { continent = europe }
+			capital_scope = { continent = asia }
+			capital_scope = { continent = africa }
+			capital_scope = { continent = oceania }
+		}
+	}
+}
+maneuver = 2
+offensive_morale = 1
+defensive_morale = 1
+offensive_fire = 0
+defensive_fire = 0
+offensive_shock = 2
+defensive_shock = 1

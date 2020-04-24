@@ -1,0 +1,532 @@
+# Triggered modifiers are here.
+# these are checked for each countries once/month and then applied.
+#
+# Effects are fully scriptable here.
+
+
+###########################################
+# Discovery of the East Indian trade route.
+###########################################
+east_indian_trade_route = {
+	potential = {
+		num_of_ports = 1
+		NOT = {
+			capital_scope = {
+				continent = asia
+			}
+		}
+		NOT = {
+			capital_scope = {
+				continent = oceania
+			}
+		}
+		
+	}
+
+	trigger = {
+		has_discovered = 1460 # Cape of Good Hope
+		num_of_ports = 4
+		has_idea = quest_for_the_new_world
+		any_active_trade_node = {
+			has_merchant = ROOT
+			OR = {
+				province_id = 1361 # Straits of Johor
+				province_id = 1343 # Ganges Delta
+				province_id = 504 # Sind
+				province_id = 1340 # Comorin Cape
+				province_id = 2030 # Goa
+			}
+		}
+	}
+
+	trade_efficiency = 0.05	
+}
+
+#########################################################
+# Coptic control of Alexandria.
+#########################################################
+
+
+#########################################################
+# Theravada control of the temple of the Sacred Tooth.
+#########################################################
+
+
+######################################
+# Vajrayana control of Lhasa.
+######################################
+
+
+######################################
+# Mahayana control of Luoyang.
+######################################
+
+
+######################################
+# Buddhist control of Bodh Gaya.
+######################################
+
+
+######################################
+# Hindu control of Varanasi.
+######################################
+
+
+######################################
+# Inti control of Pachacamac.
+######################################
+
+
+######################################
+# Nahuatl control of Cholula.
+######################################
+
+
+######################################
+# Mayan control of Chichen Itza.
+######################################
+
+
+######################################
+# Sikh control of Amritsar.
+######################################
+
+
+######################################
+# Christian control of Mecca.
+######################################
+
+
+######################################
+# Custodian of the Two Holy Mosques
+######################################
+custodian_of_the_two_holy_mosques = {
+	potential = {
+		normal_or_historical_nations = yes
+		has_discovered = 385	# Mecca
+		has_discovered = 384	# Medina
+		religion_group = muslim
+	}
+
+	trigger = {
+		is_free_or_tributary_trigger = yes
+		owns_or_vassal_of = 385
+		owns_or_vassal_of = 384
+	}
+
+	prestige = 0.5
+	missionaries = 1
+}
+
+
+###########################################
+# Jerusalem held by Abrahamic Faiths
+###########################################
+
+
+
+######################################
+# Muslim control of Rome.
+######################################
+
+
+######################################
+# Confucian control of Qufu.
+######################################
+
+
+
+######################################
+# Catholic control of Rome.
+######################################
+catholic_rome = {
+	potential = {
+		normal_or_historical_nations = yes
+		has_discovered = 118	# Roma
+		religion = catholic
+		NOT = { tag = PAP }
+	}
+
+	trigger = {	
+		NOT = { overlord_of = PAP }
+		owns_or_vassal_of = 118 # Roma		
+		NOT = { tag = ITA }
+		NOT = { tag = ROM }
+	}
+
+	papal_influence = -10
+	diplomatic_reputation = -2
+	#icon = 9
+}
+
+papal_subjugation = {
+	potential = {
+		normal_or_historical_nations = yes
+		has_discovered = 118	# Roma
+		religion = catholic
+		NOT = { tag = PAP }
+	}
+
+	trigger = {	
+		overlord_of = PAP
+		NOT = { tag = ITA }
+	}
+
+	diplomatic_reputation = -2
+	#icon = 9
+}
+
+rapid_collapse_of_society = {
+	potential = {
+		normal_or_historical_nations = yes
+		capital_scope = {
+			OR = {
+				continent = north_america
+				continent = south_america
+				continent = new_world
+			}
+		}
+		
+	}
+	trigger = {
+		NOT = { has_institution = feudalism }
+		custom_trigger_tooltip = {
+			tooltip = rapid_collapse_of_society_tooltip
+			has_country_flag = european_diseases_struck
+			NOT = {
+				had_country_flag = {
+					flag = european_diseases_struck
+					days = 9125
+				}
+			}
+		}
+	}
+	
+	all_power_cost = 0.33
+	discipline = -0.1
+	land_morale = -0.2
+	
+}
+
+######################################
+# Italian - Submission to Emperor
+######################################
+submission_to_emperor = {
+	potential = {
+		has_global_flag = italy_out_of_HRE
+		culture_group = latin
+	}
+
+	trigger = {
+		is_emperor = no
+		NOT = { tag = ITA }
+		capital_scope = {
+			is_part_of_hre = yes
+		}
+	}
+
+	global_unrest = 2
+	stability_cost_modifier = 0.1
+	prestige = -1
+}
+
+
+	
+
+
+
+
+######################################
+# Counter Revolution
+######################################
+counter_revolution = {
+	potential = {
+		revolution_target_exists = yes
+		is_revolution_target = no
+	}
+
+	trigger = {		
+		revolution_target_exists = yes
+		is_revolution_target = no
+		is_free_or_tributary_trigger = yes
+		NOT = {
+			revolution_target = {
+				war_with = ROOT
+			}
+			revolution_target = {
+				truce_with = ROOT
+			} 
+		}
+		NOT = {
+			   OR = {
+					 has_reform =  universal_suffrage
+					 AND = {
+							has_reform =  burghers_election
+							has_reform =  parliament_reform
+							}
+					 AND = {
+							has_reform =  court_despotism
+							has_reform =  bureaucratic
+							absolutism = 80
+							}		
+					}		
+			  }
+	}
+
+	
+	stability_cost_modifier = 0.3
+	global_unrest = 5
+}
+
+
+
+######################################
+# Reaction
+######################################
+
+
+######################################
+# Crusader
+######################################
+crusader = {
+	potential = {
+		religion = catholic
+		crusade_target = {
+			exists = yes
+		}
+		
+	}
+
+	trigger = {
+		
+		crusade_target = {
+			war_with = ROOT
+			any_province = {
+				controlled_by = root
+			}
+		}  
+		land_maintenance = 1.0
+	}
+
+	global_manpower_modifier = 0.2
+	global_tax_modifier = 0.1
+	land_morale = 0.10
+	prestige = 1
+	papal_influence = 1
+	devotion = 0.25
+	#icon = 9
+}
+
+jihad = {
+	potential = {
+		religion_group = muslim
+		NOT  = { # Exclude the crusade target
+			any_known_country = {
+                                    reverse_has_opinion_modifier = { who = ROOT modifier = prepares_crusade }
+                        }
+		}
+		
+	}
+
+	trigger = {
+                any_known_country = {
+                        has_country_modifier = crusader
+                        war_with = ROOT
+                }
+                NOT  = { # Not at war with a religious brother
+			any_known_country = {
+                                    religion_group = muslim
+                                    war_with = ROOT
+                        }
+		}
+		land_maintenance = 1.0
+	}
+
+	global_manpower_modifier = 0.2
+	global_tax_modifier = 0.1
+	land_morale = 0.10
+	prestige = 1
+        ae_impact = -0.1
+        diplomatic_reputation = 1
+	#icon = 9
+}
+
+######################################
+# Excommunication
+######################################
+excommunication = {
+	potential = {
+		religion = catholic	
+	}
+
+	trigger = {
+		is_excommunicated = yes
+		
+	}
+
+	prestige = -2
+	tolerance_own = -1
+	devotion = -5
+	papal_influence = -10
+	#icon = 10
+}
+
+##################################################
+# The Pentarchy
+##################################################
+pentarchy_mod = {
+	potential = {
+		normal_or_historical_nations = yes
+		religion = orthodox
+		OR = {
+			has_discovered = 118 	# Rome
+			has_discovered = 151 	# Constantinople
+			has_discovered = 2313 	# Antioch
+			has_discovered = 379 	# Jerusalem
+			has_discovered = 358 	# Alexandria
+		}
+	}
+
+	trigger = {
+		owns = 118 	# Rome
+		owns = 151 	# Constantinople
+		owns = 2313 # Antioch
+		owns = 379 	# Jerusalem
+		owns = 358 	# Alexandria
+		118 = { religion = orthodox }
+		151 = { religion = orthodox }
+		2313 = { religion = orthodox }
+		379 = { religion = orthodox }
+		358 = { religion = orthodox }
+	}
+	
+	prestige = 0.5
+	missionaries = 1
+}
+
+##################################################
+# China modifiers
+##################################################
+the_mandate_of_heaven = {
+	potential = {
+	        NOT = { has_dlc = "Mandate of Heaven" }
+		OR = {
+                         has_reform =  celestial_empire
+                         has_reform =  celestial_empire_2
+                         has_reform =  zhuhou
+                }
+	}
+	
+	trigger = {	
+                NOT = { has_country_modifier = the_mandate_of_heaven_lost }
+		stability = 0
+                prestige = 0
+                NOT = { war_exhaustion = 10 }
+		NOT = { num_of_rebel_controlled_provinces = 10 }
+                legitimacy = 60
+		num_of_owned_provinces_with = {
+			          value = 35
+			          OR = {
+                                                  region = south_china_region
+                                                  region = xinan_region
+                                                  region = north_china_region
+                                  } 
+		}
+	}
+	stability_cost_modifier = -0.10
+	global_unrest = -3
+}
+
+the_mandate_of_heaven_lost = {
+	potential = {
+	        NOT = { has_dlc = "Mandate of Heaven" }
+		OR = {
+                         has_reform =  celestial_empire
+                         has_reform =  celestial_empire_2
+                }
+	}
+
+	trigger = {
+                NOT = { has_country_modifier = the_mandate_of_heaven }
+                OR = {
+                         NOT = { stability = -1 }
+                         war_exhaustion = 10
+		         num_of_owned_provinces_with = {
+			          value = 10
+			          AND = { 
+                                          OR = {
+                                                  region = south_china_region
+                                                  region = xinan_region
+                                                  region = north_china_region
+                                     }
+                                          NOT = { controlled_by = owner }
+                                  }
+		         }
+                         NOT = {
+                                 num_of_owned_provinces_with = {
+			             value = 25
+			             OR = {
+                                                  region = south_china_region
+                                                  region = xinan_region
+                                                  region = north_china_region
+                                     } 
+                                 }
+	             	 }
+                }
+		
+	}
+        stability_cost_modifier = 0.3
+	global_unrest = 3
+}
+
+##################################################
+# HRE modifiers
+##################################################
+hre_dominant_catholic = {
+	potential = {
+		capital_scope = {
+			continent = europe
+		}
+		OR = {
+			religion = catholic
+			religion = protestant
+		}
+                is_part_of_hre = yes
+	}
+
+	trigger = {
+		religion = catholic
+		hre_religion = catholic
+		hre_religion_locked = yes
+	}
+	
+	legitimacy = 0.5
+	diplomatic_reputation = 1
+	global_heretic_missionary_strength = 0.01
+	imperial_authority = 0.25
+}
+
+hre_dominant_protestant = {
+	potential = {
+		capital_scope = {
+			continent = europe
+		}
+		OR = {
+			religion = catholic
+			religion = protestant
+		}
+                is_part_of_hre = yes
+	}
+
+	trigger = {
+		religion = protestant
+		hre_religion = protestant
+		hre_religion_locked = yes
+	}
+	
+	legitimacy = 0.5
+	diplomatic_reputation = 1
+	global_heretic_missionary_strength = 0.01
+	imperial_authority = 0.25
+}
+

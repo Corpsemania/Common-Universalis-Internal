@@ -1,0 +1,8 @@
+SNG= countries/Song.txt
+KHN= countries/Han2.txt
+CHN= countries/Han.txt
+CWE= countries/Wei.txt
+KHT = countries/Cathay.txt
+JNG = countries/Jin1.txt
+BXA = countries/Xia.txt
+ROC = countries/RepublicofChina.txt

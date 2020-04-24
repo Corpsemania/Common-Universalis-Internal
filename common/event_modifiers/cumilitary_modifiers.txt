@@ -1,0 +1,204 @@
+cu_shock_1 = {
+       	leader_land_shock = 1
+		leader_naval_shock = 1
+}
+cu_fire_1 = {
+        leader_land_fire = 1
+		leader_naval_fire = 1
+}
+cu_move_1 = {
+        leader_land_manuever = 1
+		leader_naval_manuever = 1
+}
+cu_siege_1 = {
+        leader_siege = 1
+}
+
+reduce_army_expense = {
+		land_maintenance_modifier = -0.2
+		land_forcelimit_modifier = 0.25
+		global_manpower_modifier = -0.15
+		army_tradition_decay = 0.01
+        land_morale = -0.05
+		discipline = -0.05
+        global_regiment_recruit_speed = 0.3
+		land_attrition = 0.2
+}
+ 
+reduce_navy_expense = {
+		naval_maintenance_modifier = -0.2
+		naval_forcelimit_modifier = 0.25
+		global_sailors_modifier = -0.1
+		navy_tradition_decay = 0.02
+        naval_morale = -0.1
+		ship_durability = -0.05
+        global_ship_recruit_speed = 0.3
+		naval_attrition = 0.25
+}
+garrison_0 = {
+    local_defensiveness = -0.5  
+	#picture = "fortress"
+}
+garrison_1 = {
+	local_manpower = -0.2
+	#fort_level = 1
+    local_defensiveness = 0.05  
+	land_forcelimit = -0.05
+	#picture = "fortress"
+}
+
+garrison_2 = {
+	local_manpower = -0.4
+	#fort_level = 1
+	local_defensiveness = 0.1
+	land_forcelimit = -0.1
+	#picture = "fortress"
+}
+
+garrison_3 = {
+	local_manpower = -0.6
+	#fort_level = 1
+	local_defensiveness = 0.15
+	land_forcelimit = -0.15
+	#picture = "fortress"
+}
+
+garrison_4 = {
+	local_manpower = -0.8
+	#fort_level = 1
+	local_defensiveness = 0.2
+	land_forcelimit = -0.2
+	#picture = "fortress"
+}
+
+garrison_5 = {
+	local_manpower = -1
+	#fort_level = 1
+	local_defensiveness = 0.25
+	land_forcelimit = -0.25
+	#picture = "fortress"
+}
+
+garrison_6 = {
+	local_manpower = -1.2
+	#fort_level = 1
+	local_defensiveness = 0.3
+	land_forcelimit = -0.3
+	#picture = "fortress"
+}
+
+garrison_7 = {
+	local_manpower = -1.4
+	#fort_level = 1
+	local_defensiveness = 0.35
+	land_forcelimit = -0.35
+	#picture = "fortress"
+}
+
+garrison_8 = {
+	local_manpower = -1.6
+	#fort_level = 1
+	local_defensiveness = 0.4
+	land_forcelimit = -0.4
+	#picture = "fortress"
+}
+
+garrison_9 = {
+	local_manpower = -1.8
+	#fort_level = 1
+	local_defensiveness = 0.45
+	land_forcelimit = -0.45
+	#picture = "fortress"
+}
+
+garrison_10 = {
+	local_manpower = -2
+	#fort_level = 1
+	local_defensiveness = 0.5
+	land_forcelimit = -0.5
+	#picture = "fortress"
+}
+
+garrison_11 = {
+	local_manpower = -2.2
+	fort_level = 2
+	local_defensiveness = 0.55
+	land_forcelimit = -0.55
+	#picture = "fortress"
+}
+
+garrison_12 = {
+	local_manpower = -2.4
+	fort_level = 2
+	local_defensiveness = 0.6
+	land_forcelimit = -0.6
+	#picture = "fortress"
+}
+
+garrison_13 = {
+	local_manpower = -2.6
+	fort_level = 2
+	local_defensiveness = 0.65
+	land_forcelimit = -0.65
+	#picture = "fortress"
+}
+
+garrison_14 = {
+	local_manpower = -2.8
+	fort_level = 2
+	local_defensiveness = 0.7
+	land_forcelimit = -0.7
+	#picture = "fortress"
+}
+
+garrison_15 = {
+	local_manpower = -3
+	fort_level = 2
+	local_defensiveness = 0.75
+	land_forcelimit = -0.75
+	#picture = "fortress"
+}
+
+garrison_16 = {
+	local_manpower = -3.2
+	fort_level = 2
+	local_defensiveness = 0.8
+	land_forcelimit = -0.8
+	#picture = "fortress"
+}
+
+garrison_17 = {
+	local_manpower = -3.4
+	fort_level = 2
+	local_defensiveness = 0.85
+	land_forcelimit = -0.85
+	#picture = "fortress"
+}
+
+garrison_18 = {
+	local_manpower = -3.6
+	fort_level = 2
+	local_defensiveness = 0.9
+	land_forcelimit = -0.9
+	#picture = "fortress"
+}
+
+garrison_19 = {
+	local_manpower = -3.8
+	fort_level = 2
+	local_defensiveness = 0.95
+	land_forcelimit = -0.95
+	#picture = "fortress"
+}
+
+garrison_20 = {
+	local_manpower = -4
+	fort_level = 2
+	local_defensiveness = 1
+	land_forcelimit = -1
+	#picture = "fortress"
+}
+
+cu_foreign_legion = {
+    local_manpower_modifier = 0.2
+}

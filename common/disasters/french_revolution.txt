@@ -1,0 +1,125 @@
+french_revolution = {
+	potential = {
+		NOT = { has_country_flag = had_revolution }
+		tag = FRA
+		is_free_or_tributary_trigger = yes
+		uses_doom = no
+		NOT = { revolution_target_exists = yes }
+		government = monarchy
+		NOT = { has_reform =  celestial_empire }
+	}
+	
+	
+	can_start = {
+		current_age = age_of_revolutions
+		num_of_cities = 30
+		has_any_disaster = no
+		custom_trigger_tooltip = {
+				tooltip = tooltip_ave_literacy_15
+				check_variable = { which = ave_literacy value = 15 } 
+		}
+		OR = {
+			NOT = { stability =	0 }
+			num_of_loans = 5
+			inflation = 10
+			war_exhaustion = 8
+			NOT = { prestige = 0 }
+			AND = {
+			       absolutism = 100
+			       custom_trigger_tooltip = {
+				         tooltip = tooltip_ave_literacy_20
+				         check_variable = { which = ave_literacy value = 20 } 
+		           }
+			}
+			
+		}
+	}
+	
+	can_stop = {
+		OR = {
+			has_any_disaster = yes
+			stability = 3
+		}
+	}
+	
+	
+	progress = {
+		modifier = {
+			factor = 1
+			NOT = { prestige = 0 }
+		}
+		modifier = {
+			factor = 1
+			war_exhaustion = 5
+		} 
+		modifier = {
+			factor = 0.5
+			num_of_loans = 10
+			NOT = { num_of_loans = 25 }
+		}	
+		modifier = {
+			factor = 1
+			num_of_loans = 25
+		}	
+		modifier = {
+			factor = 2
+			is_bankrupt = yes
+		}		
+
+	}
+	
+	can_end = {
+		OR = {
+			AND = {
+				stability = 3
+				NOT = { num_of_rebel_controlled_provinces = 1 }
+				government = monarchy
+			}
+			AND = {
+				has_reform =  revolutionary_republic_reform
+				stability = 3
+				NOT = { num_of_rebel_controlled_provinces = 1 }
+			}
+			AND = {
+				has_reform =  revolutionary_republic_reform
+				is_revolution_target = yes
+				NOT = { num_of_rebel_controlled_provinces = 1 }
+				has_ruler_flag = bonaparte_flag
+			}
+		}
+	}
+	
+
+	modifier = {
+		global_unrest = 10
+		stability_cost_modifier = 0.1
+	}	
+	
+	
+	on_start = french_revolution.1 #General Estates / Storming of the Bastille
+	on_end = french_revolution.18 #Long live the Republic/Monarchy
+	
+	on_monthly = {
+		events = {
+			french_revolution.2 #The French Revolution
+		}
+		random_events = {
+			1000 = 0
+			100 = french_revolution.3  #The Reign of Terror
+			100 = french_revolution.4  #The Directory
+			100 = french_revolution.5  #Execution of King Louis
+			100 = french_revolution.7 #Napoléon Bonaparte
+			100 = french_revolution.8 #The Infernal Machine
+			100 = french_revolution.10 #Revolutionary Republic - Manpower Drain
+			100 = french_revolution.11 #Revolutionary Republic - War Exhaustion
+			100 = french_revolution.12 #Revolutionary Republic - Financial Mismanagement
+			100 = french_revolution.13 #Revolutionary Republic - National Debt
+			100 = french_revolution.14 #Revolutionary Republic - Halting Revolution
+			100 = french_revolution.15 #Revolutionary Republic - Instability
+			100 = french_revolution.16 #Revolutionary Republic - Declining Popularity
+			#triggered: french_revolution.6 #The Chouan Revolt
+			#french_revolution.9 # Aspirations of an Empire
+			#
+		}
+	}
+}

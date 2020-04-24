@@ -1,0 +1,54 @@
+country_decisions = {
+   cu_prestige_shop = {
+        potential = {
+			ai = yes
+			NOT = { has_global_flag = cu_fast_mode }
+			total_development = 400 
+			OR = {
+				NOT = { has_country_flag = recent_prestige_shop }
+				had_country_flag = {
+					flag = recent_prestige_shop
+					days = 1825
+				}
+			}
+		    NOT = { has_country_flag = prestige_shop_open }
+		}
+		allow = {
+			prestige = 0
+			ai = no #Disabled for ai
+		}
+		effect = {
+			set_country_flag = prestige_shop_open
+			clr_country_flag = recent_prestige_shop
+			set_country_flag = recent_prestige_shop
+			country_event = { id = state.4 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					NOT = { years_of_income = 1 }
+					AND = {
+					   NOT = { prestige = 30 }
+					   NOT = { total_development = 300 }
+					}
+					AND = {
+					   NOT = { prestige = 50 }
+					   NOT = { total_development = 600 }
+					}
+					AND = {
+					   NOT = { prestige = 70 }
+					   NOT = { total_development = 1200 }
+					}
+					AND = {
+					   NOT = { prestige = 90 }
+					   NOT = { total_development = 2000 }
+					}
+					mil_power = 300 
+				}
+			}
+		}
+   }
+
+}

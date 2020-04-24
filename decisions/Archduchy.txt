@@ -1,0 +1,37 @@
+country_decisions = {
+
+        hab_archduke = {
+		major = yes
+		potential = {
+			tag = HAB
+                        NOT = { has_country_modifier = archduke } 
+                        government = monarchy 
+                        
+		}
+		allow = {
+			#NOT = { is_year = 1500 }
+		        is_emperor = yes
+		        dynasty = "von Habsburg"
+		        prestige = 30
+                        dip_power = 100
+		}
+		effect = {
+			add_dip_power = -100
+		        add_country_modifier = {
+			      name = archduke
+			      duration = -1
+		        }
+                        if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+
+}

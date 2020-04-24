@@ -1,0 +1,8 @@
+government = monarchy
+add_government_reform = zhuhou
+government_rank = 2
+technology_group = nomad_group
+primary_culture = uzbehk
+religion = mahayana
+capital = 454 # Samarkand
+

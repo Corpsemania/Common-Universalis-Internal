@@ -1,0 +1,134 @@
+country_decisions = {
+
+	maya_nation = {
+		major = yes
+		potential = {
+			is_random_new_world = no			
+			NOT = { has_country_flag = formed_mayapan_flag }
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				ai = no
+				num_of_cities = 6
+			}
+			culture_group = maya
+			religion = mesoamerican_religion
+			NOT = { has_reform = celestial_empire }
+			NOT = { exists = MAY }
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }			
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 842 #Petén
+				province_id = 846 #Sotuta
+				province_id = 2633 #Mani
+				province_id = 2652 #Ecab
+				province_id = 2636 #Chacuyal
+				province_id = 2632 #Xicallanco
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			has_institution = feudalism			
+			owns_core_province = 842 #Petén
+			owns_core_province = 846 #Sotuta
+			owns_core_province = 2633 #Mani
+			owns_core_province = 2652 #Ecab
+			owns_core_province = 2636 #Chacuyal
+			owns_core_province = 2632 #Xicallanco
+		}
+		effect = {
+			change_tag = MAY
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}
+			central_america_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = MAY
+			}			
+			add_prestige = 25
+			set_country_flag = formed_mayapan_flag
+			if = {
+				limit = { government = tribal }
+				add_government_reform = becomes_monarchy_reform
+				set_legacy_government = despotic_monarchy
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	
+	accept_mayan_culture = {
+		major = yes
+		potential = {                                                
+			religion = mesoamerican_religion	
+            has_country_flag = exile_country
+            NOT = { culture_group = maya }
+		}
+		allow = {
+			dominant_religion = mesoamerican_religion
+			stability = 1	
+        }
+        effect = {
+            cu_change_stability_point_n100 = yes
+			if = {
+                limit = { 
+                    culture_group = ROOT
+                    OR = { 
+                        tolerance_to_this = 4.1
+                        any_neighbor_province = { culture_group = maya }
+						continent = south_america
+						continent = north_america
+					}
+                }
+				set_province_flag = maya_culture_province				   
+            }
+			every_owned_province = {
+                limit = { has_province_flag = maya_culture_province }
+					change_culture = mayan
+                    add_unrest = 5	
+					clr_province_flag = maya_culture_province
+            }
+            change_primary_culture = mayan
+			set_ruler_culture = mayan
+			set_heir_culture = mayan
+			hidden_effect = {     
+                every_owned_province = {
+                    limit = { culture_group = maya }
+                        add_unrest = -3
+                }
+                every_owned_province = { cu_reset_cultural_acceptance = yes }
+            }
+        }
+	}
+}

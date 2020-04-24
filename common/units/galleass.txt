@@ -1,0 +1,12 @@
+#Galleas
+type = galley
+trigger = { 
+                NOT = { 
+                        tag = KOR
+                }
+}
+hull_size = 12
+base_cannons = 17
+sail_speed = 8
+
+sprite_level = 3

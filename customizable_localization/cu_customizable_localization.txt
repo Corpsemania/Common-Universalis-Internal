@@ -1,0 +1,2343 @@
+defined_text = {
+    name = StateMILD
+	random = no
+	
+	text = {
+		localisation_key = state.106.dcouncil
+		trigger = {
+			has_reform = noble_council
+		}
+	}
+	text = {
+		localisation_key = state.106.dclergy
+		trigger = {
+			has_reform = clergy_reform
+		}
+	}
+	text = {
+		localisation_key = state.106.dparliament
+		trigger = {
+			has_reform = parliament_reform
+		}
+	}
+}
+
+defined_text = {
+    name = GetSecondaryPower
+	random = no
+	
+	text = {
+		localisation_key = GetSecondaryPower_council
+		trigger = {
+			has_reform = noble_council
+		}
+	}
+	text = {
+		localisation_key = GetSecondaryPower_clergy
+		trigger = {
+			has_reform = clergy_reform
+		}
+	}
+	text = {
+		localisation_key = GetSecondaryPower_parliament
+		trigger = {
+			has_reform = parliament_reform
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_despn
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_n5
+		trigger = {
+			has_estate = estate_nobles
+			estate_influence = {	estate = estate_nobles	influence = 50	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_nob_n2
+		trigger = {
+			has_estate = estate_nobles
+			NOT = { estate_influence = {	estate = estate_nobles	influence = 50	} } 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_n5
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+			estate_influence = {	estate = estate_qinwang	influence = 50	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_nob_n2
+		trigger = {
+			has_estate = estate_nobles
+			NOT = { estate_influence = {	estate = estate_qinwang	influence = 50	} } 
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_despc
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_chu_p2
+		trigger = {
+			has_estate = estate_church
+			NOT = { estate_influence = {	estate = estate_church	influence = 50	} } 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_chu_n4
+		trigger = {
+			has_estate = estate_church
+			estate_influence = {	estate = estate_church	influence = 50	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_n2
+		trigger = {
+			has_estate = estate_shizu
+			NOT = { has_estate = estate_church }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_despb
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_p2
+		trigger = {
+			has_estate = estate_burghers
+			NOT = { estate_influence = {	estate = estate_church	influence = 40	} } 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_bur_n5
+		trigger = {
+			has_estate = estate_church
+			estate_influence = {	estate = estate_church	influence = 40	} 
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_nobcn
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_p5
+		trigger = {
+			has_estate = estate_nobles
+			
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_p5
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_nobcc
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_chu_0
+		trigger = {
+			has_estate = estate_church
+			has_reform = divine_law
+			NOT = { estate_influence = {	estate = estate_church	influence = 50	} } 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_chu_n2
+		trigger = {
+			has_estate = estate_church
+			NOT = { has_reform = divine_law }
+			NOT = { estate_influence = {	estate = estate_church	influence = 50	} } 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_chu_n5
+		trigger = {
+			has_estate = estate_church
+			estate_influence = {	estate = estate_church	influence = 50	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_p2
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_nobcb
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_p4
+		trigger = {
+			has_estate = estate_burghers
+			AND = {
+				has_reform = noble_council
+				OR = {
+					has_reform = merchants_reform
+					has_reform = trading_city
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = cu_reform_bur_n5
+		trigger = {
+			has_estate = estate_burghers
+			NOT = {
+				AND = {
+					has_reform = noble_council
+					OR = {
+						has_reform = merchants_reform
+						has_reform = trading_city
+					}
+				}
+			}
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_parln
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_n5
+		trigger = {
+			has_estate = estate_nobles
+			estate_influence = {	estate = estate_nobles	influence = 50	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_nob_p2
+		trigger = {
+			has_estate = estate_nobles
+			NOT = { estate_influence = {	estate = estate_nobles	influence = 50	} } 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_n5
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+			estate_influence = {	estate = estate_qinwang	influence = 50	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_p2
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+			NOT = { estate_influence = {	estate = estate_qinwang	influence = 50 } } 
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_parlc
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_chu_0
+		trigger = {
+			has_estate = estate_church
+			has_reform = divine_law
+			NOT = { estate_influence = {	estate = estate_church	influence = 50	} } 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_chu_n2
+		trigger = {
+			has_estate = estate_church
+			NOT = { has_reform = divine_law }
+			NOT = { estate_influence = {	estate = estate_church	influence = 50	} } 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_chu_n5
+		trigger = {
+			has_estate = estate_church
+			estate_influence = {	estate = estate_church	influence = 50	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_n4
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_parlb
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_p5
+		trigger = {
+			has_estate = estate_burghers
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_clern
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_n5
+		trigger = {
+			has_estate = estate_nobles
+			estate_influence = {	estate = estate_nobles	influence = 50	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_nob_n3
+		trigger = {
+			has_estate = estate_nobles
+			NOT = { estate_influence = {	estate = estate_nobles	influence = 50	} } 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_n5
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+			estate_influence = {	estate = estate_qinwang	influence = 50	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_n3
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+			NOT = { estate_influence = {	estate = estate_qinwang	influence = 50 } } 
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_clerc
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_chu_p5
+		trigger = {
+			has_estate = estate_church
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_p4
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_clerb
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_n5
+		trigger = {
+			has_estate = estate_burghers
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_educn
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_p2
+		trigger = {
+			has_estate = estate_nobles
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_p2
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_educc
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_chu_p4
+		trigger = {
+			has_estate = estate_church
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_p4
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_educb
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_n3
+		trigger = {
+			has_estate = estate_burghers
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_edubn
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_n1
+		trigger = {
+			has_estate = estate_nobles
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_n1
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_edubc
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_chu_n3
+		trigger = {
+			has_estate = estate_church
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_n3
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_edubb
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_p4
+		trigger = {
+			has_estate = estate_burghers
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_edupn
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_n4
+		trigger = {
+			has_estate = estate_nobles
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_n4
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_edupc
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_chu_n5
+		trigger = {
+			has_estate = estate_church
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_n5
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_edupb
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_p3
+		trigger = {
+			has_estate = estate_burghers
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_edunn
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_p4
+		trigger = {
+			has_estate = estate_nobles
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_p4
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_edunc
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_chu_n1
+		trigger = {
+			has_estate = estate_church
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_n1
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_edunb
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_n3
+		trigger = {
+			has_estate = estate_burghers
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_rel1n
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_p2
+		trigger = {
+			has_estate = estate_nobles
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_p2
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_rel2n
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_p1
+		trigger = {
+			has_estate = estate_nobles
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_p1
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_rel3n
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_0
+		trigger = {
+			has_estate = estate_nobles
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_0
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_rel4n
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_n1
+		trigger = {
+			has_estate = estate_nobles
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_n1
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_rel5n
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_n2
+		trigger = {
+			has_estate = estate_nobles
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_n2
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_rel1c
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_chu_n5
+		trigger = {
+			has_estate = estate_church
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_n3
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_rel2c
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_chu_n3
+		trigger = {
+			has_estate = estate_church
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_n1
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_rel3c
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_chu_0
+		trigger = {
+			has_estate = estate_church
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_p1
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_rel4c
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_chu_p3
+		trigger = {
+			has_estate = estate_church
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_p1
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_rel5c
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_chu_p5
+		trigger = {
+			has_estate = estate_church
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_n2
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_rel1b
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_p2
+		trigger = {
+			has_estate = estate_burghers
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_rel2b
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_p1
+		trigger = {
+			has_estate = estate_burghers
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_rel3b
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_0
+		trigger = {
+			has_estate = estate_burghers
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_rel4b
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_n1
+		trigger = {
+			has_estate = estate_burghers
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_rel5b
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_n3
+		trigger = {
+			has_estate = estate_burghers
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_selfn
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_p5
+		trigger = {
+			has_estate = estate_nobles
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_p5
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_selfc
+	random = no
+	
+	
+	text = {
+		localisation_key = cu_reform_chu_0
+		trigger = {
+			has_estate = estate_church
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_p4
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_selfb
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_p3
+		trigger = {
+			has_estate = estate_burghers
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_selfe
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_tri_p3
+		trigger = {
+			has_estate = estate_nomadic_tribes
+		}
+	}
+	text = {
+		localisation_key = cu_reform_cos_p3
+		trigger = {
+			NOT = { has_estate = estate_nomadic_tribes }
+			has_estate = estate_cossacks
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_feudn
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_p4
+		trigger = {
+			has_estate = estate_nobles
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_p4
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_feudc
+	random = no
+	
+	
+	text = {
+		localisation_key = cu_reform_chu_0
+		trigger = {
+			has_estate = estate_church
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_n4
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_feudb
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_n3
+		trigger = {
+			has_estate = estate_burghers
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_feude
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_tri_n3
+		trigger = {
+			has_estate = estate_nomadic_tribes
+		}
+	}
+	text = {
+		localisation_key = cu_reform_cos_n3
+		trigger = {
+			NOT = { has_estate = estate_nomadic_tribes }
+			has_estate = estate_cossacks
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_mandn
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_n2
+		trigger = {
+			has_estate = estate_nobles
+			has_institution = feudalism
+		}
+	}
+	text = {
+		localisation_key = cu_reform_nob_0
+		trigger = {
+			has_estate = estate_nobles
+			NOT = { has_institution = feudalism }
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_n2
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+			has_institution = feudalism
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_0
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_institution = feudalism }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_mandc
+	random = no
+	
+	
+	text = {
+		localisation_key = cu_reform_chu_0
+		trigger = {
+			has_estate = estate_church
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_n2
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_mandb
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_n3
+		trigger = {
+			has_estate = estate_burghers
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_mande
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_tri_n3
+		trigger = {
+			has_estate = estate_nomadic_tribes
+		}
+	}
+	text = {
+		localisation_key = cu_reform_cos_n3
+		trigger = {
+			NOT = { has_estate = estate_nomadic_tribes }
+			has_estate = estate_cossacks
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_buren
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_n5
+		trigger = {
+			has_estate = estate_nobles
+			has_institution = feudalism
+		}
+	}
+	text = {
+		localisation_key = cu_reform_nob_0
+		trigger = {
+			has_estate = estate_nobles
+			NOT = { has_institution = feudalism }
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_n5
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+			has_institution = feudalism
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_0
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_institution = feudalism }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_burec
+	random = no
+	
+	
+	text = {
+		localisation_key = cu_reform_chu_0
+		trigger = {
+			has_estate = estate_church
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_p1
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_bureb
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_p1
+		trigger = {
+			has_estate = estate_burghers
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_buree
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_tri_n3
+		trigger = {
+			has_estate = estate_nomadic_tribes
+		}
+	}
+	text = {
+		localisation_key = cu_reform_cos_n3
+		trigger = {
+			NOT = { has_estate = estate_nomadic_tribes }
+			has_estate = estate_cossacks
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_oraln
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_p4
+		trigger = {
+			has_estate = estate_nobles
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_p4
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_oralc
+	random = no
+	
+	
+	text = {
+		localisation_key = cu_reform_chu_n5
+		trigger = {
+			has_estate = estate_church
+			estate_influence = { estate = estate_church	influence = 50	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_chu_p2
+		trigger = {
+			has_estate = estate_church
+			NOT = { estate_influence = { estate = estate_church	influence = 50	} }
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_p5
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_oralb
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_n4
+		trigger = {
+			has_estate = estate_burghers
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_orale
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_tri_p3
+		trigger = {
+			has_estate = estate_nomadic_tribes
+		}
+	}
+	text = {
+		localisation_key = cu_reform_cos_p3
+		trigger = {
+			NOT = { has_estate = estate_nomadic_tribes }
+			has_estate = estate_cossacks
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_soven
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_p1
+		trigger = {
+			has_estate = estate_nobles
+			estate_influence = { estate = estate_nobles	influence = 50	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_nob_p3
+		trigger = {
+			has_estate = estate_nobles
+			NOT = { estate_influence = { estate = estate_nobles	influence = 50	} } 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_p1
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+			estate_influence = { estate = estate_qinwang	influence = 50	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_p3
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+			NOT = { estate_influence = { estate = estate_qinwang	influence = 50	} } 
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_sovec
+	random = no
+	
+	
+	text = {
+		localisation_key = cu_reform_chu_n4
+		trigger = {
+			has_estate = estate_church
+			estate_influence = { estate = estate_church	influence = 50	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_chu_n2
+		trigger = {
+			has_estate = estate_church
+			NOT = { estate_influence = { estate = estate_church	influence = 50	} }
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_p3
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_soveb
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_p1
+		trigger = {
+			has_estate = estate_burghers
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_sovee
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_tri_n3
+		trigger = {
+			has_estate = estate_nomadic_tribes
+		}
+	}
+	text = {
+		localisation_key = cu_reform_cos_n3
+		trigger = {
+			NOT = { has_estate = estate_nomadic_tribes }
+			has_estate = estate_cossacks
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_divin
+	random = no
+	text = {
+		localisation_key = cu_reform_nob_n5
+		trigger = {
+			has_estate = estate_nobles
+			estate_influence = { estate = estate_nobles	influence = 50	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_nob_n4
+		trigger = {
+			has_estate = estate_nobles
+			NOT = { estate_influence = { estate = estate_nobles	influence = 50	} } 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_n5
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+			estate_influence = { estate = estate_qinwang	influence = 50	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_n4
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+			NOT = { estate_influence = { estate = estate_qinwang	influence = 50	} } 
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_divic
+	random = no
+	
+	
+	text = {
+		localisation_key = cu_reform_chu_p5
+		trigger = {
+			has_estate = estate_church
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_n3
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_divib
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_n4
+		trigger = {
+			has_estate = estate_burghers
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_divie
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_tri_n3
+		trigger = {
+			has_estate = estate_nomadic_tribes
+		}
+	}
+	text = {
+		localisation_key = cu_reform_cos_n3
+		trigger = {
+			NOT = { has_estate = estate_nomadic_tribes }
+			has_estate = estate_cossacks
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_consn
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_n4
+		trigger = {
+			has_estate = estate_nobles
+			estate_influence = { estate = estate_nobles	influence = 50	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_nob_n2
+		trigger = {
+			has_estate = estate_nobles
+			NOT = { estate_influence = { estate = estate_nobles	influence = 50	} } 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_n4
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+			estate_influence = { estate = estate_qinwang	influence = 50	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_n2
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+			NOT = { estate_influence = { estate = estate_qinwang	influence = 50	} } 
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_consc
+	random = no
+	
+	
+	text = {
+		localisation_key = cu_reform_chu_n6
+		trigger = {
+			has_estate = estate_church
+			estate_influence = { estate = estate_church	influence = 50	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_chu_0
+		trigger = {
+			has_estate = estate_church
+			NOT = { estate_influence = { estate = estate_church	influence = 50	} }
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_n3
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_consb
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_p4
+		trigger = {
+			has_estate = estate_burghers
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_conse
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_tri_n3
+		trigger = {
+			has_estate = estate_nomadic_tribes
+		}
+	}
+	text = {
+		localisation_key = cu_reform_cos_n3
+		trigger = {
+			NOT = { has_estate = estate_nomadic_tribes }
+			has_estate = estate_cossacks
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_noneln
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_n5
+		trigger = {
+			has_estate = estate_nobles
+			estate_influence = { estate = estate_nobles	influence = 50	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_nob_n2
+		trigger = {
+			has_estate = estate_nobles
+			NOT = { estate_influence = { estate = estate_nobles	influence = 50	} } 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_n5
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+			estate_influence = { estate = estate_qinwang	influence = 50	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_n3
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+			NOT = { estate_influence = { estate = estate_qinwang	influence = 50	} } 
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_nonelc
+	random = no
+	
+	
+	text = {
+		localisation_key = cu_reform_chu_n5
+		trigger = {
+			has_estate = estate_church
+			estate_influence = { estate = estate_church	influence = 50	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_chu_n1
+		trigger = {
+			has_estate = estate_church
+			NOT = { estate_influence = { estate = estate_church	influence = 50	} }
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_p1
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_nonelb
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_n6
+		trigger = {
+			has_estate = estate_burghers
+			estate_influence = { estate = estate_burghers	influence = 40	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_bur_n2
+		trigger = {
+			has_estate = estate_burghers
+			NOT = { estate_influence = { estate = estate_burghers	influence = 40	} } 
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_nobeln
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_p5
+		trigger = {
+			has_estate = estate_nobles
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_p5
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_nobelc
+	random = no
+	
+	
+	text = {
+		localisation_key = cu_reform_chu_p4
+		trigger = {
+			has_estate = estate_church
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_n1
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_nobelb
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_n6
+		trigger = {
+			has_estate = estate_burghers
+			estate_influence = { estate = estate_burghers	influence = 40	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_bur_n4
+		trigger = {
+			has_estate = estate_burghers
+			NOT = { estate_influence = { estate = estate_burghers	influence = 40	} } 
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_bureln
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_n3
+		trigger = {
+			has_estate = estate_nobles
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_n3
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_burelc
+	random = no
+	
+	
+	text = {
+		localisation_key = cu_reform_chu_n4
+		trigger = {
+			has_estate = estate_church
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_n4
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_burelb
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_p5
+		trigger = {
+			has_estate = estate_burghers
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_sufeln
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_n5
+		trigger = {
+			has_estate = estate_nobles
+		}
+	}
+	text = {
+		localisation_key = cu_reform_qin_n5
+		trigger = {
+			has_estate = estate_qinwang
+			NOT = { has_estate = estate_nobles }
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+			NOT = { has_estate = estate_qinwang }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_sufelc
+	random = no
+	
+	
+	text = {
+		localisation_key = cu_reform_chu_n4
+		trigger = {
+			has_estate = estate_church
+		}
+	}
+	text = {
+		localisation_key = cu_reform_shi_n4
+		trigger = {
+			NOT = { has_estate = estate_church }
+			has_estate = estate_shizu
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_shizu }
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_sufelb
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_bur_p2
+		trigger = {
+			has_estate = estate_burghers
+			estate_influence = { estate = estate_burghers	influence = 40	} 
+		}
+	}
+	text = {
+		localisation_key = cu_reform_bur_p5
+		trigger = {
+			has_estate = estate_burghers
+			NOT = { estate_influence = { estate = estate_burghers	influence = 40	} } 
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_burghers }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_engn
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_p1
+		trigger = {
+			has_estate = estate_nobles
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_frac
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_chu_n2
+		trigger = {
+			has_estate = estate_church
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_church }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_reform_fran
+	random = no
+	
+	text = {
+		localisation_key = cu_reform_nob_p2
+		trigger = {
+			has_estate = estate_nobles
+		}
+	}
+	text = {
+		localisation_key = cu_blank_tt
+		trigger = {
+			NOT = { has_estate = estate_nobles }
+		}
+	}
+}

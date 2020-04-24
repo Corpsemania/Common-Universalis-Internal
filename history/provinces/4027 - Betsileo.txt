@@ -1,0 +1,17 @@
+#4027 - Betsileo
+
+
+culture = madagasque
+religion = shamanism #Fetishism
+capital = "Betsileo"
+
+hre = no
+base_tax = 2
+base_production = 1
+base_manpower = 2
+native_size = 40
+native_ferocity = 4
+native_hostileness = 9
+discovered_by = east_african
+
+1500.8.20 = { discovered_by = POR } #Diego Dias

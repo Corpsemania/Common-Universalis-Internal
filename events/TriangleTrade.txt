@@ -1,0 +1,334 @@
+namespace = triangle
+#The Triangle Trade(American Province Send Request)
+province_event = {
+   id = triangle.1
+   title = "triangle.10.t"
+   desc = "triangle.10.d"
+   picture = COLONIZATION_eventPicture
+
+   trigger = {
+            has_global_flag = global_events_trigger
+            has_global_flag = triangle_happened
+            is_colony = no
+            is_core = owner
+			has_building = plantations
+            OR = {
+                     trade_goods = coffee
+                     trade_goods = cotton
+                     trade_goods = sugar
+                     trade_goods = tobacco
+                     trade_goods = cocoa
+            }
+            NOT = { has_province_modifier = slave_plantation }
+            OR = {
+                    NOT = { has_province_flag = triangle_trade_denied }
+                    had_province_flag = {
+                                flag = triangle_trade_denied
+                                days = 3650
+                    }
+            }
+            OR = {
+                   continent = north_america
+                   continent = south_america
+            }
+            owner = { 
+                       treasury = 100
+                       adm_power = 20
+                       dip_power = 30
+                       OR = {
+                              capital_scope = { continent = europe }
+                              is_colonial_nation = yes
+                              is_former_colonial_nation = yes
+                              AND = {
+                                       technology_group = western
+                                       capital_scope = { 
+                                                         continent = africa 
+                                                         OR = {  #White African
+                                                                  region = maghreb_region 
+                                                                  region = egypt_region
+                                                         }                 
+                                       }
+                              }
+                       }
+                       any_province = {
+                              continent = africa
+                              OR = {
+                                     region = niger_region
+                                     region = guinea_region
+                                     region = sahel_region
+                                     region = horn_of_africa_region
+                                     region = east_africa_region
+                                     region = central_africa_region
+                                     region = kongo_region
+                                     region = south_africa_region
+                              }
+                              development = 4
+                              OR = {
+                                     owner = {
+                                               ROOT = { owned_by = PREV }
+                                     }
+                                     any_neighbor_province = {
+                                             owner = {
+                                               ROOT = { owned_by = PREV }
+                                             }
+                                     }
+                              }
+                       }
+             }
+   }
+
+   mean_time_to_happen = {
+           months = 240
+           modifier = {
+                   factor = 0.75
+                   owner = { has_country_modifier = ice_age }
+           }
+           modifier = {
+                   factor = 1.5
+                   development = 9
+           }
+           modifier = {
+                   factor = 2
+                   development = 12
+           }
+   }
+   option = { #We need slaves
+           name = "triangle.10.a"
+           ai_chance = {
+                   factor = 90
+                   modifier = {
+                        factor = 0
+                        NOT = { treasury = 80 }
+                   }
+           }
+           owner = { 
+                        add_treasury = -40
+                        add_adm_power = -20
+                        add_dip_power = -20 
+           }
+           random_province = {
+                   limit = {
+                              continent = africa
+                              OR = {
+                                     region = niger_region
+                                     region = guinea_region
+                                     region = sahel_region
+                                     region = horn_of_africa_region
+                                     region = east_africa_region
+                                     region = central_africa_region
+                                     region = kongo_region
+                                     region = south_africa_region
+                              }
+                              development = 4
+                              OR = {
+                                     owner = {
+                                               ROOT = { owned_by = PREV }
+                                     } 
+                                     any_neighbor_province = { 
+                                             owner = {
+                                               ROOT = { 
+							owned_by = PREV				 
+									           }
+                                             } 
+                                     }
+                              }
+                   }
+                   if = {
+                          limit = { 
+                                    NOT = { 
+                                             owner = {
+                                               ROOT = { owned_by = PREV }
+                                             } 
+                                    } 
+                          }
+                          province_event = { 
+						                       id = triangle.11 
+							                   days = 10				   
+				          }
+                   }
+                   if = {
+                          limit = { 
+                                             owner = {
+                                               ROOT = { owned_by = PREV }
+                                             }  
+                          }
+                          if = {
+                                  limit = { 
+                                             base_tax = 2
+                                  }
+                                  set_province_flag = tax_2
+                          }
+                          if = {
+                                  limit = { 
+                                             base_production = 2
+                                  }
+                                  set_province_flag = pro_2
+                          }
+                          if = {
+                                  limit = { 
+                                             base_manpower = 2
+                                  }
+                                  set_province_flag = man_2
+                          }
+                          if = {
+                                  limit = { 
+                                             has_province_flag = tax_2
+                                  }
+                                  add_base_tax = -1
+                          }
+                          if = {
+                                  limit = {
+                                             NOT = { has_province_flag = tax_2 } 
+                                             has_province_flag = pro_2
+                                  }
+                                  add_base_production = -1
+                          }
+                          if = {
+                                  limit = {
+                                             NOT = { has_province_flag = tax_2 } 
+                                             NOT = { has_province_flag = pro_2 } 
+                                             has_province_flag = man_2
+                                  }
+                                  add_base_manpower = -1
+                          }
+                          ROOT = {
+                                  add_base_production = 1
+                                  add_province_modifier = {
+                                        name = slave_plantation
+                                        duration = 7300
+                                  }
+                          }
+                          owner = {
+                                  add_adm_power = -20
+                          }
+                   }
+                   
+           }   
+    }
+    option = { #No
+           name = "triangle.10.b"
+           ai_chance = {
+                   factor = 10
+           }
+           clr_province_flag = triangle_trade_denied
+           set_province_flag = triangle_trade_denied
+    }
+
+
+}
+
+#The Triangle Trade(African Province Respond)
+province_event = {
+   id = triangle.11
+   title = "triangle.11.t"
+   desc = "triangle.11.d"
+   picture = COLONIZATION_eventPicture
+
+   is_triggered_only = yes
+
+   option = { #Agree the deal
+              name = "triangle.11.a"
+              ai_chance = {
+                      factor = 90
+              }
+              owner = { 
+                        add_treasury = 40
+                        add_adm_power = 20
+                        add_dip_power = 20 
+                        add_prestige = -2
+              }
+
+                          if = {
+                                  limit = { 
+                                             base_tax = 2
+                                  }
+                                  set_province_flag = tax_2
+                          }
+                          if = {
+                                  limit = { 
+                                             base_production = 2
+                                  }
+                                  set_province_flag = pro_2
+                          }
+                          if = {
+                                  limit = { 
+                                             base_manpower = 2
+                                  }
+                                  set_province_flag = man_2
+                          }
+                          if = {
+                                  limit = { 
+                                             has_province_flag = tax_2
+                                  }
+                                  add_base_tax = -1
+                          }
+                          if = {
+                                  limit = {
+                                             NOT = { has_province_flag = tax_2 } 
+                                             has_province_flag = pro_2
+                                  }
+                                  add_base_production = -1
+                          }
+                          if = {
+                                  limit = {
+                                             NOT = { has_province_flag = tax_2 } 
+                                             NOT = { has_province_flag = pro_2 } 
+                                             has_province_flag = man_2
+                                  }
+                                  add_base_manpower = -1
+                          }
+
+              FROM = { province_event = { id = triangle.12 } }
+   }
+
+   option = { #Refuse it.
+              name = "triangle.11.b"
+              ai_chance = {
+                      factor = 10
+              }
+              add_prestige = 5
+              custom_tooltip = triangle.11.bt
+              FROM = { province_event = { id = triangle.13  days = 10 } }
+   }
+} 
+
+#The Triangle Trade(Slave Enters American Province)
+province_event = {
+   id = triangle.12
+   title = "triangle.12.t"
+   desc = "triangle.12.d"
+   picture = COLONIZATION_eventPicture
+
+   is_triggered_only = yes
+
+   option = { #Good.
+              name = "triangle.12.a"
+              add_base_production = 1
+              add_province_modifier = {
+                        name = slave_plantation
+                        duration = 7300
+              } 
+   }
+}   
+
+#The Triangle Trade(Trade Refused)
+province_event = {
+   id = triangle.13
+   title = "triangle.13.t"
+   desc = "triangle.13.d"
+   picture = COLONIZATION_eventPicture
+
+   is_triggered_only = yes
+
+   option = { #How dare they!
+              name = "triangle.13.a"
+              owner = { 
+                        add_treasury = 40
+                        add_claim = FROM
+              }
+   }
+}
+
+
+
+ 

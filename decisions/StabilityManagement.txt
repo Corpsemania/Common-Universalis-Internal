@@ -1,0 +1,60 @@
+
+country_decisions = {
+	
+	cu_stability_management = {
+		potential = {
+		    ai = no
+			NOT = { has_country_flag = cu_stab_panel_open }
+		}
+		allow = {	
+            
+		}
+		effect = {
+		    set_country_flag = cu_stab_panel_open
+			hidden_effect = {
+			    set_country_flag = cu_stability_fixed
+				cu_calc_total_stability_growth = yes
+				clr_country_flag = cu_stability_fixed
+			}
+			country_event = { id = cabinet.6 }
+			
+		}
+		ai_will_do = {
+			factor = 0			
+		}
+	}
+	cu_stability_management_ai = {
+		potential = {
+		    ai = yes
+		}
+		allow = {	
+            adm_power = 150
+			NOT = { has_country_modifier = cu_stability_effort }
+		}
+		effect = {
+			add_adm_power = -150
+			add_country_modifier = {
+			      name = cu_stability_effort
+				  duration = 3650
+			}
+			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+			    factor = 0
+				stability = 3
+			}
+			modifier = {
+			    factor = 0
+				stability = 1
+				check_variable = { which = cu_st_growth value = 0 }
+			}
+			modifier = {
+			    factor = 0
+				stability = -1
+				check_variable = { which = cu_st_growth value = 10 }
+			}
+		}
+	}
+}			

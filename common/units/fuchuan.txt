@@ -1,0 +1,10 @@
+#Fuchuan(Early Carrack Replacement)
+type = heavy_ship
+trigger = { 
+                  unit_type = chinese
+}
+hull_size = 30
+base_cannons = 45 
+sail_speed = 3
+
+sprite_level = 1

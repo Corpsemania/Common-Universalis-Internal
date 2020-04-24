@@ -1,0 +1,21 @@
+lose_army_tradition = {
+	trigger = {
+		always = yes
+	}
+	
+	effect = {
+		add_army_tradition = -8
+		custom_tooltip = parliament_bribe_15t
+		hidden_effect = {
+		     country_event = { id = parlaments.999}
+		}
+	}
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0.1
+			is_at_war = yes
+		}
+	}
+}

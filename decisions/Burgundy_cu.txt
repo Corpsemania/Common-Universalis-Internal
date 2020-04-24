@@ -1,0 +1,100 @@
+country_decisions = {
+
+    propose_treaty_of_flanders = {
+	    major = yes
+		potential = {
+			tag = BUR
+			normal_or_historical_nations = yes
+			ai = no
+			adm = 5
+		    dip = 5
+		    mil = 5
+		    NOT = { is_year = 1460 }
+		    NOT = { has_global_flag = eng_had_end_of_hundred_years_war }
+		    NOT = { has_global_flag = treaty_of_flanders_proposed }
+		    ENG = { war_with = FRA }
+		    NOT = { ENG = { war_with = BUR } }
+		    NOT = { FRA = { war_with = BUR } }
+		}
+		allow = {
+			adm = 5
+		    dip = 5
+		    mil = 5
+		    is_at_war = no
+		    ENG = { war_score = -15 }
+		    87 = { owned_by = ENG }
+		}
+		effect = {
+				country_event = { id = cudivergence.1 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	restore_kingdom_of_burgundy = {
+	    major = yes
+		potential = {
+			tag = BUR
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { has_country_flag = kingdom_of_burgundy_restored }
+		}
+		allow = {
+		   OR = {
+		    AND = {
+			 total_development = 300
+			 NOT = { government_rank = 3 }
+			 192 = { owned_by = BUR }
+			 193 = { owned_by = BUR }
+			 1877 = { owned_by = BUR }
+			 88 = { owned_by = BUR }
+			 91 = { owned_by = BUR }
+			 1743 = { owned_by = BUR }
+			 181 = { owned_by = BUR }
+			 187 = { owned_by = BUR }
+			 #80 = { owned_by = BUR }
+			}
+			AND = {
+			 has_global_flag = treaty_of_flanders
+			 total_development = 200
+			 192 = { owned_by = BUR }
+			 193 = { owned_by = BUR }
+			 1877 = { owned_by = BUR }
+			 88 = { owned_by = BUR }
+			 91 = { owned_by = BUR }
+			 181 = { owned_by = BUR }
+			 187 = { owned_by = BUR }
+			}
+		   }
+		}
+		effect = {
+		    hidden_effect = {
+			      change_tag = BRG
+				  every_province = {
+				          limit = { is_core = BUR }
+				          remove_core = BUR
+						  add_core = BRG
+				  }
+			}
+			set_country_flag = kingdom_of_burgundy_restored
+			add_prestige = 10
+			set_government_rank = 2
+			181 = { add_base_tax = 1 }
+			if = {
+				limit = {
+					has_custom_ideas = no
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	
+}

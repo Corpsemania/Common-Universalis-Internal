@@ -1,0 +1,20 @@
+# Early Spanish Tercio
+
+type = infantry
+unit_type = western
+
+trigger = {
+       OR = {
+              tag = ARA
+              tag = CAS
+              tag = SPA
+       }
+}
+
+maneuver = 1
+offensive_morale = 1
+defensive_morale = 2
+offensive_fire = 1
+defensive_fire = 0
+offensive_shock = 1
+defensive_shock = 2

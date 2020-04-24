@@ -1,0 +1,367 @@
+#replaced by has_reform reforms only for AI
+country_decisions = {
+
+     switch_to_volunteer_training = {
+        major = yes
+		potential = {
+					NOT = { has_country_modifier = tur_janissary }
+					OR = {
+						has_reform = standing_army
+						has_reform = limited_conscription
+						has_reform = extensive_conscription
+						has_reform = feudal_conscription
+						has_reform = mercenary_conscription
+						has_reform = military_household
+					}
+					NOT = { has_reform =  steppe_horde }
+					ai = yes
+		}
+		allow = {
+		               OR = {
+					    NOT = {
+						       has_country_flag = change_conscription_law
+						}
+						had_country_flag = {
+						        flag = change_conscription_law
+								days = 7300
+						}
+					
+					}
+		                mil_tech = 7
+                        OR = {
+                                   full_idea_group = aristocracy_ideas
+                                   full_idea_group = plutocracy_ideas
+                                   full_idea_group = offensive_ideas
+                                   full_idea_group = defensive_ideas
+                                   full_idea_group = quality_ideas
+                                   full_idea_group = quantity_ideas
+								   full_idea_group = militarist_ideas
+								   mil_tech = 12
+                        }
+						
+                        mil_power = 200
+						army_tradition = 20
+						stability = 1
+						OR = {
+					          AND = {
+							          NOT = { has_reform =  celestial_empire }
+									  NOT = { has_reform =  celestial_empire_2 }
+							  }
+							  NOT = { has_reform = military_household }
+							  custom_trigger_tooltip = {
+			                        tooltip = tooltip_celestial_army_reform
+					                NOT = { has_country_modifier = weisuo_system }
+									OR = {
+									AND = {
+                                        full_idea_group = defensive_ideas
+                                        full_idea_group = quantity_ideas
+                                    }
+                                    AND = {
+                                        full_idea_group = defensive_ideas
+                                        full_idea_group = tradition_ideas
+                                    }
+                                    AND = {
+                                        full_idea_group = quantity_ideas
+                                        full_idea_group = tradition_ideas
+                                    }
+										   check_variable = { which = army_reform_acceptance value = 6 }
+									}
+		                      }
+					    } 
+						custom_trigger_tooltip = {
+						    tooltip = tooltip_positive_militarism
+							has_global_modifier_value = {
+						          which = yearly_army_professionalism
+						          value = 0.001
+					        }
+						}
+					    OR = {
+						    custom_trigger_tooltip = {
+			                   tooltip = tooltip_ave_literacy_5
+			                   check_variable = { which = ave_literacy value = 5 }
+		                    }
+						    AND = {
+							    custom_trigger_tooltip = {
+			                         tooltip = tooltip_ave_literacy_3
+			                         check_variable = { which = ave_literacy value = 3 }
+		                        }
+							    mil = 4
+								mil_tech = 9
+								army_tradition = 30
+							}	
+						}
+		}
+		effect = {
+                      add_government_reform = volunteer_training
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { #AI will not switch back to this.
+			    factor = 0
+				OR = {
+				      has_reform = standing_army
+				      has_reform = limited_conscription
+					  has_reform = extensive_conscription
+				}
+			}
+		}
+	}
+	
+	switch_to_standing_army = {
+        major = yes
+		potential = {
+                    has_reform = limited_conscription
+					has_reform = extensive_conscription
+					ai = yes
+					NOT = { has_reform = steppe_horde }
+					NOT = { has_reform = steppe_empire }
+		}
+		allow = {
+		                OR = {
+					    NOT = {
+						       has_country_flag = change_conscription_law
+						}
+						had_country_flag = {
+						        flag = change_conscription_law
+								days = 7300
+						}
+					
+					}
+		                mil_tech = 12
+                        OR = {
+                                   full_idea_group = aristocracy_ideas
+                                   full_idea_group = plutocracy_ideas
+                                   full_idea_group = offensive_ideas
+                                   full_idea_group = defensive_ideas
+                                   full_idea_group = quality_ideas
+                                   full_idea_group = quantity_ideas
+								   full_idea_group = militarist_ideas
+								   mil_tech = 15
+                        }
+						
+                        mil_power = 200
+						army_tradition = 20
+						stability = 1
+						OR = {
+						    custom_trigger_tooltip = {
+			                   tooltip = tooltip_ave_literacy_10
+			                   check_variable = { which = ave_literacy value = 10 }
+		                    }
+						    AND = {
+							    custom_trigger_tooltip = {
+			                         tooltip = tooltip_ave_literacy_8
+			                         check_variable = { which = ave_literacy value = 8 }
+		                        }
+							    mil = 4
+								mil_tech = 14
+								army_tradition = 30
+							}	
+							AND = {
+							    custom_trigger_tooltip = {
+			                         tooltip = tooltip_ave_literacy_6
+			                         check_variable = { which = ave_literacy value = 6 }
+		                        }
+							    mil = 5
+								mil_tech = 16
+								army_tradition = 30
+							}
+						}
+						custom_trigger_tooltip = {
+						    tooltip = tooltip_positive_militarism
+							has_global_modifier_value = {
+						          which = yearly_army_professionalism
+						          value = 0.001
+					        }
+						}
+		}
+		effect = {
+                        add_government_reform = standing_army
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { #AI will not switch back to this unless manpower is sufficient.
+			    factor = 0
+				AND = {
+				    OR = {
+				      has_reform = limited_conscription
+					  has_reform = extensive_conscription
+				    }
+                    is_at_war = no
+                    manpower_percentage = 0.9					
+				}
+			}
+		}
+	}
+	
+	switch_to_limited_conscription = {
+        major = yes
+		potential = {
+                    ai = yes
+					NOT = { has_reform = steppe_horde }
+					NOT = { has_reform = steppe_empire }
+					has_reform = extensive_conscription
+		}
+		allow = {
+		            OR = {
+					    NOT = {
+						       has_country_flag = change_conscription_law
+						}
+						had_country_flag = {
+						        flag = change_conscription_law
+								days = 7300
+						}
+					
+					}
+		                mil_tech = 16
+                        OR = {
+                                   full_idea_group = aristocracy_ideas
+                                   full_idea_group = plutocracy_ideas
+                                   full_idea_group = offensive_ideas
+                                   full_idea_group = defensive_ideas
+                                   full_idea_group = quality_ideas
+                                   full_idea_group = quantity_ideas
+								   full_idea_group = militarist_ideas
+								   mil_tech = 18
+                        }
+						
+                        mil_power = 200
+						army_tradition = 20
+						stability = 1
+						OR = {
+						    custom_trigger_tooltip = {
+			                   tooltip = tooltip_ave_literacy_20
+			                   check_variable = { which = ave_literacy value = 20 }
+		                    }
+						    AND = {
+							    custom_trigger_tooltip = {
+			                         tooltip = tooltip_ave_literacy_15
+			                         check_variable = { which = ave_literacy value = 15 }
+		                        }
+							    mil = 4
+								mil_tech = 19
+								army_tradition = 30
+							}	
+							AND = {
+							    custom_trigger_tooltip = {
+			                         tooltip = tooltip_ave_literacy_10
+			                         check_variable = { which = ave_literacy value = 10 }
+		                        }
+							    mil = 5
+								mil_tech = 23
+								army_tradition = 40
+							}
+						}
+						custom_trigger_tooltip = {
+						    tooltip = tooltip_positive_militarism
+							has_global_modifier_value = {
+						          which = yearly_army_professionalism
+						          value = 0.001
+					        }
+						}
+		}
+		effect = {
+                add_government_reform = limited_conscription
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { #AI will not switch back to this unless manpower is sufficient.
+			    factor = 0
+				AND = {
+				    has_reform = extensive_conscription
+                    is_at_war = no
+                    manpower_percentage = 0.9					
+				}
+			}
+			modifier = { #AI will not switch to this if manpower is sufficient.
+			    factor = 0
+				AND = {
+				    has_reform = standing_army
+                    manpower_percentage = 0.6					
+				}
+			}
+		}
+	}
+
+	switch_to_extensive_conscription = {
+        major = yes
+		potential = {
+					ai = yes
+					NOT = { has_reform = steppe_horde }
+					NOT = { has_reform = steppe_empire }
+					has_reform = limited_conscription
+		}
+		allow = {
+				AND = {
+					OR = {
+					    NOT = {
+						       has_country_flag = change_conscription_law
+						}
+						had_country_flag = {
+						        flag = change_conscription_law
+								days = 7300
+						}
+					
+					}
+		                mil_tech = 19
+                        OR = {
+                                   full_idea_group = aristocracy_ideas
+                                   full_idea_group = plutocracy_ideas
+                                   full_idea_group = offensive_ideas
+                                   full_idea_group = defensive_ideas
+                                   full_idea_group = quality_ideas
+                                   full_idea_group = quantity_ideas
+								   full_idea_group = militarist_ideas
+								   mil_tech = 22
+                        }
+						
+                        mil_power = 200
+						army_tradition = 20
+						stability = 1
+						OR = {
+						    custom_trigger_tooltip = {
+			                   tooltip = tooltip_ave_literacy_30
+			                   check_variable = { which = ave_literacy value = 30 }
+		                    }
+						    AND = {
+							    custom_trigger_tooltip = {
+			                         tooltip = tooltip_ave_literacy_25
+			                         check_variable = { which = ave_literacy value = 25 }
+		                        }
+							    mil = 4
+								mil_tech = 22
+								army_tradition = 30
+							}	
+							AND = {
+							    custom_trigger_tooltip = {
+			                         tooltip = tooltip_ave_literacy_20
+			                         check_variable = { which = ave_literacy value = 20 }
+		                        }
+							    mil = 5
+								mil_tech = 25
+								army_tradition = 40
+							}
+						}
+						custom_trigger_tooltip = {
+						    tooltip = tooltip_positive_militarism
+							has_global_modifier_value = {
+						          which = yearly_army_professionalism
+						          value = 0.001
+					        }
+						}
+					}
+		}
+		effect = {
+             add_government_reform = extensive_conscription
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { #AI will not switch to this if manpower is sufficient.
+			    factor = 0
+				AND = {
+				    has_reform = standing_army
+                    manpower_percentage = 0.3					
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,22 @@
+namespace = flavor_jap
+# Western Trade Removed
+country_event = {
+	id = flavor_jap.71
+	title = "flavor_jap.EVTNAME7"
+	desc = "flavor_jap.EVTDESC7"
+	picture = MERCHANTS_TALKING_eventPicture
+	hidden = yes
+	trigger = {
+	        technology_group = western
+		has_country_modifier = western_trade 
+	}
+	
+	mean_time_to_happen = {
+	        days = 1
+	}
+	
+	option = {
+		name = "flavor_jap.EVTOPTA7" #
+		remove_country_modifier = western_trade 
+	}
+}

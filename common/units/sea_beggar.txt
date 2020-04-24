@@ -1,0 +1,14 @@
+#Sea Beggar
+type = light_ship
+
+trigger = {
+        tag = NED
+}
+
+hull_size = 14
+base_cannons = 24
+sail_speed = 9
+
+trade_power = 3
+
+sprite_level = 3

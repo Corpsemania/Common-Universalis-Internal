@@ -1,0 +1,13 @@
+spriteTypes = {
+	
+	spriteType = {
+		name = "TRADECOMPANY_eventPicture"
+		texturefile = "gfx/event_pictures/event_pictures_CU/TRADECOMPANY_eventPicture.dds"
+		allwaystransparent = yes
+	}
+    spriteType = {
+		name = "CUARTMUSEUM_eventPicture"
+		texturefile = "gfx/event_pictures/event_pictures_CU/CUARTMUSEUM_eventPicture.dds"
+		allwaystransparent = yes
+	}
+}

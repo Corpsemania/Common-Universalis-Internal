@@ -1,0 +1,4 @@
+defeat_by_estates = {
+	yearly_absolutism = -0.5
+	max_absolutism = -10
+}

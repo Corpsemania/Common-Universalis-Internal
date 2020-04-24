@@ -1,0 +1,10 @@
+#Turtle Ship( Galleas Replacement )
+type = galley
+trigger = { 
+                tag = KOR
+}
+hull_size = 16
+base_cannons = 18
+sail_speed = 5
+
+sprite_level = 3

@@ -1,0 +1,556 @@
+require_assistance = {
+	category = economy
+	
+	alert_index = 41
+	alert_tooltip = designate_dominion_tooltip
+	
+	require_acceptance = no # Whether the recipient gets an option to decline
+	
+	is_visible = {
+		ai = no #AI uses it through event
+		
+	}
+	is_allowed = {
+	    prestige = 10
+		NOT = { years_of_income = 0.5 }
+		FROM = { 
+		        OR = {
+				        has_opinion = {
+					        who = ROOT
+					        value = 50
+				        }
+						alliance_with = ROOT
+						marriage_with = ROOT
+				}
+				is_subject = no
+		        NOT = { overlord_of = ROOT }     
+				
+				NOT = { is_rival = ROOT }
+                years_of_income = 1
+				treasury = 200
+				is_at_war = no
+				NOT = { num_of_loans = 1 }
+				stability = 0
+		}
+		
+		NOT = { overlord_of = FROM }
+		NOT = { is_rival = FROM }
+		NOT = { war_with = FROM }
+		NOT = {
+		        has_opinion_modifier = {
+			            modifier = cu_assistance_given
+			            who = FROM
+		        }
+		}
+		NOT = {
+		        has_opinion_modifier = {
+			            modifier = cu_assistance_denied
+			            who = FROM
+		        }
+		}
+		
+	}
+	on_accept = {
+	    if = {
+		         limit = { has_country_modifier = tiny_state }
+				 add_prestige = -5
+		   }
+		   else_if = {
+		         limit = { has_country_modifier = small_state }
+				 add_prestige = -7
+		   }
+		   else_if = {
+		         limit = { has_country_modifier = medium_state }
+				 add_prestige = -10
+		   }
+		   else_if = {
+		         limit = { has_country_modifier = large_state }
+				 add_prestige = -15
+		   }
+		   else_if = {
+		         limit = { has_country_modifier = huge_state }
+				 add_prestige = -20
+		   }
+		   else_if = {
+		         limit = { has_country_modifier = continental_state }
+				 add_prestige = -30
+		   }
+		   else_if = {
+		         limit = { has_country_modifier = world_state }
+				 add_prestige = -40
+		   }
+		FROM = { 
+			    country_event = { id = state.5 } 
+		}
+	}
+	
+	on_decline = {
+		country_event = { id = state.5 } 
+	}
+	
+	
+	ai_will_do = { # this is a trigger
+		always = yes
+	}
+}
+
+# Invite to Celestial Empire(Turn Tributary to a vassal)
+invite_to_celestial_empire = {
+	category = influence
+	
+	alert_index = 41
+	alert_tooltip = invite_to_celestial_empire_tooltip
+	
+	require_acceptance = no # Whether the recipient gets an option to decline
+	
+	is_visible = {
+		is_emperor_of_china = yes
+		has_global_flag = harmony_achieved
+		FROM = { is_subject_of_type = tributary_state }
+		overlord_of = FROM
+	}
+	is_allowed = {
+		imperial_mandate = 90		
+		FROM = { 
+			   is_subject_of = ROOT
+		       NOT = { liberty_desire = 50 }
+               any_owned_province = {
+			             any_neighbor_province = {
+						        owned_by = ROOT
+						 }           
+			   }
+		}
+	}
+	on_accept = {
+		if = {
+		      limit = { NOT = { FROM = { total_development = 50 } } }
+		      add_mandate = -10
+		}
+		if = {
+		      limit = { 
+			           NOT = { FROM = { total_development = 100 } } 
+					   FROM = { total_development = 50 }
+			  }
+		      add_mandate = -15
+		}
+		if = {
+		      limit = { 
+			           NOT = { FROM = { total_development = 150 } } 
+					   FROM = { total_development = 100 }
+			  }
+		      add_mandate = -20
+		}
+		if = {
+		      limit = { 
+			           NOT = { FROM = { total_development = 200 } } 
+					   FROM = { total_development = 150 }
+			  }
+		      add_mandate = -25
+		}
+		if = {
+		      limit = { 
+			           NOT = { FROM = { total_development = 250 } } 
+					   FROM = { total_development = 200 }
+			  }
+		      add_mandate = -30
+		}
+		if = {
+		      limit = { 
+			           NOT = { FROM = { total_development = 300 } } 
+					   FROM = { total_development = 250 }
+			  }
+		      add_mandate = -35
+		}
+		if = {
+		      limit = { 
+			           NOT = { FROM = { total_development = 350 } } 
+					   FROM = { total_development = 300 }
+			  }
+		      add_mandate = -40
+		}
+		if = {
+		      limit = { 
+			           NOT = { FROM = { total_development = 400 } } 
+					   FROM = { total_development = 350 }
+			  }
+		      add_mandate = -45
+		}
+		if = {
+		      limit = { 
+					  FROM = { total_development = 400 }
+			  }
+		      add_mandate = -50
+		}
+		FROM = { 
+		           set_variable = { which = co_dev value = 0 }
+				   set_variable = { which = cs_dev value = 0 }
+				   export_to_variable = {
+				           which = co_dev
+						   value = total_development
+						   who = PREV
+				   }
+				   export_to_variable = {
+				           which = co_dev
+						   value = total_development
+				   }
+				   set_variable = { which = cr_dev value = 3 }
+				   change_variable = { which = cr_dev which = cs_dev }
+				   divide_variable = { which = cr_dev which = co_dev }
+				   country_event = { id = mandate.996 } 
+		}
+	}
+	
+	on_decline =
+	{
+	    add_mandate = -10
+		FROM = { add_liberty_desire = 50 }
+	}
+	
+	
+	ai_will_do = { # this is a trigger
+		always = yes
+	}
+}
+
+designate_dominion = {
+	category = influence
+	
+	alert_index = 41
+	alert_tooltip = designate_dominion_tooltip
+	
+	require_acceptance = no # Whether the recipient gets an option to decline
+	
+	is_visible = {
+		influence_ideas = 6
+		FROM = { 
+		        OR = {
+				     is_subject_of_type = vassal
+                     is_subject_of_type = march
+                     is_subject_of_type = client_vassal	
+                     is_subject_of_type = client_march		
+					 is_subject_of_type = colony
+				}
+	    }
+		overlord_of = FROM
+	}
+	is_allowed = {
+	    dip_tech = 15
+		dip_power = 100
+		overlord_of = FROM
+		influence_ideas = 6		 
+		FROM = { 
+		       NOT = { liberty_desire = 50 }
+			   OR = {
+				     is_subject_of_type = vassal
+                     is_subject_of_type = march
+                     is_subject_of_type = client_vassal	
+                     is_subject_of_type = client_march	
+                     is_subject_of_type = colony			 
+				}
+		}
+	}
+	on_accept = {
+	    add_dip_power = -100
+		FROM = { 
+			    country_event = { id = ideagroups.4898 } 
+		}
+	}
+	
+	on_decline = {
+		country_event = { id = ideagroups.4899 } 
+	}
+	
+	
+	ai_will_do = { # this is a trigger
+		always = yes
+	}
+}
+cu_steal_money = {
+	category = covert
+	
+	alert_index = 41
+	alert_tooltip = cu_steal_money_tooltip
+	
+	require_acceptance = no # Whether the recipient gets an option to decline
+	
+	is_visible = {
+		spy_ideas = 7
+		NOT = {
+		    FROM = { overlord_of = ROOT }
+		    overlord_of = FROM
+		}
+		FROM = { is_free_or_tributary_trigger = yes }
+	}
+	is_allowed = {
+		spy_ideas = 7
+		has_spy_network_in = {
+			who = FROM
+			value = 60
+		}
+		FROM = { 
+		    treasury = 5
+		}
+	}
+	on_accept = {
+		FROM = {
+		    set_country_flag = cu_steal_money_target
+            add_spy_network_from = {
+				who = ROOT
+				value = -60
+			}	
+		}
+		country_event = { id = ideagroups.4910 }
+	}
+	
+	on_decline = {
+	}
+	
+	
+	ai_will_do = { # this is a trigger
+		always = yes
+	}
+}
+
+cu_sabotage_enemy_supply = {
+	category = covert
+	
+	alert_index = 41
+	alert_tooltip = cu_sabotage_enemy_supply
+	
+	require_acceptance = no # Whether the recipient gets an option to decline
+	
+	is_visible = {
+		spy_ideas = 7
+		NOT = {
+		    FROM = { overlord_of = ROOT }
+		    overlord_of = FROM
+		}
+		
+	}
+	is_allowed = {
+		spy_ideas = 7
+		has_spy_network_in = {
+			who = FROM
+			value = 50
+		}
+		FROM = { is_free_or_tributary_trigger = yes }
+	}
+	on_accept = {
+		FROM = {
+		    set_country_flag = cu_sabotage_enemy_supply_target
+            add_spy_network_from = {
+				who = ROOT
+				value = -50
+			}	
+		}
+		country_event = { id = ideagroups.4920 }
+	}
+	
+	on_decline = {
+	}
+	
+	
+	ai_will_do = { # this is a trigger
+		always = yes
+	}
+}
+cu_steal_art_piece = {
+	category = covert
+	
+	alert_index = 41
+	alert_tooltip = cu_steal_art_piece
+	
+	require_acceptance = no # Whether the recipient gets an option to decline
+	
+	is_visible = {
+		spy_ideas = 7
+		NOT = {
+		    FROM = { overlord_of = ROOT }
+		    overlord_of = FROM
+		}
+		FROM = { is_free_or_tributary_trigger = yes }
+	}
+	is_allowed = {
+		spy_ideas = 7
+		has_spy_network_in = {
+			who = FROM
+			value = 80
+		}
+		custom_trigger_tooltip = {
+			tooltip = cu_steal_art_piece_tooltip
+			FROM = { 
+				any_owned_province = {
+						OR = {
+							check_variable = { which = cu_art_piece2 value = 1 } 
+							check_variable = { which = cu_art_piece1 value = 1 } 
+						}
+				}
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = have_free_art_slots_tooltip
+			check_variable = { which = cu_total_art_slot value = 1 }
+		}
+		
+	}
+	on_accept = {
+		FROM = {
+			random_owned_province = {
+				limit = {
+					OR = {
+						check_variable = { which = cu_art_piece2 value = 1 } 
+						check_variable = { which = cu_art_piece1 value = 1 } 
+					}
+				}
+				save_event_target_as = cu_steal_art_piece_target
+		    }
+		
+            add_spy_network_from = {
+				who = ROOT
+				value = -80
+			}	
+		}
+		save_event_target_as = cu_art_thief							 
+		country_event = { id = ideagroups.4940 }
+	}
+	
+	on_decline = {
+	}
+	
+	
+	ai_will_do = { # this is a trigger
+		always = yes
+	}
+}
+
+cu_ask_for_tribute = {
+	category = influence
+	
+	alert_index = 41
+	alert_tooltip = ask_for_tribute_tooltip
+	
+	require_acceptance = yes # Whether the recipient gets an option to decline
+	
+	is_visible = {
+		OR = {
+			is_emperor_of_china = yes
+			has_reform = steppe_horde
+			has_reform = steppe_empire
+			religion_group = eastern
+		}
+		is_subject = no
+		FROM = { is_subject = no }
+	}
+	is_allowed = {
+		is_at_war = no 
+		FROM = { is_at_war = no }
+		FROM = { is_subject = no }
+		FROM = { is_emperor = no }
+		NOT = { any_country = { is_subject_of = FROM } }
+	}
+	on_accept = {
+		create_subject = {
+			subject_type = tributary_state
+			subject = FROM
+		}
+	}
+	
+	on_decline = {
+	    
+	}
+	
+	ai_acceptance = {
+		add_entry = {
+			name = MILITARY_compare
+			export_to_variable = {
+				variable_name = ai_value
+				value = army_size
+				who = ROOT
+			}
+			export_to_variable = {
+				variable_name = cu_cache
+				value = army_size
+				who = FROM
+			}			
+			change_variable = { which = ai_value value = 1 }
+			change_variable = { which = cu_cache value = 1 }
+			multiply_variable = { which = cu_cache value = 100 }
+			divide_variable = { which = cu_cache which = ai_value}	
+			subtract_variable = { which = cu_cache value = 50 }	
+			set_variable = { which = ai_value which = cu_cache}
+			multiply_variable = { which = ai_value value = -1 }
+		}
+		add_entry = {
+			name = economy_compare
+			export_to_variable = {
+				variable_name = ai_value
+				value = total_development
+				who = ROOT
+			}
+			export_to_variable = {
+				variable_name = cu_cache
+				value = total_development
+				who = FROM
+			}			
+			multiply_variable = { which = cu_cache value = 300 }
+			divide_variable = { which = cu_cache which = ai_value}	
+			subtract_variable = { which = cu_cache value = 100 }	
+			set_variable = { which = ai_value which = cu_cache}
+			multiply_variable = { which = ai_value value = -1 }	
+		}
+		add_entry = {
+			name = TRUST
+			export_to_variable = {
+				variable_name = ai_value
+				value = trust
+				who = FROM
+				with = ROOT
+			}
+			subtract_variable = { which = ai_value value = 50 }
+			multiply_variable = { which = ai_value value = 2 }
+		}
+		add_entry = {
+			name = OPINION
+			export_to_variable = {
+				variable_name = ai_value
+				value = opinion
+				who = FROM
+				with = ROOT
+			}
+			divide_variable = { which = ai_value value = 4 }
+		}
+		add_entry = {
+			name = DIPLO_BORDER_DISTANCE
+			export_to_variable = {
+				variable_name = ai_value
+				value = border_distance
+				who = FROM
+				with = ROOT
+			}
+			multiply_variable = { which = ai_value value = -0.75 }
+		}
+		add_entry = {
+			name = DIPLO_DIPLOMATIC_REPUTATION
+			export_to_variable = {
+				variable_name = ai_value
+				value = modifier:diplomatic_reputation
+				who = ROOT
+			}
+			multiply_variable = { which = ai_value value = 3 }
+		}
+		
+		add_entry = {
+			name = development_form
+			export_to_variable = {
+				variable_name = ai_value
+				value = total_development
+				who = FROM
+			}
+			multiply_variable = { which = ai_value value = -0.5 }
+		}
+	}
+	
+	ai_will_do = { # this is a trigger
+		FROM = { ai = yes }
+	}
+}

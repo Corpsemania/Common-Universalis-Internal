@@ -1,0 +1,326 @@
+cu_is_node_in_trade_company_region = {
+	OR = {
+		region = bengal_region
+		region = hindusthan_region
+		region = west_india_region
+		region = deccan_region
+		region = coromandel_region
+		region = burma_region
+		region = indo_china_region
+		region = malaya_region
+		region = moluccas_region
+		region = indonesia_region
+		region = south_china_region 
+		region = xinan_region
+		region = north_china_region
+		region = japan_region
+		region = manchuria_region
+		region = korea_region
+		region = persia_region
+		region = khorasan_region
+		region = arabia_region
+		region = south_africa_region		
+		region = east_africa_region
+		region = horn_of_africa_region
+		region = guinea_region
+		region = niger_region
+		region = kongo_region				
+	}
+}
+
+cu_india_company_region = {
+	OR = {
+		region = bengal_region
+        region = hindusthan_region
+        region = west_india_region
+        region = deccan_region
+        region = coromandel_region 
+	}
+}
+
+cu_indochina_company_region = {
+	OR = {
+		region = burma_region
+        region = indo_china_region
+	}
+}
+
+cu_indonesia_company_region = {
+	OR = {
+		region = malaya_region
+        region = moluccas_region
+        region = indonesia_region
+	}
+}
+
+cu_china_company_region = {
+	OR = {
+		region = south_china_region 
+        region = xinan_region
+        region = north_china_region
+	}
+}
+
+cu_japan_korea_company_region = {
+	OR = {
+		region = japan_region
+        region = manchuria_region
+		region = korea_region
+	}
+}
+
+cu_persia_company_region = {
+	OR = {
+		region = persia_region
+		region = khorasan_region
+		region = arabia_region
+	}
+}
+
+cu_south_africa_company_region = {
+	OR = {
+		region = south_africa_region
+	}
+}
+
+cu_east_africa_company_region = {
+	OR = {
+		region = east_africa_region
+        region = horn_of_africa_region
+	}
+}
+
+cu_west_africa_company_region = {
+	OR = {
+		region = guinea_region
+        region = niger_region
+        region = kongo_region
+	}
+}
+
+
+cu_eligible_cabinet_province = {
+	OR = {
+		cu_not_terr_trigger = yes
+		owner = { NOT = { has_country_flag = cabinet_ep_state } }
+		has_province_modifier = cu_province_highlight
+	}
+	OR = {
+		has_province_modifier = cu_province_highlight
+		has_owner_culture = yes
+		AND = {
+			owner = { culture_group = PREV }
+			OR = {
+				owner = { government_rank = 3 }
+				has_owner_accepted_culture = yes
+			}
+		}
+		AND = {
+			OR = {
+				owner = { culture_group = PREV }
+				has_owner_accepted_culture = yes
+			}
+			owner = { has_country_flag = cabinet_ep_accepted }
+		}
+		owner = { has_country_flag = cabinet_ep_allculture }
+	}
+}
+
+
+
+cu_didnt_change_tax_policy = {
+	custom_trigger_tooltip = {
+		tooltip = "didnt_change_tax_policy"
+		OR = {
+			NOT = { has_country_flag = chose_tax_policy_timer }
+			AND = {
+				had_country_flag = {
+					flag = chose_tax_policy_timer
+					days = 3650
+				}
+				NOT = { has_ruler_flag = chose_tax_policy }
+			}
+			had_country_flag = {
+				flag = chose_tax_policy_timer
+				days = 7300
+			}
+		}
+	}
+}
+
+cu_didnt_change_economic_policy = {
+	custom_trigger_tooltip = {
+		tooltip = "didnt_change_economic_policy"
+		OR = {
+			NOT = { has_country_flag = chose_economic_policy_timer }
+			AND = {
+				had_country_flag = {
+					flag = chose_economic_policy_timer
+					days = 3650
+				}
+				NOT = { has_ruler_flag = chose_economic_policy }
+			}
+			had_country_flag = {
+				flag = chose_economic_policy_timer
+				days = 7300
+			}
+		}  
+	}
+}
+
+cu_didnt_change_trade_policy = {
+	custom_trigger_tooltip = {
+		tooltip = "didnt_change_trade_policy"
+		OR = {
+			NOT = { has_country_flag = chose_trade_policy_timer }
+			AND = {
+				had_country_flag = {
+					flag = chose_trade_policy_timer
+					days = 3650
+				}
+				NOT = { has_ruler_flag = chose_trade_policy }
+			}
+			had_country_flag = {
+				flag = chose_trade_policy_timer
+				days = 7300
+			}
+		}  
+	}
+}
+
+cu_didnt_change_GC_policy = {
+	custom_trigger_tooltip = {
+		tooltip = "didnt_change_GC_policy"
+		OR = {
+			NOT = { has_country_flag = chose_gc_policy_timer }
+			AND = {
+				had_country_flag = {
+					flag = chose_gc_policy_timer
+					days = 3650
+				}
+				NOT = { has_ruler_flag = chose_gc_policy }
+			}
+			had_country_flag = {
+				flag = chose_gc_policy_timer
+				days = 7300
+			}
+		}  
+	}
+}
+
+cu_didnt_change_cultural_policy = {
+	custom_trigger_tooltip = {
+		tooltip = "didnt_change_cultural_policy"
+		OR = {
+			NOT = { has_country_flag = chose_cultural_policy_timer }
+			AND = {
+				had_country_flag = {
+					flag = chose_cultural_policy_timer
+					days = 3650
+				}
+				NOT = { has_ruler_flag = chose_cultural_policy }
+			}
+			had_country_flag = {
+				flag = chose_cultural_policy_timer
+				days = 7300
+			}
+		}  
+	}
+}
+
+cu_didnt_change_religious_policy = {
+	custom_trigger_tooltip = {
+		tooltip = "didnt_change_religious_policy"
+		OR = {
+			NOT = { has_country_flag = chose_religious_policy_timer }
+			AND = {
+				had_country_flag = {
+					flag = chose_religious_policy_timer
+					days = 3650
+				}
+				NOT = { has_ruler_flag = chose_religious_policy }
+			}
+			had_country_flag = {
+				flag = chose_religious_policy_timer
+				days = 7300
+			}
+		}  
+	}
+}
+
+cu_didnt_change_conscription_policy = {
+	custom_trigger_tooltip = {
+		tooltip = "didnt_change_conscription_policy"
+		OR = {
+			NOT = { has_country_flag = change_conscription_law }
+			had_country_flag = {
+				flag = change_conscription_law
+				days = 7300
+			}
+		}  
+	}
+}
+
+cu_year_going_normally = {
+      AND = {
+	         has_country_flag = cu_year_going
+	         NOT = {
+			        had_country_flag = {
+					      flag = cu_year_going
+						  days = 367
+					}
+			 }
+	  }
+}
+
+cu_in_culture_union = {
+    OR = {
+		    has_owner_culture = yes
+			AND = {
+				    culture_group = owner
+					OR = {
+							has_owner_accepted_culture = yes
+							owner = { government_rank = 3 }
+					}
+			}
+	}
+}
+
+cu_hlr_land_trigger = {
+	continent = europe
+	OR = {
+		region = low_countries_region
+		region = north_german_region
+		region = south_german_region
+		region = italy_region 
+		area = provence_area
+		area = savoy_dauphine_area
+		area = picardy_area
+		province_id = 193
+		province_id = 181
+		area = lorraine_area
+		AND = {
+			culture_group = germanic
+			check_variable = { which = p_ca value = 60 }
+		}
+	}
+}
+
+cu_pac_trigger = {
+	NOT = { check_variable = { which = p_ca value = 50 } }
+	NOT = { has_province_modifier = cu_acknowledge_rule }
+	OR = {
+		NOT = { has_province_flag = recent_harsh_treatment }
+		had_province_flag = {
+			flag = recent_harsh_treatment
+			days = 7300
+		}
+	}
+	ai = no #Disabled for AI
+}
+
+cu_ai_reform_trigger = {
+	ai = yes
+	absolutism = 20
+}
+

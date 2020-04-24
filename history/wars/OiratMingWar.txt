@@ -1,0 +1,101 @@
+name = "Oirat Invasion of Ming"
+
+war_goal = {
+	type = take_claim
+	casus_belli = cb_conquest
+	province = 702
+}
+
+1449.7.16 = {
+	add_attacker = OIR
+	add_attacker = KHA
+	add_defender = MNG
+}
+
+1449.8.1 = {
+	battle = {
+		name = "Battle of Datong"
+		location = 697
+		attacker = {
+			commander = "Hao Wu"
+			infantry = 10000
+			losses = 100	# percent
+			country = MNG
+		}
+		defender = {
+			commander = "Essen Choros"
+			cavalry = 10000
+			losses = 1	# percent
+			country = OIR
+		}
+		result = yes
+	}
+}
+
+1449.8.10 = {
+	battle = {
+		name = "Battle of Xuanfu"
+		location = 2136
+		defender = {
+			commander = "Yong Zhu"
+			cavalry = 30000
+			losses = 100	# percent
+			country = MNG
+		}
+		attacker = {
+			commander = "Essen Choros"
+			cavalry = 10000
+			losses = 10	# percent
+			country = OIR
+		}
+		result = yes
+	}
+}
+
+1449.8.13 = {
+	battle = {
+		name = "Battle of Tumubao"
+		location = 2136
+		defender = {
+			commander = "Zhen Wang"
+			infantry = 200000
+			losses = 100	# percent
+			country = MNG
+		}
+		attacker = {
+			commander = "Essen Choros"
+			cavalry = 30000
+			losses = 20	# percent
+			country = OIR
+		}
+		result = yes
+	}
+}
+
+1449.10.13 = {
+	battle = {
+		name = "Siege of Beijing"
+		location = 1816
+		defender = {
+			commander = "Qian Yu"
+			infantry = 220000
+			losses = 25	# percent
+			country = MNG
+		}
+		attacker = {
+			commander = "Essen Choros"
+			cavalry = 10000
+			losses = 50	# percent
+			country = OIR
+		}
+		result = yes
+	}
+}
+
+1450.1.1 = {
+	rem_attacker = OIR
+	rem_attacker = KHA
+	rem_defender = MNG
+}
+
+

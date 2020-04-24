@@ -1,0 +1,110 @@
+namespace = celestial_reform
+
+#Starting Event
+country_event = {
+	id = celestial_reform.1
+	title = celestial_reform.1.t
+	desc = celestial_reform.1.d
+	picture = SUFFERING_CHINESE_VILLAGE_eventPicture
+	fire_only_once = yes
+	trigger = {
+		has_global_flag = test_version
+		total_development = 1000 
+		OR = {
+			has_reform =  celestial_empire 
+			has_reform =  celestial_empire_2   
+		}
+		corruption = 1
+	}
+	mean_time_to_happen = {
+		months = 12
+	}
+	option = { #Reform is the way forward
+		name = "celestial_reform.1.a"
+		add_adm_power = -25
+		set_country_flag = celestial_reform_debate
+		custom_tooltip = celestial_reform.1.at
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0.5
+				corruption = 10
+			}
+			modifier = {
+				factor = 0.5
+				corruption = 20
+			}
+		}
+	}
+	option = { #Who needs reform?
+		name = "celestial_reform.1.b"
+		custom_tooltip = celestial_reform.1.bt
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				corruption = 10
+			}
+			modifier = {
+				factor = 2
+				corruption = 20
+			}
+		}
+	}
+}
+
+#Imperial Debate
+country_event = {
+	id = celestial_reform.2
+	title = celestial_reform.2.t
+	desc = celestial_reform.2.d
+	picture = SUFFERING_CHINESE_VILLAGE_eventPicture
+	trigger = {
+		has_global_flag = test_version
+		has_country_flag = celestial_reform_debate
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+	immediate = {
+		hidden_effect = {
+			clr_country_flag = celestial_reform_debate
+			
+		}
+	}
+	option = { #Discuss the issue of land
+		name = "celestial_reform.2.a"
+		trigger = {
+			check_variable = { which = cu_land_annexation value = 1 }
+		}
+		add_adm_power = -25
+		#country_event = { id = celestial_reform.3 }
+		custom_tooltip = celestial_reform.2.at
+		ai_chance = {
+			factor = 90
+			modifier = {
+				factor = 0.5
+				corruption = 10
+			}
+			modifier = {
+				factor = 0.5
+				corruption = 20
+			}
+		}
+	}
+	option = { #Who needs reform?
+		name = "celestial_reform.2.exit"
+		
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 2
+				corruption = 10
+			}
+			modifier = {
+				factor = 2
+				corruption = 20
+			}
+		}
+	}
+}

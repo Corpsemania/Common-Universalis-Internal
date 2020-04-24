@@ -1,0 +1,19 @@
+pay_papal_influence = {
+	trigger = {
+		religion = catholic
+		FROM = { religion = catholic }
+		papal_influence = 10
+	}
+	
+	effect = {
+		add_papal_influence = -10
+		custom_tooltip = parliament_bribe_15t
+		hidden_effect = {
+		     country_event = { id = parlaments.999}
+		}
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}	
+}

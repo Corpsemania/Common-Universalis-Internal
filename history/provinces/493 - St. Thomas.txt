@@ -1,0 +1,42 @@
+#493 - St. Thomas
+
+culture = arawak
+religion = animism
+capital = "St. Thomas"
+trade_goods = unknown
+hre = no
+base_tax = 2
+base_production = 3
+base_manpower = 1
+native_size = 5
+native_ferocity = 1
+native_hostileness = 4 
+
+1493.1.1 = {
+	discovered_by = CAS
+	owner = CAS
+	controller = CAS
+	culture = castillian
+	add_core = CAS
+	religion = catholic
+	is_city = yes
+	trade_goods = sugar
+} # Christopher Columbus
+
+1516.1.23 = {
+	discovered_by = SPA
+	owner = SPA
+	controller = SPA
+	remove_core = CAS
+	add_core = SPA
+}
+1672.1.1 = {
+	discovered_by = DAN
+	owner = DAN
+	controller = DAN
+	add_core = DAN
+	culture = danish
+	religion = protestant
+	remove_core = SPA
+}
+1691.1.1 = { capital = "Charlotte Amalie" } # Primary settlement

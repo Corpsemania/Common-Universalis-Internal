@@ -1,0 +1,290 @@
+#Rewrited
+estate_shishen_disaster = {
+	potential = {
+		has_estate = estate_shizu
+	}
+
+
+	can_start = {
+		can_unrest_trigger = yes
+		NOT = { check_variable = { which = cu_st_growth value = 0.001 } }
+		OR = {
+			AND = {
+				estate_influence = {
+					estate = estate_shizu
+					influence = 5
+				}
+				NOT = {
+					estate_loyalty = {
+						estate = estate_shizu
+						loyalty = 40
+					}
+				}
+				NOT = {
+					estate_influence = {
+						estate = estate_government
+						influence = 5
+					}
+				}
+			}
+			AND = {
+				estate_influence = {
+					estate = estate_shizu
+					influence = 40
+				}
+				NOT = {
+					estate_loyalty = {
+						estate = estate_shizu
+						loyalty = 40
+					}
+				}
+				NOT = {
+					estate_influence = {
+						estate = estate_government
+						influence = 40
+					}
+				}
+			}
+			AND = {
+				estate_influence = {
+					estate = estate_shizu
+					influence = 20
+				}
+				NOT = {
+					estate_loyalty = {
+						estate = estate_shizu
+						loyalty = 40
+					}
+				}
+				NOT = {
+					estate_influence = {
+						estate = estate_government
+						influence = 20
+					}
+				}
+			}
+			AND = {
+				estate_influence = {
+					estate = estate_shizu
+					influence = 60
+				}
+				NOT = {
+					estate_loyalty = {
+						estate = estate_shizu
+						loyalty = 50
+					}
+				}
+			}
+			AND = {
+				estate_influence = {
+					estate = estate_shizu
+					influence = 70
+				}
+				NOT = {
+					estate_loyalty = {
+						estate = estate_shizu
+						loyalty = 60
+					}
+				}
+			}
+		}
+	}
+	
+	can_stop = {
+		OR = {
+			has_any_disaster = yes
+			AND = {
+				stability = 1
+				check_variable = { which = cu_st_growth value = 0.001 }
+			}
+			stability = 3
+			NOT = {
+				AND = {
+					estate_influence = {
+						estate = estate_shizu
+						influence = 40
+					}
+					NOT = {
+						estate_loyalty = {
+							estate = estate_shizu
+							loyalty = 40
+						}
+					}
+					NOT = {
+						estate_influence = {
+							estate = estate_government
+							influence = 40
+						}
+					}
+				}
+				AND = {
+					estate_influence = {
+						estate = estate_shizu
+						influence = 20
+					}
+					NOT = {
+						estate_loyalty = {
+							estate = estate_shizu
+							loyalty = 40
+						}
+					}
+					NOT = {
+						estate_influence = {
+							estate = estate_government
+							influence = 20
+						}
+					}
+				}
+				AND = {
+					estate_influence = {
+						estate = estate_shizu
+						influence = 60
+					}
+					NOT = {
+						estate_loyalty = {
+							estate = estate_shizu
+							loyalty = 50
+						}
+					}
+				}
+				AND = {
+					estate_influence = {
+						estate = estate_shizu
+						influence = 70
+					}
+					NOT = {
+						estate_loyalty = {
+							estate = estate_shizu
+							loyalty = 60
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	down_progress = {
+		factor = 1
+	}
+	
+	progress = {
+		modifier = {
+			factor = 1
+			estate_influence = {
+				estate = estate_shizu
+				influence = 5
+			}
+		}
+		modifier = {
+			factor = 1
+			estate_influence = {
+				estate = estate_shizu
+				influence = 20
+			}
+		}
+		modifier = {
+			factor = 2
+			estate_influence = {
+				estate = estate_shizu
+				influence = 40
+			}
+		}
+		modifier = {
+			factor = 2
+			estate_influence = {
+				estate = estate_shizu
+				influence = 60
+			}
+		}
+		modifier = {
+			factor = 3
+			estate_influence = {
+				estate = estate_shizu
+				influence = 80
+			}
+		}
+		modifier = {
+			factor = -1
+			estate_loyalty = {
+				estate = estate_shizu
+				loyalty = 40
+			}
+		}
+		modifier = {
+			factor = -2
+			estate_loyalty = {
+				estate = estate_shizu
+				loyalty = 60
+			}
+		}
+		modifier = {
+			factor = -2
+			estate_loyalty = {
+				estate = estate_shizu
+				loyalty = 80
+			}
+		}
+		modifier = {
+			factor = 1
+			NOT = { stability = 1 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { stability = 0 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { stability = -1 }
+		}
+	}
+	
+	can_end = {
+		OR = {
+			NOT = { has_estate = estate_shizu }
+			estate_loyalty = {
+				estate = estate_shizu
+				loyalty = 60
+			}
+			NOT = {
+				estate_influence = {
+					estate = estate_shizu
+					influence = 5
+				}
+			}
+			AND = {
+				OR = {
+					stability = 1
+					AND = {
+						stability = 0
+						check_variable = { which = cu_st_growth value = 0.001 }
+					}
+				}
+				
+			}
+		}
+		NOT = { num_of_rebel_controlled_provinces = 1 }
+		NOT = { num_of_revolts = 1 }
+	}
+	
+	modifier = {	
+		global_unrest = 3
+	}
+
+	on_start = disaster_shishen.0
+	on_end = disaster_shishen.1
+	
+	on_monthly = {
+		events = {
+        }
+        random_events = { 
+			1000 = 0
+			100 = 0
+			100 = 0
+			100 = 0
+			100 = 0
+			100 = 0
+			100 = disaster_shishen.2
+        }
+	}
+}
+

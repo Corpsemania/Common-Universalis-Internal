@@ -1,0 +1,214 @@
+#namespace = cugovernmentui
+
+#Government Capacity UI(GO POS)
+country_event = {
+	id = cugovernment.4
+	title = "cugovernmentui.1.t"
+	desc = "cugovernmentui.1.d"
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { #GC Help
+	          name = "cugovernmentui.1.a"
+			  country_event = { id = cugovernment.6 }
+	}
+	
+	option = { #Show Detailed Factors
+	          name = "cugovernmentui.1.b"
+			  country_event = { id = cugovernment.8 }
+	}
+	
+	option = {
+	      name = "cu.return"
+		  hidden_effect = {
+		           country_event = { id = cabinet.99 }
+		  }
+	}
+	
+	option = { #Exit
+	          name = "cugovernmentui.exit"
+			  clr_country_flag = cabinet_panel_open 
+	}
+}
+
+#Government Capacity UI(GO Neg)
+country_event = {
+	id = cugovernment.5
+	title = "cugovernmentui.1.t"
+	desc = "cugovernmentui.1.d1"
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = { #GC Help
+	          name = "cugovernmentui.1.a"
+			  country_event = { id = cugovernment.7 }
+	}
+	
+	option = { #Show Detailed Factors
+	          name = "cugovernmentui.1.b"
+			  country_event = { id = cugovernment.9 }
+	}
+	
+	
+	
+	option = {
+	      name = "cu.return"
+		  hidden_effect = {
+		           country_event = { id = cabinet.99 }
+		  }
+	}
+	
+	option = { #Exit
+	          name = "cugovernmentui.exit"
+			  clr_country_flag = cabinet_panel_open 
+	}
+}
+
+#Government Capacity Help(GO POS)
+country_event = {
+	id = cugovernment.6
+	title = "cugovernmentui.2.t"
+	desc = "cugovernmentui.2.d"
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+
+        option = { #next
+	          name = "cugovernmentui.next"
+			  country_event = { id = cugovernment.61 }
+	}
+
+	option = { #return
+	          name = "cugovernmentui.ret"
+			  country_event = { id = cugovernment.4 }
+	}
+	
+	option = {
+	      name = "cu.return"
+		  hidden_effect = {
+		           country_event = { id = cabinet.99 }
+		  }
+	}
+	
+	option = { #Exit
+	          name = "cugovernmentui.exit"
+			  clr_country_flag = cabinet_panel_open 
+	}
+}
+
+#Government Capacity Help 2(GO POS)
+country_event = {
+	id = cugovernment.61
+	title = "cugovernmentui.21.t"
+	desc = "cugovernmentui.21.d"
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+
+	option = { #back
+	          name = "cugovernmentui.back"
+			  country_event = { id = cugovernment.6 }
+	}
+
+	option = { #return
+	          name = "cugovernmentui.ret"
+			  country_event = { id = cugovernment.4 }
+	}
+	
+	option = { #Exit
+	          name = "cugovernmentui.exit"
+			  clr_country_flag = cabinet_panel_open 
+	}
+}
+
+#Government Capacity Help(GO NEG)
+country_event = {
+	id = cugovernment.7
+	title = "cugovernmentui.2.t"
+	desc = "cugovernmentui.2.d"
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+
+	option = { #next
+	          name = "cugovernmentui.next"
+			  country_event = { id = cugovernment.71 }
+	}
+
+	option = { #return
+	          name = "cugovernmentui.ret"
+			  country_event = { id = cugovernment.5 }
+	}
+	
+	option = { #Exit
+	          name = "cugovernmentui.exit"
+			  clr_country_flag = cabinet_panel_open 
+	}
+}
+
+#Government Capacity Help 2(GO NEG)
+country_event = {
+	id = cugovernment.71
+	title = "cugovernmentui.21.t"
+	desc = "cugovernmentui.21.d"
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+
+	option = { #back
+	          name = "cugovernmentui.back"
+			  country_event = { id = cugovernment.7 }
+	}
+
+	option = { #return
+	          name = "cugovernmentui.ret"
+			  country_event = { id = cugovernment.4 }
+	}
+	
+	option = { #Exit
+	          name = "cugovernmentui.exit"
+			  clr_country_flag = cabinet_panel_open 
+	}
+}
+
+#Government Capacity Factors(GO POS)
+country_event = {
+	id = cugovernment.8
+	title = "cugovernmentui.3.t"
+	desc = "cugovernmentui.3.d"
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+
+	option = { #return
+	          name = "cugovernmentui.ret"
+			  country_event = { id = cugovernment.4 }
+	}
+	
+	option = { #Exit
+	          name = "cugovernmentui.exit"
+			  clr_country_flag = cabinet_panel_open 
+	}
+}
+
+#Government Capacity Factors(GO NEG)
+country_event = {
+	id = cugovernment.9
+	title = "cugovernmentui.3.t"
+	desc = "cugovernmentui.3.d"
+	picture = CITY_VIEW_eventPicture
+	
+	is_triggered_only = yes
+
+	option = { #return
+	          name = "cugovernmentui.ret"
+			  country_event = { id = cugovernment.5 }
+	}
+	
+	option = { #Exit
+	          name = "cugovernmentui.exit"
+			  clr_country_flag = cabinet_panel_open 
+	}
+}

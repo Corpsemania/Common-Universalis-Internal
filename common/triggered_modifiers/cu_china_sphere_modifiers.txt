@@ -1,0 +1,115 @@
+#Member effects of Chinese empire reforms do not actually take effect, so use triggered modifiers instead. 
+
+cu_tributary_modifier_1 = {
+	potential = {
+	        OR = {
+			      is_subject_of_type = tributary_state
+				  AND = {
+ 				        capital_scope = {
+				            continent = asia
+						}
+						is_subject = yes
+				  }
+			}
+			overlord = { is_emperor_of_china = yes }
+	        has_global_flag = tributary_formalized
+			NOT = {  has_global_flag = trade_system_reformed }
+    }
+	trigger = {
+	       
+	}
+    envoy_travel_time = -0.15
+}
+
+cu_tributary_modifier_2 = {
+	potential = {
+	        OR = {
+			      is_subject_of_type = tributary_state
+				  AND = {
+ 				        capital_scope = {
+				            continent = asia
+						}
+						is_subject = yes
+				  }
+			}
+			overlord = { is_emperor_of_china = yes }
+	        has_global_flag = trade_system_reformed
+			NOT = {  has_global_flag = chinesized_education }
+    }
+	trigger = {
+	       
+	}
+    envoy_travel_time = -0.15
+	global_own_trade_power = 0.10
+}
+
+cu_tributary_modifier_3 = {
+	potential = {
+	        OR = {
+			      is_subject_of_type = tributary_state
+				  AND = {
+ 				        capital_scope = {
+				            continent = asia
+						}
+						is_subject = yes
+				  }
+			}
+			overlord = { is_emperor_of_china = yes }
+	        has_global_flag = chinesized_education
+			NOT = {  has_global_flag = celestial_peace_enforced }
+    }
+	trigger = {
+	       
+	}
+    envoy_travel_time = -0.15
+	global_own_trade_power = 0.10
+	adm_tech_cost_modifier = -0.05
+}
+
+cu_tributary_modifier_4 = {
+	potential = {
+	        OR = {
+			      is_subject_of_type = tributary_state
+				  AND = {
+ 				        capital_scope = {
+				            continent = asia
+						}
+						is_subject = yes
+				  }
+			}
+			overlord = { is_emperor_of_china = yes }
+	        has_global_flag = celestial_peace_enforced
+			NOT = {  has_global_flag = harmony_achieved }
+    }
+	trigger = {
+	       
+	}
+    envoy_travel_time = -0.15
+	global_own_trade_power = 0.10
+	adm_tech_cost_modifier = -0.05
+	diplomatic_upkeep = 1
+}
+
+cu_tributary_modifier_5 = {
+	potential = {
+	        OR = {
+			      is_subject_of_type = tributary_state
+				  AND = {
+ 				        capital_scope = {
+				            continent = asia
+						}
+						is_subject = yes
+				  }
+			}
+			overlord = { is_emperor_of_china = yes }
+	        has_global_flag = harmony_achieved
+    }
+	trigger = {
+	       
+	}
+    envoy_travel_time = -0.15
+	global_own_trade_power = 0.10
+	adm_tech_cost_modifier = -0.05
+	diplomatic_upkeep = 1
+	global_unrest = -2
+}

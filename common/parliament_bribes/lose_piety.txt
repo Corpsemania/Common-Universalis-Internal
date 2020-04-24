@@ -1,0 +1,18 @@
+lose_piety = {
+	trigger = {
+		religion_group = muslim
+		piety = 0.25
+	}
+	
+	effect = {
+		add_piety = -0.1
+		custom_tooltip = parliament_bribe_15t
+		hidden_effect = {
+		     country_event = { id = parlaments.999}
+		}
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}	
+}

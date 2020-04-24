@@ -1,0 +1,53 @@
+#Battle Plans
+
+#Grand Offensive
+cu_bp_go_m = {
+    land_morale = 0.20
+	shock_damage = 0.25
+	fire_damage = 0.25
+}
+
+#Unexpected Thrust
+cu_bp_ut_m = {
+    movement_speed = 0.2
+	siege_ability = 0.25
+	land_attrition = -0.2
+}
+
+#Fortified Defense
+cu_bp_fd_m = {
+    defensiveness = 0.50
+	hostile_attrition = 2
+	war_exhaustion = 0.01
+	recover_army_morale_speed = 0.075
+}
+
+#Preparation
+cu_fd_preparation = {
+    fort_maintenance_modifier = 0.5
+	development_cost = 0.5
+}
+
+#Enforced Discipline
+cu_bp_ed_m = {
+     discipline = 0.125
+	 loot_amount = -10
+}
+
+cu_bp_ed_m1 = {
+     discipline = -0.05
+	 loot_amount = 0.2
+}
+
+cu_bp_ec_m = {
+     shock_damage_received = -0.15
+	 fire_damage_received = -0.15
+}
+
+cu_bp_ec_flag = {
+
+}
+
+ai_battle_plan_timer = {
+
+}

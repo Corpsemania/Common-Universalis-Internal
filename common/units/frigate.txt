@@ -1,0 +1,10 @@
+#Frigate
+type = light_ship
+
+hull_size = 22
+base_cannons = 35
+sail_speed = 10
+
+trade_power = 4
+
+sprite_level = 4

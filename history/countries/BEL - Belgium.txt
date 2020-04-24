@@ -1,0 +1,36 @@
+government = monarchy
+add_government_reform = english_monarchy
+mercantilism = 0.25
+technology_group = western
+primary_culture = flemish
+add_accepted_culture = wallonian
+religion = catholic
+capital = 92 # Brabant(Brussel)
+national_focus = ADM
+1831.7.21 = {
+       #constitutional_monarchy
+	monarch = {
+		name = "Leopold I"
+		dynasty = "Von Saxe-Coburg and Gotha"
+		birth_date = 1790.12.16
+		death_date = 1865.12.10
+		claim = 95
+		adm = 5
+		dip = 6
+		mil = 5
+	}
+}
+
+1835.4.9 = {
+	heir = {
+		name = "Leopold"
+		monarch_name = "Leopold II"
+		dynasty = "Von Saxe-Coburg and Gotha"
+		birth_date = 1835.4.9
+		death_date = 1909.12.17
+		claim = 95
+		adm = 4
+		dip = 5
+		mil = 3
+	}
+}

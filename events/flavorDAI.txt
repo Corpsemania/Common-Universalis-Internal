@@ -1,0 +1,220 @@
+########################################
+# Flavor Events for Dai Viet
+#
+# Scripted by Sara Wendel-Örtqvist
+########################################
+
+namespace = flavor_dai
+normal_or_historical_nations = yes
+
+# Le Nghi Dan's Reforms
+country_event = {
+	id = flavor_dai.1
+	title = "flavor_dai.EVTNAME1"
+	desc = "flavor_dai.EVTDESC1"
+	picture = REFORM_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = DAI
+		is_year = 1460
+		NOT = { is_year = 1470 }
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+	}
+	
+	option = {
+		name = "flavor_dai.EVTOPTA1"
+		add_adm_power = 100
+	}
+	option = {
+		name = "flavor_dai.EVTOPTB1"
+		add_dip_power = 100
+	}
+	option = {
+		name = "flavor_dai.EVTOPTC1"
+		add_mil_power = 100
+	}
+}
+
+# The Rivalry of the Mac and Trinh Families
+country_event = {
+	id = flavor_dai.2
+	title = "flavor_dai.EVTNAME2"
+	desc = "flavor_dai.EVTDESC2"
+	picture = BATTLE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = DAI
+		is_year = 1527
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_core = ROOT
+				}
+				set_province_flag = trinhmac_rebellion_flag
+			}
+			random_owned_province = {
+				limit = {
+					is_core = ROOT
+					NOT = { has_province_flag = trinhmac_rebellion_flag }
+				}
+				set_province_flag = trinhmac_rebellion_flag
+			}
+			random_owned_province = {
+				limit = {
+					is_core = ROOT
+					NOT = { has_province_flag = trinhmac_rebellion_flag }
+				}
+				set_province_flag = trinhmac_rebellion_flag
+			}		
+		}
+	}
+	
+	option = {
+		name = "flavor_dai.EVTOPTA2"
+		add_mil_power = 150
+		add_adm_power = -150
+		every_owned_province = {
+			limit = {
+				has_province_flag = trinhmac_rebellion_flag
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 3
+				leader = "Dang Dung Mac"
+			}
+		}
+		clr_province_flag = trinhmac_rebellion_flag
+	}
+	option = {
+		name = "flavor_dai.EVTOPTB2"
+		add_adm_power = 150
+		add_mil_power = -150
+		every_owned_province = {
+			limit = {
+				has_province_flag = trinhmac_rebellion_flag
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 3
+				leader = "Kiem Trinh"
+			}
+		}
+		clr_province_flag = trinhmac_rebellion_flag
+	}
+	option = {
+		name = "flavor_dai.EVTOPTC2"
+		add_adm_power = 50
+		add_mil_power = 50
+		add_dip_power = 50
+		add_prestige = 15
+		add_legitimacy = 100
+		cu_change_stability_point_n75 = yes
+		every_owned_province = {
+			limit = {
+				has_province_flag = trinhmac_rebellion_flag
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 5
+				leader = "Dang Dung Mac"
+			}
+		}
+		clr_province_flag = trinhmac_rebellion_flag
+	}
+}
+
+# The Tay Son Rebellion
+country_event = {
+	id = flavor_dai.3
+	title = "flavor_dai.EVTNAME3"
+	desc = "flavor_dai.EVTDESC3"
+	picture = ANGRY_MOB_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = DAI
+		is_year = 1700
+		NOT = { is_year = 1800 }
+		dynasty = Mac
+		dynasty = Le
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					is_core = ROOT
+				}
+				set_province_flag = dai_tayson_rebellion_flag
+			}
+			random_owned_province = {
+				limit = {
+					is_core = ROOT
+					NOT = { has_province_flag = dai_tayson_rebellion_flag }
+				}
+				set_province_flag = dai_tayson_rebellion_flag
+			}
+			random_owned_province = {
+				limit = {
+					is_core = ROOT
+					NOT = { has_province_flag = dai_tayson_rebellion_flag }
+				}
+				set_province_flag = dai_tayson_rebellion_flag
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_dai.EVTOPTA3"
+		every_owned_province = {
+			limit = {
+				has_province_flag = dai_tayson_rebellion_flag
+			}
+			spawn_rebels = {
+				type = pretender_rebels
+				size = 6
+				leader = "Hue Nguyen"
+			}
+			clr_province_flag = dai_tayson_rebellion_flag
+		}
+	}
+	option = {
+		name = "flavor_dai.EVTOPTB3"
+		random_owned_province = {
+			limit = {
+				has_province_flag = dai_tayson_rebellion_flag
+				is_capital = no
+			}
+			add_local_autonomy = 100
+			clr_province_flag = dai_tayson_rebellion_flag
+			add_unrest = 30
+		}
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					has_province_flag = dai_tayson_rebellion_flag
+				}
+				clr_province_flag = dai_tayson_rebellion_flag
+			}
+		}
+	}
+}

@@ -1,0 +1,41 @@
+the_forge_m = {
+	siege_ability = 1
+	global_trade_goods_size_modifier = 100
+	war_exhaustion = -1
+	movement_speed = 1
+	land_morale = 1
+	naval_morale = 1
+	ship_durability = 1
+	land_attrition = -1
+	naval_attrition = -1
+	discipline = 1
+	global_autonomy = -0.15
+}
+
+longs = {
+	global_unrest = -100
+	technology_cost = -0.25
+	idea_cost = -0.5
+	administrative_efficiency = 1 
+	max_states = 1024
+	global_autonomy = -0.10
+	core_creation = -1
+	religious_unity = 1
+	tolerance_own = 4 
+	tolerance_heretic = 4
+	tolerance_heathen = 4
+	global_manpower_modifier = 1
+	land_forcelimit_modifier = 10
+	naval_forcelimit_modifier = 10
+	global_regiment_recruit_speed = -1
+	land_maintenance_modifier = -0.33
+	naval_maintenance_modifier = -0.33
+	movement_speed = 0.1
+	build_time = -0.5
+	build_cost = -0.25
+	min_autonomy = -100
+	min_autonomy_in_territories = -1
+	promote_culture_cost = -1
+	num_accepted_cultures = 1000
+	yearly_corruption = -2
+}

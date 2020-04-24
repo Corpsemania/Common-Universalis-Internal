@@ -1,0 +1,359 @@
+# Hard-coded functions made fully or partly scripted
+#
+# Note that most functions use unique mechanics
+
+# ROOT = country
+can_join_hre_league = {
+	condition = {
+		tooltip = "CANNOT_JOIN_LEAGUE_AT_WAR"
+		potential = {
+		}
+		allow = {
+			is_at_war = no
+		}
+	}
+	condition = {
+		potential = {
+			ai = yes
+		}
+		allow = {
+			religion_group = christian
+		}
+	}
+}
+
+can_leave_hre_league = {
+}
+
+can_harsh_treatment = {
+}
+
+can_reduce_war_exhaustion = {
+}
+
+can_reduce_inflation = {
+}
+
+can_declare_bankruptcy = {
+}
+
+can_release_colonial_nation = {
+	condition = {
+		tooltip = "CAN_RELEASE_CN_WE_ARE_AT_WAR"
+		potential = {
+		}
+		allow = {
+			is_at_war = no
+		}
+	}
+}
+
+can_claim_defender_of_faith = {
+}
+
+can_change_national_focus = {
+}
+
+can_increase_stability = {
+	condition = {
+		potential = {
+			always = yes
+		}
+		allow = {
+			always = no
+		}
+	}
+}
+
+# ROOT = province, FROM = country
+can_add_province_to_hre = {
+	condition = {
+		tooltip = "APH_NEEDED_CONTROL"
+		potential = {
+			cu_hlr_land_trigger = yes
+			owner = { NOT = { tag = GER } }
+		}
+		allow = {
+			owned_by = FROM
+		}
+	}
+}
+
+can_remove_province_from_hre = {
+	
+
+}
+
+can_increase_autonomy = {
+}
+
+can_decrease_autonomy = {
+	condition = {
+		potential = {
+			always = yes
+		}
+		allow = {
+			owner = { ai = no }
+		}
+	}
+	condition = {
+		tooltip = "CEL_NEEDED_REFORM_LAND"
+		potential = {
+			FROM = {
+				OR = {
+					has_reform =  celestial_empire
+                    has_reform =  celestial_empire_2
+				}
+			}
+		}
+		allow = {
+			FROM = {
+				NOT = { has_country_modifier = gentrys_landholding }
+			}
+		}
+	}
+}
+
+can_make_core = {
+	condition = {
+		tooltip = "cu_make_core_tooltip"
+		potential = {
+			always = yes
+		}
+		allow = {
+			OR = {
+				AND = {
+					check_variable = { which = p_ca value = 40 }
+					owner = { ai = yes }
+				}
+				check_variable = { which = p_ca value = 60 }
+			}
+		}
+	}
+}
+
+can_make_state = {
+	condition = {
+		potential = {
+			always = yes
+		}
+		allow = {
+			owned_by = FROM
+		}
+	}
+}
+
+can_abandon_state = {
+	condition = {
+		potential = {
+			always = yes
+		}
+		allow = {
+			always = no
+		}
+	}
+}
+
+can_improve_tax = {
+	condition = {
+		potential = {
+			always = yes
+		}
+		allow = {
+			always = no
+		}
+	}
+}
+
+can_improve_production = {
+	condition = {
+		potential = {
+			always = yes
+		}
+		allow = {
+			owner = { ai = no }
+		}
+	}
+}
+
+can_improve_manpower = {
+	condition = {
+		potential = {
+			always = yes
+		}
+		allow = {
+			always = no
+		}
+	}
+}
+
+can_exploit_tax = {
+	condition = {
+		potential = {
+			always = yes
+		}
+		allow = {
+			always = no
+		}
+	}
+}
+
+can_exploit_production = {
+	condition = {
+		potential = {
+			always = yes
+		}
+		allow = {
+			always = no
+		}
+	}
+}
+
+can_exploit_manpower = {
+	condition = {
+		potential = {
+			always = yes
+		}
+		allow = {
+			always = no
+		}
+	}
+}
+
+can_change_culture = {
+	condition = {
+		potential = {
+			always = yes
+		}
+		allow = {
+			always = no
+		}
+	}
+}
+
+can_move_capital = {
+	condition = {
+		potential = {
+			always = yes
+		}
+		allow = {
+			always = no
+		}
+	}
+}
+
+can_move_trade_port = {
+}
+
+can_order_assault = {
+}
+
+can_order_force_march = {
+}
+
+can_scorch_earth = {
+}
+
+can_garrison_sorties = {
+}
+
+can_seize_colony = {
+	condition = {
+		tooltip = "CEL_NEEDED_REFORM_TRADE"
+		potential = {
+			FROM = {
+				OR = {
+					has_reform =  celestial_empire
+                    has_reform =  celestial_empire_2
+				}
+			}
+		}
+		allow = {
+			FROM = {
+				NOT = { has_country_modifier = trade_limitation }
+			}
+		}
+	}
+}
+
+can_burn_colony = {
+}
+
+can_colonize_province = {
+	condition = {
+		tooltip = "CEL_NEEDED_REFORM_TRADE"
+		potential = {
+			FROM = {
+				OR = {
+					has_reform =  celestial_empire
+                    has_reform =  celestial_empire_2
+				}
+			}
+		}
+		allow = {
+			FROM = {
+				NOT = { has_country_modifier = trade_limitation }
+			}
+		}
+	}
+}
+
+can_colonize_province_siberian_frontier = {
+	condition = {
+		tooltip = "CEL_NEEDED_REFORM_TRADE"
+		potential = {
+			FROM = {
+				OR = {
+					has_reform =  celestial_empire
+                    has_reform =  celestial_empire_2
+				}
+			}
+		}
+		allow = {
+			FROM = {
+				NOT = { has_country_modifier = trade_limitation }
+			}
+		}
+	}
+}
+
+can_add_seat_in_parliament = {
+}
+
+can_add_estate = {
+#	condition = {
+#		potential = {
+#			always = yes
+#		}
+#		allow = {
+#			always = no
+#		}
+#	}
+}
+
+can_expel_minority_from = {
+	condition = {
+		potential = {
+			always = yes
+		}
+		allow = {
+			always = no
+		}
+	}
+}
+
+### Special functions
+
+# Called by can_add_province_to_hre
+is_possible_hre_province = {
+	condition = {
+		#tooltip = "APH_ONLY_EUROPE"
+		potential = {
+			continent = europe
+		}
+		allow = {
+			cu_hlr_land_trigger = yes
+			owner = { NOT = { tag = GER } }
+		}
+	}
+}

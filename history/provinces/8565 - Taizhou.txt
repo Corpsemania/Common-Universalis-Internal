@@ -1,0 +1,29 @@
+#8565 - TaiZhou
+
+owner = MNG
+controller = MNG
+add_core = MNG
+
+culture = wu
+religion = confucianism
+capital = "Taizhou"
+trade_goods = dyes
+hre = no
+base_tax = 6 
+base_production = 6
+base_manpower = 2
+is_city = yes
+add_core = WUU
+discovered_by = chinese
+discovered_by = nomad_group
+
+
+
+1595.1.1 = { discovered_by = SPA }
+
+
+1646.2.1 = {
+	owner = QNG
+	controller = QNG
+	add_core = QNG
+}

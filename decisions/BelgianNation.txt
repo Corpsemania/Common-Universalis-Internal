@@ -1,0 +1,78 @@
+country_decisions = {
+
+	form_kingdom_of_belgium = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = BEL }
+			NOT = { tag = NED }
+			OR = {
+				primary_culture = flemish
+				primary_culture = wallonian
+			}
+		}
+		allow = {
+			NOT = { exists = BEL }
+			adm_tech = 15
+			capital_scope = {
+			        region = low_countries_region
+			}
+			owns_core_province = 92 #Brabant
+			owns_core_province = 90 #Vlaanderen
+			owns_core_province = 1865 #Ghent
+			owns_core_province = 1744 #Antwerpen
+			is_at_war = no
+		}
+		effect = {
+			change_tag = BEL
+			add_government_reform = parliament_reform
+			set_capital = 92		#Brabant(Brussel)
+			hidden_effect = { cu_calc_country_absolute_dist = yes }
+			92 = {
+			        add_base_tax = 1
+			}
+			if = {
+				limit = {
+					NOT = { government_rank = 2 }
+				}
+				set_government_rank = 2
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 3650
+			}
+			add_prestige = 5
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			wallonia_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BEL
+			}
+			flanders_area = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BEL
+			}
+			if = {
+			       limit = { NOT = { accepted_culture = flemish } }
+				   add_accepted_culture = flemish
+			}
+			if = {
+			       limit = { NOT = { accepted_culture = wallonian } }
+				   add_accepted_culture = wallonian
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

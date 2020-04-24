@@ -1,0 +1,16 @@
+yuan_system_in_china = {
+	global_autonomy = 0.001
+}
+beiwei_system_in_china = {
+	stability_cost_modifier = 0.2
+}
+qing_system_in_china = {
+	years_of_nationalism = 1
+}
+pigtail_or_death = {
+	local_unrest = 10
+	local_core_creation = -0.5
+}
+yuan_tax_farming = {
+	min_local_autonomy = 40
+}

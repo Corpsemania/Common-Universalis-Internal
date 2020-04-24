@@ -1,0 +1,17 @@
+administrative_support = {
+	trigger = {
+		always = yes
+	}
+	
+	effect = {
+		add_adm_power = -60 
+		custom_tooltip = parliament_bribe_25t
+		hidden_effect = {
+		    country_event = { id = parlaments.999 }
+		}
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}

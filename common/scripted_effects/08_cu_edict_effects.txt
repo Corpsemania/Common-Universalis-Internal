@@ -1,0 +1,48 @@
+improve_drainage_effect = {
+	owner = {
+		add_treasury = -75
+		hidden_effect = { 
+			set_variable = { which = cu_power value = 50 }
+			cu_calc_power_cost = yes
+			cu_subtract_adm_power = yes
+		}
+	}			 
+	add_province_modifier = {
+		name = cu_improve_drainage
+		duration = -1
+	}
+	clr_province_flag = cu_improve_drainage_flag
+	set_province_flag = cu_improve_drainage_flag
+}
+
+improve_sanitation_effect = {
+	owner = {
+		add_treasury = -75
+		hidden_effect = { 
+			set_variable = { which = cu_power value = 50 }
+			cu_calc_power_cost = yes
+			cu_subtract_adm_power = yes
+		}
+	}
+	add_province_modifier = {
+		name = cu_improve_sanitation
+		duration = -1
+	}
+	clr_province_flag = cu_improve_sanitation_flag
+	set_province_flag = cu_improve_sanitation_flag
+}
+
+reclaim_wasteland_effect = {
+    owner = {
+		add_manpower = -2
+		add_treasury = -40
+		hidden_effect = { set_variable = { which = cu_power value = 80 } }
+		cu_calc_power_cost = yes
+		cu_subtract_mil_power = yes
+	}
+	custom_tooltip = terra.7.at
+	add_province_modifier = {
+		name = ti_military_cultivation
+		duration = -1
+	}
+}

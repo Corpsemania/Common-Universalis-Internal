@@ -1,0 +1,37 @@
+# 8507 - Agrinium
+
+owner = TUR
+controller = TUR
+add_core = TUR
+add_core = BYZ
+is_city = yes
+culture = greek
+religion = orthodox 
+capital = "Agrinio"
+trade_goods = grain
+hre = no 
+base_tax = 3 
+base_production = 3 
+base_manpower = 3 
+discovered_by = western
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = ottoman
+
+1356.1.1 = {
+	owner = EPI
+	controller = EPI
+}
+1430.1.1 = {
+	owner = TUR
+	controller = TUR
+	add_core = TUR
+}
+1502.1.1 = { remove_core = BYZ remove_core = EPI }
+1555.1.1 = { unrest = 5 } # General discontent against the Janissaries' dominance
+1556.1.1 = { unrest = 0 }
+1611.1.1 = { unrest = 3 } # Revolutionary movement of Dionysios, Christians are driven away
+1612.1.1 = { unrest = 0 }
+1750.1.1 = { add_core = GRE }
+1797.1.1 = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # Suliot uprising
+1803.12.17 = { revolt = {} controller = TUR } # The Suliots are defeated

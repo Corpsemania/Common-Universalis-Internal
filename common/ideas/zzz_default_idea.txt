@@ -1,0 +1,37 @@
+# This file contains the default idea group in order to make sure it is loaded last.
+
+
+default_ideas = {
+	start = {
+		stability_cost_modifier = -0.10
+		advisor_cost = -0.05
+	}
+	
+	bonus = {
+		prestige = 0.5
+	}
+	
+	free = yes
+	
+	custom_idea_infantry_power = {
+		infantry_power = 0.1
+	}
+	increase_taxation = {
+		global_tax_modifier = 0.1
+	}	
+	custom_idea_diplomatic_upkeep = {
+		diplomatic_upkeep = 1
+	}
+	increased_trade_power = {
+		global_trade_power = 0.1
+	}
+	increased_manpower = {
+		global_manpower_modifier = 0.1
+	}
+	custom_idea_naval_maintenance_modifier = {
+		naval_maintenance_modifier = -0.1
+	}
+	increased_production_income = {
+		production_efficiency = 0.05
+	}
+}

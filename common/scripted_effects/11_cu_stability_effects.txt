@@ -1,0 +1,574 @@
+#Stability Point: cu_st_point
+
+
+#Change stability point by [cu_var1]
+cu_change_stability_point = { 
+	hidden_effect = {
+		change_variable = { which = cu_st_point which = cu_var1 }
+		set_variable = { which = cu_var1 value = 0 }
+		cu_check_stability_point = yes
+	}
+	custom_tooltip = add_stability_points
+}
+
+
+#Change stability point by [cu_var1], no tooltip
+cu_change_stability_point_hidden = { 
+	hidden_effect = {
+		change_variable = { which = cu_st_point which = cu_var1 }
+		set_variable = { which = cu_var1 value = 0 }
+		cu_check_stability_point = yes
+	}
+}
+
+#Check if stability point is high or low enough to change stability
+cu_check_stability_point = {
+	set_variable = { which = cu_st_required value = 0 }
+	export_to_variable = {
+	    which = cu_st_required
+		value = modifier:stability_cost_modifier
+	}
+	#multiply_variable = { which = cu_st_required value = -1 }
+	change_variable = { which = cu_st_required value = 1 }
+	multiply_variable = { which = cu_st_required value = 100 }
+	if = {
+		limit = { check_variable = { which = cu_st_point value = 500 } }
+		set_variable = { which = cu_st_point value = 500 } 
+	}
+	else_if = {
+		if = {
+			limit = { NOT = { check_variable = { which = cu_st_point value = -500 } } }
+			set_variable = { which = cu_st_point value = -500 } 
+		}
+	}
+    while = {
+	    limit = {
+		    check_variable = { which = cu_st_point which = cu_st_required }
+			NOT = { stability = 3 }
+		}
+		add_stability = 1
+		subtract_variable = { which = cu_st_point which = cu_st_required }
+	}
+	while = {
+	    limit = {
+		    NOT = { check_variable = { which = cu_st_point value = 0 } }
+			stability = -2 
+		}
+		add_stability = -1
+		change_variable = { which = cu_st_point value = 100 }
+	}
+}
+
+#Calc Yearly Stability Point Growth 
+cu_calc_estate_unrest = {
+	#cu_check_nob_reform = yes
+	#cu_check_chu_reform = yes
+	#cu_check_bur_reform = yes
+	#cu_check_els_reform = yes
+	set_variable = { which = cu_st_nob value = 0 }
+	set_variable = { which = cu_st_bur value = 0 }
+	set_variable = { which = cu_st_chu value = 0 }
+	set_variable = { which = cu_st_els value = 0 }
+	set_variable = { which = cu_st_gov value = 0 }
+	set_variable = { which = cu_st_growth_e value = 0 }
+	if = {
+		limit = { has_estate = estate_burghers }
+		set_variable = { which = cu_var1 value = 0 }
+		if = { limit = { estate_influence = {	estate = estate_burghers	influence = 100	} } change_variable = { which = cu_var1 value = 1 } }
+		else_if = { limit = { estate_influence = {	estate = estate_burghers	influence = 90	} } change_variable = { which = cu_var1 value = 0.9 } }
+		else_if = { limit = { estate_influence = {	estate = estate_burghers	influence = 80	} } change_variable = { which = cu_var1 value = 0.8 } }
+		else_if = { limit = { estate_influence = {	estate = estate_burghers	influence = 70	} } change_variable = { which = cu_var1 value = 0.7 } }
+		else_if = { limit = { estate_influence = {	estate = estate_burghers	influence = 60	} } change_variable = { which = cu_var1 value = 0.6 } }
+		else_if = { limit = { estate_influence = {	estate = estate_burghers	influence = 50	} } change_variable = { which = cu_var1 value = 0.5 } }
+		else_if = { limit = { estate_influence = {	estate = estate_burghers	influence = 40	} } change_variable = { which = cu_var1 value = 0.4 } }
+		else_if = { limit = { estate_influence = {	estate = estate_burghers	influence = 30	} } change_variable = { which = cu_var1 value = 0.3 } }
+		else_if = { limit = { estate_influence = {	estate = estate_burghers	influence = 20	} } change_variable = { which = cu_var1 value = 0.2 } }
+		else_if = { limit = { estate_influence = {	estate = estate_burghers	influence = 10	} } change_variable = { which = cu_var1 value = 0.1 } }
+		if = { limit = { estate_loyalty = {	estate = estate_burghers	loyalty = 100	} } set_variable = { which = cu_var2 value = 0.5 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_burghers	loyalty = 90	} } set_variable = { which = cu_var2 value = 0.6 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_burghers	loyalty = 80	} } set_variable = { which = cu_var2 value = 0.7 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_burghers	loyalty = 70	} } set_variable = { which = cu_var2 value = 0.8 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_burghers	loyalty = 60	} } set_variable = { which = cu_var2 value = 0.9 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_burghers	loyalty = 50	} } set_variable = { which = cu_var2 value = 1 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_burghers	loyalty = 40	} } set_variable = { which = cu_var2 value = 1.1 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_burghers	loyalty = 30	} } set_variable = { which = cu_var2 value = 1.2 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_burghers	loyalty = 20	} } set_variable = { which = cu_var2 value = 1.3 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_burghers	loyalty = 10	} } set_variable = { which = cu_var2 value = 1.4 } }
+		else = { set_variable = { which = cu_var2 value = 1.5 } }
+		set_variable = { which = cu_var3 value = 0 }
+		cu_check_bur_reform = yes
+		multiply_variable = { which = cu_var1 which = cu_var3 }
+		if = {
+		      limit = { check_variable = { which = cu_var3 value = 0 } }
+			  multiply_variable = { which = cu_var1 which = cu_var2 }
+		}
+		else = {
+			  set_variable = { which = cu_var3 which = cu_var2  }
+			  set_variable = { which = cu_var2 value = 2 }
+			  subtract_variable = { which = cu_var2 which = cu_var3 }
+			  multiply_variable = { which = cu_var1 which = cu_var2 }
+		}
+		change_variable = { which = cu_st_growth_e which = cu_var1 }
+		set_variable = { which = cu_st_bur which = cu_var1 }
+	}
+	if = {
+		limit = { has_estate = estate_nobles }
+		set_variable = { which = cu_var1 value = 0 }
+		if = { limit = { estate_influence = { estate = estate_nobles	influence = 100	} } change_variable = { which = cu_var1 value = 1 } }
+		else_if = { limit = { estate_influence = {	estate = estate_nobles	influence = 90	} } change_variable = { which = cu_var1 value = 0.9 } }
+		else_if = { limit = { estate_influence = {	estate = estate_nobles	influence = 80	} } change_variable = { which = cu_var1 value = 0.8 } }
+		else_if = { limit = { estate_influence = {	estate = estate_nobles	influence = 70	} } change_variable = { which = cu_var1 value = 0.7 } }
+		else_if = { limit = { estate_influence = {	estate = estate_nobles	influence = 60	} } change_variable = { which = cu_var1 value = 0.6 } }
+		else_if = { limit = { estate_influence = {	estate = estate_nobles	influence = 50	} } change_variable = { which = cu_var1 value = 0.5 } }
+		else_if = { limit = { estate_influence = {	estate = estate_nobles	influence = 40	} } change_variable = { which = cu_var1 value = 0.4 } }
+		else_if = { limit = { estate_influence = {	estate = estate_nobles	influence = 30	} } change_variable = { which = cu_var1 value = 0.3 } }
+		else_if = { limit = { estate_influence = {	estate = estate_nobles	influence = 20	} } change_variable = { which = cu_var1 value = 0.2 } }
+		else_if = { limit = { estate_influence = {	estate = estate_nobles	influence = 10	} } change_variable = { which = cu_var1 value = 0.1 } }
+		if = { limit = { estate_loyalty = {	estate = estate_nobles	loyalty = 100	} } set_variable = { which = cu_var2 value = 0.5 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_nobles	loyalty = 90	} } set_variable = { which = cu_var2 value = 0.6 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_nobles	loyalty = 80	} } set_variable = { which = cu_var2 value = 0.7 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_nobles	loyalty = 70	} } set_variable = { which = cu_var2 value = 0.8 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_nobles	loyalty = 60	} } set_variable = { which = cu_var2 value = 0.9 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_nobles	loyalty = 50	} } set_variable = { which = cu_var2 value = 1 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_nobles	loyalty = 40	} } set_variable = { which = cu_var2 value = 1.1 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_nobles	loyalty = 30	} } set_variable = { which = cu_var2 value = 1.2 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_nobles	loyalty = 20	} } set_variable = { which = cu_var2 value = 1.3 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_nobles	loyalty = 10	} } set_variable = { which = cu_var2 value = 1.4 } }
+		else = { set_variable = { which = cu_var2 value = 1.5 } }
+		set_variable = { which = cu_var3 value = 0 }
+		cu_check_nob_reform = yes
+		multiply_variable = { which = cu_var1 which = cu_var3 }
+		if = {
+		      limit = { check_variable = { which = cu_var3 value = 0 } }
+			  multiply_variable = { which = cu_var1 which = cu_var2 }
+		}
+		else = {
+			  set_variable = { which = cu_var3 which = cu_var2  }
+			  set_variable = { which = cu_var2 value = 2 }
+			  subtract_variable = { which = cu_var2 which = cu_var3 }
+			  multiply_variable = { which = cu_var1 which = cu_var2 }
+		}
+		change_variable = { which = cu_st_growth_e which = cu_var1 }
+		set_variable = { which = cu_st_nob which = cu_var1 }
+	}
+	else_if = {
+		limit = { has_estate = estate_qinwang }
+		set_variable = { which = cu_var1 value = 0 }
+		if = { limit = { estate_influence = {	estate = estate_qinwang	influence = 100	} } change_variable = { which = cu_var1 value = 1 } }
+		else_if = { limit = { estate_influence = {	estate = estate_qinwang	influence = 90	} } change_variable = { which = cu_var1 value = 0.9 } }
+		else_if = { limit = { estate_influence = {	estate = estate_qinwang	influence = 80	} } change_variable = { which = cu_var1 value = 0.8 } }
+		else_if = { limit = { estate_influence = {	estate = estate_qinwang	influence = 70	} } change_variable = { which = cu_var1 value = 0.7 } }
+		else_if = { limit = { estate_influence = {	estate = estate_qinwang	influence = 60	} } change_variable = { which = cu_var1 value = 0.6 } }
+		else_if = { limit = { estate_influence = {	estate = estate_qinwang	influence = 50	} } change_variable = { which = cu_var1 value = 0.5 } }
+		else_if = { limit = { estate_influence = {	estate = estate_qinwang	influence = 40	} } change_variable = { which = cu_var1 value = 0.4 } }
+		else_if = { limit = { estate_influence = {	estate = estate_qinwang	influence = 30	} } change_variable = { which = cu_var1 value = 0.3 } }
+		else_if = { limit = { estate_influence = {	estate = estate_qinwang	influence = 20	} } change_variable = { which = cu_var1 value = 0.2 } }
+		else_if = { limit = { estate_influence = {	estate = estate_qinwang	influence = 10	} } change_variable = { which = cu_var1 value = 0.1 } }
+		if = { limit = { estate_loyalty = {	estate = estate_qinwang	loyalty = 100	} } set_variable = { which = cu_var2 value = 0.5 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_qinwang	loyalty = 90	} } set_variable = { which = cu_var2 value = 0.6 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_qinwang	loyalty = 80	} } set_variable = { which = cu_var2 value = 0.7 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_qinwang	loyalty = 70	} } set_variable = { which = cu_var2 value = 0.8 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_qinwang	loyalty = 60	} } set_variable = { which = cu_var2 value = 0.9 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_qinwang	loyalty = 50	} } set_variable = { which = cu_var2 value = 1 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_qinwang	loyalty = 40	} } set_variable = { which = cu_var2 value = 1.1 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_qinwang	loyalty = 30	} } set_variable = { which = cu_var2 value = 1.2 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_qinwang	loyalty = 20	} } set_variable = { which = cu_var2 value = 1.3 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_qinwang	loyalty = 10	} } set_variable = { which = cu_var2 value = 1.4 } }
+		else = { set_variable = { which = cu_var2 value = 1.5 } }
+		set_variable = { which = cu_var3 value = 0 }
+		cu_check_nob_reform = yes
+		multiply_variable = { which = cu_var1 which = cu_var3 }
+		if = {
+		      limit = { check_variable = { which = cu_var3 value = 0 } }
+			  multiply_variable = { which = cu_var1 which = cu_var2 }
+		}
+		else = {
+			  set_variable = { which = cu_var3 which = cu_var2  }
+			  set_variable = { which = cu_var2 value = 2 }
+			  subtract_variable = { which = cu_var2 which = cu_var3 }
+			  multiply_variable = { which = cu_var1 which = cu_var2 }
+		}
+		set_variable = { which = cu_st_noble which = cu_var1 }
+		change_variable = { which = cu_st_growth_e which = cu_var1 }
+		set_variable = { which = cu_st_nob which = cu_var1 }
+	}
+	if = {
+		limit = { has_estate = estate_church }
+		set_variable = { which = cu_var1 value = 0 }
+		if = { limit = { estate_influence = {	estate = estate_church	influence = 100	} } change_variable = { which = cu_var1 value = 1 } }
+		else_if = { limit = { estate_influence = {	estate = estate_church	influence = 90	} } change_variable = { which = cu_var1 value = 0.9 } }
+		else_if = { limit = { estate_influence = {	estate = estate_church	influence = 80	} } change_variable = { which = cu_var1 value = 0.8 } }
+		else_if = { limit = { estate_influence = {	estate = estate_church	influence = 70	} } change_variable = { which = cu_var1 value = 0.7 } }
+		else_if = { limit = { estate_influence = {	estate = estate_church	influence = 60	} } change_variable = { which = cu_var1 value = 0.6 } }
+		else_if = { limit = { estate_influence = {	estate = estate_church	influence = 50	} } change_variable = { which = cu_var1 value = 0.5 } }
+		else_if = { limit = { estate_influence = {	estate = estate_church	influence = 40	} } change_variable = { which = cu_var1 value = 0.4 } }
+		else_if = { limit = { estate_influence = {	estate = estate_church	influence = 30	} } change_variable = { which = cu_var1 value = 0.3 } }
+		else_if = { limit = { estate_influence = {	estate = estate_church	influence = 20	} } change_variable = { which = cu_var1 value = 0.2 } }
+		else_if = { limit = { estate_influence = {	estate = estate_church	influence = 10	} } change_variable = { which = cu_var1 value = 0.1 } }
+		if = { limit = { estate_loyalty = {	estate = estate_church	loyalty = 100	} } set_variable = { which = cu_var2 value = 0.5 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_church	loyalty = 90	} } set_variable = { which = cu_var2 value = 0.6 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_church	loyalty = 80	} } set_variable = { which = cu_var2 value = 0.7 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_church	loyalty = 70	} } set_variable = { which = cu_var2 value = 0.8 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_church	loyalty = 60	} } set_variable = { which = cu_var2 value = 0.9 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_church	loyalty = 50	} } set_variable = { which = cu_var2 value = 1 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_church	loyalty = 40	} } set_variable = { which = cu_var2 value = 1.1 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_church	loyalty = 30	} } set_variable = { which = cu_var2 value = 1.2 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_church	loyalty = 20	} } set_variable = { which = cu_var2 value = 1.3 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_church	loyalty = 10	} } set_variable = { which = cu_var2 value = 1.4 } }
+		else = { set_variable = { which = cu_var2 value = 1.5 } }
+		set_variable = { which = cu_var3 value = 0 }
+		cu_check_chu_reform = yes
+		multiply_variable = { which = cu_var1 which = cu_var3 }
+		if = {
+		      limit = { check_variable = { which = cu_var3 value = 0 } }
+			  multiply_variable = { which = cu_var1 which = cu_var2 }
+		}
+		else = {
+			  set_variable = { which = cu_var3 which = cu_var2  }
+			  set_variable = { which = cu_var2 value = 2 }
+			  subtract_variable = { which = cu_var2 which = cu_var3 }
+			  multiply_variable = { which = cu_var1 which = cu_var2 }
+		}
+		change_variable = { which = cu_st_growth_e which = cu_var1 }
+		set_variable = { which = cu_st_chu which = cu_var1 }
+	}
+	else_if = {
+		limit = { has_estate = estate_shizu }
+		set_variable = { which = cu_var1 value = 0 }
+		if = { limit = { estate_influence = {	estate = estate_shizu	influence = 100	} } change_variable = { which = cu_var1 value = 1 } }
+		else_if = { limit = { estate_influence = {	estate = estate_shizu	influence = 90	} } change_variable = { which = cu_var1 value = 0.9 } }
+		else_if = { limit = { estate_influence = {	estate = estate_shizu	influence = 80	} } change_variable = { which = cu_var1 value = 0.8 } }
+		else_if = { limit = { estate_influence = {	estate = estate_shizu	influence = 70	} } change_variable = { which = cu_var1 value = 0.7 } }
+		else_if = { limit = { estate_influence = {	estate = estate_shizu	influence = 60	} } change_variable = { which = cu_var1 value = 0.6 } }
+		else_if = { limit = { estate_influence = {	estate = estate_shizu	influence = 50	} } change_variable = { which = cu_var1 value = 0.5 } }
+		else_if = { limit = { estate_influence = {	estate = estate_shizu	influence = 40	} } change_variable = { which = cu_var1 value = 0.4 } }
+		else_if = { limit = { estate_influence = {	estate = estate_shizu	influence = 30	} } change_variable = { which = cu_var1 value = 0.3 } }
+		else_if = { limit = { estate_influence = {	estate = estate_shizu	influence = 20	} } change_variable = { which = cu_var1 value = 0.2 } }
+		else_if = { limit = { estate_influence = {	estate = estate_shizu	influence = 10	} } change_variable = { which = cu_var1 value = 0.1 } }
+		if = { limit = { estate_loyalty = {	estate = estate_shizu	loyalty = 100	} } set_variable = { which = cu_var2 value = 0.5 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_shizu	loyalty = 90	} } set_variable = { which = cu_var2 value = 0.6 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_shizu	loyalty = 80	} } set_variable = { which = cu_var2 value = 0.7 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_shizu	loyalty = 70	} } set_variable = { which = cu_var2 value = 0.8 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_shizu	loyalty = 60	} } set_variable = { which = cu_var2 value = 0.9 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_shizu	loyalty = 50	} } set_variable = { which = cu_var2 value = 1 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_shizu	loyalty = 40	} } set_variable = { which = cu_var2 value = 1.1 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_shizu	loyalty = 30	} } set_variable = { which = cu_var2 value = 1.2 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_shizu	loyalty = 20	} } set_variable = { which = cu_var2 value = 1.3 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_shizu	loyalty = 10	} } set_variable = { which = cu_var2 value = 1.4 } }
+		else = { set_variable = { which = cu_var2 value = 1.5 } }
+		set_variable = { which = cu_var3 value = 0 }
+		cu_check_chu_reform = yes
+		multiply_variable = { which = cu_var1 which = cu_var3 }
+		if = {
+		      limit = { check_variable = { which = cu_var3 value = 0 } }
+			  multiply_variable = { which = cu_var1 which = cu_var2 }
+		}
+		else = {
+			  set_variable = { which = cu_var3 which = cu_var2  }
+			  set_variable = { which = cu_var2 value = 2 }
+			  subtract_variable = { which = cu_var2 which = cu_var3 }
+			  multiply_variable = { which = cu_var1 which = cu_var2 }
+		}
+		change_variable = { which = cu_st_growth_e which = cu_var1 }
+		set_variable = { which = cu_st_chu which = cu_var1 }
+	}
+	if = {
+		limit = { has_estate = estate_nomadic_tribes }
+		set_variable = { which = cu_var1 value = 0 }
+		if = { limit = { estate_influence = {	estate = estate_nomadic_tribes	influence = 100	} } change_variable = { which = cu_var1 value = 1 } }
+		else_if = { limit = { estate_influence = {	estate = estate_nomadic_tribes	influence = 90	} } change_variable = { which = cu_var1 value = 0.9 } }
+		else_if = { limit = { estate_influence = {	estate = estate_nomadic_tribes	influence = 80	} } change_variable = { which = cu_var1 value = 0.8 } }
+		else_if = { limit = { estate_influence = {	estate = estate_nomadic_tribes	influence = 70	} } change_variable = { which = cu_var1 value = 0.7 } }
+		else_if = { limit = { estate_influence = {	estate = estate_nomadic_tribes	influence = 60	} } change_variable = { which = cu_var1 value = 0.6 } }
+		else_if = { limit = { estate_influence = {	estate = estate_nomadic_tribes	influence = 50	} } change_variable = { which = cu_var1 value = 0.5 } }
+		else_if = { limit = { estate_influence = {	estate = estate_nomadic_tribes	influence = 40	} } change_variable = { which = cu_var1 value = 0.4 } }
+		else_if = { limit = { estate_influence = {	estate = estate_nomadic_tribes	influence = 30	} } change_variable = { which = cu_var1 value = 0.3 } }
+		else_if = { limit = { estate_influence = {	estate = estate_nomadic_tribes	influence = 20	} } change_variable = { which = cu_var1 value = 0.2 } }
+		else_if = { limit = { estate_influence = {	estate = estate_nomadic_tribes	influence = 10	} } change_variable = { which = cu_var1 value = 0.1 } }
+		if = { limit = { estate_loyalty = {	estate = estate_nomadic_tribes	loyalty = 100	} } set_variable = { which = cu_var2 value = 0.5 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_nomadic_tribes	loyalty = 90	} } set_variable = { which = cu_var2 value = 0.6 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_nomadic_tribes	loyalty = 80	} } set_variable = { which = cu_var2 value = 0.7 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_nomadic_tribes	loyalty = 70	} } set_variable = { which = cu_var2 value = 0.8 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_nomadic_tribes	loyalty = 60	} } set_variable = { which = cu_var2 value = 0.9 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_nomadic_tribes	loyalty = 50	} } set_variable = { which = cu_var2 value = 1 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_nomadic_tribes	loyalty = 40	} } set_variable = { which = cu_var2 value = 1.1 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_nomadic_tribes	loyalty = 30	} } set_variable = { which = cu_var2 value = 1.2 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_nomadic_tribes	loyalty = 20	} } set_variable = { which = cu_var2 value = 1.3 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_nomadic_tribes	loyalty = 10	} } set_variable = { which = cu_var2 value = 1.4 } }
+		else = { set_variable = { which = cu_var2 value = 1.5 } }
+		set_variable = { which = cu_var3 value = 0 }
+		cu_check_els_reform = yes
+		multiply_variable = { which = cu_var1 which = cu_var3 }
+		if = {
+		      limit = { check_variable = { which = cu_var3 value = 0 } }
+			  multiply_variable = { which = cu_var1 which = cu_var2 }
+		}
+		else = {
+			  set_variable = { which = cu_var3 which = cu_var2  }
+			  set_variable = { which = cu_var2 value = 2 }
+			  subtract_variable = { which = cu_var2 which = cu_var3 }
+			  multiply_variable = { which = cu_var1 which = cu_var2 }
+		}
+		change_variable = { which = cu_st_growth_e which = cu_var1 }
+		set_variable = { which = cu_st_els which = cu_var1 }
+	}
+	else_if = {
+		limit = { has_estate = estate_cossacks }
+		set_variable = { which = cu_var1 value = 0 }
+		if = { limit = { estate_influence = {	estate = estate_cossacks	influence = 100	} } change_variable = { which = cu_var1 value = 1 } }
+		else_if = { limit = { estate_influence = {	estate = estate_cossacks	influence = 90	} } change_variable = { which = cu_var1 value = 0.9 } }
+		else_if = { limit = { estate_influence = {	estate = estate_cossacks	influence = 80	} } change_variable = { which = cu_var1 value = 0.8 } }
+		else_if = { limit = { estate_influence = {	estate = estate_cossacks	influence = 70	} } change_variable = { which = cu_var1 value = 0.7 } }
+		else_if = { limit = { estate_influence = {	estate = estate_cossacks	influence = 60	} } change_variable = { which = cu_var1 value = 0.6 } }
+		else_if = { limit = { estate_influence = {	estate = estate_cossacks	influence = 50	} } change_variable = { which = cu_var1 value = 0.5 } }
+		else_if = { limit = { estate_influence = {	estate = estate_cossacks	influence = 40	} } change_variable = { which = cu_var1 value = 0.4 } }
+		else_if = { limit = { estate_influence = {	estate = estate_cossacks	influence = 30	} } change_variable = { which = cu_var1 value = 0.3 } }
+		else_if = { limit = { estate_influence = {	estate = estate_cossacks	influence = 20	} } change_variable = { which = cu_var1 value = 0.2 } }
+		else_if = { limit = { estate_influence = {	estate = estate_cossacks	influence = 10	} } change_variable = { which = cu_var1 value = 0.1 } }
+		if = { limit = { estate_loyalty = {	estate = estate_cossacks	loyalty = 100	} } set_variable = { which = cu_var2 value = 0.5 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_cossacks	loyalty = 90	} } set_variable = { which = cu_var2 value = 0.6 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_cossacks	loyalty = 80	} } set_variable = { which = cu_var2 value = 0.7 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_cossacks	loyalty = 70	} } set_variable = { which = cu_var2 value = 0.8 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_cossacks	loyalty = 60	} } set_variable = { which = cu_var2 value = 0.9 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_cossacks	loyalty = 50	} } set_variable = { which = cu_var2 value = 1 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_cossacks	loyalty = 40	} } set_variable = { which = cu_var2 value = 1.1 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_cossacks	loyalty = 30	} } set_variable = { which = cu_var2 value = 1.2 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_cossacks	loyalty = 20	} } set_variable = { which = cu_var2 value = 1.3 } }
+		else_if = { limit = { estate_loyalty = {	estate = estate_cossacks	loyalty = 10	} } set_variable = { which = cu_var2 value = 1.4 } }
+		else = { set_variable = { which = cu_var2 value = 1.5 } }
+		set_variable = { which = cu_var3 value = 0 }
+		cu_check_els_reform = yes
+		multiply_variable = { which = cu_var1 which = cu_var3 }
+		if = {
+		      limit = { check_variable = { which = cu_var3 value = 0 } }
+			  multiply_variable = { which = cu_var1 which = cu_var2 }
+		}
+		else = {
+			  set_variable = { which = cu_var3 which = cu_var2  }
+			  set_variable = { which = cu_var2 value = 2 }
+			  subtract_variable = { which = cu_var2 which = cu_var3 }
+			  multiply_variable = { which = cu_var1 which = cu_var2 }
+		}
+		change_variable = { which = cu_st_growth_e which = cu_var1 }
+		set_variable = { which = cu_st_els which = cu_var1 }
+	}
+	if = {
+		limit = { has_estate = estate_government }
+		set_variable = { which = cu_var1 value = 0 }
+		if = { limit = { estate_influence = {	estate = estate_government	influence = 100	} } change_variable = { which = cu_var1 value = 1 } }
+		else_if = { limit = { estate_influence = {	estate = estate_government	influence = 90	} } change_variable = { which = cu_var1 value = 0.9 } }
+		else_if = { limit = { estate_influence = {	estate = estate_government	influence = 80	} } change_variable = { which = cu_var1 value = 0.8 } }
+		else_if = { limit = { estate_influence = {	estate = estate_government	influence = 70	} } change_variable = { which = cu_var1 value = 0.7 } }
+		else_if = { limit = { estate_influence = {	estate = estate_government	influence = 60	} } change_variable = { which = cu_var1 value = 0.6 } }
+		else_if = { limit = { estate_influence = {	estate = estate_government	influence = 50	} } change_variable = { which = cu_var1 value = 0.5 } }
+		else_if = { limit = { estate_influence = {	estate = estate_government	influence = 40	} } change_variable = { which = cu_var1 value = 0.4 } }
+		else_if = { limit = { estate_influence = {	estate = estate_government	influence = 30	} } change_variable = { which = cu_var1 value = 0.3 } }
+		else_if = { limit = { estate_influence = {	estate = estate_government	influence = 20	} } change_variable = { which = cu_var1 value = 0.2 } }
+		else_if = { limit = { estate_influence = {	estate = estate_government	influence = 10	} } change_variable = { which = cu_var1 value = 0.1 } }
+		
+		multiply_variable = { which = cu_var1 value = 5 } #Government Estate always provides positive stability points.
+		
+		change_variable = { which = cu_st_growth_e which = cu_var1 }
+		set_variable = { which = cu_st_gov which = cu_var1 }
+	}
+}
+
+cu_calc_total_stability_growth = {
+	set_variable = { which = cu_st_growth value = 0 }
+    set_variable = { which = cu_st_growth_n value = 0 }
+	set_variable = { which = cu_var1 value = 0 }
+	set_variable = { which = cu_var2 value = 0 }
+	
+	#Non-estate effect
+	
+	#Negative Feed Back of stability
+	export_to_variable = {
+	    which = cu_st_growth_n
+		value = stability
+	}
+	multiply_variable = { which = cu_st_growth_n value = -2 }
+	set_variable = { which = cu_st_growth_nf which = cu_st_growth_n }
+	change_variable = { which = cu_st_growth_n value = 1 } #Base Value
+	set_variable = { which = cu_st_growth_b value = 1 }
+	#From country-wide average unrest
+	export_to_variable = {
+	    which = cu_st_growth_u
+		value = average_unrest
+	} 
+	if = {
+	      limit = { check_variable = { which = cu_st_growth_u value = 0 } }
+		  multiply_variable = { which = cu_st_growth_u value = -0.5 }
+		  change_variable = { which = cu_st_growth_n which = cu_st_growth_u }
+	}
+	
+	#Peace and war exhaustion
+	if = {
+	      limit = { is_at_war = no }
+		  change_variable = { which = cu_st_growth_n value = 1 }
+		  set_variable = { which = cu_st_growth_pw value = 1 }
+	}
+	else = {
+	      export_to_variable = {
+			 which = cu_st_growth_pw
+			 value = war_exhaustion
+		  }
+		  multiply_variable = { which = cu_st_growth_pw value = -0.5 }
+		  change_variable = { which = cu_st_growth_n which = cu_st_growth_pw }
+	}
+	if = {
+	    limit = {
+		    has_country_modifier = cu_stability_effort
+		}
+		change_variable = { which = cu_st_growth_n value = 6 }
+		set_variable = { which = cu_st_growth_ne value = 6 }
+	}
+	else = {
+		set_variable = { which = cu_st_growth_ne value = 0 }
+	}
+	
+	#change_variable = { which = cu_st_growth_n which = cu_var2 }
+	
+	#End
+	change_variable = { which = cu_st_growth which = cu_st_growth_n }
+	
+	#Estate Effect
+	cu_calc_estate_unrest = yes
+	change_variable = { which = cu_st_growth which = cu_st_growth_e }
+	
+	#AI's cheat on high handicap
+	if = {
+		limit = {
+			OR = {
+				has_global_flag = cu_realistic_handicap_set
+				has_global_flag = cu_x_handicap_set
+			}
+			ai = yes
+		}
+		change_variable = { which = cu_st_growth value = 2 }
+	}
+	
+	#Apply growth
+	if = { limit = { ai = yes } multiply_variable = { which = cu_st_growth value = 5 } } #AI stability are calculated every 5 years
+	if = {
+		limit = { NOT = { has_country_flag = cu_stability_fixed } } #In display mode, progress will not be increased
+		change_variable = { which = cu_st_point which = cu_st_growth }
+		cu_check_stability_point = yes 
+	}
+	if = { limit = { ai = yes } divide_variable = { which = cu_st_growth value = 5 } }
+}
+
+cu_tax_reduce = {
+	set_variable = { which = cu_var3 value = 0 }
+	change_variable = { which = cu_var3 which = etin }
+	change_variable = { which = cu_var3 which = etic }
+	subtract_variable = { which = cu_var3 which = etib } 
+	if = { 
+		limit = { NOT = { check_variable = { which = cu_var3 value = 0 } } }
+		if = {
+			limit = { has_reform = tax_policy_2 }
+			add_government_reform = tax_policy_1
+		}
+		else_if = {
+			limit = { has_reform = tax_policy_3 }
+			add_government_reform = tax_policy_2
+		}
+		else_if = {
+			limit = { has_reform = tax_policy_4 }
+			add_government_reform = tax_policy_3
+		}
+		else_if = {
+			limit = { has_reform = tax_policy_5 }
+			add_government_reform = tax_policy_4
+		}
+	}
+	else = {
+		if = {
+			limit = { has_reform = tax_policy_2 }
+			add_government_reform = tax_policy_3
+		}
+		else_if = {
+			limit = { has_reform = tax_policy_3 }
+			add_government_reform = tax_policy_4
+		}
+		else_if = {
+			limit = { has_reform = tax_policy_4 }
+			add_government_reform = tax_policy_5
+		}
+		else_if = {
+			limit = { has_reform = tax_policy_1 }
+			add_government_reform = tax_policy_2
+		}
+	}
+}
+
+#Some frequently used fixed effect
+cu_change_stability_point_p25 = {
+	hidden_effect = {
+		change_variable = { which = cu_st_point value = 25 }
+		cu_check_stability_point = yes
+	}
+	custom_tooltip = add_stability_points_p25
+}
+cu_change_stability_point_p50 = {
+	hidden_effect = {
+		change_variable = { which = cu_st_point value = 50 }
+		cu_check_stability_point = yes
+	}
+	custom_tooltip = add_stability_points_p50
+}
+cu_change_stability_point_p75 = {
+	hidden_effect = {
+		change_variable = { which = cu_st_point value = 75 }
+		cu_check_stability_point = yes
+	}
+	custom_tooltip = add_stability_points_p75
+}  
+cu_change_stability_point_p100 = {
+	hidden_effect = {
+		change_variable = { which = cu_st_point value = 100 }
+		cu_check_stability_point = yes
+	}
+	custom_tooltip = add_stability_points_p100
+}  
+cu_change_stability_point_p150 = {
+	hidden_effect = {
+		change_variable = { which = cu_st_point value = 150 }
+		cu_check_stability_point = yes
+	}
+	custom_tooltip = add_stability_points_p150
+}  
+cu_change_stability_point_n25 = {
+	hidden_effect = {
+		change_variable = { which = cu_st_point value = -25 }
+		cu_check_stability_point = yes
+	}
+	custom_tooltip = add_stability_points_n25
+} 
+cu_change_stability_point_n50 = {
+	hidden_effect = {
+		change_variable = { which = cu_st_point value = -50 }
+		cu_check_stability_point = yes
+	}
+	custom_tooltip = add_stability_points_n50
+} 
+cu_change_stability_point_n75 = {
+	hidden_effect = {
+		change_variable = { which = cu_st_point value = -75 }
+		cu_check_stability_point = yes
+	}
+	custom_tooltip = add_stability_points_n75
+} 
+cu_change_stability_point_n100 = {
+	hidden_effect = {
+		change_variable = { which = cu_st_point value = -100 }
+		cu_check_stability_point = yes
+	}
+	custom_tooltip = add_stability_points_n100
+} 
+cu_change_stability_point_n150 = {
+	hidden_effect = {
+		change_variable = { which = cu_st_point value = -150 }
+		cu_check_stability_point = yes
+	}
+	custom_tooltip = add_stability_points_n150
+} 

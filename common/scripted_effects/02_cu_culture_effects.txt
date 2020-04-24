@@ -1,0 +1,1752 @@
+#Culture Effects
+
+
+#Variable List
+
+#p_dev: Province Development, generic variable
+#cu_var1: Generic first variable
+#cu_var2: Generic second variable
+#cu_var3: Generic third variable
+
+#p_ca: Province Administrative Integrity, p_ca = p_cab + p_cad, 0-100
+#p_cab: Province MAX Administrative Integrity, based on culture, ideas, effects, etc.
+#The factors below are mainly used for display:
+#p_cabc: Cultural Factor
+#p_cabe: Idea&Effect Factor
+#p_cabg: Governance Factor
+#p_cabr: Religion Factor
+#p_cabs: Seperatism Facor
+
+#p_cayg: Province yearly Administrative Integrity growth
+
+#p_cav: Average Administrative Integrity of all provinces with the given culture 
+
+#p_cat: temp p_ca save
+
+#p_cs: Province Cultural Assimilation
+
+#p_cag: Last Province Cultural Growth(For display only)
+
+#Province Scope
+#cu_check_cultural_acceptance[]: Check Province Administrative Integrity and update CA modifier
+cu_check_cultural_acceptance = {
+
+		if = {
+		      limit = { has_province_flag = initialize_base_ca }
+			  clr_province_flag = initialize_base_ca
+			  cu_calc_base_cultural_acceptance = yes
+			  set_variable = { which = p_ca which = p_cab }
+		}
+		
+        #In case of bug
+		if = { 
+		      limit = { NOT = { check_variable = { which = p_cab value = 0 } } }
+			  set_variable = { which = p_cab value = 0 }
+		}
+		else_if = {
+			  limit = { check_variable = { which = p_cab value = 100 } }
+			  set_variable = { which = p_cab value = 100 }
+		}
+		if = {
+		      limit = { NOT = { check_variable = { which = p_ca value = 0 } } }
+			  set_variable = { which = p_ca value = 0 }
+		}
+		else_if = {
+		      limit = { check_variable = { which = p_ca value = 100 } }
+			  set_variable = { which = p_ca value = 100 }
+		}
+		#Integrity can surpass maximum value now, but takes a heavy decay penalty
+		#else_if = { 
+			#limit = { check_variable = { which = p_ca which = p_cab  } }
+			#set_variable = { which = p_ca which = p_cab }
+			#set_variable = { which = p_car value = 0 }
+	  	#}
+		else = {
+			set_variable = { which = p_car which = p_cab }
+			subtract_variable = { which = p_car which = p_ca }
+		}
+	
+		
+		remove_province_modifier = cu_ca_100
+		remove_province_modifier = cu_ca_90
+		remove_province_modifier = cu_ca_80
+		remove_province_modifier = cu_ca_70
+		remove_province_modifier = cu_ca_60
+		remove_province_modifier = cu_ca_50
+		remove_province_modifier = cu_ca_40
+		remove_province_modifier = cu_ca_30
+		remove_province_modifier = cu_ca_20
+		remove_province_modifier = cu_ca_10
+		remove_province_modifier = cu_ca_0
+	    
+		if = { #Colony and Empty land have no modifiers 
+		       limit = { is_city = no }
+			   set_variable = { which = p_ca value = 100 }
+		}
+		else_if = {
+		        limit = {
+			            check_variable = { which = p_ca value = 100 }	
+			    }
+			    add_province_modifier = {
+						        name = cu_ca_100
+								duration = -1
+			    }
+				cu_automatic_assimilation = yes
+		}
+		else_if = {
+		        limit = {
+			            check_variable = { which = p_ca value = 90 }
+			    }
+			    add_province_modifier = {
+						        name = cu_ca_90
+								duration = -1
+				}
+		}
+		else_if = {
+		       limit = {
+			            check_variable = { which = p_ca value = 80 }
+			   }
+			   add_province_modifier = {
+						        name = cu_ca_80
+								duration = -1
+						}
+		}
+		else_if = {
+		       limit = {
+			            check_variable = { which = p_ca value = 70 }
+			   }
+			   add_province_modifier = {
+						        name = cu_ca_70
+								duration = -1
+						}
+		}
+		else_if = {
+		       limit = {
+			            check_variable = { which = p_ca value = 60 }
+			   }
+			   add_province_modifier = {
+						        name = cu_ca_60
+								duration = -1
+						}
+		}
+		else_if = {
+		        limit = {
+			            check_variable = { which = p_ca value = 50 }
+			    }
+			    add_province_modifier = {
+						        name = cu_ca_50
+								duration = -1
+			    }
+		}
+		else_if = {
+		        limit = {
+			            check_variable = { which = p_ca value = 40 }
+			    }
+			    add_province_modifier = {
+						        name = cu_ca_40
+								duration = -1
+			    }
+		}
+		else_if = {
+		        limit = {
+			            check_variable = { which = p_ca value = 30 }
+			    }
+			    add_province_modifier = {
+						        name = cu_ca_30
+								duration = -1
+			    }
+		}
+		else_if = {
+		        limit = {
+			            check_variable = { which = p_ca value = 20 }
+			    }
+			    add_province_modifier = {
+						        name = cu_ca_20
+								duration = -1
+			    }
+		}
+		else_if = {
+		        limit = {
+			            check_variable = { which = p_ca value = 10 }
+			    }
+			    add_province_modifier = {
+						        name = cu_ca_10
+								duration = -1
+			    }
+		}
+		else = {
+			    add_province_modifier = {
+						        name = cu_ca_0
+								duration = -1
+			    }
+		}
+		
+		cu_automatic_migration = yes
+	
+	
+}
+
+#cu_add_cultural_acceptance[cu_var1]: Change Administrative Integrity by cu_var1( range from -100 to +100, 0 by default ), also uesd for yearly growth
+cu_add_cultural_acceptance = { 
+    if = {
+	        limit = { 
+			    NOT = {
+		             OR = {
+					        check_variable = { which = cu_var1 value = 100.01 }
+                            NOT = { check_variable = { which = cu_var1 value = -100 } }
+                     }	
+                }					 		
+			}
+			change_variable = { which = p_ca which = cu_var1 }
+			cu_check_cultural_acceptance = yes
+	}
+	set_variable = { which = cu_var1 value = 0 }
+}
+
+#cu_calc_base_cultural_acceptance[]: Calculate Max Administrative Integrity
+
+cu_calc_base_cultural_acceptance = {
+    set_variable = { which = p_cab value = 0 }
+	export_to_variable = {
+	     which = p_cab
+		 value = modifier:max_states
+		 who = owner
+	}
+	subtract_variable = { which = p_cab value = 980 } #Base Value:20, max_states has a base value of 1000 which should be removed here.
+	if = {  
+	     limit = { is_capital = yes }
+		 change_variable = { which = p_cab value = 20 }
+	}
+	
+	
+	
+	#
+	if = { #Primary Culture
+	    limit = { has_owner_culture = yes	}
+		change_variable = { which = p_cab value = 55 }
+		if = {
+		    limit = { owner = { has_reform = cu_cultural_policy_1 } }
+			change_variable = { which = p_cab value = 10 }
+		}
+		else_if = {
+			limit = { owner = { has_reform = cu_cultural_policy_2 } }
+			change_variable = { which = p_cab value = 5 }
+		}
+		else_if = {
+			limit = { owner = { has_reform = cu_cultural_policy_4 } }
+			change_variable = { which = p_cab value = -5 }
+		}
+		else_if = {
+			limit = { owner = { has_reform = cu_cultural_policy_5 } }
+			change_variable = { which = p_cab value = -10 }
+		}
+	}
+    else_if = { #Cultural Union
+		limit = {
+			owner = { culture_group = ROOT }
+			OR = {
+				has_owner_accepted_culture = yes
+				owner = { government_rank = 3 }
+				AND = { #All German cultures are considered cultural union for Holy Roman Emperor 
+					culture_group = germanic
+					owner = { culture_group = germanic }
+					is_part_of_hre = yes
+					owner = { is_emperor = yes }
+				}
+			}
+		}
+		change_variable = { which = p_cab value = 45 }
+		set_variable = { which = cu_var2 which = literacy }
+		divide_variable = { which = cu_var2 value = 10 }
+		if = {
+			limit = { owner = { has_reform = cu_cultural_policy_1 } }
+			change_variable = { which = p_cab value = 10 }
+		}
+		else_if = {
+			limit = { owner = { has_reform = cu_cultural_policy_2 } }
+			change_variable = { which = p_cab value = 5 }
+		}
+		else_if = {
+			limit = { owner = { has_reform = cu_cultural_policy_4 } }
+			change_variable = { which = p_cab value = -5 }
+		}
+		else_if = {
+			limit = { owner = { has_reform = cu_cultural_policy_5 } }
+			change_variable = { which = p_cab value = -10 }
+		}
+		if = {
+			limit = { enlightenment = 100 }
+			subtract_variable = { which = p_cab value = -5 }
+		}
+	}
+    else_if = { #Same Cultural Group
+		limit = { owner = { culture_group = ROOT } }
+		change_variable = { which = p_cab value = 35 }
+		set_variable = { which = cu_var2 which = literacy }
+		divide_variable = { which = cu_var2 value = 4 }
+		subtract_variable = { which = p_cab which = cu_var2 }
+		if = {
+			  limit = { printing_press = 100 }
+			  subtract_variable = { which = p_cab value = -5 }
+		}
+		if = {
+			  limit = { enlightenment = 100 }
+			  subtract_variable = { which = p_cab value = -5 }
+		}
+		if = {
+			  limit = { owner = { has_reform = cu_cultural_policy_1 } }
+			  change_variable = { which = p_cab value = -5 }
+		}
+		else_if = {
+			  limit = { owner = { has_reform = cu_cultural_policy_2 } }
+			  change_variable = { which = p_cab value = -2.5 }
+		}
+		else_if = {
+			  limit = { owner = { has_reform = cu_cultural_policy_4 } }
+			  change_variable = { which = p_cab value = 2.5 }
+		}
+		else_if = {
+			  limit = { owner = { has_reform = cu_cultural_policy_5 } }
+			  change_variable = { which = p_cab value = 5 }
+		}
+	}
+    else_if = { #Foreign Accepted Culture
+		limit = { has_owner_accepted_culture = yes }
+		change_variable = { which = p_cab value = 35 }
+		set_variable = { which = cu_var2 which = literacy }
+		divide_variable = { which = cu_var2 value = 3.5 }
+		subtract_variable = { which = p_cab which = cu_var2 }
+		if = {
+			  limit = { printing_press = 100 }
+			  subtract_variable = { which = p_cab value = -5 }
+		}
+		if = {
+			  limit = { enlightenment = 100 }
+			  subtract_variable = { which = p_cab value = -5 }
+		}
+		if = {
+			  limit = { owner = { has_reform = cu_cultural_policy_1 } }
+			  change_variable = { which = p_cab value = 5 }
+		}
+		else_if = {
+			  limit = { owner = { has_reform = cu_cultural_policy_2 } }
+			  change_variable = { which = p_cab value = 2.5 }
+		}
+		else_if = {
+			  limit = { owner = { has_reform = cu_cultural_policy_4 } }
+			  change_variable = { which = p_cab value = -2.5 }
+		}
+		else_if = {
+			  limit = { owner = { has_reform = cu_cultural_policy_5 } }
+			  change_variable = { which = p_cab value = -5 }
+		}
+	}	
+	else = { #Unaccepted Culture
+		change_variable = { which = p_cab value = 25 }
+		set_variable = { which = cu_var2 which = literacy }
+		divide_variable = { which = cu_var2 value = 2.5 }
+		subtract_variable = { which = p_cab which = cu_var2 }
+		if = {
+			  limit = { renaissance = 100 }
+			  subtract_variable = { which = p_cab value = -5 }
+		}
+		if = {
+			  limit = { printing_press = 100 }
+			  subtract_variable = { which = p_cab value = -5 }
+		}
+		if = {
+			  limit = { enlightenment = 100 }
+			  subtract_variable = { which = p_cab value = -5 }
+		}
+		if = {
+			  limit = { owner = { has_reform = cu_cultural_policy_1 } }
+			  change_variable = { which = p_cab value = -10 }
+		}
+		else_if = {
+			  limit = { owner = { has_reform = cu_cultural_policy_2 } }
+			  change_variable = { which = p_cab value = -5 }
+		}
+		else_if = {
+			  limit = { owner = { has_reform = cu_cultural_policy_4 } }
+			  change_variable = { which = p_cab value = 5 }
+		}
+		else_if = {
+			  limit = { owner = { has_reform = cu_cultural_policy_5 } }
+			  change_variable = { which = p_cab value = 10 }
+		}
+	}
+	
+	if = {
+	    limit = { 
+			owner = { capital_scope = { continent = ROOT } }
+			OR = {
+				continent = north_america
+				continent = south_america
+				continent = oceania
+				continent = new_world
+			}
+		}
+		change_variable = { which = p_cab value = 10 }
+		change_variable = { which = p_cac value = 10 }
+		if = {
+			 limit = { NOT = { culture_group = ROOT } }
+			 change_variable = { which = p_cab value = 10 }
+			 change_variable = { which = p_cac value = 10 }
+		}
+	}
+	
+    if = {
+	    limit = { 
+			culture_group = east_asian
+			owner = {
+				NOT = {
+					OR = {
+						has_reform = celestial_empire 
+						has_reform = celestial_empire_2
+						has_reform = celestial_empire_3
+						has_country_flag = no_more_celestial
+					}
+				}
+			}
+		}
+		change_variable = { which = p_cab value = -5 }
+	}
+
+	#Religion
+	
+	export_to_variable = {
+	    which = cu_var1
+		value = tolerance_to_this
+	}
+	multiply_variable = { which = cu_var1 value = 3 }
+	set_variable = { which = cu_var2 value = 0 }
+	change_variable = { which = cu_var2 which = literacy }
+	multiply_variable = { which = cu_var2 value = -0.01 }
+	change_variable = { which = cu_var2 value = 1 }
+	multiply_variable = { which = cu_var1 which = cu_var2 }
+		
+	if = {
+	    limit = { 
+			NOT = { check_variable = { which = cu_var1 value = 0 } } 
+			owner = {
+				OR = { 
+					religion = confucianism
+					tradition_ideas = 3	
+					HUN_ideas = 7
+					YUA_ideas = 3
+					tag = USA
+					tag = TEX
+				}
+			}
+		}		
+		set_variable = { which = cu_var1 value = 0 }			
+	}
+	else = {
+		if = {
+			limit = { has_building = temple }
+			multiply_variable = { which = cu_var1 value = 1.25 }
+		}
+		else_if = {
+			limit = { has_building = cathedral }
+			multiply_variable = { which = cu_var1 value = 1.5 }
+		}
+	}
+	if = {
+	    limit = { 
+			NOT = { religion = owner } 
+			check_variable = { which = cu_var1 value = 0 }
+		}
+		multiply_variable = { which = cu_var1 value = 0.75 }
+	}
+	if = {
+		limit = { 
+			owner = { 
+				full_idea_group = humanist_ideas
+				NOT = { culture_group = PREV } 
+			} 
+		}
+		multiply_variable = { which = cu_var1 value = 1.33 }
+    }
+	change_variable = { which = p_cab which = cu_var1 }
+	set_variable = { which = cu_var1 value = 0 }
+	
+	#Governance
+	if = { #Parliament
+	    limit = { has_seat_in_parliament = yes }
+		change_variable = { which = p_cab value = 5 }
+	}
+	if = {
+	      limit = { owner = { has_reform = tax_policy_1 } }
+		  change_variable = { which = p_cab value = 6 }
+	}
+	else_if = {
+	      limit = { owner = { has_reform = tax_policy_2 } }
+		  change_variable = { which = p_cab value = 3 }
+	}
+	else_if = {
+	      limit = { owner = { has_reform = tax_policy_4 } }
+		  change_variable = { which = p_cab value = -3 }
+	}
+	else_if = {
+	      limit = { owner = { has_reform = tax_policy_5 } }
+		  change_variable = { which = p_cab value = -6 }
+	}
+
+	if = {
+	      limit = { has_province_modifier = cu_culture_understanding  }
+		  change_variable = { which = p_cab value = 5 }
+	}
+	if = {
+		limit = { has_province_modifier = cu_acknowledge_rule }
+		change_variable = { which = p_cab value = 5 }
+	}
+	if = {
+		limit = { has_province_modifier = cu_language_education }
+		change_variable = { which = p_cab value = 10 }
+	}
+	set_variable = { which = cu_var3 value = 0 }
+	change_variable = { which = cu_var3 which = epimg }
+	multiply_variable = { which = cu_var3 value = 0.15 }
+	change_variable = { which = p_cab which = cu_var3 }
+	
+	#Seperatism
+	set_variable = { which = p_cabs value = 0 }
+	export_to_variable = {
+	    which = p_cabs
+		value = nationalism
+	}
+	multiply_variable = { which = p_cabs value = -0.5 }
+	set_variable = { which = cu_var2 which = literacy }
+	multiply_variable = { which = cu_var2 value = 0.01 }
+	change_variable = { which = cu_var2 value = 1 }
+	multiply_variable = { which = p_cabs which = cu_var2 }
+	change_variable = { which = p_cab which = p_cabs }
+	
+	
+	#Citizen Unhappiness
+	export_to_variable = {
+	      which = cu_var1
+		  value = base_tax
+	}
+	set_variable = { which = citizen_ca which = cu_var1 }
+	export_to_variable = {
+	      which = cu_var1
+		  value = base_production
+	}
+	change_variable = { which = citizen_ca which = cu_var1 }
+	subtract_variable = { which = citizen_ca which = b_uc }
+	set_variable = { which = citizen_ca_mod value = 1 }
+	if = {
+	      limit = { check_variable = { which = cu_theatre value = 1 } }
+		  subtract_variable = { which = citizen_ca_mod value = 0.1 }
+	}
+	if = {
+	      limit = { check_variable = { which = art_level value = 1 } }
+		  set_variable = { which = cu_var1 which = art_level }
+		  multiply_variable = { which = cu_var1 value = 0.05 }
+		  subtract_variable = { which = citizen_ca_mod which = cu_var1 }
+	}
+	
+	#Education
+	if = {
+	      limit = { has_province_modifier = cu_burghers_school }
+		  subtract_variable = { which = citizen_ca_mod value = 0.1 }
+	}
+	else_if = {
+	      limit = { has_province_modifier = cu_public_school }
+		  subtract_variable = { which = citizen_ca_mod value = 0.2 }
+	}
+	if = {
+	      limit = { has_province_modifier = cu_burghers_university }
+		  subtract_variable = { which = citizen_ca_mod value = 0.1 }
+	}
+	else_if = {
+	      limit = { has_province_modifier = cu_public_university }
+		  subtract_variable = { which = citizen_ca_mod value = 0.2 }
+	}
+	
+	multiply_variable = { which = citizen_ca which = citizen_ca_mod }
+	if = {
+	      limit = { check_variable = { which = citizen_ca value = 1 } }
+		  subtract_variable = { which = p_cab which = citizen_ca }
+	}
+	else = {
+	      set_variable = { which = citizen_ca value = 0 }
+	}
+	
+	#Distance Modifier
+	set_variable = { which = p_cabd which = p_dist_tc }
+	multiply_variable { which = p_cabd value = -5 }
+	set_variable = { which = p_cabdm value = 1 }
+	if = {
+	     limit = {
+		      has_province_modifier = connect_to_capital 
+		 }
+		 set_variable = { which = p_cabdm value = 0.6 }
+		 if = {
+		      limit = { owner = { dip_tech = 26 } }
+			  subtract_variable = { which = p_cabdm value = 0.2 }
+		 }
+		 else_if = {
+		      limit = { owner = { dip_tech = 23 } }
+			  subtract_variable = { which = p_cabdm value = 0.17 }
+		 }
+		 else_if = {
+		      limit = { owner = { dip_tech = 19 } }
+			  subtract_variable = { which = p_cabdm value = 0.14 }
+		 }
+		 else_if = {
+		      limit = { owner = { dip_tech = 15 } }
+			  subtract_variable = { which = p_cabdm value = 0.11 }
+		 }
+		 else_if = {
+		      limit = { owner = { dip_tech = 11 } }
+			  subtract_variable = { which = p_cabdm value = 0.08 }
+		 }
+		 else_if = {
+		      limit = { owner = { dip_tech = 6 } }
+			  subtract_variable = { which = p_cabdm value = 0.05 }
+		 }
+	}
+	else_if = {
+	     limit = {
+		      has_province_modifier = connect_to_capital_oversea
+		 }
+		 set_variable = { which = p_cabdm value = 0.7 }
+		 if = {
+		      limit = { owner = { dip_tech = 26 } }
+			  subtract_variable = { which = p_cabdm value = 0.3 }
+		 }
+		 else_if = {
+		      limit = { owner = { dip_tech = 23 } }
+			  subtract_variable = { which = p_cabdm value = 0.25 }
+		 }
+		 else_if = {
+		      limit = { owner = { dip_tech = 19 } }
+			  subtract_variable = { which = p_cabdm value = 0.2 }
+		 }
+		 else_if = {
+		      limit = { owner = { dip_tech = 15 } }
+			  subtract_variable = { which = p_cabdm value = 0.15 }
+		 }
+		 else_if = {
+		      limit = { owner = { dip_tech = 11 } }
+			  subtract_variable = { which = p_cabdm value = 0.1 }
+		 }
+		 else_if = {
+		      limit = { owner = { dip_tech = 6 } }
+			  subtract_variable = { which = p_cabdm value = 0.05 }
+		 }
+	}
+	multiply_variable = { which = p_cabd which = p_cabdm }
+	change_variable = { which = p_cabd value = 100 }
+	if = {
+	    limit = { NOT = { check_variable = { which = p_cabd value = 0 } } }
+		set_variable = { which = p_cabd value = 0 }
+	}
+	multiply_variable = { which = p_cab which = p_cabd }
+	divide_variable = { which = p_cab value = 100 }
+	
+	if = {
+	     limit = { check_variable = { which = p_cab value = 100 } }
+		 set_variable = { which = p_cab value = 100 }
+	}
+	else_if = {
+	     limit = { NOT = { check_variable = { which = p_cab value = 0 } } }
+		 set_variable = { which = p_cab value = 0 }
+	}
+  	#End
+
+}
+
+#cu_show_cultural_acceptance[]: Calculate base Administrative Integrity and show the details of Administrative Integrity
+cu_show_cultural_acceptance = { 
+	export_to_variable = {
+	     which = p_cab
+		 value = modifier:max_states
+		 who = owner
+	}
+	subtract_variable = { which = p_cab value = 980 } #Base Value:20, max_states has a base
+	set_variable = { which = p_cabb which = p_cab }
+	if = {  
+	     limit = { is_capital = yes }
+		 change_variable = { which = p_cab value = 20 }
+		 change_variable = { which = p_cabb value = 20 }
+	}
+	set_variable = { which = p_cabc value = 0 }
+	set_variable = { which = p_cabl value = 0 }
+	set_variable = { which = p_cabe value = 0 }
+	set_variable = { which = p_cabr value = 0 }
+	set_variable = { which = cu_var1 value = 0 }
+	
+    if = { #Primary Culture
+	    limit = { has_owner_culture = yes }
+		change_variable = { which = p_cab value = 55 }
+		change_variable = { which = p_cabc value = 55 }
+		if = {
+			limit = { owner = { has_reform = cu_cultural_policy_1 } }
+			change_variable = { which = p_cab value = 10 }
+			change_variable = { which = p_cabc value = 10 }
+		}
+		else_if = {
+			limit = { owner = { has_reform = cu_cultural_policy_2 } }
+			change_variable = { which = p_cab value = 5 }
+			change_variable = { which = p_cabc value = 5 }
+		}
+		else_if = {
+			limit = { owner = { has_reform = cu_cultural_policy_4 } }
+			change_variable = { which = p_cab value = -5 }
+			change_variable = { which = p_cabc value = -5 }
+		}
+		else_if = {
+			limit = { owner = { has_reform = cu_cultural_policy_5 } }
+			change_variable = { which = p_cab value = -10 }
+			change_variable = { which = p_cabc value = -10 }
+		}
+	}
+    else_if = { #Cultural Union
+		limit = {
+			 owner = { culture_group = ROOT }
+			 OR = {
+					has_owner_accepted_culture = yes
+					owner = { government_rank = 3 }
+					AND = { #All German cultures are considered cultural union for Holy Roman Emperor 
+						  culture_group = germanic
+						  owner = { culture_group = germanic }
+						  is_part_of_hre = yes
+						  owner = { is_emperor = yes }
+					}
+					
+			 }
+		}
+		change_variable = { which = p_cab value = 45 }
+		change_variable = { which = p_cabc value = 45 }
+		set_variable = { which = cu_var2 which = literacy }
+		divide_variable = { which = cu_var2 value = 10 }
+		subtract_variable = { which = p_cab which = cu_var2 }
+		subtract_variable = { which = p_cabc which = cu_var2 }
+		if = {
+			  limit = { enlightenment = 100 }
+			  subtract_variable = { which = p_cab value = -5 }
+			  subtract_variable = { which = p_cabc value = -5 }
+		}
+		if = {
+			  limit = { owner = { has_reform = cu_cultural_policy_1 } }
+			  change_variable = { which = p_cab value = 10 }
+			  change_variable = { which = p_cabc value = 10 }
+		}
+		else_if = {
+			  limit = { owner = { has_reform = cu_cultural_policy_2 } }
+			  change_variable = { which = p_cab value = 5 }
+			  change_variable = { which = p_cabc value = 5 }
+		}
+		else_if = {
+			  limit = { owner = { has_reform = cu_cultural_policy_4 } }
+			  change_variable = { which = p_cab value = -5 }
+			  change_variable = { which = p_cabc value = -5 }
+		}
+		else_if = {
+			  limit = { owner = { has_reform = cu_cultural_policy_5 } }
+			  change_variable = { which = p_cab value = -10 }
+			  change_variable = { which = p_cabc value = -10 }
+		}
+	}
+    else_if = { #Same Cultural Group
+	        limit = {
+			     owner = { culture_group = ROOT }
+			}
+			change_variable = { which = p_cab value = 35 }
+			set_variable = { which = cu_var2 which = literacy }
+			divide_variable = { which = cu_var2 value = 4 }
+			subtract_variable = { which = p_cab which = cu_var2 }
+			change_variable = { which = p_cabc value = 35 }
+			subtract_variable = { which = p_cabl which = cu_var2 }
+			if = {
+			      limit = { printing_press = 100 }
+				  subtract_variable = { which = p_cab value = -5 }
+				  subtract_variable = { which = p_cabc value = -5 }
+			}
+			if = {
+			      limit = { enlightenment = 100 }
+				  subtract_variable = { which = p_cab value = -5 }
+				  subtract_variable = { which = p_cabc value = -5 }
+			}
+			if = {
+		          limit = { owner = { has_reform = cu_cultural_policy_1 } }
+				  change_variable = { which = p_cab value = -5 }
+				  change_variable = { which = p_cabc value = -5 }
+		   }
+		   else_if = {
+		          limit = { owner = { has_reform = cu_cultural_policy_2 } }
+				  change_variable = { which = p_cab value = -2.5 }
+				  change_variable = { which = p_cabc value = -2.5 }
+		   }
+		   else_if = {
+		          limit = { owner = { has_reform = cu_cultural_policy_4 } }
+				  change_variable = { which = p_cab value = 2.5 }
+				  change_variable = { which = p_cabc value = 2.5 }
+		   }
+		   else_if = {
+		          limit = { owner = { has_reform = cu_cultural_policy_5 } }
+				  change_variable = { which = p_cab value = 5 }
+				  change_variable = { which = p_cabc value = 5 }
+		   }
+	}
+    else_if = { #Foreign Accepted Culture
+	        limit = {
+			     has_owner_accepted_culture = yes
+			}
+			change_variable = { which = p_cab value = 35 }
+			set_variable = { which = cu_var2 which = literacy }
+			divide_variable = { which = cu_var2 value = 3.5 }
+			subtract_variable = { which = p_cab which = cu_var2 }
+			change_variable = { which = p_cabc value = 35 }
+			subtract_variable = { which = p_cabl which = cu_var2 }
+			if = {
+			      limit = { printing_press = 100 }
+				  subtract_variable = { which = p_cab value = -5 }
+				  subtract_variable = { which = p_cabc value = -5 }
+			}
+			if = {
+			      limit = { enlightenment = 100 }
+				  subtract_variable = { which = p_cab value = -5 }
+				  subtract_variable = { which = p_cabc value = -5 }
+			}
+			if = {
+		          limit = { owner = { has_reform = cu_cultural_policy_1 } }
+				  change_variable = { which = p_cab value = 5 }
+				  change_variable = { which = p_cabc value = 5 }
+		   }
+		   else_if = {
+		          limit = { owner = { has_reform = cu_cultural_policy_2 } }
+				  change_variable = { which = p_cab value = 2.5 }
+				  change_variable = { which = p_cabc value = 2.5 }
+		   }
+		   else_if = {
+		          limit = { owner = { has_reform = cu_cultural_policy_4 } }
+				  change_variable = { which = p_cab value = -2.5 }
+				  change_variable = { which = p_cabc value = -2.5 }
+		   }
+		   else_if = {
+		          limit = { owner = { has_reform = cu_cultural_policy_5 } }
+				  change_variable = { which = p_cab value = -5 }
+				  change_variable = { which = p_cabc value = -5 }
+		   }
+	}	
+	else = { #Unaccepted Culture
+		change_variable = { which = p_cab value = 25 }
+		set_variable = { which = cu_var2 which = literacy }
+		divide_variable = { which = cu_var2 value = 2.5 }
+		subtract_variable = { which = p_cab which = cu_var2 }
+		change_variable = { which = p_cabc value = 25 }
+		subtract_variable = { which = p_cabl which = cu_var2 }
+		if = {
+			  limit = { renaissance = 100 }
+			  subtract_variable = { which = p_cab value = -5 }
+			  subtract_variable = { which = p_cabc value = -5 }
+		}
+		if = {
+			  limit = { printing_press = 100 }
+			  subtract_variable = { which = p_cab value = -5 }
+			  subtract_variable = { which = p_cabc value = -5 }
+		}
+		if = {
+			  limit = { enlightenment = 100 }
+			  subtract_variable = { which = p_cab value = -5 }
+			  subtract_variable = { which = p_cabc value = -5 }
+		}
+		if = {
+			  limit = { owner = { has_reform = cu_cultural_policy_1 } }
+			  change_variable = { which = p_cab value = -10 }
+			  change_variable = { which = p_cabc value = -10 }
+		}
+		else_if = {
+			  limit = { owner = { has_reform = cu_cultural_policy_2 } }
+			  change_variable = { which = p_cab value = -5 }
+			  change_variable = { which = p_cabc value = -5 }
+		}
+		else_if = {
+			  limit = { owner = { has_reform = cu_cultural_policy_4 } }
+			  change_variable = { which = p_cab value = 5 }
+			  change_variable = { which = p_cabc value = 5 }
+		}
+		else_if = {
+			  limit = { owner = { has_reform = cu_cultural_policy_5 } }
+			  change_variable = { which = p_cab value = 10 }
+			  change_variable = { which = p_cabc value = 10 }
+		}
+	}
+	if = {
+		limit = { 
+			owner = { capital_scope = { continent = ROOT } }
+			OR = {
+				continent = north_america
+				continent = south_america
+				continent = oceania
+				continent = new_world
+			}
+		}
+		change_variable = { which = p_cab value = 10 }
+		change_variable = { which = p_cac value = 10 }
+		if = {
+		    limit = { NOT = { culture_group = ROOT } }
+			change_variable = { which = p_cab value = 10 }
+		    change_variable = { which = p_cac value = 10 }
+		}
+	}
+	if = {
+	    limit = { 
+			culture_group = east_asian
+			owner = {
+				NOT = {
+					OR = {
+						has_reform = celestial_empire 
+						has_reform = celestial_empire_2
+						has_reform = celestial_empire_3
+						has_country_flag = no_more_celestial
+					}
+				}
+			}
+		}
+		change_variable = { which = p_cab value = -5 }
+		change_variable = { which = p_cac value = -5 }
+	}
+
+	#Religion
+	set_variable = { which = cu_var1 value = 0 }
+	export_to_variable = {
+	    which = cu_var1
+		value = tolerance_to_this
+	}
+	multiply_variable = { which = cu_var1 value = 3 }
+	set_variable = { which = p_cabrl value = 0 }
+	change_variable = { which = p_cabrl which = literacy }
+	multiply_variable = { which = p_cabrl value = -0.01 }
+	change_variable = { which = p_cabrl value = 1 }
+	multiply_variable = { which = cu_var1 which = p_cabrl }
+	
+	if = {
+	    limit = { 
+			NOT = { check_variable = { which = cu_var1 value = 0 } } 
+			owner = {
+				OR = { 
+					religion = confucianism
+					tradition_ideas = 3	
+					HUN_ideas = 7
+					YUA_ideas = 3
+					tag = USA
+					tag = TEX
+				}
+			}
+		}		
+		set_variable = { which = cu_var1 value = 0 }			
+	}
+	else = {
+		if = {
+			limit = { has_building = temple }
+			multiply_variable = { which = cu_var1 value = 1.25 }
+		}
+		else_if = {
+			limit = { has_building = cathedral }
+			multiply_variable = { which = cu_var1 value = 1.5 }
+		}
+	}
+	if = {
+	    limit = { 
+			NOT = { religion = owner } 
+			check_variable = { which = cu_var1 value = 0 }
+		}
+		multiply_variable = { which = cu_var1 value = 0.75 }
+	}
+	if = {
+		limit = { 
+			owner = { 
+				full_idea_group = humanist_ideas
+				NOT = { culture_group = PREV } 
+			} 
+		}
+		multiply_variable = { which = cu_var1 value = 1.33 }
+    }
+	change_variable = { which = p_cab which = cu_var1 }
+	set_variable = { which = p_cabr which = cu_var1 }
+	set_variable = { which = cu_var1 value = 0 }
+	
+	#Governance
+	set_variable = { which = p_cabg value = 0 }
+
+	if = { #Parliament
+	    limit = { has_seat_in_parliament = yes }
+		change_variable = { which = p_cab value = 5 }
+		change_variable = { which = p_cabg value = 5 }
+	}
+	if = {
+	      limit = { owner = { has_reform = tax_policy_1 } }
+		  change_variable = { which = p_cab value = 6 }
+		  change_variable = { which = p_cabg value = 6 }
+	}
+	else_if = {
+	      limit = { owner = { has_reform = tax_policy_2 } }
+		  change_variable = { which = p_cab value = 3 }
+		  change_variable = { which = p_cabg value = 3 }
+	}
+	else_if = {
+	      limit = { owner = { has_reform = tax_policy_4 } }
+		  change_variable = { which = p_cab value = -3 }
+		  change_variable = { which = p_cabg value = -3 }
+	}
+	else_if = {
+	      limit = { owner = { has_reform = tax_policy_5 } }
+		  change_variable = { which = p_cab value = -6 }
+		  change_variable = { which = p_cabg value = -6 }
+	}
+
+	if = {
+	      limit = { has_province_modifier = cu_culture_understanding  }
+		  change_variable = { which = p_cab value = 5 }
+		  change_variable = { which = p_cabg value = 5 }
+	}
+	if = {
+		limit = { has_province_modifier = cu_acknowledge_rule }
+		change_variable = { which = p_cab value = 5 }
+		change_variable = { which = p_cabg value = 5 }
+	}
+	if = {
+		limit = { has_province_modifier = cu_language_education }
+		change_variable = { which = p_cab value = 10 }
+		change_variable = { which = p_cabg value = 10 }
+	}
+	set_variable = { which = p_cabgi value = 0 }
+	change_variable = { which = p_cabgi which = epimg }
+	multiply_variable = { which = p_cabgi value = 0.15 }
+	change_variable = { which = p_cab which = p_cabgi }
+	
+	#Seperatism
+	set_variable = { which = p_cabs value = 0 }
+	export_to_variable = {
+	    which = p_cabs
+		value = nationalism
+	}
+	multiply_variable = { which = p_cabs value = -0.5 }
+	set_variable = { which = p_cabsl value = 0 }
+	change_variable = { which = p_cabsl which = literacy }
+	multiply_variable = { which = p_cabsl value = 0.01 }
+	change_variable = { which = p_cabsl value = 1 }
+	multiply_variable = { which = p_cabs which = p_cabsl }
+	change_variable = { which = p_cab which = p_cabs }
+
+	#Citizen Unhappiness
+	export_to_variable = {
+	      which = cu_var1
+		  value = base_tax
+	}
+	set_variable = { which = citizen_ca which = cu_var1 }
+	export_to_variable = {
+	      which = cu_var1
+		  value = base_production
+	}
+	change_variable = { which = citizen_ca which = cu_var1 }
+	subtract_variable = { which = citizen_ca which = b_uc }
+	set_variable = { which = citizen_ca_mod value = 1 }
+	if = {
+	      limit = { check_variable = { which = cu_theatre value = 1 } }
+		  subtract_variable = { which = citizen_ca_mod value = 0.1 }
+	}
+	if = {
+	      limit = { check_variable = { which = art_level value = 1 } }
+		  set_variable = { which = cu_var1 which = art_level }
+		  multiply_variable = { which = cu_var1 value = 0.05 }
+		  subtract_variable = { which = citizen_ca_mod which = cu_var1 }
+	}
+	
+	#Education
+	if = {
+	      limit = { has_province_modifier = cu_burghers_school }
+		  subtract_variable = { which = citizen_ca_mod value = 0.1 }
+	}
+	else_if = {
+	      limit = { has_province_modifier = cu_public_school }
+		  subtract_variable = { which = citizen_ca_mod value = 0.2 }
+	}
+	if = {
+	      limit = { has_province_modifier = cu_burghers_university }
+		  subtract_variable = { which = citizen_ca_mod value = 0.1 }
+	}
+	else_if = {
+	      limit = { has_province_modifier = cu_public_university }
+		  subtract_variable = { which = citizen_ca_mod value = 0.2 }
+	}
+	
+	multiply_variable = { which = citizen_ca which = citizen_ca_mod }
+	if = {
+	      limit = { check_variable = { which = citizen_ca value = 1 } }
+		  subtract_variable = { which = p_cab which = citizen_ca }
+	}
+	else = {
+	      set_variable = { which = citizen_ca value = 0 }
+	}
+	
+	#Distance Modifier
+	set_variable = { which = p_cabd which = p_dist_tc }
+	multiply_variable { which = p_cabd value = -5 }
+	set_variable = { which = p_cabdm value = 1 }
+	if = {
+	     limit = {
+		      has_province_modifier = connect_to_capital 
+		 }
+		 set_variable = { which = p_cabdm value = 0.6 }
+		 if = {
+		      limit = { owner = { dip_tech = 26 } }
+			  subtract_variable = { which = p_cabdm value = 0.2 }
+		 }
+		 else_if = {
+		      limit = { owner = { dip_tech = 23 } }
+			  subtract_variable = { which = p_cabdm value = 0.17 }
+		 }
+		 else_if = {
+		      limit = { owner = { dip_tech = 19 } }
+			  subtract_variable = { which = p_cabdm value = 0.14 }
+		 }
+		 else_if = {
+		      limit = { owner = { dip_tech = 15 } }
+			  subtract_variable = { which = p_cabdm value = 0.11 }
+		 }
+		 else_if = {
+		      limit = { owner = { dip_tech = 11 } }
+			  subtract_variable = { which = p_cabdm value = 0.08 }
+		 }
+		 else_if = {
+		      limit = { owner = { dip_tech = 6 } }
+			  subtract_variable = { which = p_cabdm value = 0.05 }
+		 }
+	}
+	else_if = {
+	     limit = {
+		      has_province_modifier = connect_to_capital_oversea
+		 }
+		 set_variable = { which = p_cabdm value = 0.7 }
+		 if = {
+		      limit = { owner = { dip_tech = 26 } }
+			  subtract_variable = { which = p_cabdm value = 0.3 }
+		 }
+		 else_if = {
+		      limit = { owner = { dip_tech = 23 } }
+			  subtract_variable = { which = p_cabdm value = 0.25 }
+		 }
+		 else_if = {
+		      limit = { owner = { dip_tech = 19 } }
+			  subtract_variable = { which = p_cabdm value = 0.2 }
+		 }
+		 else_if = {
+		      limit = { owner = { dip_tech = 15 } }
+			  subtract_variable = { which = p_cabdm value = 0.15 }
+		 }
+		 else_if = {
+		      limit = { owner = { dip_tech = 11 } }
+			  subtract_variable = { which = p_cabdm value = 0.1 }
+		 }
+		 else_if = {
+		      limit = { owner = { dip_tech = 6 } }
+			  subtract_variable = { which = p_cabdm value = 0.05 }
+		 }
+	}
+	multiply_variable = { which = p_cabd which = p_cabdm }
+	multiply_variable = { which = p_cabdm value = 100 } #For display
+	change_variable = { which = p_cabd value = 100 }
+	if = {
+	    limit = { NOT = { check_variable = { which = p_cabd value = 0 } } }
+		set_variable = { which = p_cabd value = 0 }
+	}
+	multiply_variable = { which = p_cab which = p_cabd }
+	divide_variable = { which = p_cab value = 100 }
+	
+	if = {
+	     limit = { check_variable = { which = p_cab value = 100 } }
+		 set_variable = { which = p_cab value = 100 }
+	}
+	else_if = {
+	     limit = { NOT = { check_variable = { which = p_cab value = 0 } } }
+		 set_variable = { which = p_cab value = 0 }
+	}
+	
+	#End
+	
+	#Calculate Integrity Growth
+	
+	if = {
+	    limit = { 
+		     has_province_modifier = cu_local_autonomy_administration  #In this case, no growth 
+		}
+		set_variable = { which = p_cayg value = 0 } #growth
+		set_variable = { which = p_caygb value = 0 } #base value
+		set_variable = { which = p_caygd value = 0 } #from difference to cap
+		set_variable = { which = p_caygc value = 0 } #from core creation modifier
+		set_variable = { which = p_cayge value = 0 } #from effects
+		set_variable = { which = p_caygu value = 0 } #from unrest
+	}
+	else = {
+	
+		#Base Value
+	    if = {
+		     limit = {
+			        check_variable = { which = p_ca which = p_cab } 
+			 }
+			 set_variable = { which = p_caygb value = 0 } #base Value if integrity is above the cap
+		}
+		else = {
+			 set_variable = { which = p_caygb value = 0.5 } #base Value if integrity is below the cap
+		}
+		set_variable = { which = p_cayg which = p_caygb }
+		
+	    
+		#From differnence of current integration to max integration
+		set_variable = { which = p_caygd which = p_cab } #from difference to cap
+		subtract_variable = { which = p_caygd which = p_ca }
+		multiply_variable = { which = p_caygd value = 0.02 }
+		set_variable = { which = p_caygdd value = 2 }
+		if = {
+		     limit = {
+			        NOT = { check_variable = { which = p_caygd value = 0 } } 
+			 }
+			 multiply_variable = { which = p_caygd value = 2.5 } #If Integrity is above the cap, decay rate is 5% * difference a year
+			 set_variable = { which = p_caygdd value = 5 }
+		}
+		change_variable = { which = p_cayg which = p_caygd }
+		
+		#Effects
+		set_variable = { which = p_cayge value = 0 }
+		if = {
+			limit = { has_province_modifier = cu_language_education }
+			change_variable = { which = p_cayge value = 1 }
+		}
+		if = {
+			limit = { has_province_modifier = cu_benign_neglect }
+			change_variable = { which = p_cayge value = 0.5 }
+		}
+		else_if = {
+			limit = { has_province_flag = cu_benign_neglect_prov }
+			province_event = { id = urban.63 }
+		}
+		if = {
+			limit = { has_province_modifier = cu_art_festival }
+			change_variable = { which = p_cayge value = 0.5 }
+		}
+		if = { 
+		    limit = { has_state_edict = edict_integration_focus } 
+			change_variable = { which = p_cayge value = 0.5 }	
+		}
+		
+		if = { 
+		    limit = { has_province_modifier = cu_military_integration } 
+			change_variable = { which = p_cayge value = 2 }
+		}
+		else_if = {
+			limit = { has_province_modifier = cu_civilian_integration } 
+			change_variable = { which = p_cayge value = 1 }
+		}
+		
+		change_variable = { which = p_cayg which = p_cayge }
+		
+		#Local Unrest
+		set_variable = { which = p_caygu value = 0 }
+		if = {
+		        limit = { unrest = 0.1 }
+			    export_to_variable = {
+					  which = p_caygu
+					  value = trigger_value:unrest
+				}
+				multiply_variable = { which = p_caygu value = -0.1 }
+				change_variable = { which = p_cayg which = p_caygu }
+		}
+		
+	
+		#Core Creation Modifier
+		set_variable = { which = p_caygc value = 0 }
+		set_variable = { which = cu_var2 value = 0 }
+		export_to_variable = {
+			which = cu_var2
+			value = modifier:core_creation
+			who = owner
+		}
+		export_to_variable = {
+			which = p_caygc
+			value = modifier:local_core_creation
+		}
+		change_variable = {	 which = cu_var2 which = p_caygc }
+		change_variable = { which = cu_var2 value = 1 }
+		if = {
+		      limit = { NOT = { check_variable = { which = cu_var2 value = 0.1 } } }
+			  set_variable = { which = cu_var2 value = 0.1 }
+		}
+		set_variable = { which = p_caygc value = 1 }
+		divide_variable = { which = p_caygc which = cu_var2 }
+		multiply_variable = { which = p_cayg which = p_caygc }
+		multiply_variable = { which = p_caygc value = 100 } #For display
+		
+		
+    }
+    #End
+}
+
+#cu_reset_cultural_acceptance[]: Set dynamic Administrative Integrity and cultural assimilation to 0 and calculate base Administrative Integrity
+cu_reset_cultural_acceptance = {
+    set_variable = { which = p_cad value = 0 }
+	set_variable = { which = p_as value = 0 }
+	set_variable = { which = p_asc value = 0 }
+	set_variable = { which = p_ascm value = 100 }
+	set_variable = { which = p_asg value = 0 }
+	set_variable = { which = p_asgb value = 0 }
+	set_variable = { which = p_asgn value = 0 }
+	set_variable = { which = p_asgl value = 0 }
+	set_variable = { which = p_asgm value = 100 }
+	set_variable = { which = p_asgml value = 0 }
+	set_variable = { which = p_asgmr value = 0 }
+	set_variable = { which = p_asgme value = 0 }
+	cu_calc_base_cultural_acceptance = yes
+}
+
+
+#cu_cultural_acceptance_growth[] - Administrative Integrity Yearly Growth
+cu_calc_cultural_acceptance_growth = {
+	
+	if = {
+	    limit = { 
+		     has_province_modifier = cu_local_autonomy_administration  #In this case, no growth 
+		}
+		set_variable = { which = p_cayg value = 0 } #growth
+		set_variable = { which = p_caygb value = 0 } #base value
+		set_variable = { which = p_caygd value = 0 } #from difference to cap
+		set_variable = { which = p_caygc value = 0 } #from core creation modifier
+		set_variable = { which = p_cayge value = 0 } #from effects
+		set_variable = { which = p_caygu value = 0 } #from unrest
+	}
+	else = {
+	
+		#Base Value
+	    if = {
+		     limit = {
+			        check_variable = { which = p_ca which = p_cab } 
+			 }
+			 set_variable = { which = p_cayg value = 0 } #base Value if integrity is above the cap
+		}
+		else = {
+			 set_variable = { which = p_cayg value = 0.5 } #base Value if integrity is below the cap
+		}
+		
+		#From differnence of current integration to max integration
+		set_variable = { which = p_caygd which = p_cab } #from difference to cap
+		subtract_variable = { which = p_caygd which = p_ca }
+		multiply_variable = { which = p_caygd value = 0.02 }
+		if = {
+		     limit = {
+			        NOT = { check_variable = { which = p_caygd value = 0 } } 
+			 }
+			 multiply_variable = { which = p_caygd value = 2.5 } #If Integrity is above the cap, decay rate is 5% * difference a year
+		}
+		change_variable = { which = p_cayg which = p_caygd }
+		
+		#Effects
+		if = {
+			limit = { has_province_modifier = cu_language_education }
+			change_variable = { which = p_cayg value = 1 }
+		}
+		if = {
+			limit = { has_province_modifier = cu_benign_neglect }
+			change_variable = { which = p_cayg value = 0.5 }
+		}
+		else_if = {
+			limit = { has_province_flag = cu_benign_neglect_prov }
+			province_event = { id = urban.63 }
+		}
+		if = {
+			limit = { has_province_modifier = cu_art_festival }
+			change_variable = { which = p_cayg value = 0.5 }
+		}
+		if = { 
+		    limit = { has_state_edict = edict_integration_focus } 
+			change_variable = { which = p_cayg value = 0.5 }	
+		}
+		
+		if = { 
+		    limit = { has_province_modifier = cu_military_integration } 
+			change_variable = { which = p_cayg value = 2 }
+		}
+		else_if = {
+			limit = { has_province_modifier = cu_civilian_integration } 
+			change_variable = { which = p_cayg value = 1 }
+		}
+		
+		
+		#Local Unrest
+		set_variable = { which = p_caygu value = 0 }
+		if = {
+		    limit = { unrest = 0.1 }
+			export_to_variable = {
+				  which = p_caygu
+				  value = trigger_value:unrest
+			}
+			multiply_variable = { which = p_caygu value = -0.1 }
+		}
+		
+		change_variable = { which = p_cayg which = p_caygu }
+	
+		#Core Creation Modifier
+		set_variable = { which = p_caygc value = 0 }
+		set_variable = { which = cu_var2 value = 0 }
+		export_to_variable = {
+			which = cu_var2
+			value = modifier:core_creation
+			who = owner
+		}
+		export_to_variable = {
+			which = p_caygc
+			value = modifier:local_core_creation
+		}
+		change_variable = {	 which = cu_var2 which = p_caygc }
+		change_variable = { which = cu_var2 value = 1 }
+		if = {
+		      limit = { NOT = { check_variable = { which = cu_var2 value = 0.1 } } }
+			  set_variable = { which = cu_var2 value = 0.1 }
+		}
+		set_variable = { which = p_caygc value = 1 }
+		divide_variable = { which = p_caygc which = cu_var2 }
+		multiply_variable = { which = p_cayg which = p_caygc }
+		
+		
+    }
+    #End
+	
+	#Apply Growth
+	set_variable = { which = cu_var1 which = p_cayg }
+	cu_add_cultural_acceptance = yes
+}				
+
+#cu_check_cultural_assimilation[]
+cu_check_cultural_assimilation = {
+	#Calculate Cost
+	 set_variable = { which = p_asc value = 0 }
+	 export_to_variable = {
+		   which = p_asc
+		   value = development
+	 }
+	 multiply_variable = { which = p_asc value = 3 }
+	 change_variable = { which = p_asc value = 30 }
+	 
+	 #Same Cultural Group cost 50% less
+	 if = {
+		   limit = { owner = { culture_group = ROOT } }
+		   multiply_variable = { which = p_asc value = 0.5 }
+	 }
+
+	 
+	#Estimate Remaining Year 
+	if = {
+		  limit = { NOT = { check_variable = { which = p_asg value = 0.001 } } }
+		  set_variable = { which = p_asy value = 9999 }
+	}
+	else = {
+		  set_variable = { which = p_asy which = p_asc }
+		  subtract_variable = { which = p_asy which = p_as }
+		  divide_variable = { which = p_asy which = p_asg }
+	} 
+	if = {
+		limit = { check_variable = { which = p_as which = p_asc } }
+		set_variable = { which = p_as value = 0 }
+		change_culture = owner
+		
+		#Immigration Finished
+		  if = {
+			 limit = { has_province_modifier = cu_immigration }
+			 remove_province_modifier = cu_immigration
+		  }
+		
+		
+		remove_province_modifier = cu_cultural_assimilation 
+		if = {
+			  limit = { owner = { ai = no } }
+			  province_event = { id = urban.972 } #Inform human player
+		}
+	}
+}
+
+#cu_change_cultural_assimilation[cu_var1]
+cu_change_cultural_assimilation = {
+	if = {
+		limit = {
+			NOT = { check_variable = { which = p_as value = 0 } }
+		}
+		set_variable = { which = p_as value = 0 }
+	}			
+	change_variable = { which = p_as which = cu_var1 }
+	set_variable = { which = cu_var1 value = 0 }
+	cu_check_cultural_assimilation = yes
+}
+
+#cu_cultural_assimilation_growth[]
+#Yearly Growth = ( 1+ neighbor culture bonus(0.5/1) + building bonus ) * ( 100%-| literacy - average country literacy | ) * ( 60% + 8% * religious tolerance )
+#Assimilation Cost = ( 20 + 0.8 * province development ) * ( 100% + assimilation cost modifier ) 
+cu_cultural_assimilation_growth = {
+	if = {
+		limit = {
+			NOT = { check_variable = { which = p_as value = 0 } }
+		}
+		set_variable = { which = p_as value = 0 }
+	}
+	set_variable = { which = p_asg value = 1  }
+
+	if = { #Cultural Assimilation is a lot easier in new world
+		limit = { 
+			OR = {
+				continent = north_america
+				continent = south_america
+				continent = oceania
+				continent = new_world
+			}
+		}
+		change_variable = { which = p_asg value = 1 }       
+	}
+
+	#Neighboring Culture Bonus
+	set_variable = { which = p_asgn value = 0 } 
+
+	if = {
+		limit = {
+			any_neighbor_province = {
+				owned_by = owner
+				OR = {
+				      has_owner_culture = yes
+					  AND = {
+							culture_group = owner
+							OR = {
+							      has_owner_accepted_culture = yes
+								  owner = { government_rank = 3 }
+							}
+					  }
+				}
+			}
+		}
+		if = {
+			limit = { NOT = { culture_group = owner } }
+			change_variable = { which = p_asgn value = 0.5 }
+		}
+	}
+	change_variable = { which = p_asg which = p_asgn }
+
+	#Literacy
+	set_variable = { which = p_asgl which = literacy }
+	divide_variable = { which = p_asgl value = 50 }
+	change_variable = { which = p_asg which = p_asgl }
+
+	#Building
+	set_variable = { which = p_asgb value = 0 }
+	if = {
+		limit = { has_building = university }
+		change_variable = { which = p_asgb value = 0.2 }
+	}
+	if = {
+		limit = { has_building = public_school }
+		change_variable = { which = p_asgb value = 0.3 }
+	}
+	change_variable = { which = p_asg which = p_asgb }
+	set_variable = { which = p_asgd which = p_asg  } #Display only
+	#Modifiers
+	set_variable = { which = p_asgm value = 0.01 }
+
+	#Religious Tolerance
+	set_variable = { which = p_asgmr value = 0 }
+	export_to_variable = {
+		which = p_asgmr
+		value = tolerance_to_this
+	}
+
+	if = {
+		limit = { 
+			NOT = { check_variable = { which = p_asgmr value = 0 } }
+			owner = {
+				OR = { 
+					tradition_ideas = 3
+					has_idea = hungarian_estates_general
+				}
+			}
+		}
+		set_variable = { which = p_asgmr value = 0 }
+	}
+	multiply_variable = { which = p_asgmr value = 8 }
+	change_variable = { which = p_asgmr value = 60 }
+	if = {
+		limit = { NOT = { religion = owner } }
+		change_variable = { which = p_asgmr value = -10 }
+		if = {
+			limit = { NOT = { religion_group = owner } }
+			change_variable = { which = p_asgmr value = -10 }
+		}
+	}
+	change_variable = { which = p_asgm which = p_asgmr }
+
+	#Ideas#Effects
+	set_variable = { which = p_asgme value = 0 }
+	export_to_variable = {
+		which = p_asgme
+		value = modifier:harmonization_speed
+		who = owner
+	}
+	multiply_variable = { which = p_asgme value = 100 }
+	if = {
+	       limit = { has_province_modifier = cu_language_education }
+	       change_variable = { which = p_asgme value = 40 }	   
+	}
+	change_variable = { which = p_asgm which = p_asgme }
+
+	#Literacy Difference
+	set_variable = { which = p_asgml which = literacy }
+	set_variable = { which = ave_literacy which = owner }
+	subtract_variable = { which = p_asgml which = ave_literacy }
+	if = { #ABS
+		limit = { check_variable = { which = p_asgml value = 0 } }
+		multiply_variable = { which = p_asgml value = -1 }
+	}
+	multiply_variable = { which = p_asgml value = 2 }
+	change_variable = { which = p_asgml value = 100 }
+	if = {
+	      limit = { NOT = { check_variable = { which = p_asgml value = 1 } } }
+		  set_variable = { which = p_asgml value = 1 }
+	}
+	multiply_variable = { which = p_asgm which = p_asgml }
+	divide_variable = { which = p_asgm value = 100 }
+	#Calculate Growth
+	multiply_variable = { which = p_asg which = p_asgm }
+	divide_variable = { which = p_asg value = 100 }
+    if = {
+	      limit = { NOT = { check_variable = { which = p_asg value = 0 } } }
+		  set_variable = { which = p_asg value = 0 }
+	}
+	
+	#Multiplied by Administrative Integration( 70% AI - 20% speed, 100% AI -100%speed )
+	set_variable = { which = p_asgai which = p_ca }
+	change_variable = { which = p_asgai value = -62.5 }
+	multiply_variable = { which = p_asgai value = 2.66 }
+	multiply_variable = { which = p_asg which = p_asgai }
+	divide_variable = { which = p_asg value = 100 }
+	
+	#Apply Growth
+    if = {
+		limit = { has_province_flag = cu_display_mode }
+		clr_province_flag = cu_display_mode
+	}
+    else = {
+	    if = { #AI calculation is conducted every 5 years.
+            limit = { owner = { ai = yes } }
+			multiply_variable = { which = p_asg value = 5 }
+	    }	
+	    change_variable = { which = p_as which = p_asg }
+	    if = { #Show normal value.
+			limit = { owner = { ai = yes } }
+			divide_variable = { which = p_asg value = 5 }
+	    }
+	}	
+
+	cu_check_cultural_assimilation = yes			 
+}
+
+cu_do_immigration = {
+        owner = {
+	         random_owned_province = {
+			         limit = {
+					       has_owner_culture = yes
+						   base_manpower = 2
+						   check_variable = { which = food_sur value = 6 }
+						   OR = {
+					                    cu_not_terr_trigger = yes
+							            is_overseas = no
+					        }
+					 }
+					 add_base_manpower = -1
+					 owner = { set_variable = { which = cu_var1 value = 100 } }
+					 #Estimate food surplus
+					set_variable = { which = food_sup value = 0 }
+					set_variable = { which = food_con value = 0 }
+					
+					export_to_variable = {
+					        which = food_sup
+							value = base_manpower
+					}
+					multiply_variable = { which = food_sup value = 4 }
+					set_variable = { which = food_sur which = food_sup }
+					export_to_variable = {
+					        which = food_con
+							value = development
+					}
+					subtract_variable = { which = food_sur which = food_con	}
+					
+			 }
+			 if = {
+			       limit = { PREV = { has_state_edict = edict_resettlement_focus } }
+				   
+				   random_owned_province = {
+						 limit = {
+							   has_owner_culture = yes
+							   base_manpower = 2
+							   check_variable = { which = food_sur value = 6 }
+							   OR = {
+											cu_not_terr_trigger = yes
+											is_overseas = no
+								}
+						 }
+						 add_base_manpower = -1
+						 owner = { change_variable = { which = cu_var1 value = 100 } }
+						 #Estimate food surplus
+						set_variable = { which = food_sup value = 0 }
+						set_variable = { which = food_con value = 0 }
+						
+						export_to_variable = {
+								which = food_sup
+								value = base_manpower
+						}
+						multiply_variable = { which = food_sup value = 4 }
+						set_variable = { which = food_sur which = food_sup }
+						export_to_variable = {
+								which = food_con
+								value = development
+						}
+						subtract_variable = { which = food_sur which = food_con	}
+						
+				 }
+				   
+			 }
+	    }
+		if = {
+	          limit = { owner = { check_variable = { which = cu_var1 value = 200 } } }
+			  set_variable = { which = cu_var1 value = 200 }
+			  owner = { set_variable = { which = cu_var1 value = 0 } }
+			  set_variable = { which = p_dev value = 0 }
+	          export_to_variable = {
+	               which = p_dev
+			       value = development
+	          }
+	          
+	          divide_variable = { which = cu_var1 which = p_dev }	 
+	          add_base_manpower = 2
+			  add_unrest = 4
+	          cu_change_cultural_assimilation = yes
+	    }
+	    else_if = {
+	          limit = { owner = { check_variable = { which = cu_var1 value = 100 } } }
+			  set_variable = { which = cu_var1 value = 100 }
+			  owner = { set_variable = { which = cu_var1 value = 0 } }
+			  set_variable = { which = p_dev value = 0 }
+	          export_to_variable = {
+	               which = p_dev
+			       value = development
+	          }
+	          
+	          divide_variable = { which = cu_var1 which = p_dev }	 
+	          add_base_manpower = 1
+			  add_unrest = 3
+	          cu_change_cultural_assimilation = yes
+	    }
+	    else = { #No eligible provinces
+	          owner = { set_variable = { which = cu_var1 value = 0 } }
+			  #remove_province_modifier = cu_immigration
+			  cu_check_cultural_assimilation = yes #Check if cultural assimilation is already complete.
+	    }
+	   
+}

@@ -1,0 +1,204 @@
+
+taoism_cult = { 
+	sprite = 1
+	allow  = {
+		OR = {
+          has_unlocked_cult = taoism_cult
+          religion = bogomilist
+	       }
+	       }
+	tolerance_own = 0.5
+	global_missionary_strength = 0.005
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			personality = ai_diplomat
+			factor = 2
+		}
+	}
+}
+
+ native_cult = {  
+	sprite = 2	
+	allow  = {
+		OR = {
+          has_unlocked_cult = native_cult
+          religion = bogomilist
+	       }
+	}
+	discipline = 0.05
+	core_creation = -0.05
+		ai_will_do = {
+		factor = 10
+		modifier = {
+			personality = ai_balanced
+			factor = 2
+		}
+	}
+}
+
+ confucianism_cult = { 
+	sprite = 5
+	allow  = {
+		OR = {
+          has_unlocked_cult =  confucianism_cult
+          religion = bogomilist
+	       }
+	}
+	global_institution_spread = 0.1
+	adm_tech_cost_modifier = -0.05
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			personality = ai_militarist
+			factor = 2
+		}
+	}
+}
+
+inti_cult = {	
+	allow = {		
+          has_unlocked_cult = inti_cult 
+	}
+	sprite = 9
+  manpower_recovery_speed = 0.1
+  global_autonomy = -0.03
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			personality = ai_militarist
+			factor = 2
+		}
+	}
+}
+
+christianity_cult = {
+	sprite = 10
+	allow  = {
+		has_unlocked_cult = christianity_cult
+	}
+	diplomatic_reputation = 1
+	improve_relation_modifier = 0.15	
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			personality = ai_capitalist
+			factor = 2
+		}
+	}
+}
+
+islam_cult = {
+	sprite = 11
+	allow  = {
+		has_unlocked_cult = islam_cult
+	}
+	global_trade_power = 0.15
+	caravan_power = 0.15	
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			personality = ai_balanced
+			factor = 2
+		}
+	}
+}
+
+buddhism_cult = {
+	sprite = 13
+	allow  = {		
+		OR = {
+          has_unlocked_cult = buddhism_cult
+          religion = bogomilist
+	       }
+	}
+	global_unrest = -1
+	development_cost = -0.05
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			personality = ai_balanced
+			factor = 2
+		}
+	}
+}
+
+dharmic_cult = {
+	sprite = 12
+	allow  = {
+		has_unlocked_cult = dharmic_cult
+	}
+	production_efficiency = 0.1
+	global_trade_goods_size_modifier = 0.05	
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			personality = ai_capitalist
+			factor = 2
+		}
+	}
+}
+
+south_central_american_cult = {
+	sprite = 17
+	allow  = {
+		has_unlocked_cult = south_central_american_cult
+	}
+	infantry_power = 0.1
+	war_exhaustion = -0.03
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			personality = ai_militarist
+			factor = 2
+		}
+	}
+}
+
+norse_cult = {
+	sprite = 15
+	allow  = {
+		has_unlocked_cult = norse_cult
+	}
+	land_forcelimit_modifier = 0.1
+	naval_forcelimit_modifier = 0.1
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			personality = ai_capitalist
+			factor = 2
+		}
+	}
+}
+
+jewish_cult = {
+	sprite = 14
+	allow = {
+		has_unlocked_cult = jewish_cult
+	}
+	advisor_pool = 1
+	advisor_cost = -0.1
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			personality = ai_capitalist
+			factor = 2
+		}
+	}
+}
+
+zoroastrian_cult = {
+	sprite = 16
+	allow = {
+		has_unlocked_cult = zoroastrian_cult
+	}
+	merchants = 1
+	trade_efficiency = 0.1
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			personality = ai_capitalist
+			factor = 2
+		}
+	}
+}

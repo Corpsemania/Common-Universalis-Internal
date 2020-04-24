@@ -1,0 +1,33 @@
+# 8502 - Sliven
+
+owner = BUL
+controller = BUL
+add_core = BUL
+capital = "Sliven"
+trade_goods = grain
+culture = bulgarian
+religion = orthodox
+hre = no
+base_tax = 1
+base_production = 1
+base_manpower = 4
+is_city = yes
+discovered_by = eastern
+discovered_by = western
+discovered_by = muslim
+discovered_by = ottoman
+
+1375.1.1 = {
+	owner = TUR
+	controller = TUR
+	add_core = TUR
+}
+
+1481.6.1 = { unrest = 6 } # Civil war, Bayezid & Jem
+1482.7.26 = { unrest = 0 } # Jem escapes to Rhodes
+1555.1.1 = { unrest = 5 } # General discontent with the Janissaries' dominance
+1556.1.1 = { unrest = 0 }
+1688.1.1 = { unrest = 6 } # Rebellion against Ottoman rule, centered on Chiprovtzi
+1689.1.1 = { unrest = 0 } # Brutally suppressed by Janissaries
+1793.1.1 = { unrest = 5 } # Pasvanoglu Rebellion, centered at Vidin
+1798.1.1 = { unrest = 0 }

@@ -1,0 +1,38 @@
+#63 - Erfurt
+
+owner = SAX
+controller = SAX 
+culture = saxon
+religion = catholic
+capital = "Erfurt"
+trade_goods = dyes #Woad
+hre = yes
+base_tax = 3 
+base_production = 3
+base_manpower = 1
+is_city = yes
+estate = estate_nobles
+add_core = SAX
+add_core = THU
+discovered_by = eastern
+discovered_by = western
+discovered_by = muslim
+discovered_by = ottoman
+fort_15th = yes
+university = yes
+
+1445.9.10 = { owner = THU controller = THU }
+1531.1.1 = { religion = protestant }
+1554.3.3 = { capital = "Weimar" }
+1665.1.1 = {
+	fort_15th = no
+	fort_17th = yes
+}
+1790.8.1 = { unrest = 5 } # Peasant revolt
+1791.1.1 = { unrest = 0 }
+1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+1815.6.9 = {
+	owner = PRU
+	controller = PRU
+	add_core = PRU
+} # Congress of Vienna

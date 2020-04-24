@@ -1,0 +1,17 @@
+#4028 - Mahafaly
+
+
+culture = madagasque
+religion = shamanism #Fetishism
+capital = "Mahafaly"
+
+hre = no
+base_tax = 2 
+base_production = 2
+base_manpower = 2
+native_size = 40
+native_ferocity = 4
+native_hostileness = 9
+discovered_by = east_african
+
+1500.8.20 = { discovered_by = POR } #Diego Dias

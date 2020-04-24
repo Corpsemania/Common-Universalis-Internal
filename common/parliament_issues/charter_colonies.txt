@@ -1,0 +1,34 @@
+charter_colonies = {
+
+	category = 2
+
+	allow = {
+		OR = {
+			full_idea_group = expansion_ideas
+			full_idea_group = exploration_ideas
+            full_idea_group = maritime_ideas
+		}
+		
+	}
+	
+	effect = {
+		#
+	}
+	
+	modifier = {
+		colonists = 1
+	}
+	
+	chance = {
+		factor = 2
+		modifier = {
+			factor = 2
+			NOT = { num_of_colonies = 10 }
+		}
+	}
+
+
+	ai_will_do = {
+		factor = 1
+	}	
+}

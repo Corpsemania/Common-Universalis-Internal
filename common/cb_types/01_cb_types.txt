@@ -1,0 +1,237 @@
+# War of Brothers
+cb_brothers_war = {
+	
+	prerequisites = {
+		primary_culture = FROM
+                government_rank = 2
+		is_neighbor_of = FROM
+                is_subject = no
+                FROM = { 
+                       is_subject = no   
+                       NOT = { government_rank = 3 }
+                }
+                OR = {   #Disabled between HRE members
+                           is_part_of_hre = no
+                           FROM = { is_part_of_hre = no }
+                }
+	}
+	
+	war_goal = take_province_brother
+}
+
+# War of Union Subjugation
+cb_union_subjugation = {
+	
+	prerequisites = {
+		influence_ideas = 6
+		is_neighbor_of = FROM
+		is_subject = no
+		FROM = { is_subject = no }
+		NOT = {
+			truce_with = FROM
+			alliance_with = FROM
+			FROM = { total_development = 300 }
+		}
+	}
+	
+	war_goal = take_capital_vassalize
+	
+}
+
+# Place in the sun
+cb_place_in_the_sun = {
+	
+	prerequisites = {
+		has_country_modifier = place_in_the_sun
+                is_subject = no
+                technology_group = western
+                FROM = { 
+                       #technology_group = western
+                       OR = { 
+                            any_owned_province = {
+                                 is_overseas = yes
+                            }
+                            is_colonial_nation = yes 
+                       }
+                }
+	}
+	
+	war_goal = take_province_ps
+}
+
+# Gunpowder Diplomacy
+cb_gunpowder_diplomacy = {
+	
+	prerequisites = {
+				has_country_flag = cu_gunpowder_diplomacy_flag
+				num_of_total_ports = 50
+				#num_of_heavy_ship = 50
+				full_idea_group = naval_ideas
+                is_subject = no
+                FROM = { 
+						NOT = { navy_size = 30 }
+						NOT = { dip_tech = ROOT }
+                        any_owned_province = {
+                            has_port = yes
+							range = ROOT
+                        }
+                }
+	}
+	
+	war_goal = take_province_gunpowder_diplomacy
+}
+
+#Civilized vs Horde
+cb_civ_vs_horde = {
+	is_triggered_only = yes
+	
+	months = 24
+	
+	war_goal = superiority_horde
+}
+
+
+# Hundred Years War
+cb_hyw = {
+       ai_peace_desire = -20
+	is_triggered_only = yes
+	months = 24
+	war_goal = wargoal_hyw
+}
+
+# Hundred Years War(Burgundy Assistance)
+cb_hyw_bur = {
+       ai_peace_desire = -20
+	is_triggered_only = yes
+	months = 1
+	war_goal = wargoal_hyw_bur
+}
+
+# Sunset Invasion CB
+cb_sunset_invasion = {
+	
+	prerequisites = {
+		has_global_flag = sunset_invasion
+                is_subject = no
+                technology_group = high_american
+                FROM = { 
+                       NOT = { technology_group = high_american }
+                       any_owned_province = {
+                               NOT = { continent = north_america }
+                               NOT = { continent = south_america }
+                       }
+                }
+	}
+	
+	war_goal = superiority_sunset
+}
+
+
+# Sunset Invasion CB( European Revenge )
+cb_sunset_invasion_eu = {
+	
+	prerequisites = {
+		has_global_flag = sunset_invasion
+                OR = {
+                       has_global_flag = sunset_invasion_3
+                       has_global_flag = sunset_invasion_30
+                }
+                is_subject = no
+                #technology_group = western
+                capital_scope = {
+                       continent = europe
+                }
+                FROM = { 
+                       technology_group = high_american
+                       OR = {
+                             NOT = {
+                                 any_owned_province = {
+                                     continent = europe
+                                 }
+                             }
+                             is_year = 1520
+                       }
+                       any_owned_province = {
+                                    OR = {
+                                            continent = north_america
+                                            continent = south_america
+                                    }
+                                    has_discovered = ROOT
+                                    range = ROOT
+                       }
+                       OR = {
+                              tag = AZE
+                              tag = ICE
+                       }
+                }
+	}
+	
+	war_goal = superiority_sunset_eu
+}
+
+# The Chosen Path
+cb_the_chosen_path = {
+	
+	valid_for_subject = no
+
+	prerequisites = {
+					full_idea_group = reform_ideas
+					institution_difference = { who = FROM value = 1 }
+					OR = {
+								AND = {
+                                         FROM = { capital_scope = { continent = asia } }
+                                         ROOT = { capital_scope = { continent = asia } }
+                                }
+								AND = {
+                                         FROM = { capital_scope = { continent = europe } }
+                                         ROOT = { capital_scope = { continent = europe } }
+                                }
+                                AND = {
+                                         FROM = { capital_scope = { continent = africa } }
+                                         ROOT = { capital_scope = { continent = africa } }
+                                }
+                                AND = {
+                                         FROM = { capital_scope = { continent = north_america } }
+                                         ROOT = { capital_scope = { continent = north_america } }
+                                }
+                                AND = {
+                                         FROM = { capital_scope = { continent = south_america } }
+                                         ROOT = { capital_scope = { continent = south_america } }
+                                }
+                                AND = {
+                                         FROM = { capital_scope = { continent = oceania } }
+                                         ROOT = { capital_scope = { continent = oceania } }
+                                }
+								is_neighbor_of = FROM
+					}
+		FROM = { is_subject = no }
+		is_subject = no
+		is_revolution_target = no
+	}
+	
+	war_goal = take_province_the_chosen_path
+}
+
+cb_circle_of_destiny = {
+	valid_for_subject = no
+
+	prerequisites = {
+		full_idea_group = tradition_ideas
+                OR = {
+			FROM = { overextension_percentage = 0.01 }
+			ROOT = {
+                                        has_opinion_modifier = {
+			                        modifier = aggressive_expansion
+			                        who = FROM
+		                        }
+			}
+		}
+		FROM = { 
+			is_subject = no
+		}
+		is_subject = no
+		is_revolution_target = no
+	}
+	
+	war_goal = superiority_circle_of_destiny
+}

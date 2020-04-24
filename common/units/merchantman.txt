@@ -1,0 +1,10 @@
+#Merchantman
+type = transport
+
+hull_size = 17
+base_cannons = 4
+sail_speed = 6
+
+trade_power = 4.5
+
+sprite_level = 4

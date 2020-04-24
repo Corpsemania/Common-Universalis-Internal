@@ -1,0 +1,57 @@
+education_policy_nobles = {
+     
+}
+
+education_policy_church = {
+     
+}
+
+education_policy_burghers = {
+     state_maintenance_modifier = 0.15
+     
+}
+
+education_policy_public = {
+     state_maintenance_modifier = 0.3
+     
+}
+
+cu_church_school = {
+     local_tax_modifier = -0.15
+}
+
+cu_church_school_2 = {
+     local_tax_modifier = -0.15
+}
+
+cu_burghers_school = {
+     global_tax_income = -1.5
+	 local_institution_spread = 0.1
+}
+
+cu_burghers_university = {
+     global_tax_income = -6
+	 local_institution_spread = 0.15
+}
+
+cu_public_school = {
+     global_tax_income = -3
+	 local_institution_spread = 0.2
+}
+
+cu_public_university = {
+     global_tax_income = -12
+	 local_institution_spread = 0.3
+}
+
+cu_national_college = {
+     technology_cost = -0.05
+	 idea_cost = -0.05
+     global_tax_income = -24
+}
+
+cu_national_research_institute = {
+     technology_cost = -0.1
+     global_tax_income = -72
+	 advisor_cost = 0.05
+}

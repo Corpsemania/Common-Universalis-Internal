@@ -1,0 +1,22 @@
+cu_the_chapel_of_the_tablet = {
+    potential = {
+	}
+	
+	trigger = {		
+			owner = { religion = coptic	}	
+	}
+    picture = "cu_the_chapel_of_the_tablet"
+	tolerance_own = 1  #This looks ridiculous, but it does take effect....... 
+}
+
+ise_grand_shrine = {
+    potential = {		
+	}
+	
+	trigger = {		
+			owner = { religion = shinto	}	
+	}		    
+	tolerance_own = 0.5
+	legitimacy = 0.5
+}
+

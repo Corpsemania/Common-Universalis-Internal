@@ -1,0 +1,38 @@
+###########################################
+# Flavor Events for Byzantine Missions
+#
+# Scripted by Henrik Lohmander
+###########################################
+
+namespace = flavor_byz
+normal_or_historical_nations = yes
+
+#Sack of Venice
+country_event = {
+	id = flavor_byz.1
+	title = flavor_byz.1.t
+	desc = flavor_byz.1.d
+	picture = WOUNDED_SOLDIERS_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_byz.1.a
+		112 = {
+			add_loot_from_rich_province_general_effect = {
+				LOOTER = owner #BYZ
+			}
+			add_province_modifier = {
+				name = "chastening_of_venice"
+				duration = 7300
+			}
+		}
+		capital_scope = {
+			add_province_modifier = {
+				name = "byzantine_treasures_returned"
+				duration = 7300
+			}
+		}
+	}
+
+}

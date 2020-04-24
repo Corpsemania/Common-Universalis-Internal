@@ -1,0 +1,329 @@
+country_decisions = {
+
+	make_st_petersburg_capital = {
+		potential = {
+			tag = RUS
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			owns = 33
+			NOT = { capital = 33 }
+			NOT = { has_country_flag = relocated_capital_st_petersburg }
+		}
+		allow = {
+			is_core = 33
+			is_at_war = no
+			dip = 5
+			capital_scope = {
+			    base_tax = 3
+				base_production = 3
+				base_manpower = 4
+			}
+			any_province = {
+			        is_capital = no
+					base_tax = 4
+				    base_production = 4
+				    base_manpower = 7
+					NOT = { province_id = 33 }
+			}
+		}
+		effect = {
+			set_country_flag = relocated_capital_st_petersburg
+			add_years_of_income = -1
+			add_adm_power = -100
+			add_prestige = 10
+			add_dip_power = 100
+			random_province = {
+			        limit = { 
+					        is_capital = yes
+					        owned_by = ROOT 
+					}
+					add_base_tax = -1
+				    add_base_production = -1
+				    add_base_manpower = -2
+			}
+			random_province = {
+			        limit = { 
+					           is_capital = no
+					           owned_by = ROOT
+							   culture = owner
+							   base_tax = 4
+				               base_production = 4
+				               base_manpower = 7
+							   NOT = { province_id = 33 }
+					}
+					add_base_tax = -1
+				    add_base_production = -1
+				    add_base_manpower = -3
+			}
+			set_capital = 33
+			hidden_effect = { cu_calc_country_absolute_dist = yes }
+			33 = {
+				change_province_name = "St. Petersburg"
+				rename_capital = "St. Petersburg"
+			 	add_base_tax = 2
+				add_base_production = 2
+			 	add_base_manpower = 5
+				change_culture = owner
+				hidden_effect = {
+				change_variable = { which = b_uc value = 4 }
+        change_variable = { which = b_ac value = 5 }
+        change_trade_goods = fish
+        }
+				add_province_modifier = {
+				       name = russian_western_door
+					   duration = -1
+				}
+			 }
+			 
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 1.25 }
+			}
+		}
+	}
+	
+	
+	
+	russian_education_reform = {
+		potential = {
+			tag = RUS
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = russian_education_reform }
+			NOT = { check_variable = { which = ave_literacy value = 10 }  }
+			culture_group = russian
+		}
+		allow = {
+			is_at_war = no
+			custom_trigger_tooltip = {
+				tooltip = tooltip_ave_literacy_5
+				check_variable = { which = ave_literacy value = 5 }
+			}
+			OR = {
+			      adm_tech = 15
+			      dip_tech = 15
+			      full_idea_group = innovativeness_ideas	  
+			}
+			adm_power = 150
+			dip_power = 150
+			treasury = 150
+			
+		}
+		effect = {
+		    set_country_flag = russian_education_reform
+		    add_adm_power = -150
+			add_dip_power = -150
+			add_treasury = -150
+			custom_tooltip = russian_education_reform_tt
+			hidden_effect = {
+			    every_owned_province = {
+                    limit = {
+					    is_core = RUS
+					    culture_group = east_slavic
+					}
+					add_province_modifier = {
+					       name = russian_education_reform
+						   duration = 10950
+					}
+                }
+            }			
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	form_siberia_governor = {
+	potential = {
+			 capital_scope = { continent = europe }
+			 num_of_owned_provinces_with = {
+			          value = 5                                  
+			          colonial_region = colonial_west_siberia
+			}
+			NOT = { WSG = { is_subject_of = ROOT } }
+			NOT = { has_country_flag = control_of_siberia }			
+		}
+		allow = {
+		         OR = {
+		               AND = {
+		                      OR = {
+		                            tag = RUS
+		                            tag = GLH
+		                            }
+		                       num_of_owned_provinces_with = {
+			                                                    value = 5                                  
+			                                               AND = {
+                                                                colonial_region = colonial_west_siberia
+																is_city = yes                      
+                                                                 }
+		                                            	}
+		               }
+		               AND = {
+		               government_rank = 3
+		               num_of_owned_provinces_with = {
+			                                                    value = 7                                 
+			                                              AND = {
+                                                                colonial_region = colonial_west_siberia
+																is_city = yes                      
+                                                                 }
+		                                            	}
+		               }
+		               }
+		}
+		effect = {
+		          every_province = {
+				      limit = {
+				               AND = {
+				               colonial_region = colonial_west_siberia
+                             owned_by = ROOT
+                             } }
+                             add_core = WSG
+                             remove_core = ROOT
+                             }
+                         release = WSG
+                         create_subject = {
+			                                    subject_type = colony
+			                                    subject = WSG
+			                                    }
+			                   WSG = { 
+                                change_primary_culture = ROOT 
+                                change_religion = ROOT
+                                add_government_reform = becomes_republic_reform
+                                add_government_reform = colonial_government
+                               }
+                        
+                             
+		}
+		ai_will_do = {
+			factor = 1
+		}
+}
+    separate_siberia_governor = {
+    potential = {
+			 capital_scope = { continent = europe }
+			 WSG = { is_subject_of = ROOT }	
+			 NOT = { ESG = { is_subject_of = ROOT } }
+			 normal_or_historical_nations = yes		 
+			}
+			allow = {
+			OR = {
+			          num_of_owned_provinces_with = {
+			                value = 5 
+                      AND = {
+                                   colonial_region = colonial_east_siberia
+								   is_city = yes
+									}                       
+			                }
+			          WSG = { 
+			                num_of_owned_provinces_with = {
+			                value = 5 
+                      AND = {
+                                   colonial_region = colonial_east_siberia
+								   is_city = yes
+									}                       
+			                }  }    
+			                         }
+			                         }
+			effect = {
+			every_province = {
+				      limit = {
+				               AND = {
+                             colonial_region = colonial_east_siberia                          
+                             owned_by = WSG
+                             } } 
+                             add_core = ESG 
+                             remove_core = WSG
+                             cede_province = ROOT
+                             }
+      every_province = {
+				      limit = {
+				               AND = {
+                             colonial_region = colonial_east_siberia                          
+                             owned_by = ROOT
+                             } } 
+                             add_core = ESG 
+                             remove_core = ROOT                             
+                             } 
+                             release = ESG 
+                             create_subject = {
+			                                    subject_type = colony
+			                                    subject = ESG
+			                                    }                        
+			                   ESG = { 
+                                change_primary_culture = ROOT 
+                                change_religion = ROOT
+                                add_government_reform = becomes_republic_reform
+                                add_government_reform = colonial_government 
+                               }
+                        
+                             
+		}
+		ai_will_do = {
+			factor = 1
+		}        
+
+}
+
+    abolish_siberia_governor = {
+    potential = {
+			 capital_scope = { continent = europe }
+			 WSG = { is_subject_of = ROOT }	
+			 ESG = { is_subject_of = ROOT } 
+			 normal_or_historical_nations = yes
+			 NOT = { has_country_flag = control_of_siberia }		 
+			}
+			allow = {
+			east_siberia_region = {
+				type = all
+				country_or_subject_holds = ROOT
+			}
+			 west_siberia_region= {
+			  type = all
+				country_or_subject_holds = ROOT
+			}
+			ural_area = {
+			 type = all
+				country_or_subject_holds = ROOT  
+			}
+			}
+			effect = {
+			 set_country_flag = control_of_siberia
+			 hidden_effect = {
+			 create_subject = {
+			                                    subject_type = vassal
+			                                    subject = WSG
+			                                    }
+			 create_subject = {
+			                                    subject_type = vassal
+			                                    subject = ESG
+			                                    }                                   
+			}
+			every_province = {
+				      limit = {
+				               AND = {
+				               OR = {
+                             region = west_siberia_region
+                             region = east_siberia_region
+                             area = ural_area                      
+                             }
+                       OR = { 
+                             owned_by = WSG
+                             owned_by = ESG
+                             } } }
+                             add_core = ROOT
+                             cede_province = ROOT
+                             remove_core = WSG
+                             remove_core = ESG
+                             }
+			}
+			ai_will_do = {
+			factor = 0
+		}
+}
+}
+

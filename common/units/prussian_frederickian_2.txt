@@ -1,0 +1,18 @@
+# Prussian Frederickian
+
+type = infantry
+unit_type = western
+trigger = { 
+	OR = { 
+               tag = BRA
+               tag = PRU
+               tag = GER
+        }
+}
+maneuver = 1
+offensive_morale = 3
+defensive_morale = 3
+offensive_fire = 4
+defensive_fire = 4
+offensive_shock = 3
+defensive_shock = 3

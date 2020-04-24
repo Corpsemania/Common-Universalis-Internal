@@ -1,0 +1,5 @@
+capital_art_slot = {
+      capital_scope = { 
+         check_variable = { which = cu_art_slot value = 1 }
+       }
+}

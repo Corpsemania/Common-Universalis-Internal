@@ -1,0 +1,1927 @@
+namespace = tulip
+###Mainly for AI
+###Currency Policy 
+country_event = {
+        id = tulip.0
+	title = "tulip.1.t"
+	desc = "tulip.1.d"
+	picture = ECONOMY_eventPicture
+	
+	is_triggered_only = yes 
+	option = {
+		   name = "tulip.1.a" #+0.10 Inflation
+                  add_government_reform = economic_policy_1
+                   hidden_effect = { country_event = { id = tulip.1 } }
+                   ai_chance = {
+                            factor = 0.4
+                            modifier = {
+                                   factor = 0.75
+                                   inflation = 5
+                            }
+                            modifier = {
+                                   factor = 0.5
+                                   inflation = 10
+                            }
+                            modifier = {
+                                   factor = 0
+                                   inflation = 20
+                            }
+                   }
+	}
+	
+	option = {
+		   name = "tulip.1.b" #+0.05 Inflation
+		           add_government_reform = economic_policy_2
+                   hidden_effect = { country_event = { id = tulip.1 } }
+                   ai_chance = {
+                            factor = 0.4
+                            modifier = {
+                                   factor = 0.75
+                                   inflation = 5
+                            }
+                            modifier = {
+                                   factor = 0.5
+                                   inflation = 10
+                            }
+                            modifier = {
+                                   factor = 0
+                                   inflation = 20
+                            }
+                   }
+	}
+	
+	option = {
+		   name = "tulip.1.c" #Keep economy stable.
+                   add_government_reform = economic_policy_3
+                   hidden_effect = { country_event = { id = tulip.1 } }
+                   ai_chance = {
+                            factor = 0.4
+                   }
+	}
+
+    option = {
+		   name = "tulip.1.d1" #-0.05 Inflation
+		           add_government_reform = economic_policy_4
+                   hidden_effect = { country_event = { id = tulip.1 } }
+                   ai_chance = {
+                            factor = 0.2
+                            modifier = {
+                                   factor = 0
+                                   NOT = { inflation = 1 }
+                            }
+                            modifier = {
+                                   factor = 2
+                                   inflation = 5
+                            }
+                   }
+	}
+	
+	option = {
+		   name = "tulip.1.e" #-0.10 Inflation
+		           add_government_reform = economic_policy_5
+                   hidden_effect = { country_event = { id = tulip.1 } }
+                   ai_chance = {
+                            factor = 0.2
+                            modifier = {
+                                   factor = 0
+                                   NOT = { inflation = 1 }
+                            }
+                            modifier = {
+                                   factor = 2
+                                   inflation = 5
+                            }
+                   }
+	}
+
+        
+}
+
+###Taxation Policy 
+country_event = {
+    id = tulip.1
+	title = "tulip.2.t"
+	desc = "tulip.2.d"
+	picture = ECONOMY_eventPicture
+	
+	is_triggered_only = yes
+    immediate = {
+	        hidden_effect = {
+			       if = { #If the country has no taxation policy ( due to bugs ), reset to level 3
+				         limit = {
+						          NOT = { has_reform = tax_policy_1 }
+								  NOT = { has_reform = tax_policy_2 }
+								  NOT = { has_reform = tax_policy_3 }
+								  NOT = { has_reform = tax_policy_4 }
+								  NOT = { has_reform = tax_policy_5 }
+						 }
+						 add_government_reform = tax_policy_3
+				   }
+			}
+    }
+	option = {
+		   name = "tulip.2.a" #Higher Tax Rate
+		           trigger = {
+				           NOT = { has_reform = tax_policy_5 }
+						   stability = 0
+				   }
+				   if = {  
+				          limit = {
+						           has_reform = tax_policy_1
+						  }
+						  add_government_reform = tax_policy_2
+				   }
+                   else_if = {  
+				          limit = {
+						           has_reform = tax_policy_2
+						  }
+						  add_government_reform = tax_policy_3
+				   }
+				   else_if = {  
+				          limit = {
+						           has_reform = tax_policy_3
+						  }
+						  add_government_reform = tax_policy_4
+				   }
+				   else_if = {  
+				          limit = {
+						           has_reform = tax_policy_4
+						  }
+						  add_government_reform = tax_policy_5
+				   }
+				   hidden_effect = {
+						country_event = { id = tulip.2 }
+				   }
+                   ai_chance = {
+                            factor = 0.25
+							modifier = {
+                                   factor = 1.25
+                                   num_of_loans = 1
+                            }
+							modifier = {
+                                   factor = 1.75
+                                   num_of_loans = 3
+                            }
+							modifier = {
+                                   factor = 2.5
+                                   num_of_loans = 5
+                            }
+                            modifier = {
+                                   factor = 0.5
+                                   unrest = 2
+                            }
+                            modifier = {
+                                   factor = 0.25
+                                   unrest = 4
+                            }
+							modifier = {
+                                   factor = 0.5
+                                   NOT = { stability = 1 }
+                            }
+							modifier = {
+                                   factor = 0.5
+                                   NOT = { stability = 0 }
+                            }
+							modifier = {
+                                   factor = 0
+                                   OR = {
+								         has_reform =  celestial_empire
+										 has_reform =  celestial_empire_2
+								   }
+								   NOT = { meritocracy = 60 }
+                            }
+                   }
+	}
+
+    option = {
+		   name = "tulip.2.b" #Normal Tax Rate
+                   hidden_effect = { country_event = { id = tulip.2 } }
+                   ai_chance = {
+                            factor = 0.50
+                   }
+	}
+
+    option = {
+		   name = "tulip.2.c" #Lower Tax Rate
+                   trigger = {
+				           NOT = { has_reform = tax_policy_1 }
+						   adm_power = 50
+				   }
+				   add_adm_power = -50
+				   add_legitimacy = 10
+				   add_meritocracy = 10
+				   if = {  
+				          limit = {
+						           has_reform = tax_policy_2
+						  }
+						  add_government_reform = tax_policy_1
+				   }
+                   else_if = {  
+				          limit = {
+						           has_reform = tax_policy_3
+						  }
+						  add_government_reform = tax_policy_2
+				   }
+				   else_if = {  
+				          limit = {
+						           has_reform = tax_policy_4
+						  }
+						 add_government_reform = tax_policy_3
+				   }
+				   else_if = {  
+				          limit = {
+						           has_reform = tax_policy_5
+						  }
+						  add_government_reform = tax_policy_4
+				   }
+				   hidden_effect = {
+						country_event = { id = tulip.2 }
+				   }
+                   ai_chance = {
+                            factor = 0.25
+							modifier = {
+				                 factor = 0
+						         NOT = { stability = 1 }
+				            }
+				            modifier = {
+				                 factor = 0.5
+						         NOT = { stability = 2 }
+				            }
+				            modifier = {
+				                 factor = 0.75
+						         NOT = { stability = 3 }
+				            }
+							modifier = {
+                                   factor = 0.5
+                                   num_of_loans = 1
+                            }
+							modifier = {
+                                   factor = 0.25
+                                   num_of_loans = 3
+                            }
+							modifier = {
+                                   factor = 0
+                                   num_of_loans = 5
+                            }
+                            modifier = {
+                                   factor = 1.25
+                                   unrest = 2
+                            }
+                            modifier = {
+                                   factor = 1.5
+                                   unrest = 4
+                            }
+							modifier = {
+                                   factor = 1.5
+                                   NOT = { stability = 0 }
+                            }
+							modifier = {
+                                   factor = 1.5
+                                   NOT = { stability = -1 }
+                            }
+							modifier = {
+                                   factor = 2
+                                   OR = {
+								         has_reform =  celestial_empire
+										 has_reform =  celestial_empire_2
+								   }
+								   NOT = { meritocracy = 60 }
+                            }
+                   }
+	}
+
+}
+
+
+###Trade Policy 
+country_event = {
+        id = tulip.2
+	title = "tulip.21.t"
+	desc = "tulip.21.d"
+	picture = ECONOMY_eventPicture
+	
+	is_triggered_only = yes
+
+	
+	option = {
+		   name = "tulip.21.a1" #Merchantilism Reform
+		          trigger = {  mercantilism = 80 }
+                  add_government_reform = trade_policy_1
+				   hidden_effect = { country_event = { id = tulip.4 } }
+                   ai_chance = {
+                            factor = 20
+							modifier = {
+							       factor = 1.5
+								   num_of_colonists = 1
+								   NOT = { mercantilism = 50 }
+							}
+                            modifier = {
+                                   factor = 0.5
+                                   mercantilism = 60
+                            }
+                            modifier = {
+                                   factor = 0.25
+                                   mercantilism = 80
+                            }
+                            modifier = {
+                                   factor = 1.25
+                                   trade_income_percentage = 0.30
+                                   NOT = { trade_income_percentage = 0.50 }
+                            }
+                            modifier = {
+                                   factor = 1.5
+                                   trade_income_percentage = 0.50
+                                   NOT = { trade_income_percentage = 0.60 }
+                            }
+                            modifier = {
+                                   factor = 1.25
+                                   trade_income_percentage = 0.60
+                                   NOT = { trade_income_percentage = 0.70 }
+                            }
+                            modifier = {
+                                   factor = 0.8
+                                   trade_income_percentage = 0.70
+                                   NOT = { trade_income_percentage = 0.80 }
+                            }
+                            modifier = {
+                                   factor = 0.6
+                                   trade_income_percentage = 0.80
+                            }
+                   }
+	}
+	option = {
+                   trigger = { mercantilism = 60 }
+		   name = "tulip.21.a" #Increase Merchantilism
+                   add_government_reform = trade_policy_2
+				   hidden_effect = { country_event = { id = tulip.4 } }
+                   ai_chance = {
+                            factor = 50
+							modifier = {
+							       factor = 1.5
+								   num_of_colonists = 1
+								   NOT = { mercantilism = 50 }
+							}
+                            modifier = {
+                                   factor = 0.5
+                                   mercantilism = 40
+                            }
+                            modifier = {
+                                   factor = 0.25
+                                   mercantilism = 60
+                            }
+                            modifier = {
+                                   factor = 1.25
+                                   trade_income_percentage = 0.30
+                                   NOT = { trade_income_percentage = 0.50 }
+                            }
+                            modifier = {
+                                   factor = 1.5
+                                   trade_income_percentage = 0.50
+                                   NOT = { trade_income_percentage = 0.60 }
+                            }
+                            modifier = {
+                                   factor = 1.25
+                                   trade_income_percentage = 0.60
+                                   NOT = { trade_income_percentage = 0.70 }
+                            }
+                            modifier = {
+                                   factor = 0.8
+                                   trade_income_percentage = 0.70
+                                   NOT = { trade_income_percentage = 0.80 }
+                            }
+                            modifier = {
+                                   factor = 0.6
+                                   trade_income_percentage = 0.80
+                            }
+							modifier = {
+                                   factor = 0
+                                   corruption = 10
+                            }
+                   }
+	}
+	
+	option = {
+			trigger = { NOT = { mercantilism = 75 } mercantilism = 25 }
+		   name = "tulip.21.c" #Keep economy stable.
+                   add_government_reform = trade_policy_3
+				   hidden_effect = { country_event = { id = tulip.4 } }
+                   ai_chance = {
+                            factor = 20
+                   }
+	}
+
+        option = {
+                   trigger = { NOT = { mercantilism = 40 } }
+		   name = "tulip.21.b" #Encourage Free Trade
+                   add_government_reform = trade_policy_4
+				   hidden_effect = { country_event = { id = tulip.4 } }
+                   ai_chance = {
+                            factor = 30
+                            modifier = {
+                                   factor = 0.1
+                                   NOT = { mercantilism = 20 }
+                            }
+                            modifier = {
+                                   factor = 2
+                                   mercantilism = 40
+                            }
+                            modifier = {
+                                   factor = 4
+                                   mercantilism = 60
+                            }
+                            modifier = {
+                                   factor = 0.8
+                                   trade_income_percentage = 0.30
+                                   NOT = { trade_income_percentage = 0.50 }
+                            }
+                            modifier = {
+                                   factor = 0.6
+                                   trade_income_percentage = 0.50
+                                   NOT = { trade_income_percentage = 0.60 }
+                            }
+                            modifier = {
+                                   factor = 0.8
+                                   trade_income_percentage = 0.60
+                                   NOT = { trade_income_percentage = 0.70 }
+                            }
+                            modifier = {
+                                   factor = 1.25
+                                   trade_income_percentage = 0.70
+                                   NOT = { trade_income_percentage = 0.80 }
+                            }
+                            modifier = {
+                                   factor = 1.5
+                                   trade_income_percentage = 0.80
+                            }
+                   }
+	}
+
+    option = {
+		   name = "tulip.21.b1" #Free Trade Reform
+		           trigger = { NOT = { mercantilism = 20 }  }
+                   add_government_reform = trade_policy_5
+				   hidden_effect = { country_event = { id = tulip.4 } }
+                   ai_chance = {
+                            factor = 20
+                            modifier = {
+                                   factor = 0.1
+                                   NOT = { mercantilism = 40 }
+                            }
+                            modifier = {
+                                   factor = 2
+                                   mercantilism = 60
+                            }
+                            modifier = {
+                                   factor = 4
+                                   mercantilism = 80
+                            }
+                            modifier = {
+                                   factor = 0.8
+                                   trade_income_percentage = 0.30
+                                   NOT = { trade_income_percentage = 0.50 }
+                            }
+                            modifier = {
+                                   factor = 0.6
+                                   trade_income_percentage = 0.50
+                                   NOT = { trade_income_percentage = 0.60 }
+                            }
+                            modifier = {
+                                   factor = 0.8
+                                   trade_income_percentage = 0.60
+                                   NOT = { trade_income_percentage = 0.70 }
+                            }
+                            modifier = {
+                                   factor = 1.25
+                                   trade_income_percentage = 0.70
+                                   NOT = { trade_income_percentage = 0.80 }
+                            }
+                            modifier = {
+                                   factor = 1.5
+                                   trade_income_percentage = 0.80
+                            }
+                   }
+	}    
+}
+
+
+
+###Government Policy 
+country_event = {
+    id = tulip.4
+	title = "tulip.4.t"
+	desc = "tulip.4.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		           name = "tulip.4.b1" #Minimum GC
+                   add_government_reform = minimum_government_capacity
+				   custom_tooltip = tulip.4.b1t
+				   hidden_effect = { country_event = { id = tulip.5 } }
+                   ai_chance = {
+                            factor = 0.2
+                            modifier = {
+                                   factor = 0
+                                   AND = {
+								         check_variable = { which = go value = 80 }
+										 NOT = { corruption = 10 }
+								   }
+                            }
+							modifier = {
+                                   factor = 2
+                                   NOT = { check_variable = { which = go value = 70 } }
+                            }
+							modifier = {
+                                   factor = 2
+								   corruption = 20
+                            }
+							modifier = {
+                                   factor = 1.5
+								   corruption = 10
+                            }
+							modifier = {
+                                   factor = 0.5
+                                   check_variable = { which = go value = 90 }
+                            }
+							modifier = {
+                                   factor = 0
+                                   check_variable = { which = go value = 110 }
+                            }
+                   }
+	}
+
+    option = {
+		           name = "tulip.4.b" #Shrink GC
+                   add_government_reform = shrink_government_capacity
+				   custom_tooltip = tulip.4.bt
+				   hidden_effect = { country_event = { id = tulip.5 } }
+                   ai_chance = {
+                            factor = 0.2
+                            modifier = {
+                                   factor = 0
+                                   AND = {
+								         check_variable = { which = go value = 90 }
+										 NOT = { corruption = 10 }
+								   }
+                            }
+							modifier = {
+                                   factor = 2
+                                   NOT = { check_variable = { which = go value = 80 } }
+                            }
+							modifier = {
+                                   factor = 1.5
+								   corruption = 10
+                            }
+							modifier = {
+                                   factor = 1.5
+								   corruption = 5
+                            }
+							modifier = {
+                                   factor = 0.5
+                                   check_variable = { which = go value = 100 }
+                            }
+							modifier = {
+                                   factor = 0
+                                   check_variable = { which = go value = 120 }
+                            }
+                   }
+	}
+
+    option = {
+		   name = "tulip.4.c" #Current GC is good!
+                   add_government_reform = cur_government_capacity
+				   hidden_effect = { country_event = { id = tulip.5 } }
+                   ai_chance = {
+                            factor = 0.2
+                   }
+	}
+	
+	option = {
+                   trigger = { adm_power = -60 }
+		           name = "tulip.4.a" #Expand GC
+                   add_government_reform = expand_government_capacity
+				   custom_tooltip = tulip.4.at
+				   hidden_effect = { country_event = { id = tulip.5 } }
+                   ai_chance = {
+                            factor = 0.2
+							modifier = {
+                                   factor = 2
+                                   check_variable = { which = go value = 120 }
+                            }
+							modifier = {
+                                   factor = 1.5
+                                   check_variable = { which = go value = 130 }
+                            }
+							modifier = {
+                                   factor = 0.5
+								   corruption = 10
+                            }
+							modifier = {
+                                   factor = 0
+								   corruption = 20
+                            }
+							
+							modifier = {
+                                   factor = 0.5
+                                   NOT = { check_variable = { which = go value = 100 } }
+                            }
+							modifier = {
+                                   factor = 0
+                                   NOT = { check_variable = { which = go value = 85 } }
+                            }
+                   }
+	}
+	
+	option = {
+                   trigger = { adm_power = 0 }
+		           name = "tulip.4.d1" #Maximum GC
+                   add_government_reform = maximum_government_capacity
+				   custom_tooltip = tulip.4.dt
+				   hidden_effect = { country_event = { id = tulip.5 } }
+                   ai_chance = {
+                            factor = 0.2
+							modifier = {
+                                   factor = 2
+                                   check_variable = { which = go value = 130 }
+                            }
+							modifier = {
+                                   factor = 2
+                                   check_variable = { which = go value = 140 }
+                            }
+							modifier = {
+                                   factor = 0.5
+								   corruption = 5
+                            }
+							modifier = {
+                                   factor = 0.5
+								   corruption = 10
+                            }
+							modifier = {
+                                   factor = 0
+								   corruption = 20
+                            }
+							modifier = {
+                                   factor = 0.5
+                                   NOT = { check_variable = { which = go value = 115 } }
+                            }
+							modifier = {
+                                   factor = 0
+                                   NOT = { check_variable = { which = go value = 100 } }
+                            }
+                   }
+	}
+}
+
+###Religious Policy
+country_event = {
+    id = tulip.5
+	title = "tulip.5.t"
+	desc = "tulip.5.d"
+	picture = ECONOMY_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+	        hidden_effect = {
+			       if = { #If the country has no religious policy ( due to bugs ), reset to level 3
+				         limit = {
+						          NOT = { has_reform = cu_religious_policy_1 }
+								  NOT = { has_reform = cu_religious_policy_2 }
+								  NOT = { has_reform = cu_religious_policy_3 }
+								  NOT = { has_reform = cu_religious_policy_4 }
+								  NOT = { has_reform = cu_religious_policy_5 }
+						 }
+						 add_government_reform = cu_religious_policy_3
+				   }
+			}
+	}
+	
+	option = {
+		   name = "tulip.5.a" #Move Towards Religionism
+		   trigger = {
+		          NOT = { has_reform = cu_religious_policy_5 }
+		   }
+	       if = {
+		          limit = { has_reform = cu_religious_policy_4 }
+				  add_government_reform = cu_religious_policy_5
+		   }
+           else_if = {
+		          limit = { has_reform = cu_religious_policy_3 }
+				  add_government_reform = cu_religious_policy_4
+		   }
+           else_if = {
+		          limit = { has_reform = cu_religious_policy_2 }
+				  add_government_reform = cu_religious_policy_3
+		   }
+           else_if = {
+		          limit = { has_reform = cu_religious_policy_1 }
+				  add_government_reform = cu_religious_policy_2
+		   }
+		   hidden_effect = { country_event = { id = tulip.51 } }
+           ai_chance = {
+		           factor = 20
+				   modifier = {
+				        factor = 0
+						NOT = { stability = 1 }
+				   }
+				   modifier = {
+				        factor = 0.5
+						NOT = { stability = 2 }
+				   }
+				   modifier = {
+				        factor = 0.75
+						NOT = { stability = 3 }
+				   }
+				   modifier = {
+				        factor = 0.5
+						NOT = { 
+						        religious_unity = 60
+						}
+				   }
+				   modifier = {
+				        factor = 0.25
+						NOT = { 
+						        religious_unity = 40
+						}
+				   }
+				   modifier = {
+				        factor = 1.5
+						OR = {
+						      tag = CAS
+							  tag = SPA
+							  tag = MOS
+							  tag = RUS
+						}
+				   }
+				   modifier = {
+				        factor = 1.5
+						OR = {
+						      government = theocracy
+							  has_reform =  feudal_theocracy
+							  has_idea_group = religious_ideas
+						}
+				   }
+				   modifier = {
+				        factor = 0.5
+						NOT = { 
+						        religion_group = christian
+								religion_group = muslim
+						}
+				   }
+		   }		   
+	}
+	option = {
+		   name = "tulip.5.b" #Keep current level.
+		   hidden_effect = { country_event = { id = tulip.51 } }
+		   ai_chance = {
+		           factor = 60
+		   }
+	}
+	option = {
+		   name = "tulip.5.c" #Move towards Secularism
+		   trigger = {
+		          NOT = { has_reform = cu_religious_policy_1 }
+		   }
+		   if = {
+		          limit = { has_reform = cu_religious_policy_5 }
+				  add_government_reform = cu_religious_policy_4
+		   }
+	       else_if = {
+		          limit = { has_reform = cu_religious_policy_4 }
+				  add_government_reform = cu_religious_policy_3
+		   }
+           else_if = {
+		          limit = { has_reform = cu_religious_policy_3 }
+				  add_government_reform = cu_religious_policy_2
+		   }
+           else_if = {
+		          limit = { has_reform = cu_religious_policy_2 }
+				  add_government_reform = cu_religious_policy_1
+		   }
+		   hidden_effect = { country_event = { id = tulip.51 } }
+           ai_chance = {
+		           factor = 20
+				   modifier = {
+				        factor = 0
+						NOT = { stability = 1 }
+				   }
+				   modifier = {
+				        factor = 0.5
+						NOT = { stability = 2 }
+				   }
+				   modifier = {
+				        factor = 0.75
+						NOT = { stability = 3 }
+				   }
+				   modifier = {
+				        factor = 0.5
+						religious_unity = 80
+				   }
+				   modifier = {
+				        factor = 0
+						NOT = {
+						      any_owned_province = {
+							         has_owner_religion = no
+							  }
+						}
+				   }
+				   modifier = {
+				        factor = 0.5
+						religious_unity = 100
+				   }
+				   modifier = {
+				        factor = 0.5
+						OR = {
+						      tag = CAS
+							  tag = SPA
+							  tag = MOS
+							  tag = RUS
+						}
+				   }
+				   modifier = {
+				        factor = 0.66
+						OR = {
+						      government = theocracy
+							  has_reform =  feudal_theocracy
+							  has_idea_group = religious_ideas
+						}
+				   }
+				   modifier = {
+				        factor = 1.5
+						OR = {
+						      has_reform =  constitutional_monarchy
+							  has_reform =  constitutional_republic
+							  has_reform =  enlightened_despotism
+							  has_reform =  celestial_empire_2
+							  has_idea_group = humanist_ideas
+						}
+				   }
+				   modifier = {
+				        factor = 0.25
+						OR = {
+						      has_reform =  celestial_empire
+							  has_reform =  celestial_empire_2
+						}
+				         has_reform = cu_religious_policy_3
+				   }
+		   }
+	}
+		         
+}
+
+###Cultural Policy
+country_event = {
+    id = tulip.51
+	title = "tulip.51.t"
+	desc = "tulip.51.d"
+	picture = ECONOMY_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+	        hidden_effect = {
+			       if = { #If the country has no cultural policy ( due to bugs or loading), reset to level 3
+				         limit = {
+						          NOT = { has_reform = cu_cultural_policy_1 }
+								  NOT = { has_reform = cu_cultural_policy_2 }
+								  NOT = { has_reform = cu_cultural_policy_3 }
+								  NOT = { has_reform = cu_cultural_policy_4 }
+								  NOT = { has_reform = cu_cultural_policy_5 }
+						 }
+						 add_government_reform = cu_cultural_policy_3
+				   }
+			}
+	}
+	option = {
+		   name = "tulip.51.a" #Move towards Nationalism
+		   trigger = {
+		          NOT = { has_reform = cu_cultural_policy_1 }
+		   }
+		   if = {
+		          limit = { has_reform = cu_cultural_policy_5 }
+				  add_government_reform = cu_cultural_policy_4
+		   }
+	       else_if = {
+		          limit = { has_reform = cu_cultural_policy_4 }
+				  add_government_reform = cu_cultural_policy_3
+		   }
+           else_if = {
+		          limit = { has_reform = cu_cultural_policy_3 }
+				  add_government_reform = cu_cultural_policy_2
+		   }
+           else_if = {
+		          limit = { has_reform = cu_cultural_policy_2 }
+				  add_government_reform = cu_cultural_policy_1
+		   }
+		   custom_tooltip = tulip.51.at
+           ai_chance = {
+		           factor = 20
+				   modifier = {
+				        factor = 0
+						NOT = { stability = 1 }
+				   }
+				   modifier = {
+				        factor = 0.5
+						NOT = { stability = 2 }
+				   }
+				   modifier = {
+				        factor = 0.75
+						NOT = { stability = 3 }
+				   }
+				   modifier = { #Colonial Nations are less likely to adopt this
+				        factor = 0.5
+						num_of_colonists = 1
+				   }
+				   modifier = {
+				        factor = 0.5
+						OR = {
+						      is_colonial_nation = yes
+							  is_former_colonial_nation = yes
+						}
+				   }
+				   modifier = {
+				        factor = 2
+						NOT = { 
+						       any_owned_province = {
+							          has_owner_culture = no
+									  has_owner_accepted_culture = yes
+							   }
+						}
+				   }
+				   modifier = {
+				        factor = 1.5
+						OR = {
+						      tag = RUS
+							  tag = SPA
+							  tag = JAP
+							  tag = MOS
+							  tag = GER
+						}
+				   }
+				   modifier = {
+				        factor = 1.5
+						OR = {						      
+							  has_reform =  revolutionary_empire_reform
+							  government = tribe
+						}
+				   }
+		   }
+	}
+	
+	option = {
+		   name = "tulip.51.b" #Keep current level.
+		   ai_chance = {
+		           factor = 60
+		   }
+	}
+	
+    option = {
+		   name = "tulip.51.c" #Move Towards Pluralism
+		   trigger = {
+		          NOT = { has_reform = cu_cultural_policy_5 }
+		   }
+	       if = {
+		          limit = { has_reform = cu_cultural_policy_4 }
+				  add_government_reform = cu_cultural_policy_5
+		   }
+           else_if = {
+		          limit = { has_reform = cu_cultural_policy_3 }
+				  add_government_reform = cu_cultural_policy_4
+		   }
+           else_if = {
+		          limit = { has_reform = cu_cultural_policy_2 }
+				  add_government_reform = cu_cultural_policy_3
+		   }
+           else_if = {
+		          limit = { has_reform = cu_cultural_policy_1 }
+				  add_government_reform = cu_cultural_policy_2
+		   }
+		   custom_tooltip = tulip.51.ct
+		   ai_chance = {
+		           factor = 20
+				   modifier = {
+				        factor = 0.1
+						OR = {
+						      is_colonial_nation = yes
+							  is_former_colonial_nation = yes
+						}
+				   }
+				   modifier = {
+				        factor = 0
+						NOT = { stability = 1 }
+				   }
+				   modifier = {
+				        factor = 0.5
+						NOT = { stability = 2 }
+				   }
+				   modifier = {
+				        factor = 0.75
+						NOT = { stability = 3 }
+				   }
+				   modifier = {
+				        factor = 0.15
+						OR = {
+						      has_reform =  celestial_empire
+							  has_reform =  celestial_empire_2
+						}
+						
+				   }
+				   modifier = {
+				        factor = 1.5
+						OR = {
+						      tag = TUR
+							  tag = QNG
+							  tag = FRA
+							  tag = GBR
+							  tag = ENG
+							  tag = DUA
+							  tag = MUG
+							  tag = POL
+							  tag = LIT
+							  tag = PLC
+						}
+				   }
+				   modifier = {
+				        factor = 1.5
+						OR = {
+						      has_reform =  parliament_reform							  
+							  has_idea_group = humanist_ideas
+						}
+				   }
+		   }
+           		   
+	}       
+}
+
+
+###Government Re-organized
+country_event = {
+    id = tulip.6
+	title = "tulip.6.t"
+	desc = "tulip.6.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+	       had_country_flag = {
+		              flag = reorganizing_government_flag
+					  days = 1460
+		   }
+		   has_country_modifier = reorganizing_government
+	}
+	
+	mean_time_to_happen = {
+	     months = 24
+		 modifier = {
+		       factor = 0.01
+			   NOT = { corruption = 1 }
+		 }
+		 modifier = {
+		       factor = 0.5
+			   NOT = { corruption = 10 }
+		 }
+		 modifier = {
+		       factor = 1.25
+			   corruption = 30
+		 }
+		 modifier = {
+		       factor = 1.25
+			   corruption = 60
+		 }
+		 modifier = {
+		       factor = 1.25
+			   corruption = 90
+		 }
+	}
+	immediate = {
+		remove_country_modifier = reorganizing_government
+		set_country_flag = reorganizing_government_flag	
+	}
+	option = {
+		name = "tulip.6.a" #Good
+	}
+}
+
+###Military Coup 
+country_event = {
+    id = tulip.7
+	title = "tulip.7.t"
+	desc = "tulip.7.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	hidden = yes
+	trigger = {
+	       has_country_flag = preparing_military_coup_flag
+		   NOT = { has_country_modifier = preparing_military_coup }
+	}
+	
+	mean_time_to_happen = {
+	     months = 1
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		      clr_country_flag =  preparing_military_coup_flag
+		}
+	}
+	
+	option = {
+		   name = "tulip.7.a" #Good
+           if = {
+		         limit = { NOT = { check_variable = { which = coup_support value = 1 } } }
+				 random_list = {
+				        50 = { country_event = { id = tulip.8 } }
+						50 = { country_event = { id = tulip.9 } }
+				 }
+		   }	
+           if = {
+		         limit = { 
+				           NOT = { check_variable = { which = coup_support value = 2 } } 
+						   check_variable = { which = coup_support value = 1 }
+				 }
+				 random_list = {
+				        60 = { country_event = { id = tulip.8 } }
+						40 = { country_event = { id = tulip.9 } }
+				 }
+		   }
+           if = {
+		         limit = { 
+				           NOT = { check_variable = { which = coup_support value = 3 } } 
+						   check_variable = { which = coup_support value = 2 }
+				 }
+				 random_list = {
+				        70 = { country_event = { id = tulip.8 } }
+						30 = { country_event = { id = tulip.9 } }
+				 }
+		   }	
+           if = {
+		         limit = { 
+				           NOT = { check_variable = { which = coup_support value = 4 } } 
+						   check_variable = { which = coup_support value = 3 }
+				 }
+				 random_list = {
+				        80 = { country_event = { id = tulip.8 } }
+						20 = { country_event = { id = tulip.9 } }
+				 }
+		   }
+           if = {
+		         limit = { 
+				           NOT = { check_variable = { which = coup_support value = 5 } } 
+						   check_variable = { which = coup_support value = 4 }
+				 }
+				 random_list = {
+				        90 = { country_event = { id = tulip.8 } }
+						10 = { country_event = { id = tulip.9 } }
+				 }
+		   }
+           if = {
+		         limit = { 
+						   check_variable = { which = coup_support value = 5 }
+				 }
+				 random_list = {
+				        95 = { country_event = { id = tulip.8 } }
+						5 = { country_event = { id = tulip.9 } }
+				 }
+		   }
+           clr_country_flag = church_assist_coup
+           clr_country_flag = burghers_assist_coup
+           clr_country_flag = nobles_assist_coup
+           clr_country_flag = cossacks_assist_coup
+           clr_country_flag = dhimmi_assist_coup
+           clr_country_flag = church_assist_refuse
+           clr_country_flag = burghers_assist_refuse
+           clr_country_flag = nobles_assist_refuse
+           clr_country_flag = cossacks_assist_refuse
+           clr_country_flag = dhimmi_assist_refuse		   
+		
+	}
+}
+
+###Military Coup Success
+country_event = {
+    id = tulip.8
+	title = "tulip.8.t"
+	desc = "tulip.8.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+	   name = "tulip.8.a" #Good           
+		if = {
+			limit = {
+				has_country_flag = coup_against_church
+			}
+			clr_country_flag = coup_against_church
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = 20
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_MILITARY_COUP
+				influence = -30
+				duration = 7300
+			}
+			add_estate_loyalty = {
+				estate = estate_shizu
+				loyalty = 20
+			}
+			add_estate_influence_modifier = {
+				estate = estate_shizu
+				desc = EST_VAL_MILITARY_COUP
+				influence = -30
+				duration = 7300
+			}				
+		}
+		if = {
+			limit = {
+				has_country_flag = coup_against_nobles
+			}
+			clr_country_flag = coup_against_nobles
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 20
+			}
+			add_estate_influence_modifier = {
+				estate = estate_nobles
+				desc = EST_VAL_MILITARY_COUP
+				influence = -30
+				duration = 7300
+			}
+			add_estate_loyalty = {
+				estate = estate_qinwang
+				loyalty = 20
+			}
+			add_estate_influence_modifier = {
+				estate = estate_qinwang
+				desc = EST_VAL_MILITARY_COUP
+				influence = -30
+				duration = 7300
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = coup_against_burghers
+			}
+			clr_country_flag = coup_against_burghers
+			add_estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 20
+			}
+			add_estate_influence_modifier = {
+				estate = estate_burghers
+				desc = EST_VAL_MILITARY_COUP
+				influence = -30
+				duration = 7300
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = coup_against_cossacks
+			}
+			clr_country_flag = coup_against_cossacks
+			add_estate_loyalty = {
+				estate = estate_cossacks
+				loyalty = 20
+			}
+			add_estate_influence_modifier = {
+				estate = estate_cossacks
+				desc = EST_VAL_MILITARY_COUP
+				influence = -30
+				duration = 7300
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = coup_against_nomad
+			}
+			clr_country_flag = coup_against_nomad
+			add_estate_loyalty = {
+				estate = estate_nomadic_tribes
+				loyalty = 20
+			}
+			add_estate_influence_modifier = {
+				estate = estate_nomadic_tribes
+				desc = EST_VAL_MILITARY_COUP
+				influence = -30
+				duration = 7300
+			}	
+		}
+	}
+}
+
+###Military Coup Fails
+country_event = {
+    id = tulip.9
+	title = "tulip.9.t"
+	desc = "tulip.9.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "tulip.9.a" #...What?
+        cu_change_stability_point_n75 = yes  
+		add_estate_influence_modifier = {
+			estate = estate_goverment
+			desc = EST_VAL_MILITARY_COUP_FAIL
+			influence = -10
+			duration = 7300
+		}			
+		if = {
+			limit = {
+				has_country_flag = coup_against_church
+			}
+			clr_country_flag = coup_against_church
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = -20
+			}
+			add_estate_influence_modifier = {
+				estate = estate_church
+				desc = EST_VAL_MILITARY_COUP_FAIL
+				influence = 10
+				duration = 7300
+			}
+			add_estate_loyalty = {
+				estate = estate_shizu
+				loyalty = -20
+			}
+			add_estate_influence_modifier = {
+				estate = estate_shizu
+				desc = EST_VAL_MILITARY_COUP_FAIL
+				influence = 10
+				duration = 7300
+			}				
+		}
+		if = {
+			limit = {
+				has_country_flag = coup_against_nobles
+			}
+			clr_country_flag = coup_against_nobles
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = -20
+			}
+			add_estate_influence_modifier = {
+				estate = estate_nobles
+				desc = EST_VAL_MILITARY_COUP_FAIL
+				influence = 10
+				duration = 7300
+			}
+			add_estate_loyalty = {
+				estate = estate_qinwang
+				loyalty = -20
+			}
+			add_estate_influence_modifier = {
+				estate = estate_qinwang
+				desc = EST_VAL_MILITARY_COUP_FAIL
+				influence = 10
+				duration = 7300
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = coup_against_burghers
+			}
+			clr_country_flag = coup_against_burghers
+			add_estate_loyalty = {
+				estate = estate_burghers
+				loyalty = -20
+			}
+			add_estate_influence_modifier = {
+				estate = estate_burghers
+				desc = EST_VAL_MILITARY_COUP_FAIL
+				influence = 10
+				duration = 7300
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = coup_against_cossacks
+			}
+			clr_country_flag = coup_against_cossacks
+			add_estate_loyalty = {
+				estate = estate_cossacks
+				loyalty = -20
+			}
+			add_estate_influence_modifier = {
+				estate = estate_cossacks
+				desc = EST_VAL_MILITARY_COUP_FAIL
+				influence = 10
+				duration = 7300
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = coup_against_nomad
+			}
+			clr_country_flag = coup_against_nomad
+			add_estate_loyalty = {
+				estate = estate_nomadic_tribes
+				loyalty = -20
+			}
+			add_estate_influence_modifier = {
+				estate = estate_nomadic_tribes
+				desc = EST_VAL_MILITARY_COUP_FAIL
+				influence = 10
+				duration = 7300
+			}	
+		}
+	}
+}
+
+###Church estate offers help
+country_event = {
+    id = tulip.71
+	title = "tulip.71.t"
+	desc = "tulip.71.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+	       has_country_flag = preparing_military_coup_flag
+		   estate_loyalty = {
+				estate = estate_church
+				loyalty = 40
+			}
+		   NOT = { has_country_flag = coup_against_church }
+		   NOT = { has_country_flag = church_assist_coup }
+		   NOT = { has_country_flag = church_assist_refuse }
+	}
+	
+	mean_time_to_happen = {
+	     months = 24
+		 modifier = {
+		       factor = 0.25
+			   estate_loyalty = {
+				estate = estate_church
+				loyalty = 60
+			   } 
+		 }
+	}
+	
+	option = {
+		   name = "tulip.71.a" #Accept
+           add_estate_loyalty = {
+				    estate = estate_church
+				    loyalty = 5
+			}
+			add_estate_influence_modifier = {
+				    estate = estate_church
+				    desc = EST_VAL_MILITARY_COUP_ASSIST
+				    influence = 10
+				    duration = 7300
+			}
+			set_country_flag = church_assist_coup
+			hidden_effect = {
+			        change_variable = { which = coup_support value = 1 }
+			}
+			ai_chance = {
+	            factor = 50
+                modifier = {
+				       factor = 0.5
+					   estate_influence = {
+							estate = estate_church
+							influence = 60
+					   }
+				}
+                modifier = { #I don't need another dominating estate!
+				       factor = 0
+					   estate_influence = {
+							estate = estate_church
+							influence = 70
+					   }
+				}					
+			}
+	}
+	option = {
+		   name = "tulip.71.b" #Refuse
+		   set_country_flag = church_assist_refuse
+           add_estate_loyalty = {
+				    estate = estate_church
+				    loyalty = -10
+			}
+			ai_chance = {
+	            factor = 50
+                modifier = {
+				       factor = 1.5
+					   estate_influence = {
+							estate = estate_church
+							influence = 60
+					   }
+				}
+                modifier = { #I don't need another dominating estate!
+				       factor = 2
+					   estate_influence = {
+							estate = estate_church
+							influence = 70
+					   }
+				}	
+                modifier = {
+				       factor = 0
+					   NOT = {
+					      estate_influence = {
+							estate = estate_church
+							influence = 50
+					      }
+						}
+				}				
+			}
+	}
+}
+
+###Nobles estate offers help
+country_event = {
+    id = tulip.72
+	title = "tulip.72.t"
+	desc = "tulip.72.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+	       has_country_flag = preparing_military_coup_flag
+		   estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 40
+			}
+		   NOT = { has_country_flag = coup_against_nobles }
+		   NOT = { has_country_flag = nobles_assist_coup }
+		   NOT = { has_country_flag = nobles_assist_refuse }
+	}
+	
+	mean_time_to_happen = {
+	     months = 24
+		 modifier = {
+		       factor = 0.25
+			   estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 60
+			   } 
+		 }
+	}
+	
+	option = {
+		   name = "tulip.71.a" #Accept
+           add_estate_loyalty = {
+				    estate = estate_nobles
+				    loyalty = 5
+			}
+			add_estate_influence_modifier = {
+				    estate = estate_nobles
+				    desc = EST_VAL_MILITARY_COUP_ASSIST
+				    influence = 10
+				    duration = 7300
+			}
+			set_country_flag = nobles_assist_coup
+			hidden_effect = {
+			        change_variable = { which = coup_support value = 1 }
+			}
+			ai_chance = {
+	            factor = 50
+                modifier = {
+				       factor = 0.5
+					   estate_influence = {
+							estate = estate_nobles
+							influence = 60
+					   }
+				}
+                modifier = { #I don't need another dominating estate!
+				       factor = 0
+					   estate_influence = {
+							estate = estate_nobles
+							influence = 70
+					   }
+				}					
+			}
+	}
+	option = {
+		   name = "tulip.71.b" #Refuse
+		   set_country_flag = nobles_assist_refuse
+           add_estate_loyalty = {
+				    estate = estate_nobles
+				    loyalty = -10
+			}
+			ai_chance = {
+	            factor = 50
+                modifier = {
+				       factor = 1.5
+					   estate_influence = {
+							estate = estate_nobles
+							influence = 60
+					   }
+				}
+                modifier = { #I don't need another dominating estate!
+				       factor = 2
+					   estate_influence = {
+							estate = estate_nobles
+							influence = 70
+					   }
+				}	
+                modifier = {
+				       factor = 0
+					   NOT = {
+					      estate_influence = {
+							estate = estate_nobles
+							influence = 50
+					      }
+						}
+				}				
+			}
+	}
+}
+
+###Burghers estate offers help
+country_event = {
+    id = tulip.73
+	title = "tulip.73.t"
+	desc = "tulip.73.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+	       has_country_flag = preparing_military_coup_flag
+		   estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 40
+			}
+		   NOT = { has_country_flag = coup_against_burghers }
+		   NOT = { has_country_flag = burghers_assist_coup }
+		   NOT = { has_country_flag = burghers_assist_refuse }
+	}
+	
+	mean_time_to_happen = {
+	     months = 24
+		 modifier = {
+		       factor = 0.25
+			   estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 60
+			   } 
+		 }
+	}
+	
+	option = {
+		   name = "tulip.71.a" #Accept
+           add_estate_loyalty = {
+				    estate = estate_burghers
+				    loyalty = 5
+			}
+			add_estate_influence_modifier = {
+				    estate = estate_burghers
+				    desc = EST_VAL_MILITARY_COUP_ASSIST
+				    influence = 10
+				    duration = 7300
+			}
+			set_country_flag = burghers_assist_coup
+			hidden_effect = {
+			        change_variable = { which = coup_support value = 1 }
+			}
+			ai_chance = {
+	            factor = 50
+                modifier = {
+				       factor = 0.5
+					   estate_influence = {
+							estate = estate_burghers
+							influence = 60
+					   }
+				}
+                modifier = { #I don't need another dominating estate!
+				       factor = 0
+					   estate_influence = {
+							estate = estate_burghers
+							influence = 70
+					   }
+				}					
+			}
+	}
+	option = {
+		   name = "tulip.71.b" #Refuse
+		   set_country_flag = burghers_assist_refuse
+           add_estate_loyalty = {
+				    estate = estate_burghers
+				    loyalty = -10
+			}
+			ai_chance = {
+	            factor = 50
+                modifier = {
+				       factor = 1.5
+					   estate_influence = {
+							estate = estate_burghers
+							influence = 60
+					   }
+				}
+                modifier = { #I don't need another dominating estate!
+				       factor = 2
+					   estate_influence = {
+							estate = estate_burghers
+							influence = 70
+					   }
+				}	
+                modifier = {
+				       factor = 0
+					   NOT = {
+					      estate_influence = {
+							estate = estate_burghers
+							influence = 50
+					      }
+						}
+				}				
+			}
+	}
+}
+
+###Cossacks estate offers help
+country_event = {
+    id = tulip.74
+	title = "tulip.74.t"
+	desc = "tulip.74.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+	       has_country_flag = preparing_military_coup_flag
+		   estate_loyalty = {
+				estate = estate_cossacks
+				loyalty = 40
+			}
+		   NOT = { has_country_flag = coup_against_cossacks }
+		   NOT = { has_country_flag = cossacks_assist_coup }
+		   NOT = { has_country_flag = cossacks_assist_refuse }
+	}
+	
+	mean_time_to_happen = {
+	     months = 24
+		 modifier = {
+		       factor = 0.25
+			   estate_loyalty = {
+				estate = estate_cossacks
+				loyalty = 60
+			   } 
+		 }
+	}
+	
+	option = {
+		   name = "tulip.71.a" #Accept
+           add_estate_loyalty = {
+				    estate = estate_cossacks
+				    loyalty = 5
+			}
+			add_estate_influence_modifier = {
+				    estate = estate_cossacks
+				    desc = EST_VAL_MILITARY_COUP_ASSIST
+				    influence = 10
+				    duration = 7300
+			}
+			set_country_flag = cossacks_assist_coup
+			hidden_effect = {
+			        change_variable = { which = coup_support value = 1 }
+			}
+			ai_chance = {
+	            factor = 50
+                modifier = {
+				       factor = 0.5
+					   estate_influence = {
+							estate = estate_cossacks
+							influence = 60
+					   }
+				}
+                modifier = { #I don't need another dominating estate!
+				       factor = 0
+					   estate_influence = {
+							estate = estate_cossacks
+							influence = 70
+					   }
+				}					
+			}
+	}
+	option = {
+		   name = "tulip.71.b" #Refuse
+           add_estate_loyalty = {
+				    estate = estate_cossacks
+				    loyalty = -10
+			}
+			set_country_flag = cossacks_assist_refuse
+			ai_chance = {
+	            factor = 50
+                modifier = {
+				       factor = 1.5
+					   estate_influence = {
+							estate = estate_cossacks
+							influence = 60
+					   }
+				}
+                modifier = { #I don't need another dominating estate!
+				       factor = 2
+					   estate_influence = {
+							estate = estate_cossacks
+							influence = 70
+					   }
+				}	
+                modifier = {
+				       factor = 0
+					   NOT = {
+					      estate_influence = {
+							estate = estate_cossacks
+							influence = 50
+					      }
+						}
+				}				
+			}
+	}
+}
+
+###Dhimmi estate offers help
+country_event = {
+    id = tulip.75
+	title = "tulip.75.t"
+	desc = "tulip.75.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+	       has_country_flag = preparing_military_coup_flag
+		   estate_loyalty = {
+				estate = estate_dhimmi
+				loyalty = 40
+			}
+		   NOT = { has_country_flag = coup_against_dhimmi }
+		   NOT = { has_country_flag = dhimmi_assist_coup }
+		   NOT = { has_country_flag = dhimmi_assist_refuse }
+	}
+	
+	mean_time_to_happen = {
+	     months = 24
+		 modifier = {
+		       factor = 0.25
+			   estate_loyalty = {
+				estate = estate_dhimmi
+				loyalty = 60
+			   } 
+		 }
+	}
+	
+	option = {
+		   name = "tulip.71.a" #Accept
+           add_estate_loyalty = {
+				    estate = estate_dhimmi
+				    loyalty = 5
+			}
+			add_estate_influence_modifier = {
+				    estate = estate_dhimmi
+				    desc = EST_VAL_MILITARY_COUP_ASSIST
+				    influence = 10
+				    duration = 7300
+			}
+			set_country_flag = dhimmi_assist_coup
+			hidden_effect = {
+			        change_variable = { which = coup_support value = 1 }
+			}
+			ai_chance = {
+	            factor = 50
+                modifier = {
+				       factor = 0.5
+					   estate_influence = {
+							estate = estate_dhimmi
+							influence = 60
+					   }
+				}
+                modifier = { #I don't need another dominating estate!
+				       factor = 0
+					   estate_influence = {
+							estate = estate_dhimmi
+							influence = 70
+					   }
+				}					
+			}
+	}
+	option = {
+		   name = "tulip.71.b" #Refuse
+           add_estate_loyalty = {
+				    estate = estate_dhimmi
+				    loyalty = -10
+			}
+			set_country_flag = dhimmi_assist_refuse
+			ai_chance = {
+	            factor = 50
+                modifier = {
+				       factor = 1.5
+					   estate_influence = {
+							estate = estate_dhimmi
+							influence = 60
+					   }
+				}
+                modifier = { #I don't need another dominating estate!
+				       factor = 2
+					   estate_influence = {
+							estate = estate_dhimmi
+							influence = 70
+					   }
+				}	
+                modifier = {
+				       factor = 0
+					   NOT = {
+					      estate_influence = {
+							estate = estate_dhimmi
+							influence = 50
+					      }
+						}
+				}				
+			}
+	}
+}
+

@@ -1,0 +1,49 @@
+country_decisions = {
+	acknowledge_rules_the_waves = {
+		potential = {
+			navy_size = 100
+			num_of_total_ports = 25
+			num_of_heavy_ship = 25
+			NOT = { has_country_modifier = rules_the_waves }
+		}
+		allow = {
+			num_of_total_ports = 50
+			num_of_heavy_ship = 75
+			navy_size = 200
+			OR = {
+				full_idea_group = maritime_ideas
+				full_idea_group = naval_ideas
+				full_idea_group = quality_ideas
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "rules_the_waves"
+				duration = -1
+			}		
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	cu_gunpowder_diplomacy = {
+		potential = {
+			navy_size = 30
+			NOT = { has_country_flag = cu_gunpowder_diplomacy_flag }
+		}
+		allow = {
+			#num_of_total_ports = 50
+			#num_of_heavy_ship = 50
+			full_idea_group = naval_ideas
+			dip_power = 200
+		}
+		effect = {
+			set_country_flag = cu_gunpowder_diplomacy_flag
+			add_dip_power = -200
+			custom_tooltip = cu_gunpowder_diplomacy_tt
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

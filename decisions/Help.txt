@@ -1,0 +1,53 @@
+country_decisions = {
+	mod_help = {
+		potential = {
+			ai = no
+            NOT = { has_global_flag = cu_multiplayer_mode }	
+		}
+		allow = {
+		}
+		effect = {
+			add_treasury = -1
+			hidden_effect = { add_treasury = 1 }
+            country_event = { id = help.000 }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		ai_importance = 400
+	}
+
+    cu_observer_country = {
+		potential = {
+            ai = no
+			
+			has_global_flag = cu_multiplayer_mode		
+			NOT = { has_country_flag = cu_observer_country }
+                        NOT = { has_global_flag = cu_observer }
+		}
+		allow = {
+            NOT = { total_development = 100 }
+			NOT = {
+			      tag = PAP
+				  tag = BYZ
+				  is_part_of_hre = yes
+				  is_emperor = yes
+				  is_emperor_of_china = yes
+			}
+		}
+		effect = {
+			set_country_flag = cu_observer_country
+                        set_global_flag = cu_observer
+                        hidden_effect = {
+                                 every_province = {
+                                           ROOT = { discover_province = PREV }
+                                 }
+                        }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		ai_importance = 400
+	}
+	
+}

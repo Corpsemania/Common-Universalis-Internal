@@ -1,0 +1,177 @@
+entity = {
+	name = "ICE_INFANTRY_1"
+	pdxmesh = "soamup_INC_infantry_01_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+
+	attach = { 
+		Right_hand_node = "soamup_club_INC_entity" 
+		Left_hand_node = "soamup_shield_INC_entity" 		
+	}
+}
+
+entity = {
+	name = "ICE_CAVALRY_1"
+	pdxmesh = "soamup_cavalry_horse_001_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "INC_CAVALRY_1_rider" 
+	}
+}
+
+entity = {
+	name = "ICE_CAVALRY_1_rider"
+	pdxmesh = "soamup_INC_cavalry_01_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "soamup_cavalry_saber" 
+	}
+}
+
+
+entity = {
+	name = "ICE_INFANTRY_2"
+	pdxmesh = "soamup_INC_infantry_02_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+
+	attach = { 
+		Left_hand_node = "soamup_rifle_02_entity" 
+	}
+}
+
+entity = {
+	name = "ICE_CAVALRY_2"
+	pdxmesh = "soamup_cavalry_horse_001_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "INC_CAVALRY_1_rider" 
+	}
+}
+
+entity = {
+	name = "ICE_CAVALRY_2_rider"
+	pdxmesh = "soamup_INC_cavalry_02_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "soamup_cavalry_saber" 
+	}
+}
+
+
+
+
+entity = {
+	name = "ICE_INFANTRY_3"
+	pdxmesh = "soamup_INC_infantry_03_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+
+	attach = { 
+		Left_hand_node = "soamup_rifle_03_entity" 
+	}
+}
+
+entity = {
+	name = "ICE_CAVALRY_3"
+	pdxmesh = "soamup_cavalry_horse_002_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "INC_CAVALRY_3_rider" 
+	}
+}
+
+entity = {
+	name = "ICE_CAVALRY_3_rider"
+	pdxmesh = "soamup_INC_cavalry_03_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "soamup_cavalry_saber" 
+	}
+}
+
+
+entity = {
+	name = "ICE_INFANTRY_4"
+	pdxmesh = "soamup_INC_infantry_04_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+
+	attach = { 
+		Left_hand_node = "soamup_rifle_04_entity" 
+	}
+}
+
+entity = {
+	name = "ICE_CAVALRY_4"
+	pdxmesh = "soamup_cavalry_horse_002_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "INC_CAVALRY_4_rider" 
+	}
+}
+
+entity = {
+	name = "ICE_CAVALRY_4_rider"
+	pdxmesh = "soamup_INC_cavalry_04_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "soamup_cavalry_saber" 
+	}
+}

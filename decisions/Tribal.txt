@@ -1,0 +1,87 @@
+country_decisions = {
+
+steppe_horde_reform = {
+		major = yes
+		potential = {
+			OR = {
+				has_reform = steppe_horde
+				has_reform = steppe_empire				
+			}	
+			OR = {
+				ai = no
+				has_institution = feudalism				
+			}
+			NOT = { has_country_flag = settled_steppe_horde }
+		}
+		allow = {
+			adm_power = 100
+			dip_power = 100
+			mil_power = 100
+			years_of_income = 3
+			legitimacy_or_horde_unity = 80
+			stability = 1
+			has_institution = feudalism
+            num_of_owned_provinces_with = {
+			            value = 8
+                        AND = {
+                            OR = {
+                                has_terrain = farmlands
+                                base_manpower = 8
+                            }
+                        is_core = ROOT
+						}
+            }
+            NOT = {
+                    estate_influence = {
+				    estate = estate_nomadic_tribes
+				    influence = 50
+			        }
+            }
+            NOT = { check_variable = { which = go value = 120 } }
+            NOT = { religion_group = pagan }			
+			NOT = {
+				has_ruler_modifier = tribal_succession_crisis
+			}
+		}
+		effect = {
+			add_adm_power = -100
+			add_dip_power = -100
+			add_mil_power = -100
+			add_years_of_income = -3
+			add_stability = -3
+			if = {
+				limit = {					
+					has_reform = divine_law	
+					all_owned_province = { religion = ROOT }						
+					OR = {
+					has_reform = cu_religious_policy_5
+					has_reform = cu_religious_policy_4
+					}	
+				}
+				if = { 
+					limit = { religion_group =  muslim }
+					add_government_reform = becomes_monarchy_reform
+					add_government_reform = clergy_reform
+				}
+				else = { add_government_reform = becomes_theocracy_reform }
+			}
+			else_if = {
+				limit = {
+					NOT = { absolutism = 30 }
+					any_neighbor_country = { government = republic }
+				}
+				add_government_reform = becomes_republic_reform	
+			}
+			else = { add_government_reform = becomes_monarchy_reform }
+			set_country_flag = settled_steppe_horde
+			country_event = { id = ideagroups.1 }     
+			add_country_modifier = {
+				name = "settled_horde_bonus"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}	

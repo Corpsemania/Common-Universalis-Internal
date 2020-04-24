@@ -1,0 +1,17 @@
+government = monarchy
+add_government_reform = feudalism_reform
+technology_group = eastern
+primary_culture = greek
+religion = orthodox
+capital = 146	# Athens
+1822.1.1 = {
+
+	government_rank = 2
+	monarch = {
+		name = "Greek National Assembly"
+		adm = 3
+		dip = 0
+		mil = 4
+		regent = yes
+	}
+}

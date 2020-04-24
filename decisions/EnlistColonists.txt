@@ -1,0 +1,161 @@
+country_decisions = {
+
+	enlist_colonist = {
+		potential = {
+			NOT = { has_country_modifier = hire_colonist }
+                        NOT = { has_country_modifier = reduce_colonist }
+			num_of_ports = 1
+                        ai = no
+		}
+		allow = {
+		    dip_power = 100
+            treasury = 50
+			OR = {
+                                full_idea_group = maritime_ideas
+                                full_idea_group = naval_ideas
+                                full_idea_group = exploration_ideas
+                                full_idea_group = reform_ideas
+                                full_idea_group = expansion_ideas
+                        }
+		}
+		effect = {
+		    add_dip_power = -100
+            add_treasury = -50
+			add_country_modifier = {
+				name = "hire_colonist"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 0
+       }
+	}
+
+       enlist_colonist_ai = {
+		potential = {
+			NOT = { has_country_modifier = hire_colonist }
+                        NOT = { has_country_modifier = reduce_colonist }
+			num_of_ports = 1
+                        ai = yes
+		}
+		allow = {
+                        #treasury = 150
+			OR = {
+                                full_idea_group = maritime_ideas
+                                full_idea_group = naval_ideas
+                                full_idea_group = exploration_ideas
+                        }
+		}
+		effect = {
+                        #add_treasury = -150
+			add_country_modifier = {
+				name = "hire_colonist"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+                        modifier = {
+                              factor = 0
+                              NOT = {              #Only historically colonial ai countries get it without exploration ideas
+                                       OR = {
+                                              tag = ENG
+                                              tag = GBR
+                                              tag = FRA
+                                              tag = SWE
+                                              tag = NED
+                                              tag = SPA
+                                              tag = CAS
+                                              tag = POR
+                                              tag = NOR
+                                              full_idea_group = exploration_ideas
+                                       }
+                              }
+                        }
+						modifier = {
+                              factor = 0
+						      check_variable = { which = go value = 120 }	  
+						}
+	        }
+       }
+
+       reduce_colonist = {
+		potential = {
+                        NOT = { has_country_modifier = hire_colonist }
+			NOT = { has_country_modifier = reduce_colonist }
+			num_of_ports = 1
+		}
+		allow = {
+                        #dip_power = 50
+                        num_of_colonists = 2
+			OR = {
+                                full_idea_group = maritime_ideas
+                                full_idea_group = exploration_ideas
+                        }
+		}
+		effect = {
+                        #add_dip_power = -50
+                        custom_tooltip = reduce_colonist_tooltip
+			add_country_modifier = {
+				name = "reduce_colonist"
+				duration = 7300
+			}
+		}
+		ai_will_do = {
+			factor = 1
+                        modifier = {
+                              factor = 0
+                              NOT = {              #Only massive colonial nations or nations with high GO take this
+                                       OR = {
+									        check_variable = { which = go value = 120 } 	
+                                              num_of_owned_provinces_with = {
+			                                value = 40
+			                                is_overseas = yes
+			                      }
+                                              colony = 5
+                                              AND = {
+                                                        num_of_owned_provinces_with = {
+			                                      value = 20
+			                                      is_overseas = yes
+			                                }
+                                                        colony = 3
+                                              }
+                                       }
+                              }
+                        }
+	        }
+       }
+
+       place_in_the_sun = {
+		potential = {
+			NOT = { has_country_modifier = place_in_the_sun }
+			num_of_ports = 1
+                        technology_group = western
+		}
+		allow = {
+                        prestige = 50
+			full_idea_group = naval_ideas
+                        num_of_heavy_ship = 20
+                        num_of_light_ship = 30
+		}
+		effect = {
+                        add_prestige = -30
+			add_country_modifier = {
+				name = "place_in_the_sun"
+				duration = -1
+			}
+                        custom_tooltip = place_in_the_sun.at
+		}
+		ai_will_do = {
+			factor = 1
+                        modifier = {
+                              factor = 0
+                              OR = {              #They already have it.
+                                     tag = CAS
+                                     tag = SPA
+                              }
+                        }
+	        }
+       }
+}
+

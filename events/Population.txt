@@ -1,0 +1,2124 @@
+namespace = pop
+###Population Growth(Show)
+province_event = {
+    id = pop.00
+	title = "pop.0.t"
+	desc = "pop.0.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	trigger = {
+	            #has_global_flag = global_events_trigger
+				has_global_flag = test_version
+				NOT = { owner = { has_country_flag = hide_population_growth } }
+                is_colony = no
+                #owner = { 
+                         #OR = { 
+                                  #ai = yes
+                                  #NOT = { has_country_flag = recent_growth_c }  # Prevent event from firing too frequently for human player
+                                  #had_country_flag = {
+                                        #flag = recent_growth_c
+                                        #days = 60
+                                  #}
+                          #}
+                #}
+		NOT = { has_province_modifier = recent_growth }
+                NOT = { has_province_modifier = famine_h }
+                NOT = { has_province_modifier = famine_m }
+                NOT = { has_province_modifier = famine_l }
+                check_variable = { which = r_ac value = 1 }
+				check_variable = { which = food_sur value = 0.01 }
+	}
+
+	mean_time_to_happen = {
+		months = 1200
+		        modifier = {
+                      factor = 0.33
+                      AND = {
+					            has_province_flag = recent_dev_reduction  #Recover from disasters
+								NOT = { 
+								         had_province_flag = { 
+										                 flag = recent_dev_reduction
+														 days = 7300 
+										 } 
+								}
+					  }
+                }
+                modifier = {
+                      factor = 0.85
+                      owner = { full_idea_group = economic_ideas }
+                }
+                modifier = {
+                      factor = 1.25
+                      is_overseas = yes
+                }
+				modifier = {
+                      factor = 0.25
+                      is_overseas = yes
+					  NOT = { development = 6 }
+					  OR = {
+					        continent = north_america
+							continent = south_america
+							continent = oceania
+					  }
+                }
+                modifier = {
+                      factor = 1.35
+                      owner = { has_country_modifier = ice_age }
+                }
+                modifier = {
+                      factor = 2
+                      owner = { has_country_flag = famine_c }
+                }
+                modifier = {
+                      factor = 0.9
+                      owner = { adm_tech = 9 }
+                }
+                modifier = {
+                      factor = 0.9
+                      owner = { adm_tech = 13 }
+                }
+                modifier = {
+                      factor = 0.9
+                      owner = { adm_tech = 16 }
+                }
+                modifier = {
+                      factor = 0.9
+                      owner = { adm_tech = 21 }
+                }
+                modifier = {
+                      factor = 0.9
+                      owner = { adm_tech = 25 }
+                }
+                modifier = {
+                      factor = 0.9
+                      owner = { adm_tech = 28 }
+                }
+                modifier = {
+                      factor = 0.9
+                      owner = { adm_tech = 30 }
+                }
+				modifier = {
+                      factor = 20 #Food
+                      NOT = { check_variable = { which = pop_growth value = 0.1 } }
+                }
+				modifier = {
+                      factor = 10 #Food
+					  check_variable = { which = pop_growth value = 0.1 }
+                      NOT = { check_variable = { which = pop_growth value = 0.2 } }
+                }
+				modifier = {
+                      factor = 5 #Food
+					  check_variable = { which = pop_growth value = 0.2 }
+                      NOT = { check_variable = { which = pop_growth value = 0.3 } }
+                }
+				modifier = {
+                      factor = 3.33 #Food
+					  check_variable = { which = pop_growth value = 0.3 }
+                      NOT = { check_variable = { which = pop_growth value = 0.4 } }
+                }
+				modifier = {
+                      factor = 2.5 #Food
+					  check_variable = { which = pop_growth value = 0.4 }
+                      NOT = { check_variable = { which = pop_growth value = 0.5 } }
+                }
+				modifier = {
+                      factor = 2 #Food
+					  check_variable = { which = pop_growth value = 0.5 }
+                      NOT = { check_variable = { which = pop_growth value = 0.6 } }
+                }
+				modifier = {
+                      factor = 1.67 #Food
+					  check_variable = { which = pop_growth value = 0.6 }
+                      NOT = { check_variable = { which = pop_growth value = 0.7 } }
+                }
+				modifier = {
+                      factor = 1.42 #Food
+					  check_variable = { which = pop_growth value = 0.7 }
+                      NOT = { check_variable = { which = pop_growth value = 0.8 } }
+                }
+				modifier = {
+                      factor = 1.25 #Food
+					  check_variable = { which = pop_growth value = 0.8 }
+                      NOT = { check_variable = { which = pop_growth value = 0.9 } }
+                }
+				modifier = {
+                      factor = 1.11 #Food
+					  check_variable = { which = pop_growth value = 0.9 }
+                      NOT = { check_variable = { which = pop_growth value = 1 } }
+                }
+				modifier = {
+                      factor = 0.909 #Food
+					  check_variable = { which = pop_growth value = 1.1 }
+                      NOT = { check_variable = { which = pop_growth value = 1.2 } }
+                }
+				modifier = {
+                      factor = 0.833 #Food
+					  check_variable = { which = pop_growth value = 1.2 }
+                      NOT = { check_variable = { which = pop_growth value = 1.3 } }
+                }
+				modifier = {
+                      factor = 0.769 #Food
+					  check_variable = { which = pop_growth value = 1.3 }
+                      NOT = { check_variable = { which = pop_growth value = 1.4 } }
+                }
+				modifier = {
+                      factor = 0.714 #Food
+					  check_variable = { which = pop_growth value = 1.4 }
+                      NOT = { check_variable = { which = pop_growth value = 1.5 } }
+                }
+				modifier = {
+                      factor = 0.667 #Food
+					  check_variable = { which = pop_growth value = 1.5 }
+                      NOT = { check_variable = { which = pop_growth value = 1.6 } }
+                }
+				modifier = {
+                      factor = 0.625 #Food
+					  check_variable = { which = pop_growth value = 1.6 }
+                      NOT = { check_variable = { which = pop_growth value = 1.7 } }
+                }
+				modifier = {
+                      factor = 0.588 #Food
+					  check_variable = { which = pop_growth value = 1.7 }
+                      NOT = { check_variable = { which = pop_growth value = 1.8 } }
+                }
+				modifier = {
+                      factor = 0.556 #Food
+					  check_variable = { which = pop_growth value = 1.8 }
+                      NOT = { check_variable = { which = pop_growth value = 1.9 } }
+                }
+				modifier = {
+                      factor = 0.526 #Food
+					  check_variable = { which = pop_growth value = 1.9 }
+                      NOT = { check_variable = { which = pop_growth value = 2 } }
+                }
+				modifier = {
+                      factor = 0.5 #Food
+					  check_variable = { which = pop_growth value = 2 }
+                      NOT = { check_variable = { which = pop_growth value = 2.25 } }
+                }
+				modifier = {
+                      factor = 0.444 #Food
+					  check_variable = { which = pop_growth value = 2.25 }
+                      NOT = { check_variable = { which = pop_growth value = 2.5 } }
+                }
+				modifier = {
+                      factor = 0.4 #Food
+					  check_variable = { which = pop_growth value = 2.5 }
+                      NOT = { check_variable = { which = pop_growth value = 2.75 } }
+                }
+				modifier = {
+                      factor = 0.363 #Food
+					  check_variable = { which = pop_growth value = 2.75 }
+                      NOT = { check_variable = { which = pop_growth value = 3 } }
+                }
+				modifier = {
+                      factor = 0.333 #Food
+					  check_variable = { which = pop_growth value = 3 }
+                      NOT = { check_variable = { which = pop_growth value = 3.33 } }
+                }
+				modifier = {
+                      factor = 0.3 #Food
+					  check_variable = { which = pop_growth value = 3.33 }
+                      NOT = { check_variable = { which = pop_growth value = 3.66 } }
+                }
+				modifier = {
+                      factor = 0.273 #Food
+					  check_variable = { which = pop_growth value = 3.66 }
+                      NOT = { check_variable = { which = pop_growth value = 4 } }
+                }
+				modifier = {
+                      factor = 0.25 #Food
+					  check_variable = { which = pop_growth value = 4 }
+                      NOT = { check_variable = { which = pop_growth value = 4.5 } }
+                }
+				modifier = {
+                      factor = 0.222 #Food
+					  check_variable = { which = pop_growth value = 4.5 }
+                      NOT = { check_variable = { which = pop_growth value = 5 } }
+                }
+				modifier = {
+                      factor = 0.25 #Food
+					  check_variable = { which = pop_growth value = 5 }
+                }
+                
+                modifier = {
+                      factor = 1.25
+                      has_winter = mild_winter
+                }
+                modifier = {
+                      factor = 1.5
+                      has_winter = normal_winter
+                }
+                modifier = {
+                      factor = 2
+                      has_winter = severe_winter
+                }
+                
+                modifier = {
+                      factor = 0.75
+                      OR = {
+                              AND = {
+                                     owner = { has_country_modifier = reduce_colonist }
+                                     is_overseas = yes
+                              }
+                              owner = {
+                                  is_colonial_nation = yes 
+                                  any_known_country = {
+                                        overlord_of = PREV
+                                        has_country_modifier = reduce_colonist
+                                  } 
+                              }
+                      }
+                }
+                modifier = {
+                      factor = 1.25
+                      OR = {
+                              AND = {
+                                     owner = { has_country_modifier = hire_colonist }
+                                     is_overseas = yes
+                              }
+                              owner = {
+                                  is_colonial_nation = yes 
+                                  any_known_country = {
+                                        overlord_of = PREV
+                                        has_country_modifier = hire_colonist
+                                  } 
+                              }
+                      }
+                }
+	}
+
+	option = {
+		name = "pop.0.a" #Great.
+                owner = {
+                          clr_country_flag = recent_growth_c  #Reset Timer
+                }
+		clr_province_flag = population_growth_temp
+		cu_add_base_manpower_1 = yes
+	    set_province_flag = population_growth_temp
+                #add_permanent_province_modifier = {
+                        #name = recent_growth
+                        #duration = 3650
+                #}
+                owner = {
+                          set_country_flag = recent_growth_c 
+                }
+		hidden_effect = { province_event = { id = urban.98 } }
+	}
+}
+
+#Population Growth(Hidden)
+province_event = {
+        id = pop.98
+	title = "pop.0.t"
+	desc = "pop.0.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	hidden = yes
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "pop.0.a" #Great.
+                owner = {
+                          clr_country_flag = recent_growth_c  #Reset Timer
+                }
+		clr_province_flag = population_growth_temp
+		cu_add_base_manpower_1 = yes
+	    set_province_flag = population_growth_temp
+                #add_permanent_province_modifier = {
+                        #name = recent_growth
+                        #duration = 3650
+                #}
+                owner = {
+                          set_country_flag = recent_growth_c 
+                }
+		#hidden_effect = { province_event = { id = urban.98 } }
+	}
+}
+
+###Population Emmigration
+province_event = {
+        id = pop.01
+	title = "pop.1.t"
+	desc = "pop.1.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "pop.1.a" 
+                owner = {
+                          clr_country_flag = recent_emmigration_c  #Reset Timer
+                }
+		add_base_manpower = -1
+                add_province_modifier = {
+                        name = recent_emmigration
+                        duration = 3650
+                }
+                set_province_flag = emmigration_on
+                owner = { set_country_flag = emmigration_on_c }
+                owner = {
+                          set_country_flag = recent_emmigration_c
+                }
+		#hidden_effect = { province_event = { id = urban.98 } }
+	}
+}
+
+
+###Population Immigration(Overseas)
+province_event = {
+        id = pop.10
+	title = "pop.10.t"
+	desc = "pop.10.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	trigger = {
+              owner = {
+                        any_owned_province = {
+                                 has_province_flag = emmigration_on
+                        }
+              }
+              is_overseas = yes
+              NOT = { has_province_modifier = recent_growth }
+              NOT = { has_province_modifier = famine_h } 
+              NOT = { has_province_modifier = famine_m }
+              NOT = { has_province_modifier = famine_l }
+              NOT = {
+                             OR = {
+                              AND = {
+                                      has_climate = arctic
+                                      development = 6
+                              }
+                              AND = {
+                                      has_climate = tropical
+                                      development = 8
+                              }
+                              AND = {
+                                      has_winter = severe_winter
+                                      development = 3
+                              }
+                              AND = {
+                                      has_winter = normal_winter
+                                      development = 6
+                              }
+                              AND = {
+                                      has_climate = arid
+                                      development = 10
+                              }
+                                                        AND = {
+                                                              has_terrain = jungle
+                                                              development = 7
+                                                        }
+                                                        AND = {
+                                                              has_terrain = glacier
+                                                              development = 4
+                                                        }
+                                                        AND = {
+                                                              has_terrain = mountain
+                                                              development = 6
+                                                        }
+                                                        AND = {
+                                                              has_terrain = desert
+                                                              development = 6
+                                                        }
+                                                        AND = {
+                                                              has_terrain = coastal_desert
+                                                              development = 7
+                                                        }
+                                                        AND = {
+                                                              has_terrain = steppe
+                                                              development = 7
+                                                        }
+                                                        AND = {
+                                                              has_terrain = impassable_mountains
+                                                              development = 4
+                                                        }
+                                                        AND = {
+                                                               has_terrain = woods
+                                                               development = 24
+                                                        }
+                                                        AND = {
+                                                               has_terrain = forest
+                                                               development = 20
+                                                        }
+                                                        AND = {
+                                                               has_terrain = marsh
+                                                               development = 20
+                                                               NOT = { has_province_modifier = holland_polders }
+                                                        }
+                           }
+             }
+        }
+
+        mean_time_to_happen = {
+		months = 6
+                modifier = {
+                      factor = 0.65
+                      OR = {
+                               has_province_modifier = important_natural_harbor
+                               has_province_modifier = river_estuary_modifier
+                      }
+                }
+                modifier = {
+                      factor = 2
+                      has_terrain = jungle
+                }
+                modifier = {
+                      factor = 4
+                      has_terrain = glacier
+                }
+                modifier = {
+                      factor = 2
+                      has_terrain = mountain
+                }
+                modifier = {
+                      factor = 3
+                      has_terrain = desert
+                }
+                modifier = {
+                      factor = 2
+                      has_terrain = coastal_desert
+                }
+                modifier = {
+                      factor = 1.5
+                      has_terrain = steppe
+                }
+                modifier = {
+                      factor = 4
+                      has_terrain = impassable_mountains
+                }
+                modifier = {
+                      factor = 1.25
+                      has_terrain = coastline
+                }
+                modifier = {
+                      factor = 4
+                      has_climate = arctic
+                }
+                modifier = {
+                      factor = 3
+                      has_climate = tropical
+                }
+                modifier = {
+                      factor = 2.5
+                      has_climate = arid
+                }
+                modifier = {
+                      factor = 2
+                      has_winter = mild_winter
+                }
+                modifier = {
+                      factor = 3
+                      has_winter = normal_winter
+                }
+                modifier = {
+                      factor = 4
+                      has_winter = severe_winter
+                }
+                modifier = {
+                      factor = 0.75
+                      owner = { has_country_modifier = reduce_colonist }
+                }
+                modifier = {
+                      factor = 1.25
+                      owner = { has_country_modifier = hire_colonist }
+                }
+	}
+
+        immediate = {
+                hidden_effect = {
+                    owner = {
+                            random_owned_province = {
+                               limit = { has_province_flag = emmigration_on }  #Prevents multiple immegration events from a single emmigration
+                               clr_province_flag = emmigration_on
+                               set_province_flag = emmigration_on_i
+                            }
+                    }
+                }
+        }
+
+	option = {
+		name = "pop.10.a" #Great.
+                add_province_modifier = {
+                                  name = recent_growth
+                                  duration = 3650
+                }
+		cu_add_base_manpower_1 = yes
+                if = {
+                       limit = { 
+                            NOT = { 
+                                    OR = { 
+                                           culture = owner
+                                           culture_group = ROOT
+                                    }
+                            }
+                            owner = {
+                                  any_owned_province = {
+                                       has_province_flag = emmigration_on_i
+                                       OR = { 
+                                           culture = owner
+                                           culture_group = ROOT
+                                       }
+                                  }
+                            }
+                       }
+                       hidden_effect = { 
+                          owner = {
+                            random_owned_province = {
+                               limit = { has_province_flag = emmigration_on_i }
+                               clr_province_flag = emmigration_on_i
+                            }
+                            clr_country_flag = emmigration_on_c
+                          }
+                       }
+                       if = { 
+                               limit = { NOT = { has_province_flag = culture_inf_1 } }
+                               set_province_flag = culture_inf_1
+                       }
+                       if = { 
+                               limit = { 
+                                          has_province_flag = culture_inf_1 
+                                          NOT = { has_province_flag = culture_inf_2 }
+                               }
+                               set_province_flag = culture_inf_2
+                       }
+                       if = { 
+                               limit = { 
+                                          has_province_flag = culture_inf_2 
+                                          NOT = { has_province_flag = culture_inf_3 }
+                               }
+                               set_province_flag = culture_inf_3
+                       }
+                       if = { 
+                               limit = { 
+                                          has_province_flag = culture_inf_3 
+                                          NOT = { has_province_flag = culture_inf_4 }
+                               }
+                               set_province_flag = culture_inf_4
+                       }
+                       if = { 
+                               limit = { 
+                                          has_province_flag = culture_inf_4 
+                                          NOT = { has_province_flag = culture_inf_5 }
+                               }
+                               set_province_flag = culture_inf_5
+                       }
+                       if = { 
+                               limit = { 
+                                          OR = {
+                                                 AND = {
+                                                         has_province_flag = culture_inf_1 
+                                                         NOT = { development = 6 }
+                                                 }
+                                                 AND = {
+                                                         has_province_flag = culture_inf_2 
+                                                         NOT = { development = 10 }
+                                                 }
+                                                 AND = {
+                                                         has_province_flag = culture_inf_3
+                                                         NOT = { development = 20 }
+                                                 }
+                                                 AND = {
+                                                         has_province_flag = culture_inf_4
+                                                         NOT = { development = 40 }
+                                                 }
+                                                 has_province_flag = culture_inf_4
+                                          }
+                               }
+                               change_culture = owner
+                               clr_province_flag = culture_inf_1
+                               clr_province_flag = culture_inf_2
+                               clr_province_flag = culture_inf_3
+                               clr_province_flag = culture_inf_4
+                               clr_province_flag = culture_inf_5
+                       }
+                }
+                if = {
+                  limit = {
+                       OR = {
+                             OR = { 
+                                           culture = owner
+                                           culture_group = ROOT
+                             }
+                             owner = {
+                                  any_owned_province = {
+                                       has_province_flag = emmigration_on_i 
+                                       NOT = { 
+                                           OR = { 
+                                              culture = owner
+                                              culture_group = ROOT
+                                           }
+                                       }
+                                  }
+                             }
+                       }
+                  }
+                  hidden_effect = { 
+                    owner = {
+                        random_owned_province = {
+                               limit = { has_province_flag = emmigration_on_i }
+                               clr_province_flag = emmigration_on_i
+                        }
+                        clr_country_flag = emmigration_on_c
+                    }
+                  }
+                }
+				hidden_effect = { province_event = { id = urban.98 } }
+	}
+}
+
+###Population Immigration(Colonial)
+province_event = {
+        id = pop.11
+	title = "pop.11.t"
+	desc = "pop.11.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	trigger = {
+              owner = {
+                        has_reform = colonial_government
+                        any_known_country = {
+                            overlord_of = PREV 
+                            any_owned_province = {
+                                 has_province_flag = emmigration_on
+                            }
+                        }
+              }
+              NOT = { has_province_modifier = famine_h } 
+              NOT = { has_province_modifier = famine_m }
+              NOT = { has_province_modifier = famine_l }
+              NOT = { has_province_modifier = recent_growth }
+              NOT = {
+                             OR = {
+                               AND = {
+                                      has_climate = arctic
+                                      development = 6
+                              }
+                              AND = {
+                                      has_climate = tropical
+                                      development = 8
+                              }
+                              AND = {
+                                      has_winter = severe_winter
+                                      development = 3
+                              }
+                              AND = {
+                                      has_winter = normal_winter
+                                      development = 6
+                              }
+                              AND = {
+                                      has_climate = arid
+                                      development = 10
+                              }
+                                                        AND = {
+                                                              has_terrain = jungle
+                                                              development = 7
+                                                        }
+                                                        AND = {
+                                                              has_terrain = glacier
+                                                              development = 4
+                                                        }
+                                                        AND = {
+                                                              has_terrain = mountain
+                                                              development = 6
+                                                        }
+                                                        AND = {
+                                                              has_terrain = desert
+                                                              development = 6
+                                                        }
+                                                        AND = {
+                                                              has_terrain = coastal_desert
+                                                              development = 7
+                                                        }
+                                                        AND = {
+                                                              has_terrain = steppe
+                                                              development = 7
+                                                        }
+                                                        AND = {
+                                                              has_terrain = impassable_mountains
+                                                              development = 4
+                                                        }
+                                                        AND = {
+                                                               has_terrain = woods
+                                                               development = 24
+                                                        }
+                                                        AND = {
+                                                               has_terrain = forest
+                                                               development = 20
+                                                        }
+                                                        AND = {
+                                                               has_terrain = marsh
+                                                               development = 20
+                                                               NOT = { has_province_modifier = holland_polders }
+                                                        }
+                           }
+             }
+        }
+
+        mean_time_to_happen = {
+		months = 9
+                modifier = {
+                      factor = 0.65
+                      OR = {
+                               has_province_modifier = important_natural_harbor
+                               has_province_modifier = river_estuary_modifier
+                      }
+                }
+                modifier = {
+                      factor = 2
+                      has_terrain = jungle
+                }
+                modifier = {
+                      factor = 4
+                      has_terrain = glacier
+                }
+                modifier = {
+                      factor = 2
+                      has_terrain = mountain
+                }
+                modifier = {
+                      factor = 3
+                      has_terrain = desert
+                }
+                modifier = {
+                      factor = 2
+                      has_terrain = coastal_desert
+                }
+                modifier = {
+                      factor = 1.5
+                      has_terrain = steppe
+                }
+                modifier = {
+                      factor = 4
+                      has_terrain = impassable_mountains
+                }
+                modifier = {
+                      factor = 1.25
+                      has_terrain = coastline
+                }
+                modifier = {
+                      factor = 4
+                      has_climate = arctic
+                }
+                modifier = {
+                      factor = 3
+                      has_climate = tropical
+                }
+                modifier = {
+                      factor = 2.5
+                      has_climate = arid
+                }
+                modifier = {
+                      factor = 2
+                      has_winter = mild_winter
+                }
+                modifier = {
+                      factor = 3
+                      has_winter = normal_winter
+                }
+                modifier = {
+                      factor = 4
+                      has_winter = severe_winter
+                }
+                modifier = {
+                      factor = 0.75
+                      owner = {
+                                  is_colonial_nation = yes 
+                                  any_known_country = {
+                                        overlord_of = PREV
+                                        has_country_modifier = reduce_colonist
+                                  } 
+                      }
+                }
+                modifier = {
+                      factor = 1.25
+                      owner = {
+                                  is_colonial_nation = yes 
+                                  any_known_country = {
+                                        overlord_of = PREV
+                                        has_country_modifier = hire_colonist
+                                  } 
+                      }
+                }
+	}
+
+        immediate = {
+                hidden_effect = {
+                    owner = {
+                              random_known_country = {
+                                 limit = { overlord_of = PREV }
+                                 random_owned_province = {
+                                    limit = { has_province_flag = emmigration_on }
+                                    clr_province_flag = emmigration_on
+                                    set_province_flag = emmigration_on_i
+                                 }
+                             }
+                    }
+                }
+        }
+        
+	option = {
+		name = "pop.11.a" #Great.
+                add_province_modifier = {
+                                  name = recent_growth
+                                  duration = 3650
+                }
+		cu_add_base_manpower_1 = yes
+                if = {
+                       limit = { 
+                            NOT = { 
+                                     OR = { 
+                                           culture = owner
+                                           culture_group = ROOT
+                                    }
+                            }
+                            owner = {
+                              any_known_country = {
+                                 overlord_of = PREV 
+                                 any_owned_province = {
+                                       has_province_flag = emmigration_on_i
+                                       OR = { 
+                                           culture = owner
+                                           culture_group = ROOT
+                                       }
+                                 }
+                              }
+                            }
+                       }
+                       hidden_effect = { 
+                          owner = {
+                              random_known_country = {
+                                 limit = { overlord_of = PREV }
+                                 random_owned_province = {
+                                    limit = { has_province_flag = emmigration_on_i }
+                                    clr_province_flag = emmigration_on_i
+                                    province_event = { id = pop.110 }
+                                 }
+                                 clr_country_flag = emmigration_on_c
+                             }
+                          }
+                       }
+                       if = { 
+                               limit = { NOT = { has_province_flag = culture_inf_1 } }
+                               set_province_flag = culture_inf_1
+                       }
+                       if = { 
+                               limit = { 
+                                          has_province_flag = culture_inf_1 
+                                          NOT = { has_province_flag = culture_inf_2 }
+                               }
+                               set_province_flag = culture_inf_2
+                       }
+                       if = { 
+                               limit = { 
+                                          has_province_flag = culture_inf_2 
+                                          NOT = { has_province_flag = culture_inf_3 }
+                               }
+                               set_province_flag = culture_inf_3
+                       }
+                       if = { 
+                               limit = { 
+                                          has_province_flag = culture_inf_3 
+                                          NOT = { has_province_flag = culture_inf_4 }
+                               }
+                               set_province_flag = culture_inf_4
+                       }
+                       if = { 
+                               limit = { 
+                                          has_province_flag = culture_inf_4 
+                                          NOT = { has_province_flag = culture_inf_5 }
+                               }
+                               set_province_flag = culture_inf_5
+                       }
+                       if = { 
+                               limit = { 
+                                          OR = {
+                                                 AND = {
+                                                         has_province_flag = culture_inf_1 
+                                                         NOT = { development = 6 }
+                                                 }
+                                                 AND = {
+                                                         has_province_flag = culture_inf_2 
+                                                         NOT = { development = 10 }
+                                                 }
+                                                 AND = {
+                                                         has_province_flag = culture_inf_3
+                                                         NOT = { development = 20 }
+                                                 }
+                                                 AND = {
+                                                         has_province_flag = culture_inf_4
+                                                         NOT = { development = 40 }
+                                                 }
+                                                 has_province_flag = culture_inf_5
+                                          }
+                               }
+                               change_culture = owner
+                               clr_province_flag = culture_inf_1
+                               clr_province_flag = culture_inf_2
+                               clr_province_flag = culture_inf_3
+                               clr_province_flag = culture_inf_4
+                               clr_province_flag = culture_inf_5
+                       }
+                }
+                if = {
+                       limit = { 
+                            OR = { 
+                                  OR = { 
+                                           culture = owner
+                                           culture_group = ROOT
+                                  }
+                                  owner = {
+                                    any_known_country = {
+                                      overlord_of = PREV 
+                                      any_owned_province = {
+                                          has_province_flag = emmigration_on_i
+                                          NOT = { 
+                                                  OR = { 
+                                                          culture = owner
+                                                          culture_group = ROOT
+                                                  }
+                                          }
+                                      }
+                                    }
+                                  }
+                            }
+                       }
+                   hidden_effect = { 
+                      owner = {
+                        random_known_country = {
+                            limit = { overlord_of = PREV }
+                            random_owned_province = {
+                               limit = { has_province_flag = emmigration_on_i }
+                               clr_province_flag = emmigration_on_i
+                               province_event = { id = pop.110 }
+                            }
+                            clr_country_flag = emmigration_on_c
+                        }
+                      }
+                   }
+               }
+			   hidden_effect = { province_event = { id = urban.98 } }
+	}
+}
+
+###Population Immigration(Colonial Inform)
+province_event = {
+        id = pop.110
+	title = "pop.110.t"
+	desc = "pop.110.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "pop.110.a" #Great.
+	}
+}
+
+
+
+###Population Immigration(Domestic)
+province_event = {
+        id = pop.12
+	title = "pop.12.t"
+	desc = "pop.12.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	trigger = {
+              owner = {
+                        any_owned_province = {
+                                 has_province_flag = emmigration_on
+                        }
+              }
+              is_overseas = no
+              NOT = { has_province_modifier = famine_h } 
+              NOT = { has_province_modifier = famine_m }
+              NOT = { has_province_modifier = famine_l }
+              NOT = { has_province_modifier = recent_growth }
+              NOT = {
+                             OR = {
+                              AND = {
+                                      has_climate = arctic
+                                      development = 6
+                              }
+                              AND = {
+                                      has_climate = tropical
+                                      development = 8
+                              }
+                              AND = {
+                                      has_winter = severe_winter
+                                      development = 3
+                              }
+                              AND = {
+                                      has_winter = normal_winter
+                                      development = 6
+                              }
+                              AND = {
+                                      has_climate = arid
+                                      development = 10
+                              }
+                                                        AND = {
+                                                              has_terrain = jungle
+                                                              development = 9
+                                                        }
+                                                        AND = {
+                                                              has_terrain = glacier
+                                                              development = 5
+                                                        }
+                                                        AND = {
+                                                              has_terrain = mountain
+                                                              development = 7
+                                                        }
+                                                        AND = {
+                                                              has_terrain = desert
+                                                              development = 7
+                                                        }
+                                                        AND = {
+                                                              has_terrain = coastal_desert
+                                                              development = 9
+                                                        }
+                                                        AND = {
+                                                              has_terrain = steppe
+                                                              development = 9
+                                                        }
+                                                        AND = {
+                                                              has_terrain = impassable_mountains
+                                                              development = 5
+                                                        }
+                                                        AND = {
+                                                               has_terrain = woods
+                                                               development = 30
+                                                        }
+                                                        AND = {
+                                                               has_terrain = forest
+                                                               development = 24
+                                                        }
+                                                        AND = {
+                                                               has_terrain = marsh
+                                                               development = 24
+                                                               NOT = { has_province_modifier = holland_polders }
+                                                        }
+                           }
+             }
+        }
+
+        mean_time_to_happen = {
+		months = 24
+                modifier = {
+                      factor = 0.65
+                      OR = {
+                               has_province_modifier = important_natural_harbor
+                               has_province_modifier = river_estuary_modifier
+                      }
+                }
+				modifier = {
+                      factor = 0.5
+                      has_state_edict = edict_resettlement_focus
+                }
+                modifier = {
+                      factor = 2
+                      has_terrain = jungle
+                }
+                modifier = {
+                      factor = 4
+                      has_terrain = glacier
+                }
+                modifier = {
+                      factor = 2
+                      has_terrain = mountain
+                }
+                modifier = {
+                      factor = 3
+                      has_terrain = desert
+                }
+                modifier = {
+                      factor = 2
+                      has_terrain = coastal_desert
+                }
+                modifier = {
+                      factor = 1.5
+                      has_terrain = steppe
+                }
+                modifier = {
+                      factor = 4
+                      has_terrain = impassable_mountains
+                }
+                modifier = {
+                      factor = 1.25
+                      has_terrain = coastline
+                }
+                modifier = {
+                      factor = 4
+                      has_climate = arctic
+                }
+                modifier = {
+                      factor = 3
+                      has_climate = tropical
+                }
+                modifier = {
+                      factor = 2.5
+                      has_climate = arid
+                }
+                modifier = {
+                      factor = 2
+                      has_winter = mild_winter
+                }
+                modifier = {
+                      factor = 3
+                      has_winter = normal_winter
+                }
+                modifier = {
+                      factor = 4
+                      has_winter = severe_winter
+                }
+	}
+        immediate = {
+                hidden_effect = {
+                    owner = {
+                             random_owned_province = {
+                                 limit = { has_province_flag = emmigration_on }
+                                 clr_province_flag = emmigration_on
+                                 set_province_flag = emmigration_on_i
+                             }
+                    }
+                }
+        }
+	option = {
+		name = "pop.12.a" #Great.
+                add_province_modifier = {
+                                  name = recent_growth
+                                  duration = 3650
+                }
+		cu_add_base_manpower_1 = yes
+                if = {
+                       limit = { 
+                            NOT = { 
+                                    OR = { 
+                                           culture = owner
+                                           culture_group = ROOT
+                                    }
+                            }
+                            owner = {
+                                  any_owned_province = {
+                                       has_province_flag = emmigration_on_i 
+                                       OR = { 
+                                           culture = owner
+                                           culture_group = ROOT
+                                       }
+                                  }
+                            }
+                       }
+                       hidden_effect = { 
+                         owner = {
+                             random_owned_province = {
+                                 limit = { has_province_flag = emmigration_on_i }
+                                 clr_province_flag = emmigration_on_i
+                             }
+                             clr_country_flag = emmigration_on_c
+                         }
+                       }
+					   set_variable = { which = cu_var1 value = 1 }
+			           set_variable = { which = p_dev value = 0 }
+	                   export_to_variable = {
+	                        which = p_dev
+			                value = development
+	                   }
+	          
+	                   divide_variable = { which = cu_var1 which = p_dev }	 
+			           cu_change_cultural_assimilation = yes
+                }
+                if = {
+                  limit = {
+                       OR = {
+                             OR = { 
+                                           culture = owner
+                                           culture_group = ROOT
+                             }
+                             owner = {
+                                  any_owned_province = {
+                                       has_province_flag = emmigration_on_i
+                                       NOT = { 
+                                               OR = { 
+                                                     culture = owner
+                                                     culture_group = ROOT
+                                               }
+                                       }
+                                  }
+                             }
+                       }
+                  }
+                  hidden_effect = { 
+                    owner = {
+                        random_owned_province = {
+                               limit = { has_province_flag = emmigration_on_i }
+                               clr_province_flag = emmigration_on_i
+                        }
+                        clr_country_flag = emmigration_on_c
+                    }
+                  }
+                }
+				hidden_effect = { province_event = { id = urban.98 } }
+	}
+}
+
+###Population Immigration(Foreign)
+province_event = {
+        id = pop.13
+	title = "pop.13.t"
+	desc = "pop.13.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	trigger = {
+              owner = {
+                        is_colonial_nation = no 
+                        any_neighbor_country = {
+                            OR = { 
+                                    religion_group = PREV
+                                    culture_group = PREV
+                            }
+                            any_owned_province = {
+                                 has_province_flag = emmigration_on
+                            }
+                        }
+              }
+              NOT = { has_province_modifier = famine_h } 
+              NOT = { has_province_modifier = famine_m }
+              NOT = { has_province_modifier = famine_l }
+              NOT = { has_province_modifier = recent_growth }
+              NOT = {
+                             OR = {
+                              AND = {
+                                      has_climate = arctic
+                                      development = 6
+                              }
+                              AND = {
+                                      has_climate = tropical
+                                      development = 8
+                              }
+                              AND = {
+                                      has_winter = severe_winter
+                                      development = 3
+                              }
+                              AND = {
+                                      has_winter = normal_winter
+                                      development = 6
+                              }
+                              AND = {
+                                      has_climate = arid
+                                      development = 10
+                              }
+                                                        AND = {
+                                                              has_terrain = jungle
+                                                              development = 7
+                                                        }
+                                                        AND = {
+                                                              has_terrain = glacier
+                                                              development = 4
+                                                        }
+                                                        AND = {
+                                                              has_terrain = mountain
+                                                              development = 6
+                                                        }
+                                                        AND = {
+                                                              has_terrain = desert
+                                                              development = 6
+                                                        }
+                                                        AND = {
+                                                              has_terrain = coastal_desert
+                                                              development = 7
+                                                        }
+                                                        AND = {
+                                                              has_terrain = steppe
+                                                              development = 7
+                                                        }
+                                                        AND = {
+                                                              has_terrain = impassable_mountains
+                                                              development = 4
+                                                        }
+                                                        AND = {
+                                                               has_terrain = woods
+                                                               development = 24
+                                                        }
+                                                        AND = {
+                                                               has_terrain = forest
+                                                               development = 20
+                                                        }
+                                                        AND = {
+                                                               has_terrain = marsh
+                                                               development = 20
+                                                               NOT = { has_province_modifier = holland_polders }
+                                                        }
+                           }
+             }
+        }
+
+        mean_time_to_happen = {
+		months = 48
+                modifier = {
+                      factor = 0.8
+                      is_overseas = yes
+                }
+                modifier = {
+                      factor = 0.65
+                      OR = {
+                               has_province_modifier = important_natural_harbor
+                               has_province_modifier = river_estuary_modifier
+                      }
+                }
+				modifier = {
+                      factor = 0.5
+                      has_state_edict = edict_resettlement_focus
+                }
+                modifier = {
+                      factor = 1.25
+                      owner = { 
+                                NOT = { prestige = 10 }
+                      }
+                }
+                modifier = {
+                      factor = 0.85
+                      owner = { 
+                                prestige = 40
+                                NOT = { prestige = 70 }
+                      }
+                }
+                modifier = {
+                      factor = 0.65
+                      owner = { 
+                                prestige = 70
+                                NOT = { prestige = 100 }
+                      }
+                }
+                modifier = {
+                      factor = 2
+                      has_terrain = jungle
+                }
+                modifier = {
+                      factor = 4
+                      has_terrain = glacier
+                }
+                modifier = {
+                      factor = 2
+                      has_terrain = mountain
+                }
+                modifier = {
+                      factor = 3
+                      has_terrain = desert
+                }
+                modifier = {
+                      factor = 2
+                      has_terrain = coastal_desert
+                }
+                modifier = {
+                      factor = 1.5
+                      has_terrain = steppe
+                }
+                modifier = {
+                      factor = 4
+                      has_terrain = impassable_mountains
+                }
+                modifier = {
+                      factor = 1.25
+                      has_terrain = coastline
+                }
+                modifier = {
+                      factor = 4
+                      has_climate = arctic
+                }
+                modifier = {
+                      factor = 3
+                      has_climate = tropical
+                }
+                modifier = {
+                      factor = 2.5
+                      has_climate = arid
+                }
+                modifier = {
+                      factor = 2
+                      has_winter = mild_winter
+                }
+                modifier = {
+                      factor = 3
+                      has_winter = normal_winter
+                }
+                modifier = {
+                      factor = 4
+                      has_winter = severe_winter
+                }
+	}
+        
+        immediate = {
+                hidden_effect = {
+                    owner = {
+                        random_neighbor_country = {
+                            limit = { 
+                                OR = { 
+                                    religion_group = PREV
+                                    culture_group = PREV
+                                } 
+                                any_owned_province = {
+                                      has_province_flag = emmigration_on
+                                }
+                            }
+                            random_owned_province = {
+                               limit = { has_province_flag = emmigration_on }
+                               clr_province_flag = emmigration_on
+                               set_province_flag = emmigration_on_i
+                            }
+                        }
+                   }
+                }
+        }
+
+	option = {
+		name = "pop.13.a" #Great.
+                add_province_modifier = {
+                                  name = recent_growth
+                                  duration = 3650
+                }
+		cu_add_base_manpower_1 = yes
+                hidden_effect = { 
+                   owner = {
+                        random_neighbor_country = {
+                            limit = { 
+                                OR = { 
+                                    religion_group = PREV
+                                    culture_group = PREV
+                                } 
+                                any_owned_province = {
+                                      has_province_flag = emmigration_on_i
+                                }
+                            }
+                            random_owned_province = {
+                               limit = { has_province_flag = emmigration_on_i }
+                               clr_province_flag = emmigration_on_i
+                               province_event = { id = pop.130 }
+                            }
+                            clr_country_flag = emmigration_on_c
+                        }
+                   }
+                }
+				hidden_effect = { province_event = { id = urban.98 } }
+	}
+}
+
+###Population Immigration(Foreign Inform)
+province_event = {
+        id = pop.130
+	title = "pop.130.t"
+	desc = "pop.130.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "pop.130.a" #Great.
+	}
+}
+
+###Population Immigration(Foreign Colony)
+province_event = {
+        id = pop.14
+	title = "pop.14.t"
+	desc = "pop.14.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	trigger = {
+              owner = {
+                        OR = {
+                                is_colonial_nation = yes 
+                                AND = { 
+                                         ROOT = { NOT = { continent = europe } }
+                                         ROOT = { NOT = { continent = asia } }
+                                         ROOT = { is_overseas = no }
+                                         technology_group = western
+                                }
+                        }
+                        any_known_country = {
+                            OR = { 
+                                    religion_group = PREV
+                                    culture_group = PREV
+                                    technology_group = western
+                            }
+                            NOT = { overlord_of = PREV }
+                            OR = {
+                                     capital_scope = { continent = europe } 
+                                     technology_group = western
+                            }
+                            any_owned_province = {
+                                 has_province_flag = emmigration_on
+                                 is_overseas = no
+                            }
+                        }
+              }
+              NOT = { has_province_modifier = famine_h } 
+              NOT = { has_province_modifier = famine_m }
+              NOT = { has_province_modifier = famine_l }
+              NOT = { has_province_modifier = recent_growth }
+              NOT = {
+                             OR = {
+                              AND = {
+                                      has_climate = arctic
+                                      development = 6
+                              }
+                              AND = {
+                                      has_climate = tropical
+                                      development = 8
+                              }
+                              AND = {
+                                      has_winter = severe_winter
+                                      development = 3
+                              }
+                              AND = {
+                                      has_winter = normal_winter
+                                      development = 6
+                              }
+                              AND = {
+                                      has_climate = arid
+                                      development = 10
+                              }
+                                                        AND = {
+                                                              has_terrain = jungle
+                                                              development = 7
+                                                        }
+                                                        AND = {
+                                                              has_terrain = glacier
+                                                              development = 4
+                                                        }
+                                                        AND = {
+                                                              has_terrain = mountain
+                                                              development = 6
+                                                        }
+                                                        AND = {
+                                                              has_terrain = desert
+                                                              development = 6
+                                                        }
+                                                        AND = {
+                                                              has_terrain = coastal_desert
+                                                              development = 7
+                                                        }
+                                                        AND = {
+                                                              has_terrain = steppe
+                                                              development = 7
+                                                        }
+                                                        AND = {
+                                                              has_terrain = impassable_mountains
+                                                              development = 4
+                                                        }
+                                                        AND = {
+                                                               has_terrain = woods
+                                                               development = 24
+                                                        }
+                                                        AND = {
+                                                               has_terrain = forest
+                                                               development = 20
+                                                        }
+                                                        AND = {
+                                                               has_terrain = marsh
+                                                               development = 20
+                                                               NOT = { has_province_modifier = holland_polders }
+                                                        }
+                           }
+             }
+        }
+
+        mean_time_to_happen = {
+		months = 30
+                modifier = {
+                      factor = 0.75
+                      OR = {
+                               has_province_modifier = important_natural_harbor
+                               has_province_modifier = river_estuary_modifier
+                      }
+                }
+                modifier = {
+                      factor = 0.75
+                      OR = { 
+                                continent = north_america
+                                continent = south_america
+                      }
+                }
+                modifier = {
+                      factor = 1.25
+                      owner = { 
+                                NOT = { prestige = 10 }
+                      }
+                }
+                modifier = {
+                      factor = 0.85
+                      owner = { 
+                                prestige = 40
+                                NOT = { prestige = 70 }
+                      }
+                }
+                modifier = {
+                      factor = 0.75
+                      owner = { 
+                                prestige = 70
+                                NOT = { prestige = 100 }
+                      }
+                }
+				modifier = {
+                      factor = 0.5
+                      has_state_edict = edict_resettlement_focus
+                }
+                modifier = {
+                      factor = 2
+                      has_terrain = jungle
+                }
+                modifier = {
+                      factor = 4
+                      has_terrain = glacier
+                }
+                modifier = {
+                      factor = 2
+                      has_terrain = mountain
+                }
+                modifier = {
+                      factor = 3
+                      has_terrain = desert
+                }
+                modifier = {
+                      factor = 2
+                      has_terrain = coastal_desert
+                }
+                modifier = {
+                      factor = 1.5
+                      has_terrain = steppe
+                }
+                modifier = {
+                      factor = 4
+                      has_terrain = impassable_mountains
+                }
+                modifier = {
+                      factor = 1.25
+                      has_terrain = coastline
+                }
+                modifier = {
+                      factor = 4
+                      has_climate = arctic
+                }
+                modifier = {
+                      factor = 3
+                      has_climate = tropical
+                }
+                modifier = {
+                      factor = 2.5
+                      has_climate = arid
+                }
+                modifier = {
+                      factor = 2
+                      has_winter = mild_winter
+                }
+                modifier = {
+                      factor = 3
+                      has_winter = normal_winter
+                }
+                modifier = {
+                      factor = 4
+                      has_winter = severe_winter
+                }
+                modifier = {
+                      factor = 0.75
+                      owner = { has_country_modifier = reduce_colonist }
+                }
+                modifier = {
+                      factor = 1.25
+                      owner = { has_country_modifier = hire_colonist }
+                }
+	}
+
+        immediate = {
+                hidden_effect = {
+                    owner = {
+                        random_known_country = {
+                            limit = { 
+                                OR = { 
+                                    religion_group = PREV
+                                    culture_group = PREV
+                                } 
+                                OR = {
+                                     capital_scope = { continent = europe } 
+                                     technology_group = western
+                                }
+                                NOT = { overlord_of = PREV }
+                                any_owned_province = {
+                                    has_province_flag = emmigration_on
+                                    is_overseas = no
+                                }
+                            }
+                            random_owned_province = {
+                               limit = { 
+                                         has_province_flag = emmigration_on
+                                         is_overseas = no
+                               }
+                               clr_province_flag = emmigration_on
+                               set_province_flag = emmigration_on_i
+                            }
+                        }
+                   }
+                }
+        }
+
+	option = {
+		name = "pop.14.a" #Great.
+                add_province_modifier = {
+                                  name = recent_growth
+                                  duration = 3650
+                }
+		cu_add_base_manpower_1 = yes
+                hidden_effect = { 
+                   owner = {
+                        random_known_country = {
+                            limit = { 
+                                OR = { 
+                                    religion_group = PREV
+                                    culture_group = PREV
+                                } 
+                                OR = {
+                                     capital_scope = { continent = europe } 
+                                     technology_group = western
+                                }
+                                NOT = { overlord_of = PREV }
+                                any_owned_province = {
+                                    has_province_flag = emmigration_on_i
+                                    is_overseas = no
+                                }
+                            }
+                            random_owned_province = {
+                               limit = { 
+                                         has_province_flag = emmigration_on_i
+                                         is_overseas = no
+                               }
+                               clr_province_flag = emmigration_on_i
+                               province_event = { id = pop.140 }
+                            }
+                            clr_country_flag = emmigration_on_c
+                        }
+                   }
+                }
+				hidden_effect = { province_event = { id = urban.98 } }
+	}
+}
+
+###Population Immigration(Foreign Inform)
+province_event = {
+        id = pop.140
+	title = "pop.140.t"
+	desc = "pop.140.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "pop.140.a" #Great.
+	}
+}
+
+###Population Immigration(Capital or highly urbanized city)
+province_event = {
+        id = pop.15
+	title = "pop.15.t"
+	desc = "pop.15.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	trigger = {
+	          OR = {
+			        is_capital = yes
+					base_tax = 7
+					base_production = 7
+			  }
+			  development = 18
+              owner = {
+                        any_owned_province = {
+						         is_capital = no
+                                 has_province_flag = emmigration_on
+                        }
+              }
+              development = 20
+              NOT = { has_province_modifier = recent_growth }
+              NOT = { has_province_modifier = famine_h } 
+              NOT = { has_province_modifier = famine_m }
+              NOT = { has_province_modifier = famine_l }
+              NOT = {
+                             OR = {
+                              AND = {
+                                      has_climate = arctic
+                                      development = 8
+                              }
+                              AND = {
+                                      has_climate = tropical
+                                      development = 10
+                              }
+                              AND = {
+                                      has_winter = severe_winter
+                                      development = 4
+                              }
+                              AND = {
+                                      has_winter = normal_winter
+                                      development = 8
+                              }
+                              AND = {
+                                      has_climate = arid
+                                      development = 13
+                              }
+                                                        AND = {
+                                                              has_terrain = jungle
+                                                              development = 9
+                                                        }
+                                                        AND = {
+                                                              has_terrain = glacier
+                                                              development = 6
+                                                        }
+                                                        AND = {
+                                                              has_terrain = mountain
+                                                              development = 8
+                                                        }
+                                                        AND = {
+                                                              has_terrain = desert
+                                                              development = 8
+                                                        }
+                                                        AND = {
+                                                              has_terrain = coastal_desert
+                                                              development = 9
+                                                        }
+                                                        AND = {
+                                                              has_terrain = steppe
+                                                              development = 9
+                                                        }
+                                                        AND = {
+                                                              has_terrain = impassable_mountains
+                                                              development = 5
+                                                        }
+                                                        AND = {
+                                                               has_terrain = woods
+                                                               development = 30
+                                                        }
+                                                        AND = {
+                                                               has_terrain = forest
+                                                               development = 24
+                                                        }
+                                                        AND = {
+                                                               has_terrain = marsh
+                                                               development = 24
+                                                               NOT = { has_province_modifier = holland_polders }
+                                                        }
+                           }
+             }
+        }
+
+        mean_time_to_happen = {
+		months = 8
+                modifier = {
+                      factor = 0.75
+                      development = 30
+                }
+				modifier = {
+                      factor = 0.75
+                      development = 40
+                }
+				modifier = {
+                      factor = 0.5
+                      has_state_edict = edict_resettlement_focus
+                }
+                modifier = {
+                      factor = 2
+                      has_terrain = jungle
+                }
+                modifier = {
+                      factor = 4
+                      has_terrain = glacier
+                }
+                modifier = {
+                      factor = 2
+                      has_terrain = mountain
+                }
+                modifier = {
+                      factor = 3
+                      has_terrain = desert
+                }
+                modifier = {
+                      factor = 2
+                      has_terrain = coastal_desert
+                }
+                modifier = {
+                      factor = 1.5
+                      has_terrain = steppe
+                }
+                modifier = {
+                      factor = 4
+                      has_terrain = impassable_mountains
+                }
+                modifier = {
+                      factor = 1.25
+                      has_terrain = coastline
+                }
+                modifier = {
+                      factor = 4
+                      has_climate = arctic
+                }
+                modifier = {
+                      factor = 3
+                      has_climate = tropical
+                }
+                modifier = {
+                      factor = 2.5
+                      has_climate = arid
+                }
+                modifier = {
+                      factor = 2
+                      has_winter = mild_winter
+                }
+                modifier = {
+                      factor = 3
+                      has_winter = normal_winter
+                }
+                modifier = {
+                      factor = 4
+                      has_winter = severe_winter
+                }
+	}
+
+        immediate = {
+                hidden_effect = {
+                    owner = {
+                            random_owned_province = {
+                               limit = { has_province_flag = emmigration_on }  #Prevents multiple immegration events from a single emmigration
+                               clr_province_flag = emmigration_on
+                               set_province_flag = emmigration_on_i
+                            }
+                    }
+                }
+        }
+
+	option = {
+		name = "pop.15.a" #Great.
+                add_province_modifier = {
+                                  name = recent_growth
+                                  duration = 3650
+                }
+		cu_add_base_manpower_1 = yes
+                if = {
+                       limit = { 
+                            NOT = { 
+                                    OR = { 
+                                           culture = owner
+                                           culture_group = ROOT
+                                    }
+                            }
+                            owner = {
+                                  any_owned_province = {
+                                       has_province_flag = emmigration_on_i
+                                       OR = { 
+                                           culture = owner
+                                           culture_group = ROOT
+                                       }
+                                  }
+                            }
+                       }
+                       hidden_effect = { 
+                          owner = {
+                            random_owned_province = {
+                               limit = { has_province_flag = emmigration_on_i }
+                               clr_province_flag = emmigration_on_i
+                            }
+                            clr_country_flag = emmigration_on_c
+                          }
+                       }
+                       set_variable = { which = cu_var1 value = 1 }
+			           set_variable = { which = p_dev value = 0 }
+	                   export_to_variable = {
+	                        which = p_dev
+			                value = development
+	                   }
+	          
+	                   divide_variable = { which = cu_var1 which = p_dev }	 
+			           cu_change_cultural_assimilation = yes
+                }
+                if = {
+                  limit = {
+                       OR = {
+                             OR = { 
+                                           culture = owner
+                                           culture_group = ROOT
+                             }
+                             owner = {
+                                  any_owned_province = {
+                                       has_province_flag = emmigration_on_i 
+                                       NOT = { 
+                                           OR = { 
+                                              culture = owner
+                                              culture_group = ROOT
+                                           }
+                                       }
+                                  }
+                             }
+                       }
+                  }
+                  hidden_effect = { 
+                    owner = {
+                        random_owned_province = {
+                               limit = { has_province_flag = emmigration_on_i }
+                               clr_province_flag = emmigration_on_i
+                        }
+                        clr_country_flag = emmigration_on_c
+                    }
+                  }
+                }
+				hidden_effect = { province_event = { id = urban.98 } }
+	}
+}
+
+###Population Immigration(Die in half way)
+province_event = {
+        id = pop.99
+	title = "pop.99.t"
+	desc = "pop.99.d"
+	picture = FAMINE_eventPicture
+	
+	trigger = {
+              has_province_flag = emmigration_on
+        }
+
+        mean_time_to_happen = {
+		months = 60
+                modifier = {
+                      factor = 1.25
+                      is_year = 1500
+                      NOT = { is_year = 1550 }
+                }
+                modifier = {
+                      factor = 1.5
+                      is_year = 1550
+                      NOT = { is_year = 1600 }
+                }
+                modifier = {
+                      factor = 2
+                      is_year = 1600
+                      NOT = { is_year = 1650 }
+                }
+                modifier = {
+                      factor = 3
+                      is_year = 1650
+                      NOT = { is_year = 1700 }
+                }
+                modifier = {
+                      factor = 3.5
+                      is_year = 1700
+                      NOT = { is_year = 1750 }
+                }
+                modifier = {
+                      factor = 4
+                      is_year = 1750
+                }
+	}
+        immediate = {
+                hidden_effect = {
+                    clr_province_flag = emmigration_on
+                }
+        }
+	option = {
+		name = "pop.99.a" #No!
+                owner = { clr_country_flag = emmigration_on_c }
+	}
+}

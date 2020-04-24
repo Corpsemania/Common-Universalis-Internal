@@ -1,0 +1,257 @@
+country_decisions = {
+
+	restore_byzantine_empire = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_byzantium_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = BYZ }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = PAP }
+			NOT = { tag = LTE }
+			religion = orthodox
+                                                is_emperor = no
+                                                is_part_of_hre = no	
+                                                owns = 151   	
+		}
+		provinces_to_highlight = {
+			OR = {
+	               region = balkan_region
+                               region = anatolia_region
+                               area = aleppo_area
+                               area = syria_area
+                               area = palestine_area
+                               area = delta_area
+                               area = bahari_area
+                               area = vostani_area
+                               area = cyrenaica_area  
+                               area = tripolitania_area 
+                               area = djerba_area
+                               area = tunisia_area 
+                               area = sicily_area                          
+                               province_id = 1756		# Basarabia
+			}
+                                                NOT = { area = north_kurdistan_area  }
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			balkan_region = {
+				type = all
+				owned_by = ROOT
+			}
+			rum_area = {
+				type = all
+				owned_by = ROOT
+			}	
+		                erzurum_area = {
+				type = all
+				owned_by = ROOT
+			}	
+			hudavendigar_area = {
+				type = all
+				owned_by = ROOT
+			}	
+			aydin_area = {
+				type = all
+				owned_by = ROOT
+			}	
+			ankara_area = {
+				type = all
+				owned_by = ROOT
+			}	
+			aegean_archipelago_area = {
+				type = all
+				owned_by = ROOT
+			}	
+			kastamonu_area = {
+				type = all
+				owned_by = ROOT
+			}	
+			karaman_area = {
+				type = all
+				owned_by = ROOT
+			}	
+			dulkadir_area = {
+				type = all
+				owned_by = ROOT
+			}	
+			cukurova_area = {
+				type = all
+				owned_by = ROOT
+			}	
+			aleppo_area = {
+				type = all
+				owned_by = ROOT
+			}	
+                                                syria_area = {
+				type = all
+				owned_by = ROOT
+			}	
+                                                palestine_area = {
+				type = all
+				owned_by = ROOT
+ 			}
+                                                delta_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                bahari_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                vostani_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                 cyrenaica_area = {
+				type = all
+				owned_by = ROOT
+			}  
+                                                 tripolitania_area = {
+				type = all
+				owned_by = ROOT
+			} 
+                                                 djerba_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                 tunisia_area = {
+				type = all
+				owned_by = ROOT
+			}
+                                                 sicily_area = {
+				type = all
+				owned_by = ROOT
+			}         
+                                                owns = 1756   # Basarabia
+			is_at_war = no
+			is_subject = no
+			is_nomad = no
+		}
+		effect = {
+			151 = {
+				move_capital_effect = yes
+                                                                change_culture = ROOT 
+				change_religion = ROOT
+			}
+			change_tag = BYZ
+			swap_non_generic_missions = yes
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 50
+			BYZ = {
+				add_core = 151 # Constantinople
+			}
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { has_global_flag = hagia_sophia_now_mosque }
+				clr_global_flag = hagia_sophia_now_mosque
+				show_ambient_object = hagia_sophia
+				hide_ambient_object = hagia_sophia_minarets
+			}
+			set_government_rank = 3
+                                custom_tooltip = reclaim_empire 
+                                hidden_effect = {
+                                every_province = {
+ 				limit = {
+					NOT = { owned_by = ROOT }
+                                OR = {  
+                                region = italy_region
+                                region = mashriq_region
+                                region = france_region
+                                region = balkan_region
+                                region = anatolia_region 
+                                area = algiers_area
+                                area = djerba_area
+                                area = tunisia_area                         
+                                area = kabylia_area
+                                area = western_morocco_area
+                                area = northern_morocco_area
+                                area = tripolitania_area
+                                area = tabuk_area
+                                area = hautes_plaines_area
+                                area = ouled_nail_area
+                                area = wessex_area
+                                area = home_counties_area
+                                area = east_anglia_area
+                                area = wales_area
+                                area = west_midlands_area
+                                area = east_midlands_area
+                                area = yorkshire_area
+                                area = north_rhine_area
+                                area = lower_rhineland_area 
+                                province_id = 1756		# Bessarabia
+                                province_id = 246		# Northumberland
+                                province_id = 247		# Cumbria
+				}}
+				add_permanent_claim = BYZ
+			}
+                        iberia_region = {
+ 				limit = {
+					NOT = { owned_by = ROOT }
+                                        NOT = { area = macaronesia_area }
+				}
+				add_permanent_claim = BYZ
+			} 
+                        egypt_region  = {
+ 				limit = {
+					NOT = { owned_by = ROOT }
+                                        NOT = { area = lower_nubia_area }
+				}
+				add_permanent_claim = BYZ
+			} 
+                        south_german_region = {
+ 				limit = {
+					NOT = { owned_by = ROOT }
+                                        NOT = { area = franconia_area }
+				}
+				add_permanent_claim = BYZ
+			}
+                        low_countries_region = {
+ 				limit = {
+					NOT = { owned_by = ROOT }
+                                        NOT = { area = frisia_area }
+				}
+				add_permanent_claim = BYZ
+			}
+                        carpathia_region = {
+ 				limit = {
+					NOT = { owned_by = ROOT }
+                                        NOT = { area = moldavia_area }
+				}
+				add_permanent_claim = BYZ
+			}
+                        caucasia_region = {
+ 				limit = {
+					NOT = { owned_by = ROOT }
+                                        NOT = { area = circassia_area }
+                                        NOT = { area = dagestan_area }
+				}
+				add_permanent_claim = BYZ
+			} }			
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_byzantium_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+}

@@ -1,0 +1,136 @@
+#Macau - A foothold in China ( European Request )
+namespace = slaughter
+country_event = {
+        id = slaughter.9
+	title = "macau.0.t"
+	desc = "macau.0.d"
+	picture = MERCHANTS_TALKING_eventPicture
+	
+	trigger = {
+                capital_scope = { continent = europe }
+                num_of_colonists = 1
+                668 = { 
+                        owner = { 
+                                   technology_group = chinese
+                                   num_of_cities = 20            
+                        }
+                        has_discovered = ROOT
+			range = ROOT
+                }
+                NOT = { has_country_flag = ask_for_macau }
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+
+	option = {
+		name = "macau.0.a" #Asked for it.
+                set_country_flag = ask_for_macau
+                add_treasury = -100
+                random_known_country = {
+			limit = { 
+                              owns = 668
+                        }
+                        country_event = { id = slaughter.91 }
+	        }
+                ai_chance = {
+			factor = 1
+	        }
+	}
+	
+	option	= { # Don't bother them
+		name = "macau.0.b"
+                add_prestige = -1
+                set_country_flag = ask_for_macau
+                ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#Macau - China's response
+
+country_event = {
+        id = slaughter.91
+	title = "macau.1.t"
+	desc = "macau.1.d"
+	picture = MERCHANTS_TALKING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "macau.1.a" #Agree
+                #set_country_flag = rent_macau
+                add_treasury = 100
+                FROM = {
+                        668 = { 
+                                  cede_province = FROM 
+                                  remove_core = ROOT
+                                  add_core = FROM
+                                  add_unrest = -5 
+                        }
+                        country_event = { id = slaughter.92 }
+           	}
+                ai_chance = {
+			factor = 95
+	        }
+	}
+	
+	option	= { # Decline
+		name = "macau.1.b"
+                #set_country_flag = not_rent_macau
+                add_treasury = 100
+                FROM = {
+                        country_event = { id = slaughter.93 }
+           	}
+                ai_chance = {
+			factor = 5
+			modifier = {
+			      factor = 0
+				  OR = {
+				         has_global_flag = cu_realistic_handicap_set
+						 has_global_flag = cu_x_handicap_set
+			      }
+			}
+		}
+	}
+}
+
+#Macau - China agreed
+
+country_event = {
+        id = slaughter.92
+	title = "macau.2.t"
+	desc = "macau.2.d"
+	picture = MERCHANTS_TALKING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "macau.2.a" #Glorious!
+                add_prestige = 10
+                668 = {
+                       add_province_modifier = { 
+                                                 name = macau_bonus
+                                                 duration = -1 
+                       }
+                }
+	}
+}
+
+#Macau - China refused
+
+country_event = {
+        id = slaughter.93
+	title = "macau.3.t"
+	desc = "macau.3.d"
+	picture = MERCHANTS_TALKING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "macau.3.a" #So bad...
+                add_prestige = -10
+	}
+}

@@ -1,0 +1,3 @@
+in_sphere_of_influence = {
+	opinion = 15
+}

@@ -1,0 +1,17 @@
+grant_local_autonomy = {
+	trigger = {
+		FROM = { is_capital = no }
+	}
+	
+	effect = {
+		FROM = { add_local_autonomy = 15 }
+		custom_tooltip = parliament_bribe_20t
+		hidden_effect = {
+		     country_event = { id = parlaments.999}
+		}
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}	
+}

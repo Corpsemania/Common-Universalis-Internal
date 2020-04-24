@@ -1,0 +1,2830 @@
+# Do not change tags in here without changing every other reference to them.
+# If adding new buildings, make sure they are uniquely named.
+
+# cost = x #==> cost in $ to build (subject to other modifiers)
+# time = x #==> number of months to build.
+# modifier = m # a modifier on the province that the building gives
+# trigger = t # an and trigger that needs to be fullfilled to build and keep the building
+# one_per_country = yes/no # if yes, only one of these can exist in a country
+# manufactory = { trade_good trade_good } # list of trade goods that get a production bonus
+# onmap = yes/no # show as a sprite on the map
+
+# FROM = owner
+# ROOT = province
+
+# Building AI is now mainly hard-coded. The AI will estimate how much it gains yearly from each building,
+# convert the value to ducats, and take the building with biggest yearly return as a percentage of the build cost.
+# If lower than 1%, the AI will not consider the yearly return worth it.
+# It will also require higher yearly return if the economy in not in prime shape.
+# Forts' value also get converted to a yearly return based on terrain and strategic position, as well as available budget for fort maintenance.
+
+# AI can still be modded though; it will multiply the yearly return with the value of ai_will_do.
+# If you don't want the AI to build a building at all, make ai_will_do become 0.
+# AI will consider each building to be worth 0.01 ducats per year as a base, so making ai_will_do above cost will have them build it at some point.
+# It will still check whether it can afford a building before doing so though, but may save up to it.
+
+
+################################################
+# Tier 1, 15th Century Buildings
+################################################
+marketplace = {
+	cost = 120
+	time = 12
+	modifier = {
+        local_tax_modifier = 0.4
+		province_trade_power_modifier = 0.3
+	}
+	on_built = {
+	     #custom_tooltip = cu_building_bca_4
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 4 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n6
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -6 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -4 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	
+	ai_will_do = {
+		factor = 1.1
+		modifier = {
+			factor = 10
+			OR = { 
+			       has_province_modifier = center_of_trade_modifier
+				   has_province_modifier = inland_center_of_trade_modifier
+				   has_province_modifier = important_natural_harbor
+			}
+		}		
+		modifier = {
+			factor = 0.1
+			NOT = { base_tax = 6 }
+			NOT = { 
+			       has_province_modifier = center_of_trade_modifier
+				   has_province_modifier = inland_center_of_trade_modifier
+				   has_province_modifier = important_natural_harbor
+			}
+		}
+		modifier = {
+			factor = 1.25
+			base_tax = 5
+		}	
+		modifier = {
+			factor = 1.25
+			base_tax = 7
+		}
+		modifier = {
+			factor = 1.25
+			base_tax = 9
+		}
+		modifier = {
+			factor = 1.25
+			owner = { trade_income_percentage = 0.50 }
+		}
+	}
+}
+
+workshop = {
+	cost = 120
+	time = 12
+	modifier = {
+		local_production_efficiency = 0.3
+        trade_goods_size = 0.25
+	}
+	on_built = {
+	     #custom_tooltip = cu_building_bca_4
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 4 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n6
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -6 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -4 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	allow_in_gold_provinces = no
+
+	ai_will_do = {
+		factor = 1.2
+		
+		modifier = { 
+			factor = 5
+			OR = {
+				has_province_modifier = stora_kopparberget_modifier
+				has_province_modifier = cerro_rico_modifier
+				has_province_modifier = spice_islands_modifier
+				has_province_modifier = comet_ore_modifier
+				has_province_modifier = paradise_modifier
+			}
+		}
+		modifier = { 
+			factor = 5
+			base_production = 9
+		}
+		modifier = { 
+			factor = 2.5
+			base_production = 7
+		}
+		modifier = { 
+			factor = 1.5
+			base_production = 5
+		}
+        modifier = { 
+			factor = 2
+			OR = {
+                trade_goods = iron
+                trade_goods = copper
+                trade_goods = sugar
+                trade_goods = cocoa
+                trade_goods = tobacco
+                trade_goods = cotton
+                trade_goods = ivory
+                trade_goods = spices
+                trade_goods = chinaware				
+            }
+		}
+		modifier = { 
+			factor = 0.5
+			NOT = { base_production = 4 }
+		}
+		modifier = { 
+			factor = 0.01
+			NOT = { base_production = 3 }
+			NOT = { has_province_modifier = stora_kopparberget_modifier }
+			NOT = { has_province_modifier = cerro_rico_modifier }
+			NOT = { has_province_modifier = spice_islands_modifier }
+			NOT = { has_province_modifier = comet_ore_modifier }
+			NOT = { has_province_modifier = paradise_modifier }
+		}
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 10 
+			NOT = { has_estate = estate_burghers}
+		}
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 20 
+			NOT = { has_estate = estate_burghers}
+		}		
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 30 
+			NOT = { has_estate = estate_burghers}
+		}		
+		modifier = { 
+			factor = 0.9 
+			local_autonomy = 40 
+			NOT = { has_estate = estate_burghers}
+		}	
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 50 
+			NOT = { has_estate = estate_burghers}
+		}
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 60 
+			NOT = { has_estate = estate_burghers}
+		}
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 70 
+			NOT = { has_estate = estate_burghers}
+		}
+		modifier = {
+			factor = 0.9
+			local_autonomy = 80 
+			NOT = { has_estate = estate_burghers}
+		}
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 90 
+			NOT = { has_estate = estate_burghers} 
+		}		
+	}
+}
+
+temple = {		
+	cost = 120
+	time = 12
+	#destroy_on_conquest = yes #Destroyed on heretic conquest if tolerance is below 0
+	modifier = {
+        local_unrest = -3
+        local_missionary_strength = -0.01
+	}
+	on_built = {
+	     #custom_tooltip = cu_building_bca_5
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 5 }
+		     cu_add_cultural_acceptance = yes
+			 if = {
+			       limit = { has_province_flag = education_policy_church_flag }
+				   add_province_modifier = {
+							       name = cu_church_school
+								   duration = -1
+							}
+			 }
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n9
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -9 }
+		     cu_add_cultural_acceptance = yes
+			 remove_province_modifier = cu_church_school
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -4 }
+		     cu_add_cultural_acceptance = yes
+			 remove_province_modifier = cu_church_school
+		 }
+    }
+	ai_will_do = {
+		factor = 100
+		modifier = { 
+			factor = 1.25
+			base_manpower = 6
+			NOT = { check_variable = { which = literacy value = 15 } }
+		}
+        modifier = { 
+			factor = 1.5
+			base_manpower = 9
+			NOT = { check_variable = { which = literacy value = 15 } }
+		}		
+		modifier = { 
+			factor = 2
+			base_manpower = 12
+			NOT = { check_variable = { which = literacy value = 15 } }
+		}
+		modifier = { 
+			factor = 0.5
+			check_variable = { which = literacy value = 20 } 
+		}
+		modifier = { 
+			factor = 0.75
+			NOT = { has_estate = estate_church }
+			NOT = { has_estate = estate_dhimmi }
+		}
+		modifier = { 
+			factor = 0.75
+			NOT = { religion = owner }
+		}
+		modifier = { #Colonial Nations will focus more on domestic education
+			factor = 2
+			owner = { num_of_colonists = 1 }
+			is_overseas = no
+		}
+        modifier = { 
+			factor = 1.25
+			OR = {
+			     religion = catholic
+				 religion = orthodox
+				 religion = protestant
+				 religion = reformed
+				 religion = anglican
+				 religion = confucianism
+		    }
+		}		
+        modifier = { 
+			factor = 0.33
+			OR = {
+			        religion = hinduism
+					religion = sikhism
+					religion = animism
+					religion = shamanism
+			        religion = totemism	 
+					religion = inti	 
+					religion = nahuatl
+			}
+		}
+        modifier = { 
+			factor = 0.5
+			owner = { technology_group = indian }
+        }
+        modifier = { 
+			factor = 0.5
+			cu_is_terr_trigger = yes 
+        }		
+	}
+}
+
+barracks = {
+	cost = 90
+	time = 12
+	trigger = {
+	    cu_not_terr_trigger = yes
+	}
+	modifier = {
+		local_manpower_modifier = 0.4
+	}
+	on_built = {
+	     #custom_tooltip = cu_building_bca_4
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 4 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n6
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -6 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -4 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 1.2
+		modifier = {
+			factor = 2
+			has_owner_culture = yes
+		}
+		modifier = {
+			factor = 1.5
+			has_owner_accepted_culture = yes
+		}
+		modifier = {
+			factor = 0
+			NOT = { base_manpower = 4 }
+		}
+		modifier = {
+			factor = 1.10
+			base_manpower = 6
+		}	
+		modifier = {
+			factor = 1.20
+			base_manpower = 8
+		}
+		modifier = {
+			factor = 1.20
+			base_manpower = 12
+		}
+		modifier = {
+			factor = 1.30
+			base_manpower = 15
+		}
+		modifier = {
+			factor = 1.30
+			base_manpower = 18
+		}
+        modifier = {
+			factor = 0.33
+			NOT = { has_owner_culture = yes }
+			NOT = { has_owner_accepted_culture = yes }
+			NOT = { owner = { culture_group = ROOT } }
+		}			
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 10 
+			NOT = { has_estate = estate_nobles}
+			NOT = { has_estate = estate_nomadic_tribes}
+			NOT = { has_estate = estate_cossacks}
+		}		
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 20 
+			NOT = { has_estate = estate_nobles}
+			NOT = { has_estate = estate_nomadic_tribes}
+			NOT = { has_estate = estate_cossacks}
+		}		
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 30 
+			NOT = { has_estate = estate_nobles}
+			NOT = { has_estate = estate_nomadic_tribes}
+			NOT = { has_estate = estate_cossacks}
+		}		
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 40 
+			NOT = { has_estate = estate_nobles}
+			NOT = { has_estate = estate_nomadic_tribes}
+			NOT = { has_estate = estate_cossacks}
+		}	
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 50 
+			NOT = { has_estate = estate_nobles}
+			NOT = { has_estate = estate_nomadic_tribes}
+			NOT = { has_estate = estate_cossacks}
+		}
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 60 
+			NOT = { has_estate = estate_nobles}
+			NOT = { has_estate = estate_nomadic_tribes}
+			NOT = { has_estate = estate_cossacks}
+		}
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 70 
+			NOT = { has_estate = estate_nobles}
+			NOT = { has_estate = estate_nomadic_tribes}
+			NOT = { has_estate = estate_cossacks}
+		}
+		modifier = {
+			factor = 0.9
+			local_autonomy = 80 
+			NOT = { has_estate = estate_nobles}
+			NOT = { has_estate = estate_nomadic_tribes}
+			NOT = { has_estate = estate_cossacks}
+		}
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 90 
+			NOT = { has_estate = estate_nobles}
+			NOT = { has_estate = estate_nomadic_tribes}
+			NOT = { has_estate = estate_cossacks}
+		}		
+	}
+}		
+
+shipyard = {
+	cost = 150
+	time = 24
+	trigger = {
+		has_port = yes
+                OR = {
+                       base_production = 6
+                       AND = { 
+                               trade_goods = naval_supplies
+                               base_production = 4
+                       }
+                }
+	}
+	modifier = {
+		local_ship_cost = -0.1
+		ship_recruit_speed = -0.2
+        local_ship_repair = 0.2
+	}
+	on_built = {
+	     #custom_tooltip = cu_building_bca_4
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 4 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n6
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -6 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -4 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 100
+		modifier = { 
+			factor = 0.5
+			NOT = {
+			    owner = {
+			            num_of_owned_provinces_with = {
+			                value = 5
+			                has_port = yes
+                        }							
+			    }
+			}
+		}
+		modifier = { 
+			factor = 2
+			    owner = {
+			            num_of_owned_provinces_with = {
+			                value = 15
+			                has_port = yes
+                        }							
+			    }
+		}
+		modifier = { 
+			factor = 2
+			trade_goods = naval_supplies
+		}
+		modifier = { 
+			factor = 1.5
+			trade_goods = tropical_wood
+		}
+		modifier = { 
+			factor = 0.5
+			is_overseas = yes
+		}
+		modifier = { 
+			factor = 2
+			NOT = { 
+			     owner = {
+			            num_of_owned_provinces_with = {
+			                value = 3
+			                OR = {
+                                 has_building = shipyard
+                                 has_building = grand_shipyard
+                            }
+                        }							
+				 }
+			}
+		}
+		
+		modifier = {
+			factor = 1.5
+			owner = { trade_income_percentage = 0.50 }
+		}
+		modifier = {
+			owner = { navy_size_percentage = 0.75 }
+			factor = 1.2
+		}
+		modifier = {
+			owner = { navy_size_percentage = 0.90 }
+			factor = 1.2
+		}
+		modifier = {
+			owner = { navy_size_percentage = 1.00 }
+			factor = 1.2
+		}
+		modifier = {
+			owner = { navy_size_percentage = 1.10 }
+			factor = 1.2
+		}
+		modifier = {
+			factor = 0.33
+			NOT = { has_owner_culture = yes }
+			NOT = { has_owner_accepted_culture = yes }
+			NOT = { owner = { culture_group = ROOT } }
+		}
+	}
+}
+
+fort_15th = {
+	cost = 120
+	time = 36
+	modifier = {
+		fort_level = 2
+        supply_limit_modifier = 0.25
+        local_defensiveness = 0.1
+		local_hostile_movement_speed = -0.1
+		local_hostile_attrition = 1
+		land_forcelimit = 2
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+	     custom_tooltip = cu_building_bca_5
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 5 }
+		     cu_add_cultural_acceptance = yes
+			 province_event = { id = ideagroups.4895  }
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n7
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -7 }
+		     cu_add_cultural_acceptance = yes
+			 remove_province_modifier = cu_fort_government
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -5 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	onmap = yes
+	influencing_fort = yes
+	
+	ai_will_do = {
+		factor = 1 #Lots of logic in code instead, that multiplies with this value
+	} 
+}
+
+
+################################################
+# Tier 2, 16th Century Buildings
+################################################
+courthouse = {
+	cost = 130
+	time = 24
+	destroy_on_conquest = yes
+    trigger = {
+		OR = {
+                        development = 15
+                        any_neighbor_province = {
+                                  owned_by = ROOT
+                                  has_building = town_hall
+                        }
+                }
+	}
+	modifier = {
+		local_unrest = -1
+		local_autonomy = -0.03
+		global_tax_income = -0.5
+	}
+	on_built = {
+	     #custom_tooltip = cu_building_bca_6
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 6 }
+		     cu_add_cultural_acceptance = yes
+			 if = {
+			       limit = { has_province_modifier = cu_fort_government }
+				   remove_province_modifier = cu_fort_government
+			 }
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n9
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -9 }
+		     cu_add_cultural_acceptance = yes
+			 province_event = { id = ideagroups.4895  }
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -6 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 150
+		modifier = {
+			factor = 1.5
+			owner = { check_variable = { which = go value = 105 } }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { check_variable = { which = go value = 125 } }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { check_variable = { which = go value = 150 } }
+		}
+		modifier = {
+			factor = 0.1
+			NOT = { development = 9 }
+		}
+		modifier = {
+			factor = 1.5
+			development = 12
+		}
+        modifier = {
+			factor = 1.5
+			development = 16
+		}
+        modifier = {
+			factor = 1.5
+			development = 20
+		}		
+		modifier = {
+			factor = 0.1
+			cu_is_terr_trigger = yes
+		}
+		modifier = {
+			factor = 0.25
+			is_overseas = yes
+		}
+        modifier = {
+			factor = 0.5
+			NOT = { has_owner_culture = yes }
+			NOT = { has_owner_accepted_culture = yes }
+			NOT = { owner = { culture_group = ROOT } }
+		}		
+	}
+}
+
+dock = {
+	cost = 100
+	time = 24
+	trigger = {
+		has_port = yes
+	}
+	modifier = {
+                local_sailors_modifier = 0.25
+		        naval_forcelimit = 2
+                province_trade_power_value = 3
+				local_ship_repair = 0.1
+				allowed_num_of_buildings = 1
+				global_tax_income = -1
+        }
+	on_built = {
+	     #custom_tooltip = cu_building_bca_3
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 3 }
+		     cu_add_cultural_acceptance = yes
+			 cu_prov_trigger_dist_calc = yes
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n5
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -5 }
+		     cu_add_cultural_acceptance = yes
+			 cu_prov_trigger_dist_calc = yes
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -3 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 100
+		modifier = {
+			factor = 1.5
+			is_overseas = yes
+		}	
+		modifier = {
+			factor = 1.5
+			0R = {
+			      owner = { has_idea_group = maritime_ideas }
+				  owner = { has_idea_group = naval_ideas }
+				  owner = { has_idea_group = exploration_ideas }
+			}
+		}
+        modifier = {
+			factor = 0.5
+			NOT = { has_owner_culture = yes }
+			NOT = { has_owner_accepted_culture = yes }
+			NOT = { owner = { culture_group = ROOT } }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { trade_income_percentage = 0.50 }
+		}
+		modifier = {
+			NOT = { owner = { navy_size_percentage = 0.40 } }
+			factor = 0.5
+		}
+		modifier = {
+			NOT = { owner = { navy_size_percentage = 0.60 } }
+			factor = 0.5
+		}
+        modifier = {
+			owner = { navy_size_percentage = 0.80 }
+			factor = 1.2
+		}
+		modifier = {
+			owner = { navy_size_percentage = 1.00 }
+			factor = 1.2
+		}
+		modifier = {
+			owner = { navy_size_percentage = 1.20 }
+			factor = 1.2
+		}		
+	}
+}
+
+regimental_camp = {
+	cost = 150
+	time = 24
+
+    trigger = {
+                 check_variable = { which = literacy value = 5 }
+				 development = 18
+	}
+
+	modifier = {
+	            land_forcelimit = 1
+                local_regiment_cost = -0.1
+				regiment_recruit_speed = -0.2
+				global_tax_income = -1
+	}
+	on_built = {
+	     #custom_tooltip = cu_building_bca_4
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 4 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n6
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -6 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -4 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 150
+		modifier = { 
+			factor = 3
+			NOT = { 
+			     owner = {
+			            num_of_owned_provinces_with = {
+			                value = 3
+			                OR = {
+                                 has_building = regimental_camp
+                                 has_building = conscription_center
+                            }
+                        }							
+				 }
+			}
+		}
+		modifier = {
+			owner = { army_size_percentage = 1.00 }
+			factor = 2
+		}
+		modifier = {
+			owner = { army_size_percentage = 1.10 }
+			factor = 1.5
+		}
+		modifier = {
+			factor = 0.33
+			NOT = { has_owner_culture = yes }
+			NOT = { has_owner_accepted_culture = yes }
+			NOT = { owner = { culture_group = ROOT } }
+		}
+	}
+}
+
+#Changed to Manufactory, keep the old name for compatibility
+counting_house = {
+	cost = 300
+	time = 24
+	
+	make_obsolete = workshop
+	
+	time = 60
+    trigger = {
+                OR = {
+		    base_production = 6
+                    AND = {
+                         base_production = 4
+                         OR = {
+						     has_building = courthouse
+						     has_building = town_hall
+							 has_province_modifier = cu_fort_government
+						 }
+                    }
+                }
+	}
+	modifier = {
+		local_production_efficiency = 0.6
+        trade_goods_size = 0.45
+	}	
+	on_built = {
+	     #custom_tooltip = cu_building_bca_6
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 6 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n9
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -9 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -6 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	allow_in_gold_provinces = no
+	
+	ai_will_do = {
+		factor = 2
+		modifier = { 
+			factor = 5
+			OR = {
+				has_province_modifier = stora_kopparberget_modifier
+				has_province_modifier = cerro_rico_modifier
+				has_province_modifier = spice_islands_modifier
+				has_province_modifier = comet_ore_modifier
+				has_province_modifier = paradise_modifier
+			}
+		}
+		modifier = { 
+			factor = 5
+			base_production = 12
+		}
+		modifier = { 
+			factor = 2.5
+			base_production = 10
+		}
+		modifier = { 
+			factor = 1.5
+			base_production = 8
+		}
+		modifier = { 
+			factor = 0.75
+			NOT = { base_production = 8 }
+		}
+		modifier = { 
+			factor = 2
+			OR = {
+                trade_goods = iron
+                trade_goods = copper
+                trade_goods = sugar
+                trade_goods = cocoa
+                trade_goods = tobacco
+                trade_goods = cotton
+                trade_goods = ivory
+                trade_goods = spices
+                trade_goods = chinaware				
+            }
+		}
+		modifier = { 
+			factor = 0.1
+			NOT = { base_production = 6 }
+			NOT = { has_province_modifier = stora_kopparberget_modifier }
+			NOT = { has_province_modifier = cerro_rico_modifier }
+			NOT = { has_province_modifier = spice_islands_modifier }
+			NOT = { has_province_modifier = comet_ore_modifier }
+			NOT = { has_province_modifier = paradise_modifier }
+		}
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 10 
+			NOT = { has_estate = estate_burghers}
+		}
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 20 
+			NOT = { has_estate = estate_burghers}
+		}		
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 30 
+			NOT = { has_estate = estate_burghers}
+		}		
+		modifier = { 
+			factor = 0.9 
+			local_autonomy = 40 
+			NOT = { has_estate = estate_burghers}
+		}	
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 50 
+			NOT = { has_estate = estate_burghers}
+		}
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 60 
+			NOT = { has_estate = estate_burghers}
+		}
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 70 
+			NOT = { has_estate = estate_burghers}
+		}
+		modifier = {
+			factor = 0.9
+			local_autonomy = 80 
+			NOT = { has_estate = estate_burghers}
+		}
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 90 
+			NOT = { has_estate = estate_burghers} 
+		}	
+	}
+}
+
+fort_16th = {
+	cost = 180
+	time = 36
+	make_obsolete = fort_15th
+	modifier = {
+		fort_level = 4
+		land_forcelimit = 2.5
+        supply_limit_modifier = 0.3
+		local_defensiveness = 0.15
+		local_hostile_attrition = 1.2
+		local_hostile_movement_speed = -0.15
+		allowed_num_of_buildings = 1
+	}
+    on_built = {
+	     custom_tooltip = cu_building_bca_7
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 7 }
+		     cu_add_cultural_acceptance = yes
+			 province_event = { id = ideagroups.4895  }
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n10
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -10 }
+		     cu_add_cultural_acceptance = yes
+			 remove_province_modifier = cu_fort_government
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -7 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	onmap = yes
+	
+	influencing_fort = yes
+	
+	ai_will_do = {
+		factor = 1 #Lots of logic in code instead, that multiplies with this value
+	} 
+}
+
+
+################################################
+# Tier 3, 17th Century Buildings
+################################################
+cathedral = {
+	make_obsolete = temple
+	
+	cost = 300
+	time = 24
+    trigger = {
+                OR = {
+		            development = 20
+					has_building = cathedral
+                    OR = {
+						     has_building = courthouse
+						     has_building = town_hall
+							 has_province_modifier = cu_fort_government
+						 }
+                }
+	}
+	modifier = {
+		local_missionary_strength = -0.025
+        local_unrest = -5
+	}
+	on_built = {
+	     #custom_tooltip = cu_building_bca_8
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 8 }
+		     cu_add_cultural_acceptance = yes
+			 if = {
+			       limit = { has_province_flag = education_policy_church_flag }
+				   add_province_modifier = {
+							       name = cu_church_school_2
+								   duration = -1
+							}
+			 }
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n15
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -15 }
+		     cu_add_cultural_acceptance = yes
+			 remove_province_modifier = cu_church_school_2
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -10 }
+		     cu_add_cultural_acceptance = yes
+			 remove_province_modifier = cu_church_school_2
+		 }
+    }
+	ai_will_do = {
+		factor = 250
+        modifier = { 
+			factor = 1.5
+			base_manpower = 9
+			NOT = { check_variable = { which = literacy value = 25 } }
+		}		
+		modifier = { 
+			factor = 2
+			base_manpower = 12
+			NOT = { check_variable = { which = literacy value = 25 } }
+		}
+		modifier = { 
+			factor = 0.33
+			check_variable = { which = literacy value = 35 } 
+		}
+		modifier = { 
+			factor = 0.5
+			NOT = { has_estate = estate_church}
+			NOT = { has_estate = estate_dhimmi}
+		}
+		modifier = { 
+			factor = 1.25
+			OR = {
+			     religion = catholic
+				 religion = orthodox
+				 religion = protestant
+				 religion = reformed
+				 religion = anglican
+				 religion = confucianism
+		    }
+		}	
+		modifier = { 
+			factor = 0.33
+			NOT = { religion = owner }
+		}
+        modifier = { 
+			factor = 0.5
+			owner = { technology_group = indian }
+        }
+        modifier = { 
+			factor = 0.5
+			cu_is_terr_trigger = yes 
+        }		
+	}
+}
+
+
+university = {
+	cost = 960
+	time = 60
+    trigger = {
+	    OR = {
+			AND = {
+				development = 15
+				NOT = { 
+					owner = {
+						has_reform = steppe_horde
+					} 
+				}
+			}
+			has_building = university
+		}
+	      
+	}
+	modifier = {
+		local_institution_spread = 0.15
+	}
+	on_built = {
+	     #custom_tooltip = cu_building_bca_10
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 10 }
+		     cu_add_cultural_acceptance = yes
+			 if = { 
+							limit = { has_province_flag = education_policy_burghers_flag }
+							add_province_modifier = {
+							       name = cu_burghers_university
+								   duration = -1
+							}
+			 }
+			 if = { 
+							limit = { has_province_flag = education_policy_public_flag }
+							add_province_modifier = {
+							       name = cu_public_university
+								   duration = -1
+							}
+			 }
+			 change_variable = { which = cu_art_slot value = 1 }
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n20
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -20 }
+		     cu_add_cultural_acceptance = yes
+			 remove_province_modifier = education_policy_burghers
+			 remove_province_modifier = education_policy_public
+			 remove_province_modifier = cu_national_college
+			 subtract_variable = { which = cu_art_slot value = 1 }
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -10 }
+		     cu_add_cultural_acceptance = yes
+			 remove_province_modifier = education_policy_burghers
+			 remove_province_modifier = education_policy_public
+			 remove_province_modifier = cu_national_college
+			 subtract_variable = { which = cu_art_slot value = 1 }
+		 }
+    }
+	ai_will_do = {
+		factor = 300
+        modifier = { 
+			factor = 2
+			base_manpower = 12
+			NOT = { check_variable = { which = literacy value = 75 } }
+		}		
+		modifier = { 
+			factor = 4
+			base_manpower = 22
+			NOT = { check_variable = { which = literacy value = 75 } }
+		}
+		modifier = { 
+			factor = 2
+			is_capital = yes
+		}
+		modifier = { 
+			factor = 2
+			continent = europe
+		}
+		modifier = { 
+			factor = 0.5
+			continent = africa
+		}
+		modifier = { 
+			factor = 0.75
+			continent = asia
+		}
+		modifier = { 
+			factor = 2
+			owner = { has_idea_group = innovativeness_ideas }
+		}
+		modifier = { 
+			factor = 2
+			owner = { has_idea_group = reform_ideas }
+		}
+        modifier = { 
+			factor = 0
+			NOT = { base_manpower = 10 }
+			is_capital = no
+		}	
+        modifier = { #Colonial Nations will focus more on domestic education
+			factor = 2
+			owner = { num_of_colonists = 1 }
+			is_overseas = no
+		}		
+		modifier = {
+			factor = 0.1
+			NOT = { has_owner_culture = yes }
+			NOT = { has_owner_accepted_culture = yes }
+			NOT = { owner = { culture_group = ROOT } }
+		}
+		modifier = { 
+			factor = 0.5
+			owner = { technology_group = indian }
+        }
+        modifier = { 
+			factor = 0.5
+			cu_is_terr_trigger = yes 
+        }
+	}	
+}
+
+public_school = {
+	cost = 320
+	time = 24
+	trigger = {
+		OR = {
+			NOT = { 
+				owner = {
+					has_reform = steppe_horde
+				} 
+			}
+			has_building = public_school
+		}
+	}
+	modifier = {
+	    local_institution_spread = 0.075
+	}
+	on_built = {
+	     #custom_tooltip = cu_building_bca_7
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 7 }
+		     cu_add_cultural_acceptance = yes
+			 if = { 
+							limit = { has_province_flag = education_policy_burghers_flag }
+							add_province_modifier = {
+							       name = cu_burghers_school
+								   duration = -1
+							}
+			 }
+			 if = { 
+							limit = { has_province_flag = education_policy_public_flag }
+							add_province_modifier = {
+							       name = cu_public_school
+								   duration = -1
+							}
+			 }
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n10
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -10 }
+		     cu_add_cultural_acceptance = yes
+			 remove_province_modifier = cu_burghers_school
+			 remove_province_modifier = cu_public_school
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -7 }
+		     cu_add_cultural_acceptance = yes
+			 remove_province_modifier = cu_burghers_school
+			 remove_province_modifier = cu_public_school
+		 }
+    }
+	ai_will_do = {
+		factor = 200
+        modifier = { 
+			factor = 2
+			base_manpower = 7
+			NOT = { check_variable = { which = literacy value = 25 } }
+		}		
+		modifier = { 
+			factor = 2
+			base_manpower = 15
+			NOT = { check_variable = { which = literacy value = 50 } }
+		}
+		modifier = { 
+			factor = 2.5
+			base_manpower = 21
+			NOT = { check_variable = { which = literacy value = 75 } }
+		}
+        modifier = { 
+			factor = 0.75
+			NOT = { base_manpower = 8 }
+		}
+        modifier = { 
+			factor = 0.25
+			NOT = { base_manpower = 5 }
+		}	
+        modifier = { 
+			factor = 1.5
+			continent = europe
+		}
+		modifier = { 
+			factor = 2
+			owner = { has_idea_group = innovativeness_ideas }
+		}
+		modifier = { 
+			factor = 2
+			has_province_flag = education_policy_burghers_flag
+		}
+		modifier = { 
+			factor = 4
+			has_province_flag = education_policy_public_flag
+		}
+		modifier = { 
+			factor = 2
+			owner = { has_idea_group = reform_ideas }
+		}
+		modifier = { 
+			factor = 0.5
+			continent = africa
+		}
+        modifier = { 
+			factor = 0.5
+			owner = { technology_group = indian }
+        }
+		modifier = { #Colonial Nations will focus more on domestic education
+			factor = 2
+			owner = { num_of_colonists = 1 }
+			is_overseas = no
+		}
+        modifier = { 
+			factor = 0.5
+			cu_is_terr_trigger = yes 
+        }		
+        modifier = {
+			factor = 0.33
+			NOT = { has_owner_culture = yes }
+			NOT = { has_owner_accepted_culture = yes }
+			NOT = { owner = { culture_group = ROOT } }
+		}		
+	}	
+}
+
+
+
+trade_depot = {
+	cost = 300
+	time = 24
+	
+	make_obsolete = marketplace
+	trigger = {
+                OR = {
+					base_tax = 5
+                    has_province_modifier = center_of_trade_modifier
+                    has_province_modifier = inland_center_of_trade_modifier
+                    has_province_modifier = important_natural_harbor
+					has_building = trade_depot
+                }
+	}
+	modifier = {
+	    local_tax_modifier = 0.8
+		province_trade_power_modifier = 0.6
+	}
+	on_built = {
+	     #custom_tooltip = cu_building_bca_6
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 6 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n9
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -9 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -6 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 1.5
+		modifier = {
+			factor = 10
+			OR = { 
+			       has_province_modifier = center_of_trade_modifier
+				   has_province_modifier = inland_center_of_trade_modifier
+				   has_province_modifier = important_natural_harbor
+			}
+		}		
+		modifier = {
+			factor = 0.1
+			NOT = { base_tax = 8 }
+			NOT = { 
+			       has_province_modifier = center_of_trade_modifier
+				   has_province_modifier = inland_center_of_trade_modifier
+				   has_province_modifier = important_natural_harbor
+			}
+		}
+		modifier = {
+			factor = 1.25
+			base_tax = 8
+		}	
+		modifier = {
+			factor = 1.25
+			base_tax = 10
+		}
+		modifier = {
+			factor = 1.25
+			base_tax = 12
+		}
+		modifier = {
+			factor = 1.25
+			owner = { trade_income_percentage = 0.50 }
+		}		
+	}
+}
+
+grand_shipyard = {
+	cost = 350
+	time = 48
+	
+	make_obsolete = shipyard
+	
+	trigger = {
+		has_port = yes
+                OR = {
+                       base_production = 9
+                       AND = { 
+                               trade_goods = naval_supplies
+                               base_production = 7
+                       }
+					   has_building = grand_shipyard 
+                }
+	}
+	modifier = {
+		local_ship_cost = -0.2
+		local_ship_repair = 0.3
+		ship_recruit_speed = -0.4
+	}
+	on_built = {
+	     #custom_tooltip = cu_building_bca_6
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 6 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n9
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -9 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -6 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 160
+		modifier = { 
+			factor = 0.5
+			NOT = {
+			    owner = {
+			            num_of_owned_provinces_with = {
+			                value = 6
+			                has_port = yes
+                        }							
+			    }
+			}
+		}
+		modifier = { 
+			factor = 2
+			    owner = {
+			            num_of_owned_provinces_with = {
+			                value = 20
+			                has_port = yes
+                        }							
+			    }
+		}
+		modifier = { 
+			factor = 2
+			NOT = { 
+			     owner = {
+			            num_of_owned_provinces_with = {
+			                value = 3
+                            has_building = grand_shipyard
+                        }							
+				 }
+			}
+		}
+		modifier = { 
+			factor = 2
+			trade_goods = naval_supplies
+		}
+		modifier = { 
+			factor = 1.5
+			trade_goods = tropical_wood
+		}
+		modifier = { 
+			factor = 0.5
+			is_overseas = yes
+		}
+		modifier = {
+			factor = 1.5
+			owner = { trade_income_percentage = 0.50 }
+		}
+		modifier = {
+			NOT = { owner = { navy_size_percentage = 0.5 } }
+			factor = 0.5
+		}
+		modifier = {
+			owner = { navy_size_percentage = 0.75 }
+			factor = 1.2
+		}
+		modifier = {
+			owner = { navy_size_percentage = 0.90 }
+			factor = 1.2
+		}
+		modifier = {
+			owner = { navy_size_percentage = 1.00 }
+			factor = 1.2
+		}
+		modifier = {
+			owner = { navy_size_percentage = 1.10 }
+			factor = 1.2
+		}
+		modifier = {
+			factor = 0.33
+			NOT = { has_owner_culture = yes }
+			NOT = { has_owner_accepted_culture = yes }
+			NOT = { owner = { culture_group = ROOT } }
+		}
+	}
+}
+
+training_fields = {
+	cost = 250
+	time = 24
+	
+	make_obsolete = barracks
+
+	modifier = {
+		local_manpower_modifier = 0.8
+	}
+	on_built = {
+	     #custom_tooltip = cu_building_bca_5
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 5 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n7
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -7 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -5 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 1.2
+		modifier = {
+			factor = 0
+			NOT = { base_manpower = 6 }
+		}
+		modifier = {
+			factor = 1.10
+			base_manpower = 9
+		}	
+		modifier = {
+			factor = 1.20
+			base_manpower = 14
+		}
+		modifier = {
+			factor = 1.20
+			base_manpower = 18
+		}
+		modifier = {
+			factor = 1.30
+			base_manpower = 22
+		}
+		modifier = {
+			factor = 1.30
+			base_manpower = 27
+		}
+        modifier = {
+			factor = 0.33
+			NOT = { has_owner_culture = yes }
+			NOT = { has_owner_accepted_culture = yes }
+			NOT = { owner = { culture_group = ROOT } }
+		}			
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 10 
+			NOT = { has_estate = estate_nobles}
+			NOT = { has_estate = estate_nomadic_tribes}
+			NOT = { has_estate = estate_cossacks}
+		}		
+		modifier = { 
+			factor = 0.9 
+			local_autonomy = 20 
+			NOT = { has_estate = estate_nobles}
+			NOT = { has_estate = estate_nomadic_tribes}
+			NOT = { has_estate = estate_cossacks}
+		}		
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 30 
+			NOT = { has_estate = estate_nobles}
+			NOT = { has_estate = estate_nomadic_tribes}
+			NOT = { has_estate = estate_cossacks}
+		}		
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 40 
+			NOT = { has_estate = estate_nobles}
+			NOT = { has_estate = estate_nomadic_tribes}
+			NOT = { has_estate = estate_cossacks}
+		}	
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 50 
+			NOT = { has_estate = estate_nobles}
+			NOT = { has_estate = estate_nomadic_tribes}
+			NOT = { has_estate = estate_cossacks}
+		}
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 60 
+			NOT = { has_estate = estate_nobles}
+			NOT = { has_estate = estate_nomadic_tribes}
+			NOT = { has_estate = estate_cossacks}
+		}
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 70 
+			NOT = { has_estate = estate_nobles}
+			NOT = { has_estate = estate_nomadic_tribes}
+			NOT = { has_estate = estate_cossacks}
+		}
+		modifier = {
+			factor = 0.9
+			local_autonomy = 80 
+			NOT = { has_estate = estate_nobles}
+			NOT = { has_estate = estate_nomadic_tribes}
+			NOT = { has_estate = estate_cossacks}
+		}
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 90 
+			NOT = { has_estate = estate_nobles}
+			NOT = { has_estate = estate_nomadic_tribes}
+			NOT = { has_estate = estate_cossacks}
+		}
+	}
+}
+
+
+fort_17th = {
+	cost = 250
+	time = 36
+	
+	make_obsolete = fort_16th
+	
+	modifier = {
+		fort_level = 6
+		land_forcelimit = 3
+        supply_limit_modifier = 0.4
+		local_defensiveness = 0.2
+		local_hostile_attrition = 1.35
+		local_hostile_movement_speed = -0.2
+		allowed_num_of_buildings = 1
+	}
+    on_built = {
+	     custom_tooltip = cu_building_bca_8
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 8 }
+		     cu_add_cultural_acceptance = yes
+			 province_event = { id = ideagroups.4895  }
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n12
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -12 }
+		     cu_add_cultural_acceptance = yes
+			 remove_province_modifier = cu_fort_government
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -8 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	onmap = yes
+	
+	influencing_fort = yes
+	
+	ai_will_do = {
+		factor = 1 #Lots of logic in code instead, that multiplies with this value
+	} 
+}
+
+
+
+################################################
+# Tier 4, 18th Century Buildings
+################################################
+stock_exchange = {
+	cost = 850
+	time = 48
+	
+	make_obsolete = trade_depot
+	
+        trigger = {
+                OR = {
+		    base_tax = 7
+                    has_province_modifier = center_of_trade_modifier
+                    has_province_modifier = inland_center_of_trade_modifier
+                    has_province_modifier = important_natural_harbor
+					has_building = stock_exchange
+                }
+	}
+	modifier = {
+	    local_tax_modifier = 1.2
+		province_trade_power_modifier = 1
+	}
+	on_built = {
+	     #custom_tooltip = cu_building_bca_8
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 8 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n12
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -12 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -8 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 3
+		modifier = {
+			factor = 10
+			base_tax = 8
+			OR = { 
+			       has_province_modifier = center_of_trade_modifier
+				   has_province_modifier = inland_center_of_trade_modifier
+				   has_province_modifier = important_natural_harbor
+			}
+		}		
+		modifier = {
+			factor = 0.1
+			NOT = { base_tax = 10 }
+			NOT = { 
+			       has_province_modifier = center_of_trade_modifier
+				   has_province_modifier = inland_center_of_trade_modifier
+				   has_province_modifier = important_natural_harbor
+			}
+		}
+		modifier = {
+			factor = 1.25
+			base_tax = 10
+		}	
+		modifier = {
+			factor = 1.25
+			base_tax = 12
+		}
+		modifier = {
+			factor = 1.25
+			base_tax = 14
+		}
+		modifier = {
+			factor = 1.25
+			owner = { trade_income_percentage = 0.50 }
+		}
+        modifier = {
+			factor = 0.1
+			NOT = { has_owner_culture = yes }
+			NOT = { has_owner_accepted_culture = yes }
+			NOT = { owner = { culture_group = ROOT } }
+		}		
+	}
+}
+
+
+
+
+
+
+town_hall = {
+	cost = 450
+	time = 48
+	
+	make_obsolete = courthouse
+	destroy_on_conquest = yes
+    trigger = {
+		
+	            development = 20
+                is_core = owner
+                #is_overseas = no
+                NOT = {
+                        any_neighbor_province = {
+						          area = ROOT
+                                  owned_by = ROOT
+                                  has_building = town_hall
+                        }
+                }
+	}
+
+	modifier = {
+        local_unrest = -2
+        local_autonomy = -0.05
+		global_tax_income = -1
+	}
+	on_built = {
+	     #custom_tooltip = cu_building_bca_10
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 10 }
+		     cu_add_cultural_acceptance = yes
+			 if = {
+			       limit = { has_province_modifier = cu_fort_government }
+				   remove_province_modifier = cu_fort_government
+			 }
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n15
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -15 }
+		     cu_add_cultural_acceptance = yes
+			 province_event = { id = ideagroups.4895  }
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -10 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 400
+		modifier = {
+			factor = 1.5
+			owner = { check_variable = { which = go value = 105 } }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { check_variable = { which = go value = 125 } }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { check_variable = { which = go value = 150 } }
+		}
+		modifier = {
+			factor = 0.1
+			NOT = { development = 15 }
+		}
+		modifier = {
+			factor = 1.5
+			development = 20
+		}
+        modifier = {
+			factor = 1.5
+			development = 25
+		}
+        modifier = {
+			factor = 1.5
+			development = 30
+		}		
+		modifier = {
+			factor = 0.1
+			cu_is_terr_trigger = yes
+		}
+		modifier = {
+			factor = 0.25
+			is_overseas = yes
+		}
+        modifier = {
+			factor = 0.33
+			NOT = { has_owner_culture = yes }
+			NOT = { has_owner_accepted_culture = yes }
+			NOT = { owner = { culture_group = ROOT } }
+		}		
+	}
+}
+
+drydock = {
+	cost = 350
+	time = 36
+	
+	make_obsolete = dock
+	
+	trigger = {
+		has_port = yes
+	}
+	
+	modifier = {
+                local_sailors_modifier = 0.5
+		        naval_forcelimit = 5
+                province_trade_power_value = 6
+				local_ship_repair = 0.25
+				allowed_num_of_buildings = 1
+				global_tax_income = -3
+    }
+	on_built = {
+	     #custom_tooltip = cu_building_bca_5
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 5 }
+		     cu_add_cultural_acceptance = yes
+			 cu_prov_trigger_dist_calc = yes
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n7
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -7 }
+		     cu_add_cultural_acceptance = yes
+			 cu_prov_trigger_dist_calc = yes
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -5 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 300
+		modifier = {
+			factor = 1.5
+			is_overseas = yes
+		}	
+		modifier = {
+			factor = 1.5
+			0R = {
+			      owner = { has_idea_group = maritime_ideas }
+				  owner = { has_idea_group = naval_ideas }
+				  owner = { has_idea_group = exploration_ideas }
+			}
+		}
+        modifier = {
+			factor = 0.5
+			NOT = { has_owner_culture = yes }
+			NOT = { has_owner_accepted_culture = yes }
+			NOT = { owner = { culture_group = ROOT } }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { trade_income_percentage = 0.50 }
+		}
+		modifier = {
+			NOT = { owner = { navy_size_percentage = 0.40 } }
+			factor = 0.5
+		}
+		modifier = {
+			NOT = { owner = { navy_size_percentage = 0.60 } }
+			factor = 0.5
+		}
+        modifier = {
+			owner = { navy_size_percentage = 0.80 }
+			factor = 1.2
+		}
+		modifier = {
+			owner = { navy_size_percentage = 1.00 }
+			factor = 1.2
+		}
+		modifier = {
+			owner = { navy_size_percentage = 1.20 }
+			factor = 1.2
+		}		
+	}
+}
+
+conscription_center = {
+	cost = 350
+	time = 36
+	
+	
+	make_obsolete = regimental_camp
+	
+    trigger = {
+			OR = {
+				AND = {
+					check_variable = { which = literacy value = 10 }
+					development = 25
+				}
+			
+				has_building = stock_exchange
+			}  
+	}
+
+	modifier = {
+	    land_forcelimit = 2
+        local_regiment_cost = -0.2
+		regiment_recruit_speed = -0.3
+		global_tax_income = -3
+	}
+	on_built = {
+	     #custom_tooltip = cu_building_bca_5
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 5 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n7
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -7 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -5 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 250
+		modifier = { 
+			factor = 2
+			NOT = { 
+			     owner = {
+			            num_of_owned_provinces_with = {
+			                value = 3
+                            has_building = conscription_center
+                        }							
+				 }
+			}
+		}
+		modifier = {
+			owner = { army_size_percentage = 1.00 }
+			factor = 1.25
+		}
+		modifier = {
+			owner = { army_size_percentage = 1.10 }
+			factor = 1.25
+		}
+		modifier = {
+			factor = 0.33
+			NOT = { has_owner_culture = yes }
+			NOT = { has_owner_accepted_culture = yes }
+			NOT = { owner = { culture_group = ROOT } }
+		}		
+	}
+}
+
+#Factory
+weapons = {
+	cost = 900
+	time = 60
+        trigger = {
+                OR = {
+		    base_production = 8
+                    AND = {
+                         base_production = 6
+						 OR = {
+						     has_building = courthouse
+						     has_building = town_hall
+							 has_province_modifier = cu_fort_government
+						 }
+                         
+                    }
+					has_building = weapons
+                }
+				NOT = { 
+					owner = {
+						has_reform = steppe_horde
+						} 
+					}
+	}
+	make_obsolete = counting_house
+	modifier = {
+        local_production_efficiency = 0.9
+		trade_goods_size = 0.7
+	}
+	on_built = {
+	     #custom_tooltip = cu_building_bca_8
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 8 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n12
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -12 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -8 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	onmap = yes	
+	allow_in_gold_provinces = no
+	ai_will_do = {
+		factor = 5
+		modifier = { 
+			factor = 2
+			OR = {
+				has_province_modifier = stora_kopparberget_modifier
+				has_province_modifier = cerro_rico_modifier
+				has_province_modifier = spice_islands_modifier
+				has_province_modifier = comet_ore_modifier
+				has_province_modifier = paradise_modifier
+			}
+		}
+		modifier = { 
+			factor = 5
+			base_production = 14
+		}
+		modifier = { 
+			factor = 2.5
+			base_production = 12
+		}
+		modifier = { 
+			factor = 1.5
+			base_production = 10
+		}
+		modifier = { 
+			factor = 0.75
+			NOT = { base_production = 10 }
+		}
+		modifier = { 
+			factor = 2
+			OR = {
+                trade_goods = iron
+                trade_goods = copper
+                trade_goods = sugar
+                trade_goods = cocoa
+                trade_goods = tobacco
+                trade_goods = cotton
+                trade_goods = ivory
+                trade_goods = spices
+                trade_goods = chinaware				
+            }
+		}
+		modifier = { 
+			factor = 0.1
+			NOT = { base_production = 8 }
+			NOT = { check_variable = { which = literacy value = 10 } }
+			NOT = { has_province_modifier = stora_kopparberget_modifier }
+			NOT = { has_province_modifier = cerro_rico_modifier }
+			NOT = { has_province_modifier = spice_islands_modifier }
+			NOT = { has_province_modifier = comet_ore_modifier }
+			NOT = { has_province_modifier = paradise_modifier }
+		}
+		modifier = { 
+			factor = 2
+			base_manpower = 9
+			check_variable = { which = literacy value = 10 }
+		}
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 10 
+			NOT = { has_estate = estate_burghers}
+		}
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 20 
+			NOT = { has_estate = estate_burghers}
+		}		
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 30 
+			NOT = { has_estate = estate_burghers}
+		}		
+		modifier = { 
+			factor = 0.9 
+			local_autonomy = 40 
+			NOT = { has_estate = estate_burghers}
+		}	
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 50 
+			NOT = { has_estate = estate_burghers}
+		}
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 60 
+			NOT = { has_estate = estate_burghers}
+		}
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 70 
+			NOT = { has_estate = estate_burghers}
+		}
+		modifier = {
+			factor = 0.9
+			local_autonomy = 80 
+			NOT = { has_estate = estate_burghers}
+		}
+		modifier = { 
+			factor = 0.9
+			local_autonomy = 90 
+			NOT = { has_estate = estate_burghers} 
+		}	
+	}
+}
+
+
+
+
+fort_18th = {
+	cost = 320
+	time = 30
+	
+	
+	make_obsolete = fort_17th
+	
+	modifier = {
+		fort_level = 8
+		land_forcelimit = 4
+        supply_limit_modifier = 0.5
+		local_defensiveness = 0.25
+		local_hostile_attrition = 1.5
+		local_hostile_movement_speed = -0.25
+		allowed_num_of_buildings = 1
+	}
+    on_built = {
+	     custom_tooltip = cu_building_bca_9
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 9 }
+		     cu_add_cultural_acceptance = yes
+			 province_event = { id = ideagroups.4895  }
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n14
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -14 }
+		     cu_add_cultural_acceptance = yes
+			 remove_province_modifier = cu_fort_government
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -9 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	onmap = yes
+	
+	influencing_fort = yes
+	
+	ai_will_do = {
+		factor = 1 #Lots of logic in code instead, that multiplies with this value
+	} 
+}
+
+plantations = {
+    cost = 130
+	time = 12
+	trigger = {
+	    owner = { has_institution = new_world_i }
+		OR = {
+		      trade_goods = coffee
+			  trade_goods = cotton
+			  trade_goods = sugar
+			  trade_goods = tea
+		      trade_goods = wine
+		      trade_goods = tobacco
+		      trade_goods = cocoa
+		      trade_goods = incense
+		      trade_goods = spices
+		      trade_goods = grain
+		      trade_goods = silk
+		      trade_goods = dyes
+		}
+	}
+	on_built = {
+	     #custom_tooltip = cu_building_bca_n6
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -6 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_4
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 4 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -6 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	modifier = {
+		trade_goods_size = 0.4
+		province_trade_power_value = 0.25
+		local_manpower_modifier = -0.5
+		local_development_cost = 0.2
+	}
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.3
+			OR = {
+			       trade_goods = coffee
+				   trade_goods = cotton
+				   trade_goods = sugar
+				   trade_goods = sugar
+			       trade_goods = tobacco
+				   trade_goods = cocoa
+			}
+		}
+		modifier = {
+			factor = 1.3
+			NOT = { base_production = 3 }
+		}		
+		modifier = {
+			factor = 0.25
+			development = 10
+		}
+		modifier = {
+			factor = 0
+			base_production = 15
+		}		
+		modifier = {
+			factor = 0.25
+			is_overseas = no
+		}	
+		modifier = {
+			factor = 0
+			cu_not_terr_trigger = yes
+		}
+	}
+}
+
+tradecompany = {
+    cost = 130
+	time = 12
+	trigger = {
+	    owner = { has_institution = new_world_i }
+		OR = {
+		trade_goods = ivory
+		trade_goods = chinaware
+		trade_goods = slaves
+		trade_goods = wool
+		trade_goods = fur
+		trade_goods = gems
+		trade_goods = glass
+		trade_goods = cloth
+		trade_goods = fish
+		trade_goods = salt
+		trade_goods = naval_supplies
+		trade_goods = copper
+		trade_goods = iron
+		trade_goods = tropical_wood
+		trade_goods = livestock
+		trade_goods = paper
+		}
+	}
+	on_built = {
+	     #custom_tooltip = cu_building_bca_n6
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -6 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_4
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 4 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -6 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	modifier = {
+		trade_goods_size = 0.4
+		province_trade_power_value = 0.25
+		local_manpower_modifier = -0.5
+		local_development_cost = 0.2
+	}
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			OR = {
+			       trade_goods = ivory
+				   trade_goods = gem
+				   trade_goods = chinaware
+				   trade_goods = fur
+			       trade_goods = glass
+			}
+		}
+		modifier = {
+			factor = 1.3
+			NOT = { base_production = 3 }
+		}		
+		modifier = {
+			factor = 0.25
+			development = 10
+		}
+		modifier = {
+			factor = 0
+			base_production = 15
+		}		
+		modifier = {
+			factor = 0.25
+			is_overseas = no
+		}	
+		modifier = {
+			factor = 0
+			cu_not_terr_trigger = yes
+		}		
+	}
+}
+
+################################################
+# Manufactories(Removed in CU, but still keep them in the file for compatibility sake)
+################################################
+
+manufactory = {
+	cost = 100
+	time = 12
+	modifier = {
+		trade_goods_size = 0.25
+		province_trade_power_value = 0.25
+		local_development_cost = 0.1
+	}
+}
+
+wharf = {
+        trigger = {
+		    full_idea_group = administrative_ideas
+                OR = {
+		    base_production = 8
+                    AND = {
+					     base_production = 5
+                         OR = {
+						     has_building = courthouse
+						     has_building = town_hall
+							 has_province_modifier = cu_fort_government
+						 }
+                    }
+                }
+	}
+	manufactory = {
+		naval_supplies
+		fish
+		salt
+		tropical_wood
+	}
+	onmap = yes
+	
+	ai_will_do = {
+		factor = 100
+		modifier = {
+			factor = 0.33
+			NOT = { has_owner_culture = yes }
+			NOT = { has_owner_accepted_culture = yes }
+			NOT = { owner = { culture_group = ROOT } }
+		}
+		modifier = {
+			factor = 0
+			NOT = { development = 10 }
+		}		
+		modifier = {
+			factor = 0.5
+			NOT = { development = 14 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { development = 18 }
+		}
+		modifier = {
+			factor = 1.5
+			base_production = 9
+		}	
+		modifier = {
+			factor = 1.5
+			base_production = 14
+		}
+        modifier = {
+			factor = 2
+			check_variable = { which = literacy value = 15 }
+		}		
+		modifier = {
+			factor = 1.5
+			development = 20
+		}		
+		modifier = {
+			factor = 1.5
+			development = 25
+		}
+		modifier = {
+			factor = 1.5
+			development = 30
+		}	
+	}
+}
+
+
+
+textile = {
+        trigger = {
+		    full_idea_group = administrative_ideas
+                OR = {
+		    base_production = 8
+                    AND = {
+                         base_production = 5
+                         OR = {
+						     has_building = courthouse
+						     has_building = town_hall
+							 has_province_modifier = cu_fort_government
+						 }
+                    }
+                }
+	}
+	manufactory = {
+		wool
+		cloth
+		silk
+		dyes
+	}
+	onmap = yes
+	
+	ai_will_do = {
+		factor = 100
+		modifier = {
+			factor = 0.33
+			NOT = { has_owner_culture = yes }
+			NOT = { has_owner_accepted_culture = yes }
+			NOT = { owner = { culture_group = ROOT } }
+		}
+		modifier = {
+			factor = 0
+			NOT = { development = 10 }
+		}		
+		modifier = {
+			factor = 0.5
+			NOT = { development = 14 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { development = 18 }
+		}
+		modifier = {
+			factor = 1.5
+			base_production = 9
+		}	
+		modifier = {
+			factor = 1.5
+			base_production = 14
+		}
+        modifier = {
+			factor = 2
+			check_variable = { which = literacy value = 15 }
+		}
+		modifier = {
+			factor = 1.5
+			development = 22
+		}		
+		modifier = {
+			factor = 1.5
+			development = 28
+		}
+		modifier = {
+			factor = 1.5
+			development = 34
+		}		
+	}
+}
+
+
+mills = {
+        trigger = {
+		    full_idea_group = administrative_ideas
+                OR = {
+		    base_production = 8
+                    AND = {
+                         base_production = 5
+                         OR = {
+						     has_building = courthouse
+						     has_building = town_hall
+							 has_province_modifier = cu_fort_government
+						 }
+                    }
+                }
+	}
+	
+	ai_will_do = {
+		factor = 100
+		modifier = {
+			factor = 0.33
+			NOT = { has_owner_culture = yes }
+			NOT = { has_owner_accepted_culture = yes }
+			NOT = { owner = { culture_group = ROOT } }
+		}
+		modifier = {
+			factor = 0
+			NOT = { development = 10 }
+		}		
+		modifier = {
+			factor = 0.5
+			NOT = { development = 14 }
+		}
+		modifier = {
+			factor = 0.75
+			NOT = { development = 18 }
+		}
+		modifier = {
+			factor = 1.5
+			base_production = 9
+		}	
+		modifier = {
+			factor = 1.5
+			base_production = 14
+		}
+        modifier = {
+			factor = 2
+			check_variable = { which = literacy value = 15 }
+		}
+		modifier = {
+			factor = 1.5
+			development = 22
+		}		
+		modifier = {
+			factor = 1.5
+			development = 28
+		}
+		modifier = {
+			factor = 1.5
+			development = 34
+		}		
+	}
+}
+
+
+
+
+furnace = {
+	manufactory = {
+		coal
+	}
+
+	potential = {
+		has_dlc = "Rule Britannia"
+		full_idea_group = administrative_ideas
+	}
+	modifier = {
+		global_trade_goods_size_modifier = 0.05 #National Bonus
+	}
+	onmap = yes
+	show_separate = yes # Means as a manufactory it will be shown according to the old way
+	
+	ai_will_do = {
+		factor = 1
+	}
+}
+

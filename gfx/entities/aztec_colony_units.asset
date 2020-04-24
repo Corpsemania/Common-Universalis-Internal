@@ -1,0 +1,177 @@
+entity = {
+	name = "AZC_INFANTRY_1"
+	pdxmesh = "meamup_AZT_infantry_01_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+
+	attach = { 
+		Right_hand_node = "meamup_club_AZT_MAY_entity" 
+		Left_hand_node = "meamup_shield_AZT_entity" 		
+	}
+}
+
+entity = {
+	name = "AZC_CAVALRY_1"
+	pdxmesh = "meamup_cavalry_horse_001_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "AZT_CAVALRY_1_rider" 
+	}
+}
+
+entity = {
+	name = "AZC_CAVALRY_1_rider"
+	pdxmesh = "meamup_AZT_cavalry_01_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "meamup_cavalry_saber" 
+	}
+}
+
+
+entity = {
+	name = "AZC_INFANTRY_2"
+	pdxmesh = "meamup_AZT_infantry_02_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+
+	attach = { 
+		Left_hand_node = "meamup_rifle_02_entity" 
+	}
+}
+
+entity = {
+	name = "AZC_CAVALRY_2"
+	pdxmesh = "meamup_cavalry_horse_001_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "AZT_CAVALRY_2_rider" 
+	}
+}
+
+entity = {
+	name = "AZC_CAVALRY_2_rider"
+	pdxmesh = "meamup_AZT_cavalry_02_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "meamup_cavalry_saber" 
+	}
+}
+
+
+
+
+entity = {
+	name = "AZC_INFANTRY_3"
+	pdxmesh = "meamup_AZT_infantry_03_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+
+	attach = { 
+		Left_hand_node = "meamup_rifle_03_entity" 
+	}
+}
+
+entity = {
+	name = "AZC_CAVALRY_3"
+	pdxmesh = "meamup_cavalry_horse_002_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "AZT_CAVALRY_3_rider" 
+	}
+}
+
+entity = {
+	name = "AZC_CAVALRY_3_rider"
+	pdxmesh = "meamup_AZT_cavalry_03_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "meamup_cavalry_saber" 
+	}
+}
+
+
+entity = {
+	name = "AZC_INFANTRY_4"
+	pdxmesh = "meamup_AZT_infantry_04_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack" }
+
+	attach = { 
+		Left_hand_node = "meamup_rifle_04_entity" 
+	}
+}
+
+entity = {
+	name = "AZC_CAVALRY_4"
+	pdxmesh = "meamup_cavalry_horse_002_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = {
+		name = "rider"
+		Saddle_Node = "AZT_CAVALRY_4_rider" 
+	}
+}
+
+entity = {
+	name = "AZC_CAVALRY_4_rider"
+	pdxmesh = "meamup_AZT_cavalry_04_mesh"
+	version = 1
+	
+	state = { name = "idle" 		animation = "horse_idle" }
+	state = { name = "walk" 		animation = "horse_walk" }
+	state = { name = "attack"		animation = "horse_attack" }
+
+	attach = { 
+		Right_hand_node = "meamup_cavalry_saber" 
+	}
+}

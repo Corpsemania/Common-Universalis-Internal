@@ -1,0 +1,1011 @@
+
+monarchy = {
+	reform_levels = {
+		special = {
+			reforms = {
+				ord_reform
+				shogunate
+				elective_monarchy
+				celestial_empire
+				celestial_empire_2
+				celestial_empire_3
+				zhuhou				
+				daimyo
+				indep_daimyo
+				ottoman_government
+				mamluk_government							
+				revolutionary_empire_reform
+				confederate
+				eng_grand_charter
+				fra_pragmatic_sanction
+			}
+		}
+		taxation_policy = {
+			reforms = {
+				tax_policy_1
+				tax_policy_2
+				tax_policy_3
+				tax_policy_4
+				tax_policy_5
+			}
+		}
+		economic_policy = {
+			reforms = {
+				economic_policy_1
+				economic_policy_2
+				economic_policy_3
+				economic_policy_4
+				economic_policy_5
+			}
+		}
+		trade_policy = {
+			reforms = {
+				trade_policy_1
+				trade_policy_2
+				trade_policy_3
+				trade_policy_4
+				trade_policy_5
+			}
+		}
+		gc_policy = {
+			reforms = {
+				minimum_government_capacity
+				shrink_government_capacity
+				cur_government_capacity
+				expand_government_capacity
+				maximum_government_capacity
+			}
+		}
+		cultural_policy = {
+			reforms = {
+				cu_cultural_policy_1
+				cu_cultural_policy_2
+				cu_cultural_policy_3
+				cu_cultural_policy_4
+				cu_cultural_policy_5
+			}
+		}
+		religious_policy = {
+			reforms = {
+				cu_religious_policy_5
+				cu_religious_policy_4
+				cu_religious_policy_3
+				cu_religious_policy_2
+				cu_religious_policy_1
+			}
+		}
+		conscription_laws = {
+			reforms = {
+				feudal_conscription
+				mercenary_conscription
+				military_household
+				tribal_conscription
+				volunteer_training
+				standing_army
+				limited_conscription
+				extensive_conscription
+			}
+		}
+		education_policy = {
+			reforms = {
+			    education_policy_nobles
+				education_policy_church
+				education_policy_burghers
+				education_policy_public				
+			}
+		}
+		central_power = {
+			reforms = {
+				court_despotism
+				noble_council
+				clergy_reform
+				parliament_reform				
+			}
+		}
+		province_governance = {
+			reforms = {
+				self_governance
+				cu_feudalism_reform	
+				mandate_system
+				bureaucratic				
+			}
+		}
+		legislation = {
+			reforms = {
+				oral_tradition
+				sovereign_code
+				divine_law
+				constitution_reform
+			}
+		}
+		election = {
+			reforms = {
+				no_election
+				noble_election
+				burghers_election
+				universal_suffrage
+			}
+		}
+		
+		change_government = {
+			reforms = {
+				becomes_monarchy_reform
+				becomes_republic_reform
+				becomes_theocracy_reform				
+			
+				feudalism_reform
+				autocracy_reform
+				plutocratic_reform
+				indian_sultanate_reform
+				nayankara_reform
+				misl_confederacy_reform
+				rajput_kingdom
+				#Specific:
+				grand_duchy_reform
+				chinese_revolter
+				
+				iqta
+				
+				prussian_monarchy
+				principality
+				tsardom
+				
+				feudal_theocracy
+				
+				administrative_monarchy				
+				absolute_monarchy
+				enlightened_despotism
+				constitutional_monarchy
+
+				english_monarchy
+				mandala_reform
+				
+		
+				enforce_privileges_reform
+				quash_noble_power_reform
+				enforce_trader_privileges_reform
+				bengali_reform
+				sufi_syncretism_reform
+				poligar_reform
+				khalsa_reform
+				deccani_society_reform
+				mughal_government
+		
+				centralize_reform
+				decentralize_reform
+				sidhi_recruitment
+				mansabdari_reform
+				council_of_the_indies_reform
+		
+				clergy_in_administration_reform
+				of_noble_bearing_reform
+				meritocratic_focus_reform
+				dakhni_culture_reform
+				zabt_reform
+				permanent_marathas_council_reform
+				governmental_purbias_register_reform
+			
+				parliamentary_reform
+				royal_decree_reform
+				aristocratic_court_reform
+				general_estates_reform
+				states_general_reform
+			
+				letat_cest_moi_reform
+				regional_representation_reform
+			
+				political_absolutism_reform
+				legislative_houses_reform
+				become_a_republic_reform
+				install_theocratic_government_reform
+			}
+		}
+		
+	}
+
+	basic_reform = monarchy_mechanic
+
+	legacy_government = {
+		despotic_monarchy
+		feudal_monarchy
+		administrative_monarchy
+		constitutional_monarchy
+		enlightened_despotism
+		revolutionary_empire
+		english_monarchy_legacy
+		mamluk_government_legacy
+		feudal_theocracy_legacy
+		elective_monarchy_legacy
+		celestial_empire_legacy
+		ottoman_government_legacy
+		prussian_monarchy_legacy
+		iqta_legacy
+		daimyo_legacy
+		shogunate_legacy
+		indep_daimyo_legacy
+		principality_legacy
+		tsardom_legacy
+	}
+
+	# Each group of exclusive reforms are mutually exclusive to each other
+
+	#Flavor
+	exclusive_reforms = {
+		iqta
+		indian_sultanate_reform
+		mamluk_government
+		tsardom
+		principality
+		parliamentary_reform
+		english_monarchy
+		states_general_reform
+	}
+
+	#States General works with few others
+	exclusive_reforms = {
+		mamluk_government
+		feudal_theocracy
+		states_general_reform
+		mughal_government
+		ottoman_government
+		revolutionary_empire_reform
+		prussian_monarchy
+		elective_monarchy
+		celestial_empire
+	}
+
+	#Flavor
+	exclusive_reforms = {
+		daimyo
+		shogunate
+		indep_daimyo
+		states_general_reform
+		parliamentary_reform
+	}
+
+	color = { 179 25 25 }
+}
+
+republic = {
+	basic_reform = republic_mechanic
+
+	color = { 65 155 220 }
+	legacy_government = {
+		bureaucratic_despotism
+		revolutionary_republic
+		constitutional_republic
+		republican_dictatorship
+		administrative_republic
+		noble_republic
+		oligarchic_republic
+		pirate_republic
+		merchant_republic
+		venetian_merchant_republic
+		imperial_city
+		trading_city_legacy
+		ambrosian_republic_legacy
+		dutch_republic_legacy
+		colonial_government_legacy
+		american_republic_legacy
+		federal_republic_legacy
+		peasants_republic_legacy
+		veche_republic_legacy
+		cossacks_legacy_reform
+		pirate_kingdom
+		war_against_the_world_government
+		black_market_consortium_government
+	}
+	reform_levels = {
+		special = {
+			reforms = {
+				ord_reform
+				free_city
+				trading_city
+				colonial_government
+				dutch_republic				
+				merchants_reform
+				revolutionary_republic_reform
+				confederate
+			}
+		}
+		taxation_policy = {
+			reforms = {
+				tax_policy_1
+				tax_policy_2
+				tax_policy_3
+				tax_policy_4
+				tax_policy_5
+			}
+		}
+		economic_policy = {
+			reforms = {
+				economic_policy_1
+				economic_policy_2
+				economic_policy_3
+				economic_policy_4
+				economic_policy_5
+			}
+		}
+		trade_policy = {
+			reforms = {
+				trade_policy_1
+				trade_policy_2
+				trade_policy_3
+				trade_policy_4
+				trade_policy_5
+			}
+		}
+		gc_policy = {
+			reforms = {
+				minimum_government_capacity
+				shrink_government_capacity
+				cur_government_capacity
+				expand_government_capacity
+				maximum_government_capacity
+			}
+		}
+		cultural_policy = {
+			reforms = {
+				cu_cultural_policy_1
+				cu_cultural_policy_2
+				cu_cultural_policy_3
+				cu_cultural_policy_4
+				cu_cultural_policy_5
+			}
+		}
+		religious_policy = {
+			reforms = {
+				cu_religious_policy_5
+				cu_religious_policy_4
+				cu_religious_policy_3
+				cu_religious_policy_2
+				cu_religious_policy_1
+			}
+		}
+		conscription_laws = {
+			reforms = {
+				feudal_conscription
+				mercenary_conscription
+				military_household
+				tribal_conscription
+				volunteer_training
+				standing_army
+				limited_conscription
+				extensive_conscription
+			}
+		}
+		education_policy = {
+			reforms = {
+				education_policy_nobles
+				education_policy_church
+				education_policy_burghers
+				education_policy_public				
+			}
+		}
+		central_power = {
+			reforms = {
+				court_despotism
+				noble_council
+				clergy_reform
+				parliament_reform				
+			}
+		}
+		province_governance = {
+			reforms = {
+				self_governance
+				cu_feudalism_reform	
+				mandate_system
+				bureaucratic				
+			}
+		}
+		legislation = {
+			reforms = {
+				oral_tradition
+				sovereign_code
+				divine_law
+				constitution_reform
+			}
+		}
+		election = {
+			reforms = {
+				no_election
+				noble_election
+				burghers_election
+				universal_suffrage
+			}
+		}		
+		change_government = {
+			reforms = {
+				becomes_monarchy_reform
+				becomes_republic_reform
+				becomes_theocracy_reform				
+			
+				oligarchy_reform
+				
+				venice_merchants_reform
+				pirate_republic_reform
+				noble_elite_reform
+				ambrosian_republic
+				veche_republic
+				american_republic
+				federal_republic
+				
+				
+				peasants_republic
+				
+				presidential_despot_reform
+				cossacks_reform
+				administrative_republic
+				confederate_republic
+				bureaucratic_despotism
+				representative_republic
+				constitutional_republic
+		
+				republican_authoritarianism_reform
+				nepotism_reform
+				republicanism_reform
+				council_of_captains_reform
+				articles_of_agreement_reform
+				smugglers_haven_reform
+		
+				frequent_elections_reform
+				consolidation_of_power_reform
+				permanent_marathas_council_reform
+				governmental_purbias_register_reform
+				lottery_reform
+				council_of_the_indies_reform
+			
+				provincial_governments_reform
+				administrative_divisions_reform
+				union_of_states_reform
+			
+				parliamentary_reform
+				presidential_reform
+				pirate_king_reform
+				war_against_the_world_doctrine_reform
+				black_market_consortium_reform
+			
+				broaden_executive_powers_reform
+				devolution_of_powers_reform
+			
+				political_principle_reform
+				moral_principle_reform
+			
+				landholders_reform
+				citizenry_reform
+			
+				appointment_by_committee_reform
+				bureaucratic_aparatus_reform
+				universal_suffrage_reform
+			
+				seize_executive_power_reform
+				proclaim_divine_guidance_reform
+				strengthen_executive_powers_reform
+				reinforce_republican_values_reform
+				pirates_become_republic_reform
+			}
+		}
+	}
+	exclusive_reforms = {
+		parliamentary_reform
+		dutch_republic
+		merchants_reform
+		veche_republic
+		federal_republic
+		free_city
+		trading_city
+		american_republic
+		revolutionary_republic_reform
+		pirate_republic_reform
+	}
+	exclusive_reforms = {
+		lottery_reform
+		venice_merchants_reform
+		dutch_republic
+		pirate_republic_reform
+	}
+}
+
+tribal = {
+	color = { 220 165 95 }
+	basic_reform = tribe_mechanic
+
+	legacy_government = {
+		tribal_despotism_legacy
+		tribal_kingdom_legacy
+		tribal_democracy_legacy
+		tribal_federation_legacy
+		steppe_horde_legacy
+		siberian_native_council
+	}
+
+	reform_levels = {
+		special = {
+			reforms = {
+				ord_reform
+				steppe_horde
+				steppe_empire 
+				siberian_tribe				
+			}
+		}
+		taxation_policy = {
+			reforms = {
+				tax_policy_1
+				tax_policy_2
+				tax_policy_3
+				tax_policy_4
+				tax_policy_5
+			}
+		}
+		economic_policy = {
+			reforms = {
+				economic_policy_1
+				economic_policy_2
+				economic_policy_3
+				economic_policy_4
+				economic_policy_5
+			}
+		}
+		trade_policy = {
+			reforms = {
+				trade_policy_1
+				trade_policy_2
+				trade_policy_3
+				trade_policy_4
+				trade_policy_5
+			}
+		}
+		gc_policy = {
+			reforms = {
+				minimum_government_capacity
+				shrink_government_capacity
+				cur_government_capacity
+				expand_government_capacity	
+				maximum_government_capacity	
+			}
+		}
+		cultural_policy = {
+			reforms = {
+				cu_cultural_policy_1
+				cu_cultural_policy_2
+				cu_cultural_policy_3
+				cu_cultural_policy_4
+				cu_cultural_policy_5
+			}
+		}
+		religious_policy = {
+			reforms = {
+				cu_religious_policy_5
+				cu_religious_policy_4
+				cu_religious_policy_3
+				cu_religious_policy_2
+				cu_religious_policy_1
+			}
+		}
+		conscription_laws = {
+			reforms = {
+				feudal_conscription
+				mercenary_conscription
+				military_household
+				tribal_conscription
+				volunteer_training
+				standing_army
+				limited_conscription
+				extensive_conscription
+			}
+		}
+		education_policy = {
+			reforms = {
+				education_policy_nobles
+				education_policy_church
+			}
+		}
+		central_power = {
+			reforms = {
+				court_despotism
+				noble_council				
+				clergy_reform
+			}
+		}
+		province_governance = {
+			reforms = {
+				self_governance
+				cu_feudalism_reform				
+				mandate_system
+			}
+		}
+		legislation = {
+			reforms = {
+				oral_tradition
+				sovereign_code
+				divine_law				
+			}
+		}
+		election = {
+			reforms = {
+				no_election
+				noble_election				
+			}
+		}		
+		change_government = {
+			reforms = {
+				becomes_monarchy_reform
+				becomes_republic_reform
+				becomes_theocracy_reform				
+			
+				
+				tribal_federation
+				tribal_despotism
+				tribal_kingdom
+				gond_kingdom
+				great_mongol_state_reform
+			
+				martial_society_reform
+				civil_society_reform
+			
+				religious_societies_reform
+				lip_service_reform
+			
+				centralize_tribal_power_reform
+				retain_tribal_hierarchy_reform
+			
+				tribe_becomes_monarchy_reform
+				tribe_becomes_republic_reform
+				tribe_becomes_theocracy_reform				
+			}
+		}
+	}
+}
+
+native = {
+	basic_reform = native_basic_reform
+
+	legacy_government = {
+		native_council_legacy
+	}
+	color = { 194 127 209 }
+}
+
+
+theocracy = {
+	color = { 75 170 75 }
+	basic_reform = theocracy_mechanic
+
+	legacy_government = {
+		papal_government
+		theocratic_government
+		monastic_order_government
+	}
+	reform_levels = {
+		special = {
+			reforms = {
+				ord_reform
+				papacy_reform				
+				monastic_order_reform				
+			}
+		}
+		taxation_policy = {
+			reforms = {
+				tax_policy_1
+				tax_policy_2
+				tax_policy_3
+				tax_policy_4
+				tax_policy_5
+			}
+		}
+		economic_policy = {
+			reforms = {
+				economic_policy_1
+				economic_policy_2
+				economic_policy_3
+				economic_policy_4
+				economic_policy_5
+			}
+		}
+		trade_policy = {
+			reforms = {
+				trade_policy_1
+				trade_policy_2
+				trade_policy_3
+				trade_policy_4
+				trade_policy_5
+			}
+		}
+		gc_policy = {
+			reforms = {
+				minimum_government_capacity
+				shrink_government_capacity
+				cur_government_capacity
+				expand_government_capacity
+				maximum_government_capacity
+			}
+		}
+		cultural_policy = {
+			reforms = {
+				cu_cultural_policy_1
+				cu_cultural_policy_2
+				cu_cultural_policy_3
+				cu_cultural_policy_4
+				cu_cultural_policy_5
+			}
+		}
+		religious_policy = {
+			reforms = {
+				cu_religious_policy_1
+				cu_religious_policy_2
+				cu_religious_policy_3
+				cu_religious_policy_4
+				cu_religious_policy_5
+			}
+		}
+		conscription_laws = {
+			reforms = {
+				feudal_conscription
+				mercenary_conscription
+				military_household
+				tribal_conscription
+				volunteer_training
+				standing_army
+				limited_conscription
+				extensive_conscription
+			}
+		}
+		education_policy = {
+			reforms = {
+				education_policy_nobles
+				education_policy_church
+				education_policy_burghers
+				education_policy_public				
+			}
+		}
+		central_power = {
+			reforms = {
+				court_despotism								
+				clergy_reform
+			}
+		}
+		province_governance = {
+			reforms = {
+				self_governance
+				cu_feudalism_reform	
+				mandate_system
+				bureaucratic				
+			}
+		}
+		legislation = {
+			reforms = {								
+				divine_law				
+			}
+		}
+		election = {
+			reforms = {
+				no_election
+				noble_election
+				burghers_election
+				universal_suffrage
+			}
+		}		
+		change_government = {
+			reforms = {
+				becomes_monarchy_reform
+				becomes_republic_reform
+				becomes_theocracy_reform				
+			
+				
+			
+				internal_mission_reform
+				external_mission_reform
+				leading_clergy_reform
+				safeguard_holy_sites_reform
+				combat_heresy_reform
+				expel_heathens_reform
+			
+				subservient_administrators_reform
+				religious_administrators_reform
+				permanent_marathas_council_reform
+				governmental_purbias_register_reform
+			
+				maintain_religious_head_reform
+				hereditary_religious_leadership_reform
+				crown_leader_reform
+				proclaim_republic_reform
+				battle_pope_reform
+			}
+		}
+	}
+}
+
+pre_dharma_mapping = {
+	despotic_monarchy = {
+		government = monarchy
+		legacy_government = despotic_monarchy
+	}
+	feudal_monarchy = {
+		government = monarchy
+		legacy_government = feudal_monarchy
+	}
+	administrative_monarchy = {
+		government = monarchy
+		legacy_government = administrative_monarchy
+	}
+	constitutional_monarchy = {
+		government = monarchy
+		legacy_government = constitutional_monarchy
+	}
+	enlightened_despotism = {
+		government = monarchy
+		legacy_government = enlightened_despotism
+	}
+	revolutionary_empire = {
+		government = monarchy
+		legacy_government = revolutionary_empire
+	}
+	merchant_republic = {
+		government = republic
+		legacy_government = merchant_republic
+	}
+	oligarchic_republic = {
+		government = republic
+		legacy_government = oligarchic_republic
+	}
+	noble_republic = {
+		government = republic
+		legacy_government = noble_republic
+	}
+	administrative_republic = {
+		government = republic
+		legacy_government = administrative_republic
+	}
+	republican_dictatorship = {
+		government = republic
+		legacy_government = republican_dictatorship
+	}
+	constitutional_republic = {
+		government = republic
+		legacy_government = constitutional_republic
+	}
+	bureaucratic_despotism = {
+		government = republic
+		legacy_government = bureaucratic_despotism
+	}
+	revolutionary_republic = {
+		government = republic
+		legacy_government = revolutionary_republic
+	}
+	theocratic_government = {
+		government = theocracy
+		legacy_government = theocratic_government
+	}
+	monastic_order_government = {
+		government = theocracy
+		legacy_government = monastic_order_government
+	}
+	papal_government = {
+		government = theocracy
+		legacy_government = papal_government
+	}
+	steppe_horde = {
+		government = tribal
+		legacy_government = steppe_horde_legacy
+	}
+	tribal_despotism = {
+		government = tribal
+		legacy_government = tribal_despotism_legacy
+	}
+	tribal_kingdom = {
+		government = tribal
+		legacy_government = tribal_kingdom_legacy
+	}
+	tribal_federation = {
+		government = tribal
+		legacy_government = tribal_federation_legacy
+	}
+	tribal_democracy = {
+		government = tribal
+		legacy_government = tribal_federation_legacy
+	}
+	native_council = {
+		government = native
+		legacy_government = native_council_legacy
+	}
+	siberian_native_council = {
+		government = tribal
+		legacy_government = siberian_native_council
+	}
+	english_monarchy = {
+		government = monarchy
+		legacy_government = english_monarchy_legacy
+	}
+	mamluk_government = {
+		government = monarchy
+		legacy_government = mamluk_government_legacy
+	}
+	feudal_theocracy = {
+		government = monarchy
+		legacy_government = feudal_theocracy_legacy
+	}
+	elective_monarchy = {
+		government = monarchy
+		legacy_government = elective_monarchy_legacy
+	}
+	imperial_city = {
+		government = republic
+		legacy_government = imperial_city
+	}
+	trading_city = {
+		government = republic
+		legacy_government = imperial_city_legacy
+	}
+	ambrosian_republic = {
+		government = republic
+		legacy_government = ambrosian_republic_legacy
+	}
+	dutch_republic = {
+		government = republic
+		legacy_government = dutch_republic_legacy
+	}
+	celestial_empire = {
+		government = monarchy
+		legacy_government = celestial_empire_legacy
+	}
+	ottoman_government = {
+		government = monarchy
+		legacy_government = ottoman_government_legacy
+	}
+	prussian_monarchy = {
+		government = monarchy
+		legacy_government = prussian_monarchy_legacy
+	}
+	iqta = {
+		government = monarchy
+		legacy_government = iqta_legacy
+	}
+	daimyo = {
+		government = monarchy
+		legacy_government = daimyo_legacy
+	}
+	shogunate = {
+		government = monarchy
+		legacy_government = shogunate_legacy
+	}
+	indep_daimyo = {
+		government = monarchy
+		legacy_government = indep_daimyo_legacy
+	}
+	colonial_government = {
+		government = republic
+		legacy_government = colonial_government_legacy
+	}
+	american_republic = {
+		government = republic
+		legacy_government = american_republic_legacy
+	}
+	federal_republic = {
+		government = republic
+		legacy_government = federal_republic_legacy
+	}
+	peasants_republic = {
+		government = republic
+		legacy_government = peasants_republic_legacy
+	}
+	veche_republic = {
+		government = republic
+		legacy_government = veche_republic_legacy
+	}
+	principality = {
+		government = monarchy
+		legacy_government = principality_legacy
+	}
+	tsardom = {
+		government = monarchy
+		legacy_government = tsardom_legacy
+	}
+	pirate_republic_reform = {
+		government = republic
+		legacy_government = pirate_republic
+	}
+	all_mechanics = {
+		government = monarchy
+		legacy_government = despotic_monarchy
+	}
+}

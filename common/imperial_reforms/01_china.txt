@@ -1,0 +1,105 @@
+department_of_treasure_fleet = {
+	empire = celestial_empire
+	emperor = {
+		heavy_ship_cost = -0.1	
+		global_ship_trade_power = 0.05					 	
+	}
+	member = {
+	}
+	on_effect = {
+	    set_global_flag = department_of_treasure_fleet_on
+	}
+    off_effect = {
+		clr_global_flag = department_of_treasure_fleet_on
+	}	
+}
+
+formalize_tributary_system_decision = {
+	empire = celestial_empire
+	emperor = {
+		vassal_income = 0.10		
+	}
+	member = {
+		envoy_travel_time = -0.15
+	}
+	on_effect = {
+	    set_global_flag = tributary_formalized
+	}
+    	off_effect = {
+		clr_global_flag = tributary_formalized
+	}	
+}
+
+
+tributary_trade_system_decision = {
+	empire = celestial_empire
+	emperor = {
+		global_trade_power = 0.05		
+		#Removes Trade Limitation Modifier
+	}
+	member = {
+		global_own_trade_power = 0.10
+	}
+	on_effect = {
+	    set_global_flag = trade_system_reformed
+	}
+    	off_effect = {
+		clr_global_flag = trade_system_reformed
+	}	
+}
+
+chinesized_education_decision = {
+	empire = celestial_empire
+	emperor = {
+		native_uprising_chance = -0.25
+        native_assimilation = 0.25		
+		prestige = 0.5		
+	}
+	member = {
+		adm_tech_cost_modifier = -0.05
+		#Allows institutions of the empire to spread to tributaries
+	}
+	on_effect = {
+	    set_global_flag = chinesized_education
+	}
+    	off_effect = {
+		clr_global_flag = chinesized_education
+	}
+}
+
+enforce_peace_decision = {
+	empire = celestial_empire
+	emperor = {
+	    diplomatic_reputation = 1
+		reduced_liberty_desire = -10
+		#Removes Foreign Ignorance Modifier		
+	}
+	member = {
+		diplomatic_upkeep = 1
+	}
+	on_effect = {
+	    set_global_flag = celestial_peace_enforced
+	}
+    	off_effect = {
+		clr_global_flag = celestial_peace_enforced
+	}	
+}
+
+the_greater_harmony_decision = {
+	empire = celestial_empire
+	emperor = {
+		diplomatic_annexation_cost = -0.10
+		num_accepted_cultures = 2
+		harmonization_speed = 0.1
+		#Unlock the decision to form Chinese Federation		
+	}
+	member = {
+		global_unrest = -2
+	}
+	on_effect = {
+	    set_global_flag = harmony_achieved
+	}
+    	off_effect = {
+		clr_global_flag = harmony_achieved
+	}	
+}

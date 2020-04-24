@@ -1,0 +1,21 @@
+lose_mercantilism = { #Changed to corruption, keep the old name for compatibility
+	trigger = {
+		NOT = { corruption = 100 }
+	}
+	
+	effect = {
+		add_corruption = 0.5
+		custom_tooltip = parliament_bribe_25t
+		hidden_effect = {
+		     country_event = { id = parlaments.999}
+		}
+	}
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+		      factor = 0
+			  corruption = 10 #Corruption is out of control
+		}
+	}	
+}

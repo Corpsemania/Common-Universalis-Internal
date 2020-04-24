@@ -1,0 +1,7 @@
+605 = "Gia Dinh"
+606 = "Phang Rang"
+607 = "Qui Nhon"
+1022 = "Da Nang"
+2374 = "Nha Trang"
+2376 = "Can Tho"
+2377 = "Ca Mau"

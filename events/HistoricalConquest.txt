@@ -1,0 +1,884 @@
+namespace = slaughter
+
+#Christian colonists' slaughter of natives
+province_event = {
+        id = slaughter.1
+	title = "slaughter.1.t"
+	desc = "slaughter.1.d"
+	picture = COLONIZATION_eventPicture
+	
+	trigger = {
+		has_province_flag = cu_wait_slaughter
+	}
+	mean_time_to_happen = {
+	    months = 1
+	}
+    immediate = {
+	      hidden_effect = {
+			    clr_province_flag = cu_wait_slaughter
+		        set_variable = { which = cu_var1 value = 0 }
+				set_variable = { which = cu_var2 value = 0 }
+				set_variable = { which = cu_var3 value = 0 }
+				export_to_variable = {
+				     which = cu_var1
+					 value = base_tax
+				}
+				export_to_variable = {
+				     which = cu_var2
+					 value = base_production
+				}
+				export_to_variable = {
+				     which = cu_var3
+					 value = base_manpower
+				}
+				change_variable = { which = cu_var1 which = cu_var2 }
+				change_variable = { which = cu_var1 which = cu_var3 }
+				subtract_variable = { which = cu_var1 value = 3 }
+				set_variable = { which = cu_power which = cu_var1 }
+				set_variable = { which = cu_cash which = cu_var1 }
+				multiply_variable = { which = cu_cash value = 5 }
+				multiply_variable = { which = cu_power value = 4 }
+				owner = {
+                       set_variable = { which = cu_power which = PREV }
+					   set_variable = { which = cu_cash which = PREV }
+				       cu_calc_power_cost = yes
+				}
+		  }
+	}
+	option = {
+		name = "slaughter.1.a" #Slaughter them!
+		ai_chance = {
+			factor = 100
+		}
+		custom_tooltip = slaughter.1.tt
+        change_culture = owner
+        change_religion = owner
+		#add_core = owner
+		owner = {
+            cu_subtract_mil_power = yes
+		    cu_change_cash = yes
+		}
+		hidden_effect = {
+				cu_calc_base_cultural_acceptance = yes
+				set_variable = { which = p_ca which = p_cab }
+				multiply_variable = { which = p_ca value = 0.5 }
+				cu_check_cultural_acceptance = yes
+				
+				set_base_tax = 1
+				set_base_production = 1
+				set_base_manpower = 1
+				set_variable = { which = cu_var1 value = 0 }
+				set_variable = { which = cu_var2 value = 0 }
+				set_variable = { which = cu_var3 value = 0 }
+				set_variable = { which = cu_power value = 0 }
+			    set_variable = { which = cu_cash value = 0 }
+		}
+				
+		#Reset Literacy and Cultural Acceptance
+		hidden_effect = {
+				set_variable = { which = ave_literacy which = owner } #Transfer country's average literacy(Unaccepted cultures are not counted) to colony
+				set_variable = { which = literacy which = ave_literacy }
+				set_province_flag = native_converted_money
+				remove_province_modifier = cu_templo_mayor_tenochtitlan
+				#Reset Cultural Acceptance
+				cu_calc_base_cultural_acceptance = yes
+		}
+	}
+	
+	option	= { #Leave them in peace
+		    name = "slaughter.1.b"
+            set_province_flag = no_slaughter
+			#add_core = owner
+			hidden_effect = {
+				set_province_flag = cu_newly_conquered_province
+				set_variable = { which = cu_var1 value = 0 }
+				set_variable = { which = cu_var2 value = 0 }
+				set_variable = { which = cu_var3 value = 0 }
+				set_variable = { which = cu_power value = 0 }
+				set_variable = { which = cu_cash value = 0 }
+			}
+            ai_chance = {
+					factor = 0
+		    }
+	}
+}
+
+
+#Qing's slaughter of the Chinese
+province_event = {
+        id = slaughter.2
+	title = "slaughter.2.t"
+	desc = "slaughter.2.d"
+	picture = ANGRY_MOB_eventPicture
+	
+	trigger = {
+                is_colony = no
+                OR = {
+                      owner = { tag = MCH }
+                      owner = { tag = QNG }
+                }
+				OR = {
+			          ai = no
+					  NOT = { has_global_flag = cu_fast_mode }
+			    }
+				has_province_flag = cu_newly_conquered_province
+                is_core = MNG
+                NOT = { has_province_flag = no_slaughter }
+                OR = {
+                       base_tax = 5
+                       base_production = 5
+                       base_manpower = 5
+                }
+				owner = { mil_power = 0 }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = "slaughter.2.a" #Slaughter them!
+		ai_chance = {
+			factor = 100
+		}
+                owner = { add_mil_power = -100 }
+		add_core = owner
+                if = {
+			limit = { 
+                                   base_tax = 5
+                        }
+			add_base_tax = -1
+		}
+                if = {
+			limit = { 
+                                   base_production = 5
+                        }
+			cu_reduce_base_production_1 = yes
+		}
+                if = {
+			limit = { 
+                                   base_manpower = 5
+                        }
+			cu_reduce_base_manpower_1 = yes
+		}
+        add_unrest = -10
+				
+		#Reset Cultural Acceptance
+		hidden_effect = {
+		        change_variable = { which = p_ca value = 20 }
+				cu_calc_base_cultural_acceptance = yes
+				cu_check_cultural_acceptance = yes
+		}
+	}
+	
+	option	= { #Leave them in peace
+		name = "slaughter.2.b"
+                set_province_flag = no_slaughter
+                add_adm_power = 20
+                ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+#Ottoman's subjection of Mamluks 
+country_event = {
+        id = slaughter.3
+	title = "slaughter.3.t"
+	desc = "slaughter.3.d"
+	picture = BATTLE_eventPicture
+	
+    fire_only_once = yes
+
+	trigger = {
+		tag = TUR
+		religion_group = muslim		   
+		war_with = MAM
+		is_year = 1500
+		OR = { 
+			controls = 361 
+			ai = yes
+		}         
+		MAM = {
+			ai = yes
+			NOT = { total_development = 800 }
+			owns = 361
+			num_of_owned_provinces_with = {
+				value = 7
+				controlled_by = TUR
+			}
+		}
+		NOT = { has_country_flag = mamluk_subjection_accepted }
+		NOT = { has_country_flag = mamluk_subjection_refused }
+		total_development = MAM
+	}
+
+	mean_time_to_happen = {
+		days = 30
+	}
+
+	option = {
+		name = "slaughter.3.a" #Subject the Mamluks and keep their previledge
+		set_country_flag = mamluk_subjection_accepted
+		add_adm_power = -300
+		add_dip_power = -300
+		add_mil_power = -300
+		MAM = {
+            every_owned_province = {
+				limit = {
+					AND = {
+						is_core = MAM
+                        culture = al_misr_arabic
+					}
+				}
+				cede_province = TUR
+				add_core = TUR
+				add_local_autonomy = 10
+				add_province_modifier = {
+					name = mamluks_corruption
+					duration = -1
+				}
+			}
+            every_owned_province = {
+				limit = {
+					AND = {
+						is_core = MAM
+                         NOT = { culture = al_misr_arabic }
+					}
+				}
+				cede_province = TUR
+                add_core = TUR
+		    }
+            every_owned_province = {
+				limit = {
+					NOT = { is_core = MAM }
+				}
+				cede_province = TUR
+				add_local_autonomy = 10
+		    }
+	    }
+        ai_chance = {
+			factor = 80
+	    }
+	}
+	
+	option	= { # We shall rule Egypt,directly. 
+		name = "slaughter.3.b"
+		set_country_flag = mamluk_subjection_refused
+		add_adm_power = 100
+        ai_chance = {
+			factor = 20
+		}
+	}
+}
+
+#Ottoman Reclaims Anatolia
+country_event = {
+        id = slaughter.31
+	title = "slaughter.31.t"
+	desc = "slaughter.31.d"
+	picture = BATTLE_eventPicture
+	
+    fire_only_once = yes
+	trigger = {
+            tag = TUR
+			ai = yes
+		    OR = {
+			     government_rank = 3
+				 total_development = 600
+			}
+			is_year = 1450
+			NOT = { TIM = { total_development = 400 } }
+			NOT = { has_country_flag = tur_reclaim_anatolia }
+	}
+
+	mean_time_to_happen = {
+		days = 30
+	}
+
+	option = {
+		name = "slaughter.31.a" #Subject the Mamluks and keep their previledge
+                set_country_flag = tur_reclaim_anatolia
+                every_province = {
+				         limit = {
+						      region = anatolia_region
+							  culture = turkish
+						 }
+						 add_core = TUR
+				}
+        ai_chance = {
+			factor = 1
+	    }
+	}
+}
+
+#European AI conquest of American nations
+country_event = {
+        id = slaughter.4
+	title = "slaughter.4.t"
+	desc = "slaughter.4.d"
+	picture = BATTLE_eventPicture
+
+	trigger = {
+                is_year = 1500
+                OR = {
+                          capital_scope = { continent = north_america }
+                          capital_scope = { continent = south_america } 
+                }
+                religion_group = pagan
+                NOT = { technology_group = western }
+                NOT = { technology_group = high_american }
+                ai = yes
+				NOT = { overlord = { ai = no } }
+                any_known_country = {
+                         ai = yes
+                         OR = {
+                                  capital_scope = { continent = europe }
+                                  has_reform =  colonial_government
+                         }
+                         OR = {
+                                  AND = { 
+                                          is_neighbor_of = ROOT
+                                          ROOT = { num_of_ports = 1 }
+                                  }
+                                  #war_with = ROOT
+                                  ROOT = {
+                                          OR = {
+                                                 capital_scope = { region = colombia_region }
+                                                 capital_scope = { region = peru_region }
+                                                 capital_scope = { region = la_plata_region }
+                                                 capital_scope = { region = central_america_region }
+                                                 capital_scope = { region = mexico_region }
+                                          }
+                                  PREV = { 
+                                          OR = {
+                                                tag = CAS
+                                                tag = SPA
+												overlord_of = ROOT		  
+                                            }
+                                          }
+                                  }
+                         }
+                          
+                }
+                NOT = {
+                         any_known_country = {
+                                  ai = no
+								AND = {
+								  OR = {
+                                          war_with = PREV
+                                          truce_with = PREV 
+                                          alliance_with = PREV
+                                          junior_union_with = PREV
+                                          senior_union_with = PREV
+                                          vassal_of = PREV
+                                          overlord_of = PREV
+                                          marriage_with = PREV
+                                  }
+								  NOT = { has_global_flag = cu_realistic_handicap_set }
+								  NOT = { has_global_flag = cu_x_handicap_set }
+								}
+                         }
+                }
+	}
+
+	mean_time_to_happen = {
+		months = 60
+	}
+
+	option = {
+		name = "slaughter.4.a" 
+                random_known_country = {
+                      limit = {
+                         ai = yes
+                         OR = {
+                                  capital_scope = { continent = europe }
+                                  has_reform =  colonial_government
+                         }
+                         OR = {
+                                  AND = { 
+                                          is_neighbor_of = ROOT
+                                          ROOT = { num_of_ports = 1 }
+                                  }
+                                  #war_with = ROOT
+                                  ROOT = {
+                                          OR = {
+                                                 capital_scope = { region = colombia_region }
+                                                 capital_scope = { region = peru_region }
+                                                 capital_scope = { region = la_plata_region }
+                                                 capital_scope = { region = central_america_region }
+                                                 capital_scope = { region = mexico_region }
+                                          }
+                                          PREV = { 
+                                                   OR = {
+                                                          tag = CAS
+                                                          tag = SPA
+														  overlord_of = ROOT
+                                                   }
+                                          }
+                                  }
+                         }
+                      }
+                      if = {
+                           limit = { is_colonial_nation = yes }
+                           random_country = {
+                                  limit = { overlord_of = PREV }
+                                  country_event = { id = slaughter.5 }  
+                           }
+                      } 
+                      if = {
+                           limit = { is_colonial_nation = no }
+                           country_event = { id = slaughter.5 }  
+                      } 
+                }
+	}
+}
+
+#European AI conquest of American nations( Receiver )
+country_event = {
+        id = slaughter.5
+	title = "slaughter.5.t"
+	desc = "slaughter.5.d"
+	picture = BATTLE_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "slaughter.5.a"
+                        
+                FROM = {
+						every_country = {
+									limit = { is_subject_of = FROM }
+										every_owned_province = {
+											cede_province = FROM											
+										} 
+						}
+                          every_owned_province = {
+                                       cede_province = ROOT
+                                       change_religion = ROOT
+                                       add_core = ROOT
+                            change_culture = ROOT
+                            if = {
+			       limit = { 
+                                   base_tax = 2
+                               }
+			       add_base_tax = -1
+		            }
+                            if = {
+			       limit = { 
+                                   base_production = 2
+                               }
+			       cu_reduce_base_production_1 = yes
+		            }
+                            if = {
+			       limit = { 
+                                   base_manpower = 2
+                               }
+			       cu_reduce_base_manpower_1 = yes
+		            }
+					
+					#Reset Cultural Acceptance
+			hidden_effect = {
+				       cu_calc_base_cultural_acceptance = yes
+				}
+			
+                          }
+                }
+	}
+}
+
+#Cusco AI conquest of the Andes
+country_event = {
+        id = slaughter.6
+	title = "slaughter.6.t"
+	desc = "slaughter.6.d"
+	picture = BATTLE_eventPicture
+
+	trigger = {
+                NOT = { is_year = 1500 }
+                OR = {
+                          tag = CSU
+                          tag = INC
+                }
+                ai = yes
+                any_known_country = {
+                         ai = yes
+                         is_neighbor_of = ROOT
+                         capital_scope = { 
+                                             region = peru_region
+                         }
+                          
+                }
+                NOT = { 
+                             any_country = {
+                                  ai = no
+                                  OR = {
+                                          junior_union_with = PREV
+                                          senior_union_with = PREV
+                                          vassal_of = PREV
+                                          any_known_country = {
+                                                  capital_scope = { 
+                                                      region = peru_region
+                                                  }
+                                          }
+                                  }
+                             } 
+                }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = "slaughter.6.a" 
+                random_known_country = {
+                      limit = {
+                         ai = yes
+                         is_neighbor_of = ROOT
+                         capital_scope = { 
+                                        region = peru_region
+                         }
+                      }
+                      every_owned_province = {
+                            cede_province = ROOT
+                            
+                      }
+                }
+	}
+}
+
+
+#Foundation of Mughal
+country_event = {
+        id = slaughter.7
+	title = "slaughter.6.t"
+	desc = "slaughter.6.d"
+	picture = BATTLE_eventPicture
+
+        fire_only_once = yes
+
+	trigger = {
+                is_year = 1500
+                NOT = { is_year = 1550 }
+                tag = TIM
+                ai = yes
+                mil = 4
+				NOT = { total_development = 300 }
+                any_known_country = {
+                         ai = yes                         
+						 owns = 522 #Delhi							   
+                         is_neighbor_of = ROOT
+                         NOT = { 
+                             any_country = {
+                                  ai = no
+                                  OR = {
+                                          war_with = PREV
+                                          truce_with = PREV 
+                                          alliance_with = PREV
+                                          junior_union_with = PREV
+                                          senior_union_with = PREV
+                                          vassal_of = PREV
+                                          overlord_of = PREV
+                                          marriage_with = PREV
+                                  }
+                             } 
+                         }
+                }
+	}
+
+	mean_time_to_happen = {
+		months = 72
+	}
+
+	option = {
+		name = "slaughter.6.a" 
+                random_known_country = {
+                      limit = {
+                         ai = yes
+                         owns = 522 #Delhi
+                         is_neighbor_of = ROOT
+                      }
+                      every_owned_province = {
+                            cede_province = ROOT
+                            add_core = ROOT
+                      }
+                }
+                #Switch to Mughal
+                change_tag = MUG
+				522 = {
+				move_capital_effect = yes
+				}
+				swap_non_generic_missions = yes
+				remove_non_electors_emperors_from_empire_effect = yes
+				change_primary_culture = kanauji			
+				set_government_rank = 3			
+			hindusthan_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = MUG
+			}
+			add_prestige = 25			
+			if = {
+				limit = {
+					NOT = { technology_group = indian }
+				}
+				change_technology_group = indian
+				change_unit_type = indian
+			}
+			add_government_reform = becomes_monarchy_reform			
+			add_government_reform = mandate_system			
+			country_event = { id = ideagroups.1 } #Swap Ideas
+			if = {
+			    limit = { has_country_modifier = tribal_conscription }
+				remove_country_modifier = tribal_conscription
+				add_country_modifier = {
+				        name = feudal_conscription
+						duration = -1
+				}
+			}
+			custom_tooltip = timurid_claims_abandoned_tooltip
+			hidden_effect = {
+				every_province = {
+					limit = {
+						NOT = { owned_by = MUG }
+						OR = {
+							region = persia_region
+							region = khorasan_region
+							region = caucasia_region
+							region = central_asia_region
+						}
+						is_permanent_claim = MUG
+					}
+					remove_claim = MUG
+				}
+				every_province = {
+					limit = {
+						NOT = { owned_by = MUG }
+						OR = {
+							region = persia_region
+							region = khorasan_region
+							region = caucasia_region
+							region = central_asia_region
+						}
+						is_core = MUG
+					}
+					remove_core = MUG
+				}
+			}
+			set_country_flag = formed_mughal_empire_flag
+                 #Switching Complete
+                 define_ruler = {
+					dynasty = "Timurid"
+					MIL = 6
+					ADM = 6
+					DIP = 6
+					claim = 100
+		 }
+		 add_adm_power = 500
+		 add_dip_power = 500
+		 add_mil_power = 500
+		 cu_change_stability_point_p75 = yes
+		 add_treasury = 500
+		 add_yearly_manpower = 2
+		 add_army_tradition = 50
+		 
+	}
+}
+
+#British conquest of India
+country_event = {
+    id = slaughter.8
+	title = "slaughter.6.t"
+	desc = "slaughter.6.d"
+	picture = BATTLE_eventPicture
+
+	trigger = {
+                is_year = 1600 
+                OR = {
+				       tag = GBR
+					   AND = {
+					          is_year = 1650
+						      full_idea_group = exploration_ideas
+                              capital_scope = {
+							         continent = europe
+							  }							  
+						}
+				}
+				NOT = { check_variable = { which = go value = 95 } }
+                ai = yes
+				NOT = { overlord = { ai = no } }
+                any_known_country = {
+                         ai = yes
+                         NOT = { 
+                                  OR = {
+                                          alliance_with = ROOT
+                                          junior_union_with = ROOT
+                                          senior_union_with = ROOT
+                                          vassal_of = ROOT
+                                          overlord_of = ROOT
+                                          marriage_with = ROOT
+                                  }     
+                         }
+                         OR = {
+                                is_neighbor_of = ROOT
+                                AND = {
+                                        num_of_ports = 1
+                                        NOT = { has_country_flag = eng_ai_first_india }
+                                }
+                         }
+                         capital_scope = { 
+                                           OR = {
+                                                    region = coromandel_region
+                                                    region = burma_region
+                                                    region = west_india_region
+                                                    region = deccan_region
+                                                    region = hindusthan_region
+                                                    region = bengal_region
+                                           }
+                                           range = ROOT
+                         }                         
+                         NOT = { 
+                             any_country = {
+                                  ai = no
+                                  OR = {
+                                          war_with = PREV
+                                          truce_with = PREV 
+                                          alliance_with = PREV
+                                          junior_union_with = PREV
+                                          senior_union_with = PREV
+                                          vassal_of = PREV
+                                          overlord_of = PREV
+                                          marriage_with = PREV
+                                  }
+                             } 
+                         }
+                          
+                }
+	}
+
+	mean_time_to_happen = {
+		months = 240
+	}
+
+	option = {
+		name = "slaughter.6.a" 
+                if = {
+                       limit = { NOT = { has_country_flag = eng_ai_first_india } }
+                       set_country_flag = eng_ai_first_india
+                }
+                random_known_country = {
+                      limit = {
+                         ai = yes
+                         OR = {
+                                is_neighbor_of = ROOT
+                                AND = {
+                                        num_of_ports = 1
+                                        NOT = { has_country_flag = eng_ai_first_india }
+                                }
+                         }
+                         capital_scope = { 
+                                           OR = {
+                                                    region = coromandel_region
+                                                    region = burma_region
+                                                    region = west_india_region
+                                                    region = deccan_region
+                                                    region = hindusthan_region
+                                                    region = bengal_region
+                                           }
+                                           range = ROOT
+                         }
+                         NOT = { 
+                             any_country = {
+                                  ai = no
+                                  OR = {
+                                          war_with = PREV
+                                          truce_with = PREV 
+                                          alliance_with = PREV
+                                          junior_union_with = PREV
+                                          senior_union_with = PREV
+                                          vassal_of = PREV
+                                          overlord_of = PREV
+                                          marriage_with = PREV
+                                  }
+                             } 
+                         }
+                      }
+					  add_treasury = 1000
+                      every_owned_province = {
+                            limit = { 
+							  OR = {
+										region = coromandel_region
+										region = burma_region
+										region = west_india_region
+										region = deccan_region
+										region = hindusthan_region
+										region = bengal_region
+							   }  
+                             }
+                             add_claim = ROOT
+                      }
+					  random_owned_province = {
+						limit = {
+							has_port = yes
+							OR = {
+								region = coromandel_region
+								region = burma_region
+								region = west_india_region
+								region = deccan_region
+								region = hindusthan_region
+								region = bengal_region
+							}
+						}
+						remove_core = owner
+						cede_province = ROOT
+						add_core = ROOT
+					}
+                }
+	}
+}
+
+#AI France Reconquest
+country_event = {
+    id = slaughter.10#9 has bug
+	title = "slaughter.9.t"
+	desc = "slaughter.9.d"
+	picture = BATTLE_eventPicture
+	
+    fire_only_once = yes
+	trigger = {
+		tag = FRA
+		ai = yes
+		total_development = 200
+		is_year = 1440
+		NOT = { is_year = 1460 }
+		NOT = { has_country_flag = had_end_of_HYW_france }
+		war_with = ENG
+		war_score = 10
+	}
+
+	mean_time_to_happen = {
+		months = 6
+	}
+
+	option = {
+		name = "slaughter.9.a" 
+		every_province = {
+			limit = {
+				region = france_region
+				NOT = { province_id = 87 }
+				owner = {
+					OR = {
+						tag = ENG
+						is_subject_of = ENG
+					}
+				}
+			}
+			add_core = FRA
+		}
+        ai_chance = {
+			factor = 1
+	    }
+	}
+}

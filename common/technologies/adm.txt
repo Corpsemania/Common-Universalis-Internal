@@ -1,0 +1,296 @@
+monarch_power = ADM
+
+# applied when a country is ahead of time in this technology
+ahead_of_time = {
+        
+}
+
+# Pre-era techs
+technology = {
+	# Tech 0
+	year = 2350
+	
+	
+	native_earthwork = yes
+	native_palisade = yes
+	native_fortified_house = yes
+	native_three_sisters_field = yes
+	native_irrigation = yes
+	native_storehouse = yes
+	native_longhouse = yes
+	native_sweat_lodge = yes
+	native_great_trail = yes
+	native_ceremonial_fire_pit = yes
+	#manufactory = yes
+}
+
+technology = {
+	# Tech 1
+	year = 2390
+	production_efficiency	=	0.1
+}
+
+technology = {
+	# Tech 2
+	year = 2420
+	
+
+	#Monarchies
+        production_efficiency	=	0.05
+	despotic_monarchy = yes	
+	feudal_monarchy = yes
+	oligarchic_republic = yes
+        #max_states = 1
+}
+
+# The 30 big techs from here on
+
+technology = {
+	# Tech 3
+	year = 2440
+
+	production_efficiency	=	0.05
+    mill = yes
+	may_support_rebels = yes
+}
+
+technology = {
+	# Tech 4
+	year = 2453
+	allowed_idea_groups = 1
+}
+
+technology = {
+	# Tech 5
+	year = 2466
+	temple = yes
+    university = yes
+	#max_states = 2
+}
+
+technology = {
+	# Tech 6
+	year = 2479
+	
+	#Workshop
+	workshop = yes
+	production_efficiency = 0.05
+}
+
+technology = {
+	# Tech 7
+	year = 2492
+	
+	#Noble Republic
+	allowed_idea_groups = 2	
+	#noble_republic = yes
+        #max_states = 2           
+}
+
+technology = {
+	# Tech 8
+
+	year = 2505
+	
+	courthouse = yes
+        #max_states = 2           
+}
+
+technology = { #The Scythe
+	# Tech 9
+	year = 2518
+	
+	#The Scythe
+	production_efficiency = 0.05
+        development_efficiency = 0.05
+}
+
+technology = { #Modern Theocracy
+	# Tech 10
+	year = 2531
+	
+	allowed_idea_groups = 3
+	
+	cathedral = yes 
+        #max_states = 2           
+}
+
+technology = { #Textile Manufactory
+	# Tech 11
+	year = 2544
+	
+	#Textile Manufactory
+	counting_house = yes
+}
+
+technology = { #Early Modern Administration
+	# Tech 12
+	year = 2557	
+	
+    #max_states = 2           
+}
+
+technology = { #Improved Drainage
+	# Tech 13
+	year = 2570
+	
+	#Improved Drainage
+    allowed_idea_groups	= 4
+	farm_estate = yes
+    development_efficiency = 0.05
+}
+
+technology = { #Military Administration
+	# Tech 14
+	year = 2583  
+	
+	
+	may_force_march = yes
+	#max_states = 2   
+}
+
+technology = { #Education
+	# Tech 15
+	year = 2596
+	
+    allowed_idea_groups	= 5  
+	public_school = yes
+}
+
+technology = { #Representation
+	# Tech 16
+	year = 2609
+		
+	#max_states = 2
+}
+
+technology = { #Metallurgy
+	# Tech 17
+	year = 2622
+	
+	production_efficiency 	=	0.05
+	development_efficiency = 0.05
+}
+
+technology = { #National Sovereignty
+	# Tech 18
+	year = 2635
+	
+    town_hall = yes
+    #max_states = 3   
+    allowed_idea_groups	= 6        
+}
+
+technology = { #Public Education
+	# Tech 19
+	year = 2648	
+	
+	#Public School
+	administrative_efficiency = 0.05
+    #Unlocks "Public Education" education policy	
+}
+
+technology = { #Absolute Rulership
+	# Tech 20
+	year = 2661
+	
+    #max_states = 3           
+	
+}
+
+technology = { #Land Clearance
+	# Tech 21
+	year = 2674
+	
+	#Land Clearance
+    development_efficiency = 0.05
+	allowed_idea_groups = 7
+}
+
+technology = {
+	# Tech 22
+	year = 2687
+	
+	
+}
+
+technology = { #Measuring the World
+	# Tech 23
+	year = 2700
+    development_efficiency = 0.05
+    #max_states = 4         
+}
+
+technology = { #Bonds and Tontines
+	# Tech 24
+	year = 2715
+	
+	allowed_idea_groups 	= 8
+	#counting_house = yes
+}
+
+technology = { #Improved Production
+	# Tech 25
+	year = 2730
+	
+	#Improved Farm Animals
+        development_efficiency = 0.05
+}
+
+technology = { #Steam Power
+	# Tech 26
+	year = 2745
+	
+	weapons = yes
+	     
+}
+
+technology = { #Modern Bureaucracy
+	# Tech 27
+	year = 2760
+
+    #max_states = 4  
+    allowed_idea_groups = 9	    
+}
+
+technology = { #Rotherham Plough
+	# Tech 28
+	year = 2775
+	
+	#Rotherham Plough
+	development_efficiency = 0.1
+}
+
+technology = { #Rights of Man
+	# Tech 29
+	year = 2790
+	
+	allowed_idea_groups = 10
+	
+        #max_states = 4           
+}
+
+technology = { #Advanced Production
+	# Tech 30
+	year = 2805
+	
+	#Improved Draft Animals
+	production_efficiency 	=	0.05
+        development_efficiency = 0.05
+}
+
+technology = { #Revolutionary Ideals
+	# Tech 31
+	year = 2820
+	administrative_efficiency = 0.05	
+        #max_states = 5           
+}
+
+technology = { #Four Field Rotation
+	# Tech 32
+	year = 2835
+	
+	#Four field rotation
+	production_efficiency 	=	0.05
+        development_efficiency = 0.05
+}

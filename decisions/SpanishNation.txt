@@ -1,0 +1,357 @@
+country_decisions = {
+
+	spanish_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_spain_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = SPA }
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+			NOT = { tag = FRA }		# Basque is a valid culture for both FRA and SPA
+			NOT = { tag = KNI }		# Maltese is part of iberian culture group
+			NOT = { tag = ADU }
+			NOT = { religion_group = muslim }
+			OR = {
+				ai = no
+				AND = {
+					ARA = { ai = yes }
+					tag = CAS
+				}
+				AND = {
+					CAS = { ai = yes }
+					tag = ARA
+				}
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+					NOT = { exists = SPA }
+				}
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					NOT = { tag = POR }
+				}
+			}
+			OR = {
+				culture_group = iberian
+				primary_culture = basque
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		allow = {
+			NOT = { exists = SPA }
+			adm_tech = 10
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+		OR = {
+			AND = {
+ 			owns_core_province = 213	# Barcelona
+			owns_core_province = 214	# Aragón
+			owns_core_province = 215	# Castilla La Vieja
+			owns_core_province = 216	# Salamanca
+			owns_core_province = 224	# Andalucia
+			owns_core_province = 219	# Toledo
+			owns_core_province = 220	# Valencia
+			owns_core_province = 223	# Granada
+			}
+			AND = {
+			        tag = CAS
+			        owns_core_province = 227	# Lisboa
+					owns_core_province = 228	
+					owns_core_province = 229	
+					owns_core_province = 230	
+					owns_core_province = 231	
+					owns_core_province = 232	
+			
+			}
+			iberia_region = {
+				type = all
+				NOT = { owner = { religion_group = muslim } }
+				owned_by = ROOT
+			}
+		}
+	  }
+		effect = {
+			change_tag = SPA
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+					is_emperor = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			if = {
+				limit = {
+					has_custom_ideas = no
+					OR = {
+						ai = no
+						AND = {
+							ai = yes
+							has_idea_group = default_ideas
+						}
+					}
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			custom_tooltip = spanish_unification_effect.tooltip
+			hidden_effect = {
+				iberia_region = {
+					limit = {
+						NOT = { area = macaronesia_area }
+						NOT = { area = alentejo_area }
+						NOT = { area = beieras_area }
+					}
+					add_permanent_claim = SPA
+				}
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			set_country_flag = formed_spain_flag
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+	
+	spanish_nation_diplomatically = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_spain_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			is_tutorial_active = no
+			OR = {
+				tag = CAS
+				tag = ARA
+			}
+			capital_scope = {
+				region = iberia_region
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					OR = {
+						AND = {
+							tag = CAS
+							ARA = {	junior_union_with = CAS	}
+						}
+						AND = {
+							tag = CAS
+							POR = {	junior_union_with = CAS	}
+						}
+						AND = {
+							tag = CAS
+							ARA = {	vassal_of = CAS	}
+						}
+						AND = {
+							tag = ARA
+							CAS = {	junior_union_with = ARA	}
+						}
+						AND = {
+							tag = ARA
+							CAS = {	vassal_of = ARA	}
+						}
+					}
+				}
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					tag = CAS
+					ARA = { NOT = { num_of_cities = 32 } } #Keep this number the same as below
+					ARA = {	junior_union_with = CAS	}
+				}
+				AND = {
+					ai = yes
+					tag = CAS
+					POR = { NOT = { num_of_cities = 32 } } #Keep this number the same as below
+					POR = {	junior_union_with = CAS	}
+				}
+				AND = {
+					ai = yes
+					tag = ARA
+					CAS = { NOT = { num_of_cities = 37 } } #Keep this number the same as below
+				}
+			}
+		}
+		allow = {
+			adm_tech = 10
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			legitimacy = 100
+			iberia_region = {
+				type = all
+				NOT = { owner = { religion_group = muslim } }
+			}
+			custom_trigger_tooltip = {
+				tooltip = forming_spain_diplomatically_tooltip_2
+				OR = {
+					AND = {
+						tag = CAS
+						ARA = {	junior_union_with = CAS	}
+						ARA = { NOT = { liberty_desire = 50 } }
+					}
+					AND = {
+						tag = CAS
+						ARA = {	vassal_of = CAS	}
+						ARA = { NOT = { liberty_desire = 50 } }
+					}
+					AND = {
+						tag = ARA
+						CAS = {	junior_union_with = ARA	}
+						CAS = { NOT = { liberty_desire = 50 } }
+					}
+					AND = {
+						tag = ARA
+						CAS = {	vassal_of = ARA	}
+						CAS = { NOT = { liberty_desire = 50 } }
+					}
+					AND = {
+						tag = CAS
+						POR = {	junior_union_with = CAS	}
+						POR = { NOT = { liberty_desire = 50 } }
+					}
+				}
+			}
+			OR = {
+                ai = no
+				AND = {
+					ai = yes
+					tag = CAS
+					ARA = { NOT = { num_of_cities = 32 } } #Keep this number the same as below
+					ARA = {	junior_union_with = CAS	}
+				}
+				AND = {
+					ai = yes
+					tag = CAS
+					POR = { NOT = { num_of_cities = 32 } } #Keep this number the same as below
+					POR = {	junior_union_with = CAS	}
+				}
+				AND = {
+					ai = yes
+					tag = ARA
+					CAS = { NOT = { num_of_cities = 37 } } #Keep this number the same as below
+				}
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					is_part_of_hre = yes
+					is_elector = no
+				}
+				every_owned_province = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					set_in_empire = no
+				}
+			}
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			swap_non_generic_missions = yes
+			if = {
+				limit = {
+					tag = CAS
+					ARA = {
+						ai = yes
+					}
+					has_country_flag = iberia_wedding_ara
+				}
+				inherit = ARA
+			}
+			if = {
+				limit = {
+					tag = CAS
+					POR = {
+						ai = yes
+					}
+					has_country_flag = iberia_wedding_por
+				}
+				inherit = POR
+			}
+			if = {
+				limit = {
+					tag = ARA
+					CAS = {
+						ai = yes
+					}
+				}
+				inherit = CAS
+			}
+			change_tag = SPA
+			if = {
+				limit = {
+					has_custom_ideas = no
+					OR = {
+						ai = no
+						AND = {
+							ai = yes
+							has_idea_group = default_ideas
+						}
+					}
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			custom_tooltip = spanish_unification_effect.tooltip
+			hidden_effect = {
+				iberia_region = {
+					limit = {
+						NOT = { area = macaronesia_area }
+						NOT = { area = alentejo_area }
+						NOT = { area = beieras_area }
+					}
+					add_permanent_claim = SPA
+				}
+			}
+			set_country_flag = formed_spain_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+		do_not_integrate = ARA
+		do_not_integrate = CAS
+	}	
+	
+}

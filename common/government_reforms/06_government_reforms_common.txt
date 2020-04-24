@@ -1,0 +1,73 @@
+parliamentary_reform = {
+	icon = "judge"
+	potential = {
+		NOT = { adm_tech = 1  }
+	}
+	modifiers = {
+		global_unrest = -1
+	}
+	
+	trigger = {
+		if = {
+			limit = { NOT = { has_dlc = "Mandate of Heaven" } }
+			NOT = { has_reform = celestial_empire }
+			NOT = { has_reform = revolutionary_republic_reform }
+		}
+	}
+
+	conditional = {
+		allow = { has_dlc = "Common Sense" }
+		has_parliament = yes
+	}
+}
+
+# Upgraded Indian estate reforms
+
+permanent_marathas_council_reform = {
+	icon = "noble_indian"
+	allow_normal_conversion = no
+	potential = {
+		NOT = { adm_tech = 1  }
+	}
+	modifiers = {
+		discipline = 0.05
+		# reduce noble loyalty and influence if has estate
+	}
+	custom_attributes = {
+		maratha_general_interaction = yes
+	}
+}
+
+governmental_purbias_register_reform = {
+	icon = "rajput_kingdom"
+	potential = {
+		NOT = { adm_tech = 1  }
+	}
+	modifiers = {
+		recover_army_morale_speed = 0.05
+		# reduce noble loyalty and influence if has estate
+	}
+	custom_attributes = {
+		better_purbias_interaction = yes
+	}
+}
+
+# for Spain
+
+council_of_the_indies_reform = {
+	icon = "merchant_ship"
+	allow_normal_conversion = no
+	potential = {
+		NOT = { adm_tech = 1  }
+	}
+	trigger = {
+		num_of_colonists = 1
+		culture_group = iberian
+		capital_scope = {
+			region = iberia_region
+		}
+	}
+	modifiers = {
+		expel_minorities_cost = -0.3
+	}
+}

@@ -1,0 +1,7 @@
+government = republic
+add_government_reform = colonial_government
+primary_culture = russian
+religion = orthodox
+technology_group = eastern
+unit_type = eastern
+

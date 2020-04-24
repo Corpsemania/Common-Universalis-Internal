@@ -1,0 +1,59 @@
+edict_integration_focus = {
+	potential = {
+		always = yes		#we support "potential" if modders want to have lots and just show some.
+	}
+	
+	allow = {
+		always = yes
+	}
+	
+	modifier = {
+	    local_autonomy = -0.1
+		local_unrest = 8
+	}
+	
+	color = { 238 121 159   }
+	
+	ai_will_do = {
+		factor = 1
+
+		modifier = {
+			factor = 0
+			all_province_in_state = {
+				cu_oversea_trigger = yes
+			}
+		}
+		modifier = {
+			factor = 1.5
+			any_province_in_state = {
+				local_autonomy = 50
+			}
+		}
+		modifier = {
+			factor = 2
+			any_province_in_state = {
+				local_autonomy = 75
+			}
+		}
+		modifier = {
+			factor = 1.5
+			any_province_in_state = {
+				check_variable = { which = p_car value = 15 }
+			}
+		}
+		modifier = {
+			factor = 2
+			any_province_in_state = {
+				check_variable = { which = p_car value = 30 }
+			}
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = go value = 100 }
+		}
+		modifier = {
+			factor = 0.1
+			check_variable = { which = go value = 130 }
+		}
+	}
+}

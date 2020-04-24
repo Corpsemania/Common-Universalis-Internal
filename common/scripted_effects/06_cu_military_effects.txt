@@ -1,0 +1,180 @@
+### Public ###
+
+cu_reset_conscription_law = {
+    #Conscription law for specific countries
+                if = {
+						limit = { 
+							OR = {
+							    AND = {
+									tag = FRA
+									is_year = 1490
+									NOT = { is_year = 1644 }
+								}
+								AND = {
+									tag = NED
+									is_year = 1589
+								 }
+							}
+											 
+							NOT = { is_year = 1750 }
+						}
+						add_government_reform = volunteer_training
+						set_country_flag = change_conscription_law
+						add_army_tradition = 10
+				}	
+				if = {
+						limit = { 
+							OR = {
+								culture_group = east_asian
+								tag = QNG
+								tag = KOR
+							}
+										
+						}
+						add_government_reform = military_household
+						set_country_flag = change_conscription_law
+				}
+				if = {
+						limit = { 
+							AND = {
+									tag = SWE
+									is_year = 1618
+							}
+							AND = {
+									tag = ENG
+									is_year = 1644
+							}
+                            AND = {
+									tag = FRA
+									is_year = 1644
+									NOT = { is_year = 1790 }
+							}							
+						}
+						add_government_reform = standing_army
+						set_country_flag = change_conscription_law
+						add_army_tradition = 20
+				}
+				if = {
+						limit = { 
+							tag = PRU
+                            is_year = 1750
+                            NOT = { is_year = 1763 }							
+						}
+						add_government_reform = extensive_conscription
+						set_country_flag = change_conscription_law
+						add_army_tradition = 60
+				}
+				if = {
+						limit = { 
+							tag = PRU
+                            is_year = 1700
+                            OR = {
+							        NOT = { is_year = 1750 }
+                                    is_year = 1763
+                            }									
+						}
+						add_government_reform = limited_conscription
+						set_country_flag = change_conscription_law
+						add_army_tradition = 40
+				}
+				if = {
+						limit = { 
+							tag = FRA
+                            is_year = 1790								
+						}
+						add_government_reform = limited_conscription
+						set_country_flag = change_conscription_law
+						add_army_tradition = 50
+				}
+				
+				#...and for generic countries
+				if = {
+				        limit = { 
+					        NOT = { 
+					               has_country_flag = change_conscription_law
+					        } 
+					    }
+						if = {
+						      limit = { 
+							            OR = {
+ 										    capital_scope = { 
+										       continent = europe 
+										    }
+											mil_tech = 20 #This is for western colonial nations
+										}
+							  }
+							  if = {
+							        limit = { 
+									        OR = {
+											      government = republic
+                                                  capital_scope = {
+												         region = italy_region
+                                                  }
+                                                  tag = SWI
+												  tag = BYZ
+                                            }												  
+											NOT = { is_year = 1700 }	 
+									}
+									add_government_reform = mercenary_conscription
+						            set_country_flag = change_conscription_law
+							  }
+							  if = {
+							        limit = { 
+									        is_year = 1700	 											
+											OR = { 
+											     religion = catholic
+                                                 religion = reformed												 
+												 religion = protestant
+											}	 
+									}
+									add_government_reform = standing_army
+						            set_country_flag = change_conscription_law
+							  }
+							  if = {
+							        limit = { 
+									        is_year = 1800 											
+											NOT = { 
+											     religion = catholic
+                                                 religion = reformed												 
+												 religion = protestant
+											}	 
+									}
+									add_government_reform = standing_army
+						            set_country_flag = change_conscription_law
+							  }
+						}
+						
+						if = {
+						      limit = { 
+							            OR = {
+										    has_reform =  steppe_horde
+ 										    has_reform =  steppe_empire
+											has_reform =  tribal_despotism
+											has_reform =  tribal_kingdom
+											has_reform =  tribal_federation											
+											government = native
+											has_reform =  siberian_tribe
+										}
+							  }
+							  add_government_reform = tribal_conscription
+						        set_country_flag = change_conscription_law
+						}
+				}
+				#Default
+				if = {
+				        limit = { 
+					        NOT = { 
+					               has_country_flag = change_conscription_law
+					        } 
+					    }
+						add_government_reform = feudal_conscription
+						set_country_flag = change_conscription_law
+				}
+				
+				#Remove Flag
+				clr_country_flag = change_conscription_law	
+				while = {
+					limit = { NOT = { stability = 0 } }
+					add_stability = 1
+				}
+}

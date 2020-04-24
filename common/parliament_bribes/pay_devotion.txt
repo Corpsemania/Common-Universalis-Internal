@@ -1,0 +1,16 @@
+pay_devotion = {
+	trigger = {
+		OR = {
+			government = theocracy
+			government = monastic_order_government
+		}
+	}
+	
+	effect = {
+		add_devotion = -5
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}

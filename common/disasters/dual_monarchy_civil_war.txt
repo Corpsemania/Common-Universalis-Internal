@@ -1,0 +1,100 @@
+dualmonarchycivilwar = {
+	potential = {
+		tag = DUA
+		NOT = { has_country_flag = dual_monarchy_civil_war_happened }
+		primary_culture = cosmopolitan_french	
+		is_free_or_tributary_trigger = yes
+		is_lesser_in_union = no
+		num_of_owned_provinces_with = {
+			          value = 5
+						culture = english
+		}
+		has_global_flag = test_version
+	}
+
+	
+	
+	can_start = {
+		#has_any_disaster = no
+		AND = {
+			OR = {
+				NOT = { stability = 3 }
+				NOT = {  prestige = 0 }
+				war_exhaustion = 5
+				NOT = { legitimacy = 95 }
+			}
+			is_year = 1560
+		}
+	}
+	
+	
+	can_stop = {
+		OR = {
+			primary_culture = anglois
+			has_country_flag = dua_civil_war_ending_1
+			has_country_flag = dua_civil_war_ending_2
+		}
+	}
+	
+	
+	
+	progress = {
+		modifier = {
+			factor = 0.2
+			NOT = { legitimacy = 90 }
+		} 
+		modifier = {
+			factor = 0.2
+			NOT = { stability = 0 }
+		}
+		modifier = {
+			factor = 0.5
+			AND = {
+				primary_culture = cosmopolitan_french
+				NOT = { DUA_ideas = 1 }
+			}
+		}
+		modifier = {
+			factor = 0.25
+			AND = {
+				primary_culture = cosmopolitan_french
+				DUA_ideas = 1
+			}
+		}
+		modifier = {
+			factor = 0.2
+			war_exhaustion = 5
+		} 
+		modifier = {
+			factor = 1.5
+			has_global_flag = dua_convert_to_anglois_denied
+		} 
+	}
+	
+	modifier = {
+		global_unrest = 10
+	}	
+	
+	can_end = {
+		OR = {
+			primary_culture = anglois
+			has_country_flag = dua_civil_war_ending_1
+			has_country_flag = dua_civil_war_ending_2
+		}
+		NOT = { num_of_rebel_controlled_provinces = 1 }
+	}
+
+	
+	on_start = dualmonarchycivilwar.1
+	on_end = dualmonarchycivilwar.100
+	
+	on_monthly = {
+		events = {
+			
+		}
+		
+		random_events = {
+			#1000 = 0
+		}
+	}
+}

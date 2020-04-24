@@ -1,0 +1,91 @@
+trade_company_off_1 = {
+	province_trade_power_modifier = 0.25
+     province_trade_power_value = 4
+    naval_forcelimit = 0.5
+    trade_goods_size = 0.2
+    local_missionary_strength = -0.01
+	picture = "trading_company_1"
+}
+
+trade_company_off_2 = {
+	province_trade_power_modifier = 0.5
+    province_trade_power_value = 6
+    naval_forcelimit = 0.75
+    trade_goods_size = 0.3
+    local_missionary_strength = -0.01
+	picture = "trading_company_2"
+}
+
+trade_company_off_3 = {
+	province_trade_power_modifier = 0.75
+    province_trade_power_value = 8
+    naval_forcelimit = 1
+    trade_goods_size = 0.4
+    local_missionary_strength = -0.01
+	picture = "trading_company_3"
+}
+
+trade_company_off_4 = {
+	province_trade_power_modifier = 1
+    province_trade_power_value = 10
+    naval_forcelimit = 1.25
+    trade_goods_size = 0.5
+    local_missionary_strength = -0.01
+	picture = "trading_company_4"
+}
+
+trade_company_pri_1 = {
+	province_trade_power_modifier = 0.25
+    province_trade_power_value = 4
+    naval_forcelimit = 0.5
+    trade_goods_size = 0.12
+    local_missionary_strength = -0.01
+    local_tax_modifier = -0.5
+    local_production_efficiency = -0.5
+	local_development_cost = 0.10
+    local_unrest = 1
+    local_state_maintenance_modifier= -0.10
+	picture = "trading_company_1"
+}
+
+trade_company_pri_2 = {
+	province_trade_power_modifier = 0.5
+    province_trade_power_value = 6
+    naval_forcelimit = 0.75
+    trade_goods_size = 0.22
+    local_missionary_strength = -0.01
+    local_tax_modifier = -0.5
+    local_production_efficiency = -0.5
+	local_development_cost = 0.15
+    local_unrest = 1.5
+    local_state_maintenance_modifier= -0.15
+	picture = "trading_company_2"
+}
+
+trade_company_pri_3 = {
+	province_trade_power_modifier = 0.75
+    province_trade_power_value = 8
+    naval_forcelimit = 1
+    trade_goods_size = 0.32
+    local_missionary_strength = -0.01
+    local_tax_modifier = -0.5
+    local_production_efficiency = -0.5
+	local_development_cost = 0.20
+    local_unrest = 2
+    local_state_maintenance_modifier= -0.20
+	picture = "trading_company_3"
+}
+
+trade_company_pri_4 = {
+	province_trade_power_modifier = 1
+    province_trade_power_value = 10
+    naval_forcelimit = 1.25
+    trade_goods_size = 0.42
+    local_missionary_strength = -0.01
+    local_tax_modifier = -0.5
+    local_production_efficiency = -0.5
+	local_development_cost = 0.25
+    local_unrest = 2.5
+    local_state_maintenance_modifier= -0.25
+	picture = "trading_company_4"
+}

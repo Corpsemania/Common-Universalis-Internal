@@ -1,0 +1,67 @@
+edict_agriculture_focus = {
+	potential = {
+		always = yes		#we support "potential" if modders want to have lots and just show some.
+	}
+	
+	allow = {
+		adm_tech = 3
+	}
+	
+	modifier = {
+		local_manpower_modifier = -0.5
+		local_development_cost = -0.05
+	}
+	
+	color = { 244 164 96 }
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			all_province_in_state = {
+				base_manpower = 4
+			}
+		}
+		modifier = {
+			factor = 1.5
+			all_province_in_state = {
+				base_manpower = 6
+			}
+		}
+		modifier = {
+			factor = 1.5
+			all_province_in_state = {
+				base_manpower = 10
+			}
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = go value = 100 }
+		}
+		modifier = {
+			factor = 0.1
+			check_variable = { which = go value = 130 }
+		}
+		modifier = {
+			factor = 10
+			all_province_in_state = {
+				check_variable = { which = r_ac value = 3 }
+			}
+		}
+		modifier = {
+			factor = 0
+			NOT = { manpower_percentage = 0.2 } 
+		}
+		modifier = {
+			factor = 1.5
+			manpower_percentage = 0.9
+		}
+		modifier = {
+			factor = 0
+			all_province_in_state = {
+				has_owner_accepted_culture = no
+				has_owner_culture = no
+			}
+		}
+	}
+}

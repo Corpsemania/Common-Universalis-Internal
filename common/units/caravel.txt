@@ -1,0 +1,12 @@
+#Caravel
+type = light_ship
+
+hull_size = 13
+base_cannons = 20
+sail_speed = 10
+trigger = {
+      NOT = { tag = POR }
+}
+trade_power = 3
+
+sprite_level = 2

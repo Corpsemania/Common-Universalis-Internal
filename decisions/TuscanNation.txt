@@ -1,0 +1,156 @@
+country_decisions = {
+
+	tuscan_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_tuscany_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+			NOT = { tag = ITA }
+			NOT = { tag = TUS }
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+					NOT = { exists = TUS }
+				}
+			}
+			primary_culture = tuscan
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		allow = {
+			adm_tech = 10
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			NOT = { exists = TUS }
+			owns_core_province = 2978	# Arezzo
+			owns_core_province = 116	# Firenze
+			owns_core_province = 115	# Pisa
+			OR = {
+				owns_core_province = 117	# Siena
+				owns_core_province = 2980	# Lucca
+			}
+		}
+		effect = {
+			change_tag = TUS
+						set_country_flag = formed_tuscany_flag
+			every_province = {
+				limit = {
+					culture = tuscan
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = TUS
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			if = {
+				limit = { NOT = { has_idea_group = TUS_ideas } }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			if = {
+				limit = {
+					government = republic
+				}
+				add_government_reform = becomes_monarchy_reform
+				add_government_reform = cu_feudalism_reform
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+
+        tuscan_nation_republic = {
+		major = yes
+		potential = {
+					NOT = { has_country_flag = formed_tuscany_flag }
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+                        government = republic
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+			NOT = { tag = ITA }
+			NOT = { tag = TUS }
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+					NOT = { exists = TUS }
+				}
+			}
+			primary_culture = tuscan
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		allow = {
+			
+			adm_tech = 10
+			is_subject = no
+			is_nomad = no
+			is_at_war = no
+			NOT = { exists = TUS }
+			owns_core_province = 2978	# Arezzo
+			owns_core_province = 116	# Firenze
+			owns_core_province = 115	# Pisa
+			OR = {
+				owns_core_province = 117	# Siena
+				owns_core_province = 2980	# Lucca
+			}
+		}
+		effect = {
+			change_tag = TUS
+						set_country_flag = formed_tuscany_flag
+			every_province = {
+				limit = {
+					culture = tuscan
+					NOT = { owned_by = ROOT }
+				}
+				add_claim = TUS
+			}
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			if = {
+				limit = {
+					NOT = { has_idea_group = TUS_ideas }
+					is_playing_custom_nation = no
+				}
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 0
+		}
+		ai_importance = 400
+	}
+}

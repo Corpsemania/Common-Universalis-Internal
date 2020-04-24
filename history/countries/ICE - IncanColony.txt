@@ -1,0 +1,12 @@
+government = monarchy
+add_government_reform = autocracy_reform
+primary_culture = inca
+religion = inti
+technology_group = high_american
+unit_type = south_american
+capital = 808	# Cuzco
+historical_rival = AZE
+
+1444.11.11 = {
+	government_rank = 2
+}

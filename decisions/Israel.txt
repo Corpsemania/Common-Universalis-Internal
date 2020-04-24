@@ -1,0 +1,74 @@
+country_decisions = {
+
+	restore_israel = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = formed_israel }
+			NOT = { exists = ISR}
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			religion_group = jewish_group					
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 364 #Gazzah
+				province_id = 379 #Jerusalem
+				province_id = 1854 #Jaffa
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_at_war = no
+			owns_core_province = 364 #Gazzah
+			owns_core_province = 379 #Jerusalem
+			owns_core_province = 1854 #Jaffa
+			379 = {
+				cu_not_terr_trigger = yes
+			}
+		}
+		effect = {
+			add_prestige = 25
+			every_province = {
+				limit = {
+					OR = {
+						area = trans_jordan_area
+						area = palestine_area
+						province_id = 378 #County of Tripoli
+						province_id = 1855 #Sayda
+						province_id = 4268 #Aqaba
+					}
+				}
+				add_core = ISR
+			}
+				change_tag = ISR
+				if = {
+					limit = { has_custom_ideas = no }
+					country_event = { id = ideagroups.1 } #Swap Ideas
+				}
+        379 = {
+				move_capital_effect = yes				
+				change_religion = ROOT
+				add_base_tax = 1
+				add_base_production = 1
+			        }
+				swap_non_generic_missions = yes				
+				if = {
+					limit = {
+						NOT = { government_rank = 2 }
+					}
+					set_government_rank = 2
+				}
+				set_country_flag = formed_israel
+			}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+}

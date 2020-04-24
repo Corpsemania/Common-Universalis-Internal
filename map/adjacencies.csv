@@ -1,0 +1,124 @@
+From;To;Type;Through;start_x;start_y;stop_x;stop_y;Comment
+6;12;sea;1258;2837;1948;2832;1946;Sk?ne-Sjaelland
+12;14;sea;1258;2809;1946;2805;1946;Sjaelland-Fyn
+14;4142;sea;1258;2796;1951;2795;1956;Fyn-Aarhus
+14;4149;sea;1258;-1;-1;-1;-1;Fyn-Kolding
+14;1983;sea;1258;2806;1943;2809;1938;Fyn-Lolland
+12;1983;sea;1258;2815;1942;2814;1939;Sjaelland-Lolland
+123;124;sea;1307;2880;1623;2877;1621;Calabria-Messina
+151;316;sea;1320;3090;1676;3092;1675;Thrace-Bithynia
+911;945;sea;1662;1308;1765;1307;1762;Menominee-Michigan
+1;1930;sea;1928;2931;2041;2941;2044;Stockholm-?land
+1930;27;sea;1253;2953;2047;2968;2058;?land-Finland
+142;144;sea;1311;2952;1651;2948;1650;Janina-Corfu
+8507;1773;sea;1312;2968;1628;2970;1624;Janina-Achaea
+146;164;sea;1319;3018;1615;3029;1605;Athens-Naxos
+8500;2296;sea;1320;3060;1669;3061;1666;Rodoscuk-Biga
+4110;253;sea;1283;-1;-1;-1;-1;Sutherland-Outer Hebrides
+
+366;4565;sea;1471;-1;-1;-1;-1;Canaries
+4364;253;sea;1283;-1;-1;-1;-1;Inner Hebrides-Outer Hebrides
+4364;4110;sea;1283;-1;-1;-1;-1;Inner Hebrides-Sutherland
+
+4110;369;sea;1282;2588;2014;2588;2018;Sutherland-Orkney
+97;100;sea;1269;2714;1895;2721;1901;Holland-Friesland
+
+1017;1818;sea;1390;4686;1555;4684;1552;Suo-Chikuzen
+1014;4186;sea;1390;4702;1536;4708;1538;Bungo-Iyo
+4186;1825;sea;1390;4719;1559;4717;1555;Aki-Iyo
+8591;1021;sea;1391;4747;1559;4751;1559;Awajishima-Settsu
+4131;4193;sea;1387;4830;1685;4832;1680;Oshima-Mutsu
+1032;1852;sea;1440;4935;1739;4929;1738;Kurils-Tokachi
+
+2159;666;sea;1370;-1;-1;-1;-1;Jiangmen-Hainan
+36;35;sea;1926;3003;2017;2997;2017;Estland-?sel
+35;39;sea;1256;2990;2004;2989;1995;?sel-Kurland
+597;620;sea;1361;4236;1019;4247;1034;Johor-Siak
+972;874;sea;1558;703;1811;710;1806;Nootka-Salish
+972;973;sea;1558;699;1824;710;1825;Nootka-Squamish
+972;974;sea;1558;681;1837;687;1839;Nootka-Kwakiutl
+984;982;sea;1491;1675;1760;1677;1762;Acadia-Unamakik
+984;983;sea;1491;1652;1763;1653;1766;Acadia-Epekwitk
+997;981;sea;1493;1764;1881;1768;1873;Chisedek-Taqamkuk
+8628;8633;sea;1379;4850;1885;4852;1886;Deren-Sakhalin
+1215;387;sea;1329;3314;1202;3317;1205;Tajura-Mocha
+112;1774;sea;1308;2829;1756;2828;1758;Venice-Treviso
+54;4141;sea;1268;2773;1917;2775;1918;Stade-Dithsmarschen
+1197;1201;sea;1448;3248;904;3251;908;Bagamoyo-Zanzibar
+1247;127;sea;1298;2778;1683;2779;1679;Corsica-Sardinia
+653;2700;sea;1398;4566;1141;4561;1147;Lanao-Panay
+648;649;sea;1400;4634;1022;4638;1021;Halmahera-Ternate
+648;650;sea;1400;4632;1000;4634;1001;Halmahera-Tidore
+1107;2738;sea;1423;-1;-1;-1;-1;Taranaki-Waitaha
+1268;1258;canal;1775;-1;-1;-1;-1;kiel_canal
+1548;1515;canal;835;-1;-1;-1;-1;panama_canal
+1328;1316;canal;2315;-1;-1;-1;-1;suez_canal
+2348;318;sea;1319;3049;1631;3045;1631;Chios-Sugla
+2348;2296;sea;1319;3047;1649;3047;1647;Chios-Biga
+285;2447;sea;1323;3206;1753;3210;1752;Kaffa-Mapa
+2022;976;sea;1559;-1;-1;-1;-1;Haida-Tlingit
+2587;2671;sea;1661;-1;-1;-1;-1;Odawa-Missisage
+2587;1001;sea;1661;1339;1766;1338;1770;Odawa-Soto
+2576;2578;sea;1490;-1;-1;-1;-1;Mingan-Anticosti
+249;4121;sea;1284;-1;-1;-1;-1;Ayrshire-Ulster
+536;2100;sea;1340;3878;1150;3883;1148;Madurai-Vanni
+2803;502;sea;1522;-1;-1;-1;-1;Orinoco Delta-Trinidad
+500;499;sea;1522;-1;-1;-1;-1;St Vincent-St Lucia
+499;498;sea;1523;-1;-1;-1;-1;St Lucia-Martinique
+498;497;sea;1523;-1;-1;-1;-1;Martinique-Dominica
+496;495;sea;1523;1669;1265;1664;1268;Guadalupe-Antigua
+495;494;sea;1523;1662;1271;1657;1274;Antigua-St Kits
+628;2692;sea;1355;4401;898;4399;898;Surabaya-Madura
+631;2693;sea;1355;-1;-1;-1;-1;Bali-Lombok
+2693;632;sea;1355;-1;-1;-1;-1;Lombok-Sumbawa
+632;633;sea;1355;4500;869;4510;871;Sumbawa-Flores
+633;2695;sea;1401;4586;873;4593;871;Flores-East Timor
+2716;642;sea;1357;4550;926;4547;930;Buton-Kendari
+
+2700;656;sea;1397;4544;1193;4537;1200;Panay-Manila
+4353;4355;sea;1402;-1;-1;-1;-1;Leyte-Caraga
+4356;4350;sea;1395;-1;-1;-1;-1;Taytay-Mindoro
+4353;4352;sea;1397;-1;-1;-1;-1;Leyte-Cebu
+4351;4352;sea;1397;-1;-1;-1;-1;Buglas-Cebu
+654;2699;sea;1397;4581;1203;4578;1205;Samar-Bikol
+
+646;647;sea;1401;4638;950;4638;953;Ambom-Ceram
+2678;622;sea;1361;4281;974;4278;973;Banka-Palembang
+2929;2890;sea;1529;1850;976;1851;981;Para-Marajo
+748;2890;sea;1529;1879;988;1876;989;Belem-Marajo
+747;2890;sea;1529;-1;-1;-1;-1;Amapa-Marajo
+2954;353;sea;1305;2805;1548;2806;1545;Djerba-Tataouine
+624;623;sea;1352;4292;910;4290;913;Banten-Tulungbewang
+431;2999;sea;1334;3511;1436;3510;1434;Mogostan-Hormuz
+398;2999;sea;1334;3515;1425;3513;1431;Qawasim-Hormuz
+8505;3003;sea;1319;3001;1633;3003;1636;Lamia-Euboea
+3003;164;sea;1319;3021;1622;3023;1621;Euboea-Cyclades
+31;4152;lake;1884;-1;-1;-1;-1;Savolax - Kuusamo
+1751;226;sea;1293;-1;-1;-1;-1;Ceuta-Gibraltar
+41;43;sea;1927;-1;-1;-1;-1;Danzig-K?nigsberg
+112;111;sea;1308;2832;1755;2833;1756;Venice-Friuli
+112;113;sea;1308;2830;1753;2829;1752;Venice-Ferrara
+96;97;sea;1269;2700;1878;2701;1880;Zeeland-Holland
+96;95;sea;1269;2701;1873;2703;1872;Zeeland-Breda
+96;1744;sea;1269;2702;1867;2703;1865;Zeeland-Antwerp
+96;1865;sea;1269;2693;1869;2692;1867;Zeeland-Ghent
+96;90;sea;1269;2689;1869;2688;1867;Zeeland-Vlaanderen
+627;631;sea;1354;4425;877;4428;877;Blambangan-Bali
+911;2587;sea;1661;-1;-1;-1;-1;Menominee-Odawa
+911;1001;sea;1661;-1;-1;-1;-1;Menominee-Soto
+497;496;sea;1523;-1;-1;-1;-1;Dominica-Guadalupe
+1881;494;sea;1523;-1;-1;-1;-1;St Martin-St Kits
+492;493;sea;1523;-1;-1;-1;-1;Puerto Rico-St Thomas
+482;483;sea;1524;-1;-1;-1;-1;Bahamas-Turks Islands
+491;2808;sea;1519;-1;-1;-1;-1;Curacao-Coro
+
+8576;8577;lake;8575;-1;-1;-1;-1;Qaraqorum - Mobei
+439;2349;lake;1326;-1;-1;-1;-1;Mangyshlak - Kizil-Su
+1818;8589;sea;1376;-1;-1;-1;-1;Chikuzen - Tsushima
+1012;8590;sea;1390;-1;-1;-1;-1;Satsuma - Tanegashima
+8591;1820;sea;1391;-1;-1;-1;-1;Awajishima - Awa
+8563;2149;sea;1373;-1;-1;-1;-1;Ningbo - Zhoushan
+597;8580;sea;1361;-1;-1;-1;-1;Johor-Temasek
+738;8624;sea;1372;-1;-1;-1;-1;Sakam-Penghu
+4273;2347;lake;2334;-1;-1;-1;-1;Al-kariatan - Hofuf
+-1;-1;;-1;-1;-1;-1;-1;-1;

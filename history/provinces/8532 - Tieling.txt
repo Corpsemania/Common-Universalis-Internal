@@ -1,0 +1,37 @@
+#8532 - TieLing
+
+owner = MNG
+controller = MNG
+add_core = MNG
+culture = manchu
+religion = confucianism
+capital = "Tieling"
+trade_goods = grain
+hre = no
+base_tax = 5 
+base_production = 5
+base_manpower = 2
+is_city = yes
+
+
+discovered_by = chinese
+discovered_by = nomad_group
+
+
+
+1519.1.1 = { discovered_by = POR } # Tome Pires
+1621.1.1 = {
+	owner = MCH
+	controller = MCH
+	add_core = MCH
+	culture = manchu_han
+} # The Later Jin Khanate
+1625.1.1 = { capital = "Mukden" } # Renamed
+1636.5.15 = {
+	owner = QNG
+	controller = QNG
+	add_core = QNG
+	remove_core = MCH
+} # The Qing Dynasty  
+1657.1.1 = { capital = "Fengtianfu" } # Renamed
+1662.1.1 = { remove_core = MNG } # The government in Taiwan surrendered

@@ -1,0 +1,642 @@
+country_decisions = {
+
+	bharat_nation_dravidian = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_india_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = BHA }
+			#NOT = { exists = HIN }
+			NOT = { tag = MUG }
+			culture_group = dravidian
+			OR = {
+				religion_group = dharmic
+				religion = buddhism #Theravada
+				religion = vajrayana
+				religion = mahayana
+			}
+			has_institution = feudalism
+			NOT = { has_reform = steppe_horde }
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 15
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 532
+				province_id = 535
+				province_id = 536
+				province_id = 537
+				province_id = 538
+				province_id = 539
+				province_id = 540
+				province_id = 541
+				province_id = 542
+				province_id = 543
+				province_id = 547
+				province_id = 549
+				province_id = 533
+				province_id = 534
+				province_id = 572
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			culture_group = dravidian
+			is_at_war = no
+			stability = 2
+			owns_core_province = 532
+			owns_core_province = 535
+			owns_core_province = 536
+			owns_core_province = 537
+			owns_core_province = 538
+			owns_core_province = 539
+			owns_core_province = 540
+			owns_core_province = 541
+			owns_core_province = 542
+			owns_core_province = 543
+			owns_core_province = 547
+			owns_core_province = 549
+			owns_core_province = 533
+			owns_core_province = 534
+			owns_core_province = 572
+		}
+		effect = {
+			change_tag = BHA
+			remove_non_electors_emperors_from_empire_effect = yes
+			set_government_rank = 3
+			bengal_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			hindusthan_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			west_india_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			deccan_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			coromandel_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			swap_non_generic_missions = yes
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			add_prestige = 10
+			set_country_flag = formed_india_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 50
+	}
+
+	bharat_nation_western_aryan = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_india_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = BHA }
+			#NOT = { exists = HIN }
+			NOT = { tag = MUG }
+			culture_group = western_aryan
+			OR = {
+				religion_group = dharmic
+				religion = buddhism #Theravada
+				religion = vajrayana
+				religion = mahayana
+			}
+			has_institution = feudalism
+			NOT = { has_reform = steppe_horde }
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 15
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 503
+				province_id = 504
+				province_id = 505
+				province_id = 512				
+				province_id = 514
+				province_id = 515
+				province_id = 516
+				province_id = 517
+				province_id = 518
+				province_id = 519
+				province_id = 520
+				province_id = 525
+				province_id = 527				
+				province_id = 529
+				province_id = 530
+				province_id = 531
+				province_id = 544
+				province_id = 545
+				province_id = 546
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			culture_group = western_aryan
+			is_at_war = no
+			stability = 2
+			owns_core_province = 503
+			owns_core_province = 504
+			owns_core_province = 505
+			owns_core_province = 512			
+			owns_core_province = 514
+			owns_core_province = 515
+			owns_core_province = 516
+			owns_core_province = 517
+			owns_core_province = 518
+			owns_core_province = 519
+			owns_core_province = 520
+			owns_core_province = 525
+			owns_core_province = 527			
+			owns_core_province = 529
+			owns_core_province = 530
+			owns_core_province = 531
+			owns_core_province = 544
+			owns_core_province = 545
+			owns_core_province = 546
+		}
+		effect = {
+			change_tag = BHA
+			remove_non_electors_emperors_from_empire_effect = yes
+			set_government_rank = 3
+			bengal_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			hindusthan_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			west_india_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			deccan_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			coromandel_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			swap_non_generic_missions = yes
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_india_flag
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 50
+	}
+
+	bharat_nation_hindusthani = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_india_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			#NOT = { exists = HIN }
+			NOT = { exists = BHA }
+			NOT = { tag = MUG }
+			culture_group = hindusthani
+			OR = {
+				religion_group = dharmic
+				religion = buddhism #Theravada
+				religion = vajrayana
+				religion = mahayana
+			}
+			has_institution = feudalism
+			NOT = { has_reform = steppe_horde }
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 15
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 506
+				province_id = 507
+				province_id = 510
+				province_id = 511
+				province_id = 521
+				province_id = 522
+				province_id = 523
+				province_id = 524
+				province_id = 526
+				province_id = 550
+				province_id = 551
+				province_id = 555
+				province_id = 556
+				province_id = 578
+				province_id = 740
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			culture_group = hindusthani
+			is_at_war = no
+			stability = 2
+			owns_core_province = 506
+			owns_core_province = 507
+			owns_core_province = 510
+			owns_core_province = 511
+			owns_core_province = 521
+			owns_core_province = 522
+			owns_core_province = 523
+			owns_core_province = 524
+			owns_core_province = 526
+			owns_core_province = 550
+			owns_core_province = 551
+			owns_core_province = 555
+			owns_core_province = 556
+			owns_core_province = 578
+			owns_core_province = 740
+		}
+		effect = {
+			change_tag = BHA
+			remove_non_electors_emperors_from_empire_effect = yes
+			set_government_rank = 3
+			bengal_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			hindusthan_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			west_india_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			deccan_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			coromandel_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			swap_non_generic_missions = yes
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_india_flag
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 50
+	}
+
+	bharat_nation_eastern_aryan = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_india_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = BHA }
+			#NOT = { exists = HIN }
+			NOT = { tag = MUG }
+			culture_group = eastern_aryan
+			OR = {
+				religion_group = dharmic
+				religion = buddhism #Theravada
+				religion = vajrayana
+				religion = mahayana
+			}
+			has_institution = feudalism
+			NOT = { has_reform = steppe_horde }
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 15
+				}
+			}		
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 560
+				province_id = 561
+				province_id = 564
+				province_id = 563
+				province_id = 562
+				province_id = 568
+				province_id = 558
+				province_id = 559
+				province_id = 552
+				province_id = 553
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			culture_group = eastern_aryan
+			is_at_war = no
+			stability = 2
+			owns_core_province = 560
+			owns_core_province = 561
+			owns_core_province = 564
+			owns_core_province = 563
+			owns_core_province = 562
+			owns_core_province = 568
+			owns_core_province = 558
+			owns_core_province = 559
+			owns_core_province = 552
+			owns_core_province = 553
+		}
+		effect = {
+			change_tag = BHA
+			remove_non_electors_emperors_from_empire_effect = yes
+			set_government_rank = 3
+			bengal_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			hindusthan_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			west_india_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			deccan_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			coromandel_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			swap_non_generic_missions = yes
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_india_flag
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 50
+	}
+	
+	bharat_nation_central_indic = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_india_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = BHA }
+			#NOT = { exists = HIN }
+			NOT = { tag = MUG }
+			culture_group = central_indic
+			OR = {
+				religion_group = dharmic
+				religion = buddhism #Theravada
+				religion = vajrayana
+				religion = mahayana
+			}
+			has_institution = feudalism
+			NOT = { has_reform = steppe_horde }
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 15
+				}
+			}		
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 524 #Mathura
+				province_id = 526 #Uijjain
+				province_id = 546 #Nagpur
+				province_id = 560 #Jharkand
+				province_id = 561 #Bengal Delta
+				province_id = 558 #Patna
+				province_id = 559 #Bundelkhand
+				province_id = 552 #Cuttack
+				province_id = 553 #Sambalpur
+				province_id = 1949 #Tirupati
+				province_id = 2050 #Chanda
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			culture_group = central_indic
+			is_at_war = no
+			stability = 2
+			owns_core_province = 524 #Mathura
+			owns_core_province = 526 #Uijjain
+			owns_core_province = 546 #Nagpur
+			owns_core_province = 560 #Jharkand
+			owns_core_province = 561 #Bengal Delta
+			owns_core_province = 558 #Patna
+			owns_core_province = 559 #Bundelkhand
+			owns_core_province = 552 #Cuttack
+			owns_core_province = 553 #Sambalpur
+			owns_core_province = 1949 #Tirupati
+			owns_core_province = 2050 #Chanda
+		}
+		effect = {
+			change_tag = BHA
+			remove_non_electors_emperors_from_empire_effect = yes
+			set_government_rank = 3
+			bengal_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			hindusthan_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			west_india_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			deccan_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			coromandel_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = BHA
+			}
+			swap_non_generic_missions = yes
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_india_flag
+			add_prestige = 10
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 50
+	}
+}

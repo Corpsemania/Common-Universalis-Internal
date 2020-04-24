@@ -1,0 +1,11 @@
+government = monarchy
+add_government_reform = autocracy_reform
+primary_culture = aztek
+religion = nahuatl
+technology_group = high_american
+capital = 481	# Bermuda
+historical_friend = AZE
+1444.11.11 = {
+	change_unit_type = mesoamerican
+	government_rank = 2
+}

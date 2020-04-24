@@ -1,0 +1,946 @@
+estate_nobles =
+{
+	icon = 2
+	
+	color = { 200 0 50 }
+	
+	# Is estate kept in control of province on conquest?
+	keep_on_conquest = no
+	
+	# They want to control at least this % of the country's non-overseas development, if # of home provinecs is above set amount
+	min_territory = 10
+	start_territory_weight = 0
+	
+	# If true, country will get estate
+	trigger = {					
+		NOT = { government = native }
+		#NOT = { has_reform = trading_city }
+		NOT = { has_reform = siberian_tribe }
+		NOT = { has_reform = revolutionary_republic_reform }
+		NOT = { has_reform = revolutionary_empire_reform }
+		NOT = { has_reform = steppe_empire }		
+		OR = {
+			AND = {
+				NOT = { has_reform = universal_suffrage }
+				NOT = { has_reform = burghers_election }   
+			}
+			NOT = { government = republic }
+		}
+		is_nomad = no
+		is_colonial_nation = no
+	    OR = {
+			AND = {
+		       NOT = { has_reform = celestial_empire }
+               NOT = { has_reform = celestial_empire_2 }
+			   NOT = { has_reform = celestial_empire_3 }
+            }
+			has_dlc = "Mandate of Heaven"
+			NOT = { has_country_flag = no_more_celestial }
+	    }
+		NOT = { has_reform = celestial_empire }
+		NOT = { has_reform = celestial_empire_2 }
+		NOT = { has_reform = celestial_empire_3 }
+        NOT = { 
+			AND = {
+				has_country_flag = revoke_nobility
+				has_reform = court_despotism
+			}
+		}
+		NOT = { 
+			AND = {
+				has_country_flag = revoke_all_estates
+				has_reform = parliament_reform
+			}
+		}
+		OR = {
+			NOT = { has_dlc = "Common Sense" }
+			AND = {
+				NOT = { has_reform = constitutional_monarchy }
+				NOT = { has_reform = constitutional_republic }
+				NOT = { has_reform = american_republic }
+				NOT = { has_reform = federal_republic }		
+			}
+		}
+	}
+	
+	# If true, province can be granted to estate
+	province_trigger = {
+		always = yes
+	}	
+	
+	# Min autonomy in estate provinces
+	min_autonomy = 0
+	
+	# Estate cancels out the following multiplicative local autonomy effects:
+	autonomy_does_not_affect = local_manpower_modifier
+
+	country_modifier_happy = {
+        yearly_corruption = 0.05
+		max_absolutism = -10
+		yearly_absolutism = -0.05
+	}
+	country_modifier_neutral = {
+        yearly_corruption = 0.1
+		max_absolutism = -10
+		yearly_absolutism = -0.10
+	}	
+	country_modifier_angry = {
+		global_manpower_modifier = -0.20
+        yearly_corruption = 0.15
+		max_absolutism = -10
+		yearly_absolutism = -0.15
+	}
+	
+	# These do not scale, but only applied in provinces owned by the estate
+	province_modifier_happy = {
+		local_defensiveness = 0.10
+		local_manpower_modifier = 0.40
+		local_autonomy = 0.02
+	}
+	province_modifier_neutral = {
+		local_manpower_modifier = 0.40
+		local_autonomy = 0.04
+	}	
+	province_modifier_angry = {
+		local_unrest = 5
+		local_manpower_modifier = -0.20
+		local_autonomy = 0.06
+	}		
+	
+	# Influence modifiers
+	base_influence = 0
+	influence_modifier = {
+		desc = calc_estate
+		trigger = {
+			has_country_flag = useless_estates
+		}	
+		influence = -100
+	}
+	# Influence modifiers from Events:
+	influence_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER
+		trigger = {
+			OR = {
+				has_disaster = estate_church_disaster
+				has_disaster = estate_burghers_disaster
+			}
+		}	
+		influence = -40
+	}
+	influence_modifier = {
+		desc = EST_VAL_NOBLES_ADVANCE
+		trigger = {
+			has_reform = noble_council
+		}	
+		influence = 5
+	}
+	influence_modifier = {
+		desc = EST_VAL_NOBLES_ADVANCE
+		trigger = {
+			has_reform = sovereign_code
+		}	
+		influence = -5
+	}
+	influence_modifier = {
+		desc = EST_VAL_NOBLES_ADVANCE
+		trigger = {
+			has_reform = noble_election
+		}
+		influence = 5
+	}
+	influence_modifier = {
+		desc = EST_VAL_NOBLES_ADVANCE
+		trigger = {
+			has_reform = elective_monarchy
+		}
+		influence = 10
+	}
+	influence_modifier = {
+		desc = EST_VAL_NOBLES_ADVANCE
+		trigger = {
+			has_reform = cu_feudalism_reform
+		}
+		influence = 5
+	}
+	influence_modifier = {
+		desc = EST_VAL_NOBLES_ADVANCE
+		trigger = {
+			has_reform = self_governance
+		}
+		influence = 10
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_0
+		trigger = {
+			check_variable = { which = etin value = 5 }
+			NOT = { check_variable = { which = etin value = 10 } }
+		}	
+		influence = 5
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_1
+		trigger = {
+			check_variable = { which = etin value = 10 }
+			NOT = { check_variable = { which = etin value = 20 } }
+		}	
+		influence = 10
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_2
+		trigger = {
+			check_variable = { which = etin value = 20 }
+			NOT = { check_variable = { which = etin value = 30 } }
+		}	
+		influence = 20
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_3
+		trigger = {
+			check_variable = { which = etin value = 30 }
+			NOT = { check_variable = { which = etin value = 40 } }
+		}	
+		influence = 30
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_4
+		trigger = {
+			check_variable = { which = etin value = 40 }
+			NOT = { check_variable = { which = etin value = 50 } }
+		}	
+		influence = 40
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_5
+		trigger = {
+			check_variable = { which = etin value = 50 }
+			NOT = { check_variable = { which = etin value = 60 } }
+		}	
+		influence = 50
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_6
+		trigger = {
+			check_variable = { which = etin value = 60 }
+			NOT = { check_variable = { which = etin value = 70 } }
+		}	
+		influence = 60
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_7
+		trigger = {
+			check_variable = { which = etin value = 70 }
+			NOT = { check_variable = { which = etin value = 80 } }
+		}	
+		influence = 70
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_8
+		trigger = {
+			check_variable = { which = etin value = 80 }
+			NOT = { check_variable = { which = etin value = 90 } }
+		}	
+		influence = 80
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_9
+		trigger = {
+			check_variable = { which = etin value = 90 }
+			NOT = { check_variable = { which = etin value = 100 } }
+		}	
+		influence = 90
+	}
+	influence_modifier = {
+		desc = EST_VAL_PROVINCE_10
+		trigger = {
+			check_variable = { which = etin value = 100 }
+		}	
+		influence = 100
+	}
+	
+	# Loyalty modifiers
+	loyalty_modifier = {
+		desc = EST_VAL_NOBLES_ADVANCE
+		trigger = {
+			has_reform = elective_monarchy
+		}
+		loyalty = 15
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_NOBLES_ADVANCE
+		trigger = {
+			has_reform = noble_council
+		}
+		loyalty = 15
+	}
+	
+	loyalty_modifier = {
+		desc = EST_VAL_NOBLES_ADVANCE
+		trigger = {
+			has_reform = sovereign_code
+		}
+		loyalty = -5
+	}
+	
+	loyalty_modifier = {
+		desc = EST_VAL_NOBLES_ADVANCE
+		trigger = {
+			has_reform = noble_election
+		}
+		loyalty = 10
+	}
+	
+	loyalty_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER_LOY
+		trigger = {
+			OR = {
+				has_disaster = estate_church_disaster
+				has_disaster = estate_burghers_disaster
+			}
+		}
+		loyalty = -20
+	}
+	
+	loyalty_modifier = {
+		desc = EST_VAL_NOBLE_CONSORT
+		trigger = {
+			has_dlc = "Rights of Man"
+			has_consort = yes
+			is_origin_of_consort = ROOT
+		}
+		loyalty = 5
+	}
+	
+	loyalty_modifier = {
+		desc = EST_VAL_JUNKERS
+		trigger = {
+			has_reform = prussian_monarchy
+		}
+		loyalty = 10
+	}
+	
+	loyalty_modifier = {
+		desc = EST_VAL_VERY_LEGITIMATE
+		trigger = {
+			government = monarchy
+			legitimacy = 95
+		}
+		loyalty = 10
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_LEGITIMATE
+		trigger = {
+			government = monarchy
+			legitimacy = 70
+			NOT = { legitimacy = 95 }
+		}
+		loyalty = 5
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_NOT_LEGITIMATE
+		trigger = {
+			government = monarchy
+			NOT = { legitimacy = 50 }
+			legitimacy = 25
+		}
+		loyalty = -5
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_ILLEGITIMATE
+		trigger = {
+			government = monarchy
+			NOT = { legitimacy = 25 }
+		}
+		loyalty = -10
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_FULL_ARISTOCRATIC
+		trigger = {
+			full_idea_group = aristocracy_ideas
+		}
+		loyalty = 10
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_UNREST
+		trigger = {
+			check_variable = { which = nb_unrest value = -10 }
+			NOT = { check_variable = { which = nb_unrest value = -5 } }
+		}	
+		loyalty = -10
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_UNREST
+		trigger = {
+			check_variable = { which = nb_unrest value = -15 }
+			NOT = { check_variable = { which = nb_unrest value = -10 } }
+		}	
+		loyalty = -15
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_UNREST
+		trigger = {
+			check_variable = { which = nb_unrest value = -20 }
+			NOT = { check_variable = { which = nb_unrest value = -15 } }
+		}	
+		loyalty = -20
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_UNREST
+		trigger = {
+			NOT = { check_variable = { which = nb_unrest value = -20 } }
+		}	
+		loyalty = -25
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_UNREST
+		trigger = {
+			check_variable = { which = nb_unrest value = 5 }
+			NOT = { check_variable = { which = nb_unrest value = 10 } }
+		}	
+		loyalty = 5
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_UNREST
+		trigger = {
+			check_variable = { which = nb_unrest value = 10 }
+			NOT = { check_variable = { which = nb_unrest value = 15 } }
+		}	
+		loyalty = 10
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_UNREST
+		trigger = {
+			check_variable = { which = nb_unrest value = 15 }
+			NOT = { check_variable = { which = nb_unrest value = 20 } }
+		}	
+		loyalty = 15
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_UNREST
+		trigger = {
+			check_variable = { which = nb_unrest value = 20 }
+		}	
+		loyalty = 20
+	}
+	
+	#Alternative naming of estates
+	custom_name = {
+		desc = estate_beys
+		trigger = {
+			technology_group = ottoman
+		}
+	}
+	custom_name = {
+		desc = estate_boyars
+		trigger = {
+			OR = {
+				culture_group = east_slavic
+				primary_culture = bulgarian
+				primary_culture = romanian
+			}
+		}
+	}
+	custom_name = {
+		desc = estate_szlachta
+		trigger = {
+			OR = {
+				primary_culture = polish
+				primary_culture = lithuanian
+			}
+		}
+	}
+	custom_name = {
+		desc = estate_nayaks
+		trigger = {
+			tag = VIJ
+		}
+	}
+	custom_name = {
+		desc = estate_samantas
+		trigger = {
+			tag = ORI
+		}
+	}
+	custom_name = {
+		desc = estate_kshatriyas
+		trigger = {
+			religion = hinduism
+		}
+	}
+	#custom_name = {
+		#desc = estate_qinwang
+		#trigger = {
+			#has_reform = celestial_empire
+		#}
+	#}
+	custom_name = {
+		desc = estate_mansabdars
+		trigger = {
+			tag = MUG
+		}
+	}
+	custom_name = {
+		desc = estate_tetecuhtin
+		trigger = {
+			religion = nahuatl
+		}
+	}
+	custom_name = {
+		desc = estate_andriana
+		trigger = {
+			tag = MIR
+		}
+	}
+	custom_name = {
+		desc = estate_amirs
+		trigger = {
+			religion_group = muslim
+			NOT = { technology_group = ottoman } #Should possibly be more restricted
+		}
+	}
+	custom_name = {
+		desc = estate_planters
+		trigger = {
+			tag = USA
+		}
+	}
+	custom_name = {
+		desc = estate_bushi
+		trigger = {
+			culture_group = japanese_g
+		}
+	}
+
+	# Does the AI want to give any extra territory beyond the minimum?
+	ai_territory_modifier = {
+		trigger = {
+			has_idea_group = aristocracy_ideas
+			num_of_cities = 10
+		}	
+		value = 5		
+	}
+	ai_territory_modifier = {
+		trigger = {
+			has_idea_group = influence_ideas
+			num_of_cities = 10
+		}	
+		value = 5		
+	}		
+	
+	# For province assignment
+	ai_grant_province = {
+		factor = 0
+	}	
+	
+	# Special interactions
+	interaction = {
+		name = "ASK_FOR_CONTRIBUTION"
+		icon = 6
+		
+		years_between_use = 5
+	
+		
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = estate_initialized
+				check_variable = { which = etin value = 0.1 } 
+			}			
+		}
+		
+		effect = {
+			hidden_effect = {
+				set_variable = { which = cu_var1 value = 0 }
+				set_variable = { which = cu_cash which = etin } 
+				export_to_variable = {
+					which = cu_var1
+					value = modifier:global_tax_modifier
+				}
+				change_variable = { which = cu_var1 value = 1 }
+				set_variable = { which = t_dev value = 0 }
+				export_to_variable = {
+					which = t_dev
+					value = states_development
+				}
+				multiply_variable = { which = cu_cash which = t_dev }
+				multiply_variable = { which = cu_cash which = cu_var1 }
+				multiply_variable = { which = cu_cash value = 0.005 }
+				set_variable = { which = cu_cash_display which = cu_cash }	
+				set_variable = { which = cu_var1 which = etin }
+				multiply_variable = { which = cu_var1 value = -0.5 }
+				set_variable = { which = cu_sta_display which = cu_var1 }	
+			}
+			cu_change_cash_hidden = yes 
+			custom_tooltip = cu_change_cash_ng		
+			cu_change_stability_point_hidden = yes
+			custom_tooltip = cu_change_stability_nt
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = -15
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = {
+					estate_loyalty = {
+						estate = estate_nobles
+						loyalty = 50
+					}	
+				}
+			}
+			modifier = {
+				factor = 0
+				treasury = 1
+			}
+		}
+	}
+	
+	interaction = {
+		name = "FUND_THE_LOYALISTS"
+		icon = 7
+		
+		years_between_use = 15
+		
+		trigger = {
+		    dip_power = 100
+			custom_trigger_tooltip = {
+				tooltip = estate_initialized
+				check_variable = { which = etin value = 0.1 } 
+			}
+		}
+		
+		effect = {
+			add_dip_power = -100
+			hidden_effect = {
+				set_variable = { which = cu_var1 value = 0 }
+				set_variable = { which = cu_cash which = etin }
+				set_variable = { which = t_dev value = 0 }
+				export_to_variable = {
+					which = t_dev
+					value = states_development
+				}
+				multiply_variable = { which = cu_cash which = t_dev }
+				multiply_variable = { which = cu_cash value = -0.005 }
+				set_variable = { which = cu_cash_display which = cu_cash }	
+				set_variable = { which = cu_var1 which = etin }
+				multiply_variable = { which = cu_var1 value = 0.5 }
+				set_variable = { which = cu_sta_display which = cu_var1 }
+			}			
+			cu_change_cash_hidden = yes 
+			custom_tooltip = cu_change_cash_nt				
+			cu_change_stability_point_hidden = yes
+			custom_tooltip = cu_change_stability_ng				
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 10
+			}
+			add_estate_influence_modifier = {
+				estate = estate_nobles
+				desc = EST_VAL_FUND_THE_LOYALISTS
+				influence = -10
+				duration = 5475
+			}
+			add_estate_influence_modifier = {
+				estate = estate_government
+				desc = EST_VAL_FUND_THE_LOYALISTS
+				influence = 10
+				duration = 5475
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				estate_influence = {
+					estate = estate_nobles
+					influence = 60
+				}				
+			}
+			modifier = {
+				factor = 0
+				estate_loyalty = {
+					estate = estate_nobles
+					loyalty = 30
+				}				
+			}			
+		}
+	}
+	
+	interaction = {
+		name = "MARRY_WITH_ESTATE"
+		icon = 8
+		
+		
+		years_between_use = 0
+		
+		
+		trigger = {
+			cu_estate_marry_trigger = yes
+		}
+		
+		effect = {
+			set_country_flag = est_consort
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 10
+			}
+			add_estate_influence_modifier = {
+				estate = estate_nobles
+				desc = EST_VAL_MARRY_WITH_ESTATE
+				influence = 10
+				duration = 7300
+			}
+			add_estate_influence_modifier = {
+				estate = estate_government
+				desc = EST_VAL_MARRY_WITH_ESTATE
+				influence = -10
+				duration = 7300
+			}
+			hidden_effect = {
+				set_variable = { which = cu_var1 which = etin }
+				multiply_variable = { which = cu_var1 which = 0.1 }
+				set_variable = { which = cu_sta_display which = cu_var1 }	
+			}		
+			cu_change_stability_point_hidden = yes
+			custom_tooltip = cu_change_stability_ng
+		}
+		ai_will_do = {
+			factor = 0		
+		}
+	}
+	
+	interaction = {
+		name = "GRANT_AUTONOMY"
+		icon = 24
+		
+		
+		years_between_use = 20
+		
+		
+		trigger = {
+			any_owned_province = {
+				check_variable = { which = epimn value = 30 }
+			}
+		}
+		
+		effect = {
+			add_absolutism = -10
+			custom_tooltip = granted_auto_est
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 20
+			}
+			add_estate_influence_modifier = {
+				estate = estate_nobles
+				desc = EST_VAL_GRANT_AUTONOMY
+				influence = 10
+				duration = 7300
+			}
+			add_estate_influence_modifier = {
+				estate = estate_government
+				desc = EST_VAL_GRANT_AUTONOMY
+				influence = -10
+				duration = 7300
+			}
+			hidden_effect = {
+				set_variable = { which = cu_var1 which = etin }
+				set_variable = { which = cu_sta_display which = cu_var1 }	
+				every_owned_province = {
+					limit = { check_variable = { which = epimn value = 40 } }
+					add_local_autonomy = 10
+					add_unrest = -2
+				}
+			}		
+			cu_change_stability_point_hidden = yes
+			custom_tooltip = cu_change_stability_ng
+		}
+		ai_will_do = {
+			factor = 0		
+		}
+	}
+	
+	interaction = {
+		name = "GRANT_ESTATE_OFFICIAL_POSITIONS"
+		icon = 17
+		
+		
+		years_between_use = 10
+		
+		
+		trigger = {
+			always = yes
+		}
+		
+		effect = {
+			add_absolutism = -5
+			add_corruption = 0.5
+			add_dip_power = -50
+			add_adm_power = -50
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 20
+			}
+			hidden_effect = {
+				set_variable = { which = cu_var1 which = etin }
+				multiply_variable = { which = cu_var1 which = 0.33 }
+				set_variable = { which = cu_sta_display which = cu_var1 }		
+			}	
+			cu_change_stability_point_hidden = yes
+			custom_tooltip = cu_change_stability_ng
+		}
+		ai_will_do = {
+			factor = 0		
+		}
+	}
+	
+	interaction = {
+		name = "DEMAND_WAR_SUPPORT"
+		icon = 12
+		
+		years_between_use = 20
+		
+		potential = {
+			is_at_war = yes
+		}
+		trigger = {
+			estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 40
+			}	
+			any_owned_province = {
+				check_variable = { which = epimn value = 30 }
+			}
+		}
+		
+		effect = {
+			country_event = { id = cuestate.11 }
+			if = {
+				limit = { ai = yes }
+				add_country_modifier = {
+					name = estate_ai_helper
+					duration = 366
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 1
+				NOT = { war_score = -10 }
+			}
+			modifier = {
+				factor = 10
+				NOT = { war_score = -20 }
+			}
+			modifier = {
+				factor = 100
+				NOT = { war_score = -40 }
+			}
+		}
+	}
+	
+	interaction = {
+		name = "CALL_DIET"
+		icon = 1
+		
+		years_between_use = 20
+		
+		trigger = {
+			always = yes
+		}
+		
+		effect = {
+			add_prestige = -5
+			add_absolutism = -5
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 15
+			}
+			add_estate_influence_modifier = {
+				estate = estate_nobles
+				desc = EST_VAL_DIET_HELD
+				influence = 10
+				duration = 7300
+			}
+			add_estate_influence_modifier = {
+				estate = estate_government
+				desc = EST_VAL_DIET_HELD
+				influence = -10
+				duration = 7300
+			}
+		}
+		
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				estate_influence = {
+					estate = estate_nobles
+					influence = 60
+				}				
+			}
+			modifier = {
+				factor = 0
+				estate_loyalty = {
+					estate = estate_nobles
+					loyalty = 30
+				}				
+			}			
+		}
+	}
+	
+	interaction = {
+		name = "CU_MILITARY_COUP"
+		icon = 32
+		years_between_use = 25
+		potential = {
+			NOT = { has_country_modifier = coup_timer }
+		}
+		trigger = {
+			mil_power = 200
+			estate_influence = {
+				estate = estate_nobles
+				influence = 30
+			}
+			NOT = {
+				estate_loyalty = {
+					estate = estate_nobles
+					loyalty = 30
+				}	
+			}
+		}
+		effect = {
+			add_mil_power = -200
+			set_country_flag = preparing_military_coup_flag
+			add_country_modifier = {
+					name =  preparing_military_coup
+					duration = 365						
+			}
+			hidden_effect = {
+				set_variable = { which = coup_support value = 0 }
+				set_country_flag = coup_against_nobles
+			}
+			custom_tooltip = preparing_military_coup_t
+			hidden_effect = {
+				add_country_modifier = {
+					name = coup_timer
+					duration = 7300
+					hidden = yes
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+			    factor = 0
+				NOT = { mil = 4 }
+			}
+			modifier = {
+			    factor = 0
+				stability = 0
+			}
+		}
+	}
+}

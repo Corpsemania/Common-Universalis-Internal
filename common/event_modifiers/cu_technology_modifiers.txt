@@ -1,0 +1,140 @@
+cu_adm_tech_focus = { 
+    adm_tech_cost_modifier = -0.1
+    dip_tech_cost_modifier = 0.05
+	mil_tech_cost_modifier = 0.05
+}
+
+cu_dip_tech_focus = { 
+    adm_tech_cost_modifier = 0.05
+    dip_tech_cost_modifier = -0.1
+	mil_tech_cost_modifier = 0.05
+}
+
+cu_mil_tech_focus = { 
+    adm_tech_cost_modifier = 0.05
+    dip_tech_cost_modifier = 0.05
+	mil_tech_cost_modifier = -0.1
+}
+
+cu_adm_tech_modifier_5 = { adm_tech_cost_modifier = -0.05 }
+cu_adm_tech_modifier_10 = { adm_tech_cost_modifier = -0.10 }
+cu_adm_tech_modifier_15 = { adm_tech_cost_modifier = -0.15 }
+cu_adm_tech_modifier_20 = { adm_tech_cost_modifier = -0.20 }
+cu_adm_tech_modifier_25 = { adm_tech_cost_modifier = -0.25 }
+cu_adm_tech_modifier_30 = { adm_tech_cost_modifier = -0.30 }
+cu_adm_tech_modifier_35 = { adm_tech_cost_modifier = -0.35 }
+cu_adm_tech_modifier_40 = { adm_tech_cost_modifier = -0.40 }
+cu_adm_tech_modifier_45 = { adm_tech_cost_modifier = -0.45 }
+cu_adm_tech_modifier_50 = { adm_tech_cost_modifier = -0.50 }
+cu_adm_tech_modifier_55 = { adm_tech_cost_modifier = -0.55 }
+cu_adm_tech_modifier_60 = { adm_tech_cost_modifier = -0.60 }
+cu_adm_tech_modifier_65 = { adm_tech_cost_modifier = -0.65 }
+cu_adm_tech_modifier_70 = { adm_tech_cost_modifier = -0.70 }
+cu_adm_tech_modifier_75 = { adm_tech_cost_modifier = -0.75 }
+cu_adm_tech_modifier_80 = { adm_tech_cost_modifier = -0.80 }
+cu_adm_tech_modifier_85 = { adm_tech_cost_modifier = -0.85 }
+cu_adm_tech_modifier_90 = { adm_tech_cost_modifier = -0.90 }
+cu_adm_tech_modifier_95 = { adm_tech_cost_modifier = -0.95 }
+cu_adm_tech_modifier_100 = { adm_tech_cost_modifier = -1.00 }
+cu_adm_tech_modifier_105 = { adm_tech_cost_modifier = -1.05 }
+cu_adm_tech_modifier_110 = { adm_tech_cost_modifier = -1.10 }
+cu_adm_tech_modifier_115 = { adm_tech_cost_modifier = -1.15 }
+cu_adm_tech_modifier_120 = { adm_tech_cost_modifier = -1.20 }
+cu_adm_tech_modifier_125 = { adm_tech_cost_modifier = -1.25 }
+cu_adm_tech_modifier_130 = { adm_tech_cost_modifier = -1.30 }
+cu_adm_tech_modifier_135 = { adm_tech_cost_modifier = -1.35 }
+cu_adm_tech_modifier_140 = { adm_tech_cost_modifier = -1.40 }
+cu_adm_tech_modifier_145 = { adm_tech_cost_modifier = -1.45 }
+cu_adm_tech_modifier_150 = { adm_tech_cost_modifier = -1.50 }
+cu_adm_tech_modifier_155 = { adm_tech_cost_modifier = -1.55 }
+cu_adm_tech_modifier_160 = { adm_tech_cost_modifier = -1.60 }
+cu_adm_tech_modifier_165 = { adm_tech_cost_modifier = -1.65 }
+cu_adm_tech_modifier_170 = { adm_tech_cost_modifier = -1.70 }
+cu_adm_tech_modifier_175 = { adm_tech_cost_modifier = -1.75 }
+cu_adm_tech_modifier_180 = { adm_tech_cost_modifier = -1.80 }
+cu_adm_tech_modifier_185 = { adm_tech_cost_modifier = -1.85 }
+cu_adm_tech_modifier_190 = { adm_tech_cost_modifier = -1.90 }
+cu_adm_tech_modifier_195 = { adm_tech_cost_modifier = -1.95 }
+cu_adm_tech_modifier_200 = { adm_tech_cost_modifier = -2.00 }
+
+cu_dip_tech_modifier_5 = { dip_tech_cost_modifier = -0.05 }
+cu_dip_tech_modifier_10 = { dip_tech_cost_modifier = -0.10 }
+cu_dip_tech_modifier_15 = { dip_tech_cost_modifier = -0.15 }
+cu_dip_tech_modifier_20 = { dip_tech_cost_modifier = -0.20 }
+cu_dip_tech_modifier_25 = { dip_tech_cost_modifier = -0.25 }
+cu_dip_tech_modifier_30 = { dip_tech_cost_modifier = -0.30 }
+cu_dip_tech_modifier_35 = { dip_tech_cost_modifier = -0.35 }
+cu_dip_tech_modifier_40 = { dip_tech_cost_modifier = -0.40 }
+cu_dip_tech_modifier_45 = { dip_tech_cost_modifier = -0.45 }
+cu_dip_tech_modifier_50 = { dip_tech_cost_modifier = -0.50 }
+cu_dip_tech_modifier_55 = { dip_tech_cost_modifier = -0.55 }
+cu_dip_tech_modifier_60 = { dip_tech_cost_modifier = -0.60 }
+cu_dip_tech_modifier_65 = { dip_tech_cost_modifier = -0.65 }
+cu_dip_tech_modifier_70 = { dip_tech_cost_modifier = -0.70 }
+cu_dip_tech_modifier_75 = { dip_tech_cost_modifier = -0.75 }
+cu_dip_tech_modifier_80 = { dip_tech_cost_modifier = -0.80 }
+cu_dip_tech_modifier_85 = { dip_tech_cost_modifier = -0.85 }
+cu_dip_tech_modifier_90 = { dip_tech_cost_modifier = -0.90 }
+cu_dip_tech_modifier_95 = { dip_tech_cost_modifier = -0.95 }
+cu_dip_tech_modifier_100 = { dip_tech_cost_modifier = -1.00 }
+cu_dip_tech_modifier_105 = { dip_tech_cost_modifier = -1.05 }
+cu_dip_tech_modifier_110 = { dip_tech_cost_modifier = -1.10 }
+cu_dip_tech_modifier_115 = { dip_tech_cost_modifier = -1.15 }
+cu_dip_tech_modifier_120 = { dip_tech_cost_modifier = -1.20 }
+cu_dip_tech_modifier_125 = { dip_tech_cost_modifier = -1.25 }
+cu_dip_tech_modifier_130 = { dip_tech_cost_modifier = -1.30 }
+cu_dip_tech_modifier_135 = { dip_tech_cost_modifier = -1.35 }
+cu_dip_tech_modifier_140 = { dip_tech_cost_modifier = -1.40 }
+cu_dip_tech_modifier_145 = { dip_tech_cost_modifier = -1.45 }
+cu_dip_tech_modifier_150 = { dip_tech_cost_modifier = -1.50 }
+cu_dip_tech_modifier_155 = { dip_tech_cost_modifier = -1.55 }
+cu_dip_tech_modifier_160 = { dip_tech_cost_modifier = -1.60 }
+cu_dip_tech_modifier_165 = { dip_tech_cost_modifier = -1.65 }
+cu_dip_tech_modifier_170 = { dip_tech_cost_modifier = -1.70 }
+cu_dip_tech_modifier_175 = { dip_tech_cost_modifier = -1.75 }
+cu_dip_tech_modifier_180 = { dip_tech_cost_modifier = -1.80 }
+cu_dip_tech_modifier_185 = { dip_tech_cost_modifier = -1.85 }
+cu_dip_tech_modifier_190 = { dip_tech_cost_modifier = -1.90 }
+cu_dip_tech_modifier_195 = { dip_tech_cost_modifier = -1.95 }
+cu_dip_tech_modifier_200 = { dip_tech_cost_modifier = -2.00 }
+
+cu_mil_tech_modifier_5 = { mil_tech_cost_modifier = -0.05 }
+cu_mil_tech_modifier_10 = { mil_tech_cost_modifier = -0.10 }
+cu_mil_tech_modifier_15 = { mil_tech_cost_modifier = -0.15 }
+cu_mil_tech_modifier_20 = { mil_tech_cost_modifier = -0.20 }
+cu_mil_tech_modifier_25 = { mil_tech_cost_modifier = -0.25 }
+cu_mil_tech_modifier_30 = { mil_tech_cost_modifier = -0.30 }
+cu_mil_tech_modifier_35 = { mil_tech_cost_modifier = -0.35 }
+cu_mil_tech_modifier_40 = { mil_tech_cost_modifier = -0.40 }
+cu_mil_tech_modifier_45 = { mil_tech_cost_modifier = -0.45 }
+cu_mil_tech_modifier_50 = { mil_tech_cost_modifier = -0.50 }
+cu_mil_tech_modifier_55 = { mil_tech_cost_modifier = -0.55 }
+cu_mil_tech_modifier_60 = { mil_tech_cost_modifier = -0.60 }
+cu_mil_tech_modifier_65 = { mil_tech_cost_modifier = -0.65 }
+cu_mil_tech_modifier_70 = { mil_tech_cost_modifier = -0.70 }
+cu_mil_tech_modifier_75 = { mil_tech_cost_modifier = -0.75 }
+cu_mil_tech_modifier_80 = { mil_tech_cost_modifier = -0.80 }
+cu_mil_tech_modifier_85 = { mil_tech_cost_modifier = -0.85 }
+cu_mil_tech_modifier_90 = { mil_tech_cost_modifier = -0.90 }
+cu_mil_tech_modifier_95 = { mil_tech_cost_modifier = -0.95 }
+cu_mil_tech_modifier_100 = { mil_tech_cost_modifier = -1.00 }
+cu_mil_tech_modifier_105 = { mil_tech_cost_modifier = -1.05 }
+cu_mil_tech_modifier_110 = { mil_tech_cost_modifier = -1.10 }
+cu_mil_tech_modifier_115 = { mil_tech_cost_modifier = -1.15 }
+cu_mil_tech_modifier_120 = { mil_tech_cost_modifier = -1.20 }
+cu_mil_tech_modifier_125 = { mil_tech_cost_modifier = -1.25 }
+cu_mil_tech_modifier_130 = { mil_tech_cost_modifier = -1.30 }
+cu_mil_tech_modifier_135 = { mil_tech_cost_modifier = -1.35 }
+cu_mil_tech_modifier_140 = { mil_tech_cost_modifier = -1.40 }
+cu_mil_tech_modifier_145 = { mil_tech_cost_modifier = -1.45 }
+cu_mil_tech_modifier_150 = { mil_tech_cost_modifier = -1.50 }
+cu_mil_tech_modifier_155 = { mil_tech_cost_modifier = -1.55 }
+cu_mil_tech_modifier_160 = { mil_tech_cost_modifier = -1.60 }
+cu_mil_tech_modifier_165 = { mil_tech_cost_modifier = -1.65 }
+cu_mil_tech_modifier_170 = { mil_tech_cost_modifier = -1.70 }
+cu_mil_tech_modifier_175 = { mil_tech_cost_modifier = -1.75 }
+cu_mil_tech_modifier_180 = { mil_tech_cost_modifier = -1.80 }
+cu_mil_tech_modifier_185 = { mil_tech_cost_modifier = -1.85 }
+cu_mil_tech_modifier_190 = { mil_tech_cost_modifier = -1.90 }
+cu_mil_tech_modifier_195 = { mil_tech_cost_modifier = -1.95 }
+cu_mil_tech_modifier_200 = { mil_tech_cost_modifier = -2.00 }

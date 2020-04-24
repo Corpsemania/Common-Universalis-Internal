@@ -1,0 +1,362 @@
+namespace = ancients
+
+#Seek a Prophet!
+
+country_event = {
+        id = ancients.00
+	title = "ancients.0.t"
+	desc = "ancients.0.d"
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		   name = "ancients.0.a" # I will find him.
+                   custom_tooltip = ancients.0.at
+	}
+
+}
+
+#Find a Prophet!
+
+country_event = {
+        id = ancients.01
+	title = "ancients.1.t"
+	desc = "ancients.1.d"
+	picture = PRAYING_eventPicture
+	
+	trigger = {
+                   religion_group = pagan
+		   NOT = { has_reform =  steppe_horde }
+                   NOT = { has_country_flag = has_prophet }
+                   has_ruler_flag = seeking_prophet 
+        }
+
+        mean_time_to_happen = {
+		months = 120
+                modifier = {
+                     factor = 0.75
+                     adm = 5
+                }
+                modifier = {
+                     factor = 0.75
+                     dip = 5
+                }
+                modifier = {
+                     factor = 0.75
+                     mil = 5
+                }
+        }
+
+	option = {
+		   name = "ancients.1.a" # Pleace guide us!
+                   clr_ruler_flag = seeking_prophet
+                   set_country_flag = has_prophet
+                   set_ruler_flag = sought_prophet
+                   change_adm = 1
+                   change_dip = 1
+                   change_mil = 1
+                   add_legitimacy = 20
+	}
+
+}
+
+#Prophet dies!
+
+country_event = {
+        id = ancients.02
+	title = "ancients.2.t"
+	desc = "ancients.2.d"
+	picture = PRAYING_eventPicture
+	
+	trigger = {
+                   had_country_flag = { flag = has_prophet
+                                        days = 1825 }
+        }
+
+        mean_time_to_happen = {
+		months = 360
+                modifier = {
+                     factor = 0.5
+                     had_country_flag = { flag = has_prophet
+                                        days = 3650 }
+                }
+                modifier = {
+                     factor = 0.5
+                     had_country_flag = { flag = has_prophet
+                                        days = 7300 }
+                }
+        }
+
+	option = {
+		   name = "ancients.2.a" # Oops.
+                   clr_country_flag = has_prophet
+	}
+
+}
+
+#Start a Prophecy!
+
+country_event = {
+        id = ancients.03
+	title = "ancients.3.t"
+	desc = "ancients.3.d"
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		   name = "ancients.3.a" # War
+                   trigger = {
+                         is_at_war = yes
+                   }
+                   clr_country_flag = in_prophecy
+                   clr_country_flag = has_prophet
+                   clr_ruler_flag = sought_prophet
+                   hidden_effect = {
+                        random_list = {
+                                15 = {
+				       country_event = { id = ancients.10 }
+                                }
+                                25 = {
+				       country_event = { id = ancients.11 }
+                                }
+                                25 = {
+				       country_event = { id = ancients.12 }
+                                }
+                                20 = {
+				       country_event = { id = ancients.13 }
+                                }
+                                15 = {
+				       country_event = { id = ancients.14 }
+                                }
+			}
+                  }
+	}
+
+        option = {
+		   name = "ancients.3.b" # God
+                   #trigger = {
+                         #OR = {
+                                 #religion = nahuatl
+                                 #religion = inti
+                                 #religion = mesoamerican_religion
+                         #}
+                   #}
+                   clr_country_flag = in_prophecy
+                   clr_country_flag = has_prophet
+                   hidden_effect = {
+                        random_list = {
+                                40 = {
+				       country_event = { id = ancients.20 }
+                                }
+                                30 = {
+				       country_event = { id = ancients.21 }
+                                }
+                                30 = {
+				       country_event = { id = ancients.22 }
+                                }
+			}
+                  }
+	}
+
+        option = {
+		   name = "ancients.3.z" # Nothing
+                   clr_country_flag = in_prophecy
+	}
+
+}
+
+# War Prophecy - Great Victory
+country_event = { 
+        id = ancients.10
+	title = "ancients.30.t"
+	desc = "ancients.30.d"
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		   name = "ancients.30.a" # Great!
+                   change_mil = 1
+                   add_war_exhaustion = -5
+                   add_country_modifier = {
+                             name = great_war_prophecy
+                             duration = 1825
+                   }
+	}
+
+}
+
+# War Prophecy - Easy Win
+country_event = {
+        id = ancients.11
+	title = "ancients.31.t"
+	desc = "ancients.31.d"
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		   name = "ancients.31.a" # Good!
+                   add_war_exhaustion = -5
+                   add_country_modifier = {
+                             name = good_war_prophecy
+                             duration = 1825
+                   }
+	}
+
+}
+
+# War Prophecy - Great Fight
+country_event = {
+        id = ancients.12
+	title = "ancients.32.t"
+	desc = "ancients.32.d"
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		   name = "ancients.32.a" # Good!
+                   change_mil = 1
+	}
+
+}
+
+# War Prophecy - A War Defeated
+country_event = {
+        id = ancients.13
+	title = "ancients.33.t"
+	desc = "ancients.33.d"
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		   name = "ancients.33.a" # No!
+                   add_war_exhaustion = 3
+                   add_country_modifier = {
+                             name = bad_war_prophecy
+                             duration = 1825
+                   }
+	}
+
+}
+
+# War Prophecy - Death in White
+country_event = {
+        id = ancients.14
+	title = "ancients.34.t"
+	desc = "ancients.34.d"
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		   name = "ancients.34.a" # No!
+                   change_mil = -1
+                   add_war_exhaustion = 5
+                   add_country_modifier = {
+                             name = dead_war_prophecy
+                             duration = 1825
+                   }
+	}
+
+}
+
+# God Prophecy - Pleased
+country_event = { 
+    id = ancients.20
+	title = "ancients.40.t"
+	desc = "ancients.40.d"
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "ancients.40.a" # Great!
+		change_adm = 1
+		change_variable = { which = cu_var1 value = 100 }
+		cu_change_stability_point = yes
+		if = {
+			limit = { 
+				uses_doom = yes
+			}
+			add_doom = -25
+		}
+		if = {
+			limit = { 
+				religion = inti
+			}
+			add_authority = 15
+		}
+		add_country_modifier = {
+			name = god_pleased
+			duration = 1825
+		}
+	}
+
+}
+
+# God Prophecy - Unsatisfied
+country_event = { 
+    id = ancients.21
+	title = "ancients.41.t"
+	desc = "ancients.41.d"
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		   name = "ancients.41.a" # OK.
+                   change_adm = -1
+                   if = {
+                          limit = { 
+                                     uses_doom = yes
+                          }
+                          add_doom = 10
+                   }
+                   if = {
+                          limit = { 
+                                     religion = inti
+                          }
+                          add_authority = -5
+                   }
+	}
+
+}
+
+
+# God Prophecy - Outraged
+country_event = { 
+    id = ancients.22
+	title = "ancients.42.t"
+	desc = "ancients.42.d"
+	picture = PRAYING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "ancients.42.a" # OK.
+        change_variable = { which = cu_var1 value = -75 }
+		cu_change_stability_point = yes
+        if = {
+            limit = { 
+                uses_doom = yes
+            }
+            add_doom = 20
+        }
+        if = {
+            limit = { 
+                religion = inti
+            }
+            add_authority = -15
+        }
+        add_country_modifier = {
+            name = god_outraged
+            duration = 1825
+        }
+	}
+
+}

@@ -1,0 +1,71 @@
+country_decisions = {
+
+### Taj Mahal
+
+   build_the_taj_mahal = {
+        major = yes
+		potential = {
+			OR = {
+				tag = MUG
+				tag = TIM
+                                religion_group = muslim
+			}
+			owns = 524 #Agra
+			NOT = { has_country_flag = build_the_taj_mahal }
+                        NOT = { has_global_flag = the_taj_mahal }
+                        NOT = { has_country_flag = taj_mahal_completed }
+		}
+		allow = {
+			is_at_war = no
+		        adm = 5
+			stability = 3
+                        treasury = 1000
+			adm_power = 300
+		}
+		effect = {
+			add_treasury = -1000
+			add_adm_power = -300
+			set_country_flag = build_the_taj_mahal
+                        country_event = { id = wonder.1 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					NOT = { years_of_income = 6 }
+					NOT = { adm_power = 300 }
+				}
+			}
+		}
+   }
+   
+   build_the_babylon_tower = {
+        major = yes
+		potential = {
+			has_country_modifier = cu_realistic_expansion
+			ai = no
+			total_development = 10000
+			NOT = { has_country_modifier = building_babylon_tower }
+			NOT = { has_global_flag = babylon_tower_built }
+		}
+		allow = {
+			adm_power = 999
+			dip_power = 999
+			mil_power = 999
+			treasury = 999999
+		}
+		effect = {
+		    add_adm_power = -999
+			add_dip_power = -999
+			add_mil_power = -999
+			add_treasury = -999999
+			set_country_flag = build_the_babylon_tower
+            country_event = { id = wonder.8 }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+   }
+
+}

@@ -1,0 +1,65 @@
+country_decisions = {
+
+	form_euro_universe = {
+		major = yes
+		potential = {
+                        is_revolution_target = yes
+			has_reform =  revolutionary_republic_reform
+                        capital_scope = { continent = europe }  
+                        NOT = { has_global_flag = eu_formed } 
+                        NOT = {
+                                any_province = {
+                                           continent = europe
+                                           owner = {
+                                                   NOT = { 
+                                                            OR = { 
+                                                                   has_reform =  revolutionary_republic_reform 
+                                                                   has_reform =  parliament_reform
+                                                            }
+                                                   }
+                                           }
+                                }
+                                         
+                        }
+                        
+		}
+		allow = {
+			NOT = {
+                                 num_of_owned_provinces_with = {
+			               value = 20
+                                       NOT = { continent = europe }
+			               cu_not_terr_trigger = yes
+			         }
+                        }
+		}
+		effect = {
+			change_tag = EUU
+                        set_revolution_target = ROOT
+                        set_global_flag = eu_formed
+                        add_government_reform = parliament_reform
+			country_event = { id = ideagroups.1 } #Swap Ideas
+                        every_country = {
+                                  limit = { 
+                                             NOT = { tag = ROOT }
+                                             NOT = { tag = EUU }
+                                             capital_scope = { continent = europe } 
+                                  }
+                                  country_event = { id = euro.1 } #Asked whether to join EU
+                                  
+                        }
+                        every_country = {
+                                  limit = { 
+                                             NOT = { tag = ROOT }
+                                             any_owned_province = { continent = europe }
+                                             NOT = { capital_scope = { continent = europe } }
+                                  }
+                                  country_event = { id = euro.2 } #Asked whether to cede European provinces to EU
+                                  
+                        }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+}

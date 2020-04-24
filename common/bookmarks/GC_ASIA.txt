@@ -1,0 +1,23 @@
+bookmark =
+{
+	name = "GC_ASIA_BOOKMARK"
+	desc = "GC_ASIA_BOOKMARK_DESC"
+	date = 1444.11.11
+
+	center = 2133
+	
+	country = AYU
+	country = VIJ
+	country = MNG
+	country = MLC
+	country = QAR
+	country = TIM
+	country = JAP
+	country = BAH
+	country = KOR
+	country = YMN
+	country = BNG
+	effect = {
+		
+	}
+}

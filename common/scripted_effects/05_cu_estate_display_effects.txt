@@ -1,0 +1,814 @@
+
+
+### Apply ###
+
+#GetestateNameCountryapply[]
+GetestateNameCountryapply = {
+    if = {
+	    limit = {
+			    OR = {
+			        has_estate = estate_nobles
+					has_estate = estate_shizu
+					has_estate = estate_church
+					has_estate = estate_burghers
+					has_estate = estate_nomadic_tribes
+					has_estate = estate_cossacks
+			    }
+		}
+        custom_tooltip = cabinet.99.dd
+	}
+	GetNoblesNameCountry = yes
+	GetChurchNameCountry = yes
+	GetBurghersNameCountry = yes
+	GetCossacksNameCountry = yes
+}
+
+#GetestateNameProvinceapply[]
+GetestateNameProvinceapply = {
+    if = {
+	    limit = {
+		    owner = {
+			    OR = {
+			        has_estate = estate_nobles
+					has_estate = estate_shizu
+					has_estate = estate_church
+					has_estate = estate_burghers
+					has_estate = estate_nomadic_tribes
+					has_estate = estate_cossacks
+			    }
+			}
+		}
+        custom_tooltip = urban.52.dd
+	}
+	GetNoblesNameProvince = yes
+	GetChurchNameProvince = yes
+	GetBurghersNameProvince = yes
+	GetCossacksNameProvince = yes
+	custom_tooltip = urban.52.et
+}
+
+### Province ###
+
+#GetNoblesNameProvince[]
+GetNoblesNameProvince = {
+    if = {
+		limit = {
+			owner = {
+			    has_estate = estate_nobles
+			    NOT = {
+				    technology_group = ottoman
+				    culture_group = east_slavic
+				    primary_culture = bulgarian
+				    primary_culture = romanian
+				    primary_culture = polish
+				    primary_culture = lithuanian
+				    tag = VIJ
+				    tag = ORI
+				    religion = hinduism
+				    has_reform = celestial_empire
+				    culture_group = east_asian
+				    tag = MUG
+				    religion = nahuatl
+				    tag = MIR
+				    religion_group = muslim
+				    tag = USA
+				    culture_group = japanese_g
+				    has_reform = celestial_empire
+				    tag = MAS
+					has_estate = estate_shizu
+			    }
+			}
+		}
+		custom_tooltip = urban.52.n1
+	}
+	if = {
+		limit = {
+			owner = {
+			    has_estate = estate_nobles
+			    OR = {
+			        technology_group = ottoman
+				    AND = {
+			            religion_group = muslim
+			            NOT = { technology_group = ottoman }
+				    }
+			
+			    }
+			}
+		}
+		custom_tooltip = urban.52.n2
+	}
+	if = {
+		limit = {
+			owner = {
+			    has_estate = estate_nobles
+			    OR = {
+				    culture_group = east_slavic
+				    primary_culture = bulgarian
+				    primary_culture = romanian
+			    }
+			}
+		}
+		custom_tooltip = urban.52.n3
+	}
+	if = {
+		limit = {
+			owner = {
+			    has_estate = estate_nobles
+			    OR = {
+				    primary_culture = polish
+				    primary_culture = lithuanian
+			    }
+			}
+		}
+		custom_tooltip = urban.52.n4
+	}
+	if = {
+		limit = {
+			owner = {
+			    has_estate = estate_nobles
+			    tag = MAS
+			}
+		}
+		custom_tooltip = urban.52.n5
+	}
+	if = {
+		limit = {
+			owner = {
+			    has_estate = estate_nobles
+			    tag = VIJ
+			}
+		}
+		custom_tooltip = urban.52.n6
+	}
+	if = {
+		limit = {
+			owner = {
+			    has_estate = estate_nobles
+			    tag = ORI
+			}
+		}
+		custom_tooltip = urban.52.n7
+	}
+	if = {
+		limit = {
+			owner = {
+			    has_estate = estate_nobles
+			    religion = hinduism
+			}
+		}
+		custom_tooltip = urban.52.n8
+	}
+	if = {
+		limit = {
+			owner = {
+			    OR = {
+				    AND = {
+					    has_estate = estate_nobles
+			            OR = {
+				            has_reform = celestial_empire
+				            culture_group = east_asian
+			            }
+					}
+					has_estate = estate_shizu
+				}
+			}
+		}
+		custom_tooltip = urban.52.n9
+	}
+	if = {
+		limit = {
+			owner = {
+			    has_estate = estate_nobles
+			    tag = MUG
+			}
+		}
+		custom_tooltip = urban.52.n10
+	}
+	if = {
+		limit = {
+			owner = {
+			    has_estate = estate_nobles
+			    religion = nahuatl
+			}
+		}
+		custom_tooltip = urban.52.n11
+	}
+	if = {
+		limit = {
+			owner = {
+			    has_estate = estate_nobles
+			    tag = MIR
+			}
+		}
+		custom_tooltip = urban.52.n12
+	}
+	if = {
+		limit = {
+			owner = {
+			    has_estate = estate_nobles
+			    tag = USA
+			}
+		}
+		custom_tooltip = urban.52.n13
+	}
+	if = {
+		limit = {
+			owner = {
+			    has_estate = estate_nobles
+			    culture_group = japanese_g
+			}
+		}
+		custom_tooltip = urban.52.n14
+	}
+}
+
+#GetChurchNameProvince[]
+GetChurchNameProvince = {
+    if = {
+		limit = {
+			owner = {
+			    has_estate = estate_church
+			    NOT = {
+				    religion = buddhism #Theravada
+				    religion = mahayana
+				    religion = vajrayana
+				    religion = hinduism
+				    religion_group = muslim
+				    religion = nahuatl
+				    tag = MAS
+				    has_reform = celestial_empire
+				    culture_group = east_asian
+			    }
+			}
+		}
+		custom_tooltip = urban.52.c1
+	}
+	if = {
+		limit = {
+			owner = {
+				has_estate = estate_church
+			    OR = {
+				    has_reform = celestial_empire
+				    culture_group = east_asian
+					religion = confucianism
+			    }
+			}
+		}
+		custom_tooltip = urban.52.c2
+	}
+	if = {
+		limit = {
+			owner = {
+			    has_estate = estate_church
+			    OR = {
+				    religion = buddhism #Theravada
+				    religion = mahayana
+				    religion = vajrayana
+			    }
+			}
+		}
+		custom_tooltip = urban.52.c3
+	}
+	if = {
+		limit = {
+			owner = {
+			    has_estate = estate_church
+			    tag = MAS
+			}
+		}
+		custom_tooltip = urban.52.c4
+	}
+	if = {
+		limit = {
+			owner = {
+			    has_estate = estate_church
+			    religion = hinduism
+			}
+		}
+		custom_tooltip = urban.52.c5
+	}
+	if = {
+		limit = {
+			owner = {
+			    has_estate = estate_church
+			    religion_group = muslim
+			}
+		}
+		custom_tooltip = urban.52.c6
+	}
+	if = {
+		limit = {
+			owner = {
+				has_estate = estate_church
+			    religion = nahuatl
+			}
+		}
+		custom_tooltip = urban.52.c7
+	}
+}
+
+#GetBurghersNameProvince[]
+GetBurghersNameProvince = {
+    if = {
+		limit = {
+			owner = {
+			    has_estate = estate_burghers
+			    NOT = {
+				    culture_group = french
+				    culture_group = east_asian
+			    }
+			    religion_group = christian
+			}
+		}
+		custom_tooltip = urban.52.b1
+	}
+	if = {
+		limit = {
+			owner = {
+			    has_estate = estate_burghers
+			    culture_group = french
+			}
+		}
+		custom_tooltip = urban.52.b2
+	}
+	if = {
+		limit = {
+			owner = {
+			    has_estate = estate_burghers
+			    culture_group = east_asian
+			}
+		}
+		custom_tooltip = urban.52.b3
+	}
+	if = {
+		limit = {
+			owner = {
+			    has_estate = estate_burghers
+			    NOT = { religion_group = christian }
+			}
+		}
+		custom_tooltip = urban.52.b4
+	}
+}
+
+#GetCossacksNameProvince[]
+GetCossacksNameProvince = {
+    if = {
+		limit = {
+			owner = {
+				has_estate = estate_nomadic_tribes
+				NOT = { has_estate = estate_cossacks }
+			}
+		}
+		custom_tooltip = urban.52.e1
+	}
+	if = {
+		limit = {
+			owner = {
+				has_estate = estate_cossacks
+				NOT = { has_estate = estate_nomadic_tribes }
+			}
+		}
+		custom_tooltip = urban.52.e2
+	}
+}
+
+### Country ###
+
+#GetNoblesNameCountry[]
+GetNoblesNameCountry = {
+    if = {
+		limit = {
+			has_estate = estate_nobles
+			NOT = {
+				    technology_group = ottoman
+				    culture_group = east_slavic
+				    primary_culture = bulgarian
+				    primary_culture = romanian
+				    primary_culture = polish
+				    primary_culture = lithuanian
+				    tag = VIJ
+				    tag = ORI
+				    religion = hinduism
+				    has_reform = celestial_empire
+				    culture_group = east_asian
+				    tag = MUG
+				    religion = nahuatl
+				    tag = MIR
+				    religion_group = muslim
+				    tag = USA
+				    culture_group = japanese_g
+				    has_reform = celestial_empire
+				    tag = MAS
+					has_estate = estate_shizu
+			}
+		}
+		custom_tooltip = cabinet.99.n1
+	}
+	if = {
+		limit = {
+			
+			    has_estate = estate_nobles
+			    OR = {
+			        technology_group = ottoman
+				    AND = {
+			            religion_group = muslim
+			            NOT = { technology_group = ottoman }
+				    }
+			
+			    }
+			}
+		custom_tooltip = cabinet.99.n2
+	}
+	if = {
+		limit = {
+			
+			    has_estate = estate_nobles
+			    OR = {
+				    culture_group = east_slavic
+				    primary_culture = bulgarian
+				    primary_culture = romanian
+			    }
+			}
+		custom_tooltip = cabinet.99.n3
+	}
+	if = {
+		limit = {
+			
+			    has_estate = estate_nobles
+			    OR = {
+				    primary_culture = polish
+				    primary_culture = lithuanian
+			    }
+			}
+		custom_tooltip = cabinet.99.n4
+	}
+	if = {
+		limit = {
+			
+			    has_estate = estate_nobles
+			    tag = MAS
+			}
+		custom_tooltip = cabinet.99.n5
+	}
+	if = {
+		limit = {
+			
+			    has_estate = estate_nobles
+			    tag = VIJ
+			}
+		custom_tooltip = cabinet.99.n6
+	}
+	if = {
+		limit = {
+			
+			    has_estate = estate_nobles
+			    tag = ORI
+			}
+		custom_tooltip = cabinet.99.n7
+	}
+	if = {
+		limit = {
+			
+			    has_estate = estate_nobles
+			    religion = hinduism
+			}
+		custom_tooltip = cabinet.99.n8
+	}
+	if = {
+		limit = {
+			    OR = {
+				    AND = {
+					    has_estate = estate_nobles
+			            OR = {
+				            has_reform = celestial_empire
+				            culture_group = east_asian
+			            }
+					}
+					has_estate = estate_shizu
+				}
+			}
+		custom_tooltip = cabinet.99.n9
+	}
+	if = {
+		limit = {
+			
+			    has_estate = estate_nobles
+			    tag = MUG
+			}
+		custom_tooltip = cabinet.99.n10
+	}
+	if = {
+		limit = {
+			
+			    has_estate = estate_nobles
+			    religion = nahuatl
+			}
+		custom_tooltip = cabinet.99.n11
+	}
+	if = {
+		limit = {
+			
+			    has_estate = estate_nobles
+			    tag = MIR
+			}
+		custom_tooltip = cabinet.99.n12
+	}
+	if = {
+		limit = {
+			
+			    has_estate = estate_nobles
+			    tag = USA
+			}
+		custom_tooltip = cabinet.99.n13
+	}
+	if = {
+		limit = {
+			
+			    has_estate = estate_nobles
+			    culture_group = japanese_g
+			}
+		custom_tooltip = cabinet.99.n14
+	}
+}
+
+#GetChurchNameCountry[]
+GetChurchNameCountry = {
+    if = {
+		limit = {
+			
+			    has_estate = estate_church
+			    NOT = {
+				    religion = buddhism #Theravada
+				    religion = mahayana
+				    religion = vajrayana
+				    religion = hinduism
+				    religion_group = muslim
+				    religion = nahuatl
+				    tag = MAS
+				    has_reform = celestial_empire
+				    culture_group = east_asian
+			    }
+			}
+		custom_tooltip = cabinet.99.c1
+	}
+	if = {
+		limit = {
+			
+				has_estate = estate_church
+			    OR = {
+				    has_reform = celestial_empire
+				    culture_group = east_asian
+					religion = confucianism
+			    }
+			}
+		custom_tooltip = cabinet.99.c2
+	}
+	if = {
+		limit = {
+			
+			    has_estate = estate_church
+			    OR = {
+				    religion = buddhism #Theravada
+				    religion = mahayana
+				    religion = vajrayana
+			    }
+			}
+		custom_tooltip = cabinet.99.c3
+	}
+	if = {
+		limit = {
+			
+			    has_estate = estate_church
+			    tag = MAS
+			}
+		custom_tooltip = cabinet.99.c4
+	}
+	if = {
+		limit = {
+			
+			    has_estate = estate_church
+			    religion = hinduism
+			}
+		custom_tooltip = cabinet.99.c5
+	}
+	if = {
+		limit = {
+			    has_estate = estate_church
+			    religion_group = muslim
+			}
+		custom_tooltip = cabinet.99.c6
+	}
+	if = {
+		limit = {
+			
+				has_estate = estate_church
+			    religion = nahuatl
+			}
+		custom_tooltip = cabinet.99.c7
+	}
+}
+
+#GetBurghersNameCountry[]
+GetBurghersNameCountry = {
+    if = {
+		limit = {
+			
+			    has_estate = estate_burghers
+			    NOT = {
+				    culture_group = french
+				    culture_group = east_asian
+			    }
+			    religion_group = christian
+			}
+		custom_tooltip = cabinet.99.b1
+	}
+	if = {
+		limit = {
+			
+			    has_estate = estate_burghers
+			    culture_group = french
+			}
+		custom_tooltip = cabinet.99.b2
+	}
+	if = {
+		limit = {
+			
+			    has_estate = estate_burghers
+			    culture_group = east_asian
+			}
+		custom_tooltip = cabinet.99.b3
+	}
+	if = {
+		limit = {
+			
+			    has_estate = estate_burghers
+			    NOT = { religion_group = christian }
+			}
+		custom_tooltip = cabinet.99.b4
+	}
+}
+
+#GetCossacksNameCountry[]
+GetCossacksNameCountry = {
+    if = {
+		limit = {
+			has_estate = estate_nomadic_tribes
+			NOT = { has_estate = estate_cossacks }
+		}
+		custom_tooltip = cabinet.99.e1
+	}
+	if = {
+		limit = {
+			has_estate = estate_cossacks
+			NOT = { has_estate = estate_nomadic_tribes }
+		}
+		custom_tooltip = cabinet.99.e2
+	}
+}
+
+#GetEstateInteractionCost[] - Estimate Estate Cash/Stability effect for interactions
+GetEstateInteractionCost = {
+	#Estimate estate cash contribution/requirement 
+			  if = {
+			        limit = { check_variable = { which = etic value = 0.001 } }
+					 #Clergy Giving
+					set_variable = { which = cu_var1 value = 0 }
+					set_variable = { which = cu_cash which = etic } 
+					export_to_variable = {
+						which = cu_var1
+						value = modifier:global_tax_modifier
+					}
+					change_variable = { which = cu_var1 value = 1 }
+					multiply_variable = { which = cu_cash which = cu_var1 }
+					set_variable = { which = t_dev value = 0 }
+					export_to_variable = {
+						which = t_dev
+						value = states_development
+					}
+					multiply_variable = { which = cu_cash which = t_dev }
+					multiply_variable = { which = cu_cash value = 0.005 }
+					set_variable = { which = cu_cash_cg which = cu_cash }
+				  #Clergy taking
+					set_variable = { which = cu_var1 value = 0 }
+					set_variable = { which = cu_cash which = etic }
+					set_variable = { which = t_dev value = 0 }
+					export_to_variable = {
+						which = t_dev
+						value = states_development
+					}
+					multiply_variable = { which = cu_cash which = t_dev }
+					multiply_variable = { which = cu_cash value = 0.005 }
+					set_variable = { which = cu_cash_ct which = cu_cash }
+				  #Clergy stability point
+					set_variable = { which = cu_var1 which = etic }
+					multiply_variable = { which = cu_var1 value = 0.5 }
+				    set_variable = { which = cu_sta_displayc which = cu_var1 }	
+			  }
+			  if = {
+			        limit = { check_variable = { which = etin value = 0.001 } }
+					 #Noble Giving
+					set_variable = { which = cu_var1 value = 0 }
+					set_variable = { which = cu_cash which = etin } 
+					export_to_variable = {
+						which = cu_var1
+						value = modifier:global_tax_modifier
+					}
+					change_variable = { which = cu_var1 value = 1 }
+					multiply_variable = { which = cu_cash which = cu_var1 }
+					set_variable = { which = t_dev value = 0 }
+					export_to_variable = {
+						which = t_dev
+						value = states_development
+					}
+					multiply_variable = { which = cu_cash which = t_dev }
+					multiply_variable = { which = cu_cash value = 0.005 }
+					set_variable = { which = cu_cash_ng which = cu_cash }
+				  #Noble taking
+					set_variable = { which = cu_var1 value = 0 }
+					set_variable = { which = cu_cash which = etin }
+					set_variable = { which = t_dev value = 0 }
+					export_to_variable = {
+						which = t_dev
+						value = states_development
+					}
+					multiply_variable = { which = cu_cash which = t_dev }
+					multiply_variable = { which = cu_cash value = 0.005 }
+					set_variable = { which = cu_cash_nt which = cu_cash }
+				  #Noble stability point
+					set_variable = { which = cu_var1 which = etin }
+					multiply_variable = { which = cu_var1 value = 0.5 }
+				    set_variable = { which = cu_sta_displayn which = cu_var1 }	
+			  }
+			  if = {
+			        limit = { check_variable = { which = etin value = 0.001 } }
+					 #Burghers Giving
+					set_variable = { which = cu_var1 value = 0 }
+					set_variable = { which = cu_cash which = etib } 
+					export_to_variable = {
+						which = cu_var1
+						value = modifier:global_tax_modifier
+					}
+					change_variable = { which = cu_var1 value = 1 }
+					multiply_variable = { which = cu_cash which = cu_var1 }
+					set_variable = { which = t_dev value = 0 }
+					export_to_variable = {
+						which = t_dev
+						value = states_development
+					}
+					multiply_variable = { which = cu_cash which = t_dev }
+					multiply_variable = { which = cu_cash value = 0.005 }
+					set_variable = { which = cu_cash_bg which = cu_cash }
+				  #Burghers taking
+					set_variable = { which = cu_var1 value = 0 }
+					set_variable = { which = cu_cash which = etib }
+					set_variable = { which = t_dev value = 0 }
+					export_to_variable = {
+						which = t_dev
+						value = states_development
+					}
+					multiply_variable = { which = cu_cash which = t_dev }
+					multiply_variable = { which = cu_cash value = 0.005 }
+					set_variable = { which = cu_cash_bt which = cu_cash }
+				  #Burghers stability point
+					set_variable = { which = cu_var1 which = etib }
+					multiply_variable = { which = cu_var1 value = 0.5 }
+				    set_variable = { which = cu_sta_displayb which = cu_var1 }	
+			  }
+			  if = {
+			        limit = { check_variable = { which = etie value = 0.001 } }
+					 #Tribe Giving
+					set_variable = { which = cu_var1 value = 0 }
+					set_variable = { which = cu_cash which = etie } 
+					export_to_variable = {
+						which = cu_var1
+						value = modifier:global_tax_modifier
+					}
+					change_variable = { which = cu_var1 value = 1 }
+					multiply_variable = { which = cu_cash which = cu_var1 }
+					set_variable = { which = t_dev value = 0 }
+					export_to_variable = {
+						which = t_dev
+						value = states_development
+					}
+					multiply_variable = { which = cu_cash which = t_dev }
+					multiply_variable = { which = cu_cash value = 0.005 }
+					set_variable = { which = cu_cash_eg which = cu_cash }
+				  #Tribe taking
+					set_variable = { which = cu_var1 value = 0 }
+					set_variable = { which = cu_cash which = etie }
+					set_variable = { which = t_dev value = 0 }
+					export_to_variable = {
+						which = t_dev
+						value = states_development
+					}
+					multiply_variable = { which = cu_cash which = t_dev }
+					multiply_variable = { which = cu_cash value = 0.005 }
+					set_variable = { which = cu_cash_et which = cu_cash }
+				  #Tribe stability point
+					set_variable = { which = cu_var1 which = etie }
+					multiply_variable = { which = cu_var1 value = 0.5 }
+				    set_variable = { which = cu_sta_displayb which = cu_var1 }	
+			  }
+
+}

@@ -1,0 +1,8 @@
+156 = "Timis"
+157 = "Bihor"
+158 = "Mures"
+268 = "Moldova"
+1756 = "Basarabia"
+1951 = "Hunedoara"
+1952 = "Maramures"
+2405 = "Tighina"

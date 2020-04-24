@@ -1,0 +1,20 @@
+# Russian New Model Army
+
+type = infantry
+unit_type = eastern
+maneuver = 1
+
+trigger = {
+	OR = {
+                 tag = RUS
+                 tag = MOS
+        }
+}
+
+offensive_morale = 3
+defensive_morale = 2
+offensive_fire = 3
+defensive_fire = 3
+offensive_shock = 3
+defensive_shock = 2
+

@@ -1,0 +1,5 @@
+# 8514 - Perth
+
+discovered_by = indian
+discovered_by = chinese
+discovered_by = nomad_group

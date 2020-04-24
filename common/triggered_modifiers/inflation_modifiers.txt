@@ -1,0 +1,1073 @@
+inflation_500 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 500 }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_500_t
+				check_variable = { which = inflation_index value = 500 }
+			}
+					   
+	}
+    inflation_reduction = -0.55
+}
+
+inflation_450 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 450 }
+            NOT = { check_variable = { which = inflation_index value = 500 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_450_t
+				check_variable = { which = inflation_index value = 450 }
+			}
+					   
+	}
+    inflation_reduction = -0.5
+}
+
+inflation_400 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 400 }
+            NOT = { check_variable = { which = inflation_index value = 450 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_400_t
+				check_variable = { which = inflation_index value = 400 }
+			}
+					   
+	}
+    inflation_reduction = -0.45
+}
+
+inflation_366 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 366 }
+            NOT = { check_variable = { which = inflation_index value = 400 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_366_t
+				check_variable = { which = inflation_index value = 366 }
+			}
+					   
+	}
+    inflation_reduction = -0.41
+}
+
+inflation_333 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 333 }
+            NOT = { check_variable = { which = inflation_index value = 366 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_333_t
+				check_variable = { which = inflation_index value = 333 }
+			}
+					   
+	}
+    inflation_reduction = -0.37
+}
+
+inflation_300 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 300 }
+            NOT = { check_variable = { which = inflation_index value = 333 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_300_t
+				check_variable = { which = inflation_index value = 300 }
+			}
+					   
+	}
+    inflation_reduction = -0.33
+}
+
+inflation_275 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 275 }
+            NOT = { check_variable = { which = inflation_index value = 300 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_275_t
+				check_variable = { which = inflation_index value = 275 }
+			}
+					   
+	}
+    inflation_reduction = -0.29
+}
+
+inflation_250 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 250 }
+            NOT = { check_variable = { which = inflation_index value = 275 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_250_t
+				check_variable = { which = inflation_index value = 250 }
+			}
+					   
+	}
+    inflation_reduction = -0.26
+}
+
+inflation_225 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 225 }
+            NOT = { check_variable = { which = inflation_index value = 250 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_225_t
+				check_variable = { which = inflation_index value = 225 }
+			}
+					   
+	}
+    inflation_reduction = -0.23
+}
+
+inflation_200 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 200 }
+            NOT = { check_variable = { which = inflation_index value = 225 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_200_t
+				check_variable = { which = inflation_index value = 200 }
+			}
+					   
+	}
+    inflation_reduction = -0.2
+}
+
+inflation_180 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 180 }
+            NOT = { check_variable = { which = inflation_index value = 200 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_180_t
+				check_variable = { which = inflation_index value = 180 }
+			}
+					   
+	}
+    inflation_reduction = -0.18
+}
+
+inflation_160 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 160 }
+            NOT = { check_variable = { which = inflation_index value = 180 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_160_t
+				check_variable = { which = inflation_index value = 160 }
+			}
+					   
+	}
+    inflation_reduction = -0.14
+}
+
+inflation_150 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 150 }
+            NOT = { check_variable = { which = inflation_index value = 160 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_150_t
+				check_variable = { which = inflation_index value = 150 }
+			}
+					   
+	}
+    inflation_reduction = -0.12
+}
+
+inflation_140 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 140 }
+            NOT = { check_variable = { which = inflation_index value = 150 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_140_t
+				check_variable = { which = inflation_index value = 140 }
+			}
+					   
+	}
+    inflation_reduction = -0.1
+}
+
+inflation_130 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 130 }
+            NOT = { check_variable = { which = inflation_index value = 140 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_130_t
+				check_variable = { which = inflation_index value = 130 }
+			}
+					   
+	}
+    inflation_reduction = -0.08
+}
+
+inflation_120 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 120 }
+            NOT = { check_variable = { which = inflation_index value = 130 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_120_t
+				check_variable = { which = inflation_index value = 120 }
+			}
+					   
+	}
+    inflation_reduction = -0.06
+}
+
+inflation_110 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 110 }
+            NOT = { check_variable = { which = inflation_index value = 120 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_110_t
+				check_variable = { which = inflation_index value = 110 }
+			}
+					   
+	}
+    inflation_reduction = -0.04
+}
+
+inflation_105 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 105 }
+            NOT = { check_variable = { which = inflation_index value = 110 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_105_t
+				check_variable = { which = inflation_index value = 105 }
+			}
+					   
+	}
+    inflation_reduction = -0.02
+}
+
+inflation_95 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 95 }
+            NOT = { check_variable = { which = inflation_index value = 100 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_95_t
+				check_variable = { which = inflation_index value = 95 }
+			}
+					   
+	}
+    inflation_reduction = 0.02
+}
+
+inflation_90 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 90 }
+            NOT = { check_variable = { which = inflation_index value = 95 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_90_t
+				check_variable = { which = inflation_index value = 90 }
+			}
+					   
+	}
+    inflation_reduction = 0.04
+}
+
+inflation_85 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 85 }
+            NOT = { check_variable = { which = inflation_index value = 90 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_85_t
+				check_variable = { which = inflation_index value = 85 }
+			}
+					   
+	}
+    inflation_reduction = 0.06
+}
+
+inflation_80 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 80 }
+            NOT = { check_variable = { which = inflation_index value = 85 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_80_t
+				check_variable = { which = inflation_index value = 80 }
+			}
+					   
+	}
+    inflation_reduction = 0.08
+}
+
+inflation_75 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 75 }
+            NOT = { check_variable = { which = inflation_index value = 80 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_75_t
+				check_variable = { which = inflation_index value = 75 }
+			}
+					   
+	}
+    inflation_reduction = 0.1
+}
+
+inflation_70 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 70 }
+            NOT = { check_variable = { which = inflation_index value = 75 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_70_t
+				check_variable = { which = inflation_index value = 70 }
+			}
+					   
+	}
+    inflation_reduction = 0.125
+}
+
+inflation_65 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 65 }
+            NOT = { check_variable = { which = inflation_index value = 70 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_65_t
+				check_variable = { which = inflation_index value = 65 }
+			}
+					   
+	}
+    inflation_reduction = 0.15
+}
+
+inflation_60 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 60 }
+            NOT = { check_variable = { which = inflation_index value = 65 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_60_t
+				check_variable = { which = inflation_index value = 60 }
+			}
+					   
+	}
+    inflation_reduction = 0.175
+}
+
+inflation_55 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 55 }
+            NOT = { check_variable = { which = inflation_index value = 60 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_55_t
+				check_variable = { which = inflation_index value = 55 }
+			}
+					   
+	}
+    inflation_reduction = 0.2
+}
+
+inflation_50 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 50 }
+            NOT = { check_variable = { which = inflation_index value = 55 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_50_t
+				check_variable = { which = inflation_index value = 50 }
+			}
+					   
+	}
+    inflation_reduction = 0.24
+}
+
+inflation_40 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 40 }
+            NOT = { check_variable = { which = inflation_index value = 50 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_40_t
+				check_variable = { which = inflation_index value = 40 }
+			}
+					   
+	}
+    inflation_reduction = 0.29
+}
+
+inflation_30 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 30 }
+            NOT = { check_variable = { which = inflation_index value = 40 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_30_t
+				check_variable = { which = inflation_index value = 30 }
+			}
+					   
+	}
+    inflation_reduction = 0.34
+}
+
+inflation_20 = {
+	potential = {
+	        check_variable = { which = inflation_index value = 20 }
+            NOT = { check_variable = { which = inflation_index value = 30 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_20_t
+				check_variable = { which = inflation_index value = 20 }
+			}
+					   
+	}
+    inflation_reduction = 0.4
+}
+
+inflation_10 = {
+	potential = {
+            NOT = { check_variable = { which = inflation_index value = 20 } }
+			check_variable = { which = inflation_index value = 10 }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_10_t
+				check_variable = { which = inflation_index value = 10 }
+			}
+					   
+	}
+    inflation_reduction = 0.45
+}
+
+inflation_1 = {
+	potential = {
+	        has_global_flag = cu_start
+            NOT = { check_variable = { which = inflation_index value = 10 } }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_1_t
+				check_variable = { which = inflation_index value = 0 }
+			}
+					   
+	}
+    inflation_reduction = 0.5
+}
+
+inflation_impact_p60 = {
+	potential = {
+            has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.6
+		    }
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_impact_p60t
+				has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.6
+		        }
+			}		   
+	}
+	global_trade_power = 0.1
+    production_efficiency = -0.5
+    global_trade_goods_size_modifier = -0.5
+	build_cost = -0.1
+	development_cost = 0.5
+	global_unrest = 5.5
+	
+}
+inflation_impact_p50 = {
+	potential = {
+        NOT = {
+            has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.6
+		    }
+		}
+		has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.5
+		}
+    }
+	trigger = {
+			custom_trigger_tooltip = {
+			    tooltip = inflation_impact_p50t
+				has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.5
+		        }
+			}		   
+	}
+	global_trade_power = 0.1
+    production_efficiency = -0.43
+    global_trade_goods_size_modifier = -0.43
+	build_cost = -0.095
+	development_cost = 0.43
+	global_unrest = 4.7
+	
+}
+
+inflation_impact_p40 = {
+	potential = {
+	    NOT = {
+            has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.5
+		    }
+		}
+		has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.4
+		}
+    }
+	trigger = {
+            custom_trigger_tooltip = {
+			    tooltip = inflation_impact_p40t
+				has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.4
+		        }
+			}		   
+	}
+	global_trade_power = 0.1
+    production_efficiency = -0.36
+    global_trade_goods_size_modifier = -0.36
+	build_cost = -0.09
+	development_cost = 0.36
+	global_unrest = 3.8
+}
+
+inflation_impact_p35 = {
+	potential = {
+	    NOT = {
+            has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.40
+		    }
+		}
+		has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.35
+		}
+    }
+	trigger = {
+            custom_trigger_tooltip = {
+			    tooltip = inflation_impact_p40t
+				has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.35
+		        }
+			}		   
+	}
+	global_trade_power = 0.1
+    production_efficiency = -0.3
+    global_trade_goods_size_modifier = -0.3
+	build_cost = -0.085
+	development_cost = 0.3
+	global_unrest = 3
+	
+}
+
+inflation_impact_p30 = {
+	potential = {
+	    NOT = {
+            has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.35
+		    }
+		}
+		has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.3
+		}
+    }
+	trigger = {
+            custom_trigger_tooltip = {
+			    tooltip = inflation_impact_p40t
+				has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.30
+		        }
+			}		   
+	}
+	global_trade_power = 0.095
+    production_efficiency = -0.24
+    global_trade_goods_size_modifier = -0.24
+	build_cost = -0.08
+	development_cost = 0.24
+	global_unrest = 2.2
+	
+}
+
+inflation_impact_p25 = {
+	potential = {
+	    NOT = {
+            has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.30
+		    }
+		}
+		has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.25
+		}
+    }
+	trigger = {
+            custom_trigger_tooltip = {
+			    tooltip = inflation_impact_p25t
+				has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.25
+		        }
+			}		   
+	}
+	global_trade_power = 0.09
+    production_efficiency = -0.19
+    global_trade_goods_size_modifier = -0.19
+	build_cost = -0.07
+	development_cost = 0.19
+	global_unrest = 1.5
+	
+}
+
+inflation_impact_p20 = {
+	potential = {
+	    NOT = {
+            has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.25
+		    }
+		}
+		has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.2
+		}
+    }
+	trigger = {
+            custom_trigger_tooltip = {
+			    tooltip = inflation_impact_p20t
+				has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.2
+		        }
+			}		   
+	}
+	global_trade_power = 0.08
+    production_efficiency = -0.14
+    global_trade_goods_size_modifier = -0.14
+	build_cost = -0.06
+	development_cost = 0.14
+	global_unrest = 1
+	
+}
+
+inflation_impact_p15 = {
+	potential = {
+	    NOT = {
+            has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.2
+		    }
+		}
+		has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.15
+		}
+    }
+	trigger = {
+            custom_trigger_tooltip = {
+			    tooltip = inflation_impact_p15t
+				has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.15
+		        }
+			}		   
+	}
+	global_trade_power = 0.07
+    production_efficiency = -0.1
+    global_trade_goods_size_modifier = -0.1
+	build_cost = -0.05
+	development_cost = 0.1
+	global_unrest = 0.5
+	
+}
+
+inflation_impact_p10 = {
+	potential = {
+	    NOT = {
+            has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.15
+		    }
+		}
+		has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.1
+		}
+    }
+	trigger = {
+            custom_trigger_tooltip = {
+			    tooltip = inflation_impact_p10t
+				has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.10
+		        }
+			}		   
+	}
+	global_trade_power = 0.05
+    production_efficiency = -0.06
+    global_trade_goods_size_modifier = -0.06
+	build_cost = -0.04
+	development_cost = 0.06
+	
+}
+
+inflation_impact_p5 = {
+	potential = {
+	    NOT = {
+            has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.10
+		    }
+		}
+		has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.05
+		}
+    }
+	trigger = {
+            custom_trigger_tooltip = {
+			    tooltip = inflation_impact_p5t
+				has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0.05
+		        }
+			}		   
+	}
+    global_trade_power = 0.03
+    production_efficiency = -0.03
+    global_trade_goods_size_modifier = -0.03
+	build_cost = -0.02
+	development_cost = 0.03
+
+}
+
+inflation_impact_n5 = {
+	potential = {
+	    NOT = {
+            has_global_modifier_value = {
+						which = inflation_reduction
+						value = 0
+		    }
+		}
+		has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.05
+		}
+    }
+	trigger = {
+            custom_trigger_tooltip = {
+			    tooltip = inflation_impact_p5t
+				has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.05
+		        }
+			}		   
+	}
+	production_efficiency = 0.03
+    global_trade_goods_size_modifier = 0.03
+	development_cost = -0.03
+	
+}
+
+inflation_impact_n10 = {
+	potential = {
+	    NOT = {
+            has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.05
+		    }
+		}
+		has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.1
+		}
+    }
+	trigger = {
+            custom_trigger_tooltip = {
+			    tooltip = inflation_impact_p10t
+				has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.1
+		        }
+			}		   
+	}
+	global_unrest = 0.5
+    production_efficiency = 0.06
+    global_trade_goods_size_modifier = 0.06
+	development_cost = -0.06
+}
+
+inflation_impact_n15 = {
+	potential = {
+	    NOT = {
+            has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.1
+		    }
+		}
+		has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.15
+		}
+    }
+	trigger = {
+            custom_trigger_tooltip = {
+			    tooltip = inflation_impact_p15t
+				has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.15
+		        }
+			}		   
+	}
+	global_unrest = 1
+    production_efficiency = 0.08
+    global_trade_goods_size_modifier = 0.08
+	development_cost = -0.08
+}
+
+inflation_impact_n20 = {
+	potential = {
+	    NOT = {
+            has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.15
+		    }
+		}
+		has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.2
+		}
+    }
+	trigger = {
+            custom_trigger_tooltip = {
+			    tooltip = inflation_impact_p20t
+				has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.2
+		        }
+			}		   
+	}
+	global_unrest = 1.6
+    production_efficiency = 0.1
+    global_trade_goods_size_modifier = 0.1
+	development_cost = -0.1
+}
+
+inflation_impact_n25 = {
+	potential = {
+	    NOT = {
+            has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.20
+		    }
+		}
+		has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.25
+		}
+    }
+	trigger = {
+            custom_trigger_tooltip = {
+			    tooltip = inflation_impact_p25t
+				has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.25
+		        }
+			}		   
+	}
+	global_unrest = 2.2
+    production_efficiency = 0.115
+    global_trade_goods_size_modifier = 0.115
+	development_cost = -0.115
+}
+
+inflation_impact_n30 = {
+	potential = {
+	    NOT = {
+            has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.25
+		    }
+		}
+		has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.3
+		}
+    }
+	trigger = {
+            custom_trigger_tooltip = {
+			    tooltip = inflation_impact_p30t
+				has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.30
+		        }
+			}		   
+	}
+	global_unrest = 2.8
+    production_efficiency = 0.13
+    global_trade_goods_size_modifier = 0.13
+	development_cost = -0.13
+}
+
+inflation_impact_n40 = {
+	potential = {
+	    NOT = {
+            has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.3
+		    }
+		}
+		has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.4
+		}
+    }
+	trigger = {
+            custom_trigger_tooltip = {
+			    tooltip = inflation_impact_p30t
+				has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.4
+		        }
+			}		   
+	}
+	global_unrest = 3.5
+    production_efficiency = 0.14
+    global_trade_goods_size_modifier = 0.14
+	development_cost = -0.14
+}
+
+inflation_impact_n50 = {
+	potential = {
+	    NOT = {
+            has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.4
+		    }
+		}
+		has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.5
+		}
+    }
+	trigger = {
+            custom_trigger_tooltip = {
+			    tooltip = inflation_impact_p30t
+				has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.5
+		        }
+			}		   
+	}
+	
+	global_unrest = 4.2
+    production_efficiency = 0.15
+    global_trade_goods_size_modifier = 0.15
+	development_cost = -0.15
+}
+
+inflation_impact_n60 = {
+	potential = {
+	    NOT = {
+            has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.5
+		    }
+		}
+		has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.6
+		}
+    }
+	trigger = {
+            custom_trigger_tooltip = {
+			    tooltip = inflation_impact_p60t
+				has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.6
+		        }
+			}		   
+	}
+	global_unrest = 5
+    production_efficiency = 0.155
+    global_trade_goods_size_modifier = 0.155
+	development_cost = -0.155
+	
+}
+
+inflation_impact_n70 = {
+	potential = {
+	    NOT = {
+            has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.6
+		    }
+		}
+    }
+	trigger = {
+            custom_trigger_tooltip = {
+			    tooltip = inflation_impact_p60t
+				NOT = {
+				    has_global_modifier_value = {
+						which = inflation_reduction
+						value = -0.6
+		            }
+				}
+			}		   
+	}
+	global_unrest = 6
+    production_efficiency = 0.16
+    global_trade_goods_size_modifier = 0.16
+	development_cost = -0.16
+}

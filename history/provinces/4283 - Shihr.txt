@@ -1,0 +1,33 @@
+#4283 - Shihr
+
+owner = HDR
+controller = HDR
+culture = yemeni_culture
+religion = sunni
+capital = "As Shihr"
+trade_goods = incense
+hre = no
+base_tax = 2
+base_production = 2
+base_manpower = 2
+is_city = yes
+add_core = HDR
+discovered_by = muslim
+discovered_by = ottoman
+discovered_by = indian
+discovered_by = nomad_group
+discovered_by = east_african
+extra_cost = 8
+
+
+1480.1.1 = { discovered_by = TUR }
+1488.1.1 = { discovered_by = POR } # Pêro da Covilhã
+1654.1.1 = {
+	owner = RAS
+	controller = RAS
+	add_core = RAS
+}
+1681.1.1 = {
+	owner = HDR
+	controller = HDR
+}

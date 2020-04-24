@@ -1,0 +1,41 @@
+country_decisions = {
+
+#Covert Action
+
+      covert_action = {
+		potential = {
+                      has_global_flag = test_version
+                      full_idea_group = spy_ideas
+                      NOT = { has_country_flag = on_covert_action }
+                      OR = {
+				government = monarchy
+		      }
+		}
+		allow = {
+			has_heir = yes
+                        heir_age = 15
+		        has_regency = no
+		        is_lesser_in_union = no
+		}
+		effect = {
+			set_ruler_flag = on_covert_action
+                        country_event = { id = 4896100 }
+		}
+		ai_will_do = {
+			factor = 1
+                        modifier = {
+                              factor = 0
+                              OR = { 
+                                     NOT = { heir_age = 30 }
+                                     adm = 5
+                                     dip = 5
+                                     mil = 5
+                                     NOT = { ruler_age = 50 }
+                                     NOT = { stability = 2 }
+                                     NOT = { years_of_income = 3 }            
+                              }
+                        }
+		}
+	}
+
+}

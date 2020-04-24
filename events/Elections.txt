@@ -1,0 +1,1133 @@
+namespace = elections
+
+# Election!
+country_event = {
+	id = 700
+	title = "EVTNAME700"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	desc = {
+		trigger = { NOT = { has_ruler_flag = leader_has_been_pushed_out } }
+		desc = EVTDESC700
+	}
+	
+	desc = {
+		trigger = { has_ruler_flag = leader_has_been_pushed_out }
+		desc = elections.700.d
+	}
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_reform =  dutch_republic }
+	}
+
+        immediate = { # Save current ruling faction to prevent in-election switch exploit
+                hidden_effect = {
+                      clr_country_flag = faction_mr_a
+                      clr_country_flag = faction_mr_g
+                      clr_country_flag = faction_mr_t
+					  clr_country_flag = faction_rr_j
+					  clr_country_flag = faction_rr_r
+					  clr_country_flag = faction_rr_g
+                      if = {
+                              limit = { faction_in_power = mr_aristocrats }
+                              set_country_flag = faction_mr_a
+                      }
+                      if = {
+                              limit = { faction_in_power = mr_guilds }
+                              set_country_flag = faction_mr_g
+                      }
+                      if = {
+                              limit = { faction_in_power = mr_traders }
+                              set_country_flag = faction_mr_t
+                      }
+					  if = {
+                              limit = { faction_in_power = rr_jacobins }
+                              set_country_flag = faction_rr_j
+                      }
+					  if = {
+                              limit = { faction_in_power = rr_royalists }
+                              set_country_flag = faction_rr_r
+                      }
+					  if = {
+                              limit = { faction_in_power = rr_girondists }
+                              set_country_flag = faction_rr_g
+                      }
+                }
+        }
+
+	option = {
+		name = "EVTOPTA700"	# Current ruler stays
+		trigger = {
+			has_regency = no
+			NOT = { has_ruler_flag = leader_has_been_pushed_out }
+                        OR = {
+                              AND = {
+                                       has_country_flag = republic_election_faction1 
+                                       has_country_flag = faction_mr_g
+                              }
+                              AND = {
+                                       has_country_flag = republic_election_faction2 
+                                       has_country_flag = faction_mr_t
+                              }
+                              AND = {
+                                       has_country_flag = republic_election_faction3
+                                       has_country_flag = faction_mr_a
+                              }
+							  AND = {
+                                       has_country_flag = republic_election_faction4
+                                       has_country_flag = faction_rr_j
+                              }
+							  AND = {
+                                       has_country_flag = republic_election_faction5
+                                       has_country_flag = faction_rr_r
+                              }
+							  AND = {
+                                       has_country_flag = republic_election_faction6
+                                       has_country_flag = faction_rr_g
+                              }
+                              NOT = {
+                                       AND = {
+                                              has_country_flag = republic_election_faction1
+                                              has_country_flag = republic_election_faction2
+                                              has_country_flag = republic_election_faction3
+                                              has_country_flag = republic_election_faction4
+                                              has_country_flag = republic_election_faction5
+                                              has_country_flag = republic_election_faction6											  
+                                      }
+                              }
+                        }
+		}
+		ai_chance = { 
+			factor = 30
+			modifier = {
+				factor = 0
+				NOT = { republican_tradition = 70 }
+			}	
+		}
+		custom_tooltip = remains_ruler
+		random_list = {
+		    25 = { change_adm = 1 }
+		    25 = { change_dip = 1 }
+			25 = { change_mil = 1 }
+			25 = { }
+		}
+        if = {
+			limit = { 
+				NOT = {
+                                       OR = {
+                                              has_country_flag = republic_election_faction1
+                                              has_country_flag = republic_election_faction2
+                                              has_country_flag = republic_election_faction3 
+                                      }
+                                }
+				NOT = { has_reform =  revolutionary_republic_reform }
+			}
+                        set_country_flag = republic_election_faction3
+			add_faction_influence = {
+				faction = mr_aristocrats
+				influence = 10
+			}				
+		}
+		if = {
+			limit = { 
+				NOT = {
+                                       OR = {
+                                              has_country_flag = republic_election_faction4
+                                              has_country_flag = republic_election_faction5
+                                              has_country_flag = republic_election_faction6 
+                                      }
+                                }
+				has_reform =  revolutionary_republic_reform
+			}
+                set_country_flag = republic_election_faction4
+			add_faction_influence = {
+				faction = rr_jacobins
+				influence = 10
+			}				
+		}
+        if = {
+			limit = { 
+				has_country_flag = republic_election_faction1 
+			}
+			add_faction_influence = {
+				faction = mr_guilds
+				influence = 10
+			}				
+		}
+        if = {
+			limit = { 
+				has_country_flag = republic_election_faction2 
+			}
+			add_faction_influence = {
+				faction = mr_traders
+				influence = 10
+			}				
+		}
+        if = {
+			limit = { 
+				has_country_flag = republic_election_faction3 
+			}
+			add_faction_influence = {
+				faction = mr_aristocrats
+				influence = 10
+			}				
+		}
+		if = {
+			limit = { 
+				has_country_flag = republic_election_faction4 
+			}
+			add_faction_influence = {
+				faction = rr_jacobins
+				influence = 10
+			}				
+		}
+        if = {
+			limit = { 
+				has_country_flag = republic_election_faction5
+			}
+			add_faction_influence = {
+				faction = rr_royalists
+				influence = 10
+			}				
+		}
+        if = {
+			limit = { 
+				has_country_flag = republic_election_faction6
+			}
+			add_faction_influence = {
+				faction = rr_girondists
+				influence = 10
+			}				
+		}
+		if = {
+			limit = {				 
+				has_reform =  revolutionary_republic_reform
+				NOT = { republican_tradition = 20 }	
+			}
+			add_government_reform = becomes_monarchy_reform
+			add_government_reform = revolutionary_empire_reform
+		}
+		if = {
+			limit = {				 
+				government = republic
+				NOT = { republican_tradition = 20 }
+				NOT = { has_reform = revolutionary_republic_reform }
+			}
+			add_government_reform = becomes_monarchy_reform
+			add_government_reform = court_despotism
+		}	
+		add_scaled_republican_tradition = -10
+		add_prestige = 10
+		random_list = {
+			33 = {
+				add_adm_power = 50
+			}
+			33 = {
+				add_dip_power = 50
+			}
+			33 = {
+				add_mil_power = 50
+			}
+		}
+		add_karma = -10
+	}
+	option = {
+		name = "EVTOPTB7001"	# An administrator type
+		trigger = {
+		       has_faction = mr_guilds
+		}
+		ai_chance = { 
+                factor = 20 
+                modifier = {
+				factor = 0
+				AND = {
+                        NOT = { republican_tradition = 70 }
+                        NOT = { faction_in_power = mr_guilds  }
+                        has_faction = mr_guilds
+                        }
+		  	    }
+        }
+                
+		define_ruler = {
+			#adm = 1				
+			#fixed = yes
+		}
+        if = {
+			limit = { 
+				has_country_flag = faction_mr_g
+			}
+			add_faction_influence = {
+				faction = mr_guilds
+				influence = -10
+			}				
+		}
+		if = {
+			limit = { 
+				NOT = { has_country_flag = faction_mr_g }
+                has_faction = mr_guilds
+			}
+			add_faction_influence = {
+				faction = mr_guilds
+				influence = 10
+			}
+			add_scaled_republican_tradition = -10		
+			if = {
+				limit = {				 
+					government = republic
+					NOT = { republican_tradition = 20 }
+					NOT = { has_dlc = "Res Publica" }
+					}
+				add_government_reform = becomes_monarchy_reform
+				add_government_reform = court_despotism
+			}
+		}		
+        set_country_flag = republic_election_faction1 
+        clr_country_flag = republic_election_faction2
+        clr_country_flag = republic_election_faction3
+	}
+	option = {
+		name = "EVTOPTB7001J"	# A Jacobin
+		trigger = {
+		       has_faction = rr_jacobins
+		}
+		ai_chance = { 
+                factor = 20 
+                modifier = {
+				factor = 0
+				AND = {
+                        NOT = { republican_tradition = 70 }
+                        NOT = { faction_in_power = rr_jacobins  }
+                        has_faction = rr_jacobins
+                                }
+		  	     }
+        }
+                
+		define_ruler = {
+			#adm = 1				
+			#fixed = yes
+		}
+                
+		if = {
+			limit = { 
+				has_country_flag = faction_rr_j
+			}
+			add_faction_influence = {
+				faction = rr_jacobins
+				influence = -10
+			}				
+		}
+		
+		if = {
+			limit = { 
+				NOT = { has_country_flag = faction_rr_j }
+                has_faction = rr_jacobins
+			}
+			add_faction_influence = {
+				faction = rr_jacobins
+				influence = 10
+			}
+			add_scaled_republican_tradition = -10
+			if = {
+				limit = {
+					NOT = { republican_tradition = 20 }
+				}
+			add_government_reform = becomes_monarchy_reform
+			add_government_reform = revolutionary_empire_reform
+			}			        
+		}                
+        set_country_flag = republic_election_faction4
+        clr_country_flag = republic_election_faction5
+        clr_country_flag = republic_election_faction6
+	}
+	option = {
+		name = "EVTOPTC700"	# A diplomat
+		trigger = {
+		     has_faction = mr_traders 
+		}
+		ai_chance = { 
+                              factor = 20 
+                              modifier = {
+				factor = 0
+				AND = {
+                                         NOT = { republican_tradition = 70 }
+                                         NOT = { has_country_flag = faction_mr_t   }
+                                         has_faction = mr_traders 
+                                }
+		  	     }
+                } 
+		define_ruler = {
+			#dip = 1
+		}
+		if = {
+			limit = { 
+				has_country_flag = faction_mr_t
+			}
+			add_faction_influence = {
+				faction = mr_traders
+				influence = -10
+			}				
+		}
+		if = {
+			limit = { 
+				NOT = { has_country_flag = faction_mr_t }
+                has_faction = mr_traders
+			}
+			add_faction_influence = {
+				faction = mr_traders
+				influence = 10
+			}  
+		    if = {
+				limit = {				  
+					government = republic
+					NOT = { republican_tradition = 20 }				
+				}
+				add_government_reform = becomes_monarchy_reform
+				add_government_reform = court_despotism
+		    }	
+		        add_scaled_republican_tradition = -10		
+		}
+		add_karma = 10                
+        set_country_flag = republic_election_faction2 
+        clr_country_flag = republic_election_faction1
+        clr_country_flag = republic_election_faction3	
+	}
+	
+	option = {
+		name = "EVTOPTC7001R"	# A Royalist
+		trigger = {
+		     has_faction = rr_royalists
+		}
+		ai_chance = { 
+                              factor = 20 
+                              modifier = {
+				factor = 0
+				AND = {
+                                         NOT = { republican_tradition = 70 }
+                                         NOT = { has_country_flag = faction_rr_r   }
+                                         has_faction = rr_royalists
+                                }
+		  	     }
+                } 
+		define_ruler = {
+			#dip = 1
+		}
+		if = {
+			limit = { 
+				has_country_flag = faction_rr_r
+			}
+			add_faction_influence = {
+				faction = rr_royalists
+				influence = -10
+			}				
+		}
+		if = {
+			limit = { 
+				NOT = { has_country_flag = faction_rr_r }
+                                has_faction = rr_royalists
+			}
+			add_faction_influence = {
+				faction = rr_royalists
+				influence = 10
+			}
+			if = {
+				limit = {				
+					NOT = { republican_tradition = 20 }
+				}
+				add_government_reform = becomes_monarchy_reform
+				add_government_reform = revolutionary_empire_reform
+			}	
+		    add_scaled_republican_tradition = -10
+		}                
+		add_karma = 10
+        set_country_flag = republic_election_faction5
+        clr_country_flag = republic_election_faction4
+        clr_country_flag = republic_election_faction6
+	}
+	
+	option = {
+		name = "EVTOPTD700"	# A military man
+		trigger = {
+		     has_faction = mr_aristocrats 
+		}
+		ai_chance = { 
+                              factor = 20 
+                              modifier = {
+				factor = 0
+				AND = {
+                                         NOT = { republican_tradition = 70 }
+                                         NOT = { has_country_flag = faction_mr_a    }
+                                         has_faction = mr_aristocrats 
+                                }
+		  	     }
+                } 
+		define_ruler = {
+			#mil = 1
+		}
+		if = {
+			limit = { 
+				has_country_flag = faction_mr_a
+			}
+			add_faction_influence = {
+				faction = mr_aristocrats
+				influence = -10
+			}				
+		}
+		if = {
+			limit = { 
+				NOT = { has_country_flag = faction_mr_a }
+                                has_faction = mr_aristocrats
+			}
+			add_faction_influence = {
+				faction = mr_aristocrats
+				influence = 10
+			}
+                        
+		        
+		    if = {
+				limit = {				  
+					government = republic
+					NOT = { republican_tradition = 20 }					
+				}
+				add_government_reform = becomes_monarchy_reform
+				add_government_reform = court_despotism
+		    }	
+		    add_scaled_republican_tradition = -10	
+		}  
+        set_country_flag = republic_election_faction3 
+        clr_country_flag = republic_election_faction2
+        clr_country_flag = republic_election_faction1	
+	}
+	
+	option = {
+		name = "EVTOPTD7001G"	# A Girondist
+		trigger = {
+		     has_faction = rr_girondists
+		}
+		ai_chance = { 
+                              factor = 20 
+                              modifier = {
+				factor = 0
+				AND = {
+                                         NOT = { republican_tradition = 70 }
+                                         NOT = { has_country_flag = faction_rr_g    }
+                                         has_faction = rr_girondists
+                                }
+		  	     }
+                } 
+		define_ruler = {
+			#mil = 1
+		}
+		if = {
+			limit = { 
+				has_country_flag = faction_rr_g
+			}
+			add_faction_influence = {
+				faction = rr_girondists
+				influence = -10
+			}				
+		}
+		if = {
+			limit = { 
+				NOT = { has_country_flag = faction_rr_g }
+                                has_faction = rr_girondists
+			}
+			add_faction_influence = {
+				faction = rr_girondists
+				influence = 10
+			}		
+			if = {
+				limit = {				
+					NOT = { republican_tradition = 20 }				
+				}
+				add_government_reform = becomes_monarchy_reform
+				add_government_reform = revolutionary_empire_reform
+			}
+            add_scaled_republican_tradition = -10
+		}     
+        set_country_flag = republic_election_faction3 
+        clr_country_flag = republic_election_faction2
+        clr_country_flag = republic_election_faction1	
+	}
+	
+	option = {
+		name = "elections.700.e"	# We need a Medici to rule us
+		trigger = { 
+		      tag = LAN 
+		      NOT = { has_reform =  revolutionary_republic_reform }	  
+		}
+		ai_chance = { factor = 90 }
+		define_ruler = {
+			mil = 2
+			adm = 2
+			dip = 2					
+			fixed = yes
+		}
+		if = {
+			limit = { 
+				has_faction = mr_aristocrats 
+			}
+			add_faction_influence = {
+				faction = mr_aristocrats
+				influence = 10
+			}				
+		}
+		add_karma = 10
+		if = {
+			limit = { 
+				has_faction = mr_guilds 
+			}
+			add_faction_influence = {
+				faction = mr_guilds
+				influence = 10
+			}				
+		}			
+	}
+}
+
+# Election!
+country_event = {
+	id = 701
+	title = "EVTNAME700"
+	desc = "EVTDESC701"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		NOT = { has_reform =  dutch_republic }
+	}
+	
+        immediate = { # Save current ruling faction to prevent in-election switch exploit
+                hidden_effect = {
+                      clr_country_flag = faction_mr_a
+                      clr_country_flag = faction_mr_g
+                      clr_country_flag = faction_mr_t
+					  clr_country_flag = faction_rr_j
+					  clr_country_flag = faction_rr_r
+					  clr_country_flag = faction_rr_g
+                      if = {
+                              limit = { faction_in_power = mr_aristocrats }
+                              set_country_flag = faction_mr_a
+                      }
+                      if = {
+                              limit = { faction_in_power = mr_guilds }
+                              set_country_flag = faction_mr_g
+                      }
+                      if = {
+                              limit = { faction_in_power = mr_traders }
+                              set_country_flag = faction_mr_t
+                      }
+					  if = {
+                              limit = { faction_in_power = rr_jacobins }
+                              set_country_flag = faction_rr_j
+                      }
+					  if = {
+                              limit = { faction_in_power = rr_royalists }
+                              set_country_flag = faction_rr_r
+                      }
+					  if = {
+                              limit = { faction_in_power = rr_girondists }
+                              set_country_flag = faction_rr_g
+                      }
+                }
+        }
+
+	option = {
+		name = "EVTOPTB7001"	# An administrator type
+		trigger = {
+		       has_faction = mr_guilds
+		}
+		ai_chance = { 
+                              factor = 20 
+                modifier = {
+				factor = 0
+				AND = {
+                                         NOT = { republican_tradition = 70 }
+                                         NOT = { faction_in_power = mr_guilds  }
+                                         has_faction = mr_guilds
+                                }
+		  	     }
+                }
+                
+		define_ruler = {
+			#adm = 1				
+			#fixed = yes
+		}
+                if = {
+			limit = { 
+				has_country_flag = faction_mr_g
+			}
+			add_faction_influence = {
+				faction = mr_guilds
+				influence = -10
+			}				
+		}
+		if = {
+			limit = { 
+				NOT = { has_country_flag = faction_mr_g }
+                                has_faction = mr_guilds
+			}
+			add_faction_influence = {
+				faction = mr_guilds
+				influence = 10
+			} 
+		    if = {
+				limit = {				
+					government = republic
+					NOT = { republican_tradition = 20 }				
+				}
+				add_government_reform = becomes_monarchy_reform
+				add_government_reform = court_despotism
+		    }	
+		    add_scaled_republican_tradition = -10
+		}  
+        set_country_flag = republic_election_faction1 
+        clr_country_flag = republic_election_faction2
+        clr_country_flag = republic_election_faction3
+	}
+	option = {
+		name = "EVTOPTB7001J"	# A Jacobin
+		trigger = {
+		       has_faction = rr_jacobins
+		}
+		ai_chance = { 
+                              factor = 20 
+                modifier = {
+				factor = 0
+				AND = {
+                                         NOT = { republican_tradition = 70 }
+                                         NOT = { faction_in_power = rr_jacobins  }
+                                         has_faction = rr_jacobins
+                                }
+		  	     }
+                }
+                
+		define_ruler = {
+			#adm = 1				
+			#fixed = yes
+		}
+                
+		if = {
+			limit = { 
+				has_country_flag = faction_rr_j
+			}
+			add_faction_influence = {
+				faction = rr_jacobins
+				influence = -10
+			}				
+		}		
+		if = {
+			limit = { 
+				NOT = { has_country_flag = faction_rr_j }
+                                has_faction = rr_jacobins
+			}
+			add_faction_influence = {
+				faction = rr_jacobins
+				influence = 10
+			}		
+			if = {
+				limit = {				
+					NOT = { republican_tradition = 20 }				
+				}
+				add_government_reform = becomes_monarchy_reform
+				add_government_reform = revolutionary_empire_reform
+			}	
+		    add_scaled_republican_tradition = -10
+		}                
+        set_country_flag = republic_election_faction4
+        clr_country_flag = republic_election_faction5
+        clr_country_flag = republic_election_faction6
+	}
+	option = {
+		name = "EVTOPTC700"	# A diplomat
+		trigger = {
+		     has_faction = mr_traders 
+		}
+		ai_chance = { 
+                              factor = 20 
+                              modifier = {
+				factor = 0
+				AND = {
+                                         NOT = { republican_tradition = 70 }
+                                         NOT = { has_country_flag = faction_mr_t   }
+                                         has_faction = mr_traders 
+                                }
+		  	     }
+                } 
+		define_ruler = {
+			#dip = 1
+		}
+		if = {
+			limit = { 
+				has_country_flag = faction_mr_t
+			}
+			add_faction_influence = {
+				faction = mr_traders
+				influence = -10
+			}				
+		}
+		if = {
+			limit = { 
+				NOT = { has_country_flag = faction_mr_t }
+                has_faction = mr_traders
+			}
+			add_faction_influence = {
+				faction = mr_traders
+				influence = 10
+			} 
+		    if = {
+				limit = {				
+					government = republic
+					NOT = { republican_tradition = 20 }				
+				}
+				add_government_reform = becomes_monarchy_reform
+				add_government_reform = court_despotism
+		    }	
+		    add_scaled_republican_tradition = -10		
+		}
+		add_karma = 10                
+        set_country_flag = republic_election_faction2 
+        clr_country_flag = republic_election_faction1
+        clr_country_flag = republic_election_faction3	
+	}
+	
+	option = {
+		name = "EVTOPTC7001R"	# A Royalist
+		trigger = {
+		     has_faction = rr_royalists
+		}
+		ai_chance = { 
+                              factor = 20 
+                              modifier = {
+				factor = 0
+				AND = {
+                                         NOT = { republican_tradition = 70 }
+                                         NOT = { has_country_flag = faction_rr_r   }
+                                         has_faction = rr_royalists
+                                }
+		  	     }
+                } 
+		define_ruler = {
+			#dip = 1
+		}
+		if = {
+			limit = { 
+				has_country_flag = faction_rr_r
+			}
+			add_faction_influence = {
+				faction = rr_royalists
+				influence = -10
+			}				
+		}
+		if = {
+			limit = { 
+				NOT = { has_country_flag = faction_rr_r }
+                                has_faction = rr_royalists
+			}
+			add_faction_influence = {
+				faction = rr_royalists
+				influence = 10
+			}
+			if = {
+				limit = {				
+					NOT = { republican_tradition = 20 }				
+				}
+				add_government_reform = becomes_monarchy_reform
+				add_government_reform = revolutionary_empire_reform
+			}	
+		    add_scaled_republican_tradition = -10
+		}                
+		add_karma = 10
+        set_country_flag = republic_election_faction5
+        clr_country_flag = republic_election_faction4
+        clr_country_flag = republic_election_faction6
+	}
+	
+	option = {
+		name = "EVTOPTD700"	# A military man
+		trigger = {
+		     has_faction = mr_aristocrats 
+		}
+		ai_chance = { 
+                              factor = 20 
+                              modifier = {
+				factor = 0
+				AND = {
+                                         NOT = { republican_tradition = 70 }
+                                         NOT = { has_country_flag = faction_mr_a    }
+                                         has_faction = mr_aristocrats 
+                                }
+		  	     }
+                } 
+		define_ruler = {
+			#mil = 1
+		}
+		if = {
+			limit = { 
+				has_country_flag = faction_mr_a
+			}
+			add_faction_influence = {
+				faction = mr_aristocrats
+				influence = -10
+			}				
+		}
+		if = {
+			limit = { 
+				NOT = { has_country_flag = faction_mr_a }
+                                has_faction = mr_aristocrats
+			}
+			add_faction_influence = {
+				faction = mr_aristocrats
+				influence = 10
+			}  
+		    if = {
+				limit = {				
+					government = republic
+					NOT = { republican_tradition = 20 }				
+				}
+				add_government_reform = becomes_monarchy_reform
+				add_government_reform = court_despotism
+		    }	
+			add_scaled_republican_tradition = -10	
+		}
+		set_country_flag = republic_election_faction3
+		clr_country_flag = republic_election_faction2
+		clr_country_flag = republic_election_faction1	
+	}
+	
+	option = {
+		name = "EVTOPTD7001G"	# A Girondist
+		trigger = {
+		     has_faction = rr_girondists
+		}
+		ai_chance = { 
+                              factor = 20 
+                              modifier = {
+				factor = 0
+				AND = {
+                                         NOT = { republican_tradition = 70 }
+                                         NOT = { has_country_flag = faction_rr_g    }
+                                         has_faction = rr_girondists
+                                }
+		  	     }
+                } 
+		define_ruler = {
+			#mil = 1
+		}
+		if = {
+			limit = { 
+				has_country_flag = faction_rr_g
+			}
+			add_faction_influence = {
+				faction = rr_girondists
+				influence = -10
+			}				
+		}
+		if = {
+			limit = { 
+				NOT = { has_country_flag = faction_rr_g }
+                                has_faction = rr_girondists
+			}
+			add_faction_influence = {
+				faction = rr_girondists
+				influence = 10
+			}			
+			if = {
+				limit = {				
+					NOT = { republican_tradition = 20 }
+				}
+				add_government_reform = becomes_monarchy_reform
+				add_government_reform = revolutionary_empire_reform
+			}	
+        add_scaled_republican_tradition = -10
+		}     
+        set_country_flag = republic_election_faction3 
+        clr_country_flag = republic_election_faction2
+        clr_country_flag = republic_election_faction1	
+	}
+	
+	option = {
+		name = "elections.700.e"	# We need a Medici to rule us
+		trigger = { 
+		      tag = LAN 
+		      NOT = { has_reform =  revolutionary_republic_reform }	  
+		}
+		ai_chance = { factor = 90 }
+		define_ruler = {
+			mil = 2
+			adm = 2
+			dip = 2					
+			fixed = yes
+		}
+		if = {
+			limit = { 
+				has_faction = mr_aristocrats 
+			}
+			add_faction_influence = {
+				faction = mr_aristocrats
+				influence = 10
+			}				
+		}
+		add_karma = 10
+		if = {
+			limit = { 
+				has_faction = mr_guilds 
+			}
+			add_faction_influence = {
+				faction = mr_guilds
+				influence = 10
+			}				
+		}			
+	}
+}
+
+########################################
+# Colonial Nations                     #
+########################################
+
+# Election!
+country_event = {
+	id = elections.707
+	title = "elections.EVTNAME707"
+	desc = "elections.EVTDESC707"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "elections.EVTOPTB707"	# Bureaucrat Candidate
+		ai_chance = { factor = 20 }
+		FROM = {
+			define_ruler = {
+				adm = 4
+				mil = 2
+				dip = 2
+				fixed = yes
+			}
+			set_ruler_flag = appointed_by_overlord
+		}
+	}
+	option = {
+		name = "elections.EVTOPTC707"	# Diplomat Candidate
+		ai_chance = { factor = 20 }
+		FROM = {
+			define_ruler = {
+				adm = 2
+				dip = 4
+				mil = 2
+				fixed = yes
+			}
+			set_ruler_flag = appointed_by_overlord
+		}
+	}
+	option = {
+		name = "elections.EVTOPTD707"	# Military Candidate
+		ai_chance = { factor = 20 }
+		FROM = {
+			define_ruler = {
+				adm = 2
+				dip = 2
+				mil = 4
+				fixed = yes
+			}	
+			set_ruler_flag = appointed_by_overlord
+		}
+	}
+}
+
+# Colonial Assembly
+country_event = {
+	id = elections.711
+	title = "elections.EVTNAME711"
+	desc = "elections.EVTDESC711"
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "elections.EVTOPTB711"	# Suspicious indeed...
+		tooltip = {
+			FROM = {
+				add_liberty_desire = 10
+			}
+		}
+	}
+}
+
+## Winds of Liberty
+#country_event = {
+#	id = elections.712
+#	title = "elections.EVTNAME712"
+#	desc = "elections.EVTDESC712"
+#	picture = ELECTION_REPUBLICAN_eventPicture
+#	
+#	is_triggered_only = yes
+#
+#	option = {
+#		name = "elections.EVTOPTB712"	# Most worrisome...
+#		tooltip = {
+#			FROM = {
+#				add_liberty_desire = -25
+#			}
+#		}
+#	}
+#}
+
+
+
+# Dutch Republic
+country_event = {
+	id = elections.720
+	title = elections.720.t
+	desc = elections.720.d
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_reform =  dutch_republic
+	}
+	
+	option = {
+		name = elections.720.a
+		define_ruler = {
+		}
+		change_statists_vs_orangists = -0.33
+	
+	}
+	option = {
+		name = elections.720.b
+		define_ruler = {
+		}
+		change_statists_vs_orangists = 0.33
+	}
+}
+
+country_event = {
+	id = elections.721
+	title = elections.720.t
+	desc = elections.721.d
+	picture = ELECTION_REPUBLICAN_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		has_reform =  dutch_republic
+	}
+	
+	option = {
+		name = elections.720.a
+		define_ruler = {
+		}
+		change_statists_vs_orangists = -0.33
+	
+	}
+	option = {
+		name = elections.720.b
+		define_ruler = {
+		}
+		change_statists_vs_orangists = 0.33
+	}
+}

@@ -1,0 +1,2936 @@
+#Sunset Invasion II
+namespace = sun
+country_event = {
+        id = sun.00
+	title = "sun.0.t"
+	desc = "sun.0.d"
+	picture = SHIP_SAILING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "sun.0.a" #Start Sunset Invasion II Scenerio!
+                custom_tooltip = sun.0.at
+                hidden_effect = {
+                          set_global_flag = sunset_invasion
+			  country_event = { id = sun.01 }
+                }
+	}
+        
+        option = {
+		name = "sun.0.b" #No,no,this is not what I means...
+                custom_tooltip = sun.0.bt
+	}
+}
+
+country_event = {
+        id = sun.01
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = SHIP_SAILING_eventPicture
+	
+	is_triggered_only = yes
+        hidden = yes
+
+	immediate = {
+                
+                #Pre Setup(Allow cavalry&artillery use for Aztec,Inca and Iroquis
+                AZT = { change_technology_group = high_american }
+                CSU = { change_technology_group = high_american }
+                AZE = { change_technology_group = high_american }
+                ICN = { change_technology_group = high_american }
+                AZC = { change_technology_group = high_american }
+                ICC = { change_technology_group = high_american }
+                IRO = { change_technology_group = high_american }
+                IRF = { change_technology_group = high_american }
+                #Pre Setup End
+
+
+                #Aztec Empire Setup
+                852 = {  #Mexico
+                            cede_province = AZE
+                            change_culture = aztek
+                            change_religion = nahuatl
+                            add_core = AZE
+                            remove_core = AZT
+                            add_base_tax = 4 
+                            add_base_production = 4
+                            add_base_manpower = 4
+							set_variable = { which = literacy value = 4.5 }
+							add_institution_embracement = {
+				                   value = 100
+				                   which = "feudalism"
+			                }
+							add_institution_embracement = {
+				                   value = 100
+				                   which = "gunpowder"
+			                }
+                }
+                AZE = {
+                            set_capital = 852
+							hidden_effect = { cu_calc_country_absolute_dist = yes }
+                            change_religion = nahuatl
+                            change_technology_group = high_american
+							change_unit_type = mesoamerican
+                            change_government = monarchy
+							add_government_reform = ord_reform
+							add_government_reform = tax_policy_3
+							add_government_reform = economic_policy_3
+							add_government_reform = trade_policy_3
+							add_government_reform = cur_government_capacity
+							add_government_reform = cu_cultural_policy_3
+							add_government_reform = cu_religious_policy_3
+							add_government_reform = feudal_conscription
+							add_government_reform = education_policy_church
+							add_government_reform = court_despotism
+							add_government_reform = mandate_system
+							add_government_reform = sovereign_code
+							add_government_reform = no_election							
+                            set_government_rank = 3
+                            change_primary_culture = aztek
+                            define_ruler = {
+                                        dynasty = "Yaotl"
+					adm = 5
+					dip = 5
+					mil = 6
+					claim = 100
+                            }
+                            define_heir = {
+                                        dynasty = "Yaotl"
+                                        adm = 4
+					dip = 4
+					mil = 6
+					claim = 100
+                            }
+                            add_stability = 6
+                            add_prestige = 50
+                            add_adm_power = 900
+                            add_dip_power = 900
+                            add_mil_power = 900
+                            add_treasury = 2000
+                            add_manpower = 0.75
+							add_adm_tech = 4
+							add_dip_tech = 4
+							add_mil_tech = 4                            
+                            infantry = 852
+			    infantry = 852
+			    infantry = 852
+                            infantry = 852
+                            infantry = 852
+                            infantry = 852
+                            infantry = 852
+			    infantry = 852
+			    infantry = 852
+			    infantry = 852
+                            infantry = 852
+                            infantry = 852
+                            infantry = 852
+                            infantry = 852
+			    infantry = 852
+			    infantry = 852
+			    infantry = 852
+                            infantry = 852
+                            infantry = 852
+                            infantry = 852
+                            infantry = 852
+			    infantry = 852
+			    infantry = 852
+                            infantry = 852
+                            infantry = 484
+			    infantry = 484
+			    infantry = 484
+			    infantry = 484
+                            infantry = 484
+                            infantry = 484
+                            infantry = 484
+                            infantry = 484
+			    infantry = 484
+			    infantry = 484
+			    infantry = 484
+                            infantry = 484
+                            infantry = 484
+                            infantry = 484
+                            infantry = 484
+			    infantry = 484
+			    infantry = 484
+			    infantry = 484
+                            infantry = 484
+                            infantry = 484
+                            infantry = 484
+                            infantry = 484
+                            infantry = 484
+			    infantry = 484
+			    infantry = 484
+			    infantry = 484
+                            infantry = 484
+                            infantry = 484
+                            infantry = 484
+                            heavy_ship = 484
+                            heavy_ship = 484
+                            heavy_ship = 484
+                            heavy_ship = 484
+                            heavy_ship = 484
+                            light_ship = 484
+                            light_ship = 484
+                            light_ship = 484
+                            light_ship = 484
+                            light_ship = 484
+                            light_ship = 484
+                            light_ship = 484
+                            galley = 484
+			    galley = 484
+                            galley = 484
+                            galley = 484
+                            galley = 484
+                            galley = 484
+			    galley = 484
+			    galley = 484
+			    galley = 484
+                            galley = 484
+                            galley = 484
+                            galley = 484
+                            transport = 484
+			    transport = 484
+			    transport = 484
+			    transport = 484
+                            transport = 484
+                            transport = 484
+                            transport = 484
+                            transport = 484
+			    transport = 484
+			    transport = 484
+			    transport = 484
+                            transport = 484
+                            transport = 484
+                            transport = 484
+                            transport = 484
+			    transport = 484
+			    transport = 484
+			    transport = 484
+                            transport = 484
+                            transport = 484
+                            transport = 484
+                            transport = 484
+                            transport = 484
+			    transport = 484
+			    transport = 484
+			    transport = 484
+                            transport = 484
+                            transport = 484
+                            transport = 484
+                            transport = 484
+			    transport = 484
+			    transport = 484
+			    transport = 484
+                            transport = 484
+                            transport = 484
+                            transport = 484
+			    transport = 484
+                            transport = 484
+                            transport = 484
+                            transport = 484
+                            create_general = { tradition = 100 }
+                            create_general = { tradition = 80 }
+                            create_conquistador = 100
+                            create_explorer = 100
+                            create_explorer = 60
+                            add_army_tradition = 47.9
+                            add_navy_tradition = 23.1
+                            every_province = {
+                                   limit = {
+                                       OR = {
+                                              region = france_region
+                                              region = scandinavia_region
+                                              region = low_countries_region
+                                              region = iberia_region
+                                              region = british_isles_region
+                                              area = north_rhine_area
+                                              area = gulf_of_panama_area
+                                              region = caribbean_sea_region
+                                              region = north_atlantic_region
+                                              region = american_east_coast_region
+                                              region = south_atlantic_region
+                                              area = gulf_of_mexico_area
+                                              area = chilean_sea_area
+                                              area = gulf_of_guinea_sea_area
+                                              area = sea_of_labrador_area
+                                              area = east_pacific_ocean_area
+                                              continent = north_america
+                                              continent = south_america
+                                       }
+                                   }
+                                   AZE = { discover_province = PREV }
+                                   if = {
+                                          limit = { 
+                                                   has_port = yes
+                                                   continent = europe
+                                                   owner = { NOT = { tag = SWE } } 
+                                                   NOT = { area = provence_area }
+                                                   NOT = { area = languedoc_area }
+                                                   NOT = { area = aragon_area }
+                                                   NOT = { area = catalonia_area }
+                                                   NOT = { area = valencia_area }
+                                                   NOT = { area = lower_andalucia_area }
+                                          }
+                                          add_permanent_claim = AZE
+                                   }
+                            }
+                }
+                every_province = {
+                            limit = { 
+                                       OR = {
+                                              region = central_america_region
+                                              region = mexico_region
+                                              region = colombia_region
+											  region = rio_grande_region
+                                              area = lower_plains_area                                              area = high_plains_area                                              
+                                              area = upper_louisiana_area
+                                              province_id = 2490
+                                              province_id = 2020
+                                       }                                      
+                                       NOT = { area = upper_guyana_area }
+                            }
+                            cede_province = AZE
+							if = {
+							       limit = { 
+                                         OR = {
+										      region = central_america_region
+                                              region = mexico_region
+                                              region = colombia_region
+											  region = rio_grande_region
+										 }
+								   }
+								   change_culture = aztek
+							}
+                            #change_culture = aztek
+                            change_religion = nahuatl
+                            add_core = AZE
+                            remove_core = AZT
+                            add_base_manpower = 2
+                            add_base_production = 1
+                            add_base_tax = 1
+							set_variable = { which = literacy value = 4.5 }
+							add_institution_embracement = {
+				                   value = 100
+				                   which = "feudalism"
+			                }
+							add_institution_embracement = {
+				                   value = 100
+				                   which = "gunpowder"
+			                }
+                }
+                every_province = { #Aztec Direct Colony
+                            limit = { 
+                                       OR = {
+                                              AND = { 
+                                                       region = carribeans_region
+                                                       NOT = { development = 7 }
+                                              }
+                                              region = mississippi_region
+                                              region = california_region
+                                       }
+                                       NOT = { area = kentucky_area }
+                                       NOT = { area = appalachia_area }
+                                       NOT = { owned_by = AZE }
+                            }
+                            cede_province = AZE
+                            change_culture = aztek
+                            change_religion = nahuatl
+                            add_core = AZE
+                            add_base_production = 1
+							set_variable = { which = literacy value = 4.5 }
+							add_institution_embracement = {
+				                   value = 100
+				                   which = "feudalism"
+			                }
+							add_institution_embracement = {
+				                   value = 100
+				                   which = "gunpowder"
+			                }
+                }
+                #Aztec Setup Over
+                
+                #Aztec European Colony Setup
+  
+                481 = {  #Bermuda
+                            cede_province = AZC
+                            change_culture = aztek
+                            change_religion = nahuatl
+                            add_core = AZC
+                            remove_core = AZE
+                            add_base_tax = 1 
+                            add_base_production = 1
+                            add_base_manpower = 1
+                }
+
+                AZC = {
+                            set_capital = 481
+							hidden_effect = { cu_calc_country_absolute_dist = yes }
+                            change_religion = nahuatl
+                            change_technology_group = high_american
+							change_unit_type = mesoamerican
+                            change_government = monarchy
+							add_government_reform = ord_reform
+							add_government_reform = tax_policy_3
+							add_government_reform = economic_policy_3
+							add_government_reform = trade_policy_3
+							add_government_reform = cur_government_capacity
+							add_government_reform = cu_cultural_policy_3
+							add_government_reform = cu_religious_policy_3
+							add_government_reform = feudal_conscription
+							add_government_reform = education_policy_church
+							add_government_reform = court_despotism
+							add_government_reform = mandate_system
+							add_government_reform = sovereign_code
+							add_government_reform = no_election
+                            set_government_rank = 1
+                            change_primary_culture = aztek
+                            define_ruler = {
+                                        dynasty = "Yaotl"
+					adm = 5
+					dip = 5
+					mil = 6
+					claim = 100
+                            }
+                            define_heir = {
+                                        dynasty = "Yaotl"
+                                        adm = 5
+					dip = 5
+					mil = 6
+					claim = 100
+                            }
+                            add_stability = 6
+                            add_prestige = 50
+                            add_adm_power = 900
+                            add_dip_power = 900
+                            add_mil_power = 900
+                            add_treasury = 1000
+                            add_manpower = 0.75
+                            add_adm_tech = 4
+							add_dip_tech = 4
+							add_mil_tech = 4
+                            infantry = 481
+			    infantry = 481
+			    infantry = 481
+                            infantry = 481
+                            infantry = 481
+			    infantry = 481
+			    infantry = 481
+                            infantry = 481
+                            infantry = 481
+			    infantry = 481
+			    infantry = 481
+                            infantry = 481
+			    infantry = 481
+                            infantry = 481
+                            infantry = 481
+			    infantry = 481
+			    infantry = 481
+                            infantry = 481
+                            infantry = 481
+			    infantry = 481
+			    infantry = 481
+                            infantry = 481
+                            heavy_ship = 481
+                            heavy_ship = 481
+                            heavy_ship = 481
+                            heavy_ship = 481
+                            heavy_ship = 481
+                            heavy_ship = 481
+                            galley = 481
+                            galley = 481
+                            galley = 481
+                            galley = 481
+                            galley = 481
+                            galley = 481
+                            galley = 481
+                            galley = 481
+                            galley = 481
+                            galley = 481
+                            galley = 481
+                            galley = 481
+                            transport = 481
+			    transport = 481
+                            transport = 481
+			    transport = 481
+                            transport = 481
+			    transport = 481
+                            transport = 481
+			    transport = 481
+                            transport = 481
+			    transport = 481
+                            transport = 481
+			    transport = 481
+                            transport = 481
+			    transport = 481
+                            transport = 481
+			    transport = 481
+                            transport = 481
+			    transport = 481
+                            transport = 481
+			    transport = 481
+                            transport = 481
+			    transport = 481
+                            transport = 481
+			    transport = 481
+                            create_general = { tradition = 100 }
+                            create_general = { tradition = 80 }
+                            create_conquistador = 100
+                            create_explorer = 100
+                            create_explorer = 60
+                            add_army_tradition = 47.9
+                            add_navy_tradition = 23.1
+                            every_province = {
+                                   limit = {
+                                       OR = {
+                                              region = france_region
+                                              region = scandinavia_region
+                                              region = low_countries_region
+                                              region = iberia_region
+                                              region = british_isles_region
+                                              area = north_rhine_area
+                                              area = gulf_of_panama_area
+                                              area = caribbean_sea_area
+                                              area = gulf_of_mexico_area
+                                              area = chilean_sea_area
+                                              area = gulf_of_guinea_sea_area
+                                              area = sea_of_labrador_area
+                                              area = east_pacific_ocean_area
+                                              continent = north_america
+                                              continent = south_america
+                                       }
+                                   }
+                                   AZC = { discover_province = PREV }
+                                   if = {
+                                          limit = { 
+                                                   has_port = yes
+                                                   continent = europe
+                                                   owner = { NOT = { tag = SWE } } 
+                                                   NOT = { area = provence_area }
+                                                   NOT = { area = languedoc_area }
+                                                   NOT = { area = aragon_area }
+                                                   NOT = { area = catalonia_area }
+                                                   NOT = { area = valencia_area }
+                                                   NOT = { area = lower_andalucia_area }
+                                          }
+                                          add_permanent_claim = AZC
+                                   }
+                            }
+                }
+
+                AZE = { vassalize = AZC }
+                AZC = { add_liberty_desire = -20 }
+                #Incan Setup
+                808 = { #Cuzco
+                            cede_province = ICN
+                            change_culture = inca
+                            change_religion = inti
+                            add_core = ICN
+                            remove_core = CSU
+                            add_base_tax = 4 
+                            add_base_production = 4
+                            add_base_manpower = 4
+							set_variable = { which = literacy value = 4.5 }
+							add_institution_embracement = {
+				                   value = 100
+				                   which = "feudalism"
+			                }
+							add_institution_embracement = {
+				                   value = 100
+				                   which = "gunpowder"
+			                }
+                }
+                ICN = {
+                            set_capital = 808
+							hidden_effect = { cu_calc_country_absolute_dist = yes }
+                            change_religion = inti
+                            change_technology_group = high_american
+							change_unit_type = south_american
+                            change_government = monarchy
+							add_government_reform = ord_reform
+							add_government_reform = tax_policy_3
+							add_government_reform = economic_policy_3
+							add_government_reform = trade_policy_3
+							add_government_reform = cur_government_capacity
+							add_government_reform = cu_cultural_policy_3
+							add_government_reform = cu_religious_policy_3
+							add_government_reform = feudal_conscription
+							add_government_reform = education_policy_church
+							add_government_reform = noble_council
+							add_government_reform = mandate_system
+							add_government_reform = sovereign_code
+							add_government_reform = no_election
+                            set_government_rank = 3
+                            change_primary_culture = inca
+                            add_adm_tech = 4
+							add_dip_tech = 4
+							add_mil_tech = 4
+                            define_ruler = {
+                                        dynasty = "Hanan"
+					adm = 6
+					dip = 5
+					mil = 5
+					claim = 100
+                            }
+                            define_heir = {
+                                        dynasty = "Hanan"
+                                        adm = 5
+					dip = 4
+					mil = 4
+					claim = 100
+                            }
+                            add_stability = 6
+                            add_prestige = 50
+                            add_adm_power = 900
+                            add_dip_power = 900
+                            add_mil_power = 900
+                            add_treasury = 2000
+                            add_manpower = 0.3
+                            infantry = 808
+			    infantry = 808
+			    infantry = 808
+                            infantry = 808
+                            infantry = 808
+                            infantry = 808
+                            infantry = 808
+			    infantry = 808
+			    infantry = 808
+			    infantry = 808
+                            infantry = 808
+                            infantry = 808
+                            infantry = 808
+                            infantry = 808
+			    infantry = 808
+			    infantry = 808
+			    infantry = 808
+                            infantry = 808
+                            infantry = 808
+                            infantry = 808
+                            infantry = 808
+			    infantry = 808
+			    infantry = 808
+                            infantry = 808
+                            infantry = 808
+                            infantry = 808
+                            infantry = 763
+			    infantry = 763
+			    infantry = 763
+			    infantry = 763
+                            infantry = 763
+                            infantry = 763
+                            infantry = 763
+                            infantry = 763
+			    infantry = 763
+			    infantry = 763
+			    infantry = 763
+                            infantry = 763
+                            infantry = 763
+                            infantry = 763
+                            infantry = 763
+			    infantry = 763
+			    infantry = 763
+                            infantry = 763
+			    infantry = 763
+                            infantry = 763
+                            infantry = 763
+                            infantry = 763
+                            infantry = 763
+			    infantry = 763
+			    infantry = 763
+                            heavy_ship = 763
+                            heavy_ship = 763
+                            heavy_ship = 763
+                            heavy_ship = 763
+                            heavy_ship = 763
+                            light_ship = 763
+                            light_ship = 763
+                            light_ship = 763
+                            light_ship = 763
+                            light_ship = 763
+                            light_ship = 763
+                            light_ship = 763
+                            galley = 763
+			    galley = 763
+                            galley = 763
+                            galley = 763
+                            galley = 763
+                            galley = 763
+			    galley = 763
+			    galley = 763
+			    galley = 763
+                            galley = 763
+                            galley = 763
+                            galley = 763
+                            transport = 763
+			    transport = 763
+			    transport = 763
+			    transport = 763
+                            transport = 763
+                            transport = 763
+                            transport = 763
+                            transport = 763
+			    transport = 763
+			    transport = 763
+			    transport = 763
+                            transport = 763
+                            transport = 763
+                            transport = 763
+                            transport = 763
+			    transport = 763
+                            transport = 763
+                            transport = 763
+			    transport = 763
+			    transport = 763
+			    transport = 763
+                            transport = 763
+                            transport = 763
+                            transport = 763
+                            transport = 763
+			    transport = 763
+			    transport = 763
+			    transport = 763
+                            transport = 763
+                            transport = 763
+                            transport = 763
+                            transport = 763
+			    transport = 763
+                            transport = 763
+                            transport = 763
+			    transport = 763
+			    transport = 763
+			    transport = 763
+                            transport = 763
+                            transport = 763
+                            transport = 763
+                            transport = 763
+			    transport = 763
+			    transport = 763
+			    transport = 763
+                            transport = 763
+                            transport = 763
+                            create_general = { tradition = 100 }
+                            create_general = { tradition = 80 }
+                            create_conquistador = 80
+                            create_explorer = 100
+                            create_explorer = 60
+                            add_army_tradition = 34.8
+                            add_navy_tradition = 27.2
+                            every_province = {
+                                   limit = {
+                                       OR = {
+                                              region = france_region
+                                              region = iberia_region
+                                              #region = british_isles_region
+                                              region = italy_region
+                                              region = maghreb_region
+                                              
+                                              area = gulf_of_panama_area
+                                              region = caribbean_sea_region
+                                              region = north_atlantic_region
+                                              region = american_east_coast_region
+                                              region = south_atlantic_region
+                                              area = gulf_of_mexico_area
+                                              area = chilean_sea_area
+                                              area = gulf_of_guinea_sea_area
+                                              area = sea_of_labrador_area
+                                              area = east_pacific_ocean_area
+                                              continent = north_america
+                                              continent = south_america
+                                       }
+                                   }
+                                   ICN = { discover_province = PREV }
+                                   if = {
+                                          limit = { 
+                                                   has_port = yes
+                                                   continent = africa
+                                                   NOT = { 
+                                                            owner = { tag = FEZ } 
+                                                            owner = { tag = TLE } 
+                                                   }
+                                          }
+                                          add_permanent_claim = ICN
+                                   }
+                            }
+                }
+                every_province = {
+                            limit = { 
+                                       OR = {
+                                              region = upper_peru_region
+                                              region = peru_region
+                                              region = la_plata_region
+                                       }
+                            }
+                            cede_province = ICN
+							if = {
+							       limit = {
+								          OR = {
+										      region = upper_peru_region
+                                              region = peru_region
+										  }
+								   }
+								   change_culture = inca
+							}
+                            #change_culture = inca
+                            change_religion = inti
+                            add_core = ICN
+                            remove_core = CSU
+                            add_base_tax = 2 
+                            add_base_production = 2
+                            add_base_manpower = 2
+							set_variable = { which = literacy value = 5.5 }
+							add_institution_embracement = {
+				                   value = 100
+				                   which = "feudalism"
+			                }
+							add_institution_embracement = {
+				                   value = 100
+				                   which = "gunpowder"
+			                }
+                }
+                every_province = { #Incan Colony
+                            limit = { 
+                                       region = brazil_region
+                                       OR = {
+                                             area = rio_grande_do_sol_area
+                                             area = rio_de_janeiro_area
+                                             area = sao_paolo_area
+											 area = west_sao_paolo_area
+                                             province_id = 761
+                                             AND = { 
+                                                     development = 7
+                                                     has_port = yes
+                                             }
+                                       }
+                            }
+                            cede_province = ICN
+                            change_culture = inca
+                            change_religion = inti
+                            add_core = ICN
+                            add_base_tax = 1
+                            add_base_production = 1
+							set_variable = { which = literacy value = 5 }
+							add_institution_embracement = {
+				                   value = 100
+				                   which = "feudalism"
+			                }
+							add_institution_embracement = {
+				                   value = 100
+				                   which = "gunpowder"
+			                }
+                }
+                every_province = { #Territories lost to Aztec
+                            limit = { 
+                                       region = colombia_region                                      
+                                       NOT = { area = upper_guyana_area }
+                            }
+                            add_core = ICN
+							set_variable = { which = literacy value = 5 }
+							add_institution_embracement = {
+				                   value = 100
+				                   which = "feudalism"
+			                }
+							add_institution_embracement = {
+				                   value = 100
+				                   which = "gunpowder"
+			                }
+                }
+                #Incan Setup Over
+
+                #Iroquis Confederacy Setup
+
+                960 = {  #Onondaga
+                            cede_province = IRF
+                            change_culture = iroquois
+                            change_religion = totemism
+                            add_core = IRF
+                            remove_core = IRO
+                            add_base_tax = 3 
+                            add_base_production = 3
+                            add_base_manpower = 3
+                            add_permanent_claim = AZE
+							set_variable = { which = literacy value = 4 }
+							add_institution_embracement = {
+				                   value = 100
+				                   which = "feudalism"
+			                }
+							add_institution_embracement = {
+				                   value = 100
+				                   which = "gunpowder"
+			                }
+                }
+
+                IRF = {
+                            change_technology_group = high_american
+							change_unit_type = north_american
+                            change_government = tribal
+			                add_government_reform = ord_reform
+							add_government_reform = tax_policy_3
+							add_government_reform = economic_policy_3
+							add_government_reform = trade_policy_3
+							add_government_reform = cur_government_capacity
+							add_government_reform = cu_cultural_policy_4
+							add_government_reform = cu_religious_policy_3
+							add_government_reform = feudal_conscription
+							add_government_reform = education_policy_church
+							add_government_reform = noble_council
+							add_government_reform = cu_feudalism_reform
+							add_government_reform = sovereign_code
+							add_government_reform = no_election
+                            set_government_rank = 3
+                            change_primary_culture = iroquois
+                            change_religion = totemism
+                            add_stability = 6
+                            add_prestige = 20
+                            add_adm_power = 900
+                            add_dip_power = 900
+                            add_mil_power = 900
+                            add_treasury = 500
+                            add_manpower = 0.5
+                            create_general = { tradition = 100 }
+                            create_conquistador = 100
+                            create_explorer = 100
+                            add_army_tradition = 42.3
+                            add_navy_tradition = 14.7
+                            infantry = 960
+			    infantry = 960
+			    infantry = 960
+                            infantry = 960
+                            infantry = 960
+                            infantry = 960
+                            infantry = 960
+			    infantry = 960
+			    infantry = 960
+			    infantry = 960
+                            infantry = 960
+                            infantry = 960
+                            infantry = 960
+                            infantry = 960
+			    infantry = 960
+			    infantry = 960
+			    infantry = 960
+                            infantry = 960
+                            infantry = 960
+                            infantry = 960
+			    infantry = 2010
+			    infantry = 2010
+                            infantry = 2010
+                            infantry = 2010
+                            infantry = 2010
+                            light_ship = 2010
+                            light_ship = 2010
+                            light_ship = 2010
+                            galley = 2010
+                            galley = 2010
+                            galley = 2010
+                            galley = 2010
+                            galley = 2010
+                            galley = 2010
+			    transport = 763
+			    transport = 763
+			    transport = 763
+                            transport = 763
+                            transport = 763
+                            add_adm_tech = 4
+							add_dip_tech = 4
+							add_mil_tech = 4
+                            define_ruler = {
+                                        dynasty = "Onondaga"
+					adm = 4
+					dip = 6
+					mil = 5
+					claim = 100
+                            }
+                            every_province = {
+                                   limit = {
+                                       OR = {
+                                              area = gulf_of_panama_area
+                                              area = caribbean_sea_area
+                                              area = gulf_of_mexico_area
+                                              area = chilean_sea_area
+                                              area = gulf_of_guinea_sea_area
+                                              area = sea_of_labrador_area
+                                              area = east_pacific_ocean_area
+                                              continent = north_america
+                                              continent = south_america
+                                       }
+                                       OR = { 
+                                              has_port = yes
+                                              continent = north_america
+                                              continent = south_america
+                                       }
+                                   }
+                                   IRF = { discover_province = PREV }
+                            }
+                }
+
+                every_province = { #Core Nations
+                            limit = { 
+                                       OR = {
+				           region = great_lakes_region
+                                           region = great_plains_region
+                                           region = mississippi_region
+                                           area = iroquoisia_area
+                                           region = northeast_america_region
+                                           province_id = 930
+			               }
+                                       NOT = { province_id = 960 }
+                                       NOT = { owned_by = AZE }
+                                       NOT = { area = great_woods_area }
+                            }
+                            add_core = IRF
+                            remove_core = IRO
+                            cede_province = IRF
+                            add_base_tax = 1
+                            add_base_production = 1
+                            add_base_manpower = 1
+                            add_permanent_claim = AZE
+                            add_local_autonomy = 20
+							set_variable = { which = literacy value = 4 }
+							add_institution_embracement = {
+				                   value = 100
+				                   which = "feudalism"
+			                }
+							add_institution_embracement = {
+				                   value = 100
+				                   which = "gunpowder"
+			                }
+                }
+
+                every_country = { #Other Nations
+                            limit = { 
+                                       capital_scope = {
+				           continent = north_america
+			               }
+                                       NOT = { tag = IRF }
+                                       NOT = { tag = AZE }
+                                       OR = {
+                                                range = IRF
+                                                tag = HUR
+                                                tag = OTT
+                                       }
+                            }
+                            every_owned_province = {
+                                   limit = { 
+                                           continent = north_america
+                                  }
+                                  add_core = IRF
+                                  remove_core = IRO
+                                  cede_province = IRF
+                                  add_base_tax = 1
+                                  add_base_production = 1
+                                  add_base_manpower = 1
+                                  add_local_autonomy = 30
+                          }
+						  set_variable = { which = literacy value = 4 }
+							add_institution_embracement = {
+				                   value = 100
+				                   which = "feudalism"
+			                }
+							add_institution_embracement = {
+				                   value = 100
+				                   which = "gunpowder"
+			                }
+                }
+
+                every_province = { #Territories lost to Aztec
+                            limit = { 
+                                       OR = {
+                                              province_id = 2513
+                                              province_id = 903
+                                              province_id = 902
+                                              province_id = 900
+                                              province_id = 901
+                                              province_id = 2508
+                                              province_id = 898
+                                              province_id = 939
+                                              province_id = 2514
+                                              province_id = 919
+                                              province_id = 2531
+                                              province_id = 925
+                                              province_id = 918
+                                              province_id = 2506
+                                              province_id = 2507
+                                              province_id = 2625
+                                              province_id = 2672
+                                              province_id = 2490
+                                              province_id = 2020
+                                       }
+                            }
+                            add_core = IRF
+							set_variable = { which = literacy value = 4 }
+							add_institution_embracement = {
+				                   value = 100
+				                   which = "feudalism"
+			                }
+							add_institution_embracement = {
+				                   value = 100
+				                   which = "gunpowder"
+			                }
+                }
+
+                #Iroquis Confederacy Setup End
+
+                #Other American Nations Setup
+
+                every_country = {
+                            limit = {
+                                  capital_scope = {
+                                       OR = {
+                                               continent = north_america
+                                               continent = south_america
+                                       }
+                                  }
+                                  NOT = { technology_group = high_american }
+                            }
+                            change_technology_group = high_american
+                            add_adm_power = 700
+                            add_dip_power = 700
+                            add_mil_power = 700
+                           add_adm_tech = 4
+							add_dip_tech = 4
+							add_mil_tech = 4
+                }
+
+                #Other American Nations Setup Over
+                country_event = { id = sun.010}
+	}
+	option = {
+	name = "EVT_HIDDEN"
+	}
+}
+
+#Choose a country to play
+country_event = {
+        id = sun.010
+	title = "sun.01.t"
+	desc = "sun.01.d"
+	picture = SHIP_SAILING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "sun.01.a" #Play current nation
+                hidden_effect = {
+			  country_event = { id = sun.011 }
+                }
+	}
+        
+        option = {
+		name = "sun.01.b" #Aztec Empire
+                hidden_effect = {
+			  country_event = { id = sun.012 }
+                }
+	}
+
+        option = {
+		name = "sun.01.c" #Incan Empire
+                hidden_effect = {
+			  country_event = { id = sun.013 }
+                }
+	}
+
+        option = {
+		name = "sun.01.d1" #Iroquis Confederacy
+                hidden_effect = {
+			  country_event = { id = sun.014 }
+                }
+	}
+}
+
+#European Mission
+country_event = {
+        id = sun.011
+	title = "sun.011.t"
+	desc = "sun.011.d"
+	picture = SHIP_SAILING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "sun.011.a" #Got it.
+	}
+        option = {
+		name = "sun.01.e" #Check Others
+                hidden_effect = {
+			  country_event = { id = sun.010 }
+                }
+	}
+}
+
+#Aztec Mission
+country_event = {
+        id = sun.012
+	title = "sun.012.t"
+	desc = "sun.012.d"
+	picture = SHIP_SAILING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "sun.012.a" #Got it.
+	}
+        option = {
+		name = "sun.01.e" #Check others
+                hidden_effect = {
+			  country_event = { id = sun.010 }
+                }
+	}
+}
+
+#Incan Mission
+country_event = {
+        id = sun.013
+	title = "sun.013.t"
+	desc = "sun.013.d"
+	picture = SHIP_SAILING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "sun.013.a" #Got it.
+	}
+        option = {
+		name = "sun.01.e" #Check others
+                hidden_effect = {
+			  country_event = { id = sun.010 }
+                }
+	}
+}
+
+
+#Iroquis Mission
+country_event = {
+        id = sun.014
+	title = "sun.014.t"
+	desc = "sun.014.d"
+	picture = SHIP_SAILING_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "sun.014.a" #Got it.
+	}
+        option = {
+		name = "sun.01.e" #Check others
+                hidden_effect = {
+			  country_event = { id = sun.010 }
+                }
+	}
+}
+
+###Occupied Province Lose Development(Sunset Invasion)
+province_event = {
+        id = sun.02
+	title = "sun.1.t"
+	desc = "sun.1.d"
+	picture = PLAGUE_eventPicture
+	
+	trigger = {
+                has_global_flag = sunset_invasion
+                base_tax = 2
+                base_production = 2
+                base_manpower = 2
+                NOT = {
+                         owned_by = controller
+                }
+                OR = {
+                          controlled_by = AZE
+                          controlled_by = AZC
+                }
+                NOT = {
+                         AND = {
+                                is_core = controller
+                                controller = { culture_group = ROOT }
+                                religion_group = controller
+                         }
+                }
+                OR = {
+                        NOT = { has_province_flag = recent_dev_reduction }
+                        had_province_flag = { 
+                                    flag = recent_dev_reduction
+                                    days = 3650
+                        }
+                }
+	}
+
+	mean_time_to_happen = {
+		months = 18
+	}
+
+        immediate = {
+                hidden_effect = {
+                      clr_province_flag = recent_dev_reduction
+                      set_province_flag = recent_dev_reduction
+                }
+        }
+
+	option = {
+		name = "sun.1.a" 
+                if = {
+			limit = { 
+                                   base_tax = 3
+                        }
+			add_base_tax = -1
+                        controller = { 
+                                       add_prestige = 3
+                                       add_army_tradition = 2
+                        }
+		}
+                if = {
+			limit = { 
+                                   base_tax = 2
+                                   NOT = { base_tax = 3 }
+                        }
+			add_base_tax = -1
+                        controller = { 
+                                       add_prestige = 2
+                                       add_army_tradition = 1
+                        }
+		}
+                if = {
+			limit = { 
+                                   base_production = 3
+                        }
+			add_base_production = -1
+                        controller = { 
+                                       add_prestige = 3
+                                       add_army_tradition = 2
+                        }
+		}
+                if = {
+			limit = { 
+                                   base_production = 2
+                                   NOT = { base_production = 3 }
+                        }
+			add_base_tax = -1
+                        controller = { 
+                                       add_prestige = 2
+                                       add_army_tradition = 1
+                        }
+		}
+                if = {
+			limit = { 
+                                   base_manpower = 3
+                        }
+			add_base_manpower = -1
+                        controller = { 
+                                       add_prestige = 3
+                                       add_army_tradition = 2
+                        }
+		}
+                if = {
+			limit = { 
+                                   base_manpower = 2
+                                   NOT = { base_manpower = 3 }
+                        }
+			add_base_manpower = -1
+                        controller = { 
+                                       add_prestige = 2
+                                       add_army_tradition = 1
+                        }
+		}
+	}
+}
+
+
+###Occupied Province Lose Development(Aztec)
+province_event = {
+        id = sun.021
+	title = "sun.11.t"
+	desc = "sun.11.d"
+	picture = PLAGUE_eventPicture
+	
+	trigger = {
+                has_global_flag = sunset_invasion
+                base_tax = 2
+                base_production = 2
+                base_manpower = 2
+                NOT = {
+                         is_core = owner
+                }
+                OR = {
+                         owned_by = AZE
+                         owned_by = AZC
+                }
+                controlled_by = owner
+                NOT = {
+                         AND = {
+                                is_core = controller
+                                controller = { culture_group = ROOT }
+                                religion_group = controller
+                         }
+                }
+                OR = {
+                        NOT = { has_province_flag = recent_dev_reduction }
+                        had_province_flag = { 
+                                    flag = recent_dev_reduction
+                                    days = 3650
+                        }
+                }
+	}
+
+	mean_time_to_happen = {
+		months = 18
+	}
+
+        immediate = {
+                hidden_effect = {
+                      clr_province_flag = recent_dev_reduction
+                      set_province_flag = recent_dev_reduction
+                }
+        }
+
+	option = {
+		name = "sun.11.a" 
+                if = {
+			limit = { 
+                                   base_tax = 3
+                        }
+			add_base_tax = -2
+                        controller = { 
+                                       add_prestige = 3
+                                       add_army_tradition = 2
+                        }
+		}
+                if = {
+			limit = { 
+                                   base_tax = 2
+                                   NOT = { base_tax = 3 }
+                        }
+			add_base_tax = -1
+                        controller = { 
+                                       add_prestige = 2
+                                       add_army_tradition = 1
+                        }
+		}
+                if = {
+			limit = { 
+                                   base_production = 3
+                        }
+			add_base_production = -2
+                        controller = { 
+                                       add_prestige = 3
+                                       add_army_tradition = 2
+                        }
+		}
+                if = {
+			limit = { 
+                                   base_production = 2
+                                   NOT = { base_production = 3 }
+                        }
+			add_base_tax = -1
+                        controller = { 
+                                       add_prestige = 2
+                                       add_army_tradition = 1
+                        }
+		}
+                if = {
+			limit = { 
+                                   base_manpower = 3
+                        }
+			add_base_manpower = -2
+                        controller = { 
+                                       add_prestige = 3
+                                       add_army_tradition = 2
+                        }
+		}
+                if = {
+			limit = { 
+                                   base_manpower = 2
+                                   NOT = { base_manpower = 3 }
+                        }
+			add_base_manpower = -1
+                        controller = { 
+                                       add_prestige = 2
+                                       add_army_tradition = 1
+                        }
+		}
+	}
+}
+
+###Occupied Province Transfer To Colony(Aztec)
+province_event = {
+        id = sun.022
+	title = "sun.11.t"
+	desc = "sun.11.d"
+	picture = PLAGUE_eventPicture
+	hidden = yes
+
+	trigger = {
+                has_global_flag = sunset_invasion
+                owned_by = AZE
+                continent = europe
+                AZC = { vassal_of = AZE }
+                AZE = { ai = yes }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = "sun.11.a" 
+                cede_province = AZC
+                if = {
+			limit = { 
+                                   is_core = AZE
+                        }
+			add_core = AZC
+                        remove_core = AZE
+		}
+                AZC = { add_liberty_desire = -10 }
+	}
+}
+
+###American Province Transfer To Empire(Aztec)
+province_event = {
+        id = sun.023
+	title = "sun.11.t"
+	desc = "sun.11.d"
+	picture = PLAGUE_eventPicture
+	hidden = yes
+
+	trigger = {
+                has_global_flag = sunset_invasion
+                owned_by = AZC
+                is_capital = no
+                OR = {
+                         continent = north_america
+                         continent = south_america
+                }
+                AZC = { vassal_of = AZE }
+                AZC = { ai = yes }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = "sun.11.a" 
+                cede_province = AZE
+                if = {
+			limit = { 
+                                   is_core = AZC
+                        }
+			add_core = AZE
+                        remove_core = AZC
+		}
+	}
+}
+
+#Aztec demands the Azores
+
+country_event = {
+        id = sun.03
+	title = "sun.3.t"
+	desc = "sun.3.d"
+	picture = SHIP_SAILING_eventPicture
+	
+	trigger = {
+                has_global_flag = sunset_invasion
+                NOT = { has_global_flag = sunset_invasion_1 }
+                AZE = { 
+                           exists = yes
+                           ai = yes
+                }
+                AZC = { 
+                           exists = yes
+                           ai = yes
+                }
+                AZE = { has_country_modifier = sunset_invasion_ai }
+                367 = {
+                         #controlled_by = ROOT
+                         owned_by = ROOT
+                }
+                is_year = 1447
+                #NOT = { is_year = 1520 }
+	}
+
+	mean_time_to_happen = {
+		months = 24
+	}
+
+        immediate = {
+                hidden_effect = {
+                      set_global_flag = sunset_invasion_1
+                }
+        }
+
+	option = {
+		name = "sun.3.a" #Cede the province to Aztec.
+                367 = {
+                   owner = {
+                          add_opinion = { who = AZE modifier = threatened_war }
+                          add_opinion = { who = AZC modifier = threatened_war }
+                   }
+                   cede_province = AZC
+                   add_core = AZC
+                   change_culture = aztek
+                   change_religion = nahuatl
+                }
+                hidden_effect = {
+                      AZC = { set_capital = 367 hidden_effect = { cu_calc_country_absolute_dist = yes } } 
+                      AZC = { add_liberty_desire = -10 }
+                      AZC = {
+                            infantry = 367
+			    infantry = 367
+			    infantry = 367
+			    infantry = 367
+                            infantry = 367
+                            infantry = 367
+                            infantry = 367
+                            infantry = 367
+                            infantry = 367
+			    infantry = 367
+			    infantry = 367
+                            infantry = 367
+                            infantry = 367
+                            infantry = 367
+			    infantry = 367
+			    infantry = 367
+                            infantry = 367
+                            infantry = 367
+                            cavalry = 367
+                            cavalry = 367
+                            cavalry = 367
+                            cavalry = 367
+                            cavalry = 367
+                            cavalry = 367
+                            artillery = 367
+                            artillery = 367
+                            artillery = 367
+                            heavy_ship = 367
+                            heavy_ship = 367
+                            heavy_ship = 367
+                            heavy_ship = 367
+                            heavy_ship = 367
+                            heavy_ship = 367
+                            light_ship = 367
+                            light_ship = 367
+                            light_ship = 367
+			    galley = 367
+                            galley = 367
+                            galley = 367
+                            galley = 367
+                            galley = 367
+			    galley = 367
+                            galley = 367
+                            galley = 367
+                            galley = 367
+                            galley = 367
+                            galley = 367
+                            galley = 367
+                            transport = 367
+			    transport = 367
+			    transport = 367
+			    transport = 367
+                            transport = 367
+                            transport = 367
+                            transport = 367
+                            transport = 367
+			    transport = 367
+			    transport = 367
+			    transport = 367
+                            transport = 367
+                            transport = 367
+			    transport = 367
+                            transport = 367
+			    transport = 367
+			    transport = 367
+			    transport = 367
+			    transport = 367
+                            transport = 367
+                            transport = 367
+			    transport = 367
+                            transport = 367
+			    transport = 367
+                      }
+                }
+                ai_chance = {
+			factor = 99
+		}
+	}
+        
+        option = {
+		name = "sun.3.b" #Reject them bravely.
+                custom_tooltip = sun.3.bt
+                hidden_effect = {
+                      AZE = {
+                            declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_sunset_invasion
+			    }
+                      }
+                      AZC = {
+                            infantry = 367
+			    infantry = 367
+			    infantry = 367
+			    infantry = 367
+                            infantry = 367
+                            infantry = 367
+                            infantry = 367
+                            infantry = 367
+                            infantry = 367
+			    infantry = 367
+			    infantry = 367
+                            infantry = 367
+                            infantry = 367
+                            infantry = 367
+			    infantry = 367
+			    infantry = 367
+                            infantry = 367
+                            infantry = 367
+                            cavalry = 367
+                            cavalry = 367
+                            cavalry = 367
+                            cavalry = 367
+                            cavalry = 367
+                            cavalry = 367
+                            artillery = 367
+                            artillery = 367
+                            artillery = 367
+                            heavy_ship = 367
+                            heavy_ship = 367
+                            heavy_ship = 367
+                            heavy_ship = 367
+                            heavy_ship = 367
+                            heavy_ship = 367
+                            light_ship = 367
+                            light_ship = 367
+                            light_ship = 367
+			    galley = 367
+                            galley = 367
+                            galley = 367
+                            galley = 367
+                            galley = 367
+                            galley = 367
+                            galley = 367
+			    galley = 367
+                            galley = 367
+                            galley = 367
+                            galley = 367
+                            galley = 367
+                            transport = 367
+			    transport = 367
+			    transport = 367
+			    transport = 367
+                            transport = 367
+                            transport = 367
+                            transport = 367
+                            transport = 367
+			    transport = 367
+			    transport = 367
+			    transport = 367
+                            transport = 367
+                            transport = 367
+			    transport = 367
+                            transport = 367
+			    transport = 367
+			    transport = 367
+			    transport = 367
+			    transport = 367
+                            transport = 367
+                            transport = 367
+			    transport = 367
+                            transport = 367
+			    transport = 367
+                      }
+                }
+                ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+#Aztec demands Faroes
+
+country_event = {
+        id = sun.04
+	title = "sun.4.t"
+	desc = "sun.4.d"
+	picture = SHIP_SAILING_eventPicture
+	
+	trigger = {
+                has_global_flag = sunset_invasion
+                has_global_flag = sunset_invasion_1
+                NOT = { has_global_flag = sunset_invasion_2 }
+                AZE = { 
+                           exists = yes
+                           ai = yes
+                }
+                AZC = { 
+                           exists = yes
+                           ai = yes
+                }
+                AZE = { has_country_modifier = sunset_invasion_ai }
+                1979 = {
+                         controlled_by = ROOT
+                         owned_by = ROOT
+                }
+                is_year = 1450
+                #NOT = { is_year = 1520 }
+	}
+
+	mean_time_to_happen = {
+		months = 24
+	}
+
+        immediate = {
+                hidden_effect = {
+                      set_global_flag = sunset_invasion_2
+                }
+        }
+
+	option = {
+		name = "sun.3.a" #Cede the province to Aztec.
+                hidden_effect = {
+                      AZC = {
+                            infantry = 1979
+			    infantry = 1979
+			    infantry = 1979
+			    infantry = 1979
+                            infantry = 1979
+                            infantry = 1979
+                            infantry = 1979
+                            infantry = 1979
+                            infantry = 1979
+			    infantry = 1979
+			    infantry = 1979
+                            infantry = 1979
+                            infantry = 1979
+                            cavalry = 1979
+                            cavalry = 1979
+                            cavalry = 1979
+                            cavalry = 1979
+                            artillery = 1979
+                            artillery = 1979
+                            heavy_ship = 1979
+                            heavy_ship = 1979
+                            heavy_ship = 1979
+                            light_ship = 1979
+                            light_ship = 1979
+                            light_ship = 1979
+			    galley = 1979
+                            galley = 1979
+                            galley = 1979
+                            galley = 1979
+                            galley = 1979
+			    galley = 1979
+                            galley = 1979
+                            galley = 1979
+                            galley = 1979
+                            galley = 1979
+                            transport = 1979
+			    transport = 1979
+			    transport = 1979
+			    transport = 1979
+                            transport = 1979
+                            transport = 1979
+                            transport = 1979
+                            transport = 1979
+			    transport = 1979
+			    transport = 1979
+			    transport = 1979
+                            transport = 1979
+                            transport = 1979
+			    transport = 1979
+                            transport = 1979
+			    transport = 1979
+                            transport = 1979
+			    transport = 1979
+                            transport = 1979
+			    transport = 1979
+                      }
+                }
+                1979 = {
+                   owner = {
+                          add_opinion = { who = AZE modifier = threatened_war }
+                          add_opinion = { who = AZC modifier = threatened_war }
+                   }
+                   cede_province = AZC
+                   add_core = AZC
+                   change_culture = aztek
+                   change_religion = nahuatl
+                   AZC = { add_liberty_desire = -10 }
+                }
+                ai_chance = {
+			factor = 99
+		}
+	}
+        
+        option = {
+		name = "sun.3.b" #Reject them bravely.
+                custom_tooltip = sun.3.bt
+                hidden_effect = {
+                      AZE = {
+                            declare_war_with_cb = {
+				  who = ROOT
+				  casus_belli = cb_sunset_invasion
+		            }
+                      }
+                      AZC = {
+                            infantry = 1979
+			    infantry = 1979
+			    infantry = 1979
+			    infantry = 1979
+                            infantry = 1979
+                            infantry = 1979
+                            infantry = 1979
+                            infantry = 1979
+                            infantry = 1979
+			    infantry = 1979
+			    infantry = 1979
+                            infantry = 1979
+                            infantry = 1979
+                            cavalry = 1979
+                            cavalry = 1979
+                            cavalry = 1979
+                            cavalry = 1979
+                            artillery = 1979
+                            artillery = 1979
+                            heavy_ship = 1979
+                            heavy_ship = 1979
+                            heavy_ship = 1979
+                            light_ship = 1979
+                            light_ship = 1979
+                            light_ship = 1979
+			    galley = 1979
+                            galley = 1979
+                            galley = 1979
+                            galley = 1979
+                            galley = 1979
+			    galley = 1979
+                            galley = 1979
+                            galley = 1979
+                            galley = 1979
+                            galley = 1979
+                            transport = 1979
+			    transport = 1979
+			    transport = 1979
+			    transport = 1979
+                            transport = 1979
+                            transport = 1979
+                            transport = 1979
+                            transport = 1979
+			    transport = 1979
+			    transport = 1979
+			    transport = 1979
+                            transport = 1979
+                            transport = 1979
+			    transport = 1979
+                            transport = 1979
+			    transport = 1979
+                            transport = 1979
+			    transport = 1979
+                            transport = 1979
+			    transport = 1979
+                      }
+                }
+                ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+#Aztec demands coastal Province
+
+province_event = {
+        id = sun.05
+	title = "sun.5.t"
+	desc = "sun.5.d"
+	picture = SHIP_SAILING_eventPicture
+	
+	trigger = {
+                has_global_flag = sunset_invasion
+                has_global_flag = sunset_invasion_2
+                OR = {
+                         region = france_region
+                         region = scandinavia_region
+                         region = low_countries_region
+                         region = iberia_region
+                         region = british_isles_region
+                         any_neighbor_province = {
+                                  OR = { 
+                                          owned_by = AZE
+                                          owned_by = AZC
+                                  }
+                         }
+                }
+                NOT = { area = provence_area }
+                NOT = { area = languedoc_area }
+                NOT = { area = aragon_area }
+                NOT = { area = catalonia_area }
+                NOT = { area = valencia_area }
+                NOT = { area = lower_andalucia_area }
+                NOT = { area = svealand_area }
+                NOT = { area = finland_area }
+                NOT = { area = karelia_area }
+                NOT = { area = gotaland_area }
+                has_port = yes
+                AZE = { 
+                           exists = yes
+                           ai = yes
+                }
+                AZC = { 
+                           exists = yes
+                           ai = yes
+                }
+                controlled_by = owner
+                owner = { 
+                           NOT = { war_with = AZE }
+                           #NOT = { truce_with = AZE }
+                           NOT = { vassal_of = AZE }
+                           NOT = { overlord_of = AZE }
+                           NOT = { alliance_with = AZE }
+                           NOT = { tag = ICN }
+                }
+                continent = europe
+                is_year = 1453
+                AZE = { has_country_modifier = sunset_invasion_ai }
+                #NOT = {  is_year = 1520 }
+	}
+
+	mean_time_to_happen = {
+		months = 180
+                modifier = {
+                          factor = 0.33
+                          has_global_flag = sunset_invasion_30
+                }
+                modifier = {
+                          factor = 1.5
+                          has_global_flag = sunset_invasion_3
+                }
+                modifier = {
+                          factor = 4
+                          AZE = { 
+                                  is_at_war = yes
+                          }
+                }
+                modifier = {
+                          factor = 3
+                          owner = { 
+                                   truce_with = AZE
+                          }
+                }
+	}
+
+        immediate = {
+                hidden_effect = {
+                      set_global_flag = sunset_invasion_30
+                }
+        }
+
+	option = {
+		name = "sun.3.a" #Cede the province to Aztec.
+                owner = {
+                         add_opinion = { who = AZE modifier = threatened_war }
+                         add_opinion = { who = AZC modifier = threatened_war }
+                }
+                cede_province = AZC
+                add_core = AZC
+                AZC = { add_liberty_desire = -10 }
+                hidden_effect = {
+                      AZC = {
+                            infantry = ROOT
+			    infantry = ROOT
+			    infantry = ROOT
+			    infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+			    infantry = ROOT
+			    infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            cavalry = ROOT
+                            cavalry = ROOT
+                            artillery = ROOT
+                            heavy_ship = ROOT
+                            light_ship = ROOT
+                            light_ship = ROOT
+                            light_ship = ROOT
+			    galley = ROOT
+                            galley = ROOT
+                            galley = ROOT
+                            galley = ROOT
+                            galley = ROOT
+                            cu_change_stability_point_p100 = yes
+                            add_war_exhaustion = -8
+                      }
+                }
+                ai_chance = {
+			factor = 20
+                        modifier = { 
+                              factor = 0.5
+                              development = 15
+                        }
+                        modifier = { 
+                              factor = 3
+                              NOT = { development = 10 }
+                        }
+		}
+	}
+        
+        option = {
+		name = "sun.3.b" #Reject them bravely.
+                custom_tooltip = sun.3.bt
+                clr_global_flag = sunset_invasion_30
+                set_global_flag = sunset_invasion_3
+                hidden_effect = {
+                      owner = {
+                                 AZE = {
+			              declare_war_with_cb = {
+				         who = PREV
+				         casus_belli = cb_sunset_invasion
+                                      }
+			         }
+		      }
+                      AZC = {
+                            infantry = ROOT
+			    infantry = ROOT
+			    infantry = ROOT
+			    infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+			    infantry = ROOT
+			    infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            cavalry = ROOT
+                            cavalry = ROOT
+                            cavalry = ROOT
+                            cavalry = ROOT
+                            cavalry = ROOT
+                            cavalry = ROOT
+                            artillery = ROOT
+                            heavy_ship = ROOT
+                            light_ship = ROOT
+                            light_ship = ROOT
+                            light_ship = ROOT
+			    galley = ROOT
+                            galley = ROOT
+                            galley = ROOT
+                            galley = ROOT
+                            galley = ROOT
+                      }
+                }
+                
+                ai_chance = {
+		   factor = 80
+                   modifier = { 
+                           factor = 0.5
+                           NOT = { development = 10 }
+                   }
+                   modifier = { 
+                              factor = 1.11
+                              development = 15
+                   }
+                }
+	}
+        
+}
+
+#Aztec declare war directly
+
+province_event = {
+        id = sun.06
+	title = "sun.5.t"
+	desc = "sun.5.d"
+	picture = SHIP_SAILING_eventPicture
+	hidden = yes
+	trigger = {
+                has_global_flag = sunset_invasion
+                has_global_flag = sunset_invasion_2
+                OR = {
+                         region = france_region
+                         region = scandinavia_region
+                         region = low_countries_region
+                         region = iberia_region
+                         region = british_isles_region
+                         any_neighbor_province = {
+                                  OR = {
+                                          owned_by = AZE
+                                          owned_by = AZC
+                                  }
+                         }
+                }
+                NOT = { area = provence_area }
+                NOT = { area = languedoc_area }
+                NOT = { area = aragon_area }
+                NOT = { area = catalonia_area }
+                NOT = { area = valencia_area }
+                NOT = { area = lower_andalucia_area }
+                NOT = { area = svealand_area }
+                NOT = { area = finland_area }
+                NOT = { area = karelia_area }
+                NOT = { area = gotaland_area }
+                has_port = yes
+                AZE = { 
+                          ai = yes
+                          exists = yes 
+                          is_at_war = no
+                }
+                AZC = { 
+                          ai = yes
+                          exists = yes 
+                          is_at_war = no
+                }
+                controlled_by = owner
+                owner = { 
+                           NOT = { war_with = AZE }
+                           #NOT = { truce_with = AZE }
+                           NOT = { vassal_of = AZE }
+                           NOT = { overlord_of = AZE }
+                           NOT = { alliance_with = AZE }
+                           NOT = { tag = ICN }
+                }
+                continent = europe
+                is_year = 1453
+                AZE = { has_country_modifier = sunset_invasion_ai }
+                #NOT = {  is_year = 1520 }
+	}
+
+	mean_time_to_happen = {
+		months = 240
+                modifier = {
+                          factor = 0.75
+                          has_global_flag = sunset_invasion_30
+                }
+                modifier = {
+                          factor = 1.5
+                          has_global_flag = sunset_invasion_3
+                }
+	}
+
+        option = {
+		name = "sun.3.b" #War!
+                custom_tooltip = sun.3.bt
+                clr_global_flag = sunset_invasion_30
+                set_global_flag = sunset_invasion_3
+                hidden_effect = {
+                      owner = {
+                                 AZE = {
+			              declare_war_with_cb = {
+				         who = PREV
+				         casus_belli = cb_sunset_invasion
+                                      }
+			         }
+		      }
+                      AZC = {
+                            infantry = ROOT
+			    infantry = ROOT
+			    infantry = ROOT
+			    infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+			    infantry = ROOT
+			    infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            cavalry = ROOT
+                            cavalry = ROOT
+                            cavalry = ROOT
+                            cavalry = ROOT
+                            cavalry = ROOT
+                            cavalry = ROOT
+                            artillery = ROOT
+                            heavy_ship = ROOT
+                            light_ship = ROOT
+                            light_ship = ROOT
+                            light_ship = ROOT
+			    galley = ROOT
+                            galley = ROOT
+                            galley = ROOT
+                            galley = ROOT
+                            galley = ROOT
+                      }
+                }
+                
+                
+	}
+        
+}
+
+#Aztec Reinforcement
+
+province_event = {
+        id = sun.061
+	title = "sun.5.t"
+	desc = "sun.5.d"
+	picture = SHIP_SAILING_eventPicture
+	hidden = yes
+	trigger = {
+                has_global_flag = sunset_invasion
+                has_global_flag = sunset_invasion_2
+                OR = {
+                         region = france_region
+                         region = scandinavia_region
+                         region = low_countries_region
+                         region = iberia_region
+                         region = british_isles_region
+                         any_neighbor_province = {
+                                  OR = {
+                                         owned_by = AZC
+                                         owned_by = AZE
+                                  }
+                         }
+                }
+                NOT = { area = provence_area }
+                NOT = { area = languedoc_area }
+                NOT = { area = aragon_area }
+                NOT = { area = catalonia_area }
+                NOT = { area = valencia_area }
+                NOT = { area = lower_andalucia_area }
+                NOT = { area = svealand_area }
+                NOT = { area = finland_area }
+                NOT = { area = karelia_area }
+                NOT = { area = gotaland_area }
+                has_port = yes
+                AZE = { 
+                          ai = yes
+                          exists = yes
+                          is_at_war = yes
+                          treasury = 300
+                          manpower_percentage = 0.1
+                }
+                AZC = { 
+                          ai = yes
+                          exists = yes
+                          is_at_war = yes
+                }
+                OR = {
+                         controlled_by = AZE
+                         controlled_by = AZC
+                }
+                NOT = { owned_by = AZE }
+                NOT = { owned_by = AZC }
+                continent = europe
+                is_year = 1453
+                AZE = { has_country_modifier = sunset_invasion_ai }
+                #NOT = {  is_year = 1520 }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+                modifier = {
+                          factor = 0.75
+                          AZE = { 
+                                  NOT = { war_score = -10 }
+                          }
+                }
+                modifier = {
+                          factor = 0.5
+                          AZE = { 
+                                  NOT = { war_score = -20 }
+                          }
+                }
+                modifier = {
+                          factor = 3
+                          AZE = { 
+                                  war_score = 20
+                          }
+                }
+                modifier = {
+                          factor = 4
+                          AZE = { 
+                                  war_score = 40
+                          }
+                }
+                modifier = {
+                          factor = 6
+                          AZE = { 
+                                  war_score = 60
+                          }
+                }
+	}
+
+        option = {
+		name = "sun.3.b" #Reject them bravely.
+                AZE = {
+                            add_treasury = -300
+                            add_manpower = -0.1
+                }
+                AZC = {
+                            add_treasury = 300
+                            add_liberty_desire = -20
+                            infantry = capital
+			    infantry = capital
+			    infantry = capital
+			    infantry = capital
+                            infantry = capital
+                            infantry = capital
+                            infantry = capital
+                            infantry = capital
+                            infantry = capital
+			    infantry = capital
+			    infantry = capital
+                            infantry = capital
+                            infantry = capital
+                            infantry = capital
+                            cavalry = capital
+                            cavalry = capital
+                            cavalry = capital
+                            cavalry = capital
+                            cavalry = capital
+                            artillery = capital
+                            artillery = capital
+                            transport = capital
+			    transport = capital
+			    transport = capital
+			    transport = capital
+                            transport = capital
+                            transport = capital
+                            transport = capital
+                            transport = capital
+			    transport = capital
+			    transport = capital
+			    transport = capital
+                            transport = capital
+                            transport = capital
+			    transport = capital
+                            transport = capital
+			    transport = capital
+                            transport = capital
+			    transport = capital
+                            transport = capital
+			    transport = capital
+			    transport = capital
+                            transport = capital
+			    transport = capital
+                      }
+	}
+        
+}
+
+#Inca demands coastal Province
+
+province_event = {
+        id = sun.07
+	title = "sun.7.t"
+	desc = "sun.7.d"
+	picture = SHIP_SAILING_eventPicture
+	
+	trigger = {
+                has_global_flag = sunset_invasion
+                has_global_flag = sunset_invasion_2
+                OR = {
+                             AND = {
+                                 OR = {
+                                              region = france_region
+                                              region = iberia_region
+                                              region = italy_region
+                                              region = maghreb_region
+                                              
+                                 }
+                                 NOT = { area = provence_area }
+                                 NOT = { area = languedoc_area }
+                                 NOT = { area = aragon_area }
+                                 NOT = { area = catalonia_area }
+                                 NOT = { area = valencia_area }
+                                 has_port = yes
+                             }
+                             any_neighbor_province = {
+                                owned_by = ICN
+                             }
+                }
+                ICN = { 
+                          exists = yes 
+                          ai = yes
+                }
+                controlled_by = owner
+                owner = { 
+                           NOT = { war_with = ICN }
+                           #NOT = { truce_with = ICN }
+                           NOT = { vassal_of = ICN }
+                           NOT = { overlord_of = ICN }
+                           NOT = { alliance_with = ICN }
+                           NOT = { tag = AZE }
+                }
+                OR = { 
+                        continent = europe
+                        continent = africa
+                }
+                is_year = 1456
+                ICN = { has_country_modifier = sunset_invasion_ai }
+                #NOT = {  is_year = 1520 }
+	}
+
+	mean_time_to_happen = {
+		months = 360
+                modifier = {
+                          factor = 0.5
+                          has_global_flag = sunset_invasion_30
+                }
+                modifier = {
+                          factor = 1.5
+                          has_global_flag = sunset_invasion_3
+                }
+                modifier = {
+                          factor = 6
+                          ICN = { 
+                                  is_at_war = yes
+                          }
+                }
+                modifier = {
+                          factor = 5
+                          owner = { 
+                                   truce_with = ICN
+                          }
+                }
+	}
+
+        immediate = {
+                hidden_effect = {
+                      set_global_flag = sunset_invasion_30
+                }
+        }
+
+	option = {
+		name = "sun.3.a" #Cede the province to Inca.
+                owner = {
+                         add_opinion = { who = ICN modifier = threatened_war }
+                }
+                cede_province = ICN
+                add_core = ICN
+                hidden_effect = {
+                      if = {
+                            limit = {
+                                   763 = { controlled_by = ICN }
+                                   OR = {
+                                           NOT = { has_country_flag = inca_recent_reinforce } 
+                                           had_country_flag = { 
+                                                                  flag = inca_recent_reinforce
+                                                                  days = 1460
+                                           }
+                                   }
+                            }
+                            ICN = {
+                            clr_country_flag = inca_recent_reinforce
+                            set_country_flag = inca_recent_reinforce
+                            infantry = ROOT
+			    infantry = ROOT
+			    infantry = ROOT
+			    infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+			    infantry = ROOT
+			    infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            cavalry = ROOT
+                            cavalry = ROOT
+                            cavalry = ROOT
+                            cavalry = ROOT
+                            cavalry = ROOT
+                            cavalry = ROOT
+                            artillery = ROOT
+                            artillery = ROOT
+                            heavy_ship = ROOT
+                            heavy_ship = ROOT
+                            light_ship = ROOT
+                            light_ship = ROOT
+                            galley = ROOT
+                            galley = ROOT
+                            galley = ROOT
+                            galley = ROOT
+                            transport = ROOT
+			    transport = ROOT
+			    transport = ROOT
+			    transport = ROOT
+                            transport = ROOT
+                            transport = ROOT
+                            transport = ROOT
+                            transport = ROOT
+			    transport = ROOT
+			    transport = ROOT
+			    transport = ROOT
+                            transport = ROOT
+                            transport = ROOT
+			    transport = ROOT
+                            transport = ROOT
+                            }
+                      }
+                }
+                ai_chance = {
+			factor = 20
+                        modifier = { 
+                              factor = 0.5
+                              development = 15
+                        }
+                        modifier = { 
+                              factor = 3
+                              NOT = { development = 10 }
+                        }
+		}
+	}
+        
+        option = {
+		name = "sun.3.b" #Reject them bravely.
+                custom_tooltip = sun.3.bt
+                clr_global_flag = sunset_invasion_30
+                set_global_flag = sunset_invasion_3
+                hidden_effect = {
+                      owner = {
+                                 ICN = {
+			              declare_war_with_cb = {
+				         who = PREV
+				         casus_belli = cb_sunset_invasion
+                                      }
+			         }
+		      }
+                      if = {
+                            limit = {
+                                   763 = { controlled_by = ICN }
+                                   OR = {
+                                           NOT = { has_country_flag = inca_recent_reinforce } 
+                                           had_country_flag = { 
+                                                                  flag = inca_recent_reinforce
+                                                                  days = 1460
+                                           }
+                                   }
+                            }
+                            ICN = {
+                            clr_country_flag = inca_recent_reinforce
+                            set_country_flag = inca_recent_reinforce
+                            infantry = ROOT
+			    infantry = ROOT
+			    infantry = ROOT
+			    infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+			    infantry = ROOT
+			    infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            infantry = ROOT
+                            cavalry = ROOT
+                            cavalry = ROOT
+                            cavalry = ROOT
+                            cavalry = ROOT
+                            cavalry = ROOT
+                            cavalry = ROOT
+                            artillery = ROOT
+                            artillery = ROOT
+                            heavy_ship = ROOT
+                            heavy_ship = ROOT
+                            light_ship = ROOT
+                            light_ship = ROOT
+                            galley = ROOT
+                            galley = ROOT
+                            galley = ROOT
+                            galley = ROOT
+                            transport = ROOT
+			    transport = ROOT
+			    transport = ROOT
+			    transport = ROOT
+                            transport = ROOT
+                            transport = ROOT
+                            transport = ROOT
+                            transport = ROOT
+			    transport = ROOT
+			    transport = ROOT
+			    transport = ROOT
+                            transport = ROOT
+                            transport = ROOT
+			    transport = ROOT
+                            transport = ROOT
+                            }
+                      }
+                }
+                
+                ai_chance = {
+		   factor = 80
+                   modifier = { 
+                           factor = 0.5
+                           NOT = { development = 10 }
+                   }
+                   modifier = { 
+                              factor = 1.11
+                              development = 15
+                   }
+                }
+	}
+        
+}
+
+#Inca Declare War Directly
+
+country_event = {
+        id = sun.08
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = SHIP_SAILING_eventPicture
+	#hidden = yes
+	trigger = {
+                has_global_flag = test_version
+                tag = ICN
+                ai = yes
+                is_at_war = no
+                #NOT = { is_year = 1520 }
+                is_year = 1456
+                has_country_modifier = sunset_invasion_ai
+                has_global_flag = sunset_invasion_2
+                any_known_country = {
+                        any_owned_province = {
+		           OR = {
+                              AND = {
+                                OR = {
+                                              region = france_region
+                                              region = iberia_region
+                                              region = italy_region
+                                              region = maghreb_region
+                                              
+                                }
+                                NOT = { area = provence_area }
+                                NOT = { area = languedoc_area }
+                                NOT = { area = aragon_area }
+                                NOT = { area = catalonia_area }
+                                NOT = { area = valencia_area }
+                                has_port = yes
+                             }
+                             any_neighbor_province = {
+                                owned_by = ICN
+                             }
+                           }
+		        }
+                        NOT = { truce_with = ICN }
+                        NOT = { vassal_of = ICN }
+                        NOT = { overlord_of = ICN }
+                        NOT = { alliance_with = ICN }
+                        NOT = { tag = ICN }
+                }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+	}
+
+        
+        option = {
+		name = "EVT_HIDDEN" #Reject them bravely.
+                random_known_country = {
+                      limit = {
+                        any_owned_province = {
+		           OR = {
+                              AND = {
+                                OR = {
+                                              region = france_region
+                                              region = iberia_region
+                                              region = british_isles_region
+                                              region = maghreb_region
+                                              
+                                }
+                                NOT = { area = provence_area }
+                                NOT = { area = languedoc_area }
+                                NOT = { area = aragon_area }
+                                NOT = { area = catalonia_area }
+                                NOT = { area = valencia_area }
+                                has_port = yes
+                             }
+                             any_neighbor_province = {
+                                owned_by = ICN
+                             }
+                           }
+		         }
+                                NOT = { truce_with = ICN }
+                                NOT = { vassal_of = ICN }
+                                NOT = { overlord_of = ICN }
+                                NOT = { alliance_with = ICN }
+                                NOT = { tag = ICN }
+                      }
+                      ICN = {
+                              declare_war_with_cb = {
+				    who = PREV
+				    casus_belli = cb_sunset_invasion
+		              }
+                      }
+                      if = {
+                            limit = {
+                                   763 = { controlled_by = ICN }
+                                   OR = {
+                                           NOT = { has_country_flag = inca_recent_reinforce } 
+                                           had_country_flag = { 
+                                                                  flag = inca_recent_reinforce
+                                                                  days = 1460
+                                           }
+                                   }
+                            }
+                            ICN = {
+                            clr_country_flag = inca_recent_reinforce
+                            set_country_flag = inca_recent_reinforce
+                            infantry = 763
+			    infantry = 763
+			    infantry = 763
+			    infantry = 763
+                            infantry = 763
+                            infantry = 763
+                            infantry = 763
+                            infantry = 763
+                            infantry = 763
+			    infantry = 763
+			    infantry = 763
+                            infantry = 763
+                            infantry = 763
+                            infantry = 763
+                            infantry = 763
+                            cavalry = 763
+                            cavalry = 763
+                            cavalry = 763
+                            cavalry = 763
+                            cavalry = 763
+                            cavalry = 763
+                            artillery = 763
+                            artillery = 763
+                            heavy_ship = 763
+                            heavy_ship = 763
+                            light_ship = 763
+                            light_ship = 763
+                            galley = 763
+                            galley = 763
+                            galley = 763
+                            galley = 763
+                            transport = 763
+			    transport = 763
+			    transport = 763
+			    transport = 763
+                            transport = 763
+                            transport = 763
+                            transport = 763
+                            transport = 763
+			    transport = 763
+			    transport = 763
+			    transport = 763
+                            transport = 763
+                            transport = 763
+			    transport = 763
+                            transport = 763
+                            }
+                      }
+                }
+	}
+}
+
+#Rex Artoria
+
+country_event = {
+    id = sun.10
+	title = "sun.10.t"
+	desc = "sun.10.d"
+	picture = SHIP_SAILING_eventPicture
+	is_triggered_only = yes
+	option = {
+	     name = "sun.10.a"
+		 custom_tooltip = sun.10.at
+		 hidden_effect = {
+			 change_tag = BRM
+			 every_province = {
+				   limit = { region = british_isles_region }
+				   cede_province = BRM
+				   add_core = BRM
+				   remove_core = ENG
+				   remove_core = SCO
+				   remove_core = WLS
+				   remove_core = LOI		   
+				   if = {
+				         limit = {
+						      OR = {
+							       culture = english
+								   culture = welsh
+								   culture = scottish
+							  }
+						 }
+						 change_culture = roman_gaelic
+				   }
+				   change_religion = roman_pagan_reformed
+				   set_variable = { which = literacy value = 4 }
+				   add_base_manpower = 1
+			 }
+			 every_owned_province = {
+			       limit = { NOT = { region = british_isles_region } }
+				   cede_province = FRA
+				   remove_core = BRM
+				   remove_core = NRM
+				   remove_core = ENG
+				   add_core = FRA
+			 }
+			 BRM = {
+			        define_ruler = {
+					        name = "Arthur III"
+                            dynasty = "Pendragon"
+								adm = 2
+								dip = 4
+								mil = 6
+								claim = 100
+								age = 36
+                    }
+                    define_heir = {
+					            name = "Julius"
+                                dynasty = "Pendragon"
+                                adm = 5
+								dip = 3
+								mil = 2
+								claim = 12
+								age = 12
+                    }
+					change_religion = roman_pagan_reformed		
+                    set_government_rank = 3
+                    change_primary_culture = roman_gaelic
+			        swap_non_generic_missions = yes
+			        swap_free_idea_group = yes
+					add_government_reform = ord_reform
+					add_government_reform = tax_policy_3
+					add_government_reform = economic_policy_3
+					add_government_reform = trade_policy_3
+					add_government_reform = cur_government_capacity
+					add_government_reform = cu_cultural_policy_3
+					add_government_reform = cu_religious_policy_3
+					add_government_reform = feudal_conscription
+					add_government_reform = education_policy_church
+					add_government_reform = court_despotism
+					add_government_reform = mandate_system
+					add_government_reform = sovereign_code
+					add_government_reform = noble_election
+					add_adm_power = -100
+					add_dip_power = -100
+					add_mil_power = -100
+					add_treasury = -100
+					add_prestige = 25
+					country_event = { id = cuglobal.1 }
+			}
+			236 = {
+			      change_province_name = "Londinium"
+				  add_base_tax = 1
+				  add_base_production = 2
+				  add_base_manpower = 2
+				  add_building = university
+			}
+		 }
+		 
+	}
+	option = {
+	     name = "sun.10.b"
+		 custom_tooltip = sun.10.bt
+	}
+}

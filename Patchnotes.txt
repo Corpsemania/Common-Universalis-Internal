@@ -1,0 +1,45 @@
+#This file contains all patchnote since patch 4.9. For former patchnotes, please read "Patchnotes&Previews" thread in the mod page of steamwork shop. Thanks!
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Patchnote 4.947
+
+Gameplay:
+
+Major:
+1.Change to the source of Monarch Power
+
+1.1 Monarch Power from ruler skills are now modified by country's court authority ( actual gain = ruler skill * (0.3 + 0.007 * Court Authority) ). This mechanics are implemented by automatically subtracting the excess power every year.
+
+1.2 Non-despotism countries ( not having court despotism and non-election ) will receives free monarchy power roughly every 10 years if court authority is below 50, and corresponding ruler skill is below 4. The lower your court authority and ruler skill are, the more frequent you get monarchy power.
+
+In general, despotic government still relies on the skill of monarch, while more democratic ones care less about the capability of their ruler.
+
+2 Major rework to Court Authority. Court Authority now has a cap(usually below 100), and gives decent bonus like the former centralization value once did.Most government reform affect max Court Authority and Court Authority Growth in opposite ways. Despotic reforms gives higher cap but reduce growth, while democratic reforms do the contrary. To reach and keep a high Court Authority, you can either reach a compromise between centralization and democracy, or achieve Court Authority manually through interaction, idea and victory of war.    
+
+Minor
+1. Generally increase income, and reduce corruption and autonomy in early game.
+2. Fixed CTD due to miss of monsoon modifier.
+3. Improved the calculation and UI of Administrative Integrity.
+4. Fixed 4 bugs.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Patchnote 4.943
+
+Gameplay:
+
+Major:
+1.Province Integration  
+1.1 Remove the concept of coring and territory from the game. All countries can now have unlimited number of states, and receive a free core in all acquired province.
+1.2 Remove the concept of Cultural Acceptance.
+1.3 Each province now have an Administration Integrity value determining how well province receives empire administration. Newly gained province(unless it was already your core) starts with 0% Integrity, but there are ways to quickly increase it until it reaches an acceptable value(like 20%-30%). Integrating a province to the level of your capital, however, may take tremendous effort and centuries to complete. Administration Integrity in a province is capped by a maximum value, which is determined by culture, religion, distance, government type, etc.
+
+2. State Focus
+State edict is replaced by a set of state focus, allowing provinces in that state to develop in the way you want. Former commercial focus, production focus and agriculture focus are removed from province edict and incorporated to state focus.
+The most special state focus is "Immigration Focus", which increases "Immigration Pull" in this state by 100%. This modifier affects development growth in colonies, immigration chance for domestic and foreign migrants, and immigration rate when using "Force Immigration" edict.
+
+Minor
+1. Fixed 10+ bugs in previous version.
+2. Fixed cash/stability point display in estate interaction. 
+3. Added a new decision to help player manage stability.
+4. Rebalanced Ming and Celestial Empire.

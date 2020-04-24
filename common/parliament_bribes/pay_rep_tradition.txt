@@ -1,0 +1,21 @@
+pay_rep_tradition = {
+	trigger = {
+		government = republic
+	}
+	
+	effect = {
+		add_republican_tradition = -4
+		custom_tooltip = parliament_bribe_25t
+		hidden_effect = {
+		     country_event = { id = parlaments.999}
+		}
+	}
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0.1
+			NOT = { republican_tradition = 60 }
+		}
+	}
+}

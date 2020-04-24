@@ -1,0 +1,17 @@
+lose_ia = {
+	trigger = {
+		is_emperor = yes
+	}
+	
+	effect = {
+		add_imperial_influence = -4
+		custom_tooltip = parliament_bribe_20t
+		hidden_effect = {
+		     country_event = { id = parlaments.999}
+		}
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}

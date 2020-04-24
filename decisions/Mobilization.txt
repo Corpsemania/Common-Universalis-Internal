@@ -1,0 +1,91 @@
+country_decisions = {
+
+      mobilization = {
+		potential = {
+			OR = {
+                                 full_idea_group = quantity_ideas
+                                 adm_tech = 14
+                                 mil_tech = 14
+                        }
+                        any_owned_province = {
+			        is_core = owner
+                                #base_tax = 2
+                                #base_production = 2
+                                base_manpower = 2
+                                NOT = { has_province_modifier = province_mobilization }
+		        }
+                        NOT = { has_country_modifier = state_in_mobilization } 
+                        NOT = { has_country_flag = mobilization } 
+		}
+		allow = {
+                        OR = {
+                                 AND = { 
+                                           full_idea_group = quantity_ideas
+                                           mil_tech = 14
+                                           adm_tech = 14
+                                           NOT = { manpower_percentage = 0.33 }
+                                           NOT = { war_score = -5 } 
+                                 }
+                                 AND = { 
+                                           mil_tech = 21
+                                           adm_tech = 21
+                                           NOT = { manpower_percentage = 0.5 }
+                                           NOT = { war_score = -1 } 
+                                 }
+                                 AND = { 
+                                           full_idea_group = quantity_ideas
+                                           mil_tech = 21
+                                           adm_tech = 21
+                                           NOT = { manpower_percentage = 0.67 }
+                                           NOT = { war_score = 5 } 
+                                           #mil_tech = 15
+                                 }
+                        }
+                        stability = 0
+                        mil_power = 50
+		}
+		effect = {
+                        add_mil_power = -50
+                        clr_country_flag = mobilization
+                        set_country_flag = mobilization #Refresh
+			country_event = { id = mobil.0 }     # Inform the player
+		}
+		ai_will_do = {
+			factor = 1
+                        modifier = {
+                              factor = 0
+                              war_score = -10
+                        }
+						modifier = {
+                              factor = 0
+                              is_at_war = no
+                        }
+						modifier = {
+                              factor = 0
+                              manpower_percentage = 0.3
+                        }
+	        }
+       }
+
+       demobilization = {
+		potential = {
+                        has_country_flag = mobilization
+		}
+		allow = {
+                        adm_power = 30
+		}
+		effect = {
+                        add_adm_power = -30
+                        clr_country_flag = mobilization
+                        country_event = { id = mobil.2 }     # Inform the player
+		}
+		ai_will_do = {
+			factor = 1
+                        modifier = {
+                              factor = 0
+                              is_at_war = yes
+                        }
+	        }
+       }
+
+}

@@ -1,0 +1,106 @@
+# Do not change tags in here without changing every other reference to them.
+# Do not change tags in here without changing every other reference to them.
+# If adding new groups or ideas, make sure they are unique.
+
+# ai_will do does not actually determine weighting, but AI will not pick an idea with ai_will_do = 0
+# ROOT = country picking the idea
+# groups set to colonial=yes will be higher prioritized by the AI when spending power
+
+native_adm_ideas = {
+	category = ADM
+	
+	migrative_traditions = {
+		build_cost = -0.2
+	}
+	clan_societies = {
+		global_tax_modifier = 0.25
+	}
+	wampum_belts = {
+		stability_cost_modifier = -0.2
+	}	
+	law_of_peace = {
+		global_unrest = -2
+	}
+	tribal_constitution = {
+		adm_tech_cost_modifier = -0.15
+	}
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+		    factor = 0
+			NOT = {
+			      any_known_country = {
+				         adm_tech = 10
+				  }
+			}
+		}
+	}
+}
+
+
+native_dip_ideas = {
+	category = DIP
+
+	travois = {
+		migration_cooldown = -0.25
+		auto_explore_adjacent_to_colony = yes
+	}
+	smoke_ceremonies = { 
+		diplomatic_reputation = 1
+	}
+	trade_diplomacy = {
+		improve_relation_modifier = 0.5
+	}
+	clan_migrations = { 
+		colonists = 1
+	}
+	talking_leaves = { 
+		dip_tech_cost_modifier = -0.15
+	}
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+		    factor = 0
+			NOT = {
+			      any_known_country = {
+				         dip_tech = 10
+				  }
+			}
+		}
+	}
+}
+
+
+native_mil_ideas = {
+	category = MIL	
+	
+	warrior_societies = {
+		land_morale = 0.1
+	}
+	raid_warfare = {
+		leader_land_shock = 1
+	}
+	tribal_adoptions = {
+		land_forcelimit_modifier = 0.33
+	}
+	trail_networks = {
+		land_attrition = -0.20
+	}
+	flexible_warfare = {
+		mil_tech_cost_modifier = -0.15
+	}
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+		    factor = 0
+			NOT = {
+			      any_known_country = {
+				         mil_tech = 8
+				  }
+			}
+		}
+	}
+}

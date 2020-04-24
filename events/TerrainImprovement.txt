@@ -1,0 +1,2439 @@
+namespace = terra
+
+###Terra Improvement Finished
+province_event = {
+    id = terra.0
+	title = "terra.0.t"
+	desc = {
+		trigger = { has_province_modifier = ti_forest }
+		desc = "terra.11.d"
+	}
+	desc = {
+		trigger = { has_province_modifier = ti_jungle }
+		desc = "terra.21.d"
+	}
+	desc = {
+		trigger = { has_province_modifier = ti_woods }
+		desc = "terra.31.d"
+	}
+	desc = {
+		trigger = { has_province_modifier = ti_marsh }
+		desc = "terra.41.d"
+	}
+	desc = {
+		trigger = { has_province_modifier = ti_irragation }
+		desc = "terra.51.d"
+	}
+	desc = {
+		trigger = { has_province_modifier = ti_terrace }
+		desc = "terra.61.d"
+	}
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	trigger = {
+		OR = {
+			has_province_modifier = ti_forest
+			has_province_modifier = ti_jungle
+			has_province_modifier = ti_woods
+			has_province_modifier = ti_marsh
+			has_province_modifier = ti_irragation
+			has_province_modifier = ti_terrace
+		}
+    }
+	mean_time_to_happen = {
+		months = 360
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 14 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 16 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 18 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 20 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 22 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 24 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 26 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 28 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 30 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 8 }
+		}
+		modifier = {
+			factor = 0.9
+			development = 15
+			NOT = { development = 24 }
+		}
+		modifier = {
+			factor = 0.8
+			development = 24
+			NOT = { development = 30 }
+		}
+		modifier = {
+			factor = 0.7
+			development = 30
+		}
+		modifier = {
+			factor = 2
+			unrest = 0
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.95
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.9
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.85
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.8
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.75
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.7
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.65
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.6
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.55
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.5
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.45
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.4
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.35
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.3
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.25
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.2
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.15
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.1
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.05
+					}
+				} 
+			}
+		}
+	}
+
+	option = {
+		name = "terra.0.a" #Wonderful!
+		owner = { 
+			add_prestige = 3
+		}
+		add_unrest = -3
+		cu_add_base_manpower_1 = yes
+		hidden_effect = { change_variable = { which = b_ac value = 1 } }
+		custom_tooltip = b_ac_1_tt
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 7 }
+			cu_add_cultural_acceptance = yes
+		}
+		custom_tooltip = cu_add_cultural_acceptance_7tt
+		hidden_effect = { province_event = { id = urban.88 } }
+		if = {
+			limit = { has_province_modifier = ti_forest }
+			add_permanent_province_modifier = {
+				name = ti_forest_done
+				duration = -1
+			}
+			remove_province_modifier = ti_forest
+		}
+		else_if = {
+			limit = { has_province_modifier = ti_jungle }
+			add_permanent_province_modifier = {
+				name = ti_jungle_done
+				duration = -1
+			}
+            remove_province_modifier = ti_jungle
+		}
+		else_if = {
+			limit = { has_province_modifier = ti_woods }
+			add_permanent_province_modifier = {
+				name = ti_woods_done
+				duration = -1
+			}
+            remove_province_modifier = ti_woods
+		}
+		else_if = {
+			limit = { has_province_modifier = ti_marsh }
+			add_permanent_province_modifier = {
+				name = ti_marsh_done
+				duration = -1
+			}
+            remove_province_modifier = ti_marsh
+		}
+		else_if = {
+			limit = { has_province_modifier = ti_marsh }
+			add_permanent_province_modifier = {
+				name = ti_marsh_done
+				duration = -1
+			}
+            remove_province_modifier = ti_marsh
+		}
+		else_if = {
+			limit = { has_province_modifier = ti_irragation }
+			add_permanent_province_modifier = {
+				name = ti_irragation_done
+				duration = -1
+			}
+            remove_province_modifier = ti_irragation
+		}
+		else_if = {
+			limit = { has_province_modifier = ti_terrace }
+			add_permanent_province_modifier = {
+				name = ti_terrace_done
+				duration = -1
+			}
+            remove_province_modifier = ti_terrace
+		}
+	}
+}
+
+###Chop Down Forest
+province_event = {
+    id = terra.01
+	title = "terra.1.t"
+	desc = "terra.1.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			owner = {
+				set_variable = { which = cu_power value = 70 }
+				cu_calc_power_cost = yes
+			}
+		}
+	}
+	option = {
+		name = "terra.1.a" #Start Improvement
+		owner = {
+			add_treasury = -75
+			cu_subtract_adm_power = yes
+		}
+		add_province_modifier = {
+			name = ti_forest
+			duration = -1
+		}
+		custom_tooltip = terra.1.at
+		ai_chance = {
+			factor = 0.7
+		}
+	}
+
+	option = {
+		name = "terra.1.b" #Put it later
+		#owner = { add_prestige = -1 }
+		hidden_effect = { owner = { set_variable = { which = cu_power value = 0 } } }
+		ai_chance = {
+			factor = 0.3
+		}
+	}
+}
+
+###Chop Down Jungle
+province_event = {
+    id = terra.02
+	title = "terra.2.t"
+	desc = "terra.2.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			owner = {
+				set_variable = { which = cu_power value = 70 }
+				cu_calc_power_cost = yes
+			}
+		}
+	}
+	option = {
+		name = "terra.2.a" #Start Improvement
+		owner = {
+			add_treasury = -100
+			cu_subtract_adm_power = yes
+		}
+		add_province_modifier = {
+			name = ti_jungle
+			duration = -1
+		}
+		custom_tooltip = terra.2.at
+		ai_chance = {
+			factor = 0.7
+		} 
+	}
+
+	option = {
+		name = "terra.1.b" #Put it later
+		#owner = { add_prestige = -1 }
+		hidden_effect = { owner = { set_variable = { which = cu_power value = 0 } } }
+		ai_chance = {
+			factor = 0.3
+		}
+	}
+}
+
+###Chop Down Woods
+province_event = {
+    id = terra.03
+	title = "terra.3.t"
+	desc = "terra.3.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			owner = {
+				set_variable = { which = cu_power value = 70 }
+				cu_calc_power_cost = yes
+			}
+		}
+	}
+	option = {
+		name = "terra.3.a" #Start Improvement
+		owner = {
+			add_treasury = -75
+			cu_subtract_adm_power = yes
+		}
+		add_province_modifier = {
+			name = ti_woods
+			duration = -1
+		}
+		custom_tooltip = terra.3.at
+		ai_chance = {
+			factor = 0.7
+		} 
+	}
+
+	option = {
+		name = "terra.3.b" #Put it later
+		#owner = { add_prestige = -1 }
+		hidden_effect = { owner = { set_variable = { which = cu_power value = 0 } } }
+		ai_chance = {
+			factor = 0.3
+		}
+	}
+}
+
+###Drain out Marsh
+province_event = {
+    id = terra.04
+	title = "terra.4.t"
+	desc = "terra.4.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			owner = {
+				set_variable = { which = cu_power value = 80 }
+				cu_calc_power_cost = yes
+			}
+		}
+	}
+	option = {
+		name = "terra.4.a" #Start Improvement
+		owner = {
+			add_treasury = -120
+			cu_subtract_adm_power = yes
+		}
+		add_province_modifier = {
+			name = ti_marsh
+			duration = -1
+		}
+		custom_tooltip = terra.4.at
+		ai_chance = {
+			factor = 0.7
+		}
+	}
+
+	option = {
+		name = "terra.4.b" #Put it later
+		#owner = { add_prestige = -1 }
+		hidden_effect = { owner = { set_variable = { which = cu_power value = 0 } } }
+		ai_chance = {
+			factor = 0.3
+		}
+	}
+}
+
+###Irragation
+province_event = {
+    id = terra.05
+	title = "terra.5.t"
+	desc = "terra.5.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			owner = {
+				set_variable = { which = cu_power value = 80 }
+				cu_calc_power_cost = yes
+			}
+		}
+	}
+	option = {
+		name = "terra.5.a" #Start Improvement
+		owner = {
+			add_treasury = -100
+			cu_subtract_adm_power = yes
+		}
+		add_province_modifier = {
+			name = ti_irragation
+			duration = -1
+		}
+		custom_tooltip = terra.5.at
+		ai_chance = {
+			factor = 0.7
+		} 
+	}
+
+    option = {
+		name = "terra.5.b" #Put it later
+		#owner = { add_prestige = -1 }
+		hidden_effect = { owner = { set_variable = { which = cu_power value = 0 } } }
+        ai_chance = {
+            factor = 0.3
+        }
+	}
+}
+
+###Terrace hill/mountain
+province_event = {
+    id = terra.06
+	title = "terra.6.t"
+	desc = "terra.6.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			owner = {
+				set_variable = { which = cu_power value = 80 }
+				cu_calc_power_cost = yes
+			}
+		}
+	}
+	option = {
+		name = "terra.6.a" #Start Improvement
+        owner = {
+            add_treasury = -100
+			cu_subtract_adm_power = yes
+        }
+        add_province_modifier = {
+			name = ti_terrace
+			duration = -1
+		}
+		custom_tooltip = terra.6.at
+		ai_chance = {
+			factor = 0.7
+		} 
+	}
+
+	option = {
+		name = "terra.6.b" #Put it later
+		#owner = { add_prestige = -1 }
+		hidden_effect = { owner = { set_variable = { which = cu_power value = 0 } } }
+		ai_chance = {
+			factor = 0.3
+		}
+	}
+}
+
+###Military Cultivation
+province_event = {
+    id = terra.07
+	title = "terra.7.t"
+	desc = "terra.7.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+    immediate = {
+		hidden_effect = {
+			owner = {
+				set_variable = { which = cu_power value = 80 }
+				cu_calc_power_cost = yes
+			}
+		}
+	}
+	option = {
+		name = "terra.7.a" #Start Improvement
+		owner = {
+			cu_subtract_mil_power = yes
+		    add_manpower = -2
+		    add_treasury = -40
+		}
+		custom_tooltip = terra.7.at
+	    add_province_modifier = {
+			name = ti_military_cultivation
+			duration = -1
+		}
+		ai_chance = {
+            factor = 0.9
+        }
+	}
+
+    option = {
+		name = "terra.7.b" #Put it later
+		#owner = { add_prestige = -1 }
+		hidden_effect = { owner = { set_variable = { which = cu_power value = 0 } } }
+		ai_chance = {
+            factor = 0.1
+        }
+	}
+}
+
+###Military Cultivation(Complete)
+province_event = {
+    id = terra.071
+	title = "terra.71.t"
+	desc = "terra.71.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	trigger = { has_province_modifier = ti_military_cultivation }
+	mean_time_to_happen = {
+		months = 300
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 14 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 16 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 18 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 20 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 22 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 24 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 26 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 28 }
+		}
+		modifier = {
+			factor = 0.95
+			owner = { adm_tech = 30 }
+		}
+		modifier = {
+			factor = 1.2
+			NOT = { development = 8 }
+		}
+		modifier = {
+			factor = 0.9
+			development = 15
+			NOT = { development = 24 }
+		}
+		modifier = {
+			factor = 0.8
+			development = 24
+			NOT = { development = 30 }
+		}
+		modifier = {
+			factor = 0.7
+			development = 30
+		}
+		modifier = {
+			factor = 2
+			unrest = 0
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.95
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.9
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.85
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.8
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.75
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.7
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.65
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.6
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.55
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.5
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.45
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.4
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.35
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.3
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.25
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.2
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.15
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.1
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.05
+					}
+				} 
+			}
+		}
+	}
+
+	option = {
+		name = "terra.71.a" #Wonderful!
+		owner = { 
+			add_prestige = 5 
+			add_manpower = 1
+		}
+		cu_add_base_manpower_1 = yes
+		if = {
+			limit = { NOT = { base_manpower = 7 } }
+			hidden_effect = { change_variable = { which = b_ac value = 2 } }
+			custom_tooltip = b_ac_2_tt
+			add_permanent_province_modifier = {
+				name = ti_mc_done
+				duration = 3650
+			}
+		}
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 5 }
+			cu_add_cultural_acceptance = yes
+		}
+		custom_tooltip = cu_add_cultural_acceptance_5tt
+		remove_province_modifier = ti_military_cultivation
+		hidden_effect = { province_event = { id = urban.88 } }
+	}
+}
+
+###Improve Drainage(Complete)
+province_event = {
+    id = terra.08
+	title = "terra.8.t"
+	desc = "terra.8.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	trigger = {
+        has_province_modifier = cu_improve_drainage
+		had_province_flag = {
+			flag = cu_improve_drainage_flag
+			days = 1825
+		}
+    }
+	mean_time_to_happen = {
+		months = 84
+	}
+
+	option = {
+		name = "terra.8.a" #Wonderful!
+		hidden_effect = { change_variable = { which = b_ac value = 3 } }
+		custom_tooltip = b_ac_3_tt
+		owner = {
+			add_prestige = 3
+		}
+		remove_province_modifier = cu_improve_drainage
+		clr_province_flag = cu_improve_drainage_flag
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 5 }
+			cu_add_cultural_acceptance = yes
+		}
+		custom_tooltip = cu_add_cultural_acceptance_5tt
+		hidden_effect = { province_event = { id = urban.88 } }
+	}
+}
+
+###Improve Sanitation(Complete)
+province_event = {
+    id = terra.09
+	title = "terra.9.t"
+	desc = "terra.9.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	trigger = {
+		had_province_flag = {
+			flag = cu_improve_sanitation_flag
+			days = 1825
+		}
+		has_province_modifier = cu_improve_sanitation
+    }
+	mean_time_to_happen = {
+		months = 60
+	}
+
+	option = {
+		name = "terra.8.a" #Wonderful!
+		hidden_effect = { change_variable = { which = b_uc value = 3 } }
+		custom_tooltip = b_uc_3_tt
+		owner = {
+			add_prestige = 3
+		}
+		remove_province_modifier = cu_improve_sanitation
+		clr_province_flag = cu_improve_sanitation_flag
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 5 }
+			cu_add_cultural_acceptance = yes
+		}
+		custom_tooltip = cu_add_cultural_acceptance_5tt
+		hidden_effect = { province_event = { id = urban.88 } }
+	}
+}
+
+###Change Trade Goods - Select Goods
+province_event = {
+    id = terra.101
+	title = "terra.101.t"
+	desc = "terra.101.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+
+    immediate = {
+		hidden_effect = {
+			owner = {
+				set_variable = { which = cu_power value = 150 }
+				cu_calc_power_cost = yes
+			}
+		}
+	}
+	
+	option = {
+		name = "terra.101.a" #New Plantation Goods
+		trigger = {
+		    new_world_i = 100
+			NOT = { has_province_flag = cu_change_planting_flag }
+			OR = {
+				has_terrain = farmlands
+				has_terrain = grasslands
+				has_province_modifier = ti_woods_done
+				has_province_modifier = ti_terrace_done
+				has_province_modifier = ti_marsh_done 
+				has_province_modifier = holland_polders
+				has_province_modifier = ti_irragation_done
+				has_province_modifier = ti_terrace_done
+				has_province_modifier = ti_jungle_done
+				has_province_modifier = ti_forest_done
+            }
+		    owner = { 
+                adm_power = 36 
+                treasury = 200
+				any_province = {
+					has_discovered = PREV
+					OR = {
+						trade_goods = coffee
+						trade_goods = cotton
+						trade_goods = sugar
+						trade_goods = tobacco
+						trade_goods = cocoa
+						trade_goods = silk
+						trade_goods = dyes
+						trade_goods = spices
+						trade_goods = tea
+					}
+				}
+			}
+		}
+		hidden_effect = { owner = { set_variable = { which = cu_power value = 0 } } }
+		province_event = { id = terra.102 }
+		ai_chance = {
+		     factor = 33
+		}
+	}
+	
+	option = {
+		name = "terra.101.b" #New Minerals
+		trigger = {
+			NOT = { has_province_flag = cu_change_minaral_flag }
+			NOT = { has_province_flag = cu_no_minaral_flag }
+			NOT = { has_province_modifier = unexploited_copper_mine }
+			NOT = { has_province_modifier = unexploited_iron_mine }
+			NOT = { has_province_modifier = unexploited_gold_mine }
+			OR = {
+				has_terrain = hills
+				has_terrain = mountain
+				NOT = { 
+					base_production = 6
+				} 
+			}
+			owner = { 
+				mil_power = 75
+				treasury = 150
+			}
+		}
+		set_province_flag = cu_change_minaral_flag
+		custom_tooltip = terra.101.bt
+		add_province_modifier = {
+		    name = cu_dig_for_minerals
+			duration = -1
+		}
+		owner = {
+			cu_subtract_mil_power = yes
+		    add_manpower = -3
+		    add_treasury = -150
+		}
+		ai_chance = {
+			factor = 33
+		}
+	}
+	option = {
+		name = "terra.101.c" #Foster new industry
+	    trigger = {
+		    NOT = { trade_goods = cloth }
+			NOT = { trade_goods = paper }
+			NOT = { trade_goods = glass }
+			NOT = { trade_goods = naval_supplies }
+			NOT = { trade_goods = chinaware }
+		     base_production = 5
+			 NOT = { base_production = 11 }
+			 check_variable = { which = r_uc value = 3 }
+			 NOT = { has_province_flag = cu_foster_industry_flag }
+			 owner = {
+				adm_power = 75
+				treasury = 200
+			 }
+		}
+		province_event = { id = terra.110 }
+        ai_chance = {
+		     factor = 33
+		}
+	}
+	option = { 
+	    name = "urban.exit"
+		hidden_effect = { owner = { set_variable = { which = cu_power value = 0 } } }
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+###Change Trade Goods - Select Plantation Goods
+province_event = {
+    id = terra.102
+	title = "terra.102.t"
+	desc = "terra.102.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+
+    immediate = {
+		hidden_effect = {
+			owner = {
+				set_variable = { which = cu_power value = 100 }
+				cu_calc_power_cost = yes
+			}
+		}
+	}
+	
+	option = {
+		name = "terra.102.a" #Coffee
+		trigger = {
+		    new_world_i = 100
+			cu_can_change_plantation_trigger = yes
+			has_climate = tropical
+			check_variable = { which = r_ac value = 5 }
+			NOT = { base_production = 6 }
+		    owner = { 
+                adm_power = 36					   
+                treasury = 200
+				any_province = {
+					has_discovered = PREV
+					trade_goods = coffee
+				}
+			}
+		}
+		owner = {
+			cu_subtract_adm_power = yes
+			add_treasury = -200
+		}
+		custom_tooltip = change_goods_new_world_tt
+		set_province_flag = cu_change_planting_flag
+		add_province_modifier = {
+		    name = cu_planting_coffee
+			duration = -1
+		}
+	}
+	option = {
+		name = "terra.102.b" #Cotton
+		trigger = {
+		    new_world_i = 100
+			cu_can_change_plantation_trigger = yes
+			check_variable = { which = r_ac value = 6 }
+			NOT = { base_production = 6 }
+			owner = { 
+				adm_power = 36				 
+				treasury = 200
+				any_province = {
+					has_discovered = PREV
+					trade_goods = cotton
+				}
+			}
+		}
+		owner = {
+			cu_subtract_adm_power = yes
+			add_treasury = -200
+		}
+		custom_tooltip = change_goods_new_world_tt
+		set_province_flag = cu_change_planting_flag
+		add_province_modifier = {
+		    name = cu_planting_cotton
+			duration = -1
+		}
+	}
+	option = {
+		name = "terra.102.c" #Sugar
+		trigger = {
+		    new_world_i = 100
+			cu_can_change_plantation_trigger = yes
+			check_variable = { which = r_ac value = 5 }
+			NOT = { base_production = 6 }
+			owner = { 
+				adm_power = 36		 
+				treasury = 200
+				any_province = {
+					has_discovered = PREV
+					trade_goods = sugar
+				}
+			}
+		}
+		owner = {
+			cu_subtract_adm_power = yes
+			add_treasury = -200
+		}
+		custom_tooltip = change_goods_new_world_tt
+		set_province_flag = cu_change_planting_flag
+		add_province_modifier = {
+		    name = cu_planting_sugar
+			duration = -1
+		}
+	}
+	
+	option = {
+		name = "terra.102.d1" #Tobacco
+		trigger = {
+		    new_world_i = 100
+			cu_can_change_plantation_trigger = yes
+			NOT = { development = 20 }
+			check_variable = { which = r_ac value = 6 }
+			NOT = { base_production = 6 }
+			owner = { 
+                adm_power = 36
+                treasury = 200
+				any_province = {
+					has_discovered = PREV
+					trade_goods = tobacco
+				}
+			}
+		}
+		owner = {
+			cu_subtract_adm_power = yes
+			add_treasury = -200
+		}
+		custom_tooltip = change_goods_new_world_tt
+		set_province_flag = cu_change_planting_flag
+		add_province_modifier = {
+		    name = cu_planting_tobacco
+			duration = -1
+		}
+	}
+	
+	option = {
+		name = "terra.102.e" #Cocoa
+		trigger = {
+			new_world_i = 100
+			has_climate = tropical
+			cu_can_change_plantation_trigger = yes
+			check_variable = { which = r_ac value = 6 }
+			NOT = { base_production = 6 }
+			owner = { 
+                adm_power = 36	 
+                treasury = 200
+				any_province = {
+					has_discovered = PREV
+					trade_goods = cocoa
+				}
+			}
+		}
+		owner = {
+			cu_subtract_adm_power = yes
+			add_treasury = -200
+		}
+		custom_tooltip = change_goods_new_world_tt
+		set_province_flag = cu_change_planting_flag
+		add_province_modifier = {
+		    name = cu_planting_cocoa
+			duration = -1
+		}
+	}
+	
+	option = {
+		name = "terra.102.f" #Silk
+		trigger = {
+		    new_world_i = 100
+			OR = {
+			    continent = asia
+				dip_tech = 25
+			}
+			cu_can_change_plantation_trigger = yes
+			check_variable = { which = r_ac value = 8 }
+			NOT = { base_production = 6 }
+			owner = { 
+                adm_power = 36	 
+                treasury = 200
+				any_province = {
+					has_discovered = PREV
+					trade_goods = silk
+				}
+			}
+		}
+		owner = {
+			cu_subtract_adm_power = yes
+			add_treasury = -200
+		}
+		custom_tooltip = change_goods_new_world_tt
+		set_province_flag = cu_change_planting_flag
+		add_province_modifier = {
+		    name = cu_planting_silk
+			duration = -1
+		}
+	}
+	
+	option = {
+		name = "terra.102.g" #Spices
+		trigger = {
+			new_world_i = 100
+			OR = {
+				continent = asia
+				dip_tech = 25
+			}
+			cu_can_change_plantation_trigger = yes
+			check_variable = { which = r_ac value = 7 }
+			NOT = { base_production = 6 }
+			owner = { 
+                adm_power = 36		 
+                treasury = 200
+				any_province = {
+					has_discovered = PREV
+					trade_goods = spices
+				}
+			}
+		}
+		owner = {
+			cu_subtract_adm_power = yes
+			add_treasury = -200
+		}
+		custom_tooltip = change_goods_new_world_tt
+		set_province_flag = cu_change_planting_flag
+		add_province_modifier = {
+		    name = cu_planting_spices
+			duration = -1
+		}
+	}
+	
+	option = {
+		name = "terra.102.h" #Dyes
+		trigger = {
+			new_world_i = 100
+			OR = {
+				continent = asia
+				dip_tech = 25
+			}
+			cu_can_change_plantation_trigger = yes
+			check_variable = { which = r_ac value = 6 }
+			NOT = { base_production = 6 }
+			owner = { 
+                adm_power = 36
+				treasury = 200
+				any_province = {
+					has_discovered = PREV
+					trade_goods = dyes
+				}
+			}
+		}
+		owner = {
+			cu_subtract_adm_power = yes
+			add_treasury = -200
+		}
+		custom_tooltip = change_goods_new_world_tt
+		set_province_flag = cu_change_planting_flag
+		add_province_modifier = {
+		    name = cu_planting_dyes
+			duration = -1
+		}
+	}
+	
+	option = {
+		name = "terra.102.i" #Tea
+		trigger = {
+			new_world_i = 100
+			OR = {
+				continent = asia
+				dip_tech = 22
+			}
+			cu_can_change_plantation_trigger = yes
+			check_variable = { which = r_ac value = 6 }
+			NOT = { base_production = 6 }
+			owner = { 
+                adm_power = 36	 
+                treasury = 200
+				any_province = {
+					has_discovered = PREV
+					trade_goods = tea
+				}
+			}
+		}
+		owner = {
+			cu_subtract_adm_power = yes
+			add_treasury = -200
+		}
+		custom_tooltip = change_goods_new_world_tt
+		set_province_flag = cu_change_planting_flag
+		add_province_modifier = {
+		    name = cu_planting_tea
+			duration = -1
+		}
+	}
+	
+	option = { 
+	    name = "urban.exit"
+		hidden_effect = { owner = { set_variable = { which = cu_power value = 0 } } }
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+###Change Plantation(Complete)
+province_event = {
+    id = terra.103
+	title = "terra.103.t"
+	desc = "terra.103.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	trigger = {
+        had_province_flag = { #In case of province owner change
+			flag = cu_change_planting_flag
+			days = 7300
+		}
+		OR = {
+			has_province_modifier = cu_planting_cocoa
+			has_province_modifier = cu_planting_coffee
+			has_province_modifier = cu_planting_cotton
+			has_province_modifier = cu_planting_dyes
+			has_province_modifier = cu_planting_silk
+			has_province_modifier = cu_planting_spices
+			has_province_modifier = cu_planting_sugar
+			has_province_modifier = cu_planting_tea
+			has_province_modifier = cu_planting_tobacco
+		}
+    }
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.95
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.9
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.85
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.8
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.75
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.7
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.65
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.6
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.55
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.5
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.45
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.4
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.35
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.3
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.25
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.2
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.15
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.1
+					}
+				} 
+			}
+		}
+		modifier = {
+			factor = 0.95
+			owner = { 
+				NOT = {
+					has_global_modifier_value = {
+						which = development_cost
+						value = -0.05
+					}
+				} 
+			}
+		}
+	}
+
+	option = {
+		name = "terra.103.a" #Wonderful!
+		clr_province_flag = cu_change_planting_flag
+		owner = { add_prestige = 5 }
+		if = {
+		    limit = { base_production = 2 }
+			cu_reduce_base_production_1 = yes
+			cu_add_base_manpower_2 = yes
+			owner = { add_adm_power = 30 }
+		}
+		else = {
+			cu_add_base_manpower_1 = yes
+		}
+		
+		if = {
+		    limit = { has_province_modifier = cu_planting_coffee }
+			remove_province_modifier = cu_planting_coffee
+			change_trade_goods = coffee
+		}
+		else_if = {
+		    limit = { has_province_modifier = cu_planting_cotton }
+			remove_province_modifier = cu_planting_cotton
+			change_trade_goods = cotton
+		}
+		else_if = {
+		    limit = { has_province_modifier = cu_planting_sugar }
+			remove_province_modifier = cu_planting_sugar
+			change_trade_goods = sugar
+		}
+		else_if = {
+		    limit = { has_province_modifier = cu_planting_tobacco }
+			remove_province_modifier = cu_planting_tobacco
+			change_trade_goods = tobacco
+		}
+		else_if = {
+		    limit = { has_province_modifier = cu_planting_cocoa }
+			remove_province_modifier = cu_planting_cocoa
+			change_trade_goods = cocoa
+		}
+		else_if = {
+		    limit = { has_province_modifier = cu_planting_silk }
+			remove_province_modifier = cu_planting_silk
+			change_trade_goods = silk
+		}
+		else_if = {
+		    limit = { has_province_modifier = cu_planting_dyes }
+			remove_province_modifier = cu_planting_dyes
+			change_trade_goods = dyes
+		}
+		else_if = {
+		    limit = { has_province_modifier = cu_planting_spices }
+			remove_province_modifier = cu_planting_spices
+			change_trade_goods = spices
+		}
+		else_if = {
+		    limit = { has_province_modifier = cu_planting_tea }
+			remove_province_modifier = cu_planting_tea
+			change_trade_goods = tea
+		}
+		
+		add_province_modifier = {
+			name = cu_new_plantation
+			duration = 7300
+		}
+	}
+}
+
+###Search For Minerals(Result)
+province_event = {
+    id = terra.104
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = CITY_DEVELOPMENT_eventPicture
+	hidden = yes
+	trigger = {
+        had_province_flag = { #In case of province owner change
+			flag = cu_change_minaral_flag
+			days = 3650
+		}
+    }
+	mean_time_to_happen = {
+		months = 120
+	}
+
+	option = {
+		name = "EVT_HIDDEN" #Wonderful!
+		clr_province_flag = cu_change_minaral_flag
+		if = {
+		    limit = {
+			    OR = {
+					continent = europe
+					continent = asia
+				}
+				OR = {
+					has_terrain = hills
+					has_terrain = mountain
+				}
+				check_variable = { which = b_uc value = 8 }
+			}
+			random_list = {
+				2 = { province_event = { id = terra.105 } } #Gold
+				10 = { province_event = { id = terra.106 } } #Copper
+				10 = { province_event = { id = terra.107 } } #Iron
+				39 = { province_event = { id = terra.108 } } #Nothing
+				39 = { province_event = { id = terra.109 } } #Nothing(End)
+			}
+		}
+		else_if = {
+		    limit = {
+				OR = {
+					continent = europe
+					continent = asia
+				}
+				OR = {
+					has_terrain = hills
+					has_terrain = mountain
+				}
+				NOT = { check_variable = { which = b_uc value = 8 } }
+			}
+			random_list = {
+				3 = { province_event = { id = terra.105 } } #Gold
+				15 = { province_event = { id = terra.106 } } #Copper
+				15 = { province_event = { id = terra.107 } } #Iron
+				33 = { province_event = { id = terra.108 } } #Nothing
+				34 = { province_event = { id = terra.109 } } #Nothing(End)
+			}
+		}
+		else_if = {
+		    limit = {
+				OR = {
+					continent = europe
+					continent = asia
+				}
+				NOT = { 
+					OR = {
+						has_terrain = hills
+						has_terrain = mountain
+					}
+				}
+				NOT = { check_variable = { which = b_uc value = 8 } }
+			}
+			random_list = {
+				2 = { province_event = { id = terra.105 } } #Gold
+				10 = { province_event = { id = terra.106 } } #Copper
+				10 = { province_event = { id = terra.107 } } #Iron
+				39 = { province_event = { id = terra.108 } } #Nothing
+				39 = { province_event = { id = terra.109 } } #Nothing(End)
+			}
+		}
+		else_if = {
+		    limit = {
+				OR = {
+					continent = europe
+					continent = asia
+				}
+				NOT = {
+					OR = {
+						has_terrain = hills
+						has_terrain = mountain
+					}
+				}
+				check_variable = { which = b_uc value = 8 } 
+			}
+			random_list = {
+				1 = { province_event = { id = terra.105 } } #Gold
+				5 = { province_event = { id = terra.106 } } #Copper
+				5 = { province_event = { id = terra.107 } } #Iron
+				44 = { province_event = { id = terra.108 } } #Nothing
+				45 = { province_event = { id = terra.109 } } #Nothing(End)
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = {
+					OR = {
+						continent = europe
+						continent = asia
+					}
+				}
+				NOT = {
+					OR = {
+						has_terrain = hills
+						has_terrain = mountain
+					}
+				}
+				check_variable = { which = b_uc value = 8 } 
+			}
+			random_list = {
+				2 = { province_event = { id = terra.105 } } #Gold
+				10 = { province_event = { id = terra.106 } } #Copper
+				10 = { province_event = { id = terra.107 } } #Iron
+				39 = { province_event = { id = terra.108 } } #Nothing
+				39 = { province_event = { id = terra.109 } } #Nothing(End)
+			}
+		}
+		else_if = {
+			limit = {
+				
+				NOT = {
+					OR = {
+						continent = europe
+						continent = asia
+					}
+				}
+				NOT = {
+					OR = {
+						has_terrain = hills
+						has_terrain = mountain
+					}
+				}
+				NOT = { check_variable = { which = b_uc value = 8 } }
+			}
+			random_list = {
+				3 = { province_event = { id = terra.105 } } #Gold
+				15 = { province_event = { id = terra.106 } } #Copper
+				15 = { province_event = { id = terra.107 } } #Iron
+				33 = { province_event = { id = terra.108 } } #Nothing
+				34 = { province_event = { id = terra.109 } } #Nothing(End)
+			 }
+		}
+		else_if = {
+		    limit = {
+				NOT = {
+					OR = {
+						continent = europe
+						continent = asia
+					}
+				}
+				OR = {
+					has_terrain = hills
+					has_terrain = mountain
+				}
+				NOT = { check_variable = { which = b_uc value = 8 } }
+			}
+			random_list = {
+				5 = { province_event = { id = terra.105 } } #Gold
+				25 = { province_event = { id = terra.106 } } #Copper
+				25 = { province_event = { id = terra.107 } } #Iron
+				22 = { province_event = { id = terra.108 } } #Nothing
+				23 = { province_event = { id = terra.109 } } #Nothing(End)
+			}
+		}
+		else_if = {
+		    limit = {
+				NOT = {
+					OR = {
+						continent = europe
+						continent = asia
+					}
+				}
+				OR = {
+					has_terrain = hills
+					has_terrain = mountain
+				}
+				check_variable = { which = b_uc value = 8 } 
+			}
+			random_list = {
+				4 = { province_event = { id = terra.105 } } #Gold
+				20 = { province_event = { id = terra.106 } } #Copper
+				20 = { province_event = { id = terra.107 } } #Iron
+				28 = { province_event = { id = terra.108 } } #Nothing
+				28 = { province_event = { id = terra.109 } } #Nothing(End)
+			}
+		}
+	}
+}
+
+###Discover Gold
+province_event = {
+    id = terra.105
+	title = "terra.105.t"
+	desc = "terra.105.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "terra.105.a" #Great!
+		remove_province_modifier = cu_dig_for_minerals
+		owner = { add_prestige = 10 }
+		change_trade_goods = gold
+		add_province_modifier = {
+		    name = gold_mine_discovered
+			duration = 3650
+		}
+		if = {
+		    limit = { 
+			    base_production = 2 
+				NOT = { base_production = 4 }	   
+			}
+			cu_reduce_base_production_1 = yes
+		}
+		else_if = {
+		    limit = { 
+			    base_production = 4 
+				NOT = { base_production = 6 }	   
+			}
+			add_base_production = -2
+		}
+		else_if = {
+		    limit = { 
+			    base_production = 6
+				NOT = { base_production = 8 }	   
+			}
+			add_base_production = -3
+		}
+		else_if = {
+		    limit = { 
+			    base_production = 8	   
+			}
+			add_base_production = -4
+		}
+		ai_chance = {
+		    factor = 100
+		}
+	}
+	option = {
+		name = "terra.105.b" #Excuse me?
+		remove_province_modifier = cu_dig_for_minerals
+		add_permanent_province_modifier = {
+		    name = unexploited_gold_mine
+			duration = -1
+		}
+		ai_chance = {
+		    factor = 0
+		}
+	}
+}
+
+###Discover Copper
+province_event = {
+    id = terra.106
+	title = "terra.106.t"
+	desc = "terra.106.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "terra.106.a" #Great!
+		remove_province_modifier = cu_dig_for_minerals
+		add_prestige = 10
+		change_trade_goods = copper
+		add_province_modifier = {
+		    name = copper_mine_discovered
+			duration = 3650
+		}
+		if = {
+		    limit = { 
+			    base_production = 2   
+			}
+			cu_reduce_base_production_1 = yes
+			cu_add_base_manpower_1 = yes
+		}
+		ai_chance = {
+		    factor = 100
+		}
+	}
+	option = {
+		name = "terra.106.b" #We don't need copper...
+		remove_province_modifier = cu_dig_for_minerals
+		add_permanent_province_modifier = {
+		    name = unexploited_copper_mine
+			duration = -1
+		}
+		ai_chance = {
+		    factor = 0
+		}
+	}
+}
+
+###Discover Iron
+province_event = {
+    id = terra.107
+	title = "terra.107.t"
+	desc = "terra.107.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "terra.107.a" #Great!
+		remove_province_modifier = cu_dig_for_minerals
+		add_prestige = 10
+		change_trade_goods = iron
+		add_province_modifier = {
+		    name = iron_mine_discovered
+			duration = 3650
+		}
+		if = {
+		    limit = { 
+			    base_production = 2   
+			}
+			cu_reduce_base_production_1 = yes
+			cu_add_base_manpower_1 = yes
+		}
+		ai_chance = {
+		    factor = 100
+		}
+	}
+	option = {
+		name = "terra.107.b" #We don't need iron...
+		remove_province_modifier = cu_dig_for_minerals
+		add_permanent_province_modifier = {
+		    name = unexploited_iron_mine
+			duration = -1
+		}
+		ai_chance = {
+		    factor = 0
+		}
+	}
+}
+
+###Discover nothing
+province_event = {
+    id = terra.108
+	title = "terra.108.t"
+	desc = "terra.108.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "terra.108.a" #Try again!
+		trigger = {
+		    owner = {
+			    mil_power = 150
+				manpower = 2
+				treasury = 100
+			}
+		}
+		owner = {
+		    add_mil_power = -150
+			add_manpower = -2
+		    add_treasury = -100
+		}
+		remove_province_modifier = cu_dig_for_minerals
+		add_province_modifier = {
+		    name = cu_dig_for_minerals
+			duration = -1
+		}
+		set_province_flag = cu_change_minaral_flag
+		ai_chance = {
+		    factor = 50
+		}
+	}
+	option = {
+		name = "terra.108.b" #Abort
+		owner = {
+			add_manpower = 1
+			add_prestige = -10
+		}
+		remove_province_modifier = cu_dig_for_minerals
+		ai_chance = {
+		    factor = 0
+		}
+	}
+}
+
+###Discover nothing(End)
+province_event = {
+    id = terra.109
+	title = "terra.109.t"
+	desc = "terra.109.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "terra.109.a" #Alright...
+		owner = {
+			add_manpower = 1
+			add_prestige = -10
+		}
+		remove_province_modifier = cu_dig_for_minerals
+		set_province_flag = cu_no_minaral_flag
+		ai_chance = {
+		    factor = 1
+		}
+	}
+}
+
+###Foster new industry - Select Goods
+province_event = {
+    id = terra.110
+	title = "terra.110.t"
+	desc = "terra.110.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	is_triggered_only = yes
+
+    immediate = {
+		hidden_effect = {
+			owner = {
+				set_variable = { which = cu_power value = 150 }
+				cu_calc_power_cost = yes
+			}
+		}
+		set_province_flag = cu_foster_industry_flag
+	}
+	option = { #Cloth
+	    name = "terra.110.a"
+		trigger = {
+		      NOT = { trade_goods = cloth }
+		}
+		owner = {
+			cu_subtract_adm_power = yes
+		    add_treasury = -200
+		}
+		set_province_flag = cu_foster_industry_mod
+		add_province_modifier = {
+		    name = cu_foster_industry_cloth
+			duration = -1
+		}
+		custom_tooltip = terra.110.at
+		hidden_effect = { 
+		       set_variable = { which = cu_fi_production value = 0 } 
+		       export_to_variable = {
+			         which = cu_fi_production
+					 value = base_production
+			   }
+		}
+        ai_chance = {
+		     factor = 15
+		}		
+	}
+	option = { #Paper
+	    name = "terra.110.b"
+		trigger = {
+		      NOT = { trade_goods = paper }
+		}
+		owner = {
+			cu_subtract_adm_power = yes
+		    add_treasury = -200
+		}
+		set_province_flag = cu_foster_industry_mod
+		add_province_modifier = {
+		    name = cu_foster_industry_paper
+			duration = -1
+		}
+		custom_tooltip = terra.110.bt
+		
+		hidden_effect = { 
+		       set_variable = { which = cu_fi_production value = 0 } 
+		       export_to_variable = {
+			         which = cu_fi_production
+					 value = base_production
+			   }
+		}
+        ai_chance = {
+		     factor = 15
+		}		
+	}
+	option = { #Glass
+	    name = "terra.110.c"
+		trigger = {
+		      NOT = { trade_goods = glass }
+		}
+		owner = {
+			cu_subtract_adm_power = yes
+		    add_treasury = -200
+		}	
+		set_province_flag = cu_foster_industry_mod
+		add_province_modifier = {
+		    name = cu_foster_industry_glass
+			duration = -1
+		}
+		custom_tooltip = terra.110.ct
+		hidden_effect = { 
+		       set_variable = { which = cu_fi_production value = 0 } 
+		       export_to_variable = {
+			         which = cu_fi_production
+					 value = base_production
+			   }
+		}
+        ai_chance = {
+		     factor = 15
+		}		
+	}
+	option = { #Naval Supply
+	    name = "terra.110.d1"
+		trigger = {
+		      NOT = { trade_goods = naval_supplies }
+		}
+		owner = {
+			cu_subtract_adm_power = yes
+		    add_treasury = -200
+		}	
+		set_province_flag = cu_foster_industry_mod
+		add_province_modifier = {
+		    name = cu_foster_industry_naval
+			duration = -1
+		}
+		custom_tooltip = terra.110.dt
+		hidden_effect = { 
+		       set_variable = { which = cu_fi_production value = 0 } 
+		       export_to_variable = {
+			         which = cu_fi_production
+					 value = base_production
+			   }
+		}
+        ai_chance = {
+		     factor = 15
+		}		
+	}
+	option = { #Chinaware
+	    name = "terra.110.e"
+		trigger = {
+		      NOT = { trade_goods = chinaware }
+			  OR = {
+			        owner = { technology_group = chinese }
+					owner = {
+					      any_owned_province = {
+						       is_core = owner
+						       trade_goods = chinaware
+						  }
+					}
+			  }
+		}
+		owner = {
+			cu_subtract_adm_power = yes
+		    add_treasury = -200
+		}	
+		set_province_flag = cu_foster_industry_mod
+		add_province_modifier = {
+		    name = cu_foster_industry_chinaware
+			duration = -1
+		}
+		custom_tooltip = terra.110.et
+		hidden_effect = { 
+		       set_variable = { which = cu_fi_production value = 0 } 
+		       export_to_variable = {
+			         which = cu_fi_production
+					 value = base_production
+			   }
+		}
+        ai_chance = {
+		     factor = 15
+		}		
+	}
+	option = { #Return
+	    name = "terra.110.ret"
+		clr_province_flag = cu_foster_industry_flag
+		province_event = { id = terra.101 }
+		ai_chance = {
+		     factor = 25
+		}
+	}
+}
+
+###Foster new industry - Complete
+province_event = {
+    id = terra.111
+	title = "terra.111.t"
+	desc = "terra.111.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	
+	trigger = {
+	    has_province_flag = cu_foster_industry_mod
+	    OR = {
+		      AND = {
+			         base_production = 13
+					 NOT = { check_variable = { which = cu_fi_production value = 11 } }
+			  }
+			  AND = {
+			         base_production = 12
+					 NOT = { check_variable = { which = cu_fi_production value = 10 } }
+			  }
+			  AND = {
+			         base_production = 11
+					 NOT = { check_variable = { which = cu_fi_production value = 9 } }
+			  }
+		      AND = {
+			         base_production = 10
+					 NOT = { check_variable = { which = cu_fi_production value = 8 } }
+			  }
+			  AND = {
+			         base_production = 9
+					 NOT = { check_variable = { which = cu_fi_production value = 7 } }
+			  }
+			  AND = {
+			         base_production = 8
+					 NOT = { check_variable = { which = cu_fi_production value = 6 } }
+			  }
+			  
+		}
+	}
+    mean_time_to_happen = {
+	    months = 1
+	}
+	option = {
+	    name = "terra.111.a"
+		clr_province_flag = cu_foster_industry_flag
+		clr_province_flag = cu_foster_industry_mod
+		if = {
+		      limit = { has_province_modifier = cu_foster_industry_cloth }
+		      remove_province_modifier = cu_foster_industry_cloth
+			  change_trade_goods = cloth
+		}
+		else_if = {
+		      limit = { has_province_modifier = cu_foster_industry_paper }
+		      remove_province_modifier = cu_foster_industry_paper
+			  change_trade_goods = paper
+		}
+		else_if = {
+		      limit = { has_province_modifier = cu_foster_industry_glass }
+		      remove_province_modifier = cu_foster_industry_glass
+			  change_trade_goods = glass
+		}
+		else_if = {
+		      limit = { has_province_modifier = cu_foster_industry_naval }
+		      remove_province_modifier = cu_foster_industry_naval
+			  change_trade_goods = naval_supplies
+		}
+		else_if = {
+		      limit = { has_province_modifier = cu_foster_industry_chinaware }
+		      remove_province_modifier = cu_foster_industry_naval
+			  change_trade_goods = chinaware
+		}
+	}
+}

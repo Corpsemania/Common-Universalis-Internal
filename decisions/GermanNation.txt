@@ -1,0 +1,307 @@
+country_decisions = {
+
+	german_nation_n = {		
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_germany_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = GER }
+			NOT = { exists = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = EUU }
+			OR = {
+				capital_scope = { region = north_german_region }
+				tag = PRU
+			}
+			num_of_cities = 15
+			adm_tech = 23
+			NOT = { government = theocracy }		  
+			culture_group = germanic
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 44	# Hamburg
+				province_id = 46	# Rostock
+				province_id = 50	# Berlin
+				province_id = 57	# Brunswick
+				province_id = 61	# Dresden
+				province_id = 63	# Thuringen				
+				province_id = 81	# Hessen
+				province_id = 85	# Koln
+				province_id = 1761 # Worms				
+				province_id = 1876 # Frankfurt				                    
+       		 	province_id = 75   # Strassburg        
+        		province_id = 1775	# Holstein
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+				NOT = { country_or_subject_holds = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 23
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			is_emperor = no
+			prestige = 50
+			OR = {
+				is_great_power = yes
+				total_development = 500
+			}
+			OR = {
+			    emperor = {
+			      	NOT = { prestige = 30 } 
+			      	OR = {
+			      		is_great_power = no
+					    AND = {
+			             	NOT = { culture_group = germanic }
+			             	NOT = { tag = BOH }
+			            }
+		      		}
+			    }
+			    NOT = { hre_size = 1 }
+			}
+			57 = { country_or_subject_holds = ROOT } #Brunswick
+			61 = { country_or_subject_holds = ROOT } # Dresden
+			63 = { country_or_subject_holds = ROOT } # Thuringen
+			75 = { country_or_subject_holds = ROOT } # Strassburg
+			81 = { country_or_subject_holds = ROOT } # Hessen
+			85 = { country_or_subject_holds = ROOT } # Koln
+			1761 = { country_or_subject_holds = ROOT } # Worms
+			1876 = { country_or_subject_holds = ROOT } # Frankfurt
+			44 = { country_or_subject_holds = ROOT } # Hamburg
+			46 = { country_or_subject_holds = ROOT } # Rostock 
+			50 = { country_or_subject_holds = ROOT }	# Berlin
+			1775 = { country_or_subject_holds = ROOT }	# Holstein			             
+		}
+		effect = {
+			change_tag = GER
+			emperor = {
+				add_opinion = {
+					who = root
+					modifier = opinion_left_empire
+				}
+			}
+			set_in_empire = no
+			emperor = {
+				country_event = { id = hre_event.5 }
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_government_rank = 3
+			hidden_effect = {
+				every_subject_country = {
+					limit = {              
+						NOT = {
+							is_subject_of_type = tributary_state
+							is_subject_of_type = colony
+						}
+					}
+					every_owned_province = { 
+						limit = { culture_group = germanic }
+						cede_province = GER
+						add_core = GER
+						set_in_empire = no
+					} 
+				}
+				every_country = {
+					limit = { 
+						culture_group = germanic  
+						is_subject = no
+						is_emperor = no
+						ai = yes
+					}
+					country_event = { id = hre_event.6 }   
+				}               
+				every_province = {
+					limit = {
+						culture_group = germanic
+						NOT = { owned_by = ROOT }
+						continent = europe
+					}
+					add_permanent_claim = GER
+				}		
+			}	
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			set_country_flag = formed_germany_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}
+
+country_decisions = {
+
+	german_nation_s = {		
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_germany_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = GER }
+			NOT = { exists = HLR }
+			NOT = { tag = PAP }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = EUU }
+			capital_scope = { region = south_german_region }
+			num_of_cities = 15
+			adm_tech = 23
+			NOT = { government = theocracy }		  
+			culture_group = germanic
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 57	# Brunswick
+				province_id = 61	# Dresden
+				province_id = 63	# Thuringen
+				province_id = 65	# Machen
+				province_id = 67	# Nurenberg
+				province_id = 81	# Hessen
+				province_id = 85	# Koln
+				province_id = 1761 # Worms
+				province_id = 1868 # Augsburg
+				province_id = 1876 # Frankfurt				                    
+        		province_id = 75   # Strassburg
+        		province_id = 134   # Wien        
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+				NOT = { country_or_subject_holds = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 23
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			is_emperor = no
+			prestige = 50
+			OR = {
+				is_great_power = yes
+				total_development = 500
+			}
+			OR = {
+			    emperor = {
+			      	NOT = { prestige = 30 } 
+			      	OR = {
+			      		is_great_power = no
+					    AND = {
+			             	NOT = { culture_group = germanic }
+			             	NOT = { tag = BOH }
+			            }
+		      		}
+			    }
+			    NOT = { hre_size = 1 }
+			}
+			57 = { country_or_subject_holds = ROOT } #Brunswick
+			61 = { country_or_subject_holds = ROOT } # Dresden
+			63 = { country_or_subject_holds = ROOT } # Thuringen
+			75 = { country_or_subject_holds = ROOT } # Strassburg
+			81 = { country_or_subject_holds = ROOT } # Hessen
+			85 = { country_or_subject_holds = ROOT } # Koln
+			1761 = { country_or_subject_holds = ROOT } # Worms
+			1876 = { country_or_subject_holds = ROOT } # Frankfurt
+			65 = { country_or_subject_holds = ROOT } # Machen
+			67 = { country_or_subject_holds = ROOT } # Nurenberg
+			134 = { country_or_subject_holds = ROOT } # Wien
+			1868 = { country_or_subject_holds = ROOT } # Augsburg 
+		}
+		effect = {
+			change_tag = GER
+			emperor = {
+				add_opinion = {
+					who = root
+					modifier = opinion_left_empire
+				}
+			}
+			set_in_empire = no
+			emperor = {
+				country_event = { id = hre_event.5 }
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_government_rank = 3
+			hidden_effect = {
+				every_subject_country = {
+					limit = {              
+						NOT = {
+						is_subject_of_type = tributary_state
+						is_subject_of_type = colony
+						}
+					}	
+					every_owned_province = { 
+						limit = { culture_group = germanic }
+						cede_province = GER
+						add_core = GER
+						set_in_empire = no
+					} 
+				}
+      			every_country = {
+            		limit = { 
+						culture_group = germanic  
+						is_subject = no
+						is_emperor = no
+						ai = yes
+                    }
+                   country_event = { id = hre_event.6 }   
+                }               
+				every_province = {
+					limit = {
+						culture_group = germanic
+						NOT = { owned_by = ROOT }
+						continent = europe
+					}
+					add_permanent_claim = GER
+				}		
+			}	
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			add_prestige = 25
+			set_country_flag = formed_germany_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}
+

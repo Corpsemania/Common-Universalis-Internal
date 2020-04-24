@@ -1,0 +1,12 @@
+#Shachuan(Barque Replacement)
+type = light_ship
+trigger = { 
+                unit_type = chinese
+}
+hull_size = 12
+base_cannons = 16
+sail_speed = 8
+
+trade_power = 2.5
+
+sprite_level = 1

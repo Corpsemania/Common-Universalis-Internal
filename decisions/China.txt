@@ -1,0 +1,98 @@
+country_decisions = {
+
+	reparations_of_the_great_wall = {
+		potential = {
+			NOT = { has_country_modifier = great_wall_reparations }
+			is_emperor_of_china = yes
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			owns = 693
+			owns = 695
+			owns = 696
+			owns = 697
+			owns = 699
+			owns = 700
+			owns = 707			
+			owns = 1816
+		}
+		allow = {
+			MIL = 4
+		}
+		effect = {
+			add_country_modifier = {
+				name = "great_wall_reparations"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					NOT = { years_of_income = 1.5 }
+					NOT = { adm_power = 100 }
+					NOT = { mil_power = 100 }
+				}
+			}
+		}
+	}
+
+	build_the_forbidden_city = {
+		potential = {
+			OR = {
+				tag = MCH
+				tag = MNG
+				tag = QNG
+			}
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			capital = 1816
+			1816 = { NOT = { has_province_modifier = cu_forbidden_palace } }
+			NOT = { has_global_flag = the_forbidden_city_built }
+		}
+		allow = {
+			is_at_war = no
+			OR = {
+				statesman = 3
+				adm = 3
+			}
+			OR = {
+				faction_in_power = bureaucrats
+				has_factions = no
+			}
+			stability = 3
+			years_of_income = 1.0
+			adm_power = 50
+		}
+		effect = {
+			add_years_of_income = -1.0
+			add_adm_power = -50
+                        set_global_flag = the_forbidden_city_built
+			1816 = {
+                                add_permanent_province_modifier = {
+				      name = cu_forbidden_palace
+				      duration = -1
+                                }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					NOT = { years_of_income = 1.5 }
+					NOT = { adm_power = 100 }
+				}
+			}
+		}
+	}
+	
+	
+	
+}

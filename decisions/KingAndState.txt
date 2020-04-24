@@ -1,0 +1,489 @@
+country_decisions = {
+
+	court_decisions = {
+		potential = {
+			government = monarchy
+            NOT = { has_reform =  elective_monarchy }
+            NOT = { has_country_flag = enacting_court_decisions }
+			ai = yes
+		}
+		allow = {
+            legitimacy_equivalent = 50
+		}
+		effect = {
+			clr_country_flag = enacting_court_decisions_timer
+			set_country_flag = enacting_court_decisions_timer
+			set_country_flag = enacting_court_decisions
+            set_ruler_flag = enacting_court_decisions_ai
+            country_event = { id = state.1 }
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { legitimacy_equivalent = 80 }
+			}
+			modifier = {
+				factor = 0
+				has_ruler_flag = enacting_court_decisions_ai 
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					had_country_flag = {
+						flag = enacting_court_decisions_timer
+						days = 1825
+					}
+				}
+			}
+		}		
+	}
+	
+    bind_with_nobles = {
+		potential = {
+			influence_ideas = 2
+			has_estate = estate_nobles
+		}
+		allow = {
+			years_of_income = 0.5
+			prestige = 5
+			NOT = { has_country_modifier = cu_bind_with_estate }
+		}
+		effect = {
+		    add_years_of_income = -0.5
+			add_prestige = -5
+			add_estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 10
+			}
+			add_country_modifier = {
+			        name = cu_bind_with_estate
+					duration = 3650
+			}
+			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 0.7 }				
+			}
+			modifier = {
+				factor = 0
+				estate_loyalty = {
+					estate = estate_nobles
+					loyalty = 40
+				}
+			}
+                        
+		}		
+	}
+	bind_with_church = {
+		potential = {
+			influence_ideas = 2
+			has_estate = estate_church
+		}
+		allow = {
+			years_of_income = 0.5
+			prestige = 5
+			NOT = { has_country_modifier = cu_bind_with_estate }
+		}
+		effect = {
+		    add_years_of_income = -0.5
+			add_prestige = -5
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = 10
+			}
+			add_country_modifier = {
+			        name = cu_bind_with_estate
+					duration = 3650
+			}
+			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 0.7 }				
+			}
+			modifier = {
+				factor = 0
+				estate_loyalty = {
+					estate = estate_church
+					loyalty = 40
+				}
+			}
+                        
+		}		
+	}
+	bind_with_burghers = {
+		potential = {
+			influence_ideas = 2
+			has_estate = estate_burghers
+		}
+		allow = {
+			years_of_income = 0.5
+			prestige = 5
+			NOT = { has_country_modifier = cu_bind_with_estate }
+		}
+		effect = {
+		    add_years_of_income = -0.5
+			add_prestige = -5
+			add_estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 10
+			}
+			add_country_modifier = {
+			        name = cu_bind_with_estate
+					duration = 3650
+			}
+			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 0.7 }				
+			}
+			modifier = {
+				factor = 0
+				estate_loyalty = {
+					estate = estate_burghers
+					loyalty = 40
+				}
+			}
+                        
+		}		
+	}
+	bind_with_cossacks = {
+		potential = {
+			influence_ideas = 2
+			has_estate = estate_cossacks
+		}
+		allow = {
+			years_of_income = 0.5
+			prestige = 5
+			NOT = { has_country_modifier = cu_bind_with_estate }
+		}
+		effect = {
+		    add_years_of_income = -0.5
+			add_prestige = -5
+			add_estate_loyalty = {
+				estate = estate_cossacks
+				loyalty = 10
+			}
+			add_country_modifier = {
+			        name = cu_bind_with_estate
+					duration = 3650
+			}
+			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 0.7 }				
+			}
+			modifier = {
+				factor = 0
+				estate_loyalty = {
+					estate = estate_cossacks
+					loyalty = 40
+				}
+			}
+                        
+		}		
+	}
+	bind_with_tribes = {
+		potential = {
+			influence_ideas = 2
+			has_estate = estate_nomadic_tribes
+		}
+		allow = {
+			years_of_income = 0.5
+			prestige = 5
+			NOT = { has_country_modifier = cu_bind_with_estate }
+		}
+		effect = {
+		    add_years_of_income = -0.5
+			add_prestige = -5
+			add_estate_loyalty = {
+				estate = estate_nomadic_tribes
+				loyalty = 10
+			}
+			add_country_modifier = {
+			        name = cu_bind_with_estate
+					duration = 3650
+			}
+			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 0.7 }				
+			}
+			modifier = {
+				factor = 0
+				estate_loyalty = {
+					estate = estate_nomadic_tribes
+					loyalty = 40
+				}
+			}
+                        
+		}		
+	}
+	bind_with_dhimmi = {
+		potential = {
+			influence_ideas = 2
+			has_estate = estate_dhimmi
+		}
+		allow = {
+			years_of_income = 0.5
+			prestige = 5
+			NOT = { has_country_modifier = cu_bind_with_estate }
+		}
+		effect = {
+		    add_years_of_income = -0.5
+			add_prestige = -5
+			add_estate_loyalty = {
+				estate = estate_dhimmi
+				loyalty = 10
+			}
+			add_country_modifier = {
+			        name = cu_bind_with_estate
+					duration = 3650
+			}
+			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 0.7 }				
+			}
+			modifier = {
+				factor = 0
+				estate_loyalty = {
+					estate = estate_dhimmi
+					loyalty = 40
+				}
+			}
+                        
+		}		
+	}
+	cu_tech_panel = {
+	    potential = {
+			ai = no #Human Player does this in technology panel instead
+		}
+	    allow = {
+	        NOT = { has_country_flag = cu_tech_panel_open }
+		}
+		effect = {
+		   hidden_effect = {
+		         cu_calc_tech_cost = yes
+		   }
+		   set_country_flag = cu_tech_panel_open
+		   country_event = { id = tech.4 }
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	cu_invest_in_adm_tech_ai = {
+	    potential = {
+			ai = yes #Human Player does this in technology panel instead
+			OR = {
+			      NOT = { has_country_flag = cu_invest_in_adm_tech_timer }
+				  had_country_flag = {
+				       flag = cu_invest_in_adm_tech_timer
+					   days = 1095
+				  }
+			}
+		}
+		allow = {
+			years_of_income = 0.1
+			adm_power = 200
+		}
+		effect = {
+		    add_years_of_income = -0.1
+			clr_country_flag = cu_invest_in_adm_tech_timer
+			set_country_flag = cu_invest_in_adm_tech_timer
+		    hidden_effect = { 
+				set_variable = { which = cu_power value = 200 } 
+				cu_calc_power_cost_country = yes
+				cu_subtract_adm_power = yes
+			}
+		    cu_get_3year_adm = yes
+			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 0.2 }				
+			}
+			modifier = {
+				factor = 0
+				NOT = { adm_power = 300 }
+			}
+			modifier = {
+				factor = 0
+				NOT = { adm_tech = 3 } #Primitives will not use it until they see the "modern" way
+			}
+			modifier = {
+				factor = 0
+				check_variable = { which = ntla value = 0.5 } #Tech is greatly ahead of time
+			}
+            modifier = {
+				factor = 0
+				AND = {
+				  num_of_loans = 1
+				  NOT = { years_of_income = 0.4 }		
+			    }	
+			} 
+            modifier = {
+				factor = 0
+				NOT = {
+				     AND = {
+					       is_at_war = yes
+						   NOT = { years_of_income = 0.4 }		
+					 }
+				}				
+			}			
+		}		
+	
+	}
+	
+	cu_invest_in_dip_tech_ai = {
+	    potential = {
+			ai = yes #Human Player does this in technology panel instead
+			OR = {
+			      NOT = { has_country_flag = cu_invest_in_dip_tech_timer }
+				  had_country_flag = {
+				       flag = cu_invest_in_dip_tech_timer
+					   days = 1095
+				  }
+			}
+		}
+		allow = {
+			years_of_income = 0.1
+			dip_power = 200
+		}
+		effect = {
+		    add_years_of_income = -0.1
+			clr_country_flag = cu_invest_in_dip_tech_timer
+			set_country_flag = cu_invest_in_dip_tech_timer
+		    hidden_effect = { 
+				set_variable = { which = cu_power value = 200 } 
+				cu_calc_power_cost_country = yes
+				cu_subtract_dip_power = yes
+			}
+		    cu_get_3year_dip = yes
+			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 0.2 }				
+			}
+			modifier = {
+				factor = 0
+				NOT = { dip_power = 300 }
+			}
+			modifier = {
+				factor = 0
+				NOT = { adm_tech = 3 } #Primitives will not use it until they see the "modern" way
+			}
+			modifier = {
+				factor = 0
+				check_variable = { which = ntld value = 0.5 } #Tech is greatly ahead of time
+			}
+            modifier = {
+				factor = 0
+				AND = {
+				  num_of_loans = 1
+				  NOT = { years_of_income = 0.4 }		
+			    }	
+			}	  
+            modifier = {
+				factor = 0
+				NOT = {
+				     AND = {
+					       is_at_war = yes
+						   NOT = { years_of_income = 0.4 }		
+					 }
+				}				
+			}				
+		}		
+	
+	}
+	
+	cu_invest_in_mil_tech_ai = {
+	    potential = {
+			ai = yes #Human Player does this in technology panel instead
+			OR = {
+			      NOT = { has_country_flag = cu_invest_in_mil_tech_timer }
+				  had_country_flag = {
+				       flag = cu_invest_in_mil_tech_timer
+					   days = 1095
+				  }
+			}
+		}
+		allow = {
+			years_of_income = 0.1
+			mil_power = 200
+		}
+		effect = {
+		    add_years_of_income = -0.1
+			clr_country_flag = cu_invest_in_mil_tech_timer
+			set_country_flag = cu_invest_in_mil_tech_timer
+		    hidden_effect = { 
+				set_variable = { which = cu_power value = 200 } 
+				cu_calc_power_cost_country = yes
+				cu_subtract_mil_power = yes
+			}
+		    cu_get_3year_mil = yes
+			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { years_of_income = 0.2 }				
+			}
+			modifier = {
+				factor = 0
+				NOT = { mil_power = 300 }
+			}
+			modifier = {
+				factor = 0
+				NOT = { adm_tech = 3 } #Primitives will not use it until they see the "modern" way
+			}
+			modifier = {
+				factor = 0
+				check_variable = { which = ntlm value = 0.5 } #Tech is greatly ahead of time
+			}
+			modifier = {
+				factor = 0
+				AND = {
+				  num_of_loans = 1
+				  NOT = { years_of_income = 0.4 }		
+			    }	
+			}
+            
+            modifier = {
+				factor = 0
+				NOT = {
+				     AND = {
+					       is_at_war = yes
+						   NOT = { years_of_income = 0.4 }		
+					 }
+				}				
+			}	            
+		}		
+	
+	}
+}

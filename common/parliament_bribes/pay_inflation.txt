@@ -1,0 +1,21 @@
+pay_inflation = {
+	trigger = {
+		always = yes
+	}
+	
+	effect = {
+		add_inflation = 0.6
+		custom_tooltip = parliament_bribe_20t
+		hidden_effect = {
+		    country_event = { id = parlaments.999}
+		}
+	}
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0.1
+			inflation = 10
+		}
+	}
+}

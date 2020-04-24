@@ -1,0 +1,41 @@
+########################################
+# Flavor Events for Saxony
+#
+# Scripted by Sara Wendel-Örtqvist
+########################################
+
+namespace = flavor_sax
+normal_or_historical_nations = yes
+
+# Johann Sebastian Bach
+country_event = {
+	id = flavor_sax.1
+	title = "flavor_sax.EVTNAME1"
+	desc = "flavor_sax.EVTDESC1"
+	picture = IMPORTANT_STATUE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = SAX
+		is_year = 1700
+		NOT = { is_year = 1750 }
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+	}
+	
+	option = {
+		name = "flavor_sax.EVTOPTA1"
+		add_adm_power = 10
+		add_prestige = 10
+		add_innovativeness_small_effect = yes
+		hidden_effect = {
+   		 set_variable = { which = cu_var1 value = 3 }
+		}
+		cu_change_cultural_legacy = yes
+		custom_tooltip = cu_change_cultural_legacy_3t
+	}
+}
+

@@ -1,0 +1,1099 @@
+namespace = urban
+
+#Literacy(Province)
+province_event = {
+	id = urban.96
+	title = "urban.96.t"
+	desc = "EVT_HIDDEN"
+	picture = ADVISOR_eventPicture
+	hidden = yes
+    is_triggered_only = yes
+	
+	option = {
+		name = "urban.97.a"
+
+		if = {
+			limit = { 
+				NOT = { check_variable = { which = literacy value = 0.9 } }
+				NOT = { development = 6 }									
+			}
+			set_variable = { which = ave_literacy which = owner } #Transfer country's average literacy(Unaccepted cultures are not counted) to colony
+			set_variable = { which = literacy which = ave_literacy }
+		}
+		#Variable List
+		set_variable = { which = lit_g value = 0 } #Literacy Growth
+		#Base Growth
+		set_variable = { which = lit_bg which = literacy } #Literacy Base Growth = 0.005 - Literacy * 0.001
+		multiply_variable = { which = lit_bg value = -0.001 }
+		change_variable = { which = lit_bg value = 0.005 } #Literacy Base Growth
+		#set_variable = { which = lit_dg value = 0 } #Literacy Base Growth By Devastation(Negative)
+		set_variable = { which = lit_gc value = 0 } #Literacy Growth From Commerce
+		set_variable = { which = lit_gp value = 0 } #Literacy Growth From Production
+		set_variable = { which = lit_ga value = 0 } #Literacy Growth From Agriculture
+		set_variable = { which = lit_gb value = 0 } #Literacy Growth From Building, Estates and Local Effects
+		set_variable = { which = lit_gt value = 0 } #Literacy Growth From Technology
+		set_variable = { which = lit_gi value = 0 } #Literacy Growth From Ideas
+		set_variable = { which = lit_gd value = 0 } #Literacy Growth From Degrees
+		set_variable = { which = lit_gl value = 0 } #Literacy Growth From Literacy
+		
+		#Growth Modifier
+		set_variable = { which = lit_m value = 1 } #Literacy Growth Modifier
+		set_variable = { which = lit_ma value = 0 } #Literacy Growth Modifier From Agriculture
+		set_variable = { which = lit_ml value = 0 } #Literacy Growth Modifier From Current Literacy
+		set_variable = { which = lit_mb value = 0 } #Literacy Growth Modifier From Building
+		set_variable = { which = lit_mt value = 0 } #Literacy Growth Modifier From Technology
+		set_variable = { which = lit_mat value = 0 } #Literacy Growth Modifier From ADM Technology
+		set_variable = { which = lit_mdt value = 0 } #Literacy Growth Modifier From DIP Technology
+		set_variable = { which = lit_mmt value = 0 } #Literacy Growth Modifier From MIL Technology
+		set_variable = { which = lit_mi value = 0 } #Literacy Growth Modifier From Ideas and Effects
+		set_variable = { which = lit_md value = 0 } #Literacy Growth Modifier From Degrees
+		set_variable = { which = p_dev value = 0 } #Province Development
+		set_variable = { which = lit_dm value = 0 } #Literacy Growth Development Modifier
+		#Current Literacy( Higher Literacy , higher efficiency, lower base growth )
+		change_variable = { which = lit_ml which = literacy }
+		multiply_variable = { which = lit_ml value = 0.004 }
+		change_variable = { which = lit_m which = lit_ml }
+		
+		#Development 
+		export_to_variable = {
+			which = lit_gc
+			value = base_tax
+		}
+		change_variable = { which = lit_gc value = -1 }
+		divide_variable = { which = lit_gc value = 250 }
+		change_variable = { which = lit_bg which = lit_gc }
+		export_to_variable = {
+			which = lit_gp
+			value = base_production
+		}
+		change_variable = { which = lit_gp value = -1 }
+		divide_variable = { which = lit_gp value = 250 }
+		change_variable = { which = lit_bg which = lit_gp }
+		
+		export_to_variable = {
+			which = lit_ga
+			value = base_manpower
+		}
+		change_variable = { which = lit_ga value = -1 }
+		divide_variable = { which = lit_ga value = 500 }
+		subtract_variable = { which = lit_bg which = lit_ga }
+		
+		#export_to_variable = {
+		   #which = lit_dg
+			#value = devastation #Value is not available
+		#}
+		
+		#divide_variable = { which = lit_dg value = 1000 }
+		#subtract_variable = { which = lit_bg which = lit_dg }
+		
+		#Scaled by development
+		export_to_variable = {
+			which = p_dev
+			value = development
+		}
+		if = {
+			 limit = { NOT = { check_variable = { which = p_dev value = 1 } } }
+			 set_variable = { which = p_dev value = 1 }
+		}
+		change_variable = { which = lit_dm value = 6 } #Bonus to small provinces e.g. 5 dev got 160%,10 dev got 140%,20 dev got 124%
+		change_variable = { which = p_dev value = 5 }
+		divide_variable = { which = lit_dm which = p_dev }
+		subtract_variable = { which = p_dev value = 5 }
+		change_variable = { which = lit_dm value = 1 }
+		multiply_variable = { which = lit_bg which = lit_dm }
+		
+		#Colonial Nations receive additional growth from literacy difference with its overlord
+		if = {
+			limit = {
+				owner = { 
+					is_colonial_nation = yes 
+					NOT = { check_variable = { which = ave_literacy which = overlord } }		  
+				}
+			}
+			owner = { 
+				overlord = { set_variable = { which = cu_var1 which = ave_literacy } }
+				set_variable = { which = cu_var1 which = overlord }
+				subtract_variable = { which = cu_var1 which = ave_literacy }	
+			}
+			set_variable = { which = cu_var1 which = owner }								   
+			multiply_variable = { which = cu_var1 value = 0.01 }
+			change_variable = { which = lit_bg which = cu_var1 }
+		}
+		
+		#Building, Estate, Effect
+		if = { 
+			limit = { has_building = temple }
+			change_variable = { which = lit_gb value = 0.01 }						
+		}							
+		else_if = { 
+			limit = { has_building = cathedral }
+			change_variable = { which = lit_gb value = 0.02 }							
+		}
+		if = { 
+			limit = { has_province_modifier = cu_church_school }
+			change_variable = { which = lit_gb value = 0.01 }  						
+		}
+		else_if = { 
+			limit = { has_province_modifier = cu_church_school_2 }
+			change_variable = { which = lit_gb value = 0.02 }  						
+		}
+		if = {
+			limit = { has_building = public_school }
+			change_variable = { which = lit_gb value = 0.02 }
+			if = { 
+				limit = { has_province_modifier = cu_public_school }
+				change_variable = { which = lit_gb value = 0.06 }						
+			}
+			else_if = { 
+				limit = { has_province_modifier = cu_burghers_school }
+				change_variable = { which = lit_gb value = 0.02 }						
+			}
+		}
+		if = { 
+			limit = { has_building = university }
+			change_variable = { which = lit_gb value = 0.01 }	
+		}
+		if = { 
+			limit = { has_estate = estate_church }
+			change_variable = { which = lit_gb value = 0.005 }
+			change_variable = { which = lit_ma value = 0.1 }	
+			change_variable = { which = lit_mb value = -0.1 }								
+		}
+		if = { 
+			limit = { has_province_modifier = russian_education_reform }
+			change_variable = { which = lit_gb value = 0.02 }							
+		}
+		
+		if = {
+			limit = {  has_province_modifier = cu_colonial_influx }
+			change_variable = { which = lit_gb value = 0.02 }
+		}
+		if = { 
+			limit = { 
+				OR = {
+					has_province_modifier = trade_company_off_1
+					has_province_modifier = trade_company_off_2
+					has_province_modifier = trade_company_off_3
+					has_province_modifier = trade_company_off_4
+					has_province_modifier = trade_company_pri_1
+					has_province_modifier = trade_company_pri_2
+					has_province_modifier = trade_company_pri_3
+					has_province_modifier = trade_company_pri_4
+				}
+			}
+			change_variable = { which = lit_gb value = 0.01 }
+			change_variable = { which = lit_mb value = -0.33 }								
+		}
+		
+		if = {
+			limit = { 
+				has_province_modifier = indian_caste_system
+			}
+			change_variable = { which = lit_gb value = -0.002 }
+			change_variable = { which = lit_mb value = -0.15 }							 
+		}
+		if = {
+			limit = { 
+				owner = { has_country_modifier = university_1 } 
+				cu_not_terr_trigger = yes
+			}
+			change_variable = { which = lit_gb value = 0.005 }
+			change_variable = { which = lit_mb value = 0.1 }							 
+		}
+		else_if = {
+			limit = { 
+				owner = { has_country_modifier = university_2 } 
+				cu_not_terr_trigger = yes
+			}
+			change_variable = { which = lit_gb value = 0.01 }
+			change_variable = { which = lit_mb value = 0.2 }							 
+		}
+		else_if = {
+			limit = { 
+				owner = { has_country_modifier = university_3 } 
+				cu_not_terr_trigger = yes
+			}
+			change_variable = { which = lit_gb value = 0.015 }
+			change_variable = { which = lit_mb value = 0.3 }							 
+		}
+		else_if = {
+			limit = { 
+				owner = { has_country_modifier = university_4 } 
+				cu_not_terr_trigger = yes
+			}
+			change_variable = { which = lit_gb value = 0.02 }
+			change_variable = { which = lit_mb value = 0.4 }							 
+		}
+		#if = {
+			 #limit = { 
+						#owner = { has_active_policy = the_education_act } 
+			 #}
+			 #change_variable = { which = lit_mb value = 0.25 }							 
+		#}
+		if = { #Bonus for ai's HRE provinces to make up for literacy loss due to their constant war.
+			limit = { 
+				is_part_of_hre = yes
+				printing_press = 100
+				owner = { ai = yes }
+			}
+			change_variable = { which = lit_gb value = 0.01 }						 
+		}
+		#Printing Press
+		if = {
+			limit = { enlightenment = 100 }
+			change_variable = { which = lit_gb value = 0.005 }
+		}
+		if = {
+			limit = { printing_press = 100 }
+			change_variable = { which = lit_gb value = 0.01 }
+		}
+		
+		change_variable = { which = lit_bg which = lit_gb }
+		change_variable = { which = lit_m which = lit_mb }
+		#Technology
+		export_to_variable = {
+			which = lit_mat
+			value = adm_tech
+			who = owner
+		}
+		export_to_variable = {
+			which = lit_mdt
+			value = dip_tech
+			who = owner
+		}
+		export_to_variable = {
+			which = lit_mmt
+			value = mil_tech
+			who = owner
+		}
+		change_variable = { which = lit_mt which = lit_mat }
+		change_variable = { which = lit_mt which = lit_mdt }
+		change_variable = { which = lit_mt which = lit_mtt }
+		divide_variable = { which = lit_mt value = 100 }
+		change_variable = { which = lit_m which = lit_mt }
+		
+		#Ideas
+		export_to_variable = {
+			 which = lit_mi
+			 value = modifier:global_institution_spread
+			 who = owner
+		}
+		set_variable = { which = cu_var3 value = 0 }
+		export_to_variable = {
+			 which = cu_var3
+			 value = modifier:local_institution_spread
+		}
+		change_variable = { which = lit_mi which = cu_var3 }
+		if = {
+			limit = { 
+				owner = { militarist_ideas = 4 } 
+			}
+			if = {
+				limit = { has_building = training_fields }
+				change_variable = { which = lit_gb value = 0.015 }		
+			}
+			else_if = {
+				limit = { has_building = barracks }
+				change_variable = { which = lit_gb value = 0.008 }		
+			}
+		}
+		if = {
+			limit = { 
+				owner = { reform_ideas = 5 } 
+				cu_not_terr_trigger = yes		  
+			}
+			change_variable = { which = lit_bg value = 0.01 }	
+			if = {
+				limit = { NOT = { check_variable = { which = literacy value = 5 } } }
+				change_variable = { which = lit_bg value = 0.01 }	
+			}						 
+		}
+		
+		change_variable = { which = lit_m which = lit_mi }
+		
+		#Apply
+		multiply_variable = { which = lit_ga which = lit_ma }
+		change_variable = { which = lit_g which = lit_ga }
+		change_variable = { which = lit_g which = lit_bg }
+		multiply_variable = { which = lit_g which = lit_m }
+		change_variable = { which = lit_gl which = literacy }
+		divide_variable = { which = lit_gl value = 1000 } 
+		subtract_variable = { which = lit_g which = lit_gl }
+		if = {
+			limit = { owner = { ai = yes } } #AI's literacy is calculated per 5 years to improve performance
+			multiply_variable = { which = lit_g value = 5 } 
+		}
+		change_variable = { which = literacy which = lit_g }
+		if = {  #Never more than 100%
+			limit = { check_variable = { which = literacy value = 100 } }
+			set_variable = { which = literacy value = 100 }
+		}
+		if = {
+			limit = { owner = { ai = yes } } #show growth per year
+			divide_variable = { which = lit_g value = 5 } 
+		}
+		if = {
+			limit = { 
+				NOT = { has_province_flag = display_version } 	
+				cu_not_terr_trigger = yes								 
+			}
+			
+			owner = { 
+				set_variable = { which =  literacy which = PREV }
+				#change_variable = { which =  num_pp value = 1 }
+				change_variable = { which = sum_literacy which = literacy }
+				#change_variable = { which = p_dev which = PREV }
+			}
+			
+			set_variable = { which = cu_mp which = p_dev }
+			set_variable = { which = cu_mpb value = 0 }
+			set_variable = { which = cu_mpl which = literacy }
+			if = {
+				limit = {
+					has_building = barracks
+				}
+				change_variable = { which = cu_mpb value = 1 }
+			}
+			if = {
+				limit = {
+					has_building = training_fields
+				}
+				change_variable = { which = cu_mpb value = 1.5 }
+			}
+			if = {
+				limit = {
+					has_building = regimental_camp
+				}
+				change_variable = { which = cu_mpb value = 2 }
+			}
+			if = {
+				limit = {
+					has_building = conscription_center
+				}
+				change_variable = { which = cu_mpb value = 3 }
+			}
+			if = {
+				limit = { 
+					owner = { full_idea_group = militarist_ideas }
+				}
+				multiply_variable = { which = cu_mpb value = 1.25 }
+			}
+			change_variable = { which = cu_mpb value = 0.5 } #Base Value
+			
+			change_variable = { which = cu_mpl value = 25 }
+			divide_variable = { which = cu_mpl value = 200 }
+			multiply_variable = { which = cu_mp which = cu_mpb }
+			multiply_variable = { which = cu_mp which = cu_mpl }
+			owner = { change_variable = { which = cu_mp which = PREV } }
+		}
+		cu_calc_base_cultural_acceptance = yes
+		cu_calc_cultural_acceptance_growth = yes
+		
+		#Cultural Assimilation Growth
+		if = {
+			limit = { 
+				has_province_modifier = cu_cultural_assimilation 
+				check_variable = { which = p_ca value = 80 }
+			}
+			cu_cultural_assimilation_growth = yes
+		}
+		
+		if = { #This is just an insurance.
+			limit = { 
+			        unrest = 0.1
+					owner = { ai = yes }
+			}
+			cu_calc_base_cultural_acceptance = yes
+		}
+		
+		#new tech system
+		#points
+		#p_res:province research points
+		#p_resa(dm),d(ip),m(il)
+		set_variable = { which = p_resa value = 0 }
+		set_variable = { which = p_resd value = 0 }
+		set_variable = { which = p_resm value = 0 }
+		export_to_variable = { which = cu_var1 value = base_tax }
+		export_to_variable = { which = cu_var2 value = base_production }
+		export_to_variable = { which = cu_var3 value = base_manpower }
+		set_variable = { which = p_resb which = literacy }#literacy modifier
+		multiply_variable = { which = p_resb value = 0.09 }
+		change_variable = { which = p_resb value = 0.9 }
+		#divide_variable = { which = p_resb value = 100 }
+		set_variable = { which = p_resa1 which = p_ca }
+		change_variable = { which = p_resa1 value = 50 }
+		divide_variable = { which = p_resa1 value = 150 }
+		multiply_variable = { which = p_resb which = p_resa1 }
+		#ADM
+			set_variable = { which = p_resa1 value = 0 }
+			set_variable = { which = p_resa2 value = 0 }
+			change_variable= { which = p_resa1 which = cu_var1 }
+			multiply_variable = { which = p_resa1 value = 0.9 }
+			change_variable= { which = p_resa2 which = cu_var2 }
+			multiply_variable = { which = p_resa2 value = 0.9 }
+			change_variable= { which = p_resa which = cu_var3 }
+			multiply_variable = { which = p_resa value = 1.2 }
+			change_variable = { which = p_resa which = p_resa1 }
+			change_variable = { which = p_resa which = p_resa2 }
+			if = { 
+			      limit = { 
+				            has_building = town_hall
+				  } 
+				  change_variable = { which = p_resa value = 3 } 
+			}
+			else_if = { 
+			      limit = { 
+				            OR = {
+							       has_building = courthouse
+								   has_province_modifier = cu_fort_government
+							}
+				  } 
+				  change_variable = { which = p_resa value = 1 } 
+			}
+			
+		#DIP
+			set_variable = { which = p_resd1 value = 0 }
+			set_variable = { which = p_resd2 value = 0 }
+			change_variable= { which = p_resd1 which = cu_var1 }
+			multiply_variable = { which = p_resd1 value = 1.5 }
+			change_variable= { which = p_resd2 which = cu_var2 }
+			multiply_variable = { which = p_resd2 value = 0.9 }
+			change_variable= { which = p_resd which = cu_var3 }
+			multiply_variable = { which = p_resd value = 0.6 }
+			change_variable = { which = p_resd which = p_resd1 }
+			change_variable = { which = p_resd which = p_resd2 }
+			#extra dip_tech
+			if = { limit = { province_has_center_of_trade_of_level = 3 }  change_variable = { which = p_resd value = 8 } }
+			else_if = { limit = { province_has_center_of_trade_of_level = 2 }  change_variable = { which = p_resd value = 4 } }
+			else_if = { limit = { province_has_center_of_trade_of_level = 1 }  change_variable = { which = p_resd value = 2 } }
+			if = { limit = { has_building = marketplace } change_variable = { which = p_resd value = 1.5 } }
+			else_if = { limit = { has_building = trade_depot } change_variable = { which = p_resd value = 3 } }
+			else_if = { limit = { has_building = stock_exchange } change_variable = { which = p_resd value = 4.5 } }
+			if = { limit = { has_building = dock } change_variable = { which = p_resd value = 1 } }
+			else_if = { limit = { has_building = drydock } change_variable = { which = p_resd value = 2 } }
+			if = { limit = { has_building = shipyard } change_variable = { which = p_resd value = 2 } }
+			else_if = { limit = { has_building = grand_shipyard } change_variable = { which = p_resd value = 4 } }
+		#MIL
+			set_variable = { which = p_resm1 value = 0 }
+			set_variable = { which = p_resm2 value = 0 }
+			change_variable= { which = p_resm1 which = cu_var1 }
+			multiply_variable = { which = p_resm1 value = 0.6 }
+			change_variable= { which = p_resm2 which = cu_var2 }
+			multiply_variable = { which = p_resm2 value = 1.2 }
+			change_variable= { which = p_resm which = cu_var3 }
+			multiply_variable = { which = p_resm value = 1.2 }
+			change_variable = { which = p_resm which = p_resm1 }
+			change_variable = { which = p_resm which = p_resm2 }
+			#extra mil_tech
+		    set_variable = { which = p_resm1 which = cu_mp }
+			divide_variable = { which = p_resm1 value = 150 }
+			change_variable = { which = p_resm which = p_resm1 }
+			if = { limit = { has_building = barracks } change_variable = { which = p_resm value = 1 } }
+			else_if = { limit = { has_building = training_fields } change_variable = { which = p_resm value = 2 } }
+			if = { limit = { has_building = regimental_camp } change_variable = { which = p_resm value = 2 } }
+			else_if = { limit = { has_building = conscription_center } change_variable = { which = p_resm value = 4 } }
+		if = {
+			limit = { cu_is_terr_trigger = yes }
+			multiply_variable = { which = p_resa value = 0.2 }
+			multiply_variable = { which = p_resd value = 0.2 }
+			multiply_variable = { which = p_resm value = 0.2 }
+		}
+		else_if = {
+		    limit = { is_capital = yes }
+			multiply_variable = { which = p_resa value = 2 }
+			multiply_variable = { which = p_resd value = 2 }
+			multiply_variable = { which = p_resm value = 2 }
+		}
+		multiply_variable = { which = p_resa which = p_resb }
+		multiply_variable = { which = p_resd which = p_resb }
+		multiply_variable = { which = p_resm which = p_resb }
+		set_variable = { which = num_pp which = owner }
+		divide_variable = { which = p_resa which = num_pp }
+		divide_variable = { which = p_resd which = num_pp }
+		divide_variable = { which = p_resm which = num_pp }
+		owner = { change_variable = { which = p_resa which = PREV } }
+		owner = { change_variable = { which = p_resd which = PREV } }
+		owner = { change_variable = { which = p_resm which = PREV } }
+	}
+}
+
+#Literacy(Province) Display
+province_event = {
+	id = urban.86
+	title = "urban.96.t"
+	desc = "EVT_HIDDEN"
+	picture = ADVISOR_eventPicture
+	hidden = yes
+    is_triggered_only = yes
+	
+	option = {
+		name = "urban.97.a"
+
+		if = {
+			limit = { NOT = { check_variable = { which = literacy value = 1.001 } } }
+			set_variable = { which = ave_literacy which = owner } #Transfer country's average literacy( Only state province counted) to colony
+			set_variable = { which = literacy which = ave_literacy }
+		}
+		#Variable List
+		set_variable = { which = lit_g value = 0 } #Literacy Growth
+		#Base Growth
+		set_variable = { which = lit_bg value = 0.005 } #Literacy Base Growth
+		#set_variable = { which = lit_dg value = 0 } #Literacy Base Growth By Devastation(Negative)
+		set_variable = { which = lit_gc value = 0 } #Literacy Growth From Commerce
+		set_variable = { which = lit_gp value = 0 } #Literacy Growth From Production
+		set_variable = { which = lit_ga value = 0 } #Literacy Growth From Agriculture
+		set_variable = { which = lit_gb value = 0 } #Literacy Growth From Building, Estates and Local Effects
+		set_variable = { which = lit_gt value = 0 } #Literacy Growth From Technology
+		set_variable = { which = lit_gi value = 0 } #Literacy Growth From Ideas
+		set_variable = { which = lit_gd value = 0 } #Literacy Growth From Degrees
+		set_variable = { which = lit_gl value = 0 } #Literacy Growth From Literacy
+
+		#Growth Modifier
+		set_variable = { which = lit_m value = 1 } #Literacy Growth Modifier
+		set_variable = { which = lit_ma value = 0 } #Literacy Growth Modifier From Agriculture
+		set_variable = { which = lit_ml value = 0 } #Literacy Growth Modifier From Current Literacy
+		set_variable = { which = lit_mb value = 0 } #Literacy Growth Modifier From Building
+		set_variable = { which = lit_mt value = 0 } #Literacy Growth Modifier From Technology
+		set_variable = { which = lit_mat value = 0 } #Literacy Growth Modifier From ADM Technology
+		set_variable = { which = lit_mdt value = 0 } #Literacy Growth Modifier From DIP Technology
+		set_variable = { which = lit_mmt value = 0 } #Literacy Growth Modifier From MIL Technology
+		set_variable = { which = lit_mi value = 0 } #Literacy Growth Modifier From Ideas and Effects
+		set_variable = { which = lit_md value = 0 } #Literacy Growth Modifier From Degrees
+		set_variable = { which = p_dev value = 0 } #Province Development
+		set_variable = { which = lit_dm value = 0 } #Literacy Growth Development Modifier
+		#Current Literacy( Higher Literacy , higher efficiency )
+		change_variable = { which = lit_ml which = literacy }
+		multiply_variable = { which = lit_ml value = 0.004 }
+		change_variable = { which = lit_m which = lit_ml }
+
+		#Development 
+		export_to_variable = {
+			which = lit_gc
+			value = base_tax
+		}
+		change_variable = { which = lit_gc value = -1 }
+		divide_variable = { which = lit_gc value = 500 }
+		change_variable = { which = lit_bg which = lit_gc }
+		export_to_variable = {
+			which = lit_gp
+			value = base_production
+		}
+		change_variable = { which = lit_gp value = -1 }
+		divide_variable = { which = lit_gp value = 500 }
+		change_variable = { which = lit_bg which = lit_gp }
+
+		export_to_variable = {
+			which = lit_ga
+			value = base_manpower
+		}
+		change_variable = { which = lit_ga value = -1 }
+		divide_variable = { which = lit_ga value = 1000 }
+		subtract_variable = { which = lit_bg which = lit_ga }
+
+		#export_to_variable = {
+			#which = lit_dg
+			#value = devastation #Value Not available
+		#}
+
+		#divide_variable = { which = lit_dg value = 1000 }
+		#subtract_variable = { which = lit_bg which = lit_dg }
+
+		#Scaled by development
+		export_to_variable = {
+			which = p_dev
+			value = development
+		}
+		if = {
+			limit = { NOT = { check_variable = { which = p_dev value = 1 } } }
+			set_variable = { which = p_dev value = 1 }
+		}
+		change_variable = { which = lit_dm value = 6 } #Bonus to small provinces e.g. 5 dev got 160%,10 dev got 140%,20 dev got 124%
+		change_variable = { which = p_dev value = 5 }
+		divide_variable = { which = lit_dm which = p_dev }
+		subtract_variable = { which = p_dev value = 5 }
+		change_variable = { which = lit_dm value = 1 }
+		multiply_variable = { which = lit_bg which = lit_dm }
+
+		#Colonial Nations receive additional growth from literacy difference with its overlord
+		if = {
+			limit = {
+				owner = { 
+					is_colonial_nation = yes 
+					NOT = { check_variable = { which = ave_literacy which = overlord } }		  
+				}
+			}
+			owner = { 
+				overlord = { set_variable = { which = cu_var1 which = ave_literacy } }
+				set_variable = { which = cu_var1 which = overlord }
+				subtract_variable = { which = cu_var1 which = ave_literacy }	
+			}
+			set_variable = { which = cu_var1 which = owner }								   
+			multiply_variable = { which = cu_var1 value = 0.01 }
+			change_variable = { which = lit_bg which = cu_var1 }
+		}
+		#Building, Estate, Effect
+		if = { 
+			limit = { has_building = temple }
+			change_variable = { which = lit_gb value = 0.005 }						
+		}							
+		else_if = { 
+			limit = { has_building = cathedral }
+			change_variable = { which = lit_gb value = 0.01 }							
+		}
+		if = { 
+			limit = { has_province_modifier = cu_church_school }
+			change_variable = { which = lit_gb value = 0.01 }  						
+		}
+		else_if = { 
+			limit = { has_province_modifier = cu_church_school_2 }
+			change_variable = { which = lit_gb value = 0.02 }  						
+		}
+		if = {
+			limit = { has_building = public_school }
+			change_variable = { which = lit_gb value = 0.02 }
+			if = { 
+				limit = { has_province_modifier = cu_public_school }
+				change_variable = { which = lit_gb value = 0.06 }						
+			}
+			else_if = { 
+				limit = { has_province_modifier = cu_burghers_school }
+				change_variable = { which = lit_gb value = 0.02 }					
+			}
+		}
+
+		if = { 
+			limit = { has_building = university }
+			change_variable = { which = lit_gb value = 0.01 }	
+		}
+		if = { 
+			limit = { has_estate = estate_church }
+			change_variable = { which = lit_gb value = 0.005 }
+			change_variable = { which = lit_ma value = 0.1 }	
+			change_variable = { which = lit_mb value = -0.1 }								
+		}
+		if = { 
+			limit = { has_province_modifier = russian_education_reform }
+			change_variable = { which = lit_gb value = 0.02 }							
+		}
+
+		if = {
+			limit = {  has_province_modifier = cu_colonial_influx }
+			change_variable = { which = lit_gb value = 0.02 }
+		}
+
+		if = { 
+			limit = { 
+				OR = {
+					has_province_modifier = trade_company_off_1
+					has_province_modifier = trade_company_off_2
+					has_province_modifier = trade_company_off_3
+					has_province_modifier = trade_company_off_4
+					has_province_modifier = trade_company_pri_1
+					has_province_modifier = trade_company_pri_2
+					has_province_modifier = trade_company_pri_3
+					has_province_modifier = trade_company_pri_4
+				}
+			}
+			change_variable = { which = lit_gb value = 0.01 }
+			change_variable = { which = lit_mb value = -0.5 }								
+		}
+		if = {
+			limit = { 
+				has_province_modifier = indian_caste_system
+			}
+			change_variable = { which = lit_gb value = -0.005 }
+			change_variable = { which = lit_mb value = -0.15 }							 
+		}
+		if = {
+			limit = { 
+				owner = { has_country_modifier = university_1 } 
+				cu_not_terr_trigger = yes
+			}
+			change_variable = { which = lit_gb value = 0.004 }
+			change_variable = { which = lit_mb value = 0.1 }							 
+		}
+		if = {
+			limit = { 
+				owner = { has_country_modifier = university_2 } 
+				cu_not_terr_trigger = yes
+			}
+			change_variable = { which = lit_gb value = 0.006 }
+			change_variable = { which = lit_mb value = 0.2 }							 
+		}
+		if = {
+			limit = { 
+				owner = { has_country_modifier = university_3 } 
+				cu_not_terr_trigger = yes
+			}
+			change_variable = { which = lit_gb value = 0.008 }
+			change_variable = { which = lit_mb value = 0.3 }							 
+		}
+		if = {
+			limit = { 
+				owner = { has_country_modifier = university_4 } 
+				cu_not_terr_trigger = yes
+			}
+			change_variable = { which = lit_gb value = 0.01 }
+			change_variable = { which = lit_mb value = 0.4 }							 
+		}
+		if = {
+			limit = { 
+				owner = { has_active_policy = the_education_act } 
+			}
+			 change_variable = { which = lit_mb value = 0.2 }							 
+		}
+		if = { #Bonus for ai's HRE provinces to make up for literacy loss due to their constant war.
+			limit = { 
+				is_part_of_hre = yes
+				printing_press = 100
+				owner = { ai = yes }
+			}
+			change_variable = { which = lit_gb value = 0.01 }						 
+		}
+		#Institutions
+		if = {
+			limit = { printing_press = 100 }
+			change_variable = { which = lit_gb value = 0.005 }
+		}
+		if = {
+			limit = { enlightenment = 100 }
+			change_variable = { which = lit_gb value = 0.015 }
+		}
+
+		change_variable = { which = lit_bg which = lit_gb }
+		change_variable = { which = lit_m which = lit_mb }
+		#Technology
+		export_to_variable = {
+			which = lit_mat
+			value = adm_tech
+			who = owner
+		}
+		export_to_variable = {
+			which = lit_mdt
+			value = dip_tech
+			who = owner
+		}
+		export_to_variable = {
+			which = lit_mmt
+			value = mil_tech
+			who = owner
+		}
+		change_variable = { which = lit_mt which = lit_mat }
+		change_variable = { which = lit_mt which = lit_mdt }
+		change_variable = { which = lit_mt which = lit_mtt }
+		divide_variable = { which = lit_mt value = 100 }
+		change_variable = { which = lit_m which = lit_mt }
+
+		#Ideas
+		export_to_variable = {
+			which = lit_mi
+			value = modifier:global_institution_spread
+			who = owner
+		}
+		set_variable = { which = cu_var3 value = 0 }
+		export_to_variable = {
+			which = cu_var3
+			value = modifier:local_institution_spread
+		}
+		change_variable = { which = lit_mi which = cu_var3 }
+		if = {
+			limit = { 
+				owner = { militarist_ideas = 4 }
+			}
+			if = {
+				limit = { has_building = training_fields }
+				change_variable = { which = lit_gb value = 0.015 }		
+			}
+			else_if = {
+				limit = { has_building = barracks }
+				change_variable = { which = lit_gb value = 0.008 }		
+			}
+		}
+		if = {
+			limit = { 
+				owner = { reform_ideas = 5 } 
+				cu_not_terr_trigger = yes		  
+			}
+			change_variable = { which = lit_bg value = 0.01 }	
+			if = {
+				limit = { NOT = { check_variable = { which = literacy value = 5 } } }
+				change_variable = { which = lit_bg value = 0.01 }	
+			}						 
+		}
+
+		change_variable = { which = lit_m which = lit_mi }
+
+		#Apply
+		multiply_variable = { which = lit_ga which = lit_ma }
+		change_variable = { which = lit_g which = lit_ga }
+		change_variable = { which = lit_g which = lit_bg }
+		multiply_variable = { which = lit_g which = lit_m }
+		change_variable = { which = lit_gl which = literacy }
+		divide_variable = { which = lit_gl value = 1000 } 
+		subtract_variable = { which = lit_g which = lit_gl }
+		
+		#new tech system
+		#points
+		#p_res:province research points
+		#p_resa(dm),d(ip),m(il)
+		set_variable = { which = p_resa value = 0 }
+		set_variable = { which = p_resd value = 0 }
+		set_variable = { which = p_resm value = 0 }
+		export_to_variable = { which = cu_var1 value = base_tax }
+		export_to_variable = { which = cu_var2 value = base_production }
+		export_to_variable = { which = cu_var3 value = base_manpower }
+		set_variable = { which = p_resb which = literacy }#literacy modifier
+		multiply_variable = { which = p_resb value = 0.09 }
+		change_variable = { which = p_resb value = 0.9 }
+		#divide_variable = { which = p_resb value = 100 }
+		set_variable = { which = p_resa1 which = p_ca }
+		change_variable = { which = p_resa1 value = 50 }
+		divide_variable = { which = p_resa1 value = 150 }
+		multiply_variable = { which = p_resb which = p_resa1 }
+		#ADM
+			set_variable = { which = p_resa1 value = 0 }
+			set_variable = { which = p_resa2 value = 0 }
+			change_variable= { which = p_resa1 which = cu_var1 }
+			multiply_variable = { which = p_resa1 value = 0.9 }
+			change_variable= { which = p_resa2 which = cu_var2 }
+			multiply_variable = { which = p_resa2 value = 0.9 }
+			change_variable= { which = p_resa which = cu_var3 }
+			multiply_variable = { which = p_resa value = 1.2 }
+			change_variable = { which = p_resa which = p_resa1 }
+			change_variable = { which = p_resa which = p_resa2 }
+			if = { 
+			      limit = { 
+				            has_building = town_hall
+				  } 
+				  change_variable = { which = p_resa value = 3 } 
+			}
+			else_if = { 
+			      limit = { 
+				            OR = {
+							       has_building = courthouse
+								   has_province_modifier = cu_fort_government
+							}
+				  } 
+				  change_variable = { which = p_resa value = 1 } 
+			}
+		#DIP
+			set_variable = { which = p_resd1 value = 0 }
+			set_variable = { which = p_resd2 value = 0 }
+			change_variable= { which = p_resd1 which = cu_var1 }
+			multiply_variable = { which = p_resd1 value = 1.5 }
+			change_variable= { which = p_resd2 which = cu_var2 }
+			multiply_variable = { which = p_resd2 value = 0.9 }
+			change_variable= { which = p_resd which = cu_var3 }
+			multiply_variable = { which = p_resd value = 0.6 }
+			change_variable = { which = p_resd which = p_resd1 }
+			change_variable = { which = p_resd which = p_resd2 }
+			#extra dip_tech
+			if = { limit = { province_has_center_of_trade_of_level = 3 }  change_variable = { which = p_resd value = 8 } }
+			else_if = { limit = { province_has_center_of_trade_of_level = 2 }  change_variable = { which = p_resd value = 4 } }
+			else_if = { limit = { province_has_center_of_trade_of_level = 1 }  change_variable = { which = p_resd value = 2 } }
+			if = { limit = { has_building = marketplace } change_variable = { which = p_resd value = 1.5 } }
+			else_if = { limit = { has_building = trade_depot } change_variable = { which = p_resd value = 3 } }
+			else_if = { limit = { has_building = stock_exchange } change_variable = { which = p_resd value = 4.5 } }
+			if = { limit = { has_building = dock } change_variable = { which = p_resd value = 1 } }
+			else_if = { limit = { has_building = drydock } change_variable = { which = p_resd value = 2 } }
+			if = { limit = { has_building = shipyard } change_variable = { which = p_resd value = 2 } }
+			else_if = { limit = { has_building = grand_shipyard } change_variable = { which = p_resd value = 4 } }
+		#MIL
+			set_variable = { which = p_resm1 value = 0 }
+			set_variable = { which = p_resm2 value = 0 }
+			change_variable= { which = p_resm1 which = cu_var1 }
+			multiply_variable = { which = p_resm1 value = 0.6 }
+			change_variable= { which = p_resm2 which = cu_var2 }
+			multiply_variable = { which = p_resm2 value = 1.2 }
+			change_variable= { which = p_resm which = cu_var3 }
+			multiply_variable = { which = p_resm value = 1.2 }
+			change_variable = { which = p_resm which = p_resm1 }
+			change_variable = { which = p_resm which = p_resm2 }
+			#extra mil_tech
+		    set_variable = { which = p_resm1 which = cu_mp }
+			divide_variable = { which = p_resm1 value = 150 }
+			change_variable = { which = p_resm which = p_resm1 }
+			if = { limit = { has_building = barracks } change_variable = { which = p_resm value = 1 } }
+			else_if = { limit = { has_building = training_fields } change_variable = { which = p_resm value = 2 } }
+			if = { limit = { has_building = regimental_camp } change_variable = { which = p_resm value = 2 } }
+			else_if = { limit = { has_building = conscription_center } change_variable = { which = p_resm value = 4 } }
+		if = {
+			limit = { cu_is_terr_trigger = yes }
+			multiply_variable = { which = p_resa value = 0.2 }
+			multiply_variable = { which = p_resd value = 0.2 }
+			multiply_variable = { which = p_resm value = 0.2 }
+		}
+		else_if = {
+		    limit = { is_capital = yes }
+			multiply_variable = { which = p_resa value = 2 }
+			multiply_variable = { which = p_resd value = 2 }
+			multiply_variable = { which = p_resm value = 2 }
+		}
+		if = {
+			limit = { has_province_modifier = cu_national_college }
+			change_variable = { which = p_resb value = 0.5 }
+		}
+		multiply_variable = { which = p_resa which = p_resb }
+		multiply_variable = { which = p_resd which = p_resb }
+		multiply_variable = { which = p_resm which = p_resb }
+		set_province_flag = cu_display_mode
+	}
+}
+
+#Literacy
+country_event = {
+	id = urban.97
+	title = "urban.97.t"
+	desc = "EVT_HIDDEN"
+	picture = ADVISOR_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	
+	option = {
+	    name = "urban.97.a"
+		#clr_country_flag = lit_calculation
+		#set_country_flag = lit_calculation
+		random_owned_province = {
+			limit = { is_capital = yes }
+			if = {
+				limit = { NOT = { has_province_flag = literacy_init } }
+				set_variable = { which = literacy value = 1 }
+				set_province_flag = literacy_init
+			}
+			owner = { set_variable = { which = literacy which = PREV } }
+		}
+		
+		if = {
+			limit = {
+				NOT = { check_variable = { which = literacy value = 1 } }
+			}
+			set_variable = { which = literacy value = 1 }
+		}
+		set_variable = { which = cu_mp value = 0 }
+		#set_variable = { which = num_pp value = 0 }
+		set_variable = { which = p_dev value = 0 } #State Development
+		set_variable = { which = sum_literacy value = 0 }
+		set_variable = { which = p_res value = 0 }
+		set_variable = { which = p_resa value = 0 }
+		set_variable = { which = p_resd value = 0 }
+		set_variable = { which = p_resm value = 0 }
+		every_owned_province = {
+			limit = { is_colony = no }
+			province_event = { id = urban.96 }
+		}
+		country_event = { id = urban.971 }
+	}
+}
+
+#Calculate Average Literacy, Militarization and Research Points
+country_event = {
+	id = urban.971
+	title = "urban.97.t"
+	desc = "EVT_HIDDEN"
+	picture = ADVISOR_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	
+	option = {
+	    name = "urban.97.a"
+		set_variable = { which = s_dev value = 0 }
+		cu_export_s_dev = yes
+		#Unlike functions, province events are triggered after all effects are taken, so the calculation must be done in another queued event.
+		if = { #In case of bug
+			limit = { 
+				NOT = { check_variable = { which = num_pp value = 1 } }
+			}
+			set_variable = { which = num_pp value = 1 }
+		}
+		if = { #In case of bug
+			limit = { 
+				NOT = { check_variable = { which = s_dev value = 1 } }
+			}
+			set_variable = { which = s_dev value = 1 }
+		}
+		set_variable = { which = ave_literacy which = sum_literacy }
+		set_variable = { which = cu_ml which = cu_mp }
+		divide_variable = { which = ave_literacy which = num_pp }
+		multiply_variable = { which = cu_ml value = 100 }
+		divide_variable = { which = cu_ml which = s_dev }
+		if = { #In case of bug
+			limit = { 
+				NOT = { check_variable = { which = cu_ml value = 0 } }
+			}
+			set_variable = { which = cu_ml value = 130 } #Maximum
+		}
+		#research point modifier
+		if = {
+		       limit = { has_dlc = "Rule Britannia" }
+		       export_to_variable = { which = rpm value = trigger_value:innovativeness }
+		       divide_variable = { which = rpm value = 100 }
+		       change_variable = { which = rpm value = 1 }
+		}
+		else = {
+		    set_variable = { which = rpm value = 1 }
+		}
+		if = {
+			limit = { has_country_modifier = cu_national_research_institute }
+			change_variable = { which = rpm value = 0.2 }
+		}
+		set_variable = { which = cu_var1 value = 1 }
+		set_variable = { which = cu_var2 value = 0 }
+		set_variable = { which = cu_var3 value = 0 }
+		#ADM
+			multiply_variable = { which = p_resa which = rpm }
+		#DIP
+			export_to_variable = { which = cu_var2 value = trade_income_percentage }
+			multiply_variable = { which = cu_var2 value = 0.15 }
+			change_variable = { which = cu_var2 value = 1 }
+			multiply_variable = { which = p_resd which = rpm }
+			multiply_variable = { which = p_resd which = cu_var2 }
+		#MIL
+			multiply_variable = { which = p_resm which = rpm }
+		
+        #Tech Year Modifier
+        cu_calc_tech_year_modifier = yes
+        divide_variable = { which = p_resa which = cu_var1 }
+        divide_variable = { which = p_resd which = cu_var2 }
+        divide_variable = { which = p_resm which = cu_var3 }		
+		if = {  #AI's tech is calculated every 5 years
+			limit = { ai = yes }
+			multiply_variable = { which = p_resa value = 5 }
+			multiply_variable = { which = p_resd value = 5 }
+			multiply_variable = { which = p_resm value = 5 }
+			change_variable = { which = resa which = p_resa }
+		    change_variable = { which = resd which = p_resd }
+		    change_variable = { which = resm which = p_resm }
+			divide_variable = { which = p_resa value = 5 }
+			divide_variable = { which = p_resd value = 5 }
+			divide_variable = { which = p_resm value = 5 }
+		
+		}
+		else = {
+		    change_variable = { which = resa which = p_resa }
+		    change_variable = { which = resd which = p_resd }
+		    change_variable = { which = resm which = p_resm }
+		}
+		set_variable = { which = cu_var1 value = 0 }
+		set_variable = { which = cu_var2 value = 0 }
+		set_variable = { which = cu_var3 value = 0 }
+		#Calculate Technology Cost
+		cu_calc_tech_cost = yes
+		 
+		#Calculate Cultural Power
+		#cu_calc_cultural_power_country = yes
+	}
+}
+
+#Cultural Assimilation
+country_event = {
+	id = urban.972
+	title = "urban.972.t"
+	desc = "urban.972.d"
+	picture = CULTURE_eventPicture
+	is_triggered_only = yes
+	
+	option = { #Great!
+		name = "urban.972.a"
+		change_culture = owner
+	}
+}

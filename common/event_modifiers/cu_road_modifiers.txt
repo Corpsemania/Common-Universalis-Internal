@@ -1,0 +1,139 @@
+connect_to_capital = {
+	local_autonomy = -0.05
+	local_state_maintenance_modifier = -0.15
+}
+connect_to_capital_oversea = {
+	local_autonomy = -0.03
+	local_state_maintenance_modifier = -0.10
+}
+
+second_capital = {
+	local_autonomy = -0.10
+	advisor_cost = 0.10
+	local_state_maintenance_modifier = 0.33
+	#Local Government Influnce: +50%
+}
+##computer power
+
+connect_to_capital_far_1 = {
+	local_autonomy = -0.01
+}
+
+connect_to_capital_far_2 = {
+	local_autonomy = 0.01
+}
+
+connect_to_capital_far_3 = {
+	local_autonomy = 0.015
+}
+
+connect_to_capital_far_4 = {
+	local_autonomy = 0.02
+}
+
+connect_to_capital_far_5 = {
+	local_autonomy = 0.025
+}
+
+connect_to_capital_far_6 = {
+	local_autonomy = 0.03
+}
+
+connect_to_capital_far_7 = {
+	local_autonomy = 0.035
+}
+
+connect_to_capital_far_8 = {
+	local_autonomy = 0.04
+}
+
+connect_to_capital_far_9 = {
+	local_autonomy = 0.045
+}
+
+connect_to_capital_far_10 = {
+	local_autonomy = 0.05
+}
+
+connect_to_capital_far_11 = {
+	local_autonomy = 0.055
+}
+
+connect_to_capital_far_12 = {
+	local_autonomy = 0.06
+}
+
+connect_to_capital_far_13 = {
+	local_autonomy = 0.065
+}
+
+connect_to_capital_far_14 = {
+	local_autonomy = 0.07
+}
+
+connect_to_capital_far_15 = {
+	local_autonomy = 0.075
+}
+
+connect_to_capital_far_16 = {
+	local_autonomy = 0.08
+}
+
+connect_to_capital_far_17 = {
+	local_autonomy = 0.085
+}
+
+connect_to_capital_far_18 = {
+	local_autonomy = 0.09
+}
+
+connect_to_capital_far_19 = {
+	local_autonomy = 0.095
+}
+
+connect_to_capital_far_20 = {
+	local_autonomy = 0.10
+}
+
+connect_to_capital_far_21 = {
+	local_autonomy = 0.11
+}
+
+connect_to_capital_far_22 = {
+	local_autonomy = 0.12
+}
+
+connect_to_capital_far_23 = {
+	local_autonomy = 0.13
+}
+
+connect_to_capital_far_24 = {
+	local_autonomy = 0.14
+}
+
+connect_to_capital_far_25 = {
+	local_autonomy = 0.15
+}
+
+connect_to_capital_far_26 = {
+	local_autonomy = 0.16
+}
+
+connect_to_capital_far_27 = {
+	local_autonomy = 0.17
+}
+
+connect_to_capital_far_28 = {
+	local_autonomy = 0.18
+}
+
+connect_to_capital_far_29 = {
+	local_autonomy = 0.19
+}
+
+connect_to_capital_far_30 = {
+	local_autonomy = 0.2
+}
+
+
+

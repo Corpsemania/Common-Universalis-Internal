@@ -1,0 +1,678 @@
+#Variable List
+
+#p_dev: Province Development, generic variable
+#cu_var1: Generic first variable for the following function, reset to 0 after that.
+#cu_var2: Generic second variable
+#cu_var3: Generic third variable
+
+
+#Province Scope
+
+#cu_calc_province_population[]: Calculate Province Population ( Rather roughly now, will be improved when the population mechanic is included)
+cu_calc_province_population = {
+        set_variable = { which = p_pop value = 0 }
+		set_variable = { which = p_comm value = 0 }
+		set_variable = { which = p_prod value = 0 }
+		set_variable = { which = p_agri value = 0 }
+		export_to_variable = {
+		       which = p_comm
+			   value = base_tax
+		}
+		export_to_variable = {
+		       which = p_prod
+			   value = base_production
+		}
+		export_to_variable = {
+		       which = p_agri
+			   value = base_manpower
+		}
+		multiply_variable = { which = p_agri value = 1.25 }
+		change_variable = { which = p_pop which = p_comm }
+		change_variable = { which = p_pop which = p_prod }
+		change_variable = { which = p_pop which = p_agri }
+		set_variable = { which = cu_var3 which = p_pop }
+		change_variable = { which = cu_var3 value = 25 }
+		multiply_variable = { which = p_pop which = cu_var3 }
+		multiply_variable = { which = p_pop value = 0.4 }
+		#Just a temperal fix before population system is done
+		if = {
+		      limit = { superregion = china_superregion }
+			  multiply_variable = { which = p_pop value = 2 }
+		}
+		
+}
+
+#cu_change_cabinet_adm[cu_var1]: Change Cabinet Administrative Power( Valid Range: -1999 - 1999 )
+cu_change_cabinet_adm = {
+         if = {
+				limit = { NOT = { check_variable = { which = cabinet_adm value = 0 } } }
+			    set_variable = { which = cabinet_adm value = 0 }
+		 }
+		 if = { 
+				limit = { 
+				        check_variable = { which = cu_var1 value = -1999 } 
+						NOT = { check_variable = { which = cu_var1 value = 1999 }  } 
+				} 
+			    change_variable = { which = cabinet_adm which = cu_var1 }
+		 }
+		 set_variable = { which = cu_var1 value = 0 }
+}
+
+#cu_change_cabinet_dip[cu_var1]: Change Cabinet Diplomatic Power( Valid Range: -1999 - 1999 )
+cu_change_cabinet_dip = {
+         if = {
+				limit = { NOT = { check_variable = { which = cabinet_dip value = 0 } } }
+			    set_variable = { which = cabinet_dip value = 0 }
+		 }
+		 if = {
+				limit = { 
+				        check_variable = { which = cu_var1 value = -1999 } 
+						NOT = { check_variable = { which = cu_var1 value = 1999 }  } 
+				} 
+			    change_variable = { which = cabinet_dip which = cu_var1 }
+		 }
+		 set_variable = { which = cu_var1 value = 0 }
+}
+
+#cu_change_cabinet_mil[cu_var1]: Change Cabinet Military Power( Valid Range: -1999 - 1999 )
+cu_change_cabinet_mil = {
+         if = {
+				limit = { NOT = { check_variable = { which = cabinet_mil value = 0 } } }
+			    set_variable = { which = cabinet_mil value = 0 }
+		 }
+		 if = {
+				limit = { 
+				        check_variable = { which = cu_var1 value = -1999 } 
+						NOT = { check_variable = { which = cu_var1 value = 1999 }  } 
+				} 
+			    change_variable = { which = cabinet_mil which = cu_var1 }
+		 }
+		 set_variable = { which = cu_var1 value = 0 }
+}
+
+#cu_change_cabinet_cash[cu_var1]: Change Cabinet Money( Valid Range: -9999 - 9999 )
+cu_change_cabinet_cash = {
+         if = {
+				limit = { NOT = { check_variable = { which = cabinet_cash value = 0 } } }
+			    set_variable = { which = cabinet_cash value = 0 }
+		 }
+		 if = {
+				limit = { 
+				        check_variable = { which = cu_var1 value = -9999 } 
+						NOT = { check_variable = { which = cu_var1 value = 9999 }  } 
+				} 
+			    change_variable = { which = cabinet_cash which = cu_var1 }
+		 }
+		 set_variable = { which = cu_var1 value = 0 }
+}
+
+
+
+
+#cu_automatic_assimilation[]
+cu_automatic_assimilation = {
+    if = {
+			limit = { 
+				has_owner_culture = no
+				owner = { 
+					ai = no
+					has_country_flag = cabinet_autoass 
+					dip_power = 100
+				} 
+				OR = {
+					NOT = { owner = { culture_group = PREV } }
+					owner = { has_country_flag = cabinet_autoassg }
+				}
+				OR = {
+					owner = { has_country_flag = cabinet_autoassa }
+					owner = { culture_group = PREV }
+					has_owner_accepted_culture = no
+				}              
+			}
+			###Cultural Assimilation - copied from province edict
+			if = {
+				limit = {
+					NOT = { has_province_modifier = cu_cultural_assimilation }
+					check_variable = { which = p_ca value = 90 }
+					has_owner_culture = no
+					is_core = owner
+					NOT = { nationalism = 1 }
+					owner = {
+						prestige = 10
+						dip_power = 50
+					}
+				}
+				hidden_effect = {
+					owner = {
+						set_variable = { which = cu_power value = 0 }
+						export_to_variable = {
+							which = cu_power
+							value = development
+							who = ROOT
+						}
+						if = {
+							limit = { check_variable = { which = cu_power value = 41 } }
+							set_variable = { which = cu_power which = 40 }
+						}
+						set_variable = { which = cu_prestige which = cu_power }
+						multiply_variable = { which = cu_prestige value = 0.33 }
+						multiply_variable = { which = cu_power value = 5 }
+						cu_calc_power_cost_culture = yes
+						cu_subtract_dip_power = yes
+						cu_subtract_prestige = yes
+					}
+				}
+				add_province_modifier = {
+			       name = cu_cultural_assimilation
+				   duration = -1
+				}
+				hidden_effect = {
+					if = {
+						limit = { NOT = { check_variable = { which = p_as value = 0.01 } } }
+						set_variable = { which = p_as value = 0 }
+						#cu_cultural_assimilation_growth = yes
+					}	
+				}
+			}
+			###Cultural Assimilation End
+	}
+	
+}
+
+#cu_automatic_migration[] 
+cu_automatic_migration = {
+	if = {
+			limit = { 
+				owner = { 
+					ai = no
+					has_country_flag = cabinet_autoim 
+					mil_power = 100		 
+				}
+				NOT = { owner = { culture_group = PREV } }
+				OR = {
+					AND = {
+						owner = { has_country_flag = cabinet_autoim5 }
+						NOT = { development = 6 }
+					}
+					AND = {
+						owner = { has_country_flag = cabinet_autoim10 }
+						NOT = { development = 11 }
+					}
+					AND = {
+						owner = { has_country_flag = cabinet_autoim15 }
+						NOT = { development = 16 }
+					}
+					owner = { has_country_flag = cabinet_autoimall }
+				}
+			}
+			if = {
+				limit = {
+			##################Copied Requirements##################
+					NOT = { development = 10 }
+					has_owner_culture = no
+					check_variable = { which = r_ac value = 2 }
+					OR = {
+						cu_not_terr_trigger = yes
+						is_overseas = no
+					}
+					is_core = owner
+					NOT = { has_province_modifier = cu_immigration }
+					owner = {  
+						mil_power = 22
+						manpower_percentage = 0.5
+						any_owned_province = {
+							has_owner_culture = yes
+							OR = {
+								cu_not_terr_trigger = yes
+								is_overseas = no
+							}
+							base_manpower = 2
+							check_variable = { which = food_sur value = 6 }
+						}
+					}
+		##################################################
+				}
+        ##########################Copied Effect#############################
+				owner = { 
+					hidden_effect = { 
+						set_variable = { which = cu_power value = 40 }
+						cu_calc_power_cost = yes
+						cu_subtract_mil_power = yes
+					}
+					add_manpower = -2 
+				}
+				add_province_modifier = {
+					name = cu_immigration
+					duration = -1
+				}
+				hidden_effect = {
+					if = {
+						limit = { NOT = { check_variable = { which = p_as value = 0.01 } } }
+						set_variable = { which = p_as value = 0 }
+						#cu_check_cultural_assimilation = yes
+					}	
+				}
+		###########################################
+			}
+		}
+}
+
+
+#cu_automatic_ti[] - Autimatically improves terrain
+cu_automatic_ti = {
+    if = {
+				limit = {
+					owner = { 
+						ai = no
+						has_country_flag = cabinet_autoti
+						adm_power = 100
+					} 
+					cu_eligible_cabinet_province = yes
+				}
+				if = {
+					limit = {
+					##################Copied Requirements##################  
+						development = 9
+						owner = { 
+							treasury = 75
+							adm_power = 15
+							adm_tech = 9
+						}
+						has_terrain = forest
+						NOT = { has_province_modifier = ti_forest }
+						NOT = { has_province_modifier = ti_forest_done }
+					#####################################################
+			        }
+					##################Copied Effect########################
+					owner = {
+						set_variable = { which = cu_power value = 70 }
+						cu_calc_power_cost = yes
+						add_treasury = -75
+						cu_subtract_adm_power = yes
+					}
+					add_province_modifier = {
+						name = ti_forest
+						duration = -1
+					}
+		            ######################################################
+			    }
+					
+				else_if = {
+					limit = {
+					##################Copied Requirements##################
+						owner = { 
+							adm_power = 15
+							treasury = 100
+							adm_tech = 16
+						}
+						has_terrain = jungle
+						development = 9
+						NOT = { has_province_modifier = ti_jungle }
+						NOT = { has_province_modifier = ti_jungle_done }
+					#####################################################
+			        }
+					##################Copied Effect########################
+					owner = {
+						set_variable = { which = cu_power value = 70 }
+						cu_calc_power_cost = yes
+						add_treasury = -100
+						cu_subtract_adm_power = yes
+					}
+					add_province_modifier = {
+						name = ti_jungle
+						duration = -1
+					}
+		            ######################################################
+			    }
+					
+				else_if = {
+					limit = {
+					##################Copied Requirements##################
+						development = 9
+						owner = { 
+							adm_tech = 9
+							treasury = 75
+							adm_power = 15
+						}
+						has_terrain = woods
+						NOT = { has_province_modifier = ti_woods }
+						NOT = { has_province_modifier = ti_woods_done }
+					#####################################################
+			        }	
+					##################Copied Effect########################
+					owner = {
+						set_variable = { which = cu_power value = 70 }
+						cu_calc_power_cost = yes
+						add_treasury = -75
+						cu_subtract_adm_power = yes
+					}
+					add_province_modifier = {
+						name = ti_woods
+						duration = -1
+					}
+		            ######################################################
+				}
+					
+				else_if = {
+					limit = {
+					##################Copied Requirements##################
+						development = 9
+						owner = { 
+							treasury = 120
+							adm_tech = 13
+							adm_power = 22
+						}
+						has_terrain = marsh
+						NOT = { has_province_modifier = ti_marsh }
+						NOT = { has_province_modifier = ti_marsh_done }
+						NOT = { has_province_modifier = holland_polders }
+					#####################################################
+			        }
+					##################Copied Effect########################
+					owner = {
+						set_variable = { which = cu_power value = 80 }
+						cu_calc_power_cost = yes
+						add_treasury = -120
+						cu_subtract_adm_power = yes
+					}
+					add_province_modifier = {
+						name = ti_marsh
+						duration = -1
+					}
+		            ######################################################
+				}
+					
+				else_if = {
+					limit = {
+					##################Copied Requirements##################
+						base_manpower = 4
+						OR = {
+							   owner = { adm_tech = 6 }
+							   owner = { technology_group = chinese }
+						}
+						owner = { 
+							treasury = 100
+							OR = {
+								adm_tech = 6
+								technology_group = chinese
+							}
+							adm_power = 22
+						}
+						OR = {
+							has_terrain = drylands
+							has_terrain = coastline                        
+							has_terrain = savannah
+							has_terrain = grasslands
+							has_terrain = highlands	 
+							has_terrain = desert
+							has_terrain = coastal_desert		  
+							AND = {
+								has_terrain = steppe
+								owner = { NOT = { has_reform = steppe_horde } }
+							}
+						}
+						OR = {
+							base_manpower = 10
+							has_province_modifier = river_estuary_modifier
+							any_neighbor_province = {
+								OR = {
+									has_province_modifier = ti_irragation_done
+									has_terrain = mountain
+									has_terrain = impassable_mountains
+									has_terrain = glacier
+									has_terrain = farmlands
+									has_terrain = marsh
+									has_river_estuary_trigger = yes
+								}
+							}
+						}
+						NOT = { has_province_modifier = ti_irragation }
+						NOT = { has_province_modifier = ti_irragation_done }
+					#####################################################
+					}
+					##################Copied Effect########################
+					owner = {
+						set_variable = { which = cu_power value = 80 }
+						cu_calc_power_cost = yes
+						add_treasury = -100
+						cu_subtract_adm_power = yes
+					}
+					add_province_modifier = {
+						name = ti_irragation
+						duration = -1
+					}
+		            ######################################################
+				}
+					
+			    else_if = {
+					limit = {
+					##################Copied Requirements##################
+						base_manpower = 4
+						OR = {
+							owner = { adm_tech = 3 }
+							owner = { technology_group = andean }
+						}
+						owner = { 
+							treasury = 100
+							adm_power = 22
+						}
+						OR = {
+							has_terrain = hills
+							has_terrain = mountain
+						}
+						NOT = { has_province_modifier = ti_terrace }
+						NOT = { has_province_modifier = ti_terrace_done }
+					#####################################################
+			        }
+					##################Copied Effect########################
+					owner = {
+						set_variable = { which = cu_power value = 80 }
+						cu_calc_power_cost = yes
+						add_treasury = -100
+						cu_subtract_adm_power = yes
+					}
+					add_province_modifier = {
+						name = ti_terrace
+						duration = -1
+					}
+		            ######################################################
+				}				
+					##########################################################
+			}
+	
+}
+
+#cu_automatic_rw[] - Autimatically reclaim wasteland
+cu_automatic_rw = {
+    if = {
+		limit = {
+			owner = { 
+				ai = no
+				has_country_flag = cabinet_autorw
+			} 
+			cu_eligible_cabinet_province = yes
+			reclaim_wasteland_trigger = yes
+		}
+		reclaim_wasteland_effect = yes
+	}
+}
+
+#cu_automatic_id[] - Autimatically improve drainage
+cu_automatic_id = {
+        if = {
+						      limit = {  
+							        owner = { 
+									         has_country_flag = cabinet_autoac	 
+									}
+									cu_eligible_cabinet_province = yes
+									NOT = { check_variable = { which = r_ac value = 3 } } 
+									#improve_drainage_trigger = yes #does not take effect
+									#Copied from edict triggers
+									base_manpower = 2
+									owner = {
+										adm_tech = 3
+										treasury = 75
+										adm_power = 12
+									}
+									OR = {
+													NOT = { check_variable = { which = b_ac value = 10 } }
+													AND = {
+														owner = { adm_tech = 10 }
+														NOT = { check_variable = { which = b_ac value = 15 } }
+													}
+													AND = {
+														owner = { adm_tech = 17 }
+														NOT = { check_variable = { which = b_ac value = 20 } }
+													}
+													AND = {
+														owner = { adm_tech = 21 }
+														NOT = { check_variable = { which = b_ac value = 25 } }
+													}
+													AND = {
+														owner = { adm_tech = 28 }
+														NOT = { check_variable = { which = b_ac value = 30 } }
+													}
+													AND = {
+														owner = {  adm_tech = 32 }
+														NOT = { check_variable = { which = b_ac value = 35 } }
+													}
+									}
+									#######################
+							  }
+							  improve_drainage_effect = yes
+						}
+						
+}
+
+#cu_automatic_is[] - Autimatically improve sanitation
+cu_automatic_is = {
+        if = { #Automatical Sanitation Improvement
+						       limit = {
+							         owner = { 
+									         has_country_flag = cabinet_autouc	 
+									}
+									cu_eligible_cabinet_province = yes
+									NOT = { check_variable = { which = r_uc value = 3 } }
+									#improve_sanitation_trigger = yes #does not take effect
+									#Copied from edict trigger
+									development = 15
+									OR = {
+										check_variable = { which = o_uc value = 10 }
+										NOT = { check_variable = { which = r_uc value = 3 } }
+									}
+									OR = {
+										NOT = { check_variable = { which = b_uc value = 5 } }
+										AND = {
+											owner = { adm_tech = 10 }
+											NOT = { check_variable = { which = b_uc value = 7 } }
+										}
+										AND = {
+											owner = { adm_tech = 15 }
+											NOT = { check_variable = { which = b_uc value = 9 } }
+										}
+										AND = {
+											owner = { adm_tech = 20 }
+											NOT = { check_variable = { which = b_uc value = 12 } }
+										}
+										AND = {
+											owner = { adm_tech = 25 }
+											NOT = { check_variable = { which = b_uc value = 15 } }
+										}
+										AND = {
+											owner = {  adm_tech = 30 }
+											NOT = { check_variable = { which = b_uc value = 18 } }
+										}
+									}
+									owner = {
+										treasury = 75
+										adm_power = 12
+									}
+									
+									###############
+							   }
+							   improve_sanitation_effect = yes
+		}
+}
+
+#cu_automatic_fe[] - Autimatically Force Language Education 
+cu_automatic_fe = {
+        if = {
+		      limit = {
+			        owner = { has_country_flag = cabinet_autofe  }
+					NOT = { has_province_modifier = cu_language_education }
+					NOT = { owner = { culture_group = PREV } }
+					is_core = owner
+					cu_not_terr_trigger = yes
+					OR = {
+					     owner = { NOT = { has_province_flag = cabinet_autofeg } }
+						 AND = {
+						       check_variable = { which = ca value = 80 }
+							   NOT = { check_variable = { which = ca value = 100 } }
+						 }
+					}
+					OR = {
+						  has_building = university
+						  has_building = public_school
+					}
+					owner = {
+						adm_power = 8
+						dip_power = 8
+						prestige = 6
+					}
+			  }
+			    owner = {
+						set_variable = { which = cu_power value = 60 }
+						cu_calc_power_cost = yes
+						cu_subtract_adm_power = yes
+						set_variable = { which = cu_power value = 60 }
+						cu_calc_power_cost = yes
+						cu_subtract_dip_power = yes
+						set_variable = { which = cu_prestige value = 6 }
+						cu_subtract_prestige = yes
+				}
+				add_province_modifier = {
+					 name = cu_language_education
+					 duration = 7300
+				}
+		}
+}
+
+#cu_do_cabinet[] -Check all edicts for this province
+cu_do_cabinet = {
+	cu_automatic_assimilation = yes
+	cu_automatic_migration = yes
+    cu_automatic_fe = yes
+	cu_automatic_ti = yes
+	cu_automatic_rw = yes
+	cu_automatic_id = yes
+	cu_automatic_is = yes
+}
+
+#cu_do_cabinet_country[] - Check all provinces 
+cu_do_cabinet_country = {
+    hidden_effect = {
+        set_variable = { which = cu_var2 value = 0 } 
+		every_owned_province = {
+		        limit = { has_province_modifier = cu_province_highlight }
+				owner = { change_variable = { which = cu_var2 value = 1 } }
+				cu_do_cabinet = yes
+		}
+		export_to_variable = { which = cu_var1 value = num_of_cities }
+		divide_variable = { which = cu_var1 value = 10 }
+		change_variable = { which = cu_var1 value = 1 }
+		subtract_variable = { which = cu_var1 which = cu_var2 }
+	
+	    while = {
+		        limit = { check_variable = { which = cu_var1 value = 0 } }
+				subtract_variable = { which = cu_var1 value = 1 }
+				random_owned_province = {
+				        limit = { 
+						        NOT = { has_province_modifier = cu_province_highlight } 
+								cu_eligible_cabinet_province = yes
+						}
+						cu_do_cabinet = yes
+				}
+		}
+	}
+}
+       

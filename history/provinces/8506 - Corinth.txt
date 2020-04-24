@@ -1,0 +1,42 @@
+# 8506 - Corinth
+
+
+add_core = ACH
+add_core = BYZ
+is_city = yes
+culture = greek
+religion = orthodox 
+capital = "Corinth"
+trade_goods = fish
+hre = no 
+base_tax = 4 
+base_production = 4 
+base_manpower = 5
+discovered_by = eastern
+discovered_by = western
+discovered_by = muslim
+discovered_by = ottoman
+
+owner = BYZ
+controller = BYZ
+add_core = BYZ
+
+1453.5.29 = {
+	owner = ACH
+	controller = ACH
+} # The fall of the Byzantine Empire
+1458.1.1 = {
+	owner = TUR
+	controller = TUR
+	add_core = TUR
+}
+1502.1.1 = { remove_core = BYZ }
+1555.1.1 = { unrest = 5  } # General discontent with the Janissaries' dominance
+1556.1.1 = { unrest = 0 }
+1620.1.1 = { unrest = 5 } # General discontent and occasional rebellions
+1640.1.1 = { unrest = 2 }
+1660.1.1 = { unrest = 0 }
+1690.1.1 = { base_tax = 3 base_production = 3 } #The Decentralizing Effect of the Provincial System
+1750.1.1 = {
+	add_core = GRE 
+}

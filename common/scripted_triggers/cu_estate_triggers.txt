@@ -1,0 +1,12 @@
+cu_estate_marry_trigger = {
+	is_lesser_in_union = no
+	has_regency = no
+	has_consort = no 	
+	NOT = { government = theocracy }
+	NOT = { has_country_flag = est_consort }
+}
+
+can_unrest_trigger = {
+	NOT = { stability = 1 }
+	NOT = { absolutism = 70 }
+}

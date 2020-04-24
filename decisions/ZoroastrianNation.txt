@@ -1,0 +1,125 @@
+country_decisions = {
+
+	zoroastrian_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes		
+			NOT = { has_country_flag = formed_zoroastrian_flag }
+			was_never_end_game_tag_trigger = yes
+            religion_group = zoroastrian			
+			NOT = { tag = PER }
+			NOT = { tag = HLR }
+			NOT = { tag = ROM }
+			NOT = { tag = PAP }			
+			NOT = { tag = BYZ }
+			NOT = { tag = ARB }
+			NOT = { tag = ZOR }			
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			OR = {
+				AND = {
+					NOT = { exists = ZOR }
+					religion_group = zoroastrian
+				}
+				ai = no
+			}			
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 5
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}		
+		allow = {
+			NOT = { exists = ZOR }			
+			is_at_war = no			
+			is_free_or_tributary_trigger = yes
+			has_country_modifier = royal_fires_modifier
+		}
+		effect = {
+			change_tag = ZOR
+			set_government_rank = 3
+			swap_non_generic_missions = yes			
+			add_prestige = 25
+			hidden_effect = {
+                                every_province = {
+ 				limit = {
+					NOT = { owned_by = ROOT }
+                                OR = {  
+                                region = persia_region
+                                region = khorasan_region                                
+                                area = transoxiana_area 
+								area = termez_area
+								area = iraq_arabi_area
+								area = basra_area
+								area = bahrain_area
+								area = pirate_coast_area
+								area = oman_area
+								area = mascat_area
+								area = shirvan_area
+								area = armenia_area								
+								area = kartli_kakheti_area
+								area = upper_yemen_area
+								area = yemen_area								
+								area = tihama_al_yemen_area
+                                province_id = 2204		
+                                province_id = 2307		
+                                province_id = 4295
+                                province_id = 4296
+								province_id = 2309
+								province_id = 2314
+								province_id = 4292
+								province_id = 411
+								province_id = 504
+								province_id = 505
+								province_id = 2072
+								province_id = 2079
+								province_id = 4509
+								province_id = 2077
+								province_id = 2078
+								province_id = 2073
+								province_id = 1967
+								province_id = 8611
+								province_id = 4282
+								province_id = 389
+								province_id = 2198
+								province_id = 2199
+								province_id = 4306
+								province_id = 425
+								province_id = 2127
+								province_id = 441
+								province_id = 1973
+								province_id = 2362
+                                province_id = 2341
+				}}
+				add_permanent_claim = ZOR
+			}
+			}					
+			add_country_modifier = {
+				name = "centralization_modifier"
+				duration = 7300
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_zoroastrian_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+
+}

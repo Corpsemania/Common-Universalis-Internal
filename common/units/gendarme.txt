@@ -1,0 +1,15 @@
+# French Gendarme - Schwarze Reiter Replacement
+type = cavalry
+unit_type = western
+
+trigger = {
+        tag = FRA
+}
+
+maneuver = 2
+offensive_morale = 3
+defensive_morale = 2
+offensive_fire = 0
+defensive_fire = 0
+offensive_shock = 2
+defensive_shock = 1

@@ -1,0 +1,134 @@
+#Country Name: Please see filename.
+
+graphical_culture = easterngfx
+
+color = { 9  9  103 }
+
+historical_idea_groups = {
+	religious_ideas
+	defensive_ideas
+	spy_ideas
+	trade_ideas
+	offensive_ideas
+	economic_ideas
+	diplomatic_ideas
+	innovativeness_ideas
+}
+
+historical_units = {
+	eastern_medieval_infantry
+	eastern_knights
+	slavic_stradioti
+	eastern_militia
+	ottoman_spahi
+	ottoman_sekban
+	ottoman_reformed_spahi
+	ottoman_reformed_janissary
+	ottoman_toprakli_hit_and_run
+	ottoman_nizami_cedid
+	ottoman_toprakli_dragoon
+	eastern_skirmisher
+	eastern_uhlan
+	eastern_carabinier
+	ottoman_new_model
+	ottoman_lancer
+}
+
+monarch_names = {
+	"Georgios #0" = 40
+	"Alexandros #0" = 20
+	"Konstantinos #0" = 20
+	"Pavlos #0" = 15
+	"Andreas #0" = 10
+	"Nikolaos #0" = 10
+
+	"Alexandra #0" = -10
+	"Antonia #0" = -5
+	"Anna #0" = -5
+	"Artemisia #0" = -1
+	"Eirene #0" = -1
+	"Euphrosyne #0" = -1
+	"Laskarina #0" = -1
+	"Manto #0" = -1
+	"Thalia #0" = -1
+	"Sevasti #0" = -1
+	"Sophia #0" = -1
+	
+
+	"Aineias #0" = 0
+	"Alexeios #0" = 0
+	"Ambrosios #0" = 0
+	"Bartholomaios #0" = 0
+	"Basileios #0" = 0
+	"Chrysanthos #0" = 0
+	"David #0" = 0
+	"Dimitrios #0" = 0
+	"Diogenes #0" = 0
+	"Dionysos #0" = 0
+	"Eirenaios #0" = 0
+	"Elpidios #0" = 0
+	"Gregorios #0" = 0
+	"Hektor #0" = 0
+	"Herakles #0" = 0
+	"Iason #0" = 0
+	"Ioannes #0" = 0
+	"Kastor #0" = 0
+	"Lambros #0" = 0
+	"Manuel #0" = 0
+	"Matthaios #0" = 0
+	"Nestor #0" = 0
+	"Nikomedes #0" = 0
+	"Orestes #0" = 0
+	"Palaemon #0" = 0
+	"Pelagios #0" = 0
+	"Petros #0" = 0
+	"Philemon #0" = 0
+	"Philippos #0" = 0
+	"Prokopios #0" = 0
+	"Skantarios #0" = 0
+	"Stefanos #0" = 0
+	"Tasos #0" = 0
+	"Theodoros #0" = 0
+	"Thomas #0" = 0
+}
+
+leader_names = {
+	Anina Angelopoulos Androutsos Aulakos
+	Botsaris Bouboulis
+	Chatzeris Christianopoulos Chatzimoschos
+	Dalianis Doumpiotis Diakos Danglis Dagres Deligiannis Damodos
+	Flessas Farmakidis
+	Gotzias Gonemis Gouras Giatrakos Gazalis
+	Hatzipetros
+	Kapodistrias Kolokotronis Karaiskakis Kanaris Katsonis Karykes Kontares Karatzas Kriezotis Kirezis Kountouriotis Korais
+	Kairis Kyriazis Kontostavlos
+	Loukaris Livinis
+	Mavrokordatos Mavrikios Makris Mavromichalis Meletopoulos Metaxas Milios Meintanis Mavrogenes
+	Notaras
+	Pegas Patelaros Pelekasis Petrovas Panourgias Pappas Papatsonis Papazafiropoulos Psalidas Papanikolis Pinotsis
+	Ratzikotsikas
+	Serpetzoglou Skoufas Sachtouris Skourtis Stamatelopoulos Soumalis
+	Triantaphyllos Tsakalov Tsokris Tombazis
+	Vokos Verousis Vasileiou Voulgaris
+	Xanthos Xiros
+	Ypsilantis Yiannouzas
+	Zalykis Zeras
+}
+
+ship_names = {
+	Attiki Aris Armatolos Ambrakikos Afroessa Aigion Agamemnon Atreus Aspis Aetos Apostolis Arethousa
+	Diamantina Doxa Doris Dafni
+	Gerontas
+	Hydra Hellas Harmatia
+	Ierax Ionia Ipiros
+	Karteria Klepht Kapetanissa Karteria Kios Kydonia
+	Lesbos Limnos Loudovikos Lemnos Lonchi Leon
+	Mikonios "Megas Orkos" Messolongion Makedonia
+	Niki
+	Olympia Orestes Othrys
+	Pezopoulos Panorea Patrokosmas Poros Psara Panopi Pliksavra Peloponnesos Penelope Psara Panthir Pindos Pergamos
+	Rhetoras
+	Salamis Samos Simitzopoulos Spetsai Sphagia Sfendoni Skevo Sfendoni Skorpios
+	Themistoklis Tourkofagos Thyella Themistoklis Thraki Thetis Typhon Tilemachos
+	Votsis Velos
+}

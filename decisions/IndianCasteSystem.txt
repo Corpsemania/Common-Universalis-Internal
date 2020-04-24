@@ -1,0 +1,35 @@
+country_decisions = {
+
+    abolish_caste_system = {
+		potential = {
+			any_owned_province = {
+				has_province_modifier = indian_caste_system
+			}			
+		}
+		allow = {
+            custom_trigger_tooltip = {
+			    tooltip = abolish_caste_system_tooltip
+				any_owned_province = {
+				    has_province_modifier = indian_caste_system
+			        check_variable = { which = literacy value = 10 }	
+                    is_core = owner
+		        }
+                        
+			}		
+		}
+		effect = {
+			every_owned_province = {
+			    limit = {
+				    has_province_modifier = indian_caste_system
+			        check_variable = { which = literacy value = 10 }	
+                    is_core = owner
+		        }		
+				remove_province_modifier = indian_caste_system
+				add_unrest = 20
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

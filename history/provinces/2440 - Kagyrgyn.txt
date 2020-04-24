@@ -1,0 +1,33 @@
+#2440 - Kagyrgyn
+
+
+culture = kamchatkan
+religion = tengri_pagan_reformed
+capital = "Kagyrgyn"
+
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+native_size = 5
+native_ferocity = 1
+native_hostileness = 2
+
+
+
+
+discovered_by = ANU
+discovered_by = HOD
+discovered_by = CHU
+discovered_by = CHV
+discovered_by = KMC
+
+
+1778.1.1 = {
+	discovered_by = RUS
+	owner = RUS
+	controller = RUS
+	religion = orthodox
+	culture = russian
+}
+1788.1.1 = { add_core = RUS }

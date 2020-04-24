@@ -1,0 +1,30 @@
+development_of_infrastructure = {
+
+	category = 3
+
+	allow = {
+		
+	}
+	
+	effect = {
+		
+	}
+	
+	modifier = {
+		development_cost = -0.05
+		build_cost = -0.075
+		build_time = -0.05
+	}
+	
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 2
+			has_idea_group = economic_ideas
+		}
+	}
+
+	ai_will_do = {
+		factor = 1	
+	}	
+}

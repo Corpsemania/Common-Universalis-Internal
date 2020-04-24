@@ -1,0 +1,53 @@
+edict_commercial_focus = {
+	potential = {
+		always = yes		#we support "potential" if modders want to have lots and just show some.
+	}
+	
+	allow = {
+		has_institution = global_trade
+	}
+	
+	modifier = {
+		local_tax_modifier = 0.2
+	    local_production_efficiency = -0.2
+	}
+	
+	color = {  255 215 0   }
+	
+	ai_will_do = {
+		factor = 3
+		modifier = {
+			factor = 2
+			any_province_in_state = {
+				has_building = marketplace
+			}
+		}
+		modifier = {
+			factor = 4
+			any_province_in_state = {
+				has_building = trade_depot
+			}
+		}
+		modifier = {
+			factor = 8
+			any_province_in_state = {
+				has_building = stock_exchange
+			}
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = go value = 100 }
+		}
+		modifier = {
+			factor = 0.1
+			check_variable = { which = go value = 130 }
+		}
+		
+		modifier = {
+			factor = 0
+			all_province_in_state = {
+				cu_oversea_trigger = yes
+			}
+		}
+	}
+}

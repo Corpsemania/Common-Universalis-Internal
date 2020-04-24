@@ -1,0 +1,258 @@
+#replaced by government reforms mainly for AI
+country_decisions = {
+
+	adopt_church_education = {
+		major = yes
+		potential = {
+            ai = yes
+			NOT = { has_reform = education_policy_church }
+		}
+		allow = {
+					adm_tech = 4
+					stability = 0
+					any_owned_province = {
+						 OR = {
+							  has_building = temple
+							  has_building = temple
+							  has_estate = estate_church
+						 }
+					}		
+		}
+		effect = {
+			add_government_reform = education_policy_church
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+			       factor = 0
+				   NOT = { years_of_income = 0.5 }
+			}
+			modifier = {
+			       factor = 0
+				   government = tribal
+			}	
+			modifier = {
+			       factor = 0
+				   has_country_modifier = education_policy_public
+			}
+			modifier = {
+			       factor = 0
+				   has_country_modifier = education_policy_burghers
+			}			
+		}
+		ai_importance = 400
+	}
+	
+	
+	adopt_burghers_education = {
+		major = yes
+		potential = {
+			ai = yes
+			NOT = { government = tribal }
+            NOT = { has_country_modifier = education_policy_burghers }
+			has_country_modifier = education_policy_church
+		}
+		allow = {
+			adm_tech = 15
+			stability = 0
+			has_institution = printing_press
+		}
+		effect = {
+			add_government_reform = education_policy_burghers
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+			       factor = 0
+				   NOT = { years_of_income = 1 }
+			}
+			modifier = {
+			       factor = 0
+				   AND = {
+				     NOT = { treasury = 400 } #Can't afford a public school and has no university
+				     NOT = { 
+				       any_owned_province = {
+				                 OR = {
+								         has_building = university 
+										 has_building = public_school
+								  }
+				       } 
+				     }
+					 NOT = { check_variable = { which = ave_literacy value = 6 } }
+				   }
+			}
+			modifier = {
+			       factor = 0
+				   check_variable = { which = go value = 130 } #Not enough GC
+			}
+			modifier = {
+			       factor = 0
+				   government = tribal
+			}			
+			modifier = {
+			       factor = 0
+				   has_country_modifier = education_policy_public
+			}
+		}
+		ai_importance = 400
+	}
+	
+	
+	adopt_public_education = {
+		major = yes
+		potential = {
+			ai = yes
+			NOT = { government = tribal }
+		    NOT = { has_country_modifier = education_policy_public }
+			has_country_modifier = education_policy_burghers
+		}
+		allow = {
+			adm_tech = 19
+			stability = 0
+			has_institution = printing_press
+		}
+		effect = {
+			add_government_reform = education_policy_public
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+			       factor = 0
+				   NOT = { years_of_income = 2 }
+			}
+			modifier = {
+			       factor = 0
+				   NOT = { check_variable = { which = go value = 100 }  } #Need Enough GC
+			}
+			modifier = {
+			       factor = 0
+				   NOT = { check_variable = { which = ave_literacy value = 10 } }
+				   NOT = { tag = BRA } #Make some historical nations more likely to use this
+				   NOT = { tag = BUR }
+				   NOT = { tag = PRU }
+				   NOT = { tag = GER }
+				   NOT = { tag = SWE }
+				   NOT = { tag = NED }
+				   NOT = { tag = JAP }
+			}
+			modifier = {
+			       factor = 0
+				   AND = {
+				     NOT = { treasury = 500 } #Can't afford a public school and has no university
+				     NOT = { 
+				       any_owned_province = {
+				                 OR = {
+								         has_building = university 
+										 has_building = public_school
+								  }
+				       } 
+				     }
+				   }
+			}
+		}
+		ai_importance = 400
+	}
+	
+	found_national_college = {
+		major = yes
+		potential = {
+			NOT = {
+			        any_owned_province = { has_province_modifier = cu_national_college }
+			}
+			
+		}
+		allow = {
+		    
+            OR = { 
+			      adm_tech = 15
+				  AND = {
+				        adm_tech = 13
+						full_idea_group = innovativeness_ideas
+				  }
+			}
+			capital_scope = {
+			        has_building = university
+			}
+			adm_power = 100
+			dip_power = 100
+			treasury = 500
+		}
+		effect = {
+		    add_treasury = -500
+			add_adm_power = -100
+			add_dip_power = -100
+		    custom_tooltip = found_national_college_tt
+			capital_scope = {
+			        add_province_modifier = {
+					       name = cu_national_college
+						   duration = -1
+					}
+			}
+			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+			       factor = 0
+				   NOT = { treasury = 700 }
+			}
+			modifier = {
+			       factor = 0
+				   NOT = { development = 400 } #Cant afford it!
+			}
+			modifier = {
+			       factor = 0
+				   check_variable = { which = go value = 130 } #Not enough GC
+			}
+		}
+		ai_importance = 400
+	}
+	
+	found_national_research_institute = {
+		major = yes
+		potential = {
+			any_owned_province = { has_province_modifier = cu_national_college }
+			NOT = { has_country_modifier = cu_national_research_institute }
+		}
+		allow = {
+		    
+            OR = { 
+			      adm_tech = 23
+				  AND = {
+				        adm_tech = 20
+						full_idea_group = innovativeness_ideas
+				  }
+			}
+			adm_power = 200
+			dip_power = 200
+			treasury = 1500
+		}
+		effect = {
+		    add_treasury = -1500
+			add_adm_power = -200
+			add_dip_power = -200
+		    custom_tooltip = found_national_research_institute_tt
+			add_country_modifier = {
+					name = cu_national_research_institute
+					duration = -1
+			}
+			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+			       factor = 0
+				   NOT = { treasury = 2000 }
+			}
+			modifier = {
+			       factor = 0
+				   NOT = { development = 1000 } #Cant afford it!
+			}
+			modifier = {
+			       factor = 0
+				   check_variable = { which = go value = 130 } #Not enough GC
+			}
+		}
+		ai_importance = 400
+	}
+}

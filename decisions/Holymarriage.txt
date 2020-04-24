@@ -1,0 +1,30 @@
+country_decisions = {
+
+        holy_marriage = {
+		major = yes
+                potential = {
+                        government = monarchy
+			has_consort = no
+                        OR = {
+				religion = zoroastrian
+				religion = messalian
+			    religion = inti    
+                        }
+			}
+		allow = {
+                        has_regency = no
+                        }
+		effect = {	
+			define_consort = {
+			dynasty = ROOT
+                        DIP = 2			
+			ADM = 2
+			MIL = 2
+		}
+                        add_years_of_income = -0.05
+                }
+		ai_will_do = {
+			factor = 1
+		}	
+		
+}

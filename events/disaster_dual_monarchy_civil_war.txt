@@ -1,0 +1,754 @@
+namespace = dualmonarchycivilwar
+
+country_event = {   
+    id = dualmonarchycivilwar.1
+	title = "dualmonarchycivilwar.1.t"
+	desc = "dualmonarchycivilwar.1.d"
+	picture = ECONOMY_eventPicture
+	
+	is_triggered_only = yes
+	immediate = {
+		every_owned_province = {
+		    limit = { 
+				OR = {
+					culture = english
+					culture = scottish
+				}
+				continent = europe						  
+			}
+			add_nationalism = 15
+		}
+		change_variable = { which = cu_var1 value = -100 }
+		cu_change_stability_point = yes
+	}
+	option = {
+		name = "dua.1.a"		
+		if = {
+          limit = { dip = 3 }
+		  random_list = {
+			30 = { country_event = {  id = dualmonarchycivilwar.49 } }
+			10 = { country_event = {  id = dualmonarchycivilwar.50 } }
+			60 = { country_event = {  id =  dualmonarchycivilwar.2 } }
+		  }
+		}
+		if = {
+          limit = { NOT = { dip = 3 } }
+		  random_list = {
+			35 = { country_event = {  id = dualmonarchycivilwar.49 } }
+			25 = { country_event = {  id = dualmonarchycivilwar.50 } }
+			40 = { country_event = {  id =  dualmonarchycivilwar.2 } }
+		  }
+		}
+	}
+	option = {
+		name = "dua.1.b" 			
+		hidden_effect = {
+		every_owned_province = {
+		       limit = { 
+			            OR = {
+							culture = english
+							culture = scottish
+						}
+                        continent = europe						  
+			   }
+				add_province_modifier = {
+				name = suppress_minority
+				duration = 3650
+			}
+		}
+		random_owned_province = {
+			limit = {
+				culture = english
+				continent = europe	
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+				friend = ENG
+			}
+		}
+		random_owned_province = {
+			limit = {
+				culture = scottish
+				continent = europe	
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+				friend = SCO
+			}
+		}
+		set_global_flag = dua_select_war
+		}
+	}
+}
+country_event = {   
+	id = dualmonarchycivilwar.2
+	title = "dualmonarchycivilwar.2.t"
+	desc = "dualmonarchycivilwar.2.d"
+	picture = ECONOMY_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "dua.2.a"
+		add_dip_power = -100
+		add_adm_power = -100
+		add_mil_power = -100
+		add_years_of_income = -2.25
+		hidden_effect = {
+			country_event = {  id = dualmonarchycivilwar.3 }
+			}
+	}
+	option = {
+		name = "dua.2.b"
+		add_dip_power = -50
+		add_adm_power = -50
+		add_mil_power = -50
+		add_years_of_income = -1.25
+		hidden_effect = {
+			if = {
+				limit = { dip = 3 }
+				random_list = {
+					50 = { country_event = {  id = dualmonarchycivilwar.21 } }
+					20 = { country_event = {  id = dualmonarchycivilwar.50 } }
+					30 = { country_event = {  id = dualmonarchycivilwar.3 } }
+				}
+			}
+			if = {
+				limit = { NOT = { dip = 3 } }
+				random_list = {
+					40 = { country_event = {  id = dualmonarchycivilwar.21 } }
+					20 = { country_event = {  id = dualmonarchycivilwar.50 } }
+					30 = { country_event = {  id = dualmonarchycivilwar.3 } }
+				}
+			}
+		}
+	}
+	option = {
+		name = "dua.2.c"
+		add_dip_power = -25
+		add_adm_power = -25
+		add_mil_power = -25
+		add_years_of_income = -0.75
+		hidden_effect = {
+			if = {
+				limit = { dip = 3 }
+				random_list = {
+					45 = { country_event = {  id = dualmonarchycivilwar.21 } }
+					35 = { country_event = {  id = dualmonarchycivilwar.50 } }
+					20 = { country_event = {  id = dualmonarchycivilwar.3 } }
+				}
+			}
+			if = {
+				limit = { NOT = { dip = 3 } }
+				random_list = {
+					30 = { country_event = {  id = dualmonarchycivilwar.21 } }
+					50 = { country_event = {  id = dualmonarchycivilwar.50 } }
+					20 = { country_event = {  id = dualmonarchycivilwar.3 } }
+				}
+			}
+		}
+	}
+}
+country_event = {   
+	id = dualmonarchycivilwar.3
+	title = "dualmonarchycivilwar.3.t"
+	desc = "dualmonarchycivilwar.3.d"
+	picture = ECONOMY_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "dua.3.a"
+		every_owned_province = {
+			 limit = { 
+			            OR = {
+							culture = english
+							culture = scottish
+						}
+                        continent = europe						  
+			   }
+			 add_local_autonomy = 40
+		}
+		add_legitimacy = -25
+		add_prestige = -45
+		hidden_effect = {
+			country_event = {  id = dualmonarchycivilwar.4 }
+			}
+	}
+	option = {
+		name = "dua.3.b"
+		every_owned_province = {
+			 limit = { 
+			            OR = {
+							culture = english
+							culture = scottish
+						}
+                        continent = europe						  
+			   }
+			 add_local_autonomy = 30
+		}
+		add_legitimacy = -15
+		add_prestige = -35
+		hidden_effect = {
+			if = {
+				limit = { dip = 3 }
+				random_list = {
+					50 = { country_event = {  id = dualmonarchycivilwar.22 } }
+					20 = { country_event = {  id = dualmonarchycivilwar.50 } }
+					30 = { country_event = {  id = dualmonarchycivilwar.4 } }
+				}
+			}
+			if = {
+				limit = { NOT = { dip = 3 } }
+				random_list = {
+					40 = { country_event = {  id = dualmonarchycivilwar.22 } }
+					20 = { country_event = {  id = dualmonarchycivilwar.50 } }
+					30 = { country_event = {  id = dualmonarchycivilwar.4 } }
+				}
+			}
+		}
+	}
+	option = {
+		name = "dua.3.c"
+		every_owned_province = {
+			 limit = { 
+			            OR = {
+							culture = english
+							culture = scottish
+						}
+                        continent = europe						  
+			   }
+			 add_local_autonomy = 25
+		}
+		add_legitimacy = -10
+		add_prestige = -25
+		hidden_effect = {
+			if = {
+				limit = { dip = 3 }
+				random_list = {
+					45 = { country_event = {  id = dualmonarchycivilwar.22 } }
+					35 = { country_event = {  id = dualmonarchycivilwar.50 } }
+					20 = { country_event = {  id = dualmonarchycivilwar.4 } }
+				}
+			}
+			if = {
+				limit = { NOT = { dip = 3 } }
+				random_list = {
+					30 = { country_event = {  id = dualmonarchycivilwar.22 } }
+					50 = { country_event = {  id = dualmonarchycivilwar.50 } }
+					20 = { country_event = {  id = dualmonarchycivilwar.4 } }
+				}
+			}
+		}
+	}
+}
+country_event = {   
+	id = dualmonarchycivilwar.4
+	title = "dualmonarchycivilwar.4.t"
+	desc = "dualmonarchycivilwar.4.d"
+	picture = ECONOMY_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "dua.4.a"
+		every_owned_province = {
+			 limit = { 
+			            OR = {
+							culture = english
+							culture = scottish
+						}
+                        continent = europe						  
+			   }
+			 add_province_modifier = {
+				name = dua_autonomy
+				duration = -1
+			}
+		}
+		set_country_flag = dua_civil_war_ending_1
+	}
+}
+country_event = {   
+	id = dualmonarchycivilwar.21
+	title = "dualmonarchycivilwar.21.t"
+	desc = "dualmonarchycivilwar.21.d"
+	picture = ECONOMY_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "dua.21.a"
+		every_owned_province = {
+			 limit = { 
+			            OR = {
+							culture = english
+							culture = scottish
+						}
+                        continent = europe						  
+			   }
+			 add_province_modifier = {
+				name = dua_immunity
+				duration = 3650
+			}
+		}
+		change_variable = { which = cu_var1 value = -150 }
+		cu_change_stability_point = yes
+		add_legitimacy = -20
+		add_prestige = -50
+		hidden_effect = {
+			random_list = {
+					70 = { country_event = {  id = dualmonarchycivilwar.22 } }
+					10 = { country_event = {  id = dualmonarchycivilwar.4 } }
+					20 = { country_event = {  id = dualmonarchycivilwar.50 } }
+				}
+		}
+	}
+	option = {
+		name = "dua.21.b"
+		hidden_effect = { country_event = {  id = dualmonarchycivilwar.50 } }
+	}
+}
+country_event = {   
+	id = dualmonarchycivilwar.22
+	title = "dualmonarchycivilwar.22.t"
+	desc = "dualmonarchycivilwar.22.d"
+	picture = ECONOMY_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "dua.22.a"
+		every_owned_province = {
+			 limit = { 
+			            OR = {
+							culture = english
+							culture = scottish
+						}
+                        continent = europe						  
+			   }
+			 add_province_modifier = {
+				name = dua_unrest
+				duration = -1
+			}
+		}
+		set_country_flag = dua_civil_war_ending_1
+	}
+}
+country_event = {   
+	id = dualmonarchycivilwar.49
+	title = "dualmonarchycivilwar.49.t"
+	desc = "dualmonarchycivilwar.49.d"
+	picture = ECONOMY_eventPicture
+	is_triggered_only = yes
+	option = {  
+	    name = cudivergence.23.a
+		set_global_flag = dua_convert_to_anglois
+		change_variable = { which = cu_var1 value = -75 }
+		cu_change_stability_point = yes
+		change_primary_culture = anglois
+		random_owned_province = {
+		       limit = { 
+			              culture = english
+                          continent = europe						  
+			   }
+			   change_culture = anglois
+		}
+		random_owned_province = {
+		       limit = { 
+			              culture = normand
+						  has_port = yes
+                          continent = europe	
+			   }
+			   change_culture = anglois
+		}
+		random_owned_province = {
+		       limit = { 
+			              is_capital = yes	
+						  culture = cosmopolitan_french
+			   }
+			   change_culture = anglois
+		}
+		every_owned_province = {
+		         limit = { culture = cosmopolitan_french }
+				 add_unrest = 5
+		}
+	}
+}
+
+country_event = {   
+	id = dualmonarchycivilwar.50
+	title = "dualmonarchycivilwar.50.t"
+	desc = "dualmonarchycivilwar.50.d"
+	picture = ANGRY_MOB_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "dua.1.b" 			
+		hidden_effect = {
+		every_owned_province = {
+		       limit = { 
+			            OR = {
+							culture = english
+							culture = scottish
+						}
+                        continent = europe						  
+			   }
+				add_province_modifier = {
+				name = suppress_minority
+				duration = 3650
+			}
+		}
+		set_global_flag = dua_select_war
+		random_owned_province = {
+			limit = {
+				culture = english
+				continent = europe	
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+				friend = ENG
+			}
+		}
+		random_owned_province = {
+			limit = {
+				culture = scottish
+				continent = europe	
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+				friend = SCO
+			}
+		}
+		}
+	}
+}
+country_event = {   
+	id = dualmonarchycivilwar.51
+	title = "dualmonarchycivilwar.51.t"
+	desc = "dualmonarchycivilwar.51.d"
+	picture = ANGRY_MOB_eventPicture
+	trigger = {
+		has_global_flag = dua_select_war
+		tag = DUA
+	}
+	mean_time_to_happen = {
+		months = 6
+	}
+	option = {
+		name = "dua.51.a"
+		random_owned_province = {
+			limit = {
+				culture = english
+				continent = europe	
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+				friend = ENG
+			}
+		}
+		random_owned_province = {
+			limit = {
+				culture = scottish
+				continent = europe	
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+				friend = SCO
+			}
+		}
+	}
+}
+country_event = {   
+	id = dualmonarchycivilwar.61
+	title = "dualmonarchycivilwar.61.t"
+	desc = "dualmonarchycivilwar.61.d"
+	picture = ANGRY_MOB_eventPicture
+	trigger = {
+		has_global_flag = dua_select_war
+		tag = DUA
+	}
+	mean_time_to_happen = {
+		months = 18
+	}
+	option = {
+		name = "dua.61.a"
+		random_owned_province = {
+			limit = {
+				culture = cosmopolitan_french
+				continent = europe	
+			}
+			add_local_autonomy = 100
+		}
+		random_owned_province = {
+			limit = {
+				culture = cosmopolitan_french
+				continent = europe	
+			}
+			add_local_autonomy = 100
+		}
+	}
+}
+country_event = {   
+	id = dualmonarchycivilwar.91
+	title = "dualmonarchycivilwar.91.t"
+	desc = "dualmonarchycivilwar.91.d"
+	picture = ANGRY_MOB_eventPicture
+	trigger = {
+		has_disaster = dualmonarchycivilwar
+		tag = DUA
+	}
+	mean_time_to_happen = {
+		months = 12
+	}
+	option = {
+		name = "dua.91.a"
+		random_owned_province = {
+			limit = {
+				culture = english
+				continent = europe	
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+				friend = ENG
+			}
+		}
+	}
+}
+country_event = {   
+	id = dualmonarchycivilwar.92
+	title = "dualmonarchycivilwar.92.t"
+	desc = "dualmonarchycivilwar.92.d"
+	picture = ANGRY_MOB_eventPicture
+	trigger = {
+		has_disaster = dualmonarchycivilwar
+		tag = DUA
+	}
+	mean_time_to_happen = {
+		months = 12
+	}
+	option = {
+		name = "dua.92.a"
+		random_owned_province = {
+			limit = {
+				culture = scottish
+				continent = europe	
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+				friend = SCO
+			}
+		}
+	}
+}
+country_event = {   
+	id = dualmonarchycivilwar.93
+	title = "dualmonarchycivilwar.92.t"
+	desc = "dualmonarchycivilwar.92.d"
+	picture = ANGRY_MOB_eventPicture
+	trigger = {
+		has_disaster = dualmonarchycivilwar
+		tag = DUA
+	}
+	mean_time_to_happen = {
+		months = 12
+	}
+	option = {
+		name = "dua.92.a"
+		random_owned_province = {
+			limit = {
+				culture = irish
+				continent = europe	
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+				friend = IRE
+			}
+		}
+	}
+}
+country_event = {   
+	id = dualmonarchycivilwar.52
+	title = "dualmonarchycivilwar.52.t"
+	desc = "dualmonarchycivilwar.52.d"
+	picture = ANGRY_MOB_eventPicture
+	trigger = {
+		NOT = { num_of_rebel_controlled_provinces = 1 }
+		has_disaster = dualmonarchycivilwar
+		AND = {
+			OR = {
+				prestige = 0
+				NOT = { war_exhaustion = 5 }
+				is_year = 1600
+			}
+			legitimacy = 100
+			stability = 3 
+		}
+		NOT = {
+			OR = {
+				ENG = { exists = yes }
+				SCO = { exists = yes }
+				GBR = { exists = yes }
+			}
+		}
+		has_global_flag = dua_select_war
+		tag = DUA
+	}
+	mean_time_to_happen = {
+		months = 12
+	}
+	option = {
+		name = "dua.22.a"
+		every_owned_province = {
+			 limit = { 
+			            OR = {
+							culture = english
+							culture = scottish
+						}
+                        continent = europe						  
+			   }
+			 add_province_modifier = {
+				name = dua_unrest
+				duration = -1
+			}
+		}
+		set_country_flag = dua_civil_war_ending_1
+	}
+	option = {
+		name = "dua.4.a"
+		every_owned_province = {
+			 limit = { 
+			            OR = {
+							culture = english
+							culture = scottish
+						}
+                        continent = europe						  
+			   }
+			 add_province_modifier = {
+				name = dua_autonomy
+				duration = -1
+			}
+		}
+		set_country_flag = dua_civil_war_ending_1
+	}
+}
+country_event = {   
+	id = dualmonarchycivilwar.53
+	title = "dualmonarchycivilwar.53.t"
+	desc = "dualmonarchycivilwar.53.d"
+	picture = ANGRY_MOB_eventPicture
+	trigger = {
+		has_disaster = dualmonarchycivilwar
+		AND = {
+			OR = {
+				ENG = { exists = yes }
+				SCO = { exists = yes }
+				GBR = { exists = yes }
+			}
+			NOT = {
+				OR = {
+					ENG = { war_with = DUA }
+					SCO = { war_with = DUA }
+					GBR = { war_with = DUA }
+				}
+			}
+		}
+		has_global_flag = dua_select_war
+		tag = DUA
+	}
+	mean_time_to_happen = {
+		months = 60
+	}
+	immediate = {
+			every_owned_province = {
+		       limit = { 
+					OR = {
+							culture = english
+							culture = welsh 
+						}
+			        continent = europe					  
+			   }
+				remove_core = DUA
+				cede_province = ENG
+			}
+			every_owned_province = {
+		       limit = { 
+					OR = {
+							culture = scottish
+							culture = highland_scottish
+						}
+			        continent = europe					  
+			   }
+				remove_core = DUA
+				cede_province = SCO
+			}
+			every_owned_province = {
+		       limit = { 
+					OR = {
+							culture = irish
+						}
+			        continent = europe					  
+			   }
+				remove_core = DUA
+				cede_province = IRE
+			}
+			set_country_flag = dua_civil_war_ending_2
+	}
+	option = {
+		name = "dua.53.a"
+		add_core = 236
+		change_variable = { which = cu_var1 value = -150 }
+		cu_change_stability_point = yes
+		random_country = {
+				limit = { owns = 236 }
+				add_opinion = {
+					who = ROOT
+					modifier = violated_territory
+				}
+			}
+	}
+	option = {
+		name = "dua.53.b"
+		every_owned_province = {
+		       limit = { 
+					OR = {
+							culture = scottish
+						}
+			        continent = europe					  
+			   }
+			   cede_province = SCO
+		}
+		ENG = {
+			add_opinion = {
+					who = ROOT
+					modifier = returned_province
+				}
+			}
+		SCO = {
+			add_opinion = {
+					who = ROOT
+					modifier = returned_province
+				}
+			}
+		IRE = {
+			add_opinion = {
+					who = ROOT
+					modifier = returned_province
+				}
+			}
+		change_tag = FRA 
+	}
+}
+country_event = {   
+	id = dualmonarchycivilwar.100
+	title = "dualmonarchycivilwar.100.t"
+	desc = "dualmonarchycivilwar.100.d"
+	picture = ECONOMY_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "dua.100.a"
+		add_stability_or_adm_power = yes
+		add_prestige = 50
+		hidden_effect = {
+			clr_global_flag = dua_select_war
+			set_country_flag = dual_monarchy_civil_war_happened
+		}
+	}
+}

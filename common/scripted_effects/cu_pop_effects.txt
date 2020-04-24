@@ -1,0 +1,340 @@
+### Public ###
+
+#Country Scope
+#cu_calc_countrywide_pop_efficiency[]: Calculate Commerce Efficiency, Production Efficiency, etc.
+cu_calc_countrywide_pop_efficiency = {
+
+      #Calculate Production Efficiency
+	  
+	  if = {  #Save old value
+	         limit = { check_variable = { which = pro_e value = 1 } }
+			 set_variable = { which = cu_var2 which = pro_e }
+	  }
+	  else = {
+	         set_variable = { which = cu_var2 value = 1 }
+	  }
+	  set_variable = { which = pro_e value = 1 }
+	  set_variable = { which = cu_var1 value = 0 }
+	  export_to_variable = {
+	         which = cu_var1
+			 value = adm_tech
+	  }
+	  multiply_variable = { which = cu_var1 value = 0.02 }
+	  change_variable = { which = pro_e which = cu_var1 }
+	  subtract_variable = { which = cu_var2 which = pro_e }
+	  multiply_variable = { which = cu_var2 value = -1 }
+	  if = {
+            limit = {
+			         check_variable = { which = cu_var2 value = 0.01 }
+			} 	  
+	  }
+	  
+	  set_variable = { which = cu_var1 value = 0 }
+      set_variable = { which = com_e value = 1 }
+	  export_to_variable = {
+	         which = cu_var1
+			 value = dip_tech
+	  }
+	  multiply_variable = { which = cu_var1 value = 0.02 }
+	  change_variable = { which = com_e which = cu_var1 }
+	  
+	  set_variable = { which = agr_e value = 1 }
+	  
+	  set_variable = { which = cu_var1 value = 0 }
+	  if = {
+	        limit = { adm_tech = 32 }
+			change_variable = { which = cu_var1 value = 0.6 }
+	  }
+	  else_if = {
+	        limit = { adm_tech = 30 }
+			change_variable = { which = cu_var1 value = 0.55 }
+	  }
+	  else_if = {
+	        limit = { adm_tech = 28 }
+			change_variable = { which = cu_var1 value = 0.5 }
+	  }
+	  else_if = {
+	        limit = { adm_tech = 25 }
+			change_variable = { which = cu_var1 value = 0.4 }
+	  }
+	  else_if = {
+	        limit = { adm_tech = 21 }
+			change_variable = { which = cu_var1 value = 0.3 }
+	  }
+	  else_if = {
+	        limit = { adm_tech = 17 }
+			change_variable = { which = cu_var1 value = 0.2 }
+	  }
+	  else_if = {
+	        limit = { adm_tech = 13 }
+			change_variable = { which = cu_var1 value = 0.1 }
+	  }
+	  else_if = {
+	        limit = { adm_tech = 9 }
+			change_variable = { which = cu_var1 value = 0.05 }
+	  }
+	  change_variable = { which = agr_e which = cu_var1 }
+}
+
+#cu_initialize_pop[] #Set initial province population and assign special pops.
+cu_initialize_pop = {
+      if = {
+	         limit = { NOT = { check_variable = { which = literacy value = 1 } } }
+			 set_variable = { which = literacy value = 1 } 
+	  }
+      set_variable = { which = pop value = 0 } #Total Pop
+	  set_variable = { which = pop_com value = 0 } #Commercial Pop
+	  set_variable = { which = pop_pro value = 0 } #Production Pop
+	  set_variable = { which = pop_agr value = 0 } #Agricultural Pop
+	  set_variable = { which = pop_lit value = 0 } #Literate Pop
+	  
+	  #Special Pop List
+	  #set_variable = { which = pop_sch value = 0 } #Scholar Pop(Literate)
+	  #set_variable = { which = pop_gov value = 0 } #Bureaucrat Pop(Literate)
+	  #set_variable = { which = pop_off value = 0 } #Officer Pop(Literate)
+	  #set_variable = { which = pop_pri value = 0 } #Priest Pop(Literate)
+	  #set_variable = { which = pop_nob value = 0 } #Noble Pop
+	  #set_variable = { which = pop_sol value = 0 } #Soldier Pop
+	  
+	  #Unemployed
+	  set_variable = { which = pop_r value = 0 } #Unemployed Pop(Literate)
+	  set_variable = { which = cu_var1 value = 0 }
+	  set_variable = { which = cu_var2 value = 0 }
+	  set_variable = { which = cu_var3 value = 0 }
+	  export_to_variable = {
+	         which = cu_var1
+			 value = base_tax
+	  }
+	  
+	  export_to_variable = {
+	         which = cu_var2
+			 value = base_production
+	  }
+	  
+	  export_to_variable = {
+	         which = cu_var3
+			 value = base_manpower
+	  }
+	  cu_calc_countrywide_pop_efficiency = yes
+	  multiply_variable = { which = cu_var1 value = 10 }
+	  divide_variable = { which = cu_var1 which = com_e }
+	  set_variable = { which = pop_com which = cu_var1 }
+	  multiply_variable = { which = cu_var2 value = 10 }
+	  divide_variable = { which = cu_var2 which = pro_e }
+	  set_variable = { which = pop_pro which = cu_var2 }
+	  multiply_variable = { which = cu_var3 value = 10000 }
+	  divide_variable = { which = cu_var3 which = agr_e }
+	  set_variable = { which = pop_agr which = cu_var2 }
+	  change_variable = { which = pop which = pop_com }
+	  change_variable = { which = pop which = pop_pro }
+	  change_variable = { which = pop which = pop_agr }
+	  
+	  #Literate Pop
+	  set_variable = { which = pop_lit which = pop }
+	  multiply_variable = { which = pop_lit which = literacy }
+	  
+	  #Special Pops
+	  
+	  #Priest&Scholar
+	  set_variable = { which = pop_sch value = 0 } #It is the percentage now, will be multiplied by pop_lit later.
+	  set_variable = { which = pop_pri value = 0.03 }
+	  if = {
+	        limit = { has_building = temple }
+			change_variable = { which = pop_pri value = 0.01 }
+			if = {
+			      limit = { has_province_modifier = cu_church_school }
+				  change_variable = { which = pop_sch value = 0.01 }
+			}
+	  }
+	  else_if = {
+	        limit = { has_building = cathedral }
+			change_variable = { which = pop_pri value = 0.02 }
+			if = {
+			      limit = { has_province_modifier = cu_church_school }
+				  change_variable = { which = pop_sch value = 0.01 }
+			}
+	  }
+	  if = {
+	        limit = { has_building = university }
+			change_variable = { which = pop_sch value = 0.02 }
+			if = {
+			       limit = { has_province_modifier = cu_burghers_university }
+				   change_variable = { which = pop_sch value = 0.02 }
+			}
+			else_if = {
+			       limit = { has_province_modifier = cu_public_university }
+				   change_variable = { which = pop_sch value = 0.04 }
+			}
+			if = {
+			      limit = { has_province_modifier = cu_national_college }
+				  change_variable = { which = pop_sch value = 0.03 }
+			}
+	  }
+	  if = {
+	        limit = { has_building = public_school }
+			change_variable = { which = pop_sch value = 0.01 }
+			if = {
+			       limit = { has_province_modifier = cu_burghers_school }
+				   change_variable = { which = pop_sch value = 0.01 }
+			}
+			else_if = {
+			       limit = { has_province_modifier = cu_public_school }
+				   change_variable = { which = pop_sch value = 0.02 }
+			}
+	  }
+	  multiply_variable = { which = pop_sch which = pop_lit }
+	  multiply_variable = { which = pop_pri which = pop_lit }
+	  
+	  #Noble&Bureaucrat
+	  set_variable = { which = pop_nob value = 0.03 }
+	  set_variable = { which = pop_gov value = 0.03 }
+	  
+	  if = {
+	        limit = { has_estate = estate_nobles }
+			change_variable = { which = pop_nob value = 0.02 }
+	  }
+	  else_if = {
+	        limit = { has_estate = estate_burghers }
+			change_variable = { which = pop_gov value = 0.01 }
+	  }
+	  if = {
+	        limit = { has_building = courthouse }
+			change_variable = { which = pop_gov value = 0.02 }
+	  }
+	  else_if = {
+	        limit = { has_building = town_hall }
+			change_variable = { which = pop_gov value = 0.04 }
+	  }
+	  if = {
+	        limit = { is_capital = yes }
+			change_variable = { which = pop_nob value = 0.03 }
+			change_variable = { which = pop_gov value = 0.03 }
+	  }
+	  
+	  multiply_variable = { which = pop_nob which = pop }
+	  multiply_variable = { which = pop_gov which = pop_lit }
+	  
+	  #Officer&Soldier
+	  set_variable = { which = pop_off value = 0.01 }
+	  set_variable = { which = pop_sol value = 0.00 }
+	  if = {
+	        limit = { has_building = barracks }
+			change_variable = { which = pop_off value = 0.01 }
+			change_variable = { which = pop_sol value = 0.01 }
+	  }
+	  else_if = {
+	        limit = { has_building = training_fields }
+			change_variable = { which = pop_off value = 0.02 }
+			change_variable = { which = pop_sol value = 0.02 }
+	  }
+	  if = {
+	        limit = { has_building = regimental_camp }
+			change_variable = { which = pop_off value = 0.01 }
+			change_variable = { which = pop_sol value = 0.01 }
+	  }
+	  else_if = {
+	        limit = { has_building = conscription_center }
+			change_variable = { which = pop_off value = 0.02 }
+			change_variable = { which = pop_sol value = 0.02 }
+	  }
+	  
+	  multiply_variable = { which = pop_off which = pop_lit }
+	  multiply_variable = { which = pop_sol which = pop }
+	  
+	  set_variable = { which = cu_var1 which = pop_gov }
+	  change_variable = { which = cu_var1 which = pop_sch }
+	  change_variable = { which = cu_var1 which = pop_pri }
+	  change_variable = { which = cu_var1 which = pop_off }
+	  change_variable = { which = pop_lit which = cu_var1 }
+	  change_variable = { which = cu_var1 which = pop_nob }
+	  change_variable = { which = cu_var1 which = pop_sol }
+	  change_variable = { which = pop which = cu_var1 }
+	  
+	  set_variable = { which = cu_var1 value = 0 }
+	  set_variable = { which = cu_var2 value = 0 }
+	  set_variable = { which = cu_var3 value = 0 }
+	  
+}
+
+#Country Scope
+#cu_calc_country_pop_growth_modifier[] - Calculate country-wide pop growth modifier so that province does not need to calc this multiple times.
+cu_calc_country_pop_growth_modifier = {
+      set_country_flag = cu_country_pop_growth_modifier_set
+      set_variable = { which = pop_gm value = 1 }
+	  set_variable = { which = gdev_m value = 0 }
+	  export_to_variable = {
+			which = gdev_m
+			value = modifier:development_cost
+	  }
+	  if = {
+			limit = { adm_tech = 27 }
+		    subtract_variable = { which = gdev_m value = 0.15 }
+	  }
+	  else_if = {
+			limit = { adm_tech = 23 }
+		    subtract_variable = { which = gdev_m value = 0.10 }
+	  }
+	  else_if = {
+			limit = { adm_tech = 17 }
+		    subtract_variable = { which = gdev_m value = 0.05 }
+	  }
+	  change_variable = { which = pop_gm which = gdev_m }
+	  if = {
+			limit = { 
+				    owner = { aristocracy_ideas = 6 } 
+			}
+			change_variable = { which = pop_gm value = 0.10 }
+	  }
+}
+
+#Province Scope
+#cu_calc_pop_growth_modifier[] - Calculate province pop growth modifier
+cu_calc_pop_growth_modifier = {
+      if = {
+	        limit = { owner = { NOT = { has_country_flag = cu_country_pop_growth_modifier_set } } }
+			owner = { cu_calc_country_pop_growth_modifier = yes }
+	  }
+      set_variable = { which = pop_gm which = owner }
+	  set_variable = { which = ucdev_m value = 0 }
+	  export_to_variable = {
+			which = ucdev_m
+			value = modifier:local_development_cost
+	  }
+	  change_variable = { which = pop_gm which = ucdev_m }
+	  if = {
+			limit = { 
+						owner = { expansion_ideas = 2 } 
+						NOT = { development = 15 }		   
+			}
+			change_variable = { which = ucdev_m value = -0.10 }
+	  }
+}
+
+#Province Scope
+#cu_calc_food[] - Calculate Province Food
+cu_calc_food = {
+      set_variable = { which = p_dev value = 0 } #Province Development
+	  set_variable = { which = food_sup value = 0 } #Food Supply
+	  set_variable = { which = food_m value = 1 } #Food Supply Modifier
+	  set_variable = { which = food_con value = 0 } #Food Consumption
+	  set_variable = { which = food_sur value = 0 } #Food Surplus
+	  set_variable = { which = food_im value = 0 } #Food Impact Modifier
+}
+
+#Province Scope
+#cu_do_pop_growth[] - Yearly Pop Growth,triggered by global event trigger
+cu_do_pop_growth = {
+      if = {
+	        limit = {
+			        OR = {
+					      NOT = { check_variable = { which = pop value = 0 } }
+						  check_variable = { which = pop value = 100000 } #Maximum pop of a province, 100m, large enough to be impossible
+					}
+			}
+			set_variable = { which = pop value = 1 }
+	  }
+	  
+	  #Calculate Population Growth Modifier
+	  cu_calc_pop_growth_modifier = yes
+	  
+}

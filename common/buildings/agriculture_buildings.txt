@@ -1,0 +1,178 @@
+mill = {
+	cost = 80
+	time = 12
+	trigger = {
+                OR = {
+		            has_terrain = farmlands
+					has_terrain = grasslands
+					has_terrain = woods
+					has_terrain = drylands
+					has_province_modifier = ti_marsh_done 
+					has_province_modifier = holland_polders
+					has_province_modifier = ti_irragation_done
+					has_province_modifier = ti_terrace_done
+					has_province_modifier = ti_jungle_done
+					has_province_modifier = ti_forest_done
+					has_building = mill
+                }
+	}
+	modifier = {
+		local_production_efficiency = 0.125
+        trade_goods_size = 0.075
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+	     #custom_tooltip = cu_building_bca_4
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 4 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n6
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -6 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -4 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 10
+		modifier = {
+			factor = 2
+			NOT = { base_manpower = 4 }
+			development = 10
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { check_variable = { which = r_ac value = 0 } }
+		}	
+		modifier = {
+			factor = 1.5
+			development = 8
+		}
+		modifier = {
+			factor = 1.5
+			development = 12
+		}
+		modifier = {
+			factor = 1.5
+			development = 16
+		}
+		modifier = {
+			factor = 2
+			OR = {
+			       trade_goods = grain
+				   trade_goods = wine
+				   trade_goods = fish
+			}
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { has_owner_culture = yes }
+			NOT = { has_owner_accepted_culture = yes }
+			NOT = { owner = { culture_group = ROOT } }
+		}
+	}
+}
+
+farm_estate = {
+	cost = 300
+	time = 36
+	make_obsolete = mill
+	trigger = {
+				OR = {
+					base_manpower = 12
+					has_building = farm_estate
+				}
+	            
+                OR = {
+		            has_terrain = farmlands					
+					has_province_modifier = ti_woods_done					
+					has_province_modifier = ti_marsh_done 
+					has_province_modifier = holland_polders
+					has_province_modifier = ti_irragation_done
+					has_province_modifier = ti_terrace_done
+					has_province_modifier = ti_jungle_done
+					has_province_modifier = ti_forest_done
+                }
+	}
+	modifier = {
+		local_production_efficiency = 0.25
+        trade_goods_size = 0.15
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+	     #custom_tooltip = cu_building_bca_6
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = 6 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	     
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n9
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -9 }
+		     cu_add_cultural_acceptance = yes
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -6 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	onmap = yes
+	
+	ai_will_do = {
+		factor = 40
+		modifier = {
+			factor = 3
+			NOT = { base_manpower = 15 }
+			development = 30
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { check_variable = { which = r_ac value = 0 } }
+		}	
+		modifier = {
+			factor = 1.5
+			development = 20
+		}
+		modifier = {
+			factor = 1.5
+			development = 30
+		}
+		modifier = {
+			factor = 1.5
+			development = 40
+		}
+		modifier = {
+			factor = 2
+			OR = {
+			       trade_goods = grain
+				   trade_goods = wine
+				   trade_goods = fish
+			}
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { has_owner_culture = yes }
+			NOT = { has_owner_accepted_culture = yes }
+			NOT = { owner = { culture_group = ROOT } }
+		}
+	}
+}
+
+

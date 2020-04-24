@@ -1,0 +1,19 @@
+#4029 - Antanosy
+
+
+culture = madagasque
+religion = sunni
+capital = "Antanosy"
+
+hre = no
+base_tax = 2
+base_production = 2
+base_manpower = 1
+native_size = 40
+native_ferocity = 4
+native_hostileness = 9
+discovered_by = east_african
+
+1500.8.20 = { discovered_by = POR } #Diego Dias
+1642.1.1 ={ owner = FRA controller = FRA add_core = FRA }
+1674.9.1 = { owner = ANT controller = ANT remove_core = FRA }

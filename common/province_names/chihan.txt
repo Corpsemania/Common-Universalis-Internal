@@ -1,0 +1,52 @@
+1845 = "Ping'an"
+732 = "Xianjin"
+733 = "Huanghai"
+734 = "Jiangyuan"
+735 = "Hancheng"
+1013 = "Zhongqing"
+736 = "Qingshang"
+737 = "Quanluo"
+
+613 = "Dongguan"
+616 = "Yuebei"
+1016 = "Yi'an"
+610 = "Shunhua"
+
+1022 = "Guangnan"
+607 = "Foshi"
+606 = "Bintonglong"
+
+1844 = "Chuankuang"
+615 = "Chuantong" 
+611 = "Ganmeng"
+614 = "Wanxiang"
+608 = "Zhanbasai" 
+1823 = "Shangding"
+
+612 = "Kele"
+609 = "Xianli"
+604 = "Wudong"
+605 = "Xigong"
+
+602 = "Qinglai"
+589 = "Qingmai"
+
+601 = "Suketai"
+
+1817 = "Nan"
+600 = "Dacheng"
+603 = "Luoyong"
+599 = "Jilandan"
+592 = "Lepi"
+593 = "Luokun"
+594 = "Dani"
+
+582 = "Keqin"
+583 = "Mubang"
+587 = "Jingdong"
+588 = "Mengnai"
+581 = "Shijie"
+584 = "Wacheng"
+580 = "Qin"
+
+585 = "Dongyu"

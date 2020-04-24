@@ -1,0 +1,385 @@
+namespace = cuauto
+province_event = {
+	id = cuauto.1
+	title = "urban.50.t"
+	desc = "urban.50.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	hidden = yes 
+	is_triggered_only = yes
+	option = {
+		name = "urban.71.a"
+		if = {
+			limit = { 
+				has_owner_culture = no
+				owner = { 
+					ai = no
+					has_country_flag = cabinet_autoass 
+					dip_power = 100
+				} 
+				OR = {
+					NOT = { owner = { culture_group = PREV } }
+					owner = { has_country_flag = cabinet_autoassg }
+				}
+				OR = {
+					owner = { has_country_flag = cabinet_autoassa }
+					owner = { culture_group = PREV }
+					has_owner_accepted_culture = no
+				}              
+			}
+			###Cultural Assimilation - copied from province edict
+			if = {
+				limit = {
+					NOT = { has_province_modifier = cu_cultural_assimilation }
+					check_variable = { which = p_ca value = 85 }
+					has_owner_culture = no
+					is_core = owner
+					NOT = { nationalism = 1 }
+					owner = {
+						prestige = 10
+						dip_power = 50
+					}
+				}
+				hidden_effect = {
+					owner = {
+						set_variable = { which = cu_power value = 0 }
+						export_to_variable = {
+							which = cu_power
+							value = development
+							who = ROOT
+						}
+						if = {
+							limit = { check_variable = { which = cu_power value = 41 } }
+							set_variable = { which = cu_power which = 40 }
+						}
+						set_variable = { which = cu_prestige which = cu_power }
+						multiply_variable = { which = cu_prestige value = 0.33 }
+						multiply_variable = { which = cu_power value = 5 }
+						cu_calc_power_cost_culture = yes
+						cu_subtract_dip_power = yes
+						cu_subtract_prestige = yes
+					}
+				}
+				add_province_modifier = {
+			       name = cu_cultural_assimilation
+				   duration = -1
+				}
+			}
+			###Cultural Assimilation End
+		}
+	}
+}
+province_event = {
+	id = cuauto.2
+	title = "urban.50.t"
+	desc = "urban.50.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	hidden = yes 
+	is_triggered_only = yes
+	option = {
+		name = "urban.71.a"
+		if = {
+			limit = { 
+				owner = { 
+					ai = no
+					has_country_flag = cabinet_autoim 
+					mil_power = 100		 
+				}
+				NOT = { owner = { culture_group = PREV } }
+				OR = {
+					AND = {
+						owner = { has_country_flag = cabinet_autoim5 }
+						NOT = { development = 6 }
+					}
+					AND = {
+						owner = { has_country_flag = cabinet_autoim10 }
+						NOT = { development = 11 }
+					}
+					AND = {
+						owner = { has_country_flag = cabinet_autoim15 }
+						NOT = { development = 16 }
+					}
+					owner = { has_country_flag = cabinet_autoimall }
+				}
+			}
+			if = {
+				limit = {
+			##################Copied Requirements##################
+					NOT = { development = 10 }
+					has_owner_culture = no
+					check_variable = { which = r_ac value = 2 }
+					OR = {
+						cu_not_terr_trigger = yes
+						is_overseas = no
+					}
+					is_core = owner
+					NOT = { has_province_modifier = cu_immigration }
+					owner = {  
+						mil_power = 22
+						manpower_percentage = 0.5
+						any_owned_province = {
+							has_owner_culture = yes
+							OR = {
+								cu_not_terr_trigger = yes
+								is_overseas = no
+							}
+							base_manpower = 2
+							check_variable = { which = food_sur value = 6 }
+						}
+					}
+		##################################################
+				}
+        ##########################Copied Effect#############################
+				owner = { 
+					hidden_effect = { 
+						set_variable = { which = cu_power value = 40 }
+						cu_calc_power_cost = yes
+						cu_subtract_mil_power = yes
+					}
+					add_manpower = -2 
+				}
+				add_province_modifier = {
+					name = cu_immigration
+					duration = -1
+				}
+				hidden_effect = {
+					if = {
+						limit = { NOT = { check_variable = { which = p_as value = 0.01 } } }
+						set_variable = { which = p_as value = 0 }
+						cu_check_cultural_assimilation = yes
+					}	
+				}
+		###########################################
+			}
+		}
+	}
+}
+province_event = {
+	id = cuauto.3
+	title = "urban.50.t"
+	desc = "urban.50.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	hidden = yes 
+	is_triggered_only = yes
+	option = {
+		name = "urban.71.a"
+		if = {
+				limit = {
+					owner = { 
+						ai = no
+						has_country_flag = cabinet_autoti
+						adm_power = 100
+					} 
+					cu_eligible_cabinet_province = yes
+				}
+				if = {
+					limit = {
+					##################Copied Requirements##################  
+						development = 9
+						owner = { 
+							treasury = 75
+							adm_power = 15
+							adm_tech = 9
+						}
+						has_terrain = forest
+						NOT = { has_province_modifier = ti_forest }
+						NOT = { has_province_modifier = ti_forest_done }
+					#####################################################
+			        }
+					##################Copied Effect########################
+					owner = {
+						set_variable = { which = cu_power value = 70 }
+						cu_calc_power_cost = yes
+						add_treasury = -75
+						cu_subtract_adm_power = yes
+					}
+					add_province_modifier = {
+						name = ti_forest
+						duration = -1
+					}
+		            ######################################################
+			    }
+					
+				else_if = {
+					limit = {
+					##################Copied Requirements##################
+						owner = { 
+							adm_power = 15
+							treasury = 100
+							adm_tech = 16
+						}
+						has_terrain = jungle
+						development = 9
+						NOT = { has_province_modifier = ti_jungle }
+						NOT = { has_province_modifier = ti_jungle_done }
+					#####################################################
+			        }
+					##################Copied Effect########################
+					owner = {
+						set_variable = { which = cu_power value = 70 }
+						cu_calc_power_cost = yes
+						add_treasury = -100
+						cu_subtract_adm_power = yes
+					}
+					add_province_modifier = {
+						name = ti_jungle
+						duration = -1
+					}
+		            ######################################################
+			    }
+					
+				else_if = {
+					limit = {
+					##################Copied Requirements##################
+						development = 9
+						owner = { 
+							adm_tech = 9
+							treasury = 75
+							adm_power = 15
+						}
+						has_terrain = woods
+						NOT = { has_province_modifier = ti_woods }
+						NOT = { has_province_modifier = ti_woods_done }
+					#####################################################
+			        }	
+					##################Copied Effect########################
+					owner = {
+						set_variable = { which = cu_power value = 70 }
+						cu_calc_power_cost = yes
+						add_treasury = -75
+						cu_subtract_adm_power = yes
+					}
+					add_province_modifier = {
+						name = ti_woods
+						duration = -1
+					}
+		            ######################################################
+				}
+					
+				else_if = {
+					limit = {
+					##################Copied Requirements##################
+						development = 9
+						owner = { 
+							treasury = 120
+							adm_tech = 13
+							adm_power = 22
+						}
+						has_terrain = marsh
+						NOT = { has_province_modifier = ti_marsh }
+						NOT = { has_province_modifier = ti_marsh_done }
+						NOT = { has_province_modifier = holland_polders }
+					#####################################################
+			        }
+					##################Copied Effect########################
+					owner = {
+						set_variable = { which = cu_power value = 80 }
+						cu_calc_power_cost = yes
+						add_treasury = -120
+						cu_subtract_adm_power = yes
+					}
+					add_province_modifier = {
+						name = ti_marsh
+						duration = -1
+					}
+		            ######################################################
+				}
+					
+				else_if = {
+					limit = {
+					##################Copied Requirements##################
+						base_manpower = 4
+						OR = {
+							   owner = { adm_tech = 6 }
+							   owner = { technology_group = chinese }
+						}
+						owner = { 
+							treasury = 100
+							OR = {
+								adm_tech = 6
+								technology_group = chinese
+							}
+							adm_power = 22
+						}
+						OR = {
+							has_terrain = drylands
+							has_terrain = coastline                        
+							has_terrain = savannah
+							has_terrain = grasslands
+							has_terrain = highlands	 
+							has_terrain = desert
+							has_terrain = coastal_desert		  
+							AND = {
+								has_terrain = steppe
+								owner = { NOT = { has_reform = steppe_horde } }
+							}
+						}
+						OR = {
+							base_manpower = 10
+							has_province_modifier = river_estuary_modifier
+							any_neighbor_province = {
+								OR = {
+									has_province_modifier = ti_irragation_done
+									has_terrain = mountain
+									has_terrain = impassable_mountains
+									has_terrain = glacier
+									has_terrain = farmlands
+									has_terrain = marsh
+									has_river_estuary_trigger = yes
+								}
+							}
+						}
+						NOT = { has_province_modifier = ti_irragation }
+						NOT = { has_province_modifier = ti_irragation_done }
+					#####################################################
+					}
+					##################Copied Effect########################
+					owner = {
+						set_variable = { which = cu_power value = 80 }
+						cu_calc_power_cost = yes
+						add_treasury = -100
+						cu_subtract_adm_power = yes
+					}
+					add_province_modifier = {
+						name = ti_irragation
+						duration = -1
+					}
+		            ######################################################
+				}
+					
+			    else_if = {
+					limit = {
+					##################Copied Requirements##################
+						base_manpower = 4
+						OR = {
+							owner = { adm_tech = 3 }
+							owner = { technology_group = andean }
+						}
+						owner = { 
+							treasury = 100
+							adm_power = 22
+						}
+						OR = {
+							has_terrain = hills
+							has_terrain = mountain
+						}
+						NOT = { has_province_modifier = ti_terrace }
+						NOT = { has_province_modifier = ti_terrace_done }
+					#####################################################
+			        }
+					##################Copied Effect########################
+					owner = {
+						set_variable = { which = cu_power value = 80 }
+						cu_calc_power_cost = yes
+						add_treasury = -100
+						cu_subtract_adm_power = yes
+					}
+					add_province_modifier = {
+						name = ti_terrace
+						duration = -1
+					}
+		            ######################################################
+				}				
+					##########################################################
+			}
+	}
+}

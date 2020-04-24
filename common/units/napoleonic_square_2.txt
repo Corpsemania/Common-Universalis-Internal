@@ -1,0 +1,18 @@
+# Napoleonic Square
+
+unit_type = western	
+type = infantry
+trigger = { 
+	OR = { 
+               tag = FRA
+               tag = RFR
+        }
+        is_revolution_target = yes
+}
+maneuver = 1
+offensive_morale = 4
+defensive_morale = 4
+offensive_fire = 5
+defensive_fire = 3
+offensive_shock = 3
+defensive_shock = 4

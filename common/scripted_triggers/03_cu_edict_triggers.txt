@@ -1,0 +1,719 @@
+move_capital_trigger = {
+            owner = { adm_power = 200 }
+			is_state_core = owner
+			cu_not_terr_trigger = yes
+}
+
+improve_drainage_trigger = {
+	base_manpower = 2
+	owner = {
+	    adm_tech = 3
+		treasury = 75
+		adm_power = 12
+	}
+	OR = {
+					NOT = { check_variable = { which = b_ac value = 10 } }
+					AND = {
+						owner = { adm_tech = 10 }
+						NOT = { check_variable = { which = b_ac value = 15 } }
+					}
+					AND = {
+						owner = { adm_tech = 17 }
+						NOT = { check_variable = { which = b_ac value = 20 } }
+					}
+					AND = {
+						owner = { adm_tech = 21 }
+						NOT = { check_variable = { which = b_ac value = 25 } }
+					}
+					AND = {
+						owner = { adm_tech = 28 }
+						NOT = { check_variable = { which = b_ac value = 30 } }
+					}
+					AND = {
+						owner = {  adm_tech = 32 }
+						NOT = { check_variable = { which = b_ac value = 35 } }
+					}
+	}
+}
+
+improve_sanitation_trigger = {
+    development = 15
+	OR = {
+		check_variable = { which = o_uc value = 10 }
+		NOT = { check_variable = { which = r_uc value = 3 } }
+	}
+	OR = {
+		NOT = { check_variable = { which = b_uc value = 5 } }
+		AND = {
+			owner = { adm_tech = 10 }
+			NOT = { check_variable = { which = b_uc value = 7 } }
+		}
+		AND = {
+			owner = { adm_tech = 15 }
+			NOT = { check_variable = { which = b_uc value = 9 } }
+		}
+		AND = {
+			owner = { adm_tech = 20 }
+			NOT = { check_variable = { which = b_uc value = 12 } }
+		}
+		AND = {
+			owner = { adm_tech = 25 }
+			NOT = { check_variable = { which = b_uc value = 15 } }
+		}
+		AND = {
+			owner = {  adm_tech = 30 }
+			NOT = { check_variable = { which = b_uc value = 18 } }
+		}
+	}
+	owner = {
+		treasury = 75
+		adm_power = 12
+	}
+}
+
+reclaim_wasteland_trigger = {
+	OR = {
+		NOT = { base_manpower = 6 }
+		check_variable = { which = r_ac value = 6 }
+	}
+	OR = {
+		is_overseas = no
+		cu_not_terr_trigger = yes
+		NOT = { base_manpower = 2 }
+	}
+	check_variable = { which = r_ac value = 1 }
+	owner = {
+		manpower_percentage = 0.5
+		treasury = 50
+		mil_power = 22
+	}
+}
+
+cu_scaled_adm_power_70 = {
+        OR = {
+						    owner = { 
+							    OR = {
+						            adm_power = 70
+                                    AND = {
+								      adm_power = 56
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = tiny_state		 
+				            }
+						    owner = { 
+							    OR = {
+						            adm_power = 60
+                                    AND = {
+								      adm_power = 52
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = small_state
+				            }
+							owner = { 
+							    OR = {
+						            adm_power = 50
+                                    AND = {
+								      adm_power = 40
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = medium_state	 
+				            }
+							owner = { 
+							    OR = {
+						            adm_power = 40
+                                    AND = {
+								      adm_power = 32
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = large_state		 
+				            }
+							owner = { 
+							    OR = {
+						            adm_power = 30
+                                    AND = {
+								      adm_power = 24
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = huge_state	 
+				            }
+							owner = { 
+							    OR = {
+						            adm_power = 25
+                                    AND = {
+								      adm_power = 20
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = continental_state
+				            }
+							owner = { 
+							    OR = {
+						            adm_power = 20
+                                    AND = {
+								      adm_power = 16
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = world_state
+				            }
+                    }
+}
+
+cu_scaled_adm_power_80 = {
+        OR = {
+						    owner = { 
+							    OR = {
+						            adm_power = 80
+                                    AND = {
+								      adm_power = 64
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = tiny_state		 
+				            }
+						    owner = { 
+							    OR = {
+						            adm_power = 70
+                                    AND = {
+								      adm_power = 56
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = small_state
+				            }
+							owner = { 
+							    OR = {
+						            adm_power = 60
+                                    AND = {
+								      adm_power = 48
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = medium_state	 
+				            }
+							owner = { 
+							    OR = {
+						            adm_power = 50
+                                    AND = {
+								      adm_power = 40
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = large_state		 
+				            }
+							owner = { 
+							    OR = {
+						            adm_power = 40
+                                    AND = {
+								      adm_power = 32
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = huge_state	 
+				            }
+							owner = { 
+							    OR = {
+						            adm_power = 30
+                                    AND = {
+								      adm_power = 24
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = continental_state
+				            }
+							owner = { 
+							    OR = {
+						            adm_power = 25
+                                    AND = {
+								      adm_power = 20
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = world_state
+				            }
+                    }
+}
+
+cu_scaled_dip_power_70 = {
+        OR = {
+						    owner = { 
+							    OR = {
+						            dip_power = 70
+                                    AND = {
+								      dip_power = 56
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = tiny_state		 
+				            }
+						    owner = { 
+							    OR = {
+						            dip_power = 60
+                                    AND = {
+								      dip_power = 52
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = small_state
+				            }
+							owner = { 
+							    OR = {
+						            dip_power = 50
+                                    AND = {
+								      dip_power = 40
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = medium_state	 
+				            }
+							owner = { 
+							    OR = {
+						            dip_power = 40
+                                    AND = {
+								      dip_power = 32
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = large_state		 
+				            }
+							owner = { 
+							    OR = {
+						            dip_power = 30
+                                    AND = {
+								      dip_power = 24
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = huge_state	 
+				            }
+							owner = { 
+							    OR = {
+						            dip_power = 25
+                                    AND = {
+								      dip_power = 20
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = continental_state
+				            }
+							owner = { 
+							    OR = {
+						            dip_power = 20
+                                    AND = {
+								      dip_power = 16
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = world_state
+				            }
+                    }
+}
+
+cu_scaled_dip_power_80 = {
+        OR = {
+						    owner = { 
+							    OR = {
+						            dip_power = 80
+                                    AND = {
+								      dip_power = 64
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = tiny_state		 
+				            }
+						    owner = { 
+							    OR = {
+						            dip_power = 70
+                                    AND = {
+								      dip_power = 56
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = small_state
+				            }
+							owner = { 
+							    OR = {
+						            dip_power = 60
+                                    AND = {
+								      dip_power = 48
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = medium_state	 
+				            }
+							owner = { 
+							    OR = {
+						            dip_power = 50
+                                    AND = {
+								      dip_power = 40
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = large_state		 
+				            }
+							owner = { 
+							    OR = {
+						            dip_power = 40
+                                    AND = {
+								      dip_power = 32
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = huge_state	 
+				            }
+							owner = { 
+							    OR = {
+						            dip_power = 30
+                                    AND = {
+								      dip_power = 24
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = continental_state
+				            }
+							owner = { 
+							    OR = {
+						            dip_power = 25
+                                    AND = {
+								      dip_power = 20
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = world_state
+				            }
+                    }
+}
+
+cu_scaled_dip_power_70 = {
+        OR = {
+						    owner = { 
+							    OR = {
+						            dip_power = 70
+                                    AND = {
+								      dip_power = 56
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = tiny_state		 
+				            }
+						    owner = { 
+							    OR = {
+						            dip_power = 60
+                                    AND = {
+								      dip_power = 52
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = small_state
+				            }
+							owner = { 
+							    OR = {
+						            dip_power = 50
+                                    AND = {
+								      dip_power = 40
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = medium_state	 
+				            }
+							owner = { 
+							    OR = {
+						            dip_power = 40
+                                    AND = {
+								      dip_power = 32
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = large_state		 
+				            }
+							owner = { 
+							    OR = {
+						            dip_power = 30
+                                    AND = {
+								      dip_power = 24
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = huge_state	 
+				            }
+							owner = { 
+							    OR = {
+						            dip_power = 25
+                                    AND = {
+								      dip_power = 20
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = continental_state
+				            }
+							owner = { 
+							    OR = {
+						            dip_power = 20
+                                    AND = {
+								      dip_power = 16
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = world_state
+				            }
+                    }
+}
+
+cu_scaled_mil_power_80 = {
+        OR = {
+						    owner = { 
+							    OR = {
+						            mil_power = 80
+                                    AND = {
+								      mil_power = 64
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = tiny_state		 
+				            }
+						    owner = { 
+							    OR = {
+						            mil_power = 70
+                                    AND = {
+								      mil_power = 56
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = small_state
+				            }
+							owner = { 
+							    OR = {
+						            mil_power = 60
+                                    AND = {
+								      mil_power = 48
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = medium_state	 
+				            }
+							owner = { 
+							    OR = {
+						            mil_power = 50
+                                    AND = {
+								      mil_power = 40
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = large_state		 
+				            }
+							owner = { 
+							    OR = {
+						            mil_power = 40
+                                    AND = {
+								      mil_power = 32
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = huge_state	 
+				            }
+							owner = { 
+							    OR = {
+						            mil_power = 30
+                                    AND = {
+								      mil_power = 24
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = continental_state
+				            }
+							owner = { 
+							    OR = {
+						            mil_power = 25
+                                    AND = {
+								      mil_power = 20
+									  innovativeness_ideas = 6
+								    }
+                                } 
+								has_country_modifier = world_state
+				            }
+                    }
+}
+
+#province scope
+cu_can_change_plantation_trigger = {
+	OR = {
+		has_terrain = farmlands
+		has_terrain = grasslands
+		has_province_modifier = ti_woods_done
+		has_province_modifier = ti_terrace_done
+		has_province_modifier = ti_marsh_done 
+		has_province_modifier = holland_polders
+		has_province_modifier = ti_irragation_done
+		has_province_modifier = ti_terrace_done
+		has_province_modifier = ti_jungle_done
+		has_province_modifier = ti_forest_done
+	}
+	NOT = { has_climate = arctic }
+	NOT = { has_winter = severe_winter }
+	NOT = { has_winter = normal_winter }
+	OR = {
+		NOT = { has_climate = arid }
+		has_province_modifier = ti_irragation_done
+	}
+}
+
+#Terrain Improvement Trigger
+#NOT: This does not include terrain requirement and "province has not related modifier already" requirement
+When using them, remember to add requirements like below:
+#has_terrain = woods
+#NOT = { has_province_modifier = ti_woods }
+#NOT = { has_province_modifier = ti_woods_done }
+
+cu_ti_forest_trigger = {
+            development = 9
+			owner = { 
+				treasury = 75
+				adm_power = 15
+				adm_tech = 9
+			}
+}
+
+cu_ti_jungle_trigger = {
+            development = 9
+            owner = { 
+                adm_power = 15
+                treasury = 100
+				adm_tech = 16
+            }
+}
+
+cu_ti_woods_trigger = {
+			development = 9
+			owner = { 
+				adm_tech = 9
+				treasury = 75
+				adm_power = 15
+			}
+}
+
+cu_ti_marsh_trigger = {
+            development = 9
+			owner = { 
+				treasury = 120
+				adm_tech = 13
+				adm_power = 22
+			}
+}
+
+cu_ti_irragation_trigger = {
+            base_manpower = 4
+            owner = { 
+                treasury = 100
+				OR = {
+					adm_tech = 6
+					technology_group = chinese
+				}
+				adm_power = 22
+            }
+			OR = {
+				base_manpower = 10
+				has_province_modifier = river_estuary_modifier
+				any_neighbor_province = {
+					OR = {
+						has_province_modifier = ti_irragation_done
+						has_terrain = mountain
+						has_terrain = impassable_mountains
+						has_terrain = glacier
+						has_terrain = farmlands
+						has_terrain = marsh
+						has_river_estuary_trigger = yes
+					}
+				}
+			}
+}
+
+cu_ti_terrace_trigger = {
+            base_manpower = 4
+			OR = {
+				owner = { adm_tech = 3 }
+				owner = { technology_group = andean }
+			}
+			owner = { 
+				treasury = 100
+				adm_power = 22
+			}
+}
+
+cu_commerce_focus_trigger = {
+            OR = { 
+				base_tax = 6
+				has_building = marketplace
+				has_building = trade_depot
+				has_building = stock_exchange
+				has_province_modifier = center_of_trade_modifier
+				has_province_modifier = inland_center_of_trade_modifier
+			}
+			
+			owner = { adm_power = 22 }
+}
+
+cu_production_focus_trigger = {
+            OR = { 
+				base_production = 6
+				has_building = workshop
+				has_building = counting_house
+				has_building = weapons
+			}
+			owner = { adm_power = 22 }	
+}
+
+cu_agriculture_focus_trigger = {
+            OR = { 
+				base_manpower = 10
+				check_variable = { which = r_ac value = 5 }
+			}
+			check_variable = { which = r_ac value = 3 }
+			owner = { mil_power = 22 }
+}
+
+cu_patronage_art_trigger = {
+			is_core = owner
+			cu_not_terr_trigger = yes
+			owner = {
+				prestige = 5
+				treasury = 60
+				dip_power = 8
+			}
+}
+
+cu_build_museum_trigger = {
+			development = 15
+			owner = {
+				treasury = 90
+				dip_power = 22
+			}
+}
+
+cu_build_theatre_trigger = {
+            development = 10
+			owner = {
+				prestige = 5
+				treasury = 80
+				dip_power = 30
+			}
+
+}
+
+cu_organize_salon_trigger = {
+development = 15
+			owner = {
+				prestige = 8
+				treasury = 150
+				OR = {
+					capital_scope = { continent = europe }
+					dip_tech = 5
+				}
+				check_variable = { which = literacy value = 4 }
+				dip_power = 30
+			}
+}

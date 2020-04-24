@@ -1,0 +1,18 @@
+version="4.9"
+tags={
+	"Balance"
+	"Expansion"
+	"Gameplay"
+	"Military"
+	"Events"
+	"Fixes"
+	"Historical"
+	"Map"
+	"Missions And Decisions"
+	"New Nations"
+	"Trade"
+	"Religion"
+	"Technologies"
+	"National Ideas"
+}
+name="Common Universalis"

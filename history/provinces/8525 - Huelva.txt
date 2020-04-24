@@ -1,0 +1,28 @@
+# 8525 - Huelva
+
+owner = CAS
+controller = CAS
+add_core = CAS
+is_city = yes
+culture = andalucian_i
+religion = catholic
+capital = "Huelva"
+trade_goods = grain
+hre = no 
+base_tax = 4 
+base_production = 4
+base_manpower = 3 
+discovered_by = eastern
+discovered_by = western
+discovered_by = muslim
+discovered_by = ottoman
+
+1516.1.23 = {
+	controller = SPA
+	owner = SPA
+	add_core = SPA
+} # King Fernando dies, Carlos inherits Aragon and becames co-regent of Castille
+1610.1.12 = { culture = castillian } # Decree for the expulsion of the morisques in Andalucía, which is speedily and uneventfully performed
+1713.4.11 = { remove_core = CAS }
+1808.6.6 = { revolt = { type = pretender_rebels size = 1 } controller = REB }
+1813.12.11 = { revolt = {} controller = SPA }

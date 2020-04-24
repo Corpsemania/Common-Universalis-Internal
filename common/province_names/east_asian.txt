@@ -1,0 +1,81 @@
+1845 = "Ping'an"
+732 = "Xianxing"
+733 = "Huangzhou"
+734 = "Yuanzhou"
+735 = "Hancheng"
+1013 = "Gonghong"
+736 = "Qingshang"
+737 = "Qansanzhou"
+
+613 = "Dongguan"
+616 = "Gaoping"
+1016 = "Xinping"
+610 = "Shunhua"
+
+1022 = "Tuonang"
+607 = "Foshi"
+606 = "Bintonglong"
+
+1844 = "Chuankuang"
+615 = "Chuantong" 
+611 = "Ganmeng"
+614 = "Wanxiang"
+608 = "Zhanbasai" 
+1823 = "Shangding"
+
+612 = "Kele"
+609 = "Xianli"
+604 = "Wudong"
+605 = "Xigong"
+
+602 = "Qinglai"
+589 = "Qingmai"
+
+601 = "Suketai"
+
+600 = "Dacheng"
+603 = "Luoyong"
+599 = "Jilandan"
+592 = "Lepi"
+593 = "Luokun"
+594 = "Dani"
+
+582 = "Keqin"
+583 = "Mubang"
+587 = "Jingdong"
+588 = "Mengnai"
+581 = "Shijie"
+584 = "Wacheng"
+580 = "Qin"
+
+585 = "Dongyu"
+
+640 = Kundian
+# Canton & Macau stay as-is
+703 = "Rehe"
+738 = Tainan
+1015 = Liuqiu
+1020 = "Ping-an"
+1021 = "Shejin"
+1028 = Wucang
+1033 = Kuye
+1832 = Dahe
+2154 = Taipei
+2155 = Taiching
+2371 = Shanluo
+2372 = Haifang
+2373 = Shunhua
+2694 = Jiangling
+2741 = Jizhou
+2742 = Funing
+2743 = Jingcheng
+2744 = Ningbian
+2745 = Qìngzhou
+4182 = Feiqian
+4224 = Xiangmo
+4227 = Jinzhou
+4228 = Luozhou
+4229 = Zhongzhou
+4230 = Shuiyuan
+4231 = Pingshan
+4232 = Jiangjie

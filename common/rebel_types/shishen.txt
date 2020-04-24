@@ -1,0 +1,141 @@
+######################################################################
+# Throne Pretender rebels.
+######################################################################
+shishen_rebels = {
+	color = { 179 51 51 }
+	government = any
+	area = nation
+	defection = none
+	independence = none
+	unit_transfer = yes
+	gfx_type = culture_province	
+	unit_transfer = yes	
+	resilient = yes					# Will not disband on defeat.
+	reinforcing = yes				# Will reinforce (double rate in rebel controlled provinces)
+	general = yes					# Does use generals. The 'define_ruler' effect with 'rebel' argument will pick the rebel leader as new King.
+	smart = yes
+	disband_on_leader_death = no	# Pretender rebels live forever!
+	will_relocate = yes				# Units will relocate if they have sieged all provinces nearby and has to move over sea.
+	dynasty = yes	#same dynasty for rebel uprising
+	
+	
+	artillery = 0.3
+	infantry = 0.6
+	cavalry = 0.1
+	
+	morale = 1.1
+	
+	# Possible handle actions
+	handle_action_negotiate = no
+	handle_action_stability = yes
+	handle_action_build_core = yes
+	handle_action_send_missionary = yes		
+	
+	spawn_chance = {
+		factor = 0.01
+		modifier = {
+			factor = 0
+			owner = {
+				NOT = { has_estate = estate_shizu }
+			}
+		}
+		modifier = {
+			factor = 1000
+			has_estate = estate_shizu
+			cu_not_terr_trigger = yes
+			owner = {
+				OR = {
+					has_disaster = estate_shishen_disaster
+					has_country_flag = shishen_side_against_government
+				}
+			}
+		}
+	}
+ 
+ 	# This is checked for EACH province in the Area of Operations
+	movement_evaluation = {
+		factor = 1
+		modifier = {
+			factor = 0.1
+			units_in_province = 1
+		}
+		modifier = {
+			factor = 0.001
+			controlled_by = REB
+		}
+		modifier = {
+			factor = 4.0
+			is_capital = yes
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 2
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 4
+		}
+		modifier = {
+			factor = 1.5
+			unrest = 6
+		}
+	}
+ 
+ 	# Province Scope
+ 	siege_won_trigger = {
+ 	}
+	siege_won_effect = {
+	}
+	
+	# Country scope
+	can_negotiate_trigger = {
+		always = yes
+	}
+	
+	# Country scope
+	can_enforce_trigger = {
+		always = yes
+	}
+	
+	# Localisation for their demands
+	demands_description = "estate_rebels_demand"
+	
+	# Country Scope	
+	demands_enforced_effect = {
+		if = {
+			limit = {
+				capital_scope = {
+					has_rebel_faction = REB
+				}
+			}
+			define_ruler = {
+				rebel = yes
+			}
+			if = {
+				limit = { has_heir = yes }
+				kill_heir = yes
+			}
+			if = {
+				limit = {
+					has_states_general_mechanic = yes
+				}
+				change_statists_vs_orangists = 1
+			}
+			if = {
+				limit = { religion = inti }
+				remove_religious_reforms = 2
+			}
+		}
+		else = {
+			add_prestige = -30
+		}
+		check_estate_reform_progress = yes
+		change_variable = { which = shishen_reform_progress value = 100 }
+		check_estate_reform_progress = yes
+		add_country_modifier = {
+			name = defeat_by_estates
+			duration = 7300
+		}
+		
+	}
+}

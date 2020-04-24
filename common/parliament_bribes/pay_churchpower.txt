@@ -1,0 +1,18 @@
+pay_churchpower = {
+	trigger = {
+		religion = protestant
+		FROM = { religion = protestant }
+	}
+	
+	effect = {
+		add_church_power = -25
+		custom_tooltip = parliament_bribe_15t
+		hidden_effect = {
+		     country_event = { id = parlaments.999}
+		}
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}

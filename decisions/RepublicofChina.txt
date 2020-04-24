@@ -1,0 +1,66 @@
+country_decisions = {
+
+	republic_of_china = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = formed_roc_flag }
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = ROC}
+			culture_group = east_asian
+			government = republic 
+			is_colonial_nation = no
+                                                current_age = age_of_revolutions
+                                                num_of_owned_provinces_with = {
+			          value = 3
+                                                             NOT = { area = taiwan_area }
+			          OR = {
+                                                  region = south_china_region
+                                                  region = xinan_region
+                                                  region = north_china_region
+                                                  }}
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}			
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			 num_of_owned_provinces_with = {
+			          value = 60
+                                                           NOT = { area = taiwan_area }
+			          OR = {
+                                                  region = south_china_region
+                                                  region = xinan_region
+                                                  region = north_china_region
+                                  }
+			}
+                                                ai = no
+		}
+		effect = {
+			change_tag = ROC                                                
+			if = {
+				limit = {
+					NOT = { government_rank = 3 }
+				}
+				set_government_rank = 3
+			}						
+			set_country_flag = formed_roc_flag
+      set_country_flag = no_more_celestial
+      swap_non_generic_missions = yes
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

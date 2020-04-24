@@ -1,0 +1,18 @@
+﻿l_english:
+ cugeneral.8.t: "A Talented Person Appears In [Root.GetName]"
+ cugeneral.8.d: "Our investment in education has paid off. A talented person has come up in the university of [Root.GetName]. "
+ cugeneral.8.a: "Offer him a position in the central government."
+ cugeneral.8.a1: "He can be an excellent professor in the university."
+ cugeneral.8.a2: "His expertise will help the development of [Root.GetName]."
+ cugeneral.8.b: "Offer him a position in the central government."
+ cugeneral.8.b1: "He can be an excellent professor in the university."
+ cugeneral.8.b2: "He will make an excellent diplomat."
+ cugeneral.8.c: "Offer him a position in the central government."
+ cugeneral.8.c1: "He can be an excellent professor in the university."
+ cugeneral.8.c2: "He will make an excellent general."
+ cugeneral.8.z: "We don't need him."
+ local_adm_expert: "Local Administrative Expert"
+ desc_local_adm_expert: "An talented administrative expert is working to improve this province in many aspects."
+ cu_expert_diplomat: "Talented Diplomat"
+ desc_cu_expert_diplomat: "A talented diplomat is currently working for us."
+ 

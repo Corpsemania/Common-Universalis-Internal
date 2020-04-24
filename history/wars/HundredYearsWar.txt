@@ -1,0 +1,80 @@
+name = "Hundred Years War"
+war_goal = {
+	type = wargoal_hyw
+	casus_belli = cb_hyw
+	province = 173 # Labourd
+}
+
+
+
+# Reset to game start
+1435.9.1 = {
+	add_attacker = FRA
+	add_defender = ENG
+	add_attacker = PRO
+	add_attacker = LOR
+        add_attacker = ORL
+        add_attacker = FOI
+        add_attacker = BOU
+        add_attacker = AUV
+        add_attacker = AMG
+        add_attacker = ALE
+}
+
+1450.4.15 = {
+	battle = {
+		name = "Formigny"
+		location = 168
+                attacker = {
+			commander = "Comte de Clermont"	# Comte de Clermont
+			infantry = 5000
+			losses = 6	# percent
+			country = FRA
+		}
+		defender = {
+			commander = "Thomas Kyriell"	# Thomas Kyriell
+			infantry = 4000
+			losses = 63	# percent
+			country = ENG
+		}
+		result = no
+	}
+}
+
+1453.2.28 = {
+	rem_attacker = LOR
+}
+
+1453.7.17 = {
+	battle = {
+		name = "Castillon"
+		location = 174
+                attacker = {
+			commander = "Jean Bureau"	# Jean Bureau
+			infantry = 10500
+			cavalry = 1000
+			losses = 1	# percent
+			country = FRA
+		}
+		defender = {
+			commander = "John Talbot"	# John Talbot
+			infantry = 5000
+			cavalry = 500
+			losses = 60	# percent
+			country = ENG
+		}
+		result = no
+	}
+}
+
+1453.7.18 = {
+	rem_attacker = FRA
+	rem_defender = ENG
+	rem_attacker = PRO
+        rem_attacker = ORL
+        rem_attacker = FOI
+        rem_attacker = BOU
+        rem_attacker = AUV
+        rem_attacker = AMG
+        rem_attacker = ALE
+}

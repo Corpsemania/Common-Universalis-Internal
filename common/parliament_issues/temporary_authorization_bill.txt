@@ -1,0 +1,27 @@
+temporary_authorization_bill = {
+
+	category = 3
+
+	allow = {
+		absolutism = 50
+		has_reform = eng_grand_charter
+		NOT = { absolutism = 75 }
+	}
+	
+	effect = {
+		#add_absolutism = -10
+	}
+	
+	modifier = {
+		administrative_efficiency = -0.1
+		global_unrest = -1
+	}
+
+	chance = {
+		factor = 1000
+	}
+	
+	ai_will_do = {
+		factor = 1000
+	}
+}

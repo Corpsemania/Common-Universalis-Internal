@@ -1,0 +1,356 @@
+#Game Start
+namespace = custart
+country_event = {
+	id = custart.00
+	title = "EVT_AI"
+	desc = "EVT_AI"
+	picture = COLONIZATION_eventPicture
+
+	fire_only_once = yes
+	hidden = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		NOT = { has_global_flag = cu_start }
+	}
+	
+	immediate = {
+		set_global_flag = cu_start
+                if = {
+                         limit = { NOT = { is_year = 1500 } }
+                         set_global_flag = start_1444
+						 if = {
+						       limit = { NOT = { is_year = 1450 } }
+							   OIR = {
+							          set_variable = { which = cu_ra_ws value = 1 }
+									  set_variable = { which = cu_ra_wsd value = 100 }
+							   }
+						 }
+                }
+                if = {
+                         limit = { 
+                                   is_year = 1500
+                                   NOT = { is_year = 1550 } 
+                         }
+                         set_global_flag = start_1500
+                }
+                if = {
+                         limit = { 
+                                   is_year = 1550
+                                   NOT = { is_year = 1600 } 
+                         }
+                         set_global_flag = start_1550
+                }
+                if = {
+                         limit = { 
+                                   is_year = 1600
+                                   NOT = { is_year = 1650 } 
+                         }
+                         set_global_flag = start_1600
+                }
+                if = {
+                         limit = { 
+                                   is_year = 1650
+                                   NOT = { is_year = 1700 } 
+                         }
+                         set_global_flag = start_1650
+                }
+                if = {
+                         limit = { 
+                                   is_year = 1700
+                                   NOT = { is_year = 1750 } 
+                         }
+                         set_global_flag = start_1700
+                }
+                if = {
+                         limit = { 
+                                   is_year = 1750
+                         }
+                         set_global_flag = start_1750
+                }
+				cu_initial_year = yes
+				every_country = {
+		             set_variable = { which = cu_year which = ROOT }
+					 country_event = { id = cuglobal.9 }
+					 
+				}
+	}
+	
+	option = {
+		name = "EVT_AI"
+	}
+}
+
+#Select Handicap
+country_event = {
+	id = custart.04
+	title = "start.4.t"
+	desc = "start.4.d"
+	picture = ADVISOR_eventPicture
+
+        is_triggered_only = yes
+
+        option = {  #Adaptive Handicap
+                trigger = {
+					NOT = { has_global_flag = cu_adaptive_handicap_set } 
+					NOT = { has_global_flag = cu_realistic_handicap_set }
+					NOT = { has_global_flag = cu_x_handicap_set }
+				}
+  		        name = "start.4.a"
+				set_global_flag = cu_adaptive_handicap_set
+				hidden_effect = {
+				    country_event = { id = custart.41 }
+				}
+        }
+		
+		option = {  #Cancel Adaptive Handicap
+                trigger = {
+				    has_global_flag = cu_adaptive_handicap_set
+				}
+  		        name = "start.4.b"
+				clr_global_flag = cu_adaptive_handicap_set
+				hidden_effect = {
+				    country_event = { id = custart.41 }
+				}
+        }
+		option = {  #Realistic Expansion Handicap
+                trigger = {
+					NOT = { has_global_flag = cu_adaptive_handicap_set } 
+					NOT = { has_global_flag = cu_realistic_handicap_set }
+					NOT = { has_global_flag = cu_x_handicap_set }
+				}
+  		        name = "start.4.c"
+				set_global_flag = cu_realistic_handicap_set
+				hidden_effect = {
+				    country_event = { id = custart.41 }
+				}
+        }
+        option = {  #Cancel Realistic Expansion Handicap
+                trigger = {
+				    has_global_flag = cu_realistic_handicap_set
+				}
+  		        name = "start.4.d1"
+				clr_global_flag = cu_realistic_handicap_set
+				hidden_effect = {
+				    country_event = { id = custart.41 }
+				}
+        }
+		option = {  #X Handicap
+                trigger = {
+					NOT = { has_global_flag = cu_adaptive_handicap_set } 
+					NOT = { has_global_flag = cu_realistic_handicap_set }
+					NOT = { has_global_flag = cu_x_handicap_set }
+				}
+  		        name = "start.4.e"
+				set_global_flag = cu_x_handicap_set
+				hidden_effect = {
+				    country_event = { id = custart.41 }
+				}
+        }
+		option = {  #Cancel X Handicap
+                trigger = {
+				    has_global_flag = cu_x_handicap_set
+				}
+  		        name = "start.4.f"
+				clr_global_flag = cu_x_handicap_set
+				hidden_effect = {
+				    country_event = { id = custart.41 }
+				}
+        }
+		option = {  #Confirm 
+  		        name = "start.4.g"
+				set_global_flag = cu_handicap_set
+        }
+}
+
+#Select Handicap
+country_event = {
+	id = custart.41
+	title = "start.4.t"
+	desc = "start.4.d"
+	picture = ADVISOR_eventPicture
+
+        is_triggered_only = yes
+
+        option = {  #Adaptive Handicap
+                trigger = {
+					NOT = { has_global_flag = cu_adaptive_handicap_set } 
+					NOT = { has_global_flag = cu_realistic_handicap_set }
+					NOT = { has_global_flag = cu_x_handicap_set }
+				}
+  		        name = "start.4.a"
+				set_global_flag = cu_adaptive_handicap_set
+				hidden_effect = {
+				    country_event = { id = custart.04 }
+				}
+        }
+		
+		option = {  #Cancel Adaptive Handicap
+                trigger = {
+				    has_global_flag = cu_adaptive_handicap_set 
+				}
+  		        name = "start.4.b"
+				clr_global_flag = cu_adaptive_handicap_set
+				hidden_effect = {
+				    country_event = { id = custart.04 }
+				}
+        }
+		option = {  #Realistic Expansion Handicap
+                trigger = {
+					NOT = { has_global_flag = cu_adaptive_handicap_set } 
+					NOT = { has_global_flag = cu_realistic_handicap_set }
+					NOT = { has_global_flag = cu_x_handicap_set }
+				}
+  		        name = "start.4.c"
+				set_global_flag = cu_realistic_handicap_set
+				hidden_effect = {
+				    country_event = { id = custart.04 }
+				}
+        }
+        option = {  #Cancel Realistic Expansion Handicap
+                trigger = {
+				    has_global_flag = cu_realistic_handicap_set 
+				}
+  		        name = "start.4.d1"
+				clr_global_flag = cu_realistic_handicap_set
+				hidden_effect = {
+				    country_event = { id = custart.04 }
+				}
+        }
+		option = {  #X Handicap
+                trigger = {
+					NOT = { has_global_flag = cu_adaptive_handicap_set } 
+					NOT = { has_global_flag = cu_realistic_handicap_set }
+					NOT = { has_global_flag = cu_x_handicap_set }
+				}
+  		        name = "start.4.e"
+				set_global_flag = cu_x_handicap_set
+				hidden_effect = {
+				    country_event = { id = custart.04 }
+				}
+        }
+		option = {  #Cancel X Handicap
+                trigger = {
+				    has_global_flag = cu_x_handicap_set
+				}
+  		        name = "start.4.f"
+				clr_global_flag = cu_x_handicap_set
+				hidden_effect = {
+				    country_event = { id = custart.04 }
+				}
+        }
+		option = {  #Confirm 
+  		        name = "start.4.g"
+				if = {
+				    limit = { 
+                            OR = {
+							       has_global_flag = cu_adaptive_handicap_set
+								   has_global_flag = cu_realistic_handicap_set
+								   has_global_flag = cu_x_handicap_set
+							}
+					}
+					set_global_flag = cu_handicap_set
+				}
+				clr_global_flag = cu_handicap_open
+        }
+}
+
+#Initialize New Countries
+country_event = {
+	id = custart.42
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = ADVISOR_eventPicture
+    hidden = yes
+    trigger = {
+	     NOT = { has_country_modifier = cu_country_initialized }
+	}
+	
+	mean_time_to_happen = {
+	    months = 1
+	}
+
+    option = {  #Initialize
+	    name = "EVT_HIDDEN"
+		#Copied from on_action
+		set_variable = { which = cu_chrismas_gift_timer value = 0 }
+		set_variable = { which = literacy value = 0 } #Literacy
+		set_variable = { which = num_pp value = 0 } #Province of Accepted Cultures
+		set_variable = { which = ave_literacy value = 1 } #Average Literacy
+		set_variable = { which = sum_literacy value = 0 } #Total Literacy(For calculation only)
+		set_variable = { which = num_of_tc value = 0 } #Num of Trading Companies
+		set_variable = { which = inflation_index value = 100 } #Inflation Ratio
+		set_variable = { which = cu_ra_w value = 0 } #Ruler Military Achievement
+		set_variable = { which = cu_ra_ws value = 0 } #Ruler Military Achievement(Sum)
+		set_variable = { which = cu_ra_wsd value = 0 } #Ruler Military Achievement(Display)
+		set_variable = { which = ruler_gc value = 0 }
+		set_variable = { which = cabinet_cash value = 0 }
+		set_variable = { which = cabinet_adm value = 0 }
+		set_variable = { which = cabinet_dip value = 0 }
+		set_variable = { which = cabinet_mil value = 0 }
+		set_variable = { which = emin value = 0 }
+		set_variable = { which = emie value = 0 }
+		set_variable = { which = emib value = 0 }
+		set_variable = { which = emic value = 0 }
+		set_variable = { which = basetax value = 4.9 }
+		set_variable = { which = baseefficiency value = 1.2 }
+		#Cultural Power
+		set_variable = { which = art_power_c value = 0 } #Country Art Power
+		set_variable = { which = art_legacy value = 0 } #Historical Art Power
+		set_variable = { which = art_piece_on_sale value = 0 } #Art Piece in the market
+		#Set Cabinet Parameters To Default
+		set_variable = { which = cabinet_p_province value = -1 }
+		set_variable = { which = cabinet_p_province_d value = 0 }
+		set_variable = { which = cabinet_p_province_bn value = 0 }
+		set_variable = { which = cabinet_p_province_ba value = 0 }
+		set_variable = { which = cabinet_p_province_bg value = 0 }
+		set_variable = { which = cabinet_p_province_bp value = 0 }
+		set_variable = { which = cabinet_p_province_bt value = 0 }
+		set_variable = { which = cabinet_p_province_bl value = 0 }
+		#Technology
+		set_variable = { which = resa value = 0 }
+		set_variable = { which = resd value = 0 }
+		set_variable = { which = resm value = 0 }
+		#End
+		add_country_modifier = {
+			name = cu_country_initialized
+			duration = -1
+			hidden = yes
+		}
+		#############
+		cu_correct_year = yes
+		country_event = { id = urban.971 } #Average Literacy
+		country_event = { id = urban.97 } #Literacy
+		country_event = { id = urban.99 } #Urbanization
+		country_event = { id = cugovernment.1 }	#Government Capacity
+		if = {
+			  limit = { ai = no }
+			  set_country_flag = cu_human_yearly_pulse
+		}
+		#country_event = { id = custart.05 }   #Local Garrison
+		set_variable = { which = land_reform_acceptance value = 0 } #Celestial Empire	
+		set_variable = { which = prodution_reform_acceptance value = 0 } #Celestial Empire
+		set_variable = { which = army_reform_acceptance value = 0 } #Celestial Empire	
+		set_variable = { which = trade_reform_acceptance value = 0 } #Celestial Empire
+		set_variable = { which = diplo_reform_acceptance value = 0 } #Celestial Empire	
+		if = { limit = {  is_colonial_nation = yes } country_event = { id = govstart.255 } }
+		else_if = { limit = { is_subject = yes } country_event = { id = govstart.257 } }
+		else = { country_event = { id = govstart.256 } }
+		cu_calc_country_absolute_dist = yes
+		cu_calc_total_stability_growth = yes
+		#Set initial absolutism
+		add_absolutism = 10
+    }
+}
+country_event = {
+	id = custart.9
+	title = "EVT_WEL"
+	desc = "EVT_WEL_DESC"
+	picture = COLONIZATION_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = state.100.a
+	}
+}

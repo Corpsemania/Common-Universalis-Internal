@@ -1,0 +1,448 @@
+# If you add advisortypes, and use those tags, do not change them without changing everywhere they are used.
+#
+# Additional arguments: allow_only_male/allow_only_female
+# Contains skill_scaled_modifier for which the effects get multiplied by the advisor's skill level
+# Uses all 'modifiers' possible that are exported as a Modifier.
+
+# Note that ai_will_do calculates a priority.
+# An advisor may be chosen over another if its random priority exceeds it. RandomPriority(advisor) := rand[1, 2[ * Priority(advisor).
+
+
+######################################################
+# Administrative Advisors
+######################################################
+
+######################################################
+philosopher_1 = {
+	monarch_power = ADM
+	
+	# Bonus
+	global_institution_spread = 0.125
+	skill_scaled_modifier = { meritocracy = 0.08 }
+	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { yearly_corruption = 0.03 }
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+######################################################
+natural_scientist_1 = {
+	monarch_power = ADM
+	
+	# Bonus
+	production_efficiency = 0.125
+    skill_scaled_modifier = { meritocracy = 0.08 }
+	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+    skill_scaled_modifier = { yearly_corruption = 0.03 }	
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+######################################################
+artist_1 = {
+	monarch_power = ADM
+	
+	# Bonus
+	prestige = 1.25
+	skill_scaled_modifier = { meritocracy = 0.08 }
+	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { yearly_corruption = 0.03 }
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 2
+	}	
+}
+
+######################################################
+treasurer_1 = {
+	monarch_power = ADM
+	
+	# Bonus
+	global_tax_modifier = 0.18
+	skill_scaled_modifier = { meritocracy = 0.08 }
+	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { yearly_corruption = 0.03 }
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+######################################################
+theologian_1 = {
+	monarch_power = ADM
+	
+	# Bonus
+	global_unrest = -1.25
+	skill_scaled_modifier = { meritocracy = 0.08 }
+	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { yearly_corruption = 0.03 }
+
+	chance = {
+		factor = 1
+
+	}
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+######################################################
+master_of_mint_1 = {
+	monarch_power = ADM
+	
+	# Bonus
+	global_trade_goods_size_modifier = 0.10
+    skill_scaled_modifier = { meritocracy = 0.08 }
+	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { yearly_corruption = 0.03 }
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 2
+	}	
+}
+
+######################################################
+inquisitor_1 = {
+	monarch_power = ADM
+	
+	# Bonus
+	global_missionary_strength = 0.01
+	skill_scaled_modifier = { meritocracy = 0.08 }
+	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { yearly_corruption = 0.03 }
+
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+
+######################################################
+# Diplomatic Advisors
+######################################################
+
+######################################################
+statesman_1 = {
+	monarch_power = DIP
+	
+	# Bonus
+	diplomatic_reputation = 1.25
+	skill_scaled_modifier = { meritocracy = 0.08 }
+	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { yearly_corruption = 0.03 }
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+######################################################
+naval_reformer_1 = {
+	monarch_power = DIP
+	
+	# Bonus
+	
+	navy_tradition = 1.25
+	skill_scaled_modifier = { meritocracy = 0.08 }
+	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { yearly_corruption = 0.03 }
+
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0
+			has_port = no
+		}
+	}
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+######################################################
+trader_1 = {
+	monarch_power = DIP
+	
+	# Bonus
+	trade_efficiency = 0.125
+	skill_scaled_modifier = { meritocracy = 0.08 }
+	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { yearly_corruption = 0.03 }
+
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+######################################################
+spymaster_1 = {
+	monarch_power = DIP
+	
+	# Bonus
+	spy_offence = 0.3
+    skill_scaled_modifier = { meritocracy = 0.08 }
+	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { yearly_corruption = 0.03 }
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+######################################################
+colonial_governor_1 = {
+	monarch_power = DIP
+	
+	# Bonus
+    global_colonial_growth = 12
+    skill_scaled_modifier = { meritocracy = 0.08 }
+	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { yearly_corruption = 0.03 }
+	
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0
+			owner = { NOT = { num_of_colonists = 1 } }
+		}
+		modifier = {
+			factor = 0
+			owner = { is_colonial_nation = yes }
+		}
+	}
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+######################################################
+diplomat_1 = {
+	monarch_power = DIP
+	
+	# Bonus
+	improve_relation_modifier = 0.3
+	skill_scaled_modifier = { meritocracy = 0.08 }	
+	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { yearly_corruption = 0.03 }
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+######################################################
+navigator_1 = {
+	monarch_power = DIP
+	
+	# Bonus
+	
+        
+	colonist_placement_chance = 0.06
+	skill_scaled_modifier = { range = 0.12 }
+	skill_scaled_modifier = { meritocracy = 0.08 }
+	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { yearly_corruption = 0.03 }
+
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 0
+			owner = { NOT = { num_of_colonists = 1 } }
+		}
+	}
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+
+######################################################
+# Military Advisors
+######################################################
+
+######################################################
+army_reformer_1 = {
+	monarch_power = MIL
+	
+	# Bonus
+	army_tradition = 1.25
+	skill_scaled_modifier = { meritocracy = 0.08 }
+	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+    skill_scaled_modifier = { yearly_corruption = 0.03 }	
+
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+######################################################
+army_organiser_1 = {
+	monarch_power = MIL
+	
+	# Bonus
+	land_morale = 0.125
+	skill_scaled_modifier = { meritocracy = 0.08 }
+	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { yearly_corruption = 0.03 }
+
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+######################################################
+commandant_1 = {
+	monarch_power = MIL
+	
+	# Bonus
+	discipline = 0.06
+	skill_scaled_modifier = { meritocracy = 0.08 }
+	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { yearly_corruption = 0.03 }
+
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+######################################################
+quartermaster_1 = {
+	monarch_power = MIL
+	
+	# Bonus
+	reinforce_speed = 0.3
+	skill_scaled_modifier = { meritocracy = 0.08 }
+	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { yearly_corruption = 0.03 }
+
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 2
+		modifier = {
+			factor = 1.4
+			is_at_war = yes
+		}
+	}
+}
+
+######################################################
+recruitmaster_1 = {
+	monarch_power = MIL
+	
+	# Bonus
+	global_manpower_modifier = 0.2
+	skill_scaled_modifier = { meritocracy = 0.08 }
+	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { yearly_corruption = 0.03 }
+
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 2
+		modifier = {
+			factor = 1.5
+			is_at_war = no
+		}
+	}
+}
+
+######################################################
+fortification_expert_1 = {
+	monarch_power = MIL
+	
+	# Bonus
+	defensiveness = 0.3
+	skill_scaled_modifier = { meritocracy = 0.08 }
+	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { yearly_corruption = 0.03 }
+
+	chance = {
+		factor = 1
+		
+	}
+	
+	ai_will_do = {
+		factor = 2
+	}
+}
+
+######################################################
+grand_captain_1 = {
+	monarch_power = MIL
+	
+	# Bonus
+	land_maintenance_modifier = -0.125
+	skill_scaled_modifier = { meritocracy = 0.08 }
+	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { yearly_corruption = 0.03 }
+
+	chance = {
+		factor = 1
+	}
+	
+	ai_will_do = {
+		factor = 2
+		modifier = {
+			factor = 1.5
+			is_at_war = no
+		}
+	}
+}

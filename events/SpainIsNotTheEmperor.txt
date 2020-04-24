@@ -1,0 +1,175 @@
+namespace = curuler
+
+#Ruler MIL Increase
+country_event = {
+	id = curuler.1
+	title = "curuler.1.t"
+	desc = "curuler.1.d"
+	picture = CONQUEST_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+          name = "curuler.1.a"
+          change_mil = 1	  
+	}
+}
+
+#The Great Conqueror
+country_event = {
+	id = curuler.2
+	title = "curuler.2.t"
+	desc = "curuler.2.d"
+	picture = CONQUEST_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {
+          name = "curuler.1.a"
+          add_ruler_modifier = {
+		       name = the_great_conqueror
+               duration = -1
+          }
+		  set_ruler_flag = the_great_conqueror			   
+	}
+}
+
+#Habsburg dynasty into Spain
+
+country_event = {
+	id = curuler.90
+	title = "spaincu.1.t"
+	desc = "spaincu.1.d"
+	picture = DEATH_OF_HEIR_eventPicture
+	
+	trigger = {
+		OR = {
+                        tag = SPA
+                        tag = CAS
+                }
+		ai = yes
+		was_player = no
+                marriage_with = HAB
+                is_year = 1470
+                NOT = { is_year = 1550 } 
+                NOT = { dynasty = "von Habsburg" } 
+                HAB = {
+			is_emperor = yes
+                        ai = yes
+                        dynasty = "von Habsburg" 
+			NOT = { war_with = ROOT }
+                        NOT = { is_rival = ROOT }
+		}
+                FRA = {
+			is_rival = ROOT
+			is_rival = HAB
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+
+		months = 600
+
+		modifier = {
+			factor = 0.5
+			has_heir = no
+		}
+		modifier = {
+			factor = 0.5
+			has_global_flag = burgundian_succession_cu
+		}
+	}
+        option = {			# Let Habsburg rules us
+		name = "spaincu.1.a"
+		ai_chance = {
+			factor = 90
+		}
+		add_prestige = -10
+		define_heir = {
+			dynasty = "von Habsburg"
+		        claim = 60
+	        }
+	}
+        option = {			# Never
+		name = "spaincu.1.b"
+		ai_chance = {
+			factor = 10
+		}
+		add_prestige = 10
+	}
+}
+
+
+#Spain Becomes Emperor
+
+country_event = {
+	id = curuler.91
+	title = "spaincu.2.t"
+	desc = "spaincu.2.d"
+	picture = HRE_eventPicture
+	
+	trigger = {
+		OR = {
+                        tag = SPA
+                        tag = CAS
+                }
+		ai = yes
+		was_player = no
+                marriage_with = HAB
+                is_year = 1470
+                NOT = { is_year = 1550 } 
+                dynasty = "von Habsburg" 
+                HAB = {
+			is_emperor = yes
+                        ai = yes
+                        dynasty = "von Habsburg" 
+			NOT = { war_with = SPA }
+                        NOT = { is_rival = SPA }
+		}
+                FRA = {
+			is_rival = SPA
+			is_rival = HAB
+		}
+	}
+
+	fire_only_once = yes
+
+	mean_time_to_happen = {
+
+		months = 120
+		modifier = {
+			factor = 0.5
+			has_global_flag = burgundian_succession_cu
+		}
+	}
+        option = {			# Spain is the emperor!
+		name = "spaincu.2.a"
+		ai_chance = {
+			factor = 100
+		}
+                HAB = {
+                         every_owned_province = {
+                                   limit = { 
+                                             has_province_flag = bur_succession_province
+                                             is_part_of_hre = yes 
+                                   }
+                                   cede_province = ROOT
+                                   add_core = ROOT 
+                                   remove_core = HAB
+                                   add_unrest = 5
+                                   add_local_autonomy = 25
+                         }
+                         #emperor = no
+                }
+		#emperor = yes
+	}
+        option = {			# Spain is not the emperor!
+		name = "spaincu.2.b"
+		ai_chance = {
+			factor = 0
+		}
+		add_prestige = 10
+	}
+}

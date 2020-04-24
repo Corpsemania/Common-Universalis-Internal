@@ -1,0 +1,82 @@
+cu_oversea_trigger = {
+	OR = {
+		AND = {
+			NOT = { owner = { dip_tech = 5 } }
+			NOT = {
+				OR = {
+					has_province_modifier = connect_to_capital_far_1
+					has_province_modifier = connect_to_capital_far_2
+					has_province_modifier = connect_to_capital_far_3
+					has_province_modifier = connect_to_capital_far_4
+					has_province_modifier = connect_to_capital_far_5
+				}
+			}
+		}
+		AND = {
+			NOT = { owner = { dip_tech = 16 } }
+			NOT = {
+				OR = {
+					has_province_modifier = connect_to_capital_far_1
+					has_province_modifier = connect_to_capital_far_2
+					has_province_modifier = connect_to_capital_far_3
+					has_province_modifier = connect_to_capital_far_4
+					has_province_modifier = connect_to_capital_far_5
+					has_province_modifier = connect_to_capital_far_6
+					has_province_modifier = connect_to_capital_far_7
+					has_province_modifier = connect_to_capital_far_8
+					has_province_modifier = connect_to_capital_far_9
+					has_province_modifier = connect_to_capital_far_10
+				}
+			}
+		}
+		AND = {
+			NOT = { owner = { dip_tech = 30 } }
+			NOT = {
+				OR = {
+					has_province_modifier = connect_to_capital_far_1
+					has_province_modifier = connect_to_capital_far_2
+					has_province_modifier = connect_to_capital_far_3
+					has_province_modifier = connect_to_capital_far_4
+					has_province_modifier = connect_to_capital_far_5
+					has_province_modifier = connect_to_capital_far_6
+					has_province_modifier = connect_to_capital_far_7
+					has_province_modifier = connect_to_capital_far_8
+					has_province_modifier = connect_to_capital_far_9
+					has_province_modifier = connect_to_capital_far_10
+					has_province_modifier = connect_to_capital_far_11
+					has_province_modifier = connect_to_capital_far_12
+				}
+			}
+		}
+		AND = {
+			owner = { dip_tech = 30 }
+			NOT = {
+				OR = {
+					has_province_modifier = connect_to_capital_far_1
+					has_province_modifier = connect_to_capital_far_2
+					has_province_modifier = connect_to_capital_far_3
+					has_province_modifier = connect_to_capital_far_4
+					has_province_modifier = connect_to_capital_far_5
+					has_province_modifier = connect_to_capital_far_6
+					has_province_modifier = connect_to_capital_far_7
+					has_province_modifier = connect_to_capital_far_8
+					has_province_modifier = connect_to_capital_far_9
+					has_province_modifier = connect_to_capital_far_10
+					has_province_modifier = connect_to_capital_far_11
+					has_province_modifier = connect_to_capital_far_12
+					has_province_modifier = connect_to_capital_far_13
+					has_province_modifier = connect_to_capital_far_14
+					has_province_modifier = connect_to_capital_far_15
+				}
+			}
+		}
+	}
+}
+
+cu_is_terr_trigger = {
+	is_territory = yes
+}
+
+cu_not_terr_trigger = {	#In case of bugs
+	is_territory = no
+}

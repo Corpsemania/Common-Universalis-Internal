@@ -1,0 +1,187 @@
+# Manchu mission events by Daniel Tolman
+
+namespace = mch_missions
+
+# Treachery at the Great Wall
+country_event = {
+	id = mch_missions.1
+	title = "mch_missions.1.t"
+	desc = {	
+		trigger = {
+			726 = { owned_by = MNG }
+		}
+		desc = "mch_missions.1.d"
+	}
+	desc = {
+		trigger = {
+			726 = {
+				NOT = { owned_by = MNG }
+			}
+		}
+		desc = mch_missions.1.d2
+	}
+	picture = MONGOL_BANNERS_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = "mch_missions.1.a"
+		define_general = {
+			name = "Wu Sangui"
+			fire = 2
+			shock = 3
+			manuever = 3
+			siege = 1
+		}
+		if = {
+			limit = {
+				726 = {
+					owner = {
+						controls = 726
+					}
+				}
+			}
+			726 = { change_controller = ROOT }
+		}
+		else = {
+			726 = {
+				add_province_modifier = {
+					name = "mch_treason_modifier"
+					duration = 1825
+				}
+			}
+		}
+		if = {
+			limit = {
+				1816 = {
+					owner = {
+						war_with = ROOT
+					}
+				}
+			}
+			1816 = {
+				add_province_modifier = {
+					name = "mch_treason_modifier"
+					duration = 1825
+				}
+			}
+		}
+	}
+}
+
+# The Green Standard Army
+country_event = {
+	id = mch_missions.3
+	title = "mch_missions.3.t"
+	desc = "mch_missions.3.d"
+	picture = MILITARY_CAMP_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = "mch_missions.3.a"
+		if = {
+			limit = {
+				war_with = MNG
+			}			
+			reverse_add_opinion = { who = MNG modifier = opinion_green_standard }
+			hidden_effect = {
+				MNG = {
+					country_event = { id = mch_missions.4 }
+				}
+			}
+		}
+		add_manpower = 10
+		if = {
+			limit = {
+				has_dlc = "Mandate of Heaven"
+			}
+			add_mandate = 10			
+		}
+	}
+}
+
+# Green Standard Army
+# Notification for Ming
+country_event = {
+	id = mch_missions.4
+	title = "mch_missions.3.t"
+	desc = "mch_missions.4.d"
+	picture = MILITARY_CAMP_eventPicture
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = "mch_missions.4.a"
+		tooltip = {
+			cu_change_stability_point_n75 = yes
+			add_manpower = -10
+		}
+	}
+}
+
+
+
+# Agreement with the Dalai Lama
+country_event = {
+	id = mch_missions.6
+	title = "mch_missions.6.t"
+	desc = "mch_missions.6.d"
+	picture = RELIGION_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = { # Accept cooperation and conversion
+		name = "mch_missions.6.a"
+		if = {
+			limit = {
+				NOT = {
+					religion = vajrayana
+				}
+			}
+			change_religion = vajrayana
+		}
+		add_ruler_modifier = {
+			name = "genghis_khan_reborn"
+			duration = -1
+		}
+		add_country_modifier = {
+			name = "tibetan_missionaries"
+			duration = 18250
+		}
+		add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}
+	}
+	option = { # Rule Tibet by force
+		name = "mch_missions.6.b"
+		custom_tooltip = mongol_tibetan_rulership_tt		
+	}
+}
+
+# Uniting the Mongols
+country_event = {
+	id = mch_missions.7
+	title = "mch_missions.7.t"
+	desc = "mch_missions.7.d"
+	picture = MONGOL_BANNERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	
+	option = { # reorganize the tribes
+		name = "mch_missions.7.b"		
+		add_country_modifier = {
+			name = "reorganized_mongols"
+			duration = -1
+		}
+	}
+}

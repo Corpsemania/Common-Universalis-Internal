@@ -1,0 +1,20 @@
+# Polish Winged Hussar
+
+type = cavalry
+unit_type = eastern
+trigger = {
+	NOT = {
+               OR = {
+                 tag = POL
+                 tag = PLC
+                 tag = LIT
+               }
+        }
+}
+maneuver = 2
+offensive_morale = 4
+defensive_morale = 2
+offensive_fire = 0
+defensive_fire = 2
+offensive_shock = 5
+defensive_shock = 4

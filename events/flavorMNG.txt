@@ -1,0 +1,1353 @@
+########################################
+# Flavor events for China (MNG)
+#
+# written by Sara Wendel-Örtqvist
+########################################
+
+namespace = flavor_mng
+normal_or_historical_nations = yes
+
+# The Strategic Decision after Zheng Ho's Journey
+country_event = {
+	id = flavor_mng.1
+	title = "flavor_mng.EVTNAME1"
+	desc = "flavor_mng.EVTDESC1"
+	picture = MERCHANTS_TALKING_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_emperor_of_china = yes
+		NOT = { is_year = 1470 }
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	option = {
+		name = "flavor_mng.EVTOPTA1" #Inward Perfection
+		add_mil_power = 100
+		add_faction_influence = { faction = temples influence = 20 }
+	}
+	option = {
+		name = "flavor_mng.EVTOPTB1" #Balanced Position
+		add_dip_power = 100
+		add_faction_influence = { faction = enuchs influence = 20 }
+	}
+	option = {
+		name = "flavor_mng.EVTOPTC1" #Outward Expansion
+		add_adm_power = 100
+		add_faction_influence = { faction = bureaucrats influence = 20 }
+	}
+}
+
+# Repairing the Great Wall
+country_event = {
+	id = flavor_mng.2
+	title = "flavor_mng.EVTNAME2"
+	desc = "flavor_mng.EVTDESC2"
+	picture = REVOLUTION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_emperor_of_china = yes
+		is_year = 1450
+		NOT = { is_year = 1490 }
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	option = {
+		name = "flavor_mng.EVTOPTA2" #Yes, we need to repair the Great Wall
+		add_years_of_income = -0.30
+		add_army_tradition = 15
+	}
+	option = {
+		name = "flavor_mng.EVTOPTB2" #Let it continue to crumble
+		add_prestige = -10
+	}
+}
+
+#Further Repairs for the Great Wall
+country_event = {
+	id = flavor_mng.3
+	title = "flavor_mng.EVTNAME3"
+	desc = "flavor_mng.EVTDESC3"
+	picture = REVOLUTION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_emperor_of_china = yes
+		is_year = 1500
+		NOT = { is_year = 1540 }
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	option = {
+		name = "flavor_mng.EVTOPTA2" #Yes, we need to repair the Great Wall
+		add_years_of_income = -0.30
+		add_army_tradition = 15
+	}
+	option = {
+		name = "flavor_mng.EVTOPTB2" #Let it continue to crumble
+		add_prestige = -10
+	}
+}
+
+# The Perfection of Ming Porcelain
+country_event = {
+	id = flavor_mng.4
+	title = "flavor_mng.EVTNAME4"
+	desc = "flavor_mng.EVTDESC4"
+	picture = IMPORTANT_STATUE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_emperor_of_china = yes
+		is_year = 1500
+		NOT = { is_year = 1550 }
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	option = {
+		name = "flavor_mng.EVTOPTA4"
+		every_owned_province = {
+			limit = {
+				continent = asia
+				trade_goods = chinaware
+			}
+			add_province_modifier = {
+				name = perfected_porcelain
+				duration = -1				
+			}
+		}
+	}
+}
+
+# The Closure of China
+country_event = {
+	id = flavor_mng.5
+	title = "flavor_mng.EVTNAME5"
+	desc = "flavor_mng.EVTDESC5"
+	picture = MERCHANTS_TALKING_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_emperor_of_china = yes
+		num_of_ports = 1
+		any_country = {
+			capital_scope = { 
+				continent = europe
+			}
+			any_known_country = {
+				is_emperor_of_china = yes
+			}
+			any_active_trade_node = {
+				owned_by = ROOT
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 32
+	}
+	option = {
+		name = "flavor_mng.EVTOPTB5" #Close China to the outside world
+		add_stability_or_adm_power = yes
+		add_country_modifier = {
+			name = mng_closed_china
+			duration = -1
+		}
+	}
+	option = {
+		name = "flavor_mng.EVTOPTC5" #Keep trade open for all
+		cu_change_stability_point_n75 = yes
+		add_country_modifier = {
+			name = mng_open_china
+			duration = -1
+		}
+	}
+}
+
+# Qi Jiguang's Army Reforms
+country_event = {
+	id = flavor_mng.6
+	title = "flavor_mng.EVTNAME6"
+	desc = "flavor_mng.EVTDESC6"
+	picture = REFORM_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_emperor_of_china = yes
+		is_year = 1558
+		NOT = { is_year = 1588 }
+	}
+	
+	mean_time_to_happen = {
+		months = 50
+	}
+	
+	option = {
+		name = "flavor_mng.EVTOPTA6" #Go with the reforms
+                add_years_of_income = -0.50
+		add_mil_power = 100
+                add_army_tradition = 25
+	}
+	option = {
+		name = "flavor_mng.EVTOPTB6" #No, such reforms would be too costly
+		add_stability_or_adm_power = yes
+	}
+}
+
+#The Arrival of the Jesuits
+country_event = {
+	id = flavor_mng.7
+	title = "flavor_mng.EVTNAME7"
+	desc = "flavor_mng.EVTDESC7"
+	picture = RELIGION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_emperor_of_china = yes
+		
+		NOT = { religion_group = christian }
+		num_of_ports = 1
+		OR = {
+			has_country_modifier = mng_closed_china
+			has_country_modifier = mng_open_china
+		}
+		
+
+	}
+	
+	mean_time_to_happen = {
+		months = 120
+	}
+	
+	option = {
+		name = "flavor_mng.EVTOPTA7" #Yes, we may benefit from their learning
+		set_country_flag = mng_accepted_jesuits
+		random_owned_province = {
+			limit = {
+				has_port = yes
+				is_reformation_center = no
+			}
+			change_religion = catholic
+			add_permanent_province_modifier = {
+				name = religious_zeal_at_conv
+				duration = 7300
+			}
+			if = {
+				limit = { NOT = { renaissance = 100 } }
+				add_institution_embracement = {
+					which = renaissance
+					value = 50
+				}
+			}
+		}
+		add_dip_power = 100
+		add_mil_power = 100
+		add_adm_power = 100
+		every_known_country = {
+			limit = {
+				religion = catholic
+				has_discovered = ROOT
+			}
+			add_opinion = {
+				who = ROOT
+				modifier = opinion_accepted_jesuits
+			}
+		}
+	}
+	option = {
+		name = "flavor_mng.EVTOPTB7"
+		add_stability_or_adm_power = yes
+	}
+}
+
+# Famine!
+country_event = {
+	id = flavor_mng.8
+	title = "flavor_mng.EVTNAME8"
+	desc = "flavor_mng.EVTDESC8"
+	picture = FAMINE_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_emperor_of_china = yes
+		is_year = 1550
+		NOT = { is_year = 1600 }
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+	}
+	
+	option = {
+		name = "flavor_mng.EVTOPTA8" # There is nothing we can do
+		ai_chance = { factor = 25 }
+
+		
+		add_country_modifier = {
+			name = severe_famine
+			duration = 3650
+		}
+	}
+	option = {
+		name = "flavor_mng.EVTOPTB8" # Try to ease the suffering
+		ai_chance = { factor = 50 }
+		add_years_of_income = -0.50
+		add_country_modifier = {
+			name = famine
+			duration = 3650
+		}
+	}
+	option = {
+		name = "flavor_mng.EVTOPTC8" # Use all our resources to aim those in need
+		ai_chance = { factor = 25 }
+		add_years_of_income = -0.50
+		add_adm_power = -100
+		add_country_modifier = {
+			name = fighting_famine
+			duration = 1825
+		}
+	}
+}
+
+
+
+#The Cult of the White Lotus
+country_event = {
+	id = flavor_mng.10
+	title = "flavor_mng.EVTNAME10"
+	desc = "flavor_mng.EVTDESC10"
+	picture = ANGRY_MOB_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_emperor_of_china = yes
+		is_year = 1600
+		NOT = { is_year = 1625 }
+	}
+	
+	mean_time_to_happen = {
+		months = 80
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					continent = asia
+					is_core = ROOT
+				}
+				set_province_flag = MNG_lotus_cult_flag1
+			}
+			random_owned_province = {
+				limit = {
+					continent = asia
+					NOT = {
+						has_province_flag = MNG_lotus_cult_flag1
+					}
+				}
+				set_province_flag = MNG_lotus_cult_flag2
+			}
+			random_owned_province = {
+				limit = {
+					continent = asia
+					NOT = {
+						has_province_flag = MNG_lotus_cult_flag1
+					}
+					NOT = {
+						has_province_flag = MNG_lotus_cult_flag2
+					}
+				}
+				set_province_flag = MNG_lotus_cult_flag3
+			}
+			random_owned_province = {
+				limit = {
+					continent = asia
+					NOT = {
+						has_province_flag = MNG_lotus_cult_flag1
+					}
+					NOT = {
+						has_province_flag = MNG_lotus_cult_flag2
+					}
+					NOT = {
+						has_province_flag = MNG_lotus_cult_flag3
+					}
+				}
+				set_province_flag = MNG_lotus_cult_flag4
+			}
+			random_owned_province = {
+				limit = {
+					continent = asia
+					NOT = {
+						has_province_flag = MNG_lotus_cult_flag1
+					}
+					NOT = {
+						has_province_flag = MNG_lotus_cult_flag2
+					}
+					NOT = {
+						has_province_flag = MNG_lotus_cult_flag3
+					}
+					NOT = {
+						has_province_flag = MNG_lotus_cult_flag4
+					}
+				}
+				set_province_flag = MNG_lotus_cult_flag5
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_mng.EVTOPTA10" # Bah, surely these cultists can do no lasting harm!
+		random_owned_province = {
+			limit = {
+				has_province_flag = MNG_lotus_cult_flag1
+			}
+			spawn_rebels = {
+				type = anti_tax_rebels
+				size = 2
+			}
+			clr_province_flag = MNG_lotus_cult_flag1
+		}
+		random_owned_province = {
+			limit = {
+				has_province_flag = MNG_lotus_cult_flag2
+			}
+			spawn_rebels = {
+				type = anti_tax_rebels
+				size = 2
+			}
+			clr_province_flag = MNG_lotus_cult_flag2
+		}
+		random_owned_province = {
+			limit = {
+				has_province_flag = MNG_lotus_cult_flag3
+			}
+			spawn_rebels = {
+				type = anti_tax_rebels
+				size = 2
+			}
+			clr_province_flag = MNG_lotus_cult_flag3
+		}
+		random_owned_province = {
+			limit = {
+				has_province_flag = MNG_lotus_cult_flag4
+			}
+			spawn_rebels = {
+				type = anti_tax_rebels
+				size = 2
+			}
+			clr_province_flag = MNG_lotus_cult_flag4
+		}
+		random_owned_province = {
+			limit = {
+				has_province_flag = MNG_lotus_cult_flag5
+			}
+			spawn_rebels = {
+				type = anti_tax_rebels
+				size = 2
+			}
+			clr_province_flag = MNG_lotus_cult_flag5
+		}
+	}
+	option = {
+		name = "flavor_mng.EVTOPTB10" #Let the forces of the Empire crush the Rebellion!
+		add_years_of_income = -0.5
+		random_owned_province = {
+			limit = {
+				has_province_flag = MNG_lotus_cult_flag1
+			}
+			clr_province_flag = MNG_lotus_cult_flag1
+			spawn_rebels = {
+				type = anti_tax_rebels
+				size = 2
+			}
+		}
+		random_owned_province = {
+			limit = {
+				has_province_flag = MNG_lotus_cult_flag2
+			}
+			clr_province_flag = MNG_lotus_cult_flag2
+			spawn_rebels = {
+				type = anti_tax_rebels
+				size = 2
+			}
+		}
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					has_province_flag = MNG_lotus_cult_flag3
+				}
+				clr_province_flag = MNG_lotus_cult_flag3
+			}
+			random_owned_province = {
+				limit = {
+					has_province_flag = MNG_lotus_cult_flag4
+				}
+				clr_province_flag = MNG_lotus_cult_flag4
+			}
+			random_owned_province = {
+				limit = {
+					has_province_flag = MNG_lotus_cult_flag5
+				}
+				clr_province_flag = MNG_lotus_cult_flag5
+			}
+		}
+	}
+}
+
+#The Financial Crisis
+country_event = {
+	id = flavor_mng.11
+	title = "flavor_mng.EVTNAME11"
+	desc = "flavor_mng.EVTDESC11"
+	picture = ECONOMY_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_emperor_of_china = yes
+		is_year = 1640
+		num_of_loans = 10
+	}
+	
+	mean_time_to_happen = {
+		months = 32
+	}
+	
+	option = {
+		name = "flavor_mng.EVTOPTA11" #Yes, let us raise new taxes
+		add_inflation = 5
+	}
+	option = {
+		name = "flavor_mng.EVTOPTB11" #No, our subjects are already angry enough!
+		add_years_of_income = -1
+	}
+}
+
+#Li Zechang's Rebellion
+
+
+#The Expulsion of the Jesuits
+country_event = {
+	id = flavor_mng.13
+	title = "flavor_mng.EVTNAME13"
+	desc = "flavor_mng.EVTDESC13"
+	picture = RELIGION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_emperor_of_china = yes
+		is_year = 1700
+		has_country_flag = mng_accepted_jesuits
+		NOT = { religion = catholic }
+		NOT = { has_harmonized_with = christian }
+		num_of_owned_provinces_with = {
+			value = 10
+			superregion = china_superregion
+			has_owner_religion = no
+			religion = catholic
+		}
+		num_of_religion = { religion = catholic value = 1 }
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+	}
+	
+	option = {
+		name = "flavor_mng.EVTOPTA13"
+		set_country_flag = mng_jesuits_expelled
+		every_owned_province = {
+			limit = {
+				religion = catholic
+				superregion = china_superregion
+			}
+			change_religion = root
+			if = {
+				limit = {
+					base_tax = 2
+				}
+				add_base_tax = -1
+			}
+		}
+		
+	}
+	option = {
+		name = "flavor_mng.EVTOPTB13"
+		cu_change_stability_point_n100 = yes
+	}
+}
+
+#The Appointment of Heshen
+country_event = {
+	id = flavor_mng.14
+	title = "flavor_mng.EVTNAME14"
+	desc = "flavor_mng.EVTDESC14"
+	picture = ADVISOR_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_emperor_of_china = yes
+		is_year = 1770
+		NOT = { is_year = 1800 }
+	}
+	
+	mean_time_to_happen = {
+		months = 200
+	}
+	
+	option = {
+		name = "flavor_mng.EVTOPTA14" #Appoint him despite his faults
+		add_adm_power = 100
+	}
+	option = {
+		name = "flavor_mng.EVTOPTB14" #No, such corruption could ruin the state!
+		add_legitimacy = 10
+		add_corruption = -1
+	}
+}
+
+#Lord Macartney's Mission
+country_event = {
+	id = flavor_mng.15
+	title = "flavor_mng.EVTNAME15"
+	desc = "flavor_mng.EVTDESC15"
+	picture = DIPLOMACY_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_emperor_of_china = yes
+		is_year = 1775
+		any_owned_province = {
+			OR = {
+				is_strongest_trade_power = ENG
+				is_strongest_trade_power = GBR
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 32
+	}
+	
+	option = {
+		name = "flavor_mng.EVTOPTA15" #Reject the overtures of these rude western barbarians!
+		add_stability_or_adm_power = yes
+	}
+	option = {
+		name = "flavor_mng.EVTOPTB15" #We are interested in their ideas
+		add_adm_power = 40
+		add_dip_power = 40
+
+		GBR = {
+			add_opinion = {
+				who = ROOT
+				modifier = opinion_ideas
+			}
+		}
+		ENG = {
+			add_opinion = {
+				who = ROOT
+				modifier = opinion_ideas
+			}
+		}
+	}
+}
+
+#The White Lotus Rebellion
+country_event = {
+	id = flavor_mng.16
+	title = "flavor_mng.EVTNAME16"
+	desc = "flavor_mng.EVTDESC16"
+	picture = ANGRY_MOB_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_emperor_of_china = yes
+		is_year = 1780 
+		NOT = { stability = 3 }
+
+	}
+	
+	mean_time_to_happen = {
+		months = 100
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					continent = asia
+					is_core = ROOT
+				}
+				set_province_flag = MNG_lotus_rebellion_flag1
+			}
+			random_owned_province = {
+				limit = {
+					continent = asia
+					NOT = {
+						has_province_flag = MNG_lotus_rebellion_flag1
+					}
+				}
+				set_province_flag = MNG_lotus_rebellion_flag2
+			}
+			random_owned_province = {
+				limit = {
+					continent = asia
+					NOT = {
+						has_province_flag = MNG_lotus_rebellion_flag1
+					}
+					NOT = {
+						has_province_flag = MNG_lotus_rebellion_flag2
+					}
+				}
+				set_province_flag = MNG_lotus_rebellion_flag3
+			}
+			random_owned_province = {
+				limit = {
+					continent = asia
+					NOT = {
+						has_province_flag = MNG_lotus_rebellion_flag1
+					}
+					NOT = {
+						has_province_flag = MNG_lotus_rebellion_flag2
+					}
+					NOT = {
+						has_province_flag = MNG_lotus_rebellion_flag3
+					}
+				}
+				set_province_flag = MNG_lotus_rebellion_flag4
+			}
+			random_owned_province = {
+				limit = {
+					continent = asia
+					NOT = {
+						has_province_flag = MNG_lotus_rebellion_flag1
+					}
+					NOT = {
+						has_province_flag = MNG_lotus_rebellion_flag2
+					}
+					NOT = {
+						has_province_flag = MNG_lotus_rebellion_flag3
+					}
+					NOT = {
+						has_province_flag = MNG_lotus_rebellion_flag4
+					}
+				}
+				set_province_flag = MNG_lotus_rebellion_flag5
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_mng.EVTOPTA16" #It's likely just harmless talk
+		random_owned_province = {
+			limit = {
+				has_province_flag = MNG_lotus_rebellion_flag1
+			}
+			create_revolt = 5
+			clr_province_flag = MNG_lotus_rebellion_flag1
+		}
+		random_owned_province = {
+			limit = {
+				has_province_flag = MNG_lotus_rebellion_flag2
+			}
+			create_revolt = 1
+			clr_province_flag = MNG_lotus_rebellion_flag2
+		}
+		random_owned_province = {
+			limit = {
+				has_province_flag = MNG_lotus_rebellion_flag3
+			}
+			create_revolt = 1
+			clr_province_flag = MNG_lotus_rebellion_flag3
+		}
+		random_owned_province = {
+			limit = {
+				has_province_flag = MNG_lotus_rebellion_flag4
+			}
+			create_revolt = 1
+			clr_province_flag = MNG_lotus_rebellion_flag4
+		}
+		random_owned_province = {
+			limit = {
+				has_province_flag = MNG_lotus_rebellion_flag5
+			}
+			create_revolt = 1
+			clr_province_flag = MNG_lotus_rebellion_flag5
+		}
+	}
+	option = {
+		name = "flavor_mng.EVTOPTB16" #Crush these plotters!
+		add_years_of_income = -0.50
+		random_owned_province = {
+			limit = {
+				has_province_flag = MNG_lotus_rebellion_flag1
+			}
+			create_revolt = 1
+			clr_province_flag = MNG_lotus_rebellion_flag1
+		}
+		random_owned_province = {
+			limit = {
+				has_province_flag = MNG_lotus_rebellion_flag2
+			}
+			create_revolt = 2
+			clr_province_flag = MNG_lotus_rebellion_flag2
+		}
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					has_province_flag = MNG_lotus_rebellion_flag3
+				}
+				create_revolt = 1
+				clr_province_flag = MNG_lotus_rebellion_flag3
+			}
+			random_owned_province = {
+				limit = {
+					has_province_flag = MNG_lotus_rebellion_flag4
+				}
+				create_revolt = 1
+				clr_province_flag = MNG_lotus_rebellion_flag4
+			}
+			random_owned_province = {
+				limit = {
+					has_province_flag = MNG_lotus_rebellion_flag5
+				}
+				create_revolt = 1
+				clr_province_flag = MNG_lotus_rebellion_flag5
+			}
+		}
+	}
+}
+
+# No more Celestial Empire
+country_event = {
+	id = flavor_mng.17
+	title = flavor_mng.17.t1
+	desc = flavor_mng.17.d1
+	picture = COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	
+	
+	option = {
+		name = flavor_mng.17.a
+		remove_country_modifier = mng_closed_china
+		remove_country_modifier = mng_open_china
+			}
+}
+
+#Matteo Ricci
+country_event = {
+	id = flavor_mng.18
+	title = "flavor_mng.18.t"
+	desc = "flavor_mng.18.d"
+	picture = DIPLOMACY_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_emperor_of_china = yes
+		has_country_flag = mng_accepted_jesuits
+		is_year = 1580
+		NOT = { is_year = 1600 }
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	option = {
+		name = "flavor_mng.18.a" #Welcome Ricci to our court.
+		add_ruler_modifier = {
+			name = "mng_ricci_at_court"
+		}
+	}
+	option = {
+		name = "flavor_mng.18.b" #Go back to Macau!
+		add_stability_or_adm_power = yes
+		add_prestige = 15
+	}
+}
+
+#Kunyu Wanguo Quantu
+country_event = {
+	id = flavor_mng.19
+	title = "flavor_mng.19.t"
+	desc = "flavor_mng.19.d"
+	picture = BIG_BOOK_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_emperor_of_china = yes
+		has_ruler_modifier = mng_ricci_at_court
+	}
+	
+	mean_time_to_happen = {
+		months = 60
+	}
+	
+	option = {
+		name = "flavor_mng.19.a" #
+		add_prestige = 5
+		add_dip_power = 100
+	}
+}
+
+#St Pauls College
+country_event = {
+	id = flavor_mng.20
+	title = "flavor_mng.20.t"
+	desc = "flavor_mng.20.d"
+	picture = UNIVERSITY_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_emperor_of_china = yes
+		OR = {
+		       POR = { owns = 668 }
+		       CAS = { owns = 668 }
+		       ARA = { owns = 668 }
+		       SPA = { owns = 668 }
+		}
+		has_country_flag = mng_accepted_jesuits
+	}
+	
+	mean_time_to_happen = {
+		months = 300
+	}
+	
+	option = {
+		name = "flavor_mng.20.a" #Allow it
+		set_country_flag = mng_st_pauls
+		668 = {
+			add_permanent_province_modifier = {
+				name = mng_st_pauls_college
+                                duration = -1
+			}
+			change_religion = catholic
+			add_institution_embracement = {
+				which = renaissance
+				value = 20
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_mng.20.b" #Don't allow it
+		add_stability_or_adm_power = yes
+		add_prestige = 15
+	}
+}
+
+#Controversy over Chinese Rites - Papal States
+country_event = {
+	id = flavor_mng.21
+	title = "flavor_mng.21.t"
+	desc = "flavor_mng.21.d"
+	picture = BUDDHA_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		tag = PAP
+		MNG = {
+			has_country_flag = mng_accepted_jesuits
+		}
+		is_year = 1650
+		NOT = { is_year = 1767 } #Suppression of the Jesuit Order
+	}
+	
+	mean_time_to_happen = {
+		months = 350
+	}
+	
+	option = {
+		name = "flavor_mng.21.a" #Support the Jesuits
+		ai_chance = { factor = 25 }
+		MNG = {
+			country_event = { id = flavor_mng.23 days = 60 }
+		}
+	}
+	
+	option = {
+		name = "flavor_mng.21.b" #Support the Dominicans
+		ai_chance = { factor = 75 }
+		add_prestige = 20
+		MNG = {
+			country_event = { id = flavor_mng.22 days = 60 }
+			add_opinion = {
+				who = PAP
+				modifier = mng_chinese_rites_denounced
+			}
+		}
+	}
+}
+
+#Chinese Rites are unchristian - China
+country_event = {
+	id = flavor_mng.22
+	title = "flavor_mng.22.t"
+	desc = "flavor_mng.22.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_mng.22.a" #Throw out anyone not conforming!
+		ai_chance = { factor = 75 }
+		set_country_flag = mng_end_of_christian_missions
+		custom_tooltip = flavor_mng.23.a.tt
+		PAP = {
+			add_opinion = {
+				who = MNG
+				modifier = mng_chinese_rites_denounced
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_mng.22.b" #Allow them to stay.
+		ai_chance = { factor = 25 }
+		set_country_flag = mng_allowed_to_stay_but_denounced_rites
+		add_dip_power = 25
+	}
+}
+
+#The Westerners bicker about Chinese Traditions - China
+country_event = {
+	id = flavor_mng.23
+	title = "flavor_mng.23.t"
+	desc = "flavor_mng.23.d"
+	picture = ST_PETERS_CHURCH_eventPicture
+	
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_mng.23.a" #This is not for them to decide. Let us get rid of these Barbarians.
+		ai_chance = { factor = 75 }
+		set_country_flag = mng_end_of_christian_missions
+		custom_tooltip = flavor_mng.23.a.tt
+		PAP = {
+			add_opinion = {
+				who = MNG
+				modifier = mng_chinese_rites_denounced
+			}
+		}
+	}
+	option = {
+		name = "flavor_mng.23.b" #Allow them to stay.
+		ai_chance = { factor = 25 }
+		add_dip_power = 25
+		add_stability_or_adm_power = yes
+	}
+}
+
+#Spread of Christianity
+country_event = {
+	id = flavor_mng.24
+	title = "flavor_mng.24.t"
+	desc = "flavor_mng.24.d"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	
+	trigger = {
+		is_emperor_of_china = yes
+		has_country_flag = mng_accepted_jesuits
+		NOT = { stability = 2 }
+		any_owned_province = {
+			OR = {
+				area = guangxi_area
+				area = west_guangdong_area
+				area = guangdong_area
+			}
+			NOT = { religion = catholic }
+		}
+		NOT = { has_country_flag = mng_end_of_christian_missions }
+	}
+	
+	mean_time_to_happen = {
+		months = 800
+		
+		
+		modifier = {
+			factor = 0.9
+			NOT = { stability = -1 }
+		}
+		modifier = {
+			factor = 0.9
+			NOT = { stability = -2 }
+		}
+		modifier = {
+			factor = 0.9
+			has_country_flag = mng_st_pauls
+		}
+		modifier = {
+			factor = 0.9
+			has_ruler_modifier = mng_christian_minister
+		}
+		modifier = {
+			factor = 0.9
+			has_ruler_modifier = mng_ricci_at_court
+		}
+		modifier = {
+			factor = 1.2
+			stability = 2
+		}
+		modifier = {
+			factor = 2.0
+			has_country_flag = mng_allowed_to_stay_but_denounced_rites
+		}
+		modifier = {
+			factor = 2.0
+			has_country_flag = mng_jesuits_expelled
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					NOT = { religion = catholic }
+					is_capital = no
+					OR = {
+						area = guangxi_area
+						area = guangdong_area
+						area = west_guangdong_area
+						AND = {
+							NOT = { owner = { stability = -1 } }
+							region = north_china_region
+						}
+						AND = {
+							NOT = { owner = { stability = -1 } }
+							region = xinan_region
+						}
+						AND = {
+							NOT = { owner = { stability = -1 } }
+							region = south_china_region
+						}
+					}
+				}
+				set_province_flag = christian_missions
+				random_neighbor_province = {
+					limit = {
+						NOT = { religion = catholic }
+						NOT = { is_capital = yes }
+						owned_by = ROOT
+					}
+					set_province_flag = christian_missions
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "flavor_mng.24.a" #Ok.
+		every_owned_province = {
+			limit = { has_province_flag = christian_missions }
+			change_religion = catholic
+			add_permanent_province_modifier = {
+				name = religious_zeal_at_conv
+				duration = 7300
+			}
+			clr_province_flag = christian_missions
+		}
+	}
+}
+
+#Conversion of the Emperor
+country_event = {
+	id = flavor_mng.25
+	title = "flavor_mng.25.t"
+	desc = "flavor_mng.25.d"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+		is_emperor_of_china = yes
+		has_country_flag = mng_accepted_jesuits
+		dominant_religion = catholic
+		NOT = { religion_group = christian }
+	}
+	
+	mean_time_to_happen = {
+		months = 30
+	}
+	
+	option = {
+		name = "flavor_mng.25.a" #Christianity it is.
+		change_religion = catholic
+		set_country_flag = mng_end_of_christian_missions
+	}
+	option = {
+		name = "flavor_mng.25.b" #No.
+		add_stability_or_adm_power = yes
+	}
+}
+
+#Minister Converts
+country_event = {
+	id = flavor_mng.26
+	title = "flavor_mng.26.t"
+	desc = "flavor_mng.26.d"
+	picture = RELIGIOUS_CONVERSION_eventPicture
+	
+	trigger = {
+		is_emperor_of_china = yes
+		has_country_flag = mng_accepted_jesuits
+		NOT = { religion_group = christian }
+		NOT ={ has_country_flag = mng_end_of_christian_missions }
+	}
+	
+	mean_time_to_happen = {
+		months = 600
+	}
+	
+	option = {
+		name = "flavor_mng.26.a" #
+		add_stability_or_adm_power = yes
+	}
+	option = {
+		name = "flavor_mng.26.b" #
+		add_ruler_modifier = {
+			name = "mng_christian_minister"
+		}
+	}
+}
+
+#Tumubao Accident
+country_event = {
+	id = flavor_mng.27
+	title = "flavor_mng.27.t"
+	desc = "flavor_mng.27.d"
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+		tag = MNG
+		war_with = OIR
+		NOT = { war_score = -5 }
+		NOT = { is_year = 1460 }
+		is_monarch_leader = yes
+		NOT = { mil = 2 }
+		NOT = { has_country_flag = tumubao_accident }
+	}
+	fire_only_once = yes
+	mean_time_to_happen = {
+		months = 12
+	}
+	immediate = {
+	       set_country_flag = tumubao_accident
+	}
+	option = {
+		name = "flavor_mng.27.a" #Crown another emperor, no surrender!
+	    cu_change_stability_point_n100 = yes
+		add_army_tradition = -20
+		add_meritocracy = 10
+		if = {
+		       limit = {
+			         1816 = { controlled_by = ROOT }
+			   }
+			   add_treasury = -80
+			   add_manpower = -5
+			   infantry = 1816
+			   infantry = 1816
+			   infantry = 1816
+			   infantry = 1816
+			   artillery = 1816
+		}
+		define_ruler = {
+			    name = "Qiyu"
+				dynasty = "Zhu"
+				adm = 2
+				dip = 2
+				mil = 3
+				fixed = yes
+				age = 21
+				claim = 70
+				female = no
+	   }
+	   define_heir = {
+			    name = "Jianji"
+				dynasty = "Zhu"
+				adm = 2
+				dip = 2
+				mil = 2
+				age = 1
+				claim = 80
+				female = no
+	   }
+	   create_general = { tradition = 40 }
+	   set_country_flag = tumubao_new_emperor
+	   ai_chance = {
+	           factor = 90
+	   }
+	}
+	option = {
+	    trigger = {
+		     OIR = { ai = yes }
+		}
+		name = "flavor_mng.27.b" #Surrender...
+	    cu_change_stability_point_n75 = yes
+		add_army_tradition = -20
+		add_prestige = -20
+		add_meritocracy = -20
+		add_treasury = -1000
+		OIR = { add_treasury = 1000 }
+		every_owned_province = {
+		      limit = {  
+			        OR = {
+					     is_core = OIR
+						 is_claim = OIR
+						 culture_group = altaic
+						 province_id = 707
+						 province_id = 2182
+						 province_id = 2184
+					}
+			  }
+			  cede_province = OIR
+			  add_claim = OIR
+		}
+		white_peace = OIR
+	    ai_chance = {
+	           factor = 10
+			   modifier = {
+			         factor = 0
+					 OR = {
+				         has_global_flag = cu_realistic_handicap_set
+						 has_global_flag = cu_x_handicap_set
+			         }
+			   }
+	    }
+	}
+}

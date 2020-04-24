@@ -1,0 +1,27 @@
+province_gc_shower = {
+        picture = "max_states"
+}
+
+maximum_government_capacity = {
+		  yearly_corruption = 0.1
+		  state_maintenance_modifier = 0.4
+		  # +20% GC
+}
+
+expand_government_capacity = {
+		  yearly_corruption = 0.05
+		  state_maintenance_modifier = 0.2
+		  # +10% GC
+}
+
+shrink_government_capacity = {
+		  yearly_corruption = -0.05
+		  state_maintenance_modifier = -0.15
+		  # -10% GC
+}
+
+minimum_government_capacity = {
+		  yearly_corruption = -0.1
+		  state_maintenance_modifier = -0.3
+		  # -20% GC
+}

@@ -1,0 +1,22 @@
+#709 - Alxa
+
+owner = OIR
+controller = OIR
+add_core = OIR
+culture = oirats
+religion = tengri_pagan_reformed
+capital = "Burqin"
+trade_goods = wool
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 0
+is_city = yes
+
+
+
+discovered_by = chinese
+discovered_by = nomad_group
+
+
+

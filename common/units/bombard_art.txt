@@ -1,0 +1,19 @@
+# Bombard
+type = artillery
+trigger = { 
+                OR = { 
+                        unit_type = western
+                        unit_type = eastern
+                        unit_type = chinese
+                        unit_type = ottoman
+                        unit_type = indian
+                        unit_type = nomad_group
+                }
+}
+maneuver = 2
+offensive_morale = 1
+defensive_morale = 0
+offensive_fire = 0
+defensive_fire = 0
+offensive_shock = 0
+defensive_shock = 0

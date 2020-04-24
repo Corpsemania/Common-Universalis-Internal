@@ -1,0 +1,264 @@
+trade_company_west_africa = {
+	color = { 50 0 200 }
+	
+	provinces = {
+		
+		2251
+	}
+	
+	# Specific
+	# Generic
+	names = {
+		name = "TRADE_COMPANY_WEST_AFRICA_Root_Culture_GetName"
+	}
+	names = {
+		name = "TRADE_COMPANY_WEST_AFRICA_Africa_Trade_Company"
+	}
+}
+
+trade_company_south_africa = {
+	color = { 0 175 0 }
+	
+	provinces = {
+		1801 
+	}
+	
+	# Specific
+	# Generic
+	names = {
+		name = "TRADE_COMPANY_SOUTH_AFRICA_Root_Culture_GetName"
+	}
+	names = {
+		name = "TRADE_COMPANY_SOUTH_AFRICA_Africa_Trade_Company"
+	}
+}
+
+trade_company_east_africa = {
+	color = { 200 0 0 }
+	
+	provinces = {
+		 1799
+	}
+	
+	# Specific
+	# Generic
+	names = {
+		name = "TRADE_COMPANY_EAST_AFRICA_Root_Culture_GetName"
+	}
+	names = {
+		name = "TRADE_COMPANY_EAST_AFRICA_Africa_Trade_Company"
+	}
+}
+
+trade_company_west_india = {
+	color = { 135 104 85 }
+	
+	provinces = {
+		4328
+	}
+	
+	# Generic
+	names = {
+		name = "TRADE_COMPANY_WEST_INDIA_Root_Culture_GetName"
+	}
+	names = {
+		name = "TRADE_COMPANY_WEST_INDIA_India_Trade_Company"
+	}
+}
+
+trade_company_south_india = {	#Konkan
+	color = { 135 150 0 }
+	
+	provinces = {
+		1787
+	}
+	
+	# Generic
+	names = {
+		name = "TRADE_COMPANY_SOUTH_INDIA_Root_Culture_GetName"
+	}
+	names = {
+		name = "TRADE_COMPANY_SOUTH_INDIA_India_Trade_Company"
+	}
+}
+
+trade_company_east_india = {
+	color = { 230 0 0 }
+	
+	provinces = {
+		1950
+	}
+	
+	# Specific (Removed for redundancy)
+	#names = {
+	#	trigger = {
+	#		OR = {
+	#			tag = GBR
+	#			tag = ENG
+	#		}
+	#		primary_culture = english
+	#	}
+	#	name = "TRADE_COMPANY_INDIA_British_East_India_Company"
+	#}
+	# Generic
+	names = {
+		name = "TRADE_COMPANY_EAST_INDIA_Root_Culture_GetName"
+	}
+	names = {
+		name = "TRADE_COMPANY_EAST_INDIA_India_Trade_Company"
+	}
+}
+
+trade_company_coromandel = {
+	color = { 50 30 210 }
+	
+	provinces = {
+		1779
+	}
+	# Generic
+	names = {
+		name = "TRADE_COMPANY_COROMANDEL_Root_Culture_GetName"
+	}
+	names = {
+		name = "TRADE_COMPANY_COROMANDEL_India_Trade_Company"
+	}
+}
+
+trade_company_north_india = {
+	color = { 220 150 10 }
+	
+	provinces = {
+		1788
+	}
+	
+	# Generic
+	names = {
+		name = "TRADE_COMPANY_NORTH_INDIA_Root_Culture_GetName"
+	}
+	names = {
+		name = "TRADE_COMPANY_NORTH_INDIA_India_Trade_Company"
+	}
+}
+
+trade_company_indonesia = {
+	color = { 0 240 0 }
+	
+	provinces = {
+		2740
+	}
+
+	# Specific (Removed for potential confusion)
+	#names = {
+	#	trigger = {
+	#		primary_culture = dutch
+	#	}
+	#	name = "TRADE_COMPANY_INDONESIA_Dutch_East_Indies_Company"
+	#}
+	# Generic
+	names = {
+		name = "TRADE_COMPANY_INDONESIA_Root_Culture_GetName"
+	}
+	names = {
+		name = "TRADE_COMPANY_INDONESIA_Indonesia_Trade_Company"
+	}
+}
+
+trade_company_philippines = {
+	color = { 0 200 150 }
+	
+	provinces = {
+	    1789
+	}
+
+	# Generic
+	names = {
+		name = "TRADE_COMPANY_PHILIPPINES_Root_Culture_GetName"
+	}
+	names = {
+		name = "TRADE_COMPANY_PHILIPPINES_Indonesia_Trade_Company"
+	}
+}
+
+trade_company_moluccas = {
+	color = { 196 191 61 }
+	
+	provinces = {
+		1790
+	}
+
+	# Generic
+	names = {
+		name = "TRADE_COMPANY_MOLUCCAS_Root_Culture_GetName"
+	}
+	names = {
+		name = "TRADE_COMPANY_MOLUCCAS_Indonesia_Trade_Company"
+	}
+}
+
+trade_company_indochina = {
+	color = { 84 152 93 }
+	
+	provinces = {
+		2194
+	}
+	
+	# Specific
+	# Generic
+	names = {
+		name = "TRADE_COMPANY_INDOCHINA_Root_Culture_GetName"
+	}
+	names = {
+		name = "TRADE_COMPANY_INDOCHINA_China_Trade_Company"
+	}
+}
+
+trade_company_south_china = {
+	color = { 100 230 20 }
+	
+	provinces = {
+		1786
+	}
+	
+	# Specific
+	# Generic
+	names = {
+		name = "TRADE_COMPANY_SOUTH_CHINA_Root_Culture_GetName"
+	}
+	names = {
+		name = "TRADE_COMPANY_SOUTH_CHINA_China_Trade_Company"
+	}
+}
+
+trade_company_east_china = {
+	color = { 178 34 34 }
+	
+	provinces = {
+		1784
+	}
+	
+	# Specific
+	# Generic
+	names = {
+		name = "TRADE_COMPANY_EAST_CHINA_Root_Culture_GetName"
+	}
+	names = {
+		name = "TRADE_COMPANY_EAST_CHINA_China_Trade_Company"
+	}
+}
+
+trade_company_north_china = {
+	color = { 60 60 255 }
+	
+	provinces = {
+		1783
+	}
+	
+	# Specific
+	# Generic
+	names = {
+		name = "TRADE_COMPANY_NORTH_CHINA_Root_Culture_GetName"
+	}
+	names = {
+		name = "TRADE_COMPANY_NORTH_CHINA_China_Trade_Company"
+	}
+}

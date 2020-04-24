@@ -1,0 +1,197 @@
+namespace = euro
+# European Country Asked to join EU
+country_event = {
+	id = euro.1
+	title = "euro.1.t"
+	desc = "euro.1.d"
+	picture = ANGRY_MOB_eventPicture
+
+	is_triggered_only = yes
+
+	option = { #Join EU
+		name = "euro.1.a"
+		EUU = { inherit = ROOT }
+                ai_chance = {
+                        factor = 90
+                        modifier = { #Subjects of non-european country will not join
+                                factor = 0
+                                NOT = { EUU = { overlord_of = ROOT } }
+                                any_country = {
+                                            overlord_of = ROOT
+                                            NOT = { capital_scope = { continent = europe } }
+                                }  
+                        } 
+                        modifier = { #Many provinces outside europe
+                                factor = 0.5
+                                num_of_owned_provinces_with = {
+			               value = 10
+                                       NOT = { continent = europe }
+			               cu_not_terr_trigger = yes
+			         }
+                        } 
+                        modifier = { #Too many provinces outside europe
+                                factor = 0
+                                num_of_owned_provinces_with = {
+			               value = 20
+                                       NOT = { continent = europe }
+			               cu_not_terr_trigger = yes
+			         }
+                        } 
+                        modifier = { #Large countries are more reluctant
+                                factor = 0.75
+                                num_of_owned_provinces_with = {
+			               value = 10
+                                       cu_not_terr_trigger = yes
+			        }
+                        } 
+                        modifier = { #Large countries are more reluctant
+                                factor = 0.75
+                                num_of_owned_provinces_with = {
+			               value = 20
+                                       cu_not_terr_trigger = yes
+			         }
+                        } 
+                        modifier = { #Large countries are more reluctant
+                                factor = 0.75
+                                num_of_owned_provinces_with = {
+			               value = 30
+                                       cu_not_terr_trigger = yes
+			         }
+                        } 
+                }
+	}
+
+        option = { #Never!
+		name = "euro.1.b"
+                custom_tooltip = euro.1.bt
+		every_owned_province = {
+			limit = {
+			          continent = europe
+			}
+                        add_core = EUU
+		}
+                hidden_effect = {
+                      EUU = {
+                             declare_war_with_cb = {
+				      who = ROOT
+				      casus_belli = cb_core
+			     }
+                      }
+                }
+                ai_chance = {
+                        factor = 10
+                        modifier = { #Subjects will always join unless having too many non-european provinces.
+                                factor = 0
+                                EUU = { overlord_of = ROOT }  
+                                NOT = {
+                                    num_of_owned_provinces_with = {
+			               value = 10
+                                       NOT = { continent = europe }
+			               cu_not_terr_trigger = yes
+			            }
+                                }
+                        } 
+                }
+	}
+}
+
+# Non-European Country Asked to cede European provinces to EU
+country_event = {
+	id = euro.2
+	title = "euro.2.t"
+	desc = "euro.2.d"
+	picture = ANGRY_MOB_eventPicture
+
+	is_triggered_only = yes
+
+	option = { #Agree
+		name = "euro.2.a"
+		every_owned_province = {
+			limit = {
+			          continent = europe
+			}
+                        add_core = EUU
+                        cede_province = EUU
+                        remove_core = ROOT
+		}
+                ai_chance = {
+                        factor = 50
+                        modifier = { #Subjects of non-european country will not agree
+                                factor = 0
+                                NOT = { EUU = { overlord_of = ROOT } }
+                                any_country = {
+                                            overlord_of = ROOT
+                                            NOT = { capital_scope = { continent = europe } }
+                                }  
+                        } 
+                        modifier = { #Many provinces in europe
+                                factor = 0.5
+                                num_of_owned_provinces_with = {
+			               value = 10
+                                       continent = europe
+			         }
+                        } 
+                        modifier = { #Too many provinces in europe
+                                factor = 0
+                                num_of_owned_provinces_with = {
+			               value = 20
+                                       continent = europe
+			         }
+                        } 
+                        modifier = { #Large countries are more reluctant
+                                factor = 0.75
+                                num_of_owned_provinces_with = {
+			               value = 20
+                                       cu_not_terr_trigger = yes
+			        }
+                        } 
+                        modifier = { #Large countries are more reluctant
+                                factor = 0.75
+                                num_of_owned_provinces_with = {
+			               value = 40
+                                       cu_not_terr_trigger = yes
+			         }
+                        } 
+                        modifier = { #Large countries are more reluctant
+                                factor = 0.75
+                                num_of_owned_provinces_with = {
+			               value = 60
+                                       cu_not_terr_trigger = yes
+			         }
+                        } 
+                }
+	}
+
+        option = { #Never!
+		name = "euro.2.b"
+                custom_tooltip = euro.2.bt
+		every_owned_province = {
+			limit = {
+			          continent = europe
+			}
+                        add_core = EUU
+		}
+                hidden_effect = {
+                      EUU = {
+                            declare_war_with_cb = {
+				who = ROOT
+				casus_belli = cb_core
+			    }
+                      }
+                }
+                ai_chance = {
+                        factor = 50
+                        modifier = { #Subjects of EU will always agree unless having too many European provinces.
+                                factor = 0
+                                EUU = { overlord_of = ROOT }  
+                                NOT = {
+                                    num_of_owned_provinces_with = {
+			               value = 10
+                                       continent = europe
+			               cu_not_terr_trigger = yes
+			            }
+                                }
+                        } 
+                }
+	}
+}

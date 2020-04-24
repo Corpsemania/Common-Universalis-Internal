@@ -1,0 +1,39 @@
+#1177 - Cape
+
+culture = bantu
+religion = animism
+capital = "Cape"
+trade_goods = unknown
+hre = no
+base_tax = 3 
+
+base_production = 3
+base_manpower = 1
+native_size = 5
+native_ferocity = 1
+native_hostileness = 0
+extra_cost = 10
+center_of_trade = 1
+
+
+1481.1.1 = { discovered_by = POR } # Bartolomeu Dias
+1616.1.1 = { discovered_by = NED } # Dirk Hartog
+1652.4.6 = {
+	owner = NED
+	controller = NED
+	religion = reformed
+	culture = dutch	
+	is_city = yes
+	capital = "Cape Town"
+} # Dutch settlement
+1677.4.6 = { add_core = NED }
+1679.1.1 = { fort_15th = yes } #Representing the Fort of Good Hope
+1700.1.1 = { trade_goods = wine } # The colony expanded
+1795.2.1 = { controller = GBR } # Occupied by British forces
+1797.10.17 = { controller = NED }
+1806.1.18 = { controller = GBR } # Occupied by British troops
+1807.7.9 = {
+	owner = GBR
+	add_core = GBR
+	remove_core = NED
+} # Treaty of Tilsit

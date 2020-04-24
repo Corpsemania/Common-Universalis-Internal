@@ -1,0 +1,46 @@
+#329 - Sivas
+
+owner = TUR
+controller = TUR
+culture = turkish
+religion = shiite
+capital = "Sivas"
+trade_goods = livestock
+hre = no
+base_tax = 3
+base_production = 3
+base_manpower = 3
+is_city = yes
+add_core = TUR
+add_core = ERE
+discovered_by = western
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = ottoman
+discovered_by = nomad_group
+
+
+1400.1.1 = {
+	owner = TIM
+	controller = TIM
+	add_core = TIM
+} # Timur takes control of Sivas
+1402.1.1 = {	owner = AKK
+	controller = AKK
+	add_core = AKK
+} # The Ak Koyunlu
+1408.1.1 = {	owner = TUR
+	controller = TUR
+	remove_core = TIM
+	remove_core = AKK
+} # The Ottomans restore control
+1481.6.1 = { revolt = { type = pretender_rebels size = 0 } controller = REB } # Civil war, Bayezid & Jem
+1482.7.26 = { revolt = {} controller = TUR } # Jem escapes to Rhodes
+1509.1.1 = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # Civil war
+1513.1.1 = { revolt = {} controller = TUR }
+1595.1.1 = { revolt = { type = nationalist_rebels size = 3 } controller = REB } # 3rd Celali uprising
+1600.1.1 = { revolt = {} }
+1610.1.1 = { controller = TUR }
+1620.1.1 = { religion = sunni }
+1623.1.1 = { revolt = { type = revolutionary_rebels size = 0 } controller = REB } # The empire fell into anarchy, Janissaries stormed the palace
+1625.1.1 = { revolt = {} controller = TUR } # Murad tries to quell the corruption

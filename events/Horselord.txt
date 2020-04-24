@@ -1,0 +1,939 @@
+namespace = horde
+###Horde raze province
+province_event = {
+        id = horde.1
+	title = "horde.1.t"
+	desc = "horde.1.d"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	trigger = {
+                NOT = { has_dlc = "The Cossacks" }                #Replaced by the horde mechanics in The Cossacks dlc
+                is_colony = no
+		NOT = { is_core = owner }
+                unrest = 1
+                owner = { government = steppe_horde }
+                OR = {
+                    base_tax = 3
+                    base_production = 3
+                    base_manpower = 3
+                }
+	}
+
+	mean_time_to_happen = {
+		months = 24
+                modifier = {
+                      factor = 2
+                      OR = {
+                            has_owner_accepted_culture = yes
+                            has_owner_culture = yes
+                            owner = { culture_group = ROOT }
+                      }
+                }
+                modifier = {
+                      factor = 0.75
+                      NOT = { religion = owner }
+                }
+                modifier = {
+                      factor = 0.9
+                      development = 20
+                }
+                modifier = {
+                      factor = 0.8
+                      development = 30
+                }
+                modifier = {
+                      factor = 0.7
+                      development = 40
+                }
+                modifier = {
+                      factor = 1.25
+                      overextension_percentage = 0.25
+                      NOT = { overextension_percentage = 0.5 }
+                }
+                modifier = {
+                      factor = 1.5
+                      overextension_percentage = 0.5
+                      NOT = { overextension_percentage = 0.75 }
+                }
+                modifier = {
+                      factor = 1.75
+                      overextension_percentage = 0.75
+                      NOT = { overextension_percentage = 1 }
+                }
+                modifier = {
+                      factor = 2
+                      overextension_percentage = 1
+                      NOT = { overextension_percentage = 1.25 }
+                }
+                modifier = {
+                      factor = 2.25
+                      overextension_percentage = 1.25
+                      NOT = { overextension_percentage = 1.5 }
+                }
+                modifier = {
+                      factor = 2.5
+                      overextension_percentage = 1.5
+                }
+	}
+
+	option = {
+		name = "horde.1.a" #This is our way of rule.
+                add_nationalism = -5
+                if = {
+			limit = { 
+                                   base_tax = 4
+                        }
+			add_base_tax = -2
+                        owner = { add_treasury = 100 }
+		}
+                if = {
+			limit = { 
+                                   base_tax = 2
+                                   NOT = { base_tax = 4 }
+                        }
+			add_base_tax = -1
+                        owner = { add_treasury = 50 }
+		}
+                if = {
+			limit = { 
+                                   base_production = 4
+                        }
+			add_base_production = -2
+                        owner = { add_treasury = 100 }
+		}
+                if = {
+			limit = { 
+                                   base_production = 2
+                                   NOT = { base_production = 4 }
+                        }
+			add_base_tax = -1
+                        owner = { add_treasury = 50 }
+		}
+                if = {
+			limit = { 
+                                   base_manpower = 4
+                        }
+			add_base_manpower = -2
+                        owner = { add_manpower = 0.1 }
+		}
+                if = {
+			limit = { 
+                                   base_manpower = 2
+                                   NOT = { base_manpower = 4 }
+                        }
+			add_base_manpower = -1
+                        owner = { add_manpower = 0.1 }
+		}
+                ai_chance = {
+			factor = 0.9
+		}
+	}
+        option = {
+		   name = "horde.43.b" #Prevent them!
+                   add_prestige = -5
+                   ai_chance = {
+			factor = 0.1
+		   }
+	}
+}
+
+###Horde recover from raising
+province_event = {
+        id = horde.2
+	title = "horde.2.t"
+	desc = "horde.2.d"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	trigger = {
+		is_core = owner
+                NOT = { unrest = 1 }
+                owner = { has_reform = steppe_horde }
+                owner = { 
+                          had_country_flag = { flag = horde_raising_army
+                                               days = 365 }
+                }
+                has_province_flag = province_raise_horde
+                owner = { is_at_war = no }
+                is_month = 3
+                NOT = {  is_month = 7 }
+	}
+
+	mean_time_to_happen = {
+		months = 36
+	}
+
+	option = {
+		name = "horde.2.a" #Great.
+                clr_province_flag = province_raise_horde
+                if = {
+                    limit = { has_province_flag = province_raise_horde_2 }
+                    clr_province_flag = province_raise_horde_2
+		    add_base_tax = 2
+		    add_base_production = 2
+                    add_base_manpower = 2
+                }
+                if = {
+                    limit = { 
+                               NOT = { has_province_flag = province_raise_horde_2 } 
+                    }
+		    add_base_tax = 1
+		    add_base_production = 1
+                    add_base_manpower = 1
+                }
+	}
+}
+
+
+###Horde raising army(Province)
+province_event = {
+        id = horde.3
+	title = "horde.3.t"
+	desc = "horde.3.d"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	trigger = {
+		is_core = owner
+                owner = { has_reform = steppe_horde }
+                owner = { has_country_modifier = horde_raising_army }
+                NOT = { has_province_flag = province_raise_horde }
+                base_tax = 2
+                base_production = 2
+                base_manpower = 2
+				controlled_by = owner
+	            has_siege = no
+	}
+
+	mean_time_to_happen = {
+		months = 9
+                modifier = {
+                      factor = 0.5
+                      OR = {
+                            has_owner_culture = yes
+                            owner = { culture_group = ROOT }
+                         }
+                }
+                modifier = {
+                      factor = 1.5
+                      NOT = { religion = owner }
+                }
+                modifier = {
+                      factor = 0.85
+                      owner = { is_at_war = yes }
+                }
+                modifier = {
+                      factor = 1.5
+                      unrest = 1
+                }
+                modifier = {
+                      factor = 1.5
+                      unrest = 5
+                }
+	}
+        immediate = {
+                  hidden_effect = {
+                       set_province_flag = province_raise_horde
+                  }
+        } 
+	option = {
+		name = "horde.3.a" #Great.
+		owner = { add_prestige = 1 }
+                if = {
+			limit = { 
+                                   NOT = {
+                                        AND = {
+                                              base_tax = 4
+                                              base_production = 4
+                                              base_manpower = 4
+                                        }
+                                   }
+                                   OR = {
+                                         has_owner_accepted_culture = yes
+                                         has_owner_culture = yes
+                                         owner = { culture_group = ROOT }
+                                         has_terrain = steppe
+                                   }
+                        }
+			add_base_tax = -1
+		        add_base_production = -1
+                        add_base_manpower = -1
+                        owner = { cavalry = ROOT }
+		}
+                if = {
+			limit = { 
+                                   base_tax = 4
+                                   base_production = 4
+                                   base_manpower = 4
+                                   OR = {
+                                         has_owner_accepted_culture = yes
+                                         has_owner_culture = yes
+                                         owner = { culture_group = ROOT }
+                                         has_terrain = steppe
+                                   }
+                        }
+			add_base_tax = -2
+		        add_base_production = -2
+                        add_base_manpower = -2
+                        set_province_flag = province_raise_horde_2
+                        owner = { cavalry = ROOT }
+                        owner = { cavalry = ROOT }
+		}
+                if = {
+			limit = { 
+                                   NOT = {
+                                       OR = {
+                                         has_owner_accepted_culture = yes
+                                         has_owner_culture = yes
+                                         owner = { culture_group = ROOT }
+                                         has_terrain = steppe
+                                       }
+                                   }
+                        }
+			add_base_tax = -1
+		        add_base_production = -1
+                        add_base_manpower = -1
+                        owner = { infantry = ROOT }
+		}
+	}
+}
+
+###Horde raising army ( Country ) 
+country_event = {
+        id = horde.30
+	title = "horde.30.t"
+	desc = "horde.30.d"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes
+        immediate = {
+                  hidden_effect = {
+                        every_neighbor_country = {
+                                limit = { ai = no }
+				country_event = { id = horde.31 }
+			}
+                  }
+        }   
+	option = {
+		   name = "horde.30.a" #Prepare for war!
+                   custom_tooltip = horde.30.at
+	}
+}
+
+###Horde raising army ( Warning neighbor player )
+country_event = {
+        id = horde.31
+	title = "horde.31.t"
+	desc = "horde.31.d"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "horde.31.a" #Worrisome...
+	}
+}
+
+###Horde Plundering ( From ) 
+country_event = {
+        id = horde.4
+	title = "horde.4.t"
+	desc = "horde.4.d"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes
+        immediate = {
+                  hidden_effect = {
+                        every_neighbor_country = {
+                                limit = { ai = no }
+				country_event = { id = horde.31 }
+			}
+                  }
+        }   
+	option = {
+		   name = "horde.4.a" #Go find treasury!
+                   custom_tooltip = horde.4.at
+	}
+}
+
+
+###General Plundered Event ( Money ) 
+country_event = {
+        id = horde.41
+	title = "horde.41.t"
+	desc = "horde.41.d"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes
+
+        option = {
+		   name = "horde.41.a" #How dare they!
+                   add_treasury = -30
+                   if = {
+                       limit = { NOT = { has_reform = steppe_horde } }
+                       add_casus_belli = {	
+			    target = FROM
+			    type = cb_civ_vs_horde
+			    months = 24
+                       }
+		   }
+                   custom_tooltip = horde.41.at
+	}
+}
+
+###General Plundered Event ( Manpower ) 
+country_event = {
+        id = horde.40
+	title = "horde.41.t"
+	desc = "horde.41.d"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	is_triggered_only = yes
+
+        option = {
+		   name = "horde.41.a" #How dare they!
+                   add_manpower = -1
+                   if = {
+                       limit = { NOT = { has_reform = steppe_horde } }
+                       add_casus_belli = {	
+			    target = FROM
+			    type = cb_civ_vs_horde
+			    months = 24
+                       }
+		   }
+                   custom_tooltip = horde.41.at
+	}
+}
+
+
+###Horde Plundering Stopped
+country_event = {
+        id = horde.42
+	title = "horde.42.t"
+	desc = "horde.42.d"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	trigger = {
+                has_country_modifier = horde_plundering
+		OR = {
+                        NOT = { has_reform = steppe_horde }
+                        is_month = 10
+                        NOT = {  is_month = 3 }
+                        is_at_war = yes
+                }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+        option = {
+		   name = "horde.42.a" #OK.
+                   remove_country_modifier = horde_plundering
+	}
+}
+
+###Horde Plundering Treasury
+
+country_event = {
+        id = horde.43
+	title = "horde.43.t"
+	desc = "horde.43.d"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	trigger = {
+                has_country_modifier = horde_plundering
+		any_neighbor_country = {
+                        NOT = { 
+                                   OR = {
+                                          war_with = ROOT 
+                                          truce_with = ROOT 
+                                          alliance_with = ROOT
+                                          junior_union_with = ROOT
+                                          senior_union_with = ROOT
+                                          vassal_of = ROOT 
+                                          overlord_of = ROOT
+                                   }
+                        }
+			any_owned_province = {
+                                base_tax = 4
+				any_neighbor_province = {
+					owned_by = ROOT
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 5
+	}
+
+        option = {
+		   name = "horde.43.a" #OK.
+                   add_adm_power = 15
+                   add_treasury = 25
+				   add_horde_unity = 3
+                   random_neighbor_country = {
+                        limit = {
+                                NOT = { 
+                                   OR = {
+                                          war_with = ROOT 
+                                          truce_with = ROOT 
+                                          alliance_with = ROOT
+                                          junior_union_with = ROOT
+                                          senior_union_with = ROOT
+                                          vassal_of = ROOT 
+                                          overlord_of = ROOT
+                                   }
+                                }
+                        }
+			random_owned_province = {
+				limit = {
+                                        base_tax = 4
+                                        any_neighbor_province = {
+					          owned_by = ROOT
+                                        }
+				}
+                                add_base_tax = -1
+                                ROOT = { add_treasury = 15 }
+			}
+                        add_opinion = { who = ROOT modifier = opinion_horde_plundering }
+                        hidden_effect = { country_event = { id = horde.41 } }
+		   }
+                   ai_chance = {
+                           factor = 0.9
+                   }
+	}
+        option = {
+		   name = "horde.43.b" #Prevent them
+                   add_prestige = -1
+                   ai_chance = {
+			factor = 0.1
+		   }
+	}
+}
+
+###Horde Plundering Production
+
+country_event = {
+        id = horde.44
+	title = "horde.44.t"
+	desc = "horde.44.d"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	trigger = {
+                has_country_modifier = horde_plundering
+		any_neighbor_country = {
+                        NOT = { 
+                                   OR = {
+                                          war_with = ROOT 
+                                          truce_with = ROOT 
+                                          alliance_with = ROOT
+                                          junior_union_with = ROOT
+                                          senior_union_with = ROOT
+                                          vassal_of = ROOT 
+                                          overlord_of = ROOT
+                                   }
+                        }
+			any_owned_province = {
+                                base_production = 4
+				any_neighbor_province = {
+					owned_by = ROOT
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 5
+	}
+
+        option = {
+		   name = "horde.44.a" #OK.
+                   add_dip_power = 15
+                   add_treasury = 25
+				   add_horde_unity = 3
+                   random_neighbor_country = {
+                        limit = {
+                                NOT = { 
+                                   OR = {
+                                          war_with = ROOT 
+                                          truce_with = ROOT 
+                                          alliance_with = ROOT
+                                          junior_union_with = ROOT
+                                          senior_union_with = ROOT
+                                          vassal_of = ROOT 
+                                          overlord_of = ROOT
+                                   }
+                               }
+                        }
+			random_owned_province = {
+				limit = {
+                                        base_production = 4
+                                        any_neighbor_province = {
+					          owned_by = ROOT
+                                        }
+				}
+                                add_base_production = -1
+                                ROOT = { add_treasury = 15 }
+			}
+                        add_opinion = { who = ROOT modifier = opinion_horde_plundering }
+                        hidden_effect = { country_event = { id = horde.41 } }
+		   }
+                   ai_chance = {
+			factor = 0.9
+		   }
+	}
+        option = {
+		   name = "horde.43.b" #Prevent them
+                   add_prestige = -1
+                   ai_chance = {
+			factor = 0.1
+		   }
+	}
+}
+
+###Horde Plundering Manpower
+
+country_event = {
+        id = horde.45
+	title = "horde.45.t"
+	desc = "horde.45.d"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	trigger = {
+                has_country_modifier = horde_plundering
+		any_neighbor_country = {
+                        NOT = { 
+                                   OR = {
+                                          war_with = ROOT 
+                                          truce_with = ROOT 
+                                          alliance_with = ROOT
+                                          junior_union_with = ROOT
+                                          senior_union_with = ROOT
+                                          vassal_of = ROOT 
+                                          overlord_of = ROOT
+                                   }
+                        }
+			any_owned_province = {
+                                base_manpower = 4
+				any_neighbor_province = {
+					owned_by = ROOT
+				}
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 4
+	}
+
+        option = {
+		   name = "horde.45.a" #OK.
+                   add_manpower = 1
+                   add_mil_power = 15
+				   add_horde_unity = 3
+                   random_neighbor_country = {
+                        limit = {
+                                NOT = { 
+                                   OR = {
+                                          war_with = ROOT 
+                                          truce_with = ROOT 
+                                          alliance_with = ROOT
+                                          junior_union_with = ROOT
+                                          senior_union_with = ROOT
+                                          vassal_of = ROOT 
+                                          overlord_of = ROOT
+                                   }
+                                }
+                        }
+			random_owned_province = {
+				limit = {
+                                        base_manpower = 4
+                                        any_neighbor_province = {
+					          owned_by = ROOT
+                                        }
+				}
+                                add_base_manpower = -1
+                                ROOT = { add_treasury = 15 }
+			}
+                        add_opinion = { who = ROOT modifier = opinion_horde_plundering }
+                        hidden_effect = { country_event = { id = horde.40 } }
+		   }
+                   ai_chance = {
+			factor = 0.9
+		   }
+	}
+        option = {
+		   name = "horde.43.b" #Prevent them
+                   add_prestige = -1
+                   ai_chance = {
+			factor = 0.1
+		   }
+	}
+}
+
+
+###AI Horde Leader Invades Neighboring Empire
+
+country_event = {
+    id = horde.5
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	hidden = yes
+	trigger = {
+		is_free_or_tributary_trigger = yes							   
+	    ai = yes
+	    has_reform = steppe_horde
+        mil = 4
+		manpower_percentage = 0.7
+        is_at_war = no
+		total_development = 80
+		is_month = 1
+        NOT = {  is_month = 8 }
+		NOT = { corruption = 10 }
+		any_neighbor_country = {
+		    OR = {
+			      total_development = 500
+				  government_rank = 3
+			}   
+			OR = {
+			      ROOT = { total_development = 500 } 
+				  AND = {
+				          ROOT = { total_development = 400 } #Requires 10% of development
+						  NOT = { total_development = 4000 }
+				  }
+				  AND = {
+				          ROOT = { total_development = 300 }
+						  NOT = { total_development = 3000 }
+				  }
+				  AND = {
+				          ROOT = { total_development = 250 }
+						  NOT = { total_development = 2500 }
+				  }
+				  AND = {
+				          ROOT = { total_development = 200 }
+						  NOT = { total_development = 2000 }
+				  }
+				  AND = {
+				          ROOT = { total_development = 150 }
+						  NOT = { total_development = 1500 }
+				  }
+				  AND = {
+				          tag = MNG
+						  ROOT = { tag = OIR }
+						  NOT = { is_year = 1460 }
+				  }
+				  NOT = { 
+                                OR = {
+                                          war_with = ROOT 
+                                          truce_with = ROOT 
+                                          alliance_with = ROOT
+                                          junior_union_with = ROOT
+                                          senior_union_with = ROOT
+                                          vassal_of = ROOT 
+                                          overlord_of = ROOT
+                                }
+                  }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+		       factor = 0.25 #Tumubao Accident
+			   tag = OIR
+			   is_year = 1444
+			   NOT = { is_year = 1460 }
+		}
+	}
+
+        option = {
+		   name = "horde.45.a" #OK.
+              
+		
+		#Raise the horde in advance
+		add_prestige = -5
+        add_mil_power = -50
+        clr_country_flag = horde_raising_army 
+        set_country_flag = horde_raising_army #Refresh
+        add_country_modifier = {
+                name = horde_raising_army
+                duration = 90
+        }
+	    country_event = { id = horde.30 }     # Inform the player
+	    
+		#Debase currency to gain enough money
+		add_corruption = 2
+		add_years_of_income = 0.5
+		
+		#Promise war in advance
+		add_dip_power = -100
+	    add_mil_power = -50
+		add_country_modifier = {
+			    name = horde_war_effort_modifier
+				duration = 365
+		}
+		
+	  KHA = {
+		#Raise the horde in advance
+		add_prestige = -5
+        add_mil_power = -50
+        clr_country_flag = horde_raising_army 
+        set_country_flag = horde_raising_army #Refresh
+        add_country_modifier = {
+                name = horde_raising_army
+                duration = 90
+        }
+	    country_event = { id = horde.30 }     # Inform the player
+	    
+		#Debase currency to gain enough money
+		add_corruption = 2
+		add_years_of_income = 0.5
+		
+		#Promise war in advance
+		add_dip_power = -100
+	    add_mil_power = -50
+		add_country_modifier = {
+			    name = horde_war_effort_modifier
+				duration = 365
+		}
+	 }
+		country_event = { id = horde.51 days = 60 } #Two month's preperation
+	}
+}
+
+country_event = {
+    id = horde.51
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	hidden = yes
+	
+	is_triggered_only = yes
+	trigger = {
+	      NOT = { 
+                                OR = {
+                                          war_with = FROM
+                                          truce_with = FROM 
+                                          alliance_with = FROM
+                                          junior_union_with = FROM
+                                          senior_union_with = FROM
+                                          vassal_of = ROOT 
+                                          overlord_of = ROOT
+                                }
+                         }
+	}
+	option = {
+          name = "EVT_HIDDEN"
+		  random_neighbor_country = {
+		          limit = { 
+                     total_development = 1000
+			         OR = {
+			             ROOT = { total_development = 1000 } 
+				         AND = {
+				          ROOT = { total_development = 400 } #Requires 10% of development
+						  NOT = { total_development = 4000 }
+				         }
+				         AND = {
+				          ROOT = { total_development = 300 }
+						  NOT = { total_development = 3000 }
+				         }
+				         AND = {
+				          ROOT = { total_development = 250 }
+						  NOT = { total_development = 2500 }
+				         }
+				         AND = {
+				          ROOT = { total_development = 200 }
+						  NOT = { total_development = 2000 }
+				         }
+				         AND = {
+				          ROOT = { total_development = 150 }
+						  NOT = { total_development = 1500 }
+				         }
+						 AND = {
+				          tag = MNG
+						  ROOT = { tag = OIR }
+						  NOT = { is_year = 1460 }
+				         }
+				         NOT = { 
+                                OR = {
+                                          war_with = ROOT 
+                                          truce_with = ROOT 
+                                          alliance_with = ROOT
+                                          junior_union_with = ROOT
+                                          senior_union_with = ROOT
+                                          vassal_of = ROOT 
+                                          overlord_of = ROOT
+                                }
+                         }
+			         }
+				  }
+				  ROOT = {
+          declare_war_with_cb = {
+				who = PREV
+				casus_belli = cb_horde_vs_civ
+		  }
+        }	
+				  
+		}
+			  
+	}
+}
+
+#Promise of War Fullfilled
+country_event = {
+    id = horde.61
+	title = "horde.61.t"
+	desc = "horde.61.d"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	trigger = {
+	      has_country_flag =  horde_war_effort_flag
+		  any_neighbor_country = {
+		          total_development = ROOT
+				  war_with = ROOT
+		  }
+	}
+	mean_time_to_happen = {
+	    days = 10
+	}
+	option = {
+        name = "horde.61.a"
+		add_horde_unity = 5
+		add_mil_power = 50
+		remove_country_modifier = horde_war_effort_modifier 
+        clr_country_flag = horde_war_effort_flag
+        add_country_modifier = {
+		       name = horde_war_effort_modifier 
+			   duration = 730
+		}		
+	}
+}
+
+#Promise Broken
+country_event = {
+    id = horde.62
+	title = "horde.62.t"
+	desc = "horde.62.d"
+	picture = HORDE_ON_HORSEBACK_eventPicture
+	
+	trigger = {
+	      has_country_flag =  horde_war_effort_flag
+		  NOT = { has_country_modifier = horde_war_effort_modifier  }
+		  NOT = {
+		       any_neighbor_country = {
+		          total_development = ROOT
+				  war_with = ROOT
+		       }
+		  }
+	}
+	mean_time_to_happen = {
+	    days = 10
+	}
+	option = {
+        name = "horde.62.a"
+		clr_country_flag = horde_war_effort_flag
+		add_horde_unity = -20
+	}
+}

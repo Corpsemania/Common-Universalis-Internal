@@ -1,0 +1,358 @@
+########################################
+# Emperor of China in Name
+########################################
+#use 0&3, instead vanilia 1&2 (for localision)
+namespace = empire_of_china_in_name
+
+# Emperor in Name
+country_event = {
+	id = empire_of_china_in_name.0
+	title = "empire_of_china_in_name.0.t"
+	desc = "empire_of_china_in_name.0.d"
+	picture = IMPERIAL_SEAL_eventPicture
+
+	major = yes
+	
+	is_triggered_only = yes
+	immediate = {
+		set_country_flag = had_empire_of_china_culture_disaster
+	}
+	option = {#Yuan road, pay tax is good()
+		name = "empire_of_china_in_name.1.a"
+		add_country_modifier = { name = yuan_system_in_china duration = -1 }
+		every_owned_province = {
+			limit = {
+				NOT = { has_province_modifier = yuan_tax_farming }
+				culture_group = east_asian
+				OR = {
+					region = south_china_region
+					region = xinan_region
+					region = north_china_region
+				}
+			}
+			add_province_modifier = { name = yuan_tax_farming duration = 3650 }
+		}
+		custom_tooltip = {
+			tooltip = empire_of_china_in_name.1.t1
+		}
+	}
+	
+	option = {#Embrace Chineseization
+		name = "empire_of_china_in_name.1.b"
+		trigger = {
+			OR = {
+				culture_group = japanese_g
+				culture_group = evenks
+				culture = korean
+				culture_group = tibet_g
+				culture = vietnamese
+				culture = khmer
+				culture = mon
+				culture_group = altaic
+				culture_group = malay
+				culture_group = southeastasian_group
+				culture_group = south_turkic                                       
+				culture_group = tartar 
+				culture_group = burman
+			}
+		}
+		add_country_modifier = { name = beiwei_system_in_china duration = -1 }
+		set_variable = { which = cu_var1 value = -101 }
+		cu_change_stability_point = yes
+		add_mandate = 10
+		every_owned_province = {
+			limit = {
+				culture_group = owner
+				NOT = { has_province_modifier = cu_cultural_assimilation }
+				is_capital = no
+			}
+			add_province_modifier = { name = cu_cultural_assimilation duration = -1 }
+		}
+        change_primary_culture = china_conqueror
+		set_ruler_culture = china_conqueror  
+		set_heir_culture = china_conqueror
+		capital_scope = {
+			change_culture = china_conqueror
+		}
+		custom_tooltip = {
+			tooltip = empire_of_china_in_name.1.t2
+		}
+	}
+	
+	option = {#Qing road, only for non-tribe
+		name = "empire_of_china_in_name.1.c"
+		trigger = {
+			OR = {
+				has_country_flag = can_use_qing_policy
+				NOT = { has_country_flag = reacted_to_confucianism_event }
+			}
+			OR = {
+				religion = confucianism
+				religion = shinto
+				religion = mahayana
+			}
+		}
+		add_country_modifier = { name = qing_system_in_china duration = -1 }
+		set_variable = { which = cu_var1 value = -101 }
+		cu_change_stability_point = yes
+		add_mandate = -20
+		every_owned_province = {
+			limit = {
+				NOT = { has_province_modifier = pigtail_or_death }
+				culture_group = east_asian
+				OR = {
+					region = south_china_region
+					region = xinan_region
+					region = north_china_region
+				}
+			}
+			add_province_modifier = { name = pigtail_or_death duration = 3650 }
+		}
+		custom_tooltip = {
+			tooltip = empire_of_china_in_name.1.t3
+		}
+	}
+}
+
+
+#End of Disaster
+country_event = {
+	id = empire_of_china_in_name.3
+	title = "empire_of_china_in_name.3.t"
+	desc = "empire_of_china_in_name.3.d"
+	picture = GIFTS_TO_EMPEROR_eventPicture
+	
+	is_triggered_only = yes
+
+	major = yes
+	
+	option = {			
+		name = "empire_of_china_in_name.2.a"
+		if = {
+			limit = { has_country_modifier = beiwei_system_in_china }
+			remove_country_modifier = beiwei_system_in_china
+		}
+		if = {
+			limit = { has_country_modifier = qing_system_in_china }
+			every_owned_province = {
+					limit = { 
+						culture_group = ROOT 
+						NOT = {
+							OR = {
+								culture = vietnamese
+								culture = khmer
+								culture = mon
+							}
+						}
+					}
+					set_province_flag = province_can_chineseization
+				}
+				if = {
+					limit = { culture_group = japanese_g }
+					change_primary_culture = japanese_conqueror
+					set_ruler_culture = japanese_conqueror 
+					set_heir_culture = japanese_conqueror
+				}
+				else_if = {
+					limit = { culture_group = evenks }
+					change_primary_culture = manchu_han  
+					set_ruler_culture = manchu_han  
+					set_heir_culture = manchu_han
+				}
+				else_if = {
+					limit = { culture = korean }
+					change_primary_culture = korean_conqueror
+					set_ruler_culture = korean_conqueror
+					set_heir_culture = korean_conqueror
+				}        
+				else_if = {
+					limit = { culture_group = tibet_g }
+					change_primary_culture = tibetan_conqueror  
+					set_ruler_culture = tibetan_conqueror  
+					set_heir_culture = tibetan_conqueror
+				}
+				else_if = {
+					limit = { culture_group = altaic }
+					change_primary_culture = mongolian_conqueror 
+					set_ruler_culture = mongolian_conqueror 
+					set_heir_culture = mongolian_conqueror
+				}
+				else_if = {
+					limit = { culture_group = malay }
+					change_primary_culture = malay_conqueror
+		            set_ruler_culture = malay_conqueror
+		            set_heir_culture = malay_conqueror	
+				}	   
+				else_if = {
+					limit = { culture_group = southeastasian_group }
+					change_primary_culture = thai_conqueror
+					set_ruler_culture = thai_conqueror
+					set_heir_culture = thai_conqueror
+				}
+				else_if = {
+					limit = { culture = vietnamese }
+					every_owned_province = {
+						limit = { 
+							culture = ROOT
+						}
+						set_province_flag = province_can_chineseization
+					}
+					change_primary_culture = vietese_conqueror
+					set_ruler_culture = vietese_conqueror
+					set_heir_culture = vietese_conqueror
+				}
+				else_if = {
+					limit = { culture = khmer }
+					every_owned_province = {
+						limit = { 
+							culture = ROOT
+						}
+						set_province_flag = province_can_chineseization
+					}
+					change_primary_culture = khmer_conqueror
+		            set_ruler_culture = khmer_conqueror
+		            set_heir_culture = khmer_conqueror
+				}
+				else_if = {
+					limit = { 
+						OR = {
+							culture_group = south_turkic                                       
+							culture_group = tartar                                       
+						}
+					}
+					every_owned_province = {
+						limit = {							
+								culture_group = ROOT 		
+						}
+						set_province_flag = province_can_chineseization
+					}
+					change_primary_culture = turkish_conqueror
+					set_ruler_culture = turkish_conqueror
+					set_heir_culture = turkish_conqueror 
+				}
+				else_if = {
+					limit = { 
+						OR = {
+							culture_group = burman                                       
+							culture = mon
+						}
+					}
+					every_owned_province = {
+						limit = { 
+							OR = {
+								culture_group = burman                                       
+								culture = mon
+							}
+						}
+						set_province_flag = province_can_chineseization
+					}
+					change_primary_culture = burmese_conqueror
+		            set_ruler_culture = burmese_conqueror
+		            set_heir_culture = burmese_conqueror 
+				}
+		}
+		
+	}
+}
+
+#Chinesization
+province_event = {
+    id = empire_of_china_in_name.10
+	title = "empire_of_china_in_name.10.t"
+	desc = "empire_of_china_in_name.10.d"
+	picture = CONQUEST_eventPicture
+	
+	trigger = {
+		OR = {
+			culture_group = japanese_g
+			culture_group = evenks
+			culture = korean
+			culture_group = tibet_g
+			culture = vietnamese
+			culture = khmer
+			culture = mon
+			culture_group = altaic
+			culture_group = malay
+			culture_group = southeastasian_group
+			culture_group = south_turkic                                       
+			culture_group = tartar 
+			culture_group = burman
+		}
+		owner = { 
+			has_country_modifier = qing_system_in_china 
+			NOT = { has_disaster = empire_of_china_in_name }
+		}		
+		has_province_flag = province_can_chineseization		
+	}
+
+	mean_time_to_happen = {
+		months = 360
+	}
+	
+	option = {
+		name = "mandate.666.a" #good!
+		owner = {
+			if = {
+				limit = {
+					is_emperor_of_china = yes
+				}
+				add_mandate = 1
+			}
+			add_prestige = 5
+		}
+        if = {
+			limit = { culture_group = japanese_g }
+            change_culture = japanese_conqueror
+        }
+        else_if = {
+			limit = { culture_group = evenks }
+            change_culture = manchu_han
+        }
+        else_if = {
+			limit = { culture = korean }
+            change_culture = korean_conqueror
+        }        
+        else_if = {
+			limit = { culture_group = tibet_g }
+            change_culture = tibetan_conqueror
+        }
+        else_if = {
+			limit = { culture_group = altaic }
+            change_culture = mongolian_conqueror
+        }
+		else_if = {
+			limit = { culture_group = malay }
+            change_culture = malay_conqueror
+        }	   
+        else_if = {
+			limit = { culture_group = southeastasian_group }
+            change_culture = thai_conqueror
+        }
+        else_if = {
+			limit = { culture = vietnamese }
+            change_culture = vietese_conqueror
+        }
+		else_if = {
+			limit = { culture = khmer }
+            change_culture = khmer_conqueror
+        }		   
+        else_if = {
+			limit = { 
+				OR = {
+					culture_group = south_turkic                                       
+					culture_group = tartar                                       
+				}
+			}
+            change_culture = turkish_conqueror 
+        }
+		else_if = {
+			limit = { 
+				OR = {
+					culture_group = burman                                       
+					culture = mon                                       
+				}
+			}
+            change_culture = burmese_conqueror 
+        }
+	}
+}

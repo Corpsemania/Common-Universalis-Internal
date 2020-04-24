@@ -1,0 +1,204 @@
+namespace = baba
+
+###Province's Conversion to secondary religion
+province_event = {
+        id = baba.51
+	title = "baba.1.t"
+	desc = "baba.1.d"
+	picture = RELIGIOUS_TURMOIL_eventPicture
+	
+	trigger = {
+                owner = { has_secondary_religion = yes }
+                has_dlc = "The Cossacks"
+                has_owner_religion = yes
+                OR = {
+                   owner = {
+                       any_owned_province = {
+                           religion = secondary
+	               }
+                   }
+                   any_neighbor_province = {
+                          religion = secondary
+	              }
+                }
+                NOT = {
+                     OR = {
+                           owner = {
+                               secondary_religion = animism
+                           }
+                           owner = {
+                               secondary_religion = shamanism
+                           }
+                           owner = {
+                               secondary_religion = totemism
+                           }
+                           owner = {
+                               NOT = { religion_group = pagan }
+                               secondary_religion = inti
+                           }
+                           owner = {
+                               NOT = { religion_group = pagan }
+                               secondary_religion = nahuatl
+                           }
+                           owner = {
+                               NOT = { religion_group = pagan }
+                               secondary_religion = mesoamerican_religion
+                           }
+                           owner = {
+                               NOT = { religion_group = pagan }
+                               secondary_religion = norse_pagan_reformed
+                           }
+                           owner = {
+                               secondary_religion = tengri_pagan_reformed
+                           }
+                     }
+                }
+        }
+	mean_time_to_happen = {
+		months = 1800
+                modifier = {
+                      factor = 2
+                      owner = {
+                               religion = confucianism
+                      }
+                }
+                modifier = {
+                      factor = 0.85
+                      OR = {
+                            has_owner_culture = yes
+			    has_owner_accepted_culture = yes
+                            owner = { culture_group = ROOT }
+                      }
+                }
+                modifier = {
+                      factor = 0.6
+                      any_neighbor_province = {
+                          religion = secondary
+	              }
+                }
+                modifier = {
+                      factor = 0.6
+                      owner = {
+                          NOT = { dominant_religion = ROOT }
+	              }
+                }
+                modifier = {
+                      factor = 1.25
+                      development = 20
+                }
+                modifier = {
+                      factor = 1.25
+                      development = 30
+                }
+                modifier = {
+                      factor = 1.25
+                      development = 40
+                }
+                modifier = {
+                      factor = 0.9
+                      owner = { has_country_modifier = large_state }
+                }
+                modifier = {
+                      factor = 0.85
+                      owner = { has_country_modifier = huge_state }
+                }
+                modifier = {
+                      factor = 0.80
+                      owner = { has_country_modifier = continental_state }
+                }
+                modifier = {
+                      factor = 0.75
+                      owner = { has_country_modifier = world_state }
+                }
+                modifier = {
+                      factor = 1.25
+                      unrest = -5
+                      NOT = { unrest = -2 } 
+                }
+                modifier = {
+                      factor = 1.15
+                      unrest = -2
+                      NOT = { unrest = 0 } 
+                }
+                modifier = {
+                      factor = 0.9
+                      unrest = 2
+                      NOT = { unrest = 5 } 
+                }
+                modifier = {
+                      factor = 0.8
+                      unrest = 5
+                }
+	}
+
+	option = {
+		name = "baba.1.a" #Allow Conversion
+                change_to_secondary_religion = yes
+                ai_chance = {
+                          factor = 50
+                } 
+	}
+
+        option = {
+		name = "baba.1.b" #Forbid Conversion
+		add_unrest = 5
+                add_adm_power = -20
+                add_mil_power = -30
+                ai_chance = {
+                          factor = 50
+                          modifier = {
+                                factor = 0
+                                OR = { 
+                                             NOT = {  owner = { mil_power = 30 } }
+                                             NOT = {  owner = { adm_power = 20 } }
+                                }
+                          }
+                }
+	}
+}
+
+#State Conversion To Secondary
+
+country_event = {
+        id = baba.52
+	title = "baba.2.t"
+	desc = "baba.2.d"
+	picture = PRAYING_eventPicture
+	
+	trigger = {
+                   dominant_religion = secondary
+                   OR = {
+                          NOT = { has_country_flag = refuse_conversion_to_secondary }
+                          had_country_flag = { flag = refuse_conversion_to_secondary
+                                               days = 7300
+                          }
+                   }
+        }
+
+        mean_time_to_happen = {
+		months = 240
+        }
+   
+        immediate = {
+               hidden_effect = {
+                      clr_country_flag = refuse_conversion_to_secondary
+                      set_country_flag = refuse_conversion_to_secondary
+               }
+        }
+
+	option = {
+		name = "baba.2.a" # Pleace guide us!
+        clr_country_flag = refuse_conversion_to_secondary
+        change_to_secondary_religion = yes
+        change_variable = { which = cu_var1 value = -75 }
+		cu_change_stability_point = yes
+        add_prestige = -20
+	}
+    option = {
+		name = "baba.2.b" # Refuse Conversion
+        change_variable = { which = cu_var1 value = -150 }
+		cu_change_stability_point = yes
+        add_dip_power = -200
+        add_mil_power = -200
+	}
+}

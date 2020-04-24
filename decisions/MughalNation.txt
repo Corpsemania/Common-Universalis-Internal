@@ -1,0 +1,133 @@
+country_decisions = {
+
+	mughal_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			tag = TIM
+			OR = {
+				NOT = { exists = MUG }
+				ai = no
+			}			
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 5
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		allow = {
+			NOT = { exists = MUG }
+            NOT = { total_development = 300 }
+			is_at_war = no
+			is_subject = no
+            OR = { 
+                adm_tech = 10
+			    government_rank = 3
+                NOT = { has_reform =  steppe_horde }
+                NOT = {
+                    num_of_owned_provinces_with = {
+			            value = 15
+			            AND = {
+                            NOT = { culture_group = hindusthani }
+                            NOT = { culture_group = eastern_aryan }
+                            NOT = { culture_group = western_aryan }
+                            NOT = { culture_group = dravidian }
+                            NOT = { culture_group = central_indic }
+                        }
+                    }
+                }
+            }
+			owns_core_province = 578
+			owns_core_province = 507
+			owns_core_province = 510
+			owns_core_province = 522				
+		}
+		effect = {
+			522 = {
+				move_capital_effect = yes
+			}
+			change_tag = MUG
+			swap_non_generic_missions = yes
+			remove_non_electors_emperors_from_empire_effect = yes
+			change_primary_culture = kanauji
+			set_government_rank = 3						
+			hindusthan_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+				}
+				add_permanent_claim = MUG
+			}
+			add_prestige = 25			
+			if = {
+				limit = {
+					NOT = { technology_group = indian }
+				}
+				change_technology_group = indian
+				change_unit_type = indian
+			}
+			add_government_reform = becomes_monarchy_reform			
+			add_government_reform = mandate_system			
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			if = {
+			    limit = { has_country_modifier = tribal_conscription }
+				remove_country_modifier = tribal_conscription
+				add_country_modifier = {
+				        name = feudal_conscription
+						duration = -1
+				}
+			}
+			custom_tooltip = timurid_claims_abandoned_tooltip
+			hidden_effect = {
+				every_province = {
+					limit = {
+						NOT = { owned_by = MUG }
+						OR = {
+							region = persia_region
+							region = khorasan_region
+							region = caucasia_region
+							region = central_asia_region
+						}
+						is_permanent_claim = MUG
+					}
+					remove_claim = MUG
+				}
+				every_province = {
+					limit = {
+						NOT = { owned_by = MUG }
+						OR = {
+							region = persia_region
+							region = khorasan_region
+							region = caucasia_region
+							region = central_asia_region
+						}
+						is_core = MUG
+					}
+					remove_core = MUG
+				}
+			}
+			set_country_flag = formed_mughal_empire_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+
+}

@@ -1,0 +1,698 @@
+# Province Triggered modifiers are here.
+# These are added to provinces through the add_province_triggered_modifier effect
+#
+# Effects are fully scriptable here.
+
+
+###########################################
+# Just random test modifier
+###########################################
+test_modifier = {
+	potential = {
+		has_global_flag = test_version
+	}
+
+	trigger = {
+		owner = {
+			stability = 0
+		}
+	}
+
+	local_build_cost = 0.05	
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+non_catholic_rome = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			NOT = { religion = catholic }	
+			NOT = { religion = bogomilist }
+			NOT = { religion = nestorian }
+			NOT = { religion = messalian }		
+			OR = { 
+                                                                religion_group = christian
+				religion_group = muslim
+			}
+		}
+	}
+
+	prestige = 0.25
+	missionaries = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+religious_center = {
+	potential = {
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		if = {
+			limit = {
+				province_id = 118 # Roma
+			}
+			religion = catholic
+		}
+		else_if = {
+			limit = {
+				province_id = 385 # Mecca
+			}
+			religion = sunni
+		}
+		else_if = {
+			limit = {
+				province_id = 409 # Hillah
+			}
+			religion = shiite
+		}
+		else_if = {
+			limit = {
+				province_id = 677
+			}
+			religion = vajrayana
+		}
+		else_if = {
+			limit = {
+				province_id = 2075
+			}
+			religion = sikhism
+		}
+		else_if = {
+			limit = {
+				province_id = 2095
+			}
+			religion = hinduism
+		}
+		else_if = {
+			limit = {
+				province_id = 2099
+			}
+			religion = buddhism
+		}
+		else_if = {
+			limit = {
+				province_id = 2311
+			}
+			religion = shiite
+		}
+		else_if = {
+			limit = {
+				province_id = 2221
+			}
+			religion = shiite
+		}
+		else_if = {
+			limit = {
+				province_id = 4359
+			}
+			religion = shinto
+		}
+	}
+
+	local_missionary_strength = -0.05
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+#Coptic control of Alexandria
+
+coptic_alexandria = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion = coptic
+		}
+	}
+	
+	prestige = 0.25
+	missionaries = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+nestorian_antioch = {
+	potential = {
+		normal_or_historical_nations = yes
+        }
+      
+	trigger = {
+		owner = {
+			OR={
+                    religion = nestorian
+                    religion = messalian
+            }
+		}
+	}
+
+	prestige = 0.25
+	missionaries = 1
+
+               #Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+}
+
+nestorian_taysifun = {
+	 potential = {
+		normal_or_historical_nations = yes
+        }
+
+	trigger = {
+		owner = {
+			OR={
+                    religion = nestorian
+                    religion = messalian
+        }
+		}
+	}
+
+	prestige = 0.25
+	missionaries = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+}
+
+nestorian_chang'an = {
+	potential = {
+		normal_or_historical_nations = yes		
+	}
+
+	trigger = {
+		owner = {
+			religion = nestorian
+		}
+	}
+
+	prestige = 0.25
+	missionaries = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+}
+
+#Therevada Control of sacred tooth
+
+theravada_kotte = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion = buddhism
+		}
+	}
+	
+	prestige = 0.25
+	missionaries = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+#Vajrayana Control of Lhasa
+
+vajrayana_lhasa = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion = vajrayana
+		}
+	}
+	picture = "cu_the_potala_palace"
+	prestige = 0.25
+	missionaries = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+#Mahayana control of Louyang
+
+mahayana_louyang = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {			
+			OR = {
+            religion = mahayana
+            religion = bogomilist
+            religion = confucianism
+            religion = shinto
+            }
+		}
+	}
+	
+	prestige = 0.25
+	missionaries = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+#Buddhist control of Bodh Gaya
+
+buddhist_bodh_gaya = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			OR = {
+				religion = buddhism
+				religion = vajrayana
+				religion = mahayana
+			}
+		}
+	}
+	
+	prestige = 0.25
+	missionaries = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+taoism_longhushan = {
+	potential = {
+		normal_or_historical_nations = yes			
+	}
+
+	trigger = {
+		owner = {			
+			religion = bogomilist
+		}
+	}
+
+	prestige = 0.25
+	missionaries = 1
+	#icon = 9
+}
+
+confucian_qufu = {
+	potential = {
+		normal_or_historical_nations = yes			
+	}
+
+	trigger = {
+		owner = {			
+			OR = {
+            religion = confucianism
+            religion = bogomilist
+            religion = mahayana
+            religion = shinto
+            }
+		}
+	}
+    picture = "cu_kong_mansion_qufu"
+	prestige = 0.25
+	missionaries = 1
+	#icon = 9
+}
+
+# Hindu control of Varanasi
+
+hindu_varanasi = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion = hinduism
+		}
+	}
+	
+	prestige = 0.25
+	missionaries = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+# Inti control of Pachamac
+
+inti_lima = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion = inti			
+		}
+	}
+	
+	prestige = 0.25
+	missionaries = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+#Nahuatl control of cholulula
+
+nahuatl_cholula = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion = nahuatl			
+		}
+	}
+	
+	prestige = 0.25
+	missionaries = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+# Mayan control of Chichen Itza
+
+mayan_chichen_itza = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion = mesoamerican_religion			
+		}
+	}
+	
+	prestige = 0.25
+	missionaries = 1
+	picture = "cu_chichen_itza"
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+# Sikh control of Amritsar
+
+sikh_amritsar = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion = sikhism
+		}
+		religion = sikhism
+	}
+	
+	prestige = 0.25
+	missionaries = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+# Christian control of Mecca
+
+christian_mecca = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+		    OR = {
+			religion_group = christian
+			religion_group = zoroastrian
+			     }
+			NOT = { religion = bogomilist }
+			NOT = { religion = nestorian }
+			NOT = { religion = messalian }	
+		}
+	}
+	
+	prestige = 0.25
+	missionaries = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+# Jerusalem held by any Abrahamic faith
+
+jerusalem_held = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			OR = {
+				religion_group = christian
+				religion_group = muslim
+				religion_group = jewish_group
+			}
+			NOT = { religion = bogomilist }
+		}
+	}
+	
+	prestige = 0.25
+	missionaries = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}
+
+alandalus_returns = {
+	potential = {
+		
+	}
+	
+	#viewer = {
+	#
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = muslim
+		}
+	}
+	
+	prestige = 0.5
+	tolerance_heretic = 1
+	
+	on_activation = {}
+	
+	on_deactivation = {}
+	
+}
+
+zoroastrian_zanjan = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	
+	#viewer = {
+	#}
+	
+	trigger = {
+		owner = {
+			religion_group = zoroastrian_group				
+		}
+	}
+	picture = "cu_takht_e_soleyman"
+	prestige = 0.25
+	missionaries = 1
+	
+	#Province scope
+	on_activation = {
+	
+	}
+	
+	on_deactivation = {
+	
+	}
+	
+}

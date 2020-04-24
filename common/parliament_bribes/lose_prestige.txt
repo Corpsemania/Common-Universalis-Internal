@@ -1,0 +1,17 @@
+lose_prestige = {
+	trigger = {
+		prestige = 8
+	}
+	
+	effect = {
+		add_prestige = -8
+		custom_tooltip = parliament_bribe_15t
+		hidden_effect = {
+		     country_event = { id = parlaments.999 }
+		}
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}

@@ -1,0 +1,197 @@
+namespace = celestial_empire_events
+
+country_event = {
+	id = celestial_empire_events.1
+	title = celestial_empire_events.1.t
+	desc = celestial_empire_events.1.d
+	picture = SUFFERING_CHINESE_VILLAGE_eventPicture
+	
+	is_triggered_only = yes
+	
+	major = yes
+	
+	trigger = {
+		FROM = { is_emperor_of_china = yes }
+	}
+	
+	option = {
+		name = "celestial_empire_events.1.a"
+		add_prestige = 10
+		add_dip_power = 50
+		add_mil_power = 50
+		add_adm_power = 50
+	}
+}
+
+#An ideology for an Empire
+
+country_event = {
+	id = celestial_empire_events.2
+	title = celestial_empire_events.2.t
+	desc = celestial_empire_events.2.d
+	picture = IMPERIAL_EXAMINATION_eventPicture
+	
+	major = yes
+	
+	
+	trigger = {
+		OR ={
+		has_reform =  zhuhou 
+		has_reform =  celestial_empire 
+		has_reform =  celestial_empire_2                                        
+		}
+		NOT = { tag = MNG }
+		NOT = { religion = confucianism }
+		NOT = { has_country_flag = reacted_to_confucianism_event } #If you form the empire multiple times you won't get this again
+	}
+    mean_time_to_happen = { months = 1 }
+	immediate = {
+		hidden_effect = {
+			set_country_flag = reacted_to_confucianism_event
+		}
+	}
+	
+	option = {
+		name = "celestial_empire_events.2.a"
+		ai_chance = {
+			factor = 100
+		}
+		if = {
+			limit = {
+				OR = {
+					religion = shinto
+					religion = mahayana
+				}
+			}
+			set_country_flag = can_use_qing_policy
+		}
+		change_religion = confucianism
+        set_ruler_religion = confucianism
+		set_heir_religion = confucianism
+		add_mercantilism = 75
+		add_government_reform = bureaucratic
+		add_government_reform = trade_policy_1
+		if = {
+			limit = { has_reform = education_policy_nobles }
+			add_government_reform = education_policy_church
+		}
+        add_country_modifier = {
+				name = "conversion_zeal"
+				duration = 3650
+			}
+			if = { 
+		limit = { has_country_flag = settled_steppe_horde }
+			swap_free_idea_group = yes
+		}		
+	}
+	option = {
+		name = "celestial_empire_events.2.b"
+		ai_chance = {
+			factor = 0
+		}
+		change_variable = { which = cu_var1 value = -100 }
+		cu_change_stability_point = yes
+	}
+}
+
+
+
+#Sinicization
+country_event = {
+	id = celestial_empire_events.3
+	title = celestial_empire_events.3.t
+	desc = celestial_empire_events.3.d
+	picture = MERITOCRACY_eventPicture
+	
+	is_triggered_only = yes
+	
+	trigger = {
+		is_emperor_of_china = yes
+		has_dlc = "Mandate of Heaven"
+		NOT = { tag = MNG }
+		NOT = { culture_group = east_asian } #No Chinese Primary Culture
+		any_owned_province = {
+			has_owner_culture = yes
+		}
+		NOT = { has_country_flag = had_sinicization_event }
+		calc_true_if = {
+			accepted_culture = manchu
+			accepted_culture = chihan
+			accepted_culture = miao
+			accepted_culture = cantonese
+			accepted_culture = jin
+			accepted_culture = wu
+			accepted_culture = chimin
+			accepted_culture = hakka
+			accepted_culture = gan
+			accepted_culture = xiang
+			accepted_culture = sichuanese
+			accepted_culture = jianghuai
+			accepted_culture = xibei
+			accepted_culture = hubei
+			accepted_culture = zhongyuan
+			accepted_culture = shandong_culture
+			amount = 2
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = had_sinicization_event
+			random_owned_province = {
+				limit = {
+					has_owner_culture = yes
+					cu_not_terr_trigger = yes
+				}
+				area = {
+					limit = { owned_by = ROOT }
+					set_province_flag = resentment_to_sinicization
+				}
+			}
+			random_owned_province = {
+				limit = {
+					has_owner_culture = yes
+					cu_not_terr_trigger = yes
+					NOT = { has_province_flag = resentment_to_sinicization }
+				}
+				area = {
+					limit = { owned_by = ROOT }
+					set_province_flag = resentment_to_sinicization
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "celestial_empire_events.3.a"
+		ai_chance = {
+			factor = 75
+		}
+		add_mandate_effect = yes
+		add_meritocracy_large_effect = yes
+		every_owned_province = {	#2 states with atleast one province of a non-chinese primary culture, tooltip should display maximum 10 provinces
+			limit = {
+				has_province_flag = resentment_to_sinicization
+			}
+			clr_province_flag = resentment_to_sinicization
+			add_province_modifier = {
+				name = "resistance_to_cultural_changes"
+				duration = 3650
+			}
+		}
+	}
+	option = {
+		name = "celestial_empire_events.3.b" #We must preserve our heritage!
+		ai_chance = {
+			factor = 25
+		}
+		add_adm_power = -75
+		reduce_mandate_effect = yes
+		hidden_effect = {
+			every_owned_province = {
+				limit = { has_province_flag = resentment_to_sinicization }
+				clr_province_flag = resentment_to_sinicization
+			}
+		}
+	}
+}

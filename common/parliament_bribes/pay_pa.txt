@@ -1,0 +1,26 @@
+pay_pa = {
+	trigger = {
+		OR = {
+			AND = {
+				religion = orthodox
+				FROM = { religion = orthodox }
+			}
+			AND = {
+				religion = coptic
+				FROM = { religion = coptic }
+			}
+		}
+	}
+	
+	effect = {
+		add_patriarch_authority = -0.05
+		custom_tooltip = parliament_bribe_25t
+		hidden_effect = {
+		    country_event = { id = parlaments.999}
+		}
+	}
+	
+	ai_will_do = {
+		factor = 1
+	}
+}

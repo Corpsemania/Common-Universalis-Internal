@@ -1,0 +1,31 @@
+#486 - Guantanamo		
+
+culture = arawak
+religion = animism
+capital = "Guantanamo"
+trade_goods = unknown 
+hre = no
+base_tax = 2
+
+base_production = 2
+base_manpower = 1
+native_size = 10
+native_ferocity = 1
+native_hostileness = 3
+
+1492.10.24 = { discovered_by = CAS } # Christopher Columbus's arrival
+1514.6.28 = {
+	owner = CAS
+	controller = CAS
+	culture = castillian
+	religion = catholic
+	is_city = yes
+	trade_goods = sugar
+} # Founded by Diego Velázquez
+1516.1.23 = {	discovered_by = SPA
+	owner = SPA
+	controller = SPA
+}
+1517.1.1 = { add_core = SPA } # The Taíno ( Arawak ) culture was nearly destroyed
+1522.1.1 = { unrest = 3 } # Guama lead a relatively small attack against the conquistadors
+1532.1.1 = { unrest = 0 } # Guama is killed

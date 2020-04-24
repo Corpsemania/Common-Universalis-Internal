@@ -1,0 +1,8 @@
+government = monarchy
+add_government_reform = celestial_empire
+technology_group = chinese
+religion = confucianism
+primary_culture = mongol
+culture_group_union = east_asian #Chinese
+capital = 1816 # Beijing
+government_rank = 3

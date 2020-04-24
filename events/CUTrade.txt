@@ -1,0 +1,117 @@
+namespace = urban
+country_event = {
+	id = urban.200
+	title = "urban.200_titl"
+	desc = "urban.200_desc"
+	picture = COLONIZATION_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	option = {  
+	    name = "urban.503.e"
+		cu_calc_trade_value = yes
+	}
+}
+province_event = {
+	id = urban.201
+	title = "urban.201_titl"
+	desc = "urban.201_desc"
+	picture = COLONIZATION_eventPicture
+	is_triggered_only = yes
+	option = {  
+	    name = "urban.201.a"
+		trigger = {
+			is_core = owner
+			OR = {
+				AND = {
+					base_tax = 2
+					has_province_modifier = claimed_center_of_trade
+				}
+				base_tax = 5
+			}
+			province_has_center_of_trade_of_level = 1
+			NOT = {	province_has_center_of_trade_of_level = 2 }
+			owner = {
+				dip_power = 50
+				treasury = 500
+			}
+		}
+		owner = {
+			if = {
+			    limit = { administrative_ideas = 6 }
+				add_dip_power = -40
+			}
+			else = {
+				add_dip_power = -50
+			}
+			add_treasury = -500
+		}
+		add_center_of_trade_level = 1
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { owner = { treasury = 750 } }
+			}
+		}
+		ai_chance = {
+			factor = 50
+		}
+	}
+	option = {  
+	    name = "urban.201.a"
+		trigger = {
+			is_core = owner
+			OR = {
+				AND = {
+					base_tax = 10
+					has_province_modifier = claimed_center_of_trade
+				}
+				base_tax = 16
+			}
+			province_has_center_of_trade_of_level = 2
+			NOT = {	province_has_center_of_trade_of_level = 3 }
+			owner = {
+				dip_power = 200
+				treasury = 2000
+			}
+			is_institution_enabled = global_trade
+		}
+		owner = {
+			if = {
+			    limit = { innovativeness_ideas = 6 }
+				add_dip_power = -160
+			}
+			else = {
+				add_dip_power = -200
+			}
+			add_treasury = -2000
+		}
+		add_center_of_trade_level = 1
+		ai_chance = {
+			factor = 100
+			modifier = {
+				factor = 0
+				NOT = { owner = { treasury = 5000 } }
+			}
+		}
+	}
+	option = { 
+	    name = "urban.exit"
+		ai_chance = {
+			factor = 50
+		}
+	}
+}
+country_event = {
+	id = urban.1200
+	title = "urban.201_titl"
+	desc = "urban.201_desc"
+	picture = COLONIZATION_eventPicture
+	is_triggered_only = yes
+	hidden = yes
+	option = { 
+	    name = "urban.exit"
+		cu_calc_country_absolute_dist = yes
+		cu_calc_country_dist = yes
+	}
+}

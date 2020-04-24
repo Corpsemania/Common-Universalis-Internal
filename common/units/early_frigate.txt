@@ -1,0 +1,10 @@
+#Early Frigate
+type = light_ship
+
+hull_size = 17
+base_cannons = 27
+sail_speed = 10
+
+trade_power = 3.5
+
+sprite_level = 3

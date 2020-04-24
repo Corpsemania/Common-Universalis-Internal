@@ -1,0 +1,34 @@
+#368 - Madeira
+
+culture = berber
+religion = animism
+capital = "Funchal"
+trade_goods = unknown
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+native_size = 0
+native_ferocity = 0
+native_hostileness = 0
+
+1419.1.1 = { discovered_by = western } # João Gonçalves Zarco
+1420.1.1 = {
+	owner = POR
+	controller = POR
+	add_core = POR
+	is_city = yes
+	culture = portugese
+	religion = catholic
+	discovered_by = POR
+}
+1425.1.1 = {
+
+
+
+	discovered_by = muslim
+	discovered_by = ottoman
+
+	trade_goods = sugar	
+}
+1497.1.1 = { capital = "Funchal" }

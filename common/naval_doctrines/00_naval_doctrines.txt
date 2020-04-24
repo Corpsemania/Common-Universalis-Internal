@@ -1,0 +1,61 @@
+#Power Projection Doctrine
+wooden_wall =
+{
+
+	country_modifier = {
+		global_naval_engagement_modifier = 0.1
+		sailor_maintenance_modifer = -0.1
+		global_ship_cost = 0.1
+	}
+
+	button_gfx = 5
+}
+
+#Fleet In Being Doctrine
+fleet_in_being =
+{
+	country_modifier = {
+		naval_forcelimit_modifier = 0.2
+	    naval_maintenance_modifier = -0.1
+		sunk_ship_morale_hit_recieved = 0.33
+	}
+	
+	button_gfx = 1
+}
+
+#Coastal Defense Doctrine
+free_oarsmen =
+{
+	country_modifier = {
+		own_coast_naval_combat_bonus = 1.0
+		galley_power = 0.1
+		naval_attrition = 0.2
+	}
+	
+	button_gfx = 2
+}
+
+#Merchant Marine Doctrine
+merchant_navy =
+{
+	country_modifier = {
+		global_ship_trade_power = 0.1
+		trade_range_modifier = 0.2
+		ship_durability = -0.05
+	}
+	
+	button_gfx = 3
+}
+
+#Indirect Approach Doctrine
+ship_boarding =
+{
+	country_modifier = {
+	    privateer_efficiency = 0.33
+		capture_ship_chance = 0.33
+		naval_morale = -0.1
+	}
+	
+	button_gfx = 4
+}
+

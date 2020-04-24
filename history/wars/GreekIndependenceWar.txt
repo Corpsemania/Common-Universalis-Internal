@@ -1,0 +1,12 @@
+name = "War of Greek Independence"
+
+war_goal = {
+	type = defend_capital_independence
+	casus_belli = cb_independence_war
+	tag = GRE
+}
+
+1822.1.1 = {
+	add_attacker = GRE
+	add_defender = TUR
+}

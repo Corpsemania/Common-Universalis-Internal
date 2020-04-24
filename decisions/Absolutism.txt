@@ -1,0 +1,33 @@
+country_decisions = {
+	say_the_state_is_me = {
+		potential = {
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { has_country_modifier = the_state_is_me }
+			government = monarchy
+			has_reform = court_despotism
+		}
+		allow = {
+			current_age = age_of_absolutism
+			OR = {
+				AND = {
+					adm = 5
+					absolutism = 60
+				}
+				absolutism = 80
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "the_state_is_me"
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}	
+	}
+}

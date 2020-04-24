@@ -1,0 +1,120 @@
+namespace = the_forge
+
+#A chance
+
+country_event = {
+    id = the_forge.0	
+	title = "the_forge.0.t"
+	desc = "the_forge.0.d"
+	picture = GREAT_BUILDING_eventPicture
+	is_triggered_only = yes
+	
+	option = {              
+		name = the_forge.0.a #We shall conquer the world whatever the cost may be.
+		#custom_tooltip = the_forge.0.a_tooltip	#DON'T DO IT
+		add_country_modifier = {
+			name = "the_forge_m"
+			duration = -1
+		}
+		define_ruler = {
+			dynasty = "Lancaster"
+			adm = 6
+			dip = 6
+			mil = 6
+			age = 20
+			claim = 100
+		}
+		add_government_reform = extensive_conscription 
+		add_adm_tech = 32
+		add_dip_tech = 32	
+		add_mil_tech = 32
+		add_ruler_personality = immortal_personality
+		hidden_effect = {
+			every_owned_province = {
+				add_unrest = -100
+				add_local_autonomy = -100
+			}
+			every_country = {
+				limit = { NOT = { tag = ROOT } NOT = { tag = FRA } }
+				FRA = { inherit = PREV }
+			}
+			FRA = {
+				add_country_modifier = {
+					name = "longs"
+					duration = -1
+				}
+				add_yearly_manpower = 10
+				add_years_of_income = 10
+				every_owned_province = {
+					add_unrest = -100
+					add_local_autonomy = -100
+				}
+			}
+			every_province = {
+				discover_country = ENG
+			}
+			declare_war_with_cb = {
+				who = FRA
+				casus_belli = cb_the_war_of_roads
+			}
+		}
+		set_country_flag = the_war_of_roads_atk
+		add_yearly_manpower = 10
+	}
+
+	option = {              
+		name = the_forge.0.b #Just a dream
+	}
+   
+}
+
+country_event = {
+    id = the_forge.1	
+	title = "the_forge.1.t"
+	desc = "the_forge.1.d"
+	picture = GREAT_BUILDING_eventPicture
+	trigger = {
+		any_country = {
+			has_country_flag = the_war_of_roads_atk
+			NOT = { war_score = -100 }
+		}
+	}
+	
+	option = {              
+		name = the_forge.1.a #We lose
+		FRA = { inherit = ROOT }
+	}
+   
+}
+
+province_event = {
+	id = the_forge.4
+	title = the_forge.4.t
+	desc = the_forge.4.d
+	picture = SYNTHETICS_eventPicture
+	
+	hidden = yes
+	
+	trigger = {
+		owner = {
+			NOT = { has_country_flag = the_war_of_roads_atk }
+		}
+		controller = {
+			has_country_flag = the_war_of_roads_atk
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			cede_province = controller
+			add_core = controller
+			set_base_tax = 1
+			set_base_production = 1
+			set_base_manpower = 1
+		}
+	}
+	option = {
+		name = "the_forge.4.a"
+	}
+}
+

@@ -1,0 +1,13 @@
+﻿l_english:
+ cuideaevents.0.t: "Nobles Against Burghers Voting Rights"
+ cuideaevents.0.d: "Some nobles have publically denounced our act of granting voting rights to the Burghers class and they are demanding a 'revision' of current charter."
+ cuideaevents.0.a: "They are nothing but echoes of the past."
+ cuideaevents.0.b: "Maybe we have gone too far. Let's take a few steps back."
+ cu_dissents_against_constitution: "Dissents Among Nobles"
+ desc_cu_dissents_against_constitution: "Many nobles are condemning our government of granting voting rights to the burghers class."
+ cu_dissents_against_compromise: "Dissents Among Burghers"
+ desc_cu_dissents_against_compromise: "The Burgher class are condemning our government of revoking their rights."
+ cuideaevents.1.t: "Restriction of Power"
+ cuideaevents.1.d: "Our monarch is more than capable of conducting his legal power. To many's concern, he is extending it. There is growing suspicion in the parliament that without a proper restriction, he will soon challenge the charter and the foundation of our kingdom..."
+ cuideaevents.1.a: "No one is above the law..."
+ cuideaevents.1.b: "...except me." 

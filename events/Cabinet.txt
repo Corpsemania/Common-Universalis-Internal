@@ -1,0 +1,1869 @@
+namespace = cabinet
+
+#Cabinet Main Panel
+country_event = {
+	id = cabinet.0
+	title = cabinet.0.t
+	desc = cabinet.0.d
+	picture = ADVISOR_eventPicture
+    
+    is_triggered_only = yes
+	
+	immediate = {
+	    hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = cabinet_inialized } }
+				#Initial Setup
+				set_country_flag = cabinet_ep_state
+				set_country_flag = cabinet_ep_primary
+				set_country_flag = cabinet_inialized
+			}
+		}
+	}
+    
+	option = {
+	    name = "cabinet.0.census" #Country Census
+		hidden_effect = {
+		    cu_country_census = yes
+			cu_calc_total_art_solts = yes				
+		    country_event = { id = cabinet.99 }
+			set_country_flag = cu_stability_fixed
+			cu_calc_total_stability_growth = yes
+			clr_country_flag = cu_stability_fixed
+		}
+	}
+	
+	option = {
+	    name = "cabinet.0.culture" #Cultural Edicts
+		hidden_effect = {
+		    country_event = { id = cabinet.3 }
+		}
+	}
+	
+	option = {
+		trigger = {
+			NOT = { 
+				OR = {
+					has_reform = steppe_horde
+					has_reform = shogunate
+					has_reform = daimyo
+					has_reform = indep_daimyo
+				}
+			} 
+		}	
+	    name = "cabinet.0.economy" #Economic Edicts
+		hidden_effect = {
+		    country_event = { id = cabinet.4 }
+		}
+	}
+	
+	option = {
+	    name = "cabinet.0.PAC" #PAC settings
+		hidden_effect = {
+		    country_event = { id = cabinet.5 }
+		}
+	}
+	
+	option = { 
+		name = "cabinet.0.expend" #Exert Now
+		custom_tooltip = cabinet.expend.t
+		cu_do_cabinet_country = yes
+		clr_country_flag = cabinet_panel_open
+	}
+	option = { 
+		name = "cabinet.0.core" #Revise integration policy
+		custom_tooltip = cabinet.core.t
+		hidden_effect = {
+		     every_owned_province = {
+			      limit = {
+				       has_province_modifier = cu_local_autonomy_administration
+				  }
+				  remove_province_modifier = cu_local_autonomy_administration
+				  set_province_flag = cu_newly_conquered_province
+			 }
+		}
+	}
+
+    option = {
+	    name = "cu.exit"
+		clr_country_flag = cabinet_panel_open
+	}
+}
+
+#Cabinet Country Census
+country_event = {
+	id = cabinet.99
+	title = cabinet.99.t
+	desc = cabinet.99.d
+	picture = ADVISOR_eventPicture
+    
+    is_triggered_only = yes
+    
+	option = {
+	       name = "cabinet.99.a" #Show Governance Capacity Details
+		   hidden_effect = {
+		        if = {
+				         limit = { NOT = { check_variable = { which = go value = 100 } } }
+				         country_event = { id = cugovernment.4 }
+				 }
+				 if = {
+				         limit = { check_variable = { which = go value = 100 } }
+				         country_event = { id = cugovernment.5 }
+				 }
+		   }
+	}
+	option = {
+	       name = "cabinet.99.b" #Show Research Progress
+		   hidden_effect = {
+		        cu_calc_tech_cost = yes
+				set_country_flag = cu_tech_panel_open
+		        country_event = { id = tech.4 } #Display
+		   }
+	}
+	option = {
+	       name = "cabinet.99.c" #Show Stability Details
+		   hidden_effect = {
+		        country_event = { id = cabinet.6 } #Display
+		   }
+	}
+	option = {
+	       name = "cu.return" #Country Census
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	}
+	
+	option = {
+	       name = "cu.exit"
+		   clr_country_flag = cabinet_panel_open
+	}	
+	
+}
+
+#Cabinet Investment
+country_event = {
+    id = cabinet.1
+	title = cabinet.1.t
+	desc = cabinet.1.d
+	picture = ADVISOR_eventPicture
+    
+    is_triggered_only = yes
+	
+	option = {
+	       name = "cabinet.1.cash100" #Invest 100 Cash
+		   trigger = {
+		        treasury = 100
+		   }
+		   add_treasury = -100
+		   custom_tooltip = cabinet_investment.100casht
+		   hidden_effect = {
+		        set_variable = { which = cu_var1 value = 100 }
+				cu_change_cabinet_cash = yes
+		        country_event = { id = cabinet.11 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.1.cash1000" #Invest 1000 Cash
+		   trigger = {
+		        treasury = 1000
+		   }
+		   add_treasury = -1000
+		   custom_tooltip = cabinet_investment.1000casht
+		   hidden_effect = {
+		        set_variable = { which = cu_var1 value = 1000 }
+				cu_change_cabinet_cash = yes
+		        country_event = { id = cabinet.11 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.1.cash100" #Invest 10000 Cash
+		   trigger = {
+		        treasury = 10000
+		   }
+		   add_treasury = -10000
+		   custom_tooltip = cabinet_investment.100casht
+		   hidden_effect = {
+		        set_variable = { which = cu_var1 value = 10000 }
+				cu_change_cabinet_cash = yes
+		        country_event = { id = cabinet.11 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.1.a" #Invest 100 Administrative Power
+		   trigger = {
+		        adm_power = 100
+		   }
+		   add_adm_power = -100
+		   custom_tooltip = cabinet_investment.100admt
+		   hidden_effect = {
+		        set_variable = { which = cu_var1 value = 100 }
+				cu_change_cabinet_adm = yes
+		        country_event = { id = cabinet.11 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.1.a1" #Invest 200 Administrative Power
+		   trigger = {
+		        adm_power = 200
+		   }
+		   add_adm_power = -200
+		   custom_tooltip = cabinet_investment.200admt
+		   hidden_effect = {
+		        set_variable = { which = cu_var1 value = 200 }
+				cu_change_cabinet_adm = yes
+		        country_event = { id = cabinet.11 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.1.b" #Invest 100 Diplomatic Power
+		   trigger = {
+		        dip_power = 100
+		   }
+		   add_dip_power = -100
+		   custom_tooltip = cabinet_investment.200dipt
+		   hidden_effect = {
+		        set_variable = { which = cu_var1 value = 100 }
+				cu_change_cabinet_dip = yes
+		        country_event = { id = cabinet.11 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.1.b1" #Invest 200 Diplomatic Power
+		   trigger = {
+		        dip_power = 200
+		   }
+		   add_dip_power = -200
+		   custom_tooltip = cabinet_investment.200dipt
+		   hidden_effect = {
+		        set_variable = { which = cu_var1 value = 200 }
+				cu_change_cabinet_dip = yes
+		        country_event = { id = cabinet.11 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.1.c" #Invest 100 Military Power
+		   trigger = {
+		        mil_power = 100
+		   }
+		   add_mil_power = -100
+		   custom_tooltip = cabinet_investment.200milt
+		   hidden_effect = {
+		        set_variable = { which = cu_var1 value = 100 }
+				cu_change_cabinet_mil = yes
+		        country_event = { id = cabinet.11 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.1.c1" #Invest 200 Military Power
+		   trigger = {
+		        mil_power = 200
+		   }
+		   add_mil_power = -200
+		   custom_tooltip = cabinet_investment.200milt
+		   hidden_effect = {
+		        set_variable = { which = cu_var1 value = 200 }
+				cu_change_cabinet_mil = yes
+		        country_event = { id = cabinet.11 }
+		   }
+	}
+	
+	option = {
+	       name = "cu.return" #Retuen
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	}
+	
+	option = {
+	       name = "cu.exit" #Exit
+		   clr_country_flag = cabinet_panel_open
+	}
+}
+
+#Cabinet Investment(For Switch)
+country_event = {
+    id = cabinet.11
+	title = cabinet.1.t
+	desc = cabinet.1.d
+	picture = ADVISOR_eventPicture
+    
+    is_triggered_only = yes
+	
+	option = {
+	       name = "cabinet.1.cash100" #Invest 100 Cash
+		   trigger = {
+		        treasury = 100
+		   }
+		   add_treasury = -100
+		   custom_tooltip = cabinet_investment.100casht
+		   hidden_effect = {
+		        set_variable = { which = cu_var1 value = 100 }
+				cu_change_cabinet_cash = yes
+		        country_event = { id = cabinet.1 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.1.cash1000" #Invest 1000 Cash
+		   trigger = {
+		        treasury = 1000
+		   }
+		   add_treasury = -1000
+		   custom_tooltip = cabinet_investment.1000casht
+		   hidden_effect = {
+		        set_variable = { which = cu_var1 value = 1000 }
+				cu_change_cabinet_cash = yes
+		        country_event = { id = cabinet.1 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.1.cash100" #Invest 10000 Cash
+		   trigger = {
+		        treasury = 10000
+		   }
+		   add_treasury = -10000
+		   custom_tooltip = cabinet_investment.100casht
+		   hidden_effect = {
+		        set_variable = { which = cu_var1 value = 10000 }
+				cu_change_cabinet_cash = yes
+		        country_event = { id = cabinet.1 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.1.a" #Invest 100 Administrative Power
+		   trigger = {
+		        adm_power = 100
+		   }
+		   add_adm_power = -100
+		   custom_tooltip = cabinet_investment.100admt
+		   hidden_effect = {
+		        set_variable = { which = cu_var1 value = 100 }
+				cu_change_cabinet_adm = yes
+		        country_event = { id = cabinet.1 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.1.a1" #Invest 200 Administrative Power
+		   trigger = {
+		        adm_power = 200
+		   }
+		   add_adm_power = -200
+		   custom_tooltip = cabinet_investment.200admt
+		   hidden_effect = {
+		        set_variable = { which = cu_var1 value = 200 }
+				cu_change_cabinet_adm = yes
+		        country_event = { id = cabinet.1 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.1.b" #Invest 100 Diplomatic Power
+		   trigger = {
+		        dip_power = 100
+		   }
+		   add_dip_power = -100
+		   custom_tooltip = cabinet_investment.200dipt
+		   hidden_effect = {
+		        set_variable = { which = cu_var1 value = 100 }
+				cu_change_cabinet_dip = yes
+		        country_event = { id = cabinet.1 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.1.b1" #Invest 200 Diplomatic Power
+		   trigger = {
+		        dip_power = 200
+		   }
+		   add_dip_power = -200
+		   custom_tooltip = cabinet_investment.200dipt
+		   hidden_effect = {
+		        set_variable = { which = cu_var1 value = 200 }
+				cu_change_cabinet_dip = yes
+		        country_event = { id = cabinet.1 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.1.c" #Invest 100 Military Power
+		   trigger = {
+		        mil_power = 100
+		   }
+		   add_mil_power = -100
+		   custom_tooltip = cabinet_investment.200milt
+		   hidden_effect = {
+		        set_variable = { which = cu_var1 value = 100 }
+				cu_change_cabinet_mil = yes
+		        country_event = { id = cabinet.1 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.1.c1" #Invest 200 Military Power
+		   trigger = {
+		        mil_power = 200
+		   }
+		   add_mil_power = -200
+		   custom_tooltip = cabinet_investment.200milt
+		   hidden_effect = {
+		        set_variable = { which = cu_var1 value = 200 }
+				cu_change_cabinet_mil = yes
+		        country_event = { id = cabinet.1 }
+		   }
+	}
+	
+	option = {
+	       name = "cu.return" #Retuen
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	}
+	
+	option = {
+	       name = "cu.exit" #Exit
+		   clr_country_flag = cabinet_panel_open
+	}
+}
+
+#Cabinet Parameters
+country_event = {
+	id = cabinet.2
+	title = cabinet.2.t
+	desc = cabinet.2.d
+	picture = ADVISOR_eventPicture
+    
+    is_triggered_only = yes
+    
+	option = {
+	       name = "cabinet.2.a" #Province Parameters(which province to invest)
+		   hidden_effect = {
+		        country_event = { id = cabinet.21 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.2.b" #Focus Parameters(focus on economy, culture, education, etc.)
+		   hidden_effect = {
+		        country_event = { id = cabinet.22 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.2.c" #Investment Strategy(When to invest and how much to invest)
+		   hidden_effect = {
+		        country_event = { id = cabinet.23 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.2.d1" #Report Options(Whether and when to inform the player)
+		   hidden_effect = {
+		        country_event = { id = cabinet.24 }
+		   }
+	}
+	
+	option = {
+	       name = "cu.return" #Retuen
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	}
+	
+	option = {
+	       name = "cu.exit" #Exit
+		   clr_country_flag = cabinet_panel_open
+	}
+	
+}
+
+#Cabinet Parameters - Province
+country_event = {
+	id = cabinet.21
+	title = cabinet.21.t
+	desc = cabinet.21.d
+	picture = ADVISOR_eventPicture
+    
+    is_triggered_only = yes
+	
+	immediate = {
+	       if = {
+		         limit = { 
+                         NOT = { check_variable = { which = cabinet_p_province value = 0 } }
+				 }
+				 custom_tooltip = cabinet_p_province_default
+		   }
+		   else_if = {
+		         limit = { 
+                         NOT = { check_variable = { which = cabinet_p_province value = 1 } }
+				 }
+				 custom_tooltip = cabinet_p_province_default
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.a" #Default( Focus - Primary State - State - Primary - Group/Accepted - Others, High Development - Low Development, no blocked provinces )
+		   custom_tooltip = cabinet.21.at
+		   hidden_effect = {
+		        
+		       set_variable = { which = cabinet_p_province value = -1 }
+		       set_variable = { which = cabinet_p_province_d value = 0 }
+		       set_variable = { which = cabinet_p_province_bn value = 0 }
+		       set_variable = { which = cabinet_p_province_ba value = 0 }
+		       set_variable = { which = cabinet_p_province_bg value = 0 }
+		       set_variable = { which = cabinet_p_province_bp value = 0 }
+		       set_variable = { which = cabinet_p_province_bd4 value = 0 }
+		       set_variable = { which = cabinet_p_province_bd7 value = 0 }
+		        country_event = { id = cabinet.211 }
+		   }
+	}
+	
+    option = {
+	       name = "cabinet.21.a0" #Focus Province Only
+		   trigger = {
+		         check_variable = { which = cabinet_p_province value = -1 }
+		   }
+		   set_variable = { which = cabinet_p_province value = -2 }
+		   custom_tooltip = cabinet.21.a0t
+		   hidden_effect = {
+		        set_variable = { which = cabinet_p_province_bn value = 1 }
+		        set_variable = { which = cabinet_p_province_ba value = 1 }
+		        set_variable = { which = cabinet_p_province_bg value = 1 }
+		        set_variable = { which = cabinet_p_province_bp value = 1 }
+		        set_variable = { which = cabinet_p_province_bd4 value = 1 }
+		        set_variable = { which = cabinet_p_province_bd7 value = 1 }
+		        country_event = { id = cabinet.211 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.b" #Prefer Primary Culture( Focus - Primary State - Primary - State - Group/Accepted - Others ) 
+		   set_variable = { which = cabinet_p_province value = 0 }
+		   custom_tooltip = cabinet.21.bt
+		   hidden_effect = {
+		        country_event = { id = cabinet.211 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.c" #Prefer Cultural Group( Focus - Primary State - Primary - Group/Accepted - State - Others ) 
+		   set_variable = { which = cabinet_p_province value = 1 }
+		   custom_tooltip = cabinet.21.ct
+		   hidden_effect = {
+		        country_event = { id = cabinet.211 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.d1" #Prefer State Province( Focus - Primary State - State - Primary - Group/Accepted - Others ) 
+		   set_variable = { which = cabinet_p_province value = 2 }
+		   custom_tooltip = cabinet.21.dt
+		   hidden_effect = {
+		        country_event = { id = cabinet.211 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.e" #Prefer High Development Province
+		   trigger = {
+		          check_variable = { which = cabinet_p_province_d value = 1 }
+		   }
+		   set_variable = { which = cabinet_p_province_d value = 0 }
+		   custom_tooltip = cabinet.21.et
+		   hidden_effect = {
+		        country_event = { id = cabinet.211 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.e1" #Prefer Low Development Province
+		   trigger = {
+		          OR = {
+				       check_variable = { which = cabinet_p_province_d value = 2 }
+					   NOT = { check_variable = { which = cabinet_p_province_d value = 1 } }
+				  }
+		   }
+		   set_variable = { which = cabinet_p_province_d value = 1 }
+		   custom_tooltip = cabinet.21.e1t
+		   hidden_effect = {
+		        country_event = { id = cabinet.211 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.e2" #No Development Preference
+		   trigger = {
+		          NOT = { check_variable = { which = cabinet_p_province_d value = 2 } }
+		   }
+		   set_variable = { which = cabinet_p_province_d value = 2 }
+		   custom_tooltip = cabinet.22.e1t
+		   hidden_effect = {
+		        country_event = { id = cabinet.211 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f" #Block Non-accepted Province
+		   trigger = {
+		          NOT = { check_variable = { which = cabinet_p_province_bn value = 1 } }
+		   }
+		   set_variable = { which = cabinet_p_province_bn value = 1 }
+		   custom_tooltip = cabinet.21.ft
+		   hidden_effect = {
+		        country_event = { id = cabinet.211 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f1" #Allow Non-accepted Province
+		   trigger = {
+		          check_variable = { which = cabinet_p_province_bn value = 1 }
+		   }
+		   set_variable = { which = cabinet_p_province_bn value = 0 }
+		   custom_tooltip = cabinet.21.f1t
+		   hidden_effect = {
+		        country_event = { id = cabinet.211 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f2" #Block Accepted Foreign Province
+		   trigger = {
+		          NOT = { check_variable = { which = cabinet_p_province_ba value = 1 } }
+		   }
+		   set_variable = { which = cabinet_p_province_ba value = 1 }
+		   custom_tooltip = cabinet.21.f2t
+		   hidden_effect = {
+		        country_event = { id = cabinet.211 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f3" #Allow Accepted Foreign Province
+		   trigger = {
+		          check_variable = { which = cabinet_p_province_ba value = 1 }
+		   }
+		   set_variable = { which = cabinet_p_province_ba value = 0 }
+		   custom_tooltip = cabinet.21.f3t
+		   hidden_effect = {
+		        country_event = { id = cabinet.211 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f4" #Block Group Province
+		   trigger = {
+		          NOT = { check_variable = { which = cabinet_p_province_bg value = 1 } }
+		   }
+		   set_variable = { which = cabinet_p_province_bg value = 1 }
+		   custom_tooltip = cabinet.21.f4t
+		   hidden_effect = {
+		        country_event = { id = cabinet.211 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f5" #Allow Group Province
+		   trigger = {
+		          check_variable = { which = cabinet_p_province_bg value = 1 }
+		   }
+		   set_variable = { which = cabinet_p_province_bg value = 0 }
+		   custom_tooltip = cabinet.21.f5t
+		   hidden_effect = {
+		        country_event = { id = cabinet.211 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f6" #Block Primary Province
+		   trigger = {
+		          NOT = { check_variable = { which = cabinet_p_province_bp value = 1 } }
+		   }
+		   set_variable = { which = cabinet_p_province_bp value = 1 }
+		   custom_tooltip = cabinet.21.f6t
+		   hidden_effect = {
+		        country_event = { id = cabinet.211 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f7" #Allow Primary Province
+		   trigger = {
+		          check_variable = { which = cabinet_p_province_bp value = 1 }
+		   }
+		   set_variable = { which = cabinet_p_province_bp value = 0 }
+		   custom_tooltip = cabinet.21.f7t
+		   hidden_effect = {
+		        country_event = { id = cabinet.211 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f8" #Block 4- development Province
+		   trigger = {
+		          NOT = { check_variable = { which = cabinet_p_province_bd4 value = 1 } }
+		   }
+		   set_variable = { which = cabinet_p_province_bd4 value = 1 }
+		   custom_tooltip = cabinet.21.f8t
+		   hidden_effect = {
+		        country_event = { id = cabinet.211 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f9" #Allow 4- development Province
+		   trigger = {
+		          check_variable = { which = cabinet_p_province_bd4 value = 1 }
+		   }
+		   set_variable = { which = cabinet_p_province_bd4 value = 0 }
+		   custom_tooltip = cabinet.21.f9t
+		   hidden_effect = {
+		        country_event = { id = cabinet.211 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f10" #Block 7- development Province
+		   trigger = {
+		          NOT = { check_variable = { which = cabinet_p_province_bd7 value = 1 } }
+		   }
+		   set_variable = { which = cabinet_p_province_bd7 value = 1 }
+		   custom_tooltip = cabinet.21.f10t
+		   hidden_effect = {
+		        country_event = { id = cabinet.211 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f11" #Allow 7- development Province
+		   trigger = {
+		          check_variable = { which = cabinet_p_province_bd7 value = 1 }
+		   }
+		   set_variable = { which = cabinet_p_province_bd7 value = 0 }
+		   custom_tooltip = cabinet.21.f11t
+		   hidden_effect = {
+		        country_event = { id = cabinet.211 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f12" #Block Heretic/Heathens Province
+		   trigger = {
+		          NOT = { check_variable = { which = cabinet_p_province_br value = 1 } }
+		   }
+		   set_variable = { which = cabinet_p_province_br value = 1 }
+		   custom_tooltip = cabinet.21.f12t
+		   hidden_effect = {
+		        country_event = { id = cabinet.211 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f13" #Allow Heretic/Heathens Province
+		   trigger = {
+		          check_variable = { which = cabinet_p_province_br value = 1 }
+		   }
+		   set_variable = { which = cabinet_p_province_br value = 0 }
+		   custom_tooltip = cabinet.21.f13t
+		   hidden_effect = {
+		        country_event = { id = cabinet.211 }
+		   }
+	}
+	
+	option = {
+	       name = "cu.return" #Return
+		   hidden_effect = {
+		        country_event = { id = cabinet.2 }
+		   }
+	}
+	
+	option = {
+	       name = "cu.exit" #Exit
+		   clr_country_flag = cabinet_panel_open
+	}
+	
+}
+
+#Cabinet Parameters - Province(Backup)
+country_event = {
+	id = cabinet.211
+	title = cabinet.21.t
+	desc = cabinet.21.d
+	picture = ADVISOR_eventPicture
+    
+    is_triggered_only = yes
+	
+	immediate = {
+	       if = {
+		         limit = { 
+                         NOT = { check_variable = { which = cabinet_p_province value = 0 } }
+				 }
+				 custom_tooltip = cabinet_p_province_default
+		   }
+		   else_if = {
+		         limit = { 
+                         NOT = { check_variable = { which = cabinet_p_province value = 1 } }
+				 }
+				 custom_tooltip = cabinet_p_province_default
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.a" #Default( Focus - Primary State - State - Primary - Group/Accepted - Others, High Development - Low Development, no blocked provinces )
+		   custom_tooltip = cabinet.21.at
+		   hidden_effect = {
+		        
+		       set_variable = { which = cabinet_p_province value = -1 }
+		       set_variable = { which = cabinet_p_province_d value = 0 }
+		       set_variable = { which = cabinet_p_province_bn value = 0 }
+		       set_variable = { which = cabinet_p_province_ba value = 0 }
+		       set_variable = { which = cabinet_p_province_bg value = 0 }
+		       set_variable = { which = cabinet_p_province_bp value = 0 }
+		       set_variable = { which = cabinet_p_province_bd4 value = 0 }
+		       set_variable = { which = cabinet_p_province_bd7 value = 0 }
+		        country_event = { id = cabinet.21 }
+		   }
+	}
+	
+		option = {
+	       name = "cabinet.21.a0" #Focus Province Only
+		   set_variable = { which = cabinet_p_province value = -2 }
+		   custom_tooltip = cabinet.21.a0t
+		   hidden_effect = {
+		        set_variable = { which = cabinet_p_province_bn value = 1 }
+		        set_variable = { which = cabinet_p_province_ba value = 1 }
+		        set_variable = { which = cabinet_p_province_bg value = 1 }
+		        set_variable = { which = cabinet_p_province_bp value = 1 }
+		        set_variable = { which = cabinet_p_province_bd4 value = 1 }
+		        set_variable = { which = cabinet_p_province_bd7 value = 1 }
+		        country_event = { id = cabinet.21 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.b" #Prefer Primary Culture( Focus - Primary State - Primary - State - Group/Accepted - Others ) 
+		   set_variable = { which = cabinet_p_province value = 0 }
+		   custom_tooltip = cabinet.21.bt
+		   hidden_effect = {
+		        country_event = { id = cabinet.21 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.c" #Prefer Cultural Group( Focus - Primary State - Primary - Group/Accepted - State - Others ) 
+		   set_variable = { which = cabinet_p_province value = 1 }
+		   custom_tooltip = cabinet.21.ct
+		   hidden_effect = {
+		        country_event = { id = cabinet.21 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.d1" #Prefer State Province( Focus - Primary State - State - Primary - Group/Accepted - Others ) 
+		   set_variable = { which = cabinet_p_province value = 2 }
+		   custom_tooltip = cabinet.21.dt
+		   hidden_effect = {
+		        country_event = { id = cabinet.21 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.e" #Prefer High Development Province
+		   trigger = {
+		          check_variable = { which = cabinet_p_province_d value = 1 }
+		   }
+		   set_variable = { which = cabinet_p_province_d value = 0 }
+		   custom_tooltip = cabinet.21.et
+		   hidden_effect = {
+		        country_event = { id = cabinet.21 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.e1" #Prefer Low Development Province
+		   trigger = {
+		          OR = {
+				       check_variable = { which = cabinet_p_province_d value = 2 }
+					   NOT = { check_variable = { which = cabinet_p_province_d value = 1 } }
+				  }
+		   }
+		   set_variable = { which = cabinet_p_province_d value = 1 }
+		   custom_tooltip = cabinet.21.e1t
+		   hidden_effect = {
+		        country_event = { id = cabinet.21 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.e2" #No Development Preference
+		   trigger = {
+		          NOT = { check_variable = { which = cabinet_p_province_d value = 2 } }
+		   }
+		   set_variable = { which = cabinet_p_province_d value = 2 }
+		   custom_tooltip = cabinet.22.e1t
+		   hidden_effect = {
+		        country_event = { id = cabinet.21 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f" #Block Non-accepted Province
+		   trigger = {
+		          NOT = { check_variable = { which = cabinet_p_province_bn value = 1 } }
+		   }
+		   set_variable = { which = cabinet_p_province_bn value = 1 }
+		   custom_tooltip = cabinet.21.ft
+		   hidden_effect = {
+		        country_event = { id = cabinet.21 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f1" #Allow Non-accepted Province
+		   trigger = {
+		          check_variable = { which = cabinet_p_province_bn value = 1 }
+		   }
+		   set_variable = { which = cabinet_p_province_bn value = 0 }
+		   custom_tooltip = cabinet.21.f1t
+		   hidden_effect = {
+		        country_event = { id = cabinet.21 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f2" #Block Accepted Foreign Province
+		   trigger = {
+		          NOT = { check_variable = { which = cabinet_p_province_ba value = 1 } }
+		   }
+		   set_variable = { which = cabinet_p_province_ba value = 1 }
+		   custom_tooltip = cabinet.21.f2t
+		   hidden_effect = {
+		        country_event = { id = cabinet.21 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f3" #Allow Accepted Foreign Province
+		   trigger = {
+		          check_variable = { which = cabinet_p_province_ba value = 1 }
+		   }
+		   set_variable = { which = cabinet_p_province_ba value = 0 }
+		   custom_tooltip = cabinet.21.f3t
+		   hidden_effect = {
+		        country_event = { id = cabinet.21 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f4" #Block Group Province
+		   trigger = {
+		          NOT = { check_variable = { which = cabinet_p_province_bg value = 1 } }
+		   }
+		   set_variable = { which = cabinet_p_province_bg value = 1 }
+		   custom_tooltip = cabinet.21.f4t
+		   hidden_effect = {
+		        country_event = { id = cabinet.21 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f5" #Allow Group Province
+		   trigger = {
+		          check_variable = { which = cabinet_p_province_bg value = 1 }
+		   }
+		   set_variable = { which = cabinet_p_province_bg value = 0 }
+		   custom_tooltip = cabinet.21.f5t
+		   hidden_effect = {
+		        country_event = { id = cabinet.21 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f6" #Block Primary Province
+		   trigger = {
+		          NOT = { check_variable = { which = cabinet_p_province_bp value = 1 } }
+		   }
+		   set_variable = { which = cabinet_p_province_bp value = 1 }
+		   custom_tooltip = cabinet.21.f6t
+		   hidden_effect = {
+		        country_event = { id = cabinet.21 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f7" #Allow Primary Province
+		   trigger = {
+		          check_variable = { which = cabinet_p_province_bp value = 1 }
+		   }
+		   set_variable = { which = cabinet_p_province_bp value = 0 }
+		   custom_tooltip = cabinet.21.f7t
+		   hidden_effect = {
+		        country_event = { id = cabinet.21 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f8" #Block 4- development Province
+		   trigger = {
+		          NOT = { check_variable = { which = cabinet_p_province_bd4 value = 1 } }
+		   }
+		   set_variable = { which = cabinet_p_province_bd4 value = 1 }
+		   custom_tooltip = cabinet.21.f8t
+		   hidden_effect = {
+		        country_event = { id = cabinet.21 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f9" #Allow 4- development Province
+		   trigger = {
+		          check_variable = { which = cabinet_p_province_bd4 value = 1 }
+		   }
+		   set_variable = { which = cabinet_p_province_bd4 value = 0 }
+		   custom_tooltip = cabinet.21.f9t
+		   hidden_effect = {
+		        country_event = { id = cabinet.21 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f10" #Block 7- development Province
+		   trigger = {
+		          NOT = { check_variable = { which = cabinet_p_province_bd7 value = 1 } }
+		   }
+		   set_variable = { which = cabinet_p_province_bd7 value = 1 }
+		   custom_tooltip = cabinet.21.f10t
+		   hidden_effect = {
+		        country_event = { id = cabinet.21 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.21.f11" #Allow 7- development Province
+		   trigger = {
+		          check_variable = { which = cabinet_p_province_bd7 value = 1 }
+		   }
+		   set_variable = { which = cabinet_p_province_bd7 value = 0 }
+		   custom_tooltip = cabinet.21.f11t
+		   hidden_effect = {
+		        country_event = { id = cabinet.21 }
+		   }
+	}
+	
+	option = {
+	       name = "cu.return" #Return
+		   hidden_effect = {
+		        country_event = { id = cabinet.2 }
+		   }
+	}
+	
+	option = {
+	       name = "cu.exit" #Exit
+		   clr_country_flag = cabinet_panel_open
+	}
+	
+}
+
+#Cabinet Culture Panel
+country_event = {
+	id = cabinet.3
+	title = cabinet.3.t
+	desc = cabinet.3.d
+	picture = ADVISOR_eventPicture
+    
+    is_triggered_only = yes
+	
+	immediate = { #Display Current Settings
+	     if = {
+		       limit = { has_country_flag = cabinet_autoass }
+			   custom_tooltip = cabinet_autoass_dt
+			   if = {
+			         limit = { has_country_flag = cabinet_autoassa }
+					 custom_tooltip = cabinet_autoassa_dt
+			   }
+			   if = {
+			         limit = { has_country_flag = cabinet_autoassg }
+					 custom_tooltip = cabinet_autoassg_dt
+			   }
+			   custom_tooltip = cabinet_autoassn_dt
+		 }
+		 if = {
+		       limit = { has_country_flag = cabinet_autoim }
+			   custom_tooltip = cabinet_autoim_dt
+			   if = {
+			         limit = { has_country_flag = cabinet_autoim5 }
+					 custom_tooltip = cabinet_autoim5_dt
+			   }
+			   if = {
+			         limit = { has_country_flag = cabinet_autoim10 }
+					 custom_tooltip = cabinet_autoim10_dt
+			   }
+			   if = {
+			         limit = { has_country_flag = cabinet_autoim15 }
+					 custom_tooltip = cabinet_autoim15_dt
+			   }
+			   if = {
+			         limit = { has_country_flag = cabinet_autoimall }
+					 custom_tooltip = cabinet_autoimall_dt
+			   }
+		 }
+	}
+    
+	option = { 
+	       name = "cabinet.3.autoass" #Start Automatically Assimilate Provinces
+		   trigger = {
+		         NOT = { has_country_flag = cabinet_autoass }
+		   }
+		   set_country_flag = cabinet_autoass
+		   set_country_flag = cabinet_autoassa #Assimilate Accepted Culture in default.
+		   custom_tooltip = cabinet_autoasst
+	       hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	}
+	
+	option = { 
+	       name = "cabinet.3.autoassn" #Stop Automatically Assimilate Provinces
+		   trigger = {
+		         has_country_flag = cabinet_autoass
+		   }
+		   clr_country_flag = cabinet_autoass
+		   clr_country_flag = cabinet_autoassg
+		   clr_country_flag = cabinet_autoassa
+	       hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	}
+	
+	option = { 
+	       name = "cabinet.3.autoassg" #Assimilate Same Cultural Group
+		   trigger = {
+		         has_country_flag = cabinet_autoass
+				 NOT = { has_country_flag = cabinet_autoassg }
+		   }
+		   set_country_flag = cabinet_autoassg
+	       hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	}
+	
+	option = { 
+	       name = "cabinet.3.autoassgn" #Stop Assimilate Same Cultural Group
+		   trigger = {
+		         has_country_flag = cabinet_autoassg
+		   }
+		   clr_country_flag = cabinet_autoassg
+	       hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	}
+	
+	option = { 
+	       name = "cabinet.3.autoassa" #Start Assimilate Accepted Culture
+		   trigger = {
+		         has_country_flag = cabinet_autoass
+				 NOT = { has_country_flag = cabinet_autoassa }
+		   }
+		   set_country_flag = cabinet_autoassa
+	       hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	}
+	
+	option = { 
+	       name = "cabinet.3.autoassan" #Stop Assimilate Accepted Culture
+		   trigger = {
+		         has_country_flag = cabinet_autoassa
+		   }
+		   clr_country_flag = cabinet_autoassa
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	
+	}
+	
+	option = { 
+	       name = "cabinet.3.autoim" #Start Automatic Immigration
+		   trigger = {
+		         NOT = { has_country_flag = cabinet_autoim }
+		   }
+		   custom_tooltip = cabinet.autoimt
+		   set_country_flag = cabinet_autoim
+		   set_country_flag = cabinet_autoim5
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	
+	}
+	
+	option = { 
+	       name = "cabinet.3.autoimn" #Stop Automatic Immigration
+		   trigger = {
+		         has_country_flag = cabinet_autoim
+		   }
+		   clr_country_flag = cabinet_autoim
+		   clr_country_flag = cabinet_autoim5
+		   clr_country_flag = cabinet_autoim10
+		   clr_country_flag = cabinet_autoim15
+		   clr_country_flag = cabinet_autoimall
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	
+	}
+	
+	option = { 
+	       name = "cabinet.3.autoim5" #Only immigrate to provinces with less than 5 development
+		   trigger = {
+		         NOT = { has_country_flag = cabinet_autoim5 }
+		   }
+		   custom_tooltip = cabinet.autoim5t
+		   set_country_flag = cabinet_autoim5
+		   clr_country_flag = cabinet_autoim10
+		   clr_country_flag = cabinet_autoim15
+		   clr_country_flag = cabinet_autoimall
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	
+	}
+	option = { 
+	       name = "cabinet.3.autoim10" #Only immigrate to provinces with less than 10 development
+		   trigger = {
+		         NOT = { has_country_flag = cabinet_autoim10 }
+		   }
+		   custom_tooltip = cabinet.autoim10t
+		   set_country_flag = cabinet_autoim10
+		   clr_country_flag = cabinet_autoim5
+		   clr_country_flag = cabinet_autoim15
+		   clr_country_flag = cabinet_autoimall
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	
+	}
+	option = { 
+	       name = "cabinet.3.autoim15" #Only immigrate to provinces with less than 15 development
+		   trigger = {
+		         NOT = { has_country_flag = cabinet_autoim15 }
+		   }
+		   custom_tooltip = cabinet.autoim15t
+		   set_country_flag = cabinet_autoim15
+		   clr_country_flag = cabinet_autoim5
+		   clr_country_flag = cabinet_autoim10
+		   clr_country_flag = cabinet_autoimall
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	
+	}
+	option = { 
+	       name = "cabinet.3.autoimall" #No restrictions
+		   trigger = {
+		         OR = { 
+				        has_country_flag = cabinet_autoim5
+						has_country_flag = cabinet_autoim10 
+						has_country_flag = cabinet_autoim15 
+				}
+		   }
+		   custom_tooltip = cabinet.autoimall
+		   clr_country_flag = cabinet_autoim5
+		   clr_country_flag = cabinet_autoim10
+		   clr_country_flag = cabinet_autoim15
+		   set_country_flag = cabinet_autoimall
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	
+	}
+	option = { 
+	       name = "cabinet.3.autofe" #Start Automatic Force Education
+		   trigger = {
+		        NOT = { has_country_flag = cabinet_autofe }
+		   }
+		   custom_tooltip = cabinet.autofet
+		   set_country_flag = cabinet_autofe
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	
+	}
+	option = { 
+	       name = "cabinet.3.autofen" #Stop Automatic Force Education
+		   trigger = {
+		        has_country_flag = cabinet_autofe 
+		   }
+		   clr_country_flag = cabinet_autofe
+		   clr_country_flag = cabinet_autofeg
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	
+	}
+	option = { 
+	       name = "cabinet.3.autofeg" #Use Force Education with 0-99 CA
+		   trigger = {
+		        has_country_flag = cabinet_autofe 
+				NOT = { has_country_flag = cabinet_autofeg }
+		   }
+		   set_country_flag = cabinet_autofeg
+		   custom_tooltip = cabinet.autofegt
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	
+	}
+	option = { 
+	       name = "cabinet.3.autofegn" #Use Force Education in province with 80-99 CA
+		   trigger = {
+		        has_country_flag = cabinet_autofe 
+				has_country_flag = cabinet_autofeg
+		   }
+		   clr_country_flag = cabinet_autofeg
+		   custom_tooltip = cabinet.autofet
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	
+	}
+	option = {
+	       name = "cu.return" #Return
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	}
+	
+	option = {
+	       name = "cu.exit" #Exit
+		   clr_country_flag = cabinet_panel_open
+	}
+}
+
+#Cabinet Economic Panel
+country_event = {
+	id = cabinet.4
+	title = cabinet.4.t
+	desc = cabinet.4.d
+	picture = ADVISOR_eventPicture
+    
+    is_triggered_only = yes
+	immediate = { #Display Current Settings
+	     if = {
+		       limit = { has_country_flag = cabinet_ep_state }
+			   custom_tooltip = cabinet_ep_state_dt
+		 }
+		 else = {
+		       custom_tooltip = cabinet_ep_territory_dt
+		 }
+		 if = {
+		       limit = { has_country_flag = cabinet_ep_primary }
+			   custom_tooltip = cabinet_ep_primary_dt
+		 }
+		 else_if = {
+		       limit = { has_country_flag = cabinet_ep_accepted }
+			   custom_tooltip = cabinet_ep_accepted_dt
+		 }
+		 else_if = {
+		       limit = { has_country_flag = cabinet_ep_allculture }
+			   custom_tooltip = cabinet_ep_allculture_dt
+		 }
+	}
+	option = {
+	       name = "cabinet.4.prov"  #Set Province Eligibility
+		   hidden_effect = {
+		        country_event = { id = cabinet.41 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.4.autoti"  #Start Automatical Terrain Improvement
+		   trigger = {
+		           NOT = { has_country_flag = cabinet_autoti }
+		   }
+		   custom_tooltip = cabinet_autotit
+		   set_country_flag = cabinet_autoti
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.4.autotin"  #Stop Automatical Terrain Improvement
+		   trigger = {
+		           has_country_flag = cabinet_autoti
+		   }
+		   clr_country_flag = cabinet_autoti
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.4.autorw"  #Start Automatical Reclaiming Wasteland
+		   trigger = {
+		           NOT = { has_country_flag = cabinet_autorw }
+		   }
+		   custom_tooltip = cabinet_autorwt
+		   set_country_flag = cabinet_autorw
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.4.autorwn"  #Stop Automatical Reclaiming Wasteland
+		   trigger = {
+		           has_country_flag = cabinet_autorw
+		   }
+		   clr_country_flag = cabinet_autorw
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.4.autoac"  #Start Automatical Drainage Improvement
+		   trigger = {
+		           NOT = { has_country_flag = cabinet_autoac }
+		   }
+		   custom_tooltip = cabinet.4.autoact
+		   set_country_flag = cabinet_autoac
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.4.autoacn"  #Stop Automatical Drainage Improvement
+		   trigger = {
+		           has_country_flag = cabinet_autoac
+		   }
+		   clr_country_flag = cabinet_autoac
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.4.autouc"  #Start Automatical Sanitation Improvement
+		   trigger = {
+		           NOT = { has_country_flag = cabinet_autouc }
+		   }
+		   custom_tooltip = cabinet.4.autouct
+		   set_country_flag = cabinet_autouc
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.4.autoucn"  #Stop Automatical Sanitation Improvement
+		   trigger = {
+		           has_country_flag = cabinet_autouc
+		   }
+		   clr_country_flag = cabinet_autouc
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	}
+	
+	option = {
+	       name = "cu.return" #Return
+		   hidden_effect = {
+		        country_event = { id = cabinet.0 }
+		   }
+	}
+	
+	option = {
+	       name = "cu.exit" #Exit
+		   clr_country_flag = cabinet_panel_open
+	}
+}
+
+#Cabinet Economic Panel - Eligibility
+country_event = {
+	id = cabinet.41
+	title = cabinet.41.t
+	desc = cabinet.41.d
+	picture = ADVISOR_eventPicture
+    
+    is_triggered_only = yes
+	immediate = { #Display Current Settings
+	     if = {
+		       limit = { has_country_flag = cabinet_ep_state }
+			   custom_tooltip = cabinet_ep_state_dt
+		 }
+		 else = {
+		       custom_tooltip = cabinet_ep_territory_dt
+		 }
+		 if = {
+		       limit = { has_country_flag = cabinet_ep_primary }
+			   custom_tooltip = cabinet_ep_primary_dt
+		 }
+		 else_if = {
+		       limit = { has_country_flag = cabinet_ep_accepted }
+			   custom_tooltip = cabinet_ep_accepted_dt
+		 }
+		 else_if = {
+		       limit = { has_country_flag = cabinet_ep_allculture }
+			   custom_tooltip = cabinet_ep_allculture_dt
+		 }
+	}
+	option = {
+	       name = "cabinet.41.state"  #State Provinces Only
+		   trigger = {
+		          NOT = { has_country_flag = cabinet_ep_state }
+		   }
+		   set_country_flag = cabinet_ep_state
+		   custom_tooltip = cabinet.statet
+		   hidden_effect = {
+		        country_event = { id = cabinet.4 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.41.territory"  #Territory Allowed
+		   trigger = {
+		          has_country_flag = cabinet_ep_state
+		   }
+		   clr_country_flag = cabinet_ep_state
+		   custom_tooltip = cabinet.territoryt
+		   hidden_effect = {
+		        country_event = { id = cabinet.4 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.41.primary"  #Primary Culture and Cultural Union Only
+		   trigger = {
+		          NOT = { has_country_flag = cabinet_ep_primary }
+		   }
+		   set_country_flag = cabinet_ep_primary
+		   clr_country_flag = cabinet_ep_accepted
+		   clr_country_flag = cabinet_ep_allculture
+		   custom_tooltip = cabinet.primaryt
+		   hidden_effect = {
+		        country_event = { id = cabinet.4 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.41.accepted"  #Primary Culture, Cultural Union and accepted culture
+		   trigger = {
+		          NOT = { has_country_flag = cabinet_ep_accepted }
+		   }
+		   clr_country_flag = cabinet_ep_primary
+		   set_country_flag = cabinet_ep_accepted
+		   clr_country_flag = cabinet_ep_allculture
+		   custom_tooltip = cabinet.acceptedt
+		   hidden_effect = {
+		        country_event = { id = cabinet.4 }
+		   }
+	}
+	option = {
+	       name = "cabinet.41.allculture"  #All cultures
+		   trigger = {
+		          NOT = { has_country_flag = cabinet_ep_allculture }
+		   }
+		   clr_country_flag = cabinet_ep_primary
+		   clr_country_flag = cabinet_ep_accepted
+		   set_country_flag = cabinet_ep_allculture
+		   custom_tooltip = cabinet.allculturet
+		   hidden_effect = {
+		        country_event = { id = cabinet.4 }
+		   }
+	}
+	option = {
+	       name = "cu.return" #Return
+		   hidden_effect = {
+		        country_event = { id = cabinet.4 }
+		   }
+	}
+	
+	option = {
+	       name = "cu.exit" #Exit
+		   clr_country_flag = cabinet_panel_open
+	}
+}
+
+country_event = {#PAC settings
+	id = cabinet.5
+	title = cabinet.5.t
+	desc = cabinet.5.d
+	picture = ADVISOR_eventPicture
+    
+    is_triggered_only = yes
+	immediate = {
+		if = {
+			limit = { has_country_flag = cabinet_auto_PAC }
+			custom_tooltip = cabinet_autopac_yes
+		}
+		else_if = {
+			limit = { has_country_flag = cabinet_NO_supress_PAC }
+			custom_tooltip = cabinet_autopac_no_supress
+		}
+		if = {
+			limit = { has_country_flag = cabinet_NO_PAC_on_making_core }
+			custom_tooltip = cabinet_autopac_no_pac_on_making_core
+		}
+		else = {
+			custom_tooltip = cabinet_autopac_on_making_core
+		}
+		if = {
+			limit = { has_country_flag = cabinet_auto_PAC_3 }
+			custom_tooltip = cabinet_autopac_3
+		}
+		else_if = {
+			limit = { has_country_flag = cabinet_auto_PAC_2 }
+			custom_tooltip = cabinet_autopac_2
+		}
+		else = {
+			custom_tooltip = cabinet_autopac_1
+		}
+	}
+	option = {
+	    name = "cabinet.5.stop"
+		trigger = {
+			has_country_flag = cabinet_auto_PAC
+		}
+		hidden_effect = {
+			clr_country_flag = cabinet_auto_PAC
+		    country_event = { id = cabinet.0 }
+		}
+	}
+	option = {
+	    name = "cabinet.5.start"
+		trigger = {
+			NOT = { has_country_flag = cabinet_auto_PAC }
+		}
+		hidden_effect = {
+			set_country_flag = cabinet_auto_PAC
+		    country_event = { id = cabinet.0 }
+		}
+	}
+	option = {
+	    name = "cabinet.5.ignore_core"
+		trigger = {
+			NOT = { has_country_flag = cabinet_NO_PAC_on_making_core }
+		}
+		hidden_effect = {
+			set_country_flag = cabinet_NO_PAC_on_making_core
+		    country_event = { id = cabinet.0 }
+		}
+	}
+	option = {
+	    name = "cabinet.5.stop_ignore_core"
+		trigger = {
+			has_country_flag = cabinet_NO_PAC_on_making_core
+		}
+		hidden_effect = {
+			clr_country_flag = cabinet_NO_PAC_on_making_core
+		    country_event = { id = cabinet.0 }
+		}
+	}
+	option = {
+	    name = "cabinet.5.stop_supress"
+		trigger = {
+			NOT = { has_country_flag = cabinet_NO_supress_PAC }
+		}
+		hidden_effect = {
+			set_country_flag = cabinet_NO_supress_PAC
+		    country_event = { id = cabinet.0 }
+		}
+	}
+	option = {
+	    name = "cabinet.5.start_supress"
+		trigger = {
+			has_country_flag = cabinet_NO_supress_PAC
+		}
+		hidden_effect = {
+			clr_country_flag = cabinet_NO_supress_PAC
+		    country_event = { id = cabinet.0 }
+		}
+	}
+	option = {
+	    name = "cabinet.5.1"
+		trigger = {
+			OR = { 
+				has_country_flag = cabinet_auto_PAC_2 
+				has_country_flag = cabinet_auto_PAC_3 
+			}
+		}
+		hidden_effect = {
+			clr_country_flag = cabinet_auto_PAC_3
+			clr_country_flag = cabinet_auto_PAC_2
+		    country_event = { id = cabinet.0 }
+		}
+	}
+	option = {
+	    name = "cabinet.5.2"
+		trigger = {
+			NOT = { has_country_flag = cabinet_auto_PAC_2 }
+		}
+		hidden_effect = {
+			clr_country_flag = cabinet_auto_PAC_3
+			set_country_flag = cabinet_auto_PAC_2
+		    country_event = { id = cabinet.0 }
+		}
+	}
+	option = {
+	    name = "cabinet.5.3"
+		trigger = {
+			NOT = { has_country_flag = cabinet_auto_PAC_3 }
+		}
+		hidden_effect = {
+			clr_country_flag = cabinet_auto_PAC_2
+			set_country_flag = cabinet_auto_PAC_3
+		    country_event = { id = cabinet.0 }
+		}
+	}
+	
+	
+	option = {
+	    name = "cu.return" #Return
+		hidden_effect = {
+		    country_event = { id = cabinet.0 }
+		}
+	}
+	
+	option = {
+	    name = "cu.exit" #Exit
+		clr_country_flag = cabinet_panel_open
+	}
+}
+
+country_event = { #Stability Panel
+	id = cabinet.6
+	title = cabinet.6.t
+	desc = cabinet.6.d
+	picture = ADVISOR_eventPicture
+	is_triggered_only = yes
+	immediate = {
+	    hidden_effect = {
+		      set_variable = { which = cu_stc_modifier value = 0 }
+			  export_to_variable = {
+			         which = cu_stc_modifier
+					 value = modifier:stability_cost_modifier
+			  }
+			  multiply_variable = { which = cu_stc_modifier value = 100 }
+			  change_variable = { which = cu_stc_modifier value = 100 }
+		}
+	}
+	option = { #Improve Stability
+	    name = "cabinet.6.a" 
+		trigger = {
+		    adm_power = 150
+			NOT = { has_country_modifier = cu_stability_effort }
+		}
+		add_adm_power = -150
+		add_country_modifier = {
+			name = cu_stability_effort
+			duration = 3650
+		}
+		hidden_effect = { #Update display
+            set_country_flag = cu_stability_fixed
+			cu_calc_total_stability_growth = yes
+			clr_country_flag = cu_stability_fixed
+		}
+		custom_tooltip = cu_stability_effort_tt
+		if = {
+		         limit = { has_country_flag = cu_stab_panel_open }
+				 clr_country_flag = cu_stab_panel_open
+		}
+	    else = {
+				 clr_country_flag = cabinet_panel_open
+		}
+	}
+	option = { #Improve Stability(Unavailable)
+	    name = "cabinet.6.an" 
+		trigger = {
+			OR = {
+				NOT = { adm_power = 150 }
+				has_country_modifier = cu_stability_effort
+			}
+		    
+		}
+
+		custom_tooltip = cabinet.6.ant
+		if = {
+		         limit = { has_country_flag = cu_stab_panel_open }
+				 clr_country_flag = cu_stab_panel_open
+		}
+	    else = {
+				 clr_country_flag = cabinet_panel_open
+		}
+	}
+	option = { #Declare Martial Law
+	    name = "cabinet.6.b" 
+		trigger = {
+		    NOT = { stability = -1 }
+			NOT = { has_country_modifier = cu_martial_law }
+			mil_power = 200
+		}
+		add_mil_power = -200
+		add_prestige = -20
+		cu_change_stability_point_p75 = yes
+		add_country_modifier = {
+			name = cu_martial_law
+			duration = 365
+		}
+		hidden_effect = { #Update display
+            set_country_flag = cu_stability_fixed
+			cu_calc_total_stability_growth = yes
+			clr_country_flag = cu_stability_fixed
+		}
+		if = {
+		         limit = { has_country_flag = cu_stab_panel_open }
+				 clr_country_flag = cu_stab_panel_open
+		}
+	    else = {
+				 clr_country_flag = cabinet_panel_open
+		}
+	}
+	option = { #Declare Martial Law
+	    name = "cabinet.6.bn" 
+		trigger = {
+		    NOT = { stability = -1 }
+			NOT = { has_country_modifier = cu_martial_law }
+			NOT = { mil_power = 200 }
+		}
+		custom_tooltip = cabinet.6.bnt
+		if = {
+		         limit = { has_country_flag = cu_stab_panel_open }
+				 clr_country_flag = cu_stab_panel_open
+		}
+	    else = {
+				 clr_country_flag = cabinet_panel_open
+		}
+	}
+	option = {
+	    name = "cu.return" #Return
+		trigger = {
+			has_country_flag = cabinet_panel_open
+		}
+		clr_country_flag = cu_stab_panel_open
+		hidden_effect = {
+		    country_event = { id = cabinet.0 }
+		}
+	}
+	option = {
+	       name = "cu.exit" #Exit
+		   if = {
+		         limit = { has_country_flag = cu_stab_panel_open }
+				 clr_country_flag = cu_stab_panel_open
+		   }
+		   else = {
+				 clr_country_flag = cabinet_panel_open
+		   }
+	}
+}

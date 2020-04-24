@@ -1,0 +1,86 @@
+religion_1 = {
+        picture = "max_states"
+}
+
+religion_2 = {
+        picture = "max_states"
+}
+
+religion_3 = {
+        picture = "max_states"
+}
+
+religion_4 = {
+        picture = "max_states"
+}
+
+religion_5 = {
+        picture = "max_states"
+}
+
+religion_6 = {
+        picture = "max_states"
+}
+
+religion_7 = {
+        picture = "max_states"
+}
+
+religion_8 = {
+        picture = "max_states"
+}
+
+religion_9 = {
+        picture = "max_states"
+}
+
+religion_10 = {
+        picture = "max_states"
+}
+
+religion_11 = {
+        picture = "max_states"
+}
+
+religion_12 = {
+        picture = "max_states"
+}
+
+religion_13 = {
+        picture = "max_states"
+}
+
+religion_14 = {
+        picture = "max_states"
+}
+
+religion_15 = {
+        picture = "max_states"
+}
+
+religion_16 = {
+        picture = "max_states"
+}
+
+religion_17 = {
+        picture = "max_states"
+}
+
+convert_falsely = {
+	global_heretic_missionary_strength = -0.02
+	tolerance_heretic = 2
+	religion = yes
+}
+
+descendants_of_byzantine_emperors = {
+  prestige =1
+  diplomatic_reputation = 2
+}
+settled_horde_bonus = {
+  technology_cost = -0.05
+  idea_cost = -0.05
+  build_cost = -0.10
+  improve_relation_modifier = 0.25
+  diplomatic_reputation = 1
+  embracement_cost = -0.25
+}

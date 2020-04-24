@@ -1,0 +1,52 @@
+#487 - Jamaica
+
+culture = arawak
+religion = animism
+capital = "Jamaica"
+trade_goods = unknown
+hre = no
+base_tax = 2
+base_production = 3 
+base_manpower = 1
+native_size = 15 
+native_ferocity = 2
+native_hostileness = 6
+
+1494.1.1 = {
+	discovered_by = CAS
+	owner = CAS
+	controller = CAS
+	culture = castillian
+	add_core = CAS
+	religion = catholic
+	is_city = yes
+	trade_goods = sugar
+} # Christopher Columbus
+1516.1.23 = {
+	discovered_by = SPA
+	owner = SPA
+	controller = SPA
+	add_core = SPA
+	remove_core = CAS
+}
+1655.1.1 = {
+	owner = ENG
+	controller = ENG
+	add_core = ENG
+	culture = english
+	religion = protestant
+	remove_core = SPA
+} # General Venables seized the island
+1693.1.1 = { capital = "Kingston" }
+ # African slave labor
+1707.5.12 = {
+	discovered_by = GBR
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+	remove_core = ENG
+}
+1760.1.1 = { unrest = 4 } # Slave rebellion
+1761.1.1 = { unrest = 0 }
+1795.1.1 = { unrest = 4 } # Slave rebellion
+1796.1.1 = { unrest = 0 }

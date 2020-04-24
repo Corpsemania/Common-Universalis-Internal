@@ -1,0 +1,72 @@
+country_decisions = {
+	
+	
+	lanfang_nation = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			
+                        NOT = { has_country_flag = formed_lanfang_flag }
+                        NOT = { tag = SNG }
+                        NOT = { exists = LFA }
+			
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+			capital_scope = {
+				OR = {
+					region = malaya_region
+					region = moluccas_region
+					region = indonesia_region
+				}
+			}
+			primary_culture = hakka
+			NOT = { num_of_cities = 6 }
+		}		
+		allow = {
+			ai = no
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+		}
+		effect = {                       
+			add_prestige = 20
+			change_tag = LFA
+			remove_non_electors_emperors_from_empire_effect = yes
+			change_unit_type = chinese
+            change_technology_group = chinese
+            add_government_reform = becomes_republic_reform
+			add_government_reform = merchants_reform
+            add_republican_tradition = 50
+            set_country_flag = formed_lanfang_flag
+            swap_non_generic_missions = yes
+			if = {
+					limit = { 
+							OR = {
+									has_reform = tribal_conscription
+									has_reform = military_household
+									has_reform = feudal_conscription
+								}
+							}
+					add_government_reform = mercenary_conscription		   
+				}                     
+            if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+}

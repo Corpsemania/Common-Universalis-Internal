@@ -1,0 +1,36 @@
+increase_taxes = {
+
+	category = 3
+
+	allow = {
+		
+	}
+	
+	effect = {
+		add_years_of_income = 0.25
+	}
+	
+	modifier = {
+		global_tax_modifier = 0.12
+	}
+	
+	chance = {
+		factor = 1
+		modifier = {
+			factor = 2
+			num_of_loans = 5
+		}
+		modifier = {
+			factor = 2
+			num_of_loans = 8
+		}
+	}
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			num_of_loans = 1
+		}		
+	}	
+}

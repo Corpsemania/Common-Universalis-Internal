@@ -1,0 +1,307 @@
+country_decisions = {
+
+	make_constantinople_capital = {
+		potential = {
+			OR = {
+				tag = TUR
+				tag = RUM
+			}
+			owns = 151
+			NOT = { capital = 151 }
+			NOT = { has_country_flag = relocated_capital_constantinople }
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+		}
+		allow = {
+			is_at_war = no
+			primary_culture = turkish
+			religion_group = muslim
+			controls = 151
+			owns = 149		# Edirne
+			owns = 316		# Bithnyia
+			owns = 317		# Bursa
+			owns = 1764		# Burgas			
+		}
+		effect = {
+			set_country_flag = relocated_capital_constantinople
+			cu_change_stability_point_p50 = yes
+			add_core = 151
+			set_capital = 151
+			151 = {
+				change_culture = turkish 
+				change_religion = ROOT				
+			}
+			149 = {	
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -2
+			}
+			random_owned_province = {
+				limit = { culture = turkish }
+				add_base_manpower = -1
+			}
+			random_owned_province = {
+				limit = { culture = turkish }
+				add_base_manpower = -1
+			}
+			random_owned_province = {
+				limit = { culture = turkish }
+				add_base_manpower = -1
+			}
+			if = {
+				limit = {
+					NOT = { has_global_flag = constantinople_restored }
+				}
+				151 = {
+				    add_base_tax = 2
+					add_base_production = 2
+					add_base_manpower = 8
+					hidden_effect = { change_variable = { which = literacy value = -1 } }
+					change_trade_goods = silk										
+				}
+				set_global_flag = constantinople_restored
+			}
+			set_government_rank = 3
+			hidden_effect = {
+			     set_variable = { which = cu_var1 value = 50 }
+				 cu_change_cultural_legacy = yes
+				 cu_calc_country_absolute_dist = yes
+				 151= { set_variable = { which = p_ca value = 80 } }
+				 cu_calc_base_cultural_acceptance = yes
+				 cu_check_cultural_acceptance = yes
+			}
+			custom_tooltip = cu_change_cultural_legacy_50t
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		do_not_core = 151 # Constantinople
+	}
+		
+	provincial_system = {
+		potential = {
+			tag = TUR
+			NOT = { has_country_modifier = the_provincial_system }
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+		}
+		allow = {
+			adm_tech = 5
+			ADM = 4
+			adm_power = 50
+		}
+		effect = {
+			add_country_modifier = {
+				name = "the_provincial_system"
+				duration = -1
+			}
+			add_adm_power = -50
+			set_country_flag = the_provincial_system
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { mil_power = 100 }
+			}
+		}
+	}
+	
+	repire_theodosian_walls = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			owns = 151
+			NOT = { has_global_flag = wall_repired }
+		}
+		allow = {
+			is_at_war = no
+			owns = 151
+			treasury = 500
+			adm_power = 100
+		}
+		effect = {
+			add_treasury = -300
+			add_adm_power = -100
+			add_prestige = 10
+			151 = {
+				add_permanent_province_modifier = { 
+					name = theodosian_walls
+					duration = -1  
+				}
+			}
+			set_global_flag = wall_repired
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+
+	devshirme_system = {
+		potential = {
+			has_reform =  ottoman_government
+			NOT = { has_disaster = janissary_decadence }
+			NOT = { has_country_modifier = the_devshirme_system }
+			NOT = { has_country_flag = lapse_of_devshirme }
+			normal_or_historical_nations = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+		}
+		allow = {
+			mil_power = 100
+		}
+		effect = {
+			add_mil_power = -100
+			add_country_modifier = {
+				name = "the_devshirme_system"
+				duration = -1
+			}
+			if = {
+				limit = {
+					NOT = { has_dlc = "Cradle of Civilization" }
+				}
+				country_event = { id = flavor_tur.100 days = 4380 }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { mil_power = 200 }
+			}
+		}
+	}
+
+	reform_the_janissaries = {
+		major = yes
+		potential = {
+			NOT = { has_country_flag = turarmydis }
+			has_country_modifier = tur_janissary
+			OR = {
+				had_country_flag = {
+					flag = reform_j_timer
+					days = 7300
+				}
+				NOT = { has_country_flag = reform_j_timer }
+			}
+			has_disaster_progress = {
+				disaster = janissary_decadence
+				value = 25
+			}
+		}
+		allow = {
+			mil_power = 120
+			adm_power = 150
+			AND = {
+				ADM = 4
+				MIL = 5
+			}
+			army_tradition = 75
+		}
+		effect = {
+			add_army_tradition = -50
+			add_adm_power = -120
+			add_mil_power = -150
+			clr_country_flag = reform_j_timer
+			set_country_flag = reform_j_timer
+			if = {
+				limit = {
+					check_variable = { which = reform_j_l value = 5 }
+				}
+				remove_country_modifier = tur_janissary
+				add_country_modifier = {
+					name = new_janissary
+					duration = -1
+				}
+			}
+			else = {
+				custom_tooltip = reform_j_loc
+				hidden_effect = { change_variable = { which = reform_j_l value = 1 } }
+				if = { limit = { ai = no } add_country_modifier = { name = janissaries_upset duration = 1825 } }
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				factor = 100
+				MIL = 6
+			}
+			modifier = {
+				factor = 100
+				ADM = 6
+			}
+		}
+	}
+
+	disband_the_janissaries = {
+		major = yes
+		potential = {
+			OR = {
+				has_country_modifier = tur_janissary
+				has_disaster = janissary_decadence 
+			}
+		}
+		allow = {
+			adm_power = 500
+			dip_power = 500
+			mil_power = 500
+			stability = 1
+			OR = {
+				AND = {
+					ADM = 6
+					MIL = 6
+				}
+				AND = {
+					NOT = { has_country_flag = turarmydis }
+					OR = {
+						MIL = 6
+						ADM = 6
+					}
+				}
+			}
+		}
+		effect = {
+			add_army_tradition = -100
+			add_army_professionalism = -100
+			add_prestige = -50
+			if = {
+				limit = {
+					has_country_modifier = tur_janissary
+				}
+				remove_country_modifier = tur_janissary
+			}
+			else = {
+				set_country_flag = yoklama
+				custom_tooltip = yoklama_effect_tooltip
+			}
+			if = {
+				limit = { has_country_flag = turarmydis }
+				add_adm_power = -500
+				add_dip_power = -500
+				add_mil_power = -500
+				cu_change_stability_point_n150 = yes
+				end_disaster = janissary_decadence
+				country_event = { id = janissary_decadence.100 }
+			}
+			else = {
+				add_adm_power = -300
+				add_dip_power = -300
+				add_mil_power = -300
+				cu_change_stability_point_n100 = yes
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+}

@@ -1,0 +1,165 @@
+# Triggered modifiers are here.
+# these are checked for each countries once/month and then applied.
+#
+# Effects are fully scriptable here.
+cu_government_size_10 = {
+	potential = {
+		check_variable = { which = etig value = 90 }
+		primitives = yes
+	}
+	trigger = {
+		check_variable = { which = etig value = 100 }    
+	}
+	yearly_corruption = 0.05
+	advisor_cost = 0.10
+	advisor_pool = 2
+}
+cu_government_size_9 = {
+	potential = {
+		NOT = {
+			check_variable = { which = etig value = 90 }
+		}
+		check_variable = { which = etig value = 70 }
+		primitives = yes
+	}
+	trigger = {
+		check_variable = { which = etig value = 80 }    
+	}
+	yearly_corruption = 0.045
+	advisor_cost = 0.09
+	advisor_pool = 2
+}
+cu_government_size_8 = {
+	potential = {
+		NOT = {
+			check_variable = { which = etig value = 80 }
+		}
+		check_variable = { which = etig value = 60 }
+		primitives = yes
+	}
+	trigger = {
+		check_variable = { which = etig value = 70 }    
+	}
+	yearly_corruption = 0.04
+	advisor_cost = 0.08
+	advisor_pool = 2
+}
+cu_government_size_7 = {
+	potential = {
+		NOT = {
+			check_variable = { which = etig value = 80 }
+		}
+		check_variable = { which = etig value = 60 }
+		primitives = yes
+	}
+	trigger = {
+		check_variable = { which = etig value = 70 }    
+	}
+	yearly_corruption = 0.035
+	advisor_cost = 0.07
+	advisor_pool = 1
+}
+cu_government_size_6 = {
+	potential = {
+		NOT = {
+			check_variable = { which = etig value = 70 }
+		}
+		check_variable = { which = etig value = 50 }
+		primitives = yes
+	}
+	trigger = {
+		check_variable = { which = etig value = 60 }    
+	}
+	yearly_corruption = 0.03
+	advisor_cost = 0.06
+	advisor_pool = 1
+}
+cu_government_size_5 = {
+	potential = {
+		NOT = {
+			check_variable = { which = etig value = 60 }
+		}
+		check_variable = { which = etig value = 40 }
+		primitives = yes
+	}
+	trigger = {
+		check_variable = { which = etig value = 50 }    
+	}
+	yearly_corruption = 0.025
+	advisor_cost = 0.05
+	advisor_pool = 1
+}
+cu_government_size_4 = {
+	potential = {
+		NOT = {
+			check_variable = { which = etig value = 50 }
+		}
+		check_variable = { which = etig value = 30 }
+		primitives = yes
+	}
+	trigger = {
+		check_variable = { which = etig value = 40 }    
+	}
+	yearly_corruption = 0.02
+	advisor_cost = 0.04
+	advisor_pool = 1
+}
+cu_government_size_3 = {
+	potential = {
+		NOT = {
+			check_variable = { which = etig value = 40 }
+		}
+		check_variable = { which = etig value = 20 }
+		primitives = yes
+	}
+	trigger = {
+		check_variable = { which = etig value = 30 }    
+	}
+	yearly_corruption = 0.015
+	advisor_cost = 0.03
+}
+cu_government_size_2 = {
+	potential = {
+		NOT = {
+			check_variable = { which = etig value = 30 }
+		}
+		check_variable = { which = etig value = 10 }
+		primitives = yes
+	}
+	trigger = {
+		check_variable = { which = etig value = 20 }    
+	}
+	yearly_corruption = 0.010
+	advisor_cost = 0.02
+}
+cu_government_size_1 = {
+	potential = {
+		NOT = {
+			check_variable = { which = etig value = 20 }
+		}
+		primitives = yes
+	}
+	trigger = {
+		check_variable = { which = etig value = 10 }    
+	}
+    yearly_corruption = 0.005
+	advisor_cost = 0.01
+}
+cu_government_size_0 = {
+	potential = {
+		NOT = {
+			check_variable = { which = etig value = 10 }
+		}
+		primitives = yes
+	}
+	trigger = {
+		NOT = {
+			check_variable = { which = etig value = 10 }
+		}
+	}
+	advisor_cost = -0.01
+}
+
+
+
+

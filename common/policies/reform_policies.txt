@@ -1,0 +1,376 @@
+subdue_the_warlord = {
+	monarch_power = ADM
+
+
+	potential = {
+		has_idea_group = aristocracy_ideas
+		has_idea_group = reform_ideas
+		OR = {
+			full_idea_group = aristocracy_ideas
+			full_idea_group = reform_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = aristocracy_ideas
+		full_idea_group = reform_ideas
+	}
+
+
+	global_autonomy = -0.02
+	fort_maintenance_modifier = 0.15
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			religious_unity = 1
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { religious_unity = 0.8 }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { religious_unity = 0.6 }
+		}			
+		modifier = {
+			factor = 1.5
+			NOT = { religious_unity = 0.4 }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { religious_unity = 0.2 }
+		}			
+	}
+
+}
+
+banzai_charge = {
+	monarch_power = MIL
+
+
+	potential = {
+		has_idea_group = offensive_ideas
+		has_idea_group = reform_ideas
+		OR = {
+			full_idea_group = offensive_ideas
+			full_idea_group = reform_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = offensive_ideas
+		full_idea_group = reform_ideas
+	}
+
+    shock_damage = 0.1
+	shock_damage_received = 0.1
+
+	ai_will_do = {
+		factor = 1
+	}
+
+}
+
+
+
+guerrilla_warfare = {
+	monarch_power = MIL
+
+
+	potential = {
+		has_idea_group = defensive_ideas
+		has_idea_group = reform_ideas
+		OR = {
+			full_idea_group = defensive_ideas
+			full_idea_group = reform_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = defensive_ideas
+		full_idea_group = reform_ideas
+	}
+
+
+	land_morale = -0.1
+	fire_damage_received = -0.1
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			religious_unity = 1
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { religious_unity = 0.8 }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { religious_unity = 0.6 }
+		}			
+		modifier = {
+			factor = 1.5
+			NOT = { religious_unity = 0.4 }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { religious_unity = 0.2 }
+		}			
+	}
+}
+
+standardized_weapons = {
+	monarch_power = MIL
+
+
+	potential = {
+		has_idea_group = quality_ideas
+		has_idea_group = reform_ideas
+		OR = {
+			full_idea_group = quality_ideas
+			full_idea_group = reform_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = quality_ideas
+		full_idea_group = reform_ideas
+	}
+
+
+	global_regiment_cost = -0.10
+	advisor_cost = 0.07
+
+	ai_will_do = {
+		factor = 1		
+	}
+}
+
+military_service_system = {
+	monarch_power = ADM
+
+
+	potential = {
+		has_idea_group = quantity_ideas
+		has_idea_group = reform_ideas
+		OR = {
+			full_idea_group = quantity_ideas
+			full_idea_group = reform_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = quantity_ideas
+		full_idea_group = reform_ideas
+	}
+
+
+	global_manpower_modifier = 0.15
+	stability_cost_modifier = 0.25
+
+	ai_will_do = {
+		factor = 1		
+	}
+}
+
+navy_professionalism = {
+	monarch_power = MIL
+
+
+	potential = {
+		has_idea_group = naval_ideas
+		has_idea_group = reform_ideas
+		OR = {
+			full_idea_group = naval_ideas
+			full_idea_group = reform_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = naval_ideas
+		full_idea_group = reform_ideas
+	}
+
+
+	ship_durability = 0.05
+	naval_maintenance_modifier = 0.10
+
+	ai_will_do = {
+		factor = 1		
+	}
+}
+
+military_intelligence = {
+	monarch_power = DIP
+
+
+	potential = {
+		has_idea_group = spy_ideas
+		has_idea_group = reform_ideas
+		OR = {
+			full_idea_group = spy_ideas
+			full_idea_group = reform_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = spy_ideas
+		full_idea_group = reform_ideas
+	}
+
+	mil_tech_cost_modifier = -0.1
+	spy_offence = -0.20
+
+	ai_will_do = {
+		factor = 1		
+	}
+}
+
+confederacy_and_leagues = {
+	monarch_power = DIP
+
+
+	potential = {
+		has_idea_group = diplomatic_ideas
+		has_idea_group = reform_ideas
+		OR = {
+			full_idea_group = diplomatic_ideas
+			full_idea_group = reform_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = diplomatic_ideas
+		full_idea_group = reform_ideas
+	}
+
+
+	diplomatic_upkeep = 2
+	diplomats = -1
+
+	ai_will_do = {
+		factor = 1		
+	}
+}
+
+open_trade = {
+	monarch_power = ADM
+
+
+	potential = {
+		has_idea_group = trade_ideas
+		has_idea_group = reform_ideas
+		OR = {
+			full_idea_group = trade_ideas
+			full_idea_group = reform_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = trade_ideas
+		full_idea_group = reform_ideas
+	}
+
+
+	global_own_trade_power = -0.10
+	merchants = 1
+
+	ai_will_do = {
+		factor = 1		
+	}
+}
+
+
+buffer_zone = {
+	monarch_power = ADM
+
+
+	potential = {
+		has_idea_group = exploration_ideas
+		has_idea_group = reform_ideas
+		OR = {
+			full_idea_group = exploration_ideas
+			full_idea_group = reform_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = exploration_ideas
+		full_idea_group = reform_ideas
+	}
+
+
+	colonists = 1
+	state_maintenance_modifier = 0.15
+
+	ai_will_do = {
+		factor = 1		
+	}
+}
+
+organized_fishery = {
+	monarch_power = DIP
+
+
+	potential = {
+		has_idea_group = maritime_ideas
+		has_idea_group = reform_ideas
+		OR = {
+			full_idea_group = maritime_ideas
+			full_idea_group = reform_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = maritime_ideas
+		full_idea_group = reform_ideas
+	}
+
+
+	global_trade_goods_size_modifier = 0.1
+	advisor_cost = 0.10
+
+	ai_will_do = {
+		factor = 1	
+                modifier = {
+			factor = 0
+			num_of_ports = 10
+		}		
+	}
+}
+
+for_better_future = {
+	monarch_power = ADM
+
+
+	potential = {
+		has_idea_group = expansion_ideas
+		has_idea_group = reform_ideas
+		OR = {
+			full_idea_group = expansion_ideas
+			full_idea_group = reform_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = expansion_ideas
+		full_idea_group = reform_ideas
+	}
+
+
+	development_cost = 0.1
+	land_forcelimit_modifier = 0.2
+	land_maintenance_modifier = -0.1
+
+	ai_will_do = {
+		factor = 1	
+                modifier = {
+			factor = 0
+			num_of_ports = 10
+		}		
+	}
+}
+

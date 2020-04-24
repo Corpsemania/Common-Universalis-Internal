@@ -1,0 +1,35 @@
+# province id = rotation in degrees, 0 is pointing right, then ccw)
+# can be reloaded ingame by cmd: reloadtradewinds
+
+# North Atlantic Westerlies
+
+1570 = 25
+1572 = 75
+1573 = 30
+1494 = 25
+1569 = 20
+1495 = 20
+1565 = 20
+1496 = 10
+1497 = 0
+1564 = -10
+1479 = -10
+1563 = -10
+1289 = -10
+1485 = 0
+1483 = 0
+1474 = 15
+
+# Atlantic Northeasterlies
+
+1567 = -65
+1571 = 60
+1578 = -120
+1580 = -160
+1413 = -180
+1581 = -180
+1583 = -160
+1576 = -160
+1575 = -180
+1574 = 150
+

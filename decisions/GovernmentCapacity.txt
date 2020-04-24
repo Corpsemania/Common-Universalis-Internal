@@ -1,0 +1,23 @@
+country_decisions = {
+
+	show_gc = {
+        potential = {	
+                ai = no
+				NOT = { has_country_flag = cugovernmentui_open }
+                                #NOT = { total_development = 7000 }
+				has_global_flag = test_version
+		}
+		allow = {
+		
+		}
+		effect = {
+		    set_country_flag = cugovernmentui_open 
+			hidden_effect = { country_event = { id = cugovernment.1 } }
+			
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+    }
+}
