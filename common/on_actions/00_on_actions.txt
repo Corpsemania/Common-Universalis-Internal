@@ -161,7 +161,7 @@ on_startup = {
 		
 	    
 		every_province = {
-
+			cu_switch_hybrid_culture = yes
 			#Indian Cast System
 				if = {
 				       limit = {
@@ -4715,6 +4715,7 @@ on_convert_by_trade_policy = {
 # province
 # FROM = old owner
 on_province_owner_change = {
+	cu_switch_hybrid_culture = yes
     if = { #Initialize 
 	      limit = { 
 		         NOT = { check_variable = { which = cu_museum_level value = 1 } }

@@ -82,6 +82,7 @@ country_event = {
 				  set_province_flag = cu_newly_conquered_province
 			 }
 		}
+		clr_country_flag = cabinet_panel_open
 	}
 
     option = {

@@ -102,3 +102,7 @@ opinion_cu_steal_money = {
 	yearly_decay = 1
 	min = -200
 }						  
+
+is_protectorate = {
+	opinion = 50
+}

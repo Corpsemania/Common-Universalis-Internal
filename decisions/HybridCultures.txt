@@ -1,0 +1,75 @@
+country_decisions = {
+	embrace_iberian_identity = {
+		major = yes
+		potential = {
+			primary_culture = aragonese
+			NOT = { has_country_flag = iberian_identity_embraced }
+	    }
+		allow = {
+			dip_power = 200
+			stability = 1
+			num_of_owned_provinces_with = {
+					culture_group = iberian
+					has_owner_accepted_culture = yes
+					value = 5
+			}
+		}
+		effect = {
+			add_dip_power = -200
+			cu_change_stability_point_n150 = yes
+			set_country_flag = iberian_identity_embraced
+			custom_tooltip = embrace_iberian_identity_tooltip
+			hidden_effect = {
+				change_primary_culture = aragonese_iberian
+				every_owned_province = {
+					if = {
+						limit = { culture = aragonese }
+						change_culture = aragonese_iberian
+						cu_calc_base_cultural_acceptance = yes
+					}
+					else_if = { #Italian provinces become furious for your betrayal 
+						limit = { culture_group = latin }
+						add_unrest = 10
+						cu_calc_base_cultural_acceptance = yes
+						set_variable = { which = cu_var1 value = -20 }
+						cu_add_cultural_acceptance = yes
+					}
+					else_if = {
+						limit = { culture_group = iberian }
+						cu_calc_base_cultural_acceptance = yes
+					}
+				}
+				every_subject_country = {
+					if = {
+						limit = { primary_culture = aragonese_iberian }
+						cu_change_stability_point_n150 = yes
+						set_country_flag = iberian_identity_embraced
+						every_owned_province = {
+							if = {
+								limit = { culture = aragonese }
+								change_culture = aragonese_iberian
+								cu_calc_base_cultural_acceptance = yes
+							}
+							else_if = { #Italian province becomes furious for your betrayal 
+								limit = { culture_group = latin }
+								add_unrest = 10
+								cu_calc_base_cultural_acceptance = yes
+								set_variable = { which = cu_var1 value = -20 }
+								cu_add_cultural_acceptance = yes
+							}
+							else_if = {
+								limit = { culture_group = iberian }
+								cu_calc_base_cultural_acceptance = yes
+							}
+						}
+					}
+					else_if = {
+						limit = { culture_group = latin }
+						add_liberty_desire = 20
+					}
+				} 
+				
+			}
+		}
+	}
+}

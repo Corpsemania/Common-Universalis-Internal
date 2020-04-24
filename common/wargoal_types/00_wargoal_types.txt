@@ -1075,6 +1075,7 @@ superiority_primitives = {
 		po_release_annexed
 		po_return_cores
 		po_gold
+		force_protectorate
 		#po_become_vassal
 		#po_change_religion
 	}
@@ -1105,6 +1106,7 @@ superiority_overseas = {
 		po_return_cores
 		po_gold
 		po_become_vassal
+		force_protectorate
 	}
 	
 	country_desc = ALL_PRIMITIVES

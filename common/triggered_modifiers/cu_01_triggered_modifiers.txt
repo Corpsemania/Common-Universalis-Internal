@@ -2245,5 +2245,104 @@ cu_capital_not_in_state = {
 	advisor_cost = 0.15
 	yearly_absolutism = -1
 }
+
+insufficient_diplomatic_upkeep_1 = {
+	potential = {
+		NOT = { dip_power = 0 }
+	}
+	trigger = {
+		NOT = { dip_power = -99 }
+	}
+	reduced_liberty_desire = -10
+}
 	
+insufficient_diplomatic_upkeep_2 = {
+	potential = {
+		NOT = { dip_power = -99 }
+	}
+	trigger = {
+		NOT = { dip_power = -199 }
+	}
+	reduced_liberty_desire = -20
+}
+
+insufficient_diplomatic_upkeep_3 = {
+	potential = {
+		NOT = { dip_power = -199 }
+	}
+	trigger = {
+		NOT = { dip_power = -299 }
+	}
+	reduced_liberty_desire = -30
+}
+
+insufficient_diplomatic_upkeep_4 = {
+	potential = {
+		NOT = { dip_power = -299 }
+	}
+	trigger = {
+		NOT = { dip_power = -399 }
+	}
+	reduced_liberty_desire = -40
+}	
+
+insufficient_diplomatic_upkeep_5 = {
+	potential = {
+		NOT = { dip_power = -399 }
+	}
+	trigger = {
+		NOT = { dip_power = -499 }
+	}
+	reduced_liberty_desire = -50
+}	
+
+insufficient_diplomatic_upkeep_6 = {
+	potential = {
+		NOT = { dip_power = -499 }
+	}
+	trigger = {
+		NOT = { dip_power = -599 }
+	}
+	reduced_liberty_desire = -60
+}	
+
+insufficient_diplomatic_upkeep_7 = {
+	potential = {
+		NOT = { dip_power = -599 }
+	}
+	trigger = {
+		NOT = { dip_power = -699 }
+	}
+	reduced_liberty_desire = -70
+}
+
+insufficient_diplomatic_upkeep_8 = {
+	potential = {
+		NOT = { dip_power = -699 }
+	}
+	trigger = {
+		NOT = { dip_power = -799 }
+	}
+	reduced_liberty_desire = -80
+}	
+
+insufficient_diplomatic_upkeep_9 = {
+	potential = {
+		NOT = { dip_power = -799 }
+	}
+	trigger = {
+		NOT = { dip_power = -899 }
+	}
+	reduced_liberty_desire = -90
+}
+
+insufficient_diplomatic_upkeep_10 = {
+	potential = {
+		NOT = { dip_power = -899 }
+	}
+	trigger = {
+		NOT = { dip_power = -999 }
+	}
+	reduced_liberty_desire = -100
+}				
 	

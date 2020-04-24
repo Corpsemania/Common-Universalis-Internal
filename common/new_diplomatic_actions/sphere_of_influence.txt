@@ -1,3 +1,160 @@
+demand_protectorate = {
+	category = influence
+	
+	alert_index = 41
+	alert_tooltip = establish_sphere_of_influence_tooltip
+	
+	require_acceptance = yes # Whether the recipient gets an option to decline
+	
+	is_visible = {
+		dip_tech = 10
+		num_of_colonists = 1
+		FROM = { is_subject = no }
+		NOT = { FROM = { government_rank = 3 } }
+		is_emperor = no
+		NOT = { FROM = { total_development = 500 } }
+	}
+	is_allowed = {
+		is_at_war = no 
+		FROM = { is_at_war = no }
+		NOT = { any_country = { is_subject_of = FROM } }
+		institution_difference = {
+			who = FROM
+			value = 2
+		}
+	}
+	on_accept = {
+		create_subject = {
+			subject_type = protectorate
+			subject = FROM
+		}
+	}
+	
+	on_decline = {
+	    
+	}
+	
+	ai_acceptance = {
+		add_entry = {
+			name = protectorate_base_reluctance
+			export_to_variable = {
+				variable_name = ai_value
+				value = -20
+			}
+		}
+		add_entry = {
+			name = protectorate_num
+			export_to_variable = {
+				variable_name = ai_value
+				value = num_of_non_tributary_subjects
+			}
+			multiply_variable = { which = ai_value value = -5 }	
+		}
+		add_entry = {
+			name = MILITARY_compare
+			export_to_variable = {
+				variable_name = ai_value
+				value = army_size
+				who = ROOT
+			}
+			export_to_variable = {
+				variable_name = cu_cache
+				value = army_size
+				who = FROM
+			}			
+			change_variable = { which = ai_value value = 1 }
+			change_variable = { which = cu_cache value = 1 }
+			multiply_variable = { which = cu_cache value = 100 }
+			divide_variable = { which = cu_cache which = ai_value}	
+			subtract_variable = { which = cu_cache value = 50 }	
+			set_variable = { which = ai_value which = cu_cache}
+			multiply_variable = { which = ai_value value = -1 }
+		}
+		add_entry = {
+			name = economy_compare
+			export_to_variable = {
+				variable_name = ai_value
+				value = total_development
+				who = ROOT
+			}
+			export_to_variable = {
+				variable_name = cu_cache
+				value = total_development
+				who = FROM
+			}			
+			multiply_variable = { which = cu_cache value = 300 }
+			divide_variable = { which = cu_cache which = ai_value}	
+			subtract_variable = { which = cu_cache value = 100 }	
+			set_variable = { which = ai_value which = cu_cache}
+			multiply_variable = { which = ai_value value = -1 }	
+		}
+		add_entry = {
+			name = TRUST
+			export_to_variable = {
+				variable_name = ai_value
+				value = trust
+				who = FROM
+				with = ROOT
+			}
+			subtract_variable = { which = ai_value value = 50 }
+			multiply_variable = { which = ai_value value = 2 }
+		}
+		add_entry = {
+			name = OPINION
+			export_to_variable = {
+				variable_name = ai_value
+				value = opinion
+				who = FROM
+				with = ROOT
+			}
+			divide_variable = { which = ai_value value = 4 }
+		}
+		add_entry = {
+			name = DIPLO_BORDER_DISTANCE
+			export_to_variable = {
+				variable_name = ai_value
+				value = border_distance
+				who = FROM
+				with = ROOT
+			}
+			multiply_variable = { which = ai_value value = -0.75 }
+		}
+		add_entry = {
+			name = DIPLO_DIPLOMATIC_REPUTATION
+			export_to_variable = {
+				variable_name = ai_value
+				value = modifier:diplomatic_reputation
+				who = ROOT
+			}
+			multiply_variable = { which = ai_value value = 3 }
+		}
+		
+		add_entry = {
+			name = development_form
+			export_to_variable = {
+				variable_name = ai_value
+				value = total_development
+				who = FROM
+			}
+			multiply_variable = { which = ai_value value = -1 }
+		}
+		add_entry = {
+			name = institution_difference_form
+			export_to_variable = {
+				variable_name = ai_value
+				value = institution_difference
+				who = ROOT
+				with = FROM
+			}
+			multiply_variable = { which = ai_value value = 2 }
+		}
+	}
+	
+	ai_will_do = { # this is a trigger
+		FROM = { ai = yes }
+	}
+}
+
 establish_sphere_of_influence = {
 	category = influence
 	
@@ -11,6 +168,7 @@ establish_sphere_of_influence = {
 		FROM = { is_subject = no }
 		is_great_power = yes
 		dip_tech = 23
+		has_global_flag = test_version
 	}
 	is_allowed = {
 		is_at_war = no 

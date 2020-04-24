@@ -223,7 +223,7 @@ cu_calc_base_cultural_acceptance = {
 	#
 	if = { #Primary Culture
 	    limit = { has_owner_culture = yes	}
-		change_variable = { which = p_cab value = 55 }
+		change_variable = { which = p_cab value = 50 }
 		if = {
 		    limit = { owner = { has_reform = cu_cultural_policy_1 } }
 			change_variable = { which = p_cab value = 10 }
@@ -281,7 +281,7 @@ cu_calc_base_cultural_acceptance = {
 	}
     else_if = { #Same Cultural Group
 		limit = { owner = { culture_group = ROOT } }
-		change_variable = { which = p_cab value = 35 }
+		change_variable = { which = p_cab value = 40 }
 		set_variable = { which = cu_var2 which = literacy }
 		divide_variable = { which = cu_var2 value = 4 }
 		subtract_variable = { which = p_cab which = cu_var2 }
@@ -312,7 +312,7 @@ cu_calc_base_cultural_acceptance = {
 	}
     else_if = { #Foreign Accepted Culture
 		limit = { has_owner_accepted_culture = yes }
-		change_variable = { which = p_cab value = 35 }
+		change_variable = { which = p_cab value = 40 }
 		set_variable = { which = cu_var2 which = literacy }
 		divide_variable = { which = cu_var2 value = 3.5 }
 		subtract_variable = { which = p_cab which = cu_var2 }
@@ -342,7 +342,7 @@ cu_calc_base_cultural_acceptance = {
 		}
 	}	
 	else = { #Unaccepted Culture
-		change_variable = { which = p_cab value = 25 }
+		change_variable = { which = p_cab value = 30 }
 		set_variable = { which = cu_var2 which = literacy }
 		divide_variable = { which = cu_var2 value = 2.5 }
 		subtract_variable = { which = p_cab which = cu_var2 }
@@ -1749,4 +1749,49 @@ cu_do_immigration = {
 			  cu_check_cultural_assimilation = yes #Check if cultural assimilation is already complete.
 	    }
 	   
+}
+
+cu_switch_hybrid_culture = {
+	if = {
+		limit = { 
+			culture = aragonese
+			owner = { culture_group = iberian }
+		}
+		change_culture = aragonese_iberian
+	}
+	else_if = {
+		limit = { 
+			culture = aragonese_iberian
+			owner = { culture_group = latin }
+		}
+		change_culture = aragonese
+	}
+	if = {
+		limit = { 
+			culture = catalan
+			owner = { culture_group = iberian }
+		}
+		change_culture = catalan_iberian
+	}
+	else_if = {
+		limit = { 
+			culture = catalan_iberian
+			owner = { culture_group = latin }
+		}
+		change_culture = catalan
+	}
+	else_if = {
+		limit = {
+			culture = wallonian_dutch
+			owner = { culture_group = french }
+		}
+		change_culture = wallonian
+	}
+	else_if = {
+		limit = {
+			culture = wallonian
+			owner = { culture_group = dutch_g }
+		}
+		change_culture = wallonian_dutch
+	}
 }

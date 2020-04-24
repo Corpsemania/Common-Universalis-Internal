@@ -116,3 +116,7 @@
  urban.972.a: "Hurrah!"
  cu_language_education: "Enforced Language Education"
  desc_cu_language_education: "Local Administrative Integrity Cap: §G+10.0%§!Local Administrative Integrity Yearly Growth: §G+1.0%§!\nLocal Cultural Assimilation Rate: §G+40.0%§!"
+ embrace_iberian_identity_title: "Embrace Iberian Identity"
+ embrace_iberian_identity_desc: "Aragonese culture has long been a hybrid culture between Italian and Spanish. Now as our spanish realm gradually outweight the italian part, we should put more emphasis on the western side and persue a tighter bond with Iberian brethrens. Our italian subjects, however, will not respond kindly to this action."
+ embrace_iberian_identity_tooltip: "§YAragonese§! culture in our country and our subject countries will be changed to §YIberian§! group.\nProvinces with other §YLatin§! cultures will gain §G10§! unrest and lose §R20§! Administrative Integrity.\nSubjects of other §YLatin§! cultures will gain §R20§! liberty desire."
+ 

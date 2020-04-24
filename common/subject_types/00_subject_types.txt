@@ -194,7 +194,7 @@ vassal = {
 	place_relative_on_throne = yes
 	sacrifice_ruler = yes
 	sacrifice_heir = yes
-	divert_trade = yes
+	#divert_trade = yes
 	seize_territory = yes
 
 	# Modifiers:
@@ -209,6 +209,59 @@ vassal = {
 	subject_opinion_modifier = is_vassal
 }
 
+protectorate = {
+	copy_from = default
+	
+	# Graphics:
+	sprite = GFX_icon_vassal
+	diplomacy_overlord_sprite = GFX_diplomacy_leadvassal
+	diplomacy_subject_sprite = GFX_diplomacy_amvassal
+
+	# Properties:
+	transfer_trade_if_merchant_republic = no
+	transfer_trade_power = yes
+	can_be_annexed = no
+	has_power_projection = no
+	gets_help_with_rebels = no
+
+	max_government_rank = 2
+
+	liberty_desire_development_ratio = 0.25
+	liberty_desire_same_dynasty = -5.0
+	pays_overlord = 0
+	forcelimit_bonus = 0
+	
+	joins_overlords_wars = no
+	joins_colonial_wars = no
+	is_voluntary = yes
+	takes_diplo_slot = no
+	
+	relative_power_class = 1
+	
+	restoration_cb = cb_disloyal_vassal
+
+	 Subject Interactions:
+	scutage = yes
+	place_relative_on_throne = yes
+	sacrifice_ruler = yes
+	sacrifice_heir = yes
+	divert_trade = yes
+	seize_territory = yes
+
+	# Modifiers:
+	modifier_subject = {
+		modifier = protectorate_nation
+		trigger = {
+			NOT = { adm_tech = overlord }
+			NOT = { dip_tech = overlord }
+			NOT = { mil_tech = overlord }
+		}
+	}
+    
+	overlord_opinion_modifier = is_protectorate
+	subject_opinion_modifier = is_protectorate
+}
+
 march = {
 	copy_from = vassal
 	
@@ -220,7 +273,7 @@ march = {
 	# Properties:
 	pays_overlord = 0.0
 	military_focus = 1.5
-	base_liberty_desire = -10.0
+	base_liberty_desire = -5.0
 	can_be_annexed = no
 
 	# Subject Interactions:
@@ -662,12 +715,12 @@ dominion = {
 	can_transfer_in_peace = no
 	pays_overlord = 0
 	forcelimit_bonus = 0.8
-	base_liberty_desire = -20.0
-	liberty_desire_development_ratio = 0.15
+	base_liberty_desire = -10.0
+	liberty_desire_development_ratio = 0.25
 
 	max_government_rank = 1	
     cities_required_for_bonuses = 10
-	relative_power_class = 2
+	relative_power_class = 3
 						 
 
 	can_fight = {

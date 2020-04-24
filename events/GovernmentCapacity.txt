@@ -1299,7 +1299,7 @@ country_event = {
 						OR = {
 							is_colonial_nation = yes
 							has_reform = trading_city
-							#is_protectorate = yes				
+							is_subject_of_type = protectorate			
 							AND = {
 								is_part_of_hre = yes
 								ROOT = { is_emperor = yes }
@@ -1329,6 +1329,12 @@ country_event = {
 							else = {
 								multiply_variable = { which = cu_var1 value = 0.8 } 
 							}
+						}
+					}
+					else_if = {
+						limit = { is_subject_of_type = protectorate	}
+						ROOT = { 
+							multiply_variable = { which = cu_var1 value = 0.8 } 
 						}
 					}
 					ROOT = { change_variable = { which = ogcs which = cu_var1 } }
