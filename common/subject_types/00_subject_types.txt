@@ -240,7 +240,7 @@ protectorate = {
 	
 	restoration_cb = cb_disloyal_vassal
 
-	 Subject Interactions:
+	#Subject Interactions:
 	scutage = yes
 	place_relative_on_throne = yes
 	sacrifice_ruler = yes
