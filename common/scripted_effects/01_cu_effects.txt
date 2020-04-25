@@ -4499,8 +4499,8 @@ cu_get_year = {
 	 if = {
 	      limit = { NOT = { check_variable = { which = cu_year value = 1445 } } }
 		  cu_correct_year = yes
+		  change_variable = { which = cu_year value = 1 }
 	 }
-	 change_variable = { which = cu_year value = 1 }
 }
 
 cu_get_5year = { 
