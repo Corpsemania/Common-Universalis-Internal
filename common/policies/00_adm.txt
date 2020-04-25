@@ -198,7 +198,7 @@ field_porters_act = {
 
 
 
-naval_school_act = {
+merchant_regulation = {
 
 	monarch_power = ADM
 
@@ -217,8 +217,8 @@ naval_school_act = {
 		full_idea_group = maritime_ideas
 	}
 
-        army_tradition = -0.5
-	navy_tradition = 1
+	advisor_cost = 0.05
+    trade_steering = 0.10
 
 	ai_will_do = {
 		factor = 1
@@ -1132,13 +1132,15 @@ sea_lord = {
 		full_idea_group = naval_ideas
 	}	
 	
-	privateer_efficiency = 0.25
-	diplomatic_reputation = -1
+	max_states = 5
+	sailor_maintenance_modifer = -0.1
 	
 	ai_will_do = {
 		factor = 1
 	}
 }
+
+
 
 commonwealth_bonds = {
 	monarch_power = ADM
@@ -1157,8 +1159,8 @@ commonwealth_bonds = {
 		full_idea_group = maritime_ideas
 	}
 	
-    diplomatic_upkeep = -1
-	reduced_liberty_desire = 8
+    trade_efficiency = -0.05
+	reduced_liberty_desire = 7
 	
 	ai_will_do = {
 		factor = 1

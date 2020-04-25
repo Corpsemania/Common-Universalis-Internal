@@ -810,7 +810,6 @@ naval_ideas = {
 	}
 	gunboat_diplomacy_idea = {
 		siege_blockade_progress = 1
-		global_naval_barrage_cost = -0.33
 		#Unlocks 'Gunpower Diplomacy' Casus Belli
 	}
 	

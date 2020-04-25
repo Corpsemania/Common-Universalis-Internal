@@ -236,8 +236,8 @@ trained_marines_act = {
 		full_idea_group = maritime_ideas
 	}
 	
-	naval_morale = 0.15
-        global_ship_recruit_speed = 0.2
+	light_ship_power = 0.15
+    global_ship_recruit_speed = 0.2
 	ai_will_do = {
 		factor = 1
 		modifier = {
@@ -868,17 +868,17 @@ messenger_ships = {
 	monarch_power = MIL
 	
 	potential = {
-		has_idea_group = naval_ideas
 		has_idea_group = aristocracy_ideas
+		has_idea_group = maritime_ideas
 		OR = {
-			full_idea_group = naval_ideas
 			full_idea_group = aristocracy_ideas
+			full_idea_group = maritime_ideas
 		}
 	}
 	
 	allow = {
-		full_idea_group = naval_ideas
 		full_idea_group = aristocracy_ideas
+		full_idea_group = maritime_ideas
 	}	
 	
 	privateer_efficiency = 0.3
@@ -893,69 +893,9 @@ messenger_ships = {
 	}
 }
 
-the_nautic_education_act = {
-	monarch_power = ADM
-	
-	potential = {
-		has_idea_group = naval_ideas
-		has_idea_group = innovativeness_ideas
-		OR = {
-			full_idea_group = naval_ideas
-			full_idea_group = innovativeness_ideas
-		}
-	}
-	
-	allow = {
-		full_idea_group = naval_ideas
-		full_idea_group = innovativeness_ideas
-	}	
-	
-	siege_blockade_progress = 1
-	advisor_cost = 0.05
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0
-			NOT = { navy_size = 10 }
-		}
-		modifier = {
-			factor = 0.6
-			NOT = { navy_size = 20 }
-		}
-	}
-}
 
-zealous_captains = {
-	monarch_power = DIP
-	
-	potential = {
-		has_idea_group = naval_ideas
-		has_idea_group = religious_ideas
-		OR = {
-			full_idea_group = naval_ideas
-			full_idea_group = religious_ideas
-		}
-	}
-	
-	allow = {
-		full_idea_group = naval_ideas
-		full_idea_group = religious_ideas
-	}	
-	ship_durability = -0.05
-	naval_morale = 0.15
-	
-	ai_will_do = {
-		factor = 1
-		modifier = {
-			factor = 0
-			NOT = { navy_size = 10 }
-		}
-		modifier = {
-			factor = 0.6
-			NOT = { navy_size = 20 }
-		}
-	}
-}
+
+
 
 autonomous_estates = {
 	monarch_power = MIL
