@@ -740,12 +740,15 @@ maritime_ideas = {
 	}
 	merchant_captains = {
         leader_naval_manuever = 1
+		navy_tradition = 1
 	}
 	letter_of_marque = {
-		privateer_efficiency = 0.33
+		privateer_efficiency = 0.25
+		embargo_efficiency = 0.25
 	}
 	global_trade_idea = {
 		trade_efficiency = 0.1
+		global_trade_power = 0.1
 	}
 	merchant_marine = {
 		light_ship_power = 0.2
@@ -792,6 +795,7 @@ naval_ideas = {
 		global_ship_recruit_speed = -0.1
 	}
 	sheltered_ports = {
+		navy_tradition_decay = -0.01
 		global_ship_repair = 0.25
 	}
 	excellent_shipwrights_2 = {
@@ -810,6 +814,7 @@ naval_ideas = {
 	}
 	gunboat_diplomacy_idea = {
 		siege_blockade_progress = 1
+		global_naval_barrage_cost = -0.33
 		#Unlocks 'Gunpower Diplomacy' Casus Belli
 	}
 	
