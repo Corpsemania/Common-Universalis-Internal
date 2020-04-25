@@ -482,7 +482,7 @@ estate_qinwang =
 		years_between_use = 15
 		
 		trigger = {
-		    dip_power = 100
+		    dip_power = 150
 			custom_trigger_tooltip = {
 				tooltip = estate_initialized
 				check_variable = { which = etin value = 0.1 } 
@@ -490,26 +490,14 @@ estate_qinwang =
 		}
 		
 		effect = {
-			add_dip_power = -100
+			add_dip_power = -150
 			hidden_effect = {
-				set_variable = { which = cu_var1 value = 0 }
-				set_variable = { which = cu_cash which = etin }
-				set_variable = { which = t_dev value = 0 }
-				export_to_variable = {
-					which = t_dev
-					value = states_development
-				}
-				multiply_variable = { which = cu_cash which = t_dev }
-				multiply_variable = { which = cu_cash value = -0.005 }
-				set_variable = { which = cu_cash_display which = cu_cash }				
-				set_variable = { which = cu_var1 which = etin }
-				multiply_variable = { which = cu_var1 value = 0.5 }
-				set_variable = { which = cu_sta_display which = cu_var1 }			
-			}
-			cu_change_cash_hidden = yes 
-			custom_tooltip = cu_change_cash_nt		
+				set_variable = { which = cu_var1 which = etic }
+				multiply_variable = { which = cu_var1 value = -0.5 }
+				set_variable = { which = cu_sta_display which = cu_var1 }	
+			}		
 			cu_change_stability_point_hidden = yes
-			custom_tooltip = cu_change_stability_ng
+			custom_tooltip = cu_change_stability_nt
 			add_absolutism = 5
 			add_estate_loyalty = {
 				estate = estate_qinwang
