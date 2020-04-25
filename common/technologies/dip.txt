@@ -277,6 +277,9 @@ technology = {
 
 	reduced_naval_attrition = yes
 	enable = twodecker
+	enable = twodecker_f
+	enable = twodecker_h
+	enable = twodecker_s
 	enable = trabakul
 }
 
@@ -314,6 +317,9 @@ technology = {
 	naval_maintenance		= 	0.10
 	global_colonial_growth  = 	10
 	enable = threedecker
+	enable = threedecker_f
+	enable = threedecker_h
+	enable = threedecker_s
 }
 
 technology = {
