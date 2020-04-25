@@ -84,6 +84,21 @@ vassal = {
 	end_date = 1454.1.1
 }
 
+# Essen's sister was the wife of Taisun Khan
+royal_marriage = {
+	first = OIR
+	second = KHA
+	start_date = 1434.1.1
+	end_date = 1454.1.1
+}
+
+union = {
+	first = OIR
+	second = KRC
+	start_date = 1434.1.1
+	end_date = 1454.1.1
+}
+
 #Chagatai Subject
 vassal = {
 	first = CHG

@@ -1,0 +1,98 @@
+country_decisions = {
+
+	from_mongolia = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			is_nomad = yes
+			OR = {
+				ai = no
+				is_playing_custom_nation = no
+			}
+			NOT = { exists = KHA }
+			NOT = { exists = YUA }
+			OR = { 
+				culture_group = altaic
+				primary_culture = mongolian_conqueror
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 8
+				}
+			}
+			is_colonial_nation = no
+			OR = {
+				is_former_colonial_nation = no
+				AND = {
+					is_former_colonial_nation = yes
+					ai = no
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 723 #Xilin Gol
+				province_id = 2190 #Qaraqorum
+				AND = {
+					culture = oirats
+					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+				AND = {
+					culture = khalkha
+					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			stability = 1
+			government_rank = 2
+			adm = 2
+			dip = 2
+			mil = 2
+			owns_core_province = 723 #Xilin Gol
+			owns_core_province = 2190 #Qaraqorum
+			NOT = {
+				any_province = {
+					culture = oirats
+					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+			}
+			NOT = {
+				any_province = {
+					culture = khalkha
+					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				}
+			}
+		}
+		effect = {
+			2190 = { 
+				add_base_tax = 1
+				add_base_manpower = 2
+				change_culture = ROOT
+				change_religion = ROOT
+				move_capital_effect = yes
+			}
+			change_tag = KHA
+			remove_non_electors_emperors_from_empire_effect = yes
+			tartary_superregion = {
+				add_permanent_claim = KHA
+			}
+			add_prestige = 20
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 400
+	}
+}
