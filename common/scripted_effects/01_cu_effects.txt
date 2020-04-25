@@ -645,7 +645,9 @@ cu_province_initialization = {
 									         culture_group = latin 
 									         NOT = { culture = neapolitan }	
                                              NOT = { culture = sicilian }
-                                             NOT = { culture = maltese }												 
+                                             NOT = { culture = maltese }	
+											 NOT = { culture = aragonese }
+											 NOT = { culture = catalan }
 									}
 									change_variable = { which = literacy value = 3.5 }
 									add_base_manpower = -1
@@ -660,6 +662,8 @@ cu_province_initialization = {
 									                culture = neapolitan 
                                                     culture = sicilian
                                                     culture = maltese
+													culture = aragonese
+													culture = catalan
                                              }											 
 									}
 									change_variable = { which = literacy value = 2 }

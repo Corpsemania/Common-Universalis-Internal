@@ -315,7 +315,7 @@
  free_colonies:0 "Free Colonies"
  free_colonies_desc:0 "Only so many people are willing to move abroad to expand our great colonial empire. However the promise of a plot of land to farm, in free hold, will encourage many more people to seek their fortune abroad. The nice thing about it is that there is plenty of land for everyone."
  global_empire:0 "Global Empire"
- global_empire_desc:0 "Our commitment to our colonial empire has changed the attitude of people to jobs in the colonial administration. No longer a place for freebooters who seek to maximize their fortune, instead it is seen as a career for the brightest and the best. This is reflected in our taxes."
+ global_empire_desc:0 "Our commitment to our colonial empire has changed the attitude of people to jobs in the colonial administration. No longer a place for freebooters who seek to maximize their fortune, instead it is seen as a career for the brightest and the best. This is reflected in our taxes.\nMay estabilish protectorate in less advanced countries."
  naval_ideas:0 "Naval Ideas"
  naval_ideas_bonus:0 "Fully Naval"
  superior_seamanship:0 "Superior Seamanship"

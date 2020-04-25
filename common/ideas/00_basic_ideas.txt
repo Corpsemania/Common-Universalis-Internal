@@ -582,6 +582,7 @@ exploration_ideas = {
 	}
 	quest_for_the_new_world	= {
 		may_explore = yes
+        naval_attrition = -0.1
 	}
 	overseas_exploration = {
 		range = 0.5
@@ -598,8 +599,8 @@ exploration_ideas = {
 		#-25%OGC by colonial subjects.
  	}
 	global_empire = {
-		naval_forcelimit_modifier = 0.2
-        naval_attrition = -0.1
+		naval_forcelimit_modifier = 0.1
+		#May estabilish protectorate
 	}
 	
 	ai_will_do = {

@@ -39,6 +39,7 @@ force_protectorate = {
 	is_visible = { # Defaults to equivalent of "always = yes"
 		dip_tech = 10
 		num_of_colonists = 1
+		full_idea_group = exploration_ideas
 	}
 	is_allowed = { # Defaults to equivalent of "always = yes"
 		institution_difference = {
@@ -64,6 +65,14 @@ force_protectorate = {
 			OR = {
 				FROM = { capital_scope = { continent = asia } }
 				FROM = { capital_scope = { continent = africa } }
+			}
+			NOT = {
+				any_owned_province = {
+					is_overseas = no
+					any_neighbor_province = {
+						owned_by = FROM
+					}
+				}
 			}
 		}
 	}

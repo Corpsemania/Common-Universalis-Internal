@@ -160,7 +160,7 @@ tropical = {
 	local_colonial_growth = -10
 	supply_limit_modifier = -0.2
 	local_hostile_attrition = 2
-	
+	local_state_maintenance_modifier = -0.15
 	local_development_cost = 0.1
 	local_build_cost = 0.1
 	regiment_recruit_speed = 0.3
@@ -173,6 +173,7 @@ arctic = {
 	local_hostile_attrition = 1
 	local_state_maintenance_modifier = -0.5
 	local_development_cost = 0.2
+	land_forcelimit = 0.1
 	local_build_cost = 0.15
 	allowed_num_of_buildings = -1
 	regiment_recruit_speed = 0.8
@@ -183,7 +184,7 @@ arid = {
 	local_colonial_growth = -10
 	supply_limit_modifier = -0.15
 	local_hostile_attrition = 1
-	
+	local_state_maintenance_modifier = -0.15
 	local_development_cost = 0.1
 	local_build_cost = 0.1
 	regiment_recruit_speed = 0.25
@@ -901,7 +902,7 @@ num_of_marriages = {
 
 num_of_provinces = {
        global_colonial_growth = -0.2
-       land_forcelimit	= -0.1
+       land_forcelimit = -0.1
 }
 
 # Multiplied by Development

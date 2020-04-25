@@ -187,6 +187,25 @@ on_startup = {
 					        duration = -1
 				       }
 				}
+				
+			#Russian Krepost
+			if = {
+				limit = {
+					owned_by = RUS
+					OR = {
+						region = west_siberia_region
+						region = east_siberia_region
+						region = ural_region
+						region = cascadia_region
+						has_climate = arctic
+					}
+					is_year = 1600
+				}
+				add_province_modifier = {
+					    name = russian_krepost_modifier
+						duration = -1
+				}
+			}
 
 			#Celestial Empire should be one country
 				if = {
@@ -402,7 +421,13 @@ on_startup = {
 				     add_treasury = -300
 					set_country_flag = has_a_second_capital						 
 				}
-				
+				if = {
+					limit = { 
+					    tag = RUS 
+						is_year = 1600
+					}
+					set_country_flag = russian_krepost
+				}
 				#country_event = { id = urban.971 } #Average Literacy
 				country_event = { id = urban.97 } #Literacy
 				country_event = { id = urban.99 } #Urbanization

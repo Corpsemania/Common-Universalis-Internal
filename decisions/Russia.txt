@@ -138,192 +138,65 @@ country_decisions = {
 		}
 	}
 	
-	form_siberia_governor = {
-	potential = {
-			 capital_scope = { continent = europe }
-			 num_of_owned_provinces_with = {
-			          value = 5                                  
-			          colonial_region = colonial_west_siberia
+	establish_krepost = {
+		potential = {
+			OR = {
+				tag = RUS
+				dip_tech = 15
 			}
-			NOT = { WSG = { is_subject_of = ROOT } }
-			NOT = { has_country_flag = control_of_siberia }			
+			normal_or_historical_nations = yes
+			NOT = { has_country_flag = russian_krepost }
+			culture_group = russian
 		}
 		allow = {
-		         OR = {
-		               AND = {
-		                      OR = {
-		                            tag = RUS
-		                            tag = GLH
-		                            }
-		                       num_of_owned_provinces_with = {
-			                                                    value = 5                                  
-			                                               AND = {
-                                                                colonial_region = colonial_west_siberia
-																is_city = yes                      
-                                                                 }
-		                                            	}
-		               }
-		               AND = {
-		               government_rank = 3
-		               num_of_owned_provinces_with = {
-			                                                    value = 7                                 
-			                                              AND = {
-                                                                colonial_region = colonial_west_siberia
-																is_city = yes                      
-                                                                 }
-		                                            	}
-		               }
-		               }
+			num_of_colonists = 1
+			dip_power = 150
 		}
 		effect = {
-		          every_province = {
-				      limit = {
-				               AND = {
-				               colonial_region = colonial_west_siberia
-                             owned_by = ROOT
-                             } }
-                             add_core = WSG
-                             remove_core = ROOT
-                             }
-                         release = WSG
-                         create_subject = {
-			                                    subject_type = colony
-			                                    subject = WSG
-			                                    }
-			                   WSG = { 
-                                change_primary_culture = ROOT 
-                                change_religion = ROOT
-                                add_government_reform = becomes_republic_reform
-                                add_government_reform = colonial_government
-                               }
-                        
-                             
+			add_dip_power = -150
+		    set_country_flag = russian_krepost
+			custom_tooltip = establish_krepost_tt
+			hidden_effect = {
+			    every_owned_province = {
+                    limit = {
+					    is_colony = yes
+					}
+					add_province_modifier = {
+					       name = russian_krepost_modifier
+						   duration = -1
+					}
+                }
+            }			
 		}
 		ai_will_do = {
 			factor = 1
 		}
-}
-    separate_siberia_governor = {
-    potential = {
-			 capital_scope = { continent = europe }
-			 WSG = { is_subject_of = ROOT }	
-			 NOT = { ESG = { is_subject_of = ROOT } }
-			 normal_or_historical_nations = yes		 
-			}
-			allow = {
-			OR = {
-			          num_of_owned_provinces_with = {
-			                value = 5 
-                      AND = {
-                                   colonial_region = colonial_east_siberia
-								   is_city = yes
-									}                       
-			                }
-			          WSG = { 
-			                num_of_owned_provinces_with = {
-			                value = 5 
-                      AND = {
-                                   colonial_region = colonial_east_siberia
-								   is_city = yes
-									}                       
-			                }  }    
-			                         }
-			                         }
-			effect = {
-			every_province = {
-				      limit = {
-				               AND = {
-                             colonial_region = colonial_east_siberia                          
-                             owned_by = WSG
-                             } } 
-                             add_core = ESG 
-                             remove_core = WSG
-                             cede_province = ROOT
-                             }
-      every_province = {
-				      limit = {
-				               AND = {
-                             colonial_region = colonial_east_siberia                          
-                             owned_by = ROOT
-                             } } 
-                             add_core = ESG 
-                             remove_core = ROOT                             
-                             } 
-                             release = ESG 
-                             create_subject = {
-			                                    subject_type = colony
-			                                    subject = ESG
-			                                    }                        
-			                   ESG = { 
-                                change_primary_culture = ROOT 
-                                change_religion = ROOT
-                                add_government_reform = becomes_republic_reform
-                                add_government_reform = colonial_government 
-                               }
-                        
-                             
+	}
+	remove_krepost = {
+		potential = {
+			has_country_flag = russian_krepost
+		}
+		allow = {
+			num_of_colonists = 1
+			adm_power = 150
+		}
+		effect = {
+			add_adm_power = -150
+		    clr_country_flag = russian_krepost
+			set_country_flag = russian_krepost_removed
+			custom_tooltip = remove_krepost_tt
+			hidden_effect = {
+			    every_owned_province = {
+                    limit = {
+					    has_province_modifier = russian_krepost_modifier
+					}
+					remove_province_modifier = russian_krepost_modifier
+                }
+            }			
 		}
 		ai_will_do = {
 			factor = 1
-		}        
-
-}
-
-    abolish_siberia_governor = {
-    potential = {
-			 capital_scope = { continent = europe }
-			 WSG = { is_subject_of = ROOT }	
-			 ESG = { is_subject_of = ROOT } 
-			 normal_or_historical_nations = yes
-			 NOT = { has_country_flag = control_of_siberia }		 
-			}
-			allow = {
-			east_siberia_region = {
-				type = all
-				country_or_subject_holds = ROOT
-			}
-			 west_siberia_region= {
-			  type = all
-				country_or_subject_holds = ROOT
-			}
-			ural_area = {
-			 type = all
-				country_or_subject_holds = ROOT  
-			}
-			}
-			effect = {
-			 set_country_flag = control_of_siberia
-			 hidden_effect = {
-			 create_subject = {
-			                                    subject_type = vassal
-			                                    subject = WSG
-			                                    }
-			 create_subject = {
-			                                    subject_type = vassal
-			                                    subject = ESG
-			                                    }                                   
-			}
-			every_province = {
-				      limit = {
-				               AND = {
-				               OR = {
-                             region = west_siberia_region
-                             region = east_siberia_region
-                             area = ural_area                      
-                             }
-                       OR = { 
-                             owned_by = WSG
-                             owned_by = ESG
-                             } } }
-                             add_core = ROOT
-                             cede_province = ROOT
-                             remove_core = WSG
-                             remove_core = ESG
-                             }
-			}
-			ai_will_do = {
-			factor = 0
 		}
-}
+	}
 }
 

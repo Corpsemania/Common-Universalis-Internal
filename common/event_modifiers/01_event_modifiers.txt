@@ -936,3 +936,10 @@ cu_martial_law = {
 	manpower_recovery_speed = -1
 	build_time = 1
 }
+
+russian_krepost_modifier = {
+	local_state_maintenance_modifier = -0.10
+	local_autonomy = -0.05
+	#local Administrative Integrity Cap: +10%
+	local_development_cost = 0.2
+}

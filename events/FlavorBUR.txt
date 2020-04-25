@@ -953,7 +953,7 @@ country_event = {
 			}
 			every_owned_province = {
 				cede_province = ROOT
-				add_local_autonomy = 10
+				add_local_autonomy = 50
 				set_province_flag = bur_succession_province
 			}
 		}
@@ -1034,7 +1034,7 @@ country_event = {
 			}
 			every_owned_province = {
 				cede_province = ROOT
-				add_local_autonomy = 10
+				add_local_autonomy = 50
 				set_province_flag = bur_succession_province
 			}
 		}
@@ -1114,7 +1114,7 @@ country_event = {
 			}
 			every_owned_province = {
 				cede_province = ROOT
-				add_local_autonomy = 10
+				add_local_autonomy = 50
 				set_province_flag = bur_succession_province
 			}
 		}
@@ -1194,7 +1194,7 @@ country_event = {
 			}
 			every_owned_province = {
 				cede_province = ROOT
-				add_local_autonomy = 10
+				add_local_autonomy = 50
 				set_province_flag = bur_succession_province
 			}
 		}

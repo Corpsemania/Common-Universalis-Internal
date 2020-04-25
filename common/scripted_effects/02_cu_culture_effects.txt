@@ -504,6 +504,10 @@ cu_calc_base_cultural_acceptance = {
 		limit = { has_province_modifier = cu_language_education }
 		change_variable = { which = p_cab value = 10 }
 	}
+	if = {
+		limit = { has_province_modifier = russian_krepost_modifier }
+		change_variable = { which = p_cab value = 10 }
+	}
 	set_variable = { which = cu_var3 value = 0 }
 	change_variable = { which = cu_var3 which = epimg }
 	multiply_variable = { which = cu_var3 value = 0.15 }
@@ -1012,6 +1016,11 @@ cu_show_cultural_acceptance = {
 	}
 	if = {
 		limit = { has_province_modifier = cu_language_education }
+		change_variable = { which = p_cab value = 10 }
+		change_variable = { which = p_cabg value = 10 }
+	}
+	if = {
+		limit = { has_province_modifier = russian_krepost_modifier }
 		change_variable = { which = p_cab value = 10 }
 		change_variable = { which = p_cabg value = 10 }
 	}

@@ -16,6 +16,7 @@ demand_protectorate = {
 	}
 	is_allowed = {
 		is_at_war = no 
+		full_idea_group = exploration_ideas
 		FROM = { is_at_war = no }
 		NOT = { any_country = { is_subject_of = FROM } }
 		institution_difference = {
@@ -151,7 +152,26 @@ demand_protectorate = {
 	}
 	
 	ai_will_do = { # this is a trigger
-		FROM = { ai = yes }
+		AND = {
+			capital_scope = { continent = europe } 
+			religion_group = christian
+			FROM = {
+				capital_scope = { 
+					OR = {	
+						continent = asia
+						continent = africa
+					}
+				}
+			}
+			NOT = {
+				any_owned_province = {
+					is_overseas = no
+					any_neighbor_province = {
+						owned_by = FROM
+					}
+				}
+			}
+		}
 	}
 }
 
