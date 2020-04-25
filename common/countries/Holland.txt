@@ -5,14 +5,18 @@ graphical_culture = westerngfx
 color = { 156  96  100 }
 
 historical_idea_groups = {
-	economic_ideas
-	maritime_ideas
-	plutocracy_ideas
-	expansion_ideas
-	defensive_ideas
-	trade_ideas
-	innovativeness_ideas
-	quality_ideas
+	economic_ideas #ADM
+	maritime_ideas #DIP
+	plutocracy_ideas #MIL
+	defensive_ideas #MIL
+	exploration_ideas #DIP
+	innovativeness_ideas #ADM
+	expansion_ideas #DIP
+	administrative_ideas #ADM
+	trade_ideas #DIP
+	quality_ideas #MIL
+	constitution_ideas #ADM
+	quantity_ideas #MIL
 }
 
 historical_units = {

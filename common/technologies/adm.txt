@@ -57,7 +57,7 @@ technology = {
 technology = {
 	# Tech 4
 	year = 2453
-	allowed_idea_groups = 1
+	allowed_idea_groups = 3
 }
 
 technology = {
@@ -82,7 +82,7 @@ technology = {
 	year = 2492
 	
 	#Noble Republic
-	allowed_idea_groups = 2	
+	#allowed_idea_groups = 2	
 	#noble_republic = yes
         #max_states = 2           
 }
@@ -109,7 +109,7 @@ technology = { #Modern Theocracy
 	# Tech 10
 	year = 2531
 	
-	allowed_idea_groups = 3
+	allowed_idea_groups = 4
 	
 	cathedral = yes 
         #max_states = 2           
@@ -135,7 +135,7 @@ technology = { #Improved Drainage
 	year = 2570
 	
 	#Improved Drainage
-    allowed_idea_groups	= 4
+    allowed_idea_groups	= 5
 	farm_estate = yes
     development_efficiency = 0.05
 }
@@ -153,7 +153,7 @@ technology = { #Education
 	# Tech 15
 	year = 2596
 	
-    allowed_idea_groups	= 5  
+    allowed_idea_groups	= 6 
 	public_school = yes
 }
 
@@ -178,7 +178,7 @@ technology = { #National Sovereignty
 	
     town_hall = yes
     #max_states = 3   
-    allowed_idea_groups	= 6        
+    allowed_idea_groups	= 7        
 }
 
 technology = { #Public Education
@@ -204,7 +204,7 @@ technology = { #Land Clearance
 	
 	#Land Clearance
     development_efficiency = 0.05
-	allowed_idea_groups = 7
+	allowed_idea_groups = 8
 }
 
 technology = {
@@ -225,7 +225,7 @@ technology = { #Bonds and Tontines
 	# Tech 24
 	year = 2715
 	
-	allowed_idea_groups 	= 8
+	allowed_idea_groups 	= 9
 	#counting_house = yes
 }
 
@@ -250,7 +250,7 @@ technology = { #Modern Bureaucracy
 	year = 2760
 
     #max_states = 4  
-    allowed_idea_groups = 9	    
+    allowed_idea_groups = 10	    
 }
 
 technology = { #Rotherham Plough
@@ -265,7 +265,7 @@ technology = { #Rights of Man
 	# Tech 29
 	year = 2790
 	
-	allowed_idea_groups = 10
+	allowed_idea_groups = 11
 	
         #max_states = 4           
 }
@@ -283,6 +283,7 @@ technology = { #Revolutionary Ideals
 	# Tech 31
 	year = 2820
 	administrative_efficiency = 0.05	
+	allowed_idea_groups = 12
         #max_states = 5           
 }
 

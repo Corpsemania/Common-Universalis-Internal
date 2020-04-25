@@ -14,7 +14,6 @@ republic_mechanic = {
 	valid_for_nation_designer = no
 	modifiers = {
 		min_autonomy = 15
-		yearly_absolutism = -0.10
 	}
 }
 

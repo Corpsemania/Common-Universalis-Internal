@@ -1,0 +1,10 @@
+#Carrack
+type = heavy_ship
+trigger = { 
+		has_country_flag = heavyship_mod_f
+}
+hull_size = 25
+base_cannons = 58 
+sail_speed = 5
+
+sprite_level = 2

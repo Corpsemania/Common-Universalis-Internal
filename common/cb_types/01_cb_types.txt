@@ -63,19 +63,34 @@ cb_place_in_the_sun = {
 cb_gunpowder_diplomacy = {
 	
 	prerequisites = {
-				has_country_flag = cu_gunpowder_diplomacy_flag
-				num_of_total_ports = 50
-				#num_of_heavy_ship = 50
 				full_idea_group = naval_ideas
                 is_subject = no
                 FROM = { 
-						NOT = { navy_size = 30 }
-						NOT = { dip_tech = ROOT }
+						NOT = { navy_size = 50 }
                         any_owned_province = {
                             has_port = yes
 							range = ROOT
                         }
                 }
+				OR = {
+				    AND = {
+						navy_size = 30
+						FROM = { NOT = { navy_size = 10 } }
+					}
+					AND = {
+						navy_size = 60
+						FROM = { NOT = { navy_size = 20 } }
+					}
+					AND = {
+						navy_size = 90
+						FROM = { NOT = { navy_size = 30 } }
+					}
+					AND = {
+						navy_size = 120
+						FROM = { NOT = { navy_size = 40 } }
+					}
+					navy_size = 150
+				}
 	}
 	
 	war_goal = take_province_gunpowder_diplomacy

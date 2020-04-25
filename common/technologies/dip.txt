@@ -13,8 +13,11 @@ technology = {
 	naval_maintenance		=	0.1
 	naval_morale			=	2.0
 	range					=	55
-        may_fabricate_claims = yes
-
+    may_fabricate_claims = yes	
+	enable = eastindiaman_h
+	enable = eastindiaman_s
+	enable = eastindiaman_t
+	
 }
 
 technology = {
@@ -53,6 +56,9 @@ technology = {
 	trade_efficiency 		= 	0.1
 	global_colonial_growth	= 	10
 	enable = early_carrack
+	enable = early_carrack_h
+	enable = early_carrack_f
+	enable = early_carrack_s
 
 }
 
@@ -115,6 +121,10 @@ technology = {
 	enable = carrack
 	enable = caravel	
         may_study_technology = yes
+		
+	enable = carrack_h
+	enable = carrack_f
+	enable = carrack_s
 	
 }
 
@@ -176,6 +186,9 @@ technology = {
 	global_colonial_growth  = 	10
 	drydock = yes 
 	enable = galleon
+	enable = galleon_f
+	enable = galleon_h
+	enable = galleon_s
 	enable = early_frigate
         may_sabotage_recruitment = yes
 }
@@ -224,6 +237,9 @@ technology = {
 	
 	
 	enable = wargalleon
+	enable = wargalleon_f
+	enable = wargalleon_h
+	enable = wargalleon_s
 	enable = frigate
 }
 

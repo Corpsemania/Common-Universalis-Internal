@@ -192,6 +192,18 @@ feudalism = {
 			}
 		}
 		modifier = {
+			factor = 0.1
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = CROSSROAD_OF_WORLD_BONUS
+				owner = { full_idea_group = trade_ideas }
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					feudalism = 100
+				}
+			}
+		}
+		modifier = {
 			factor = 0.15
 			scale = yes
 			force_potential = yes	# Hide the this modifier when potential is false
@@ -430,6 +442,18 @@ gunpowder = {
 						  owned_by = ROOT
 					}
                                         cu_not_terr_trigger = yes
+				}
+			}
+		}
+		modifier = {
+			factor = 0.2
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = CROSSROAD_OF_WORLD_BONUS
+				owner = { full_idea_group = trade_ideas }
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					gunpowder = 100
 				}
 			}
 		}
@@ -764,6 +788,18 @@ renaissance = {
 					NOT = { owned_by = ROOT }
 					renaissance = 100
                     cu_not_terr_trigger = yes
+				}
+			}
+		}
+		modifier = {
+			factor = 0.2
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = CROSSROAD_OF_WORLD_BONUS
+				owner = { full_idea_group = trade_ideas }
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					renaissance = 100
 				}
 			}
 		}
@@ -1158,6 +1194,18 @@ printing_press = {
 			}	
 		}
 		modifier = {
+			factor = 0.2
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = CROSSROAD_OF_WORLD_BONUS
+				owner = { full_idea_group = trade_ideas }
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					printing_press = 100
+				}
+			}
+		}
+		modifier = {
 			factor = 0.1
 			scale = yes
 			custom_trigger_tooltip = {
@@ -1547,6 +1595,18 @@ new_world_i = {
 					      religion_group = ROOT
 						  owned_by = ROOT
 					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.3
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = CROSSROAD_OF_WORLD_BONUS
+				owner = { full_idea_group = trade_ideas }
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					new_world_i = 100
 				}
 			}
 		}
@@ -2129,7 +2189,18 @@ global_trade = {
 				has_estate = estate_burghers
 			}
 		}
-
+		modifier = {
+			factor = 0.2
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = CROSSROAD_OF_WORLD_BONUS
+				owner = { full_idea_group = trade_ideas }
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					global_trade = 100
+				}
+			}
+		}
 		modifier = {
 			factor = 0.4
 			scale = yes
@@ -2370,6 +2441,23 @@ manufactories = {
 				tooltip = tooltip_lit_10_any_neighbor_has_embraced_manufactories
 				check_variable = { which = literacy value = 10 }
 				any_neighbor_province = { 
+					manufactories = 100
+					OR = {
+					     religion_group = ROOT
+						 owned_by = ROOT
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.5
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = CROSSROAD_OF_WORLD_BONUS
+				check_variable = { which = literacy value = 10 }
+				owner = { full_idea_group = trade_ideas }
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
 					manufactories = 100
 					OR = {
 					     religion_group = ROOT
@@ -2649,6 +2737,23 @@ enlightenment = {
 			}
 		}
 		modifier = {
+			factor = 0.1
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = CROSSROAD_OF_WORLD_BONUS
+				NOT = { ROOT = { owner = { has_country_modifier = foreign_ignorance } } }
+				owner = { full_idea_group = trade_ideas }
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
+					enlightenment = 100
+					OR = {
+					     religion_group = ROOT
+						 owned_by = ROOT
+					}
+				}
+			}
+		}
+		modifier = {
 			factor = 0.10
 			scale = yes
 			custom_trigger_tooltip = {
@@ -2894,6 +2999,24 @@ industrial_revolution = {
 				check_variable = { which = literacy value = 25 }
 				NOT = { ROOT = { owner = { has_country_modifier = foreign_ignorance } } }
 				any_neighbor_province = { 
+					industrial_revolution = 100
+					OR = {
+					     religion_group = ROOT
+						 owned_by = ROOT
+					}
+				}
+			}
+		}
+		modifier = {
+			factor = 0.2
+			scale = yes
+			custom_trigger_tooltip = {
+				tooltip = CROSSROAD_OF_WORLD_BONUS
+				check_variable = { which = literacy value = 25 }
+				NOT = { ROOT = { owner = { has_country_modifier = foreign_ignorance } } }
+				owner = { full_idea_group = trade_ideas }
+				any_neighbor_province = {
+					NOT = { owned_by = ROOT }
 					industrial_revolution = 100
 					OR = {
 					     religion_group = ROOT

@@ -9,14 +9,18 @@ revolutionary_colors = { 9  0  5 } #Lithuania Minor
 historical_score = 150
 
 historical_idea_groups = {
-	humanist_ideas
-	trade_ideas
-	economic_ideas
-	quality_ideas
-	diplomatic_ideas
-	administrative_ideas
-	aristocracy_ideas	
-	quantity_ideas
+	aristocracy_ideas #MIL
+	diplomatic_ideas #DIP
+	humanist_ideas #ADM
+	trade_ideas	 #DIP
+	offensive_ideas #MIL
+	influence_ideas #ADM
+	defensive_ideas #MIL
+	constitution_ideas #ADM
+	spy_ideas #DIP
+	economic_ideas #ADM
+	quantity_ideas #MIL
+	administrative_ideas #ADM
 }
 
 historical_units = {

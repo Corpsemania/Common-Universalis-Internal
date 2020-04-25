@@ -449,6 +449,10 @@ cu_finish_adm_tech = {
 		  set_variable = { which = resa value = 0 }
 		  add_adm_tech = 1
 		  cu_calc_adm_tech_cost = yes
+		  if = { #Update display
+				limit = { ai = no }
+				cu_calc_tech_year_modifier = yes
+		  }
 	}
 }
 
@@ -460,8 +464,52 @@ cu_finish_dip_tech = {
 				 check_variable = { which = dip_tc value = 1 }
 		  }
 		  set_variable = { which = resd value = 0 }
-		  add_dip_tech = 1
-		  cu_calc_dip_tech_cost = yes
+		  set_country_flag = cu_dip_tech_to_advance
+		  cu_upgrade_ship = yes #add tech after this effect.
+		  
+	}
+}
+
+cu_upgrade_ship = {
+	if = {
+		limit = { cu_can_update_heavy_ship = yes }
+		set_country_flag = cu_updating_heavy_ship
+		country_event = { id = ideagroups.4936 }
+	}
+	if = {
+		limit = { cu_can_update_light_ship = yes }
+		set_country_flag = cu_updating_light_ship
+		country_event = { id = ideagroups.4937 }
+	}
+	if = {
+		limit = { cu_can_update_galley = yes }
+		set_country_flag = cu_updating_galley
+		country_event = { id = ideagroups.4938 }
+	}
+	if = {
+		limit = { cu_can_update_transport = yes }
+		set_country_flag = cu_updating_transport
+		country_event = { id = ideagroups.4939 }
+	}
+	cu_upgrade_ship_check_tech = yes
+}
+
+cu_upgrade_ship_check_tech = {
+	if = {
+		limit = {
+			has_country_flag = cu_dip_tech_to_advance
+			NOT = { has_country_flag = cu_updating_heavy_ship }
+			NOT = { has_country_flag = cu_updating_light_ship }
+			NOT = { has_country_flag = cu_updating_galley }
+			NOT = { has_country_flag = cu_updating_transport }
+		}
+		clr_country_flag = cu_dip_tech_to_advance
+		add_dip_tech = 1 #Moved to cu_upgrade_ship
+		cu_calc_dip_tech_cost = yes
+		if = { #Update display
+				limit = { ai = no }
+				cu_calc_tech_year_modifier = yes
+		}
 	}
 }
 
@@ -475,6 +523,10 @@ cu_finish_mil_tech = {
 		  set_variable = { which = resm value = 0 }
 		  add_mil_tech = 1
 		  cu_calc_mil_tech_cost = yes
+		  if = { #Update display
+				limit = { ai = no }
+				cu_calc_tech_year_modifier = yes
+		  }
 	}
 }
 

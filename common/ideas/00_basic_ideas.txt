@@ -466,50 +466,7 @@ defensive_ideas = {
 }
 
 
-trade_ideas = {
-	category = DIP
 
-	bonus = {
-        trade_steering = 0.25
-	}	
-	
-	shrewd_commerce_practise = {
- 		global_trade_power = 0.15
-  	}
-  	free_trade = {
-  		merchants = 1
-  	}
-	merchant_adventures = {
-		trade_range_modifier = 0.5
-	}
-	national_trade_policy = {
-		trade_efficiency = 0.125
-	}
-	overseas_merchants = {
-		merchants = 1
-	}
-	trade_manipulation_2 = {
-		caravan_power = 0.25
-        #May claim Center of Trade in provinces with high Commerce.
-	}
-	the_feitoria = {
-		global_foreign_trade_power = 0.10
-		#Commerce Growth Modifier: +25%
-	}
-	
-	ai_will_do = {
-		factor = 0.7
-		modifier = {
-			factor = 0
-			NOT = { num_of_cities = 6 }
-			NOT = { has_reform =  merchants_reform }
-		}
-		modifier = {
-			factor = 3
-			has_reform =  merchants_reform
-		}
-	}
-}
 
 
 
@@ -713,42 +670,90 @@ exploration_ideas = {
 	}
 }
 
+#Caravan Ideas
+trade_ideas = {
+	category = DIP
+	trigger = {
+		NOT = { has_idea_group = maritime_ideas }
+	}
+	bonus = {
+		caravan_power = 0.3
+	}	
+	
+	shrewd_commerce_practise = {
+ 		global_prov_trade_power_modifier = 0.2
+  	}
+  	free_trade = {
+  		merchants = 1
+  	}
+	merchant_adventures = {
+		trade_range_modifier = 0.5
+		placed_merchant_power = 3
+	}
+	national_trade_policy = {
+		trade_efficiency = 0.15
+	}
+	foreign_merchants = {
+		merchants = 1
+	}
+	new_caravansary = {
+		global_own_trade_power = 0.10
+		#Province Commerce Growth Modifier: +25%
+	}
+	crossroad_of_the_world = {
+		embracement_cost = -0.25
+		#Doubled institution spread from neighboring provinces
+	}
+	ai_will_do = {
+		factor = 0.7
+		modifier = {
+			factor = 0
+			NOT = { num_of_cities = 6 }
+			NOT = { has_reform =  merchants_reform }
+		}
+		modifier = {
+			factor = 3
+			has_reform =  merchants_reform
+		}
+	}
+}
 
+#Sea Trade Ideas
 maritime_ideas = {
 	category = DIP
 
 	trigger = {
 		primitives = no
+		NOT = { has_idea_group = trade_ideas }
 	}
 
 	bonus = {
-		sea_repair = yes
-	}
-
-	sea_hawks = {
-		navy_tradition = 1
-	}
-	merchant_marine = {
-        global_ship_trade_power = 0.1
-		light_ship_power = 0.1
-	}
-	ships_penny = {
-		global_ship_cost = -0.1
-	}
-	sheltered_ports = {
-		global_ship_repair = 0.2
-		sailor_maintenance_modifer = -0.1
-	}
-	press_gangs = {
-		sailors_recovery_speed = 0.2
-	}
-	superior_seamanship = {
-        leader_naval_manuever = 1
-	}
-	line_of_battle = {
-		global_naval_engagement_modifier = 0.1
+		trade_steering = 0.2
 	}
 	
+	coachman_of_the_sea = {
+		light_ship_cost = -0.2
+		transport_cost = -0.2
+	}
+	expanded_cargo_space = {
+		global_ship_trade_power = 0.2
+	}
+	merchant_captains = {
+        leader_naval_manuever = 1
+	}
+	letter_of_marque = {
+		privateer_efficiency = 0.33
+	}
+	global_trade_idea = {
+		trade_efficiency = 0.1
+	}
+	merchant_marine = {
+		light_ship_power = 0.2
+	}
+	informal_empire = {
+		ship_power_propagation = 0.1
+		#Additional merchants from the size of your trade fleet
+	}
 	ai_will_do = {
 		factor = 0.41
 		modifier = {
@@ -781,30 +786,32 @@ naval_ideas = {
 	bonus = {
 	    naval_morale = 0.15
 	}
-	
-	boarding_parties = {
-		leader_naval_shock = 1
-		capture_ship_chance = 0.25
+
+	ships_penny = {
+		global_ship_cost = -0.1
+		global_ship_recruit_speed = -0.1
 	}
-	improved_rams = {
-		galley_power = 0.1
+	sheltered_ports = {
+		global_ship_repair = 0.25
 	}
-	naval_cadets = {
-		leader_naval_fire = 1
-	}
-	excellent_shipwrights = {
+	excellent_shipwrights_2 = {
 		ship_durability = 0.05
+		#Allows Ship Modification
 	}
-	naval_fighting_instruction = {
-		blockade_efficiency = 0.33
-		siege_blockade_progress = 1
+	press_gangs = {
+		sailors_recovery_speed = 0.2
 	}
-	decisive_battle = {
-	    heavy_ship_power = 0.1
+	line_of_battle = {
+		global_naval_engagement_modifier = 0.1
 	}
 	grand_navy = {
-		naval_forcelimit_modifier = 0.33
+		naval_forcelimit_modifier = 0.5
         global_sailors_modifier = 0.25
+	}
+	gunboat_diplomacy_idea = {
+		siege_blockade_progress = 1
+		global_naval_barrage_cost = -0.33
+		#Unlocks 'Gunpower Diplomacy' Casus Belli
 	}
 	
 	

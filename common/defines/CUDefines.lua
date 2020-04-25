@@ -100,7 +100,7 @@ NDefines.NCountry.CULTURE_LOSS_THRESHOLD = 0.00 				-- _CDEF_CULTURE_LOSS_THRESH
 NDefines.NCountry.CULTURE_GAIN_THRESHOLD = 0.25 				-- _CDEF_CULTURE_GAIN_THRESHOLD = 10
 NDefines.NCountry.LEGITIMACY_DYNASTY_CHANGE = 30				-- Legitimacy a new dynasty starts out with
 NDefines.NCountry.POWER_MAX = 3999								      --  I Am At The Center of Everything That Happens To Me
-NDefines.NCountry.FREE_IDEA_GROUP_COST  = 4				      -- modifier on cheapness of "free" idea group
+NDefines.NCountry.FREE_IDEA_GROUP_COST  = 6				      -- modifier on cheapness of "free" idea group
 NDefines.NCountry.MAX_TOLERANCE_HERETIC = 4 						-- maximum tolerance towards heretics
 NDefines.NCountry.MAX_TOLERANCE_HEATHEN = 4  						-- maximum tolerance towards heathens
 NDefines.NCountry.CONVERSION_COOLDOWN_SECONDARY = 240		-- months before you can convert secondary religion again.

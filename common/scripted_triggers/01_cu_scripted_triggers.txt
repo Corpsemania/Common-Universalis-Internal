@@ -324,3 +324,51 @@ cu_ai_reform_trigger = {
 	absolutism = 20
 }
 
+cu_can_update_heavy_ship = {
+	naval_ideas = 3
+	OR = {
+		dip_tech = 2
+		dip_tech = 8
+		dip_tech = 14
+		dip_tech = 18
+		dip_tech = 21
+		dip_tech = 24
+	}
+}
+
+cu_can_update_light_ship = {
+	naval_ideas = 3
+	OR = {
+		dip_tech = 2
+		dip_tech = 8
+		dip_tech = 14
+		dip_tech = 18
+		dip_tech = 21
+		dip_tech = 24
+	}
+}
+
+cu_can_update_galley = {
+	naval_ideas = 3
+	OR = {
+		dip_tech = 2
+		dip_tech = 8
+		dip_tech = 14
+		dip_tech = 18
+		dip_tech = 21
+		dip_tech = 24
+	}
+}
+
+cu_can_update_transport = {
+	naval_ideas = 3
+	OR = {
+		dip_tech = 2
+		dip_tech = 8
+		dip_tech = 14
+		dip_tech = 18
+		dip_tech = 21
+		dip_tech = 24
+	}
+}
+

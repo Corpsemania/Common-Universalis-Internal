@@ -9,14 +9,18 @@ revolutionary_colors = { 5  0  5 }
 historical_score = 4400
 
 historical_idea_groups = {
-	diplomatic_ideas
-	influence_ideas
-	defensive_ideas
-	economic_ideas
-	aristocracy_ideas
-	spy_ideas
-	administrative_ideas
-	quality_ideas
+	diplomatic_ideas #DIP
+	influence_ideas #ADM
+	defensive_ideas #MIL
+	economic_ideas #ADM
+	aristocracy_ideas #MIL
+	spy_ideas #DIP
+	administrative_ideas #ADM
+	quality_ideas #MIL
+	trade_ideas #DIP
+	humanist_ideas #ADM
+	quantity_ideas #MIL
+	innovativeness_ideas #ADM
 }
 #color = { 170  43  21 }
 

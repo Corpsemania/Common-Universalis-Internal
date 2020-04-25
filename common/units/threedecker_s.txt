@@ -1,0 +1,10 @@
+#Three-Decker
+type = heavy_ship
+trigger = { 
+				has_country_flag = heavyship_mod_s
+}
+hull_size = 60
+base_cannons = 120
+sail_speed = 6
+
+sprite_level = 6

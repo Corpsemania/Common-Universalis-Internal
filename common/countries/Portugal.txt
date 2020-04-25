@@ -7,14 +7,18 @@ color = { 57  160  101 }
 historical_score = 4700
 
 historical_idea_groups = {
-	exploration_ideas
-	religious_ideas
-	expansion_ideas
-	offensive_ideas
-	economic_ideas
-	maritime_ideas
-	quality_ideas
-	defensive_ideas
+	exploration_ideas #DIP
+	religious_ideas #ADM
+	offensive_ideas #MIL
+	expansion_ideas #DIP
+	administrative_ideas #ADM
+	quantity_ideas #MIL
+	maritime_ideas #DIP
+	quality_ideas #MIL
+	economic_ideas #ADM
+	trade_ideas #DIP
+	defensive_ideas #MIL
+	influence_ideas #ADM
 }
 
 historical_units = {

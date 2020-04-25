@@ -1,0 +1,13 @@
+#East India Man
+type = transport
+trigger = {
+    has_country_flag = transport_mod_h
+	dip_tech = 26
+}
+hull_size = 29
+base_cannons = 8
+sail_speed = 6
+
+trade_power = 6
+
+sprite_level = 6

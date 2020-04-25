@@ -12,6 +12,21 @@ country_event = {
 		every_country = {
 		    set_variable = { which = cu_year value = 1478 }
 			cu_calc_tech_cost = yes
+			cu_calc_tech_year_modifier = yes
 		}
+	}
+}
+
+#Advance DIP Tech
+country_event = {
+	id = cu_test.2
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = PRAYING_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "EVT_HIDDEN"
+		set_variable = { which = dt_asy value = 0 }
+		cu_finish_dip_tech = yes
 	}
 }

@@ -9,14 +9,18 @@ revolutionary_colors = { 5  8  1 } #Inspired by the Five Color Flag
 historical_score = 1300
 
 historical_idea_groups = {
-	tradition_ideas
-	spy_ideas
-	defensive_ideas
-	administrative_ideas
-	quantity_ideas
-	trade_ideas
-	quality_ideas
-	reform_ideas
+	tradition_ideas #ADM
+	spy_ideas #DIP
+	defensive_ideas #MIL
+	administrative_ideas #ADM
+	quantity_ideas #MIL
+	trade_ideas #DIP
+	economic_ideas #ADM
+	quality_ideas #MIL
+	reform_ideas #ADM
+	offensive_ideas #MIL
+	exploration_ideas #DIP
+	constitution_ideas #ADM
 }
 
 historical_units = {

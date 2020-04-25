@@ -4769,8 +4769,8 @@ cu_calc_ruler_power_reduction = {
 	    which = cu_ruler_pm
 		value = trigger_value:absolutism
 	}
-	multiply_variable = { which = cu_ruler_pm value = -0.6 }
-	change_variable = { which = cu_ruler_pm value = 60 }
+	multiply_variable = { which = cu_ruler_pm value = -0.7 }
+	change_variable = { which = cu_ruler_pm value = 70 }
 	set_variable = { which = cu_power_adm which = cu_ruler_adm }
 	multiply_variable = { which = cu_power_adm which = cu_ruler_pm }
 	divide_variable = { which = cu_power_adm value = 100 }
@@ -4808,4 +4808,8 @@ cu_do_ruler_power_reduction = {
 		  divide_variable = { which = cu_power_mil value = 5 }
 	}
 }
+
+
+
+
 								  											  

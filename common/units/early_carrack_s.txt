@@ -4,14 +4,10 @@ trigger = {
                 NOT = { 
                         unit_type = chinese
                 }
-				NOT = {
-					has_country_flag = heavyship_mod_f
-					has_country_flag = heavyship_mod_h
-					has_country_flag = heavyship_mod_s
-				}
+				has_country_flag = heavyship_mod_s
 }
 hull_size = 20
 base_cannons = 40 
-sail_speed = 5
+sail_speed = 6
 
 sprite_level = 1

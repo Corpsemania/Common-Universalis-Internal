@@ -1,6 +1,12 @@
 #Two-Decker
 type = heavy_ship
-
+trigger = { 
+				NOT = {
+					has_country_flag = heavyship_mod_f
+					has_country_flag = heavyship_mod_h
+					has_country_flag = heavyship_mod_s
+				}
+}
 hull_size = 50
 base_cannons = 100
 sail_speed = 5

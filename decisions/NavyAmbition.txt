@@ -28,6 +28,7 @@ country_decisions = {
 	}
 	cu_gunpowder_diplomacy = {
 		potential = {
+			has_global_flag = test_version
 			navy_size = 30
 			NOT = { has_country_flag = cu_gunpowder_diplomacy_flag }
 		}

@@ -7,8 +7,8 @@ monarchy_mechanic = {
 	valid_for_nation_designer = no	
 	modifiers = {
 		min_autonomy = 10
-		yearly_absolutism = 0.05
-		yearly_corruption = 0.05
+		yearly_absolutism = 0.1
+		yearly_corruption = 0.1
 	}
 }
 

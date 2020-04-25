@@ -10206,4 +10206,347 @@ country_event = {
 	}
 }
 
+####################################Ship Modification Events#######################
+#Heavy Ship Modification
+country_event = {
+    id = ideagroups.4936
+	title = "ideagroups.4936.t"
+	desc = "ideagroups.4936.d"
+	picture = SHIP_SAILING_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			clr_country_flag = heavyship_mod_f
+			clr_country_flag = heavyship_mod_h
+			clr_country_flag = heavyship_mod_s
+		}
+	}
+	option = {
+        name = "ideagroups.4936.a"	
+		custom_tooltip = ideagroups.4936.at
+		set_country_flag = heavyship_mod_f
+		add_treasury = -200
+		clr_country_flag = cu_updating_heavy_ship
+		hidden_effect = {
+			cu_upgrade_ship_check_tech = yes
+		}
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 0
+				NOT = { treasury = 200 }
+			}
+		}
+	}
+	option = {
+        name = "ideagroups.4936.b"	
+		custom_tooltip = ideagroups.4936.bt
+		set_country_flag = heavyship_mod_h
+		add_treasury = -200
+		clr_country_flag = cu_updating_heavy_ship
+		hidden_effect = {
+			cu_upgrade_ship_check_tech = yes
+		}
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 0
+				NOT = { treasury = 200 }
+			}
+		}
+	}
+	option = {
+        name = "ideagroups.4936.c"	
+		custom_tooltip = ideagroups.4936.ct
+		set_country_flag = heavyship_mod_s
+		add_treasury = -200
+		clr_country_flag = cu_updating_heavy_ship
+		hidden_effect = {
+			cu_upgrade_ship_check_tech = yes
+		}
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 0
+				NOT = { treasury = 200 }
+			}
+		}
+	}
+	option = {
+        name = "ideagroups.4936.d1"	
+		clr_country_flag = cu_updating_heavy_ship
+		hidden_effect = {
+			cu_upgrade_ship_check_tech = yes
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { treasury = 200 }
+			}
+		}
+	}
+}
+
+#light Ship Modification
+country_event = {
+    id = ideagroups.4937
+	title = "ideagroups.4937.t"
+	desc = "ideagroups.4937.d"
+	picture = SHIP_SAILING_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			clr_country_flag = lightship_mod_f
+			clr_country_flag = lightship_mod_h
+			clr_country_flag = lightship_mod_s
+			clr_country_flag = lightship_mod_t
+		}
+	}
+	option = {
+        name = "ideagroups.4937.a"	
+		custom_tooltip = ideagroups.4937.at
+		set_country_flag = lightship_mod_f
+		add_treasury = -100
+		clr_country_flag = cu_updating_light_ship
+		hidden_effect = {
+			cu_upgrade_ship_check_tech = yes
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				NOT = { treasury = 100 }
+			}
+		}
+	}
+	option = {
+        name = "ideagroups.4937.b"	
+		custom_tooltip = ideagroups.4937.bt
+		set_country_flag = lightship_mod_h
+		add_treasury = -100
+		clr_country_flag = cu_updating_light_ship
+		hidden_effect = {
+			cu_upgrade_ship_check_tech = yes
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				NOT = { treasury = 100 }
+			}
+		}
+	}
+	option = {
+        name = "ideagroups.4937.c"	
+		custom_tooltip = ideagroups.4937.ct
+		set_country_flag = lightship_mod_s
+		add_treasury = -100
+		clr_country_flag = cu_updating_light_ship
+		hidden_effect = {
+			cu_upgrade_ship_check_tech = yes
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				NOT = { treasury = 100 }
+			}
+		}
+	}
+	option = {
+        name = "ideagroups.4937.d1"	
+		custom_tooltip = ideagroups.4937.d1t
+		set_country_flag = lightship_mod_t
+		add_treasury = -100
+		clr_country_flag = cu_updating_light_ship
+		hidden_effect = {
+			cu_upgrade_ship_check_tech = yes
+		}
+		ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				NOT = { treasury = 100 }
+			}
+		}
+	}
+	option = {
+        name = "ideagroups.4937.e"	
+		clr_country_flag = cu_updating_light_ship
+		hidden_effect = {
+			cu_upgrade_ship_check_tech = yes
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { treasury = 200 }
+			}
+		}
+	}
+}
+
+#Galley Modification
+country_event = {
+    id = ideagroups.4938
+	title = "ideagroups.4938.t"
+	desc = "ideagroups.4938.d"
+	picture = SHIP_SAILING_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			clr_country_flag = galley_mod_f
+			clr_country_flag = galley_mod_h
+			clr_country_flag = galley_mod_s
+		}
+	}
+	option = {
+        name = "ideagroups.4938.a"	
+		custom_tooltip = ideagroups.4938.at
+		set_country_flag = galley_mod_f
+		add_treasury = -80
+		clr_country_flag = cu_updating_galley
+		hidden_effect = {
+			cu_upgrade_ship_check_tech = yes
+		}
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 0
+				NOT = { treasury = 80 }
+			}
+		}
+	}
+	option = {
+        name = "ideagroups.4938.b"	
+		custom_tooltip = ideagroups.4938.bt
+		set_country_flag = galley_mod_h
+		add_treasury = -80
+		clr_country_flag = cu_updating_galley
+		hidden_effect = {
+			cu_upgrade_ship_check_tech = yes
+		}
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 0
+				NOT = { treasury = 80 }
+			}
+		}
+	}
+	option = {
+        name = "ideagroups.4938.c"	
+		custom_tooltip = ideagroups.4938.ct
+		set_country_flag = galley_mod_s
+		add_treasury = -80
+		clr_country_flag = cu_updating_galley
+		hidden_effect = {
+			cu_upgrade_ship_check_tech = yes
+		}
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 0
+				NOT = { treasury = 80 }
+			}
+		}
+	}
+	option = {
+        name = "ideagroups.4938.d1"	
+		clr_country_flag = cu_updating_galley
+		hidden_effect = {
+			cu_upgrade_ship_check_tech = yes
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { treasury = 80 }
+			}
+		}
+	}
+}
+
+#Transport Modification
+country_event = {
+    id = ideagroups.4939
+	title = "ideagroups.4939.t"
+	desc = "ideagroups.4939.d"
+	picture = SHIP_SAILING_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			clr_country_flag = transport_mod_f
+			clr_country_flag = transport_mod_h
+			clr_country_flag = transport_mod_s
+		}
+	}
+	option = {
+        name = "ideagroups.4939.a"	
+		custom_tooltip = ideagroups.4939.at
+		set_country_flag = transport_mod_t
+		add_treasury = -100
+		clr_country_flag = cu_updating_transport
+		hidden_effect = {
+			cu_upgrade_ship_check_tech = yes
+		}
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 0
+				NOT = { treasury = 100 }
+			}
+		}
+	}
+	option = {
+        name = "ideagroups.4939.b"	
+		custom_tooltip = ideagroups.4939.bt
+		set_country_flag = transport_mod_h
+		add_treasury = -100
+		clr_country_flag = cu_updating_transport
+		hidden_effect = {
+			cu_upgrade_ship_check_tech = yes
+		}
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 0
+				NOT = { treasury = 100 }
+			}
+		}
+	}
+	option = {
+        name = "ideagroups.4939.c"	
+		custom_tooltip = ideagroups.4939.ct
+		set_country_flag = transport_mod_s
+		add_treasury = -100
+		clr_country_flag = cu_updating_transport
+		hidden_effect = {
+			cu_upgrade_ship_check_tech = yes
+		}
+		ai_chance = {
+			factor = 33
+			modifier = {
+				factor = 0
+				NOT = { treasury = 100 }
+			}
+		}
+	}
+	option = {
+        name = "ideagroups.4939.d1"	
+		clr_country_flag = cu_updating_transport
+		hidden_effect = {
+			cu_upgrade_ship_check_tech = yes
+		}
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { treasury = 100 }
+			}
+		}
+	}
+}
+
 #4940 is occupied
