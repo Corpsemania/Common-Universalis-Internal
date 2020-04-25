@@ -4783,7 +4783,8 @@ cu_calc_ruler_power_reduction = {
 	multiply_variable = { which = cu_power_mil which = cu_ruler_pm }
 	divide_variable = { which = cu_power_mil value = 100 }
 	multiply_variable = { which = cu_power_mil value = 12 }
-
+	set_variable = { which = cu_ruler_pmr value = 100 }
+	subtract_variable = { which = cu_ruler_pmr which = cu_ruler_pm }
 } 
 
 cu_do_ruler_power_reduction = {

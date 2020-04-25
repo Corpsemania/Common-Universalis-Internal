@@ -298,16 +298,16 @@ country_decisions = {
 			      NOT = { has_country_flag = cu_invest_in_adm_tech_timer }
 				  had_country_flag = {
 				       flag = cu_invest_in_adm_tech_timer
-					   days = 1095
+					   days = 1825
 				  }
 			}
 		}
 		allow = {
-			years_of_income = 0.1
+			years_of_income = 0.2
 			adm_power = 200
 		}
 		effect = {
-		    add_years_of_income = -0.1
+		    add_years_of_income = -0.2
 			clr_country_flag = cu_invest_in_adm_tech_timer
 			set_country_flag = cu_invest_in_adm_tech_timer
 		    hidden_effect = { 
@@ -322,7 +322,7 @@ country_decisions = {
 			factor = 1
 			modifier = {
 				factor = 0
-				NOT = { years_of_income = 0.2 }				
+				NOT = { years_of_income = 0.3 }				
 			}
 			modifier = {
 				factor = 0
@@ -363,16 +363,16 @@ country_decisions = {
 			      NOT = { has_country_flag = cu_invest_in_dip_tech_timer }
 				  had_country_flag = {
 				       flag = cu_invest_in_dip_tech_timer
-					   days = 1095
+					   days = 1825
 				  }
 			}
 		}
 		allow = {
-			years_of_income = 0.1
+			years_of_income = 0.2
 			dip_power = 200
 		}
 		effect = {
-		    add_years_of_income = -0.1
+		    add_years_of_income = -0.2
 			clr_country_flag = cu_invest_in_dip_tech_timer
 			set_country_flag = cu_invest_in_dip_tech_timer
 		    hidden_effect = { 
@@ -387,7 +387,7 @@ country_decisions = {
 			factor = 1
 			modifier = {
 				factor = 0
-				NOT = { years_of_income = 0.2 }				
+				NOT = { years_of_income = 0.3 }				
 			}
 			modifier = {
 				factor = 0
@@ -428,16 +428,16 @@ country_decisions = {
 			      NOT = { has_country_flag = cu_invest_in_mil_tech_timer }
 				  had_country_flag = {
 				       flag = cu_invest_in_mil_tech_timer
-					   days = 1095
+					   days = 1825
 				  }
 			}
 		}
 		allow = {
-			years_of_income = 0.1
+			years_of_income = 0.2
 			mil_power = 200
 		}
 		effect = {
-		    add_years_of_income = -0.1
+		    add_years_of_income = -0.2
 			clr_country_flag = cu_invest_in_mil_tech_timer
 			set_country_flag = cu_invest_in_mil_tech_timer
 		    hidden_effect = { 
@@ -452,7 +452,7 @@ country_decisions = {
 			factor = 1
 			modifier = {
 				factor = 0
-				NOT = { years_of_income = 0.2 }				
+				NOT = { years_of_income = 0.3 }				
 			}
 			modifier = {
 				factor = 0
