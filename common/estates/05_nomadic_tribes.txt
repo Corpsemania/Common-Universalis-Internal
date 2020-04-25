@@ -423,7 +423,7 @@ estate_nomadic_tribes = {
 			custom_tooltip = cu_change_stability_et
 			add_estate_loyalty = {
 				estate = estate_nomadic_tribes
-				loyalty = -25
+				loyalty = -15
 			}
 			add_horde_unity = -10
 		}
@@ -468,9 +468,10 @@ estate_nomadic_tribes = {
 			custom_tooltip = cu_change_cash_et		
 			cu_change_stability_point_hidden = yes
 			custom_tooltip = cu_change_stability_eg
+			add_absolutism = 5
 			add_estate_loyalty = {
 				estate = estate_nomadic_tribes
-				loyalty = 10
+				loyalty = -10
 			}
 			add_estate_influence_modifier = {
 				estate = estate_nomadic_tribes

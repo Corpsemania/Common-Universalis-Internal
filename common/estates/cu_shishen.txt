@@ -681,9 +681,10 @@ estate_shizu = {
 			custom_tooltip = cu_change_cash_ct	
 			cu_change_stability_point_hidden = yes
 			custom_tooltip = cu_change_stability_cg
+			add_absolutism = 5
 			add_estate_loyalty = {
 				estate = estate_shizu
-				loyalty = 10
+				loyalty = -10
 			}
 			add_estate_influence_modifier = {
 				estate = estate_shizu

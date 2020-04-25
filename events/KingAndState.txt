@@ -2909,7 +2909,7 @@ country_event = {
 	}
 	option = { #Much Appreciated
 	     name = "state.104.a"
-		 add_absolutism = -5
+		 add_absolutism = -2
 		 add_adm_power = 200
 		 ai_chance = {
 		       factor = 90
@@ -2917,7 +2917,7 @@ country_event = {
 	}
 	option = { #No need of that
 	     name = "state.104.b"
-		 add_absolutism = 5
+		 add_absolutism = 3
 		 ai_chance = {
 		       factor = 10
 		 }
@@ -2989,7 +2989,7 @@ country_event = {
 	}
 	option = { #Much Appreciated
 	     name = "state.104.a"
-		 add_absolutism = -5
+		 add_absolutism = -2
 		 add_dip_power = 200
 		 ai_chance = {
 		       factor = 90
@@ -2997,7 +2997,7 @@ country_event = {
 	}
 	option = { #No need of that
 	     name = "state.104.b"
-		 add_absolutism = 5
+		 add_absolutism = 3
 		 ai_chance = {
 		       factor = 10
 		 }
@@ -3069,7 +3069,7 @@ country_event = {
 	}
 	option = { #Much Appreciated
 	     name = "state.104.a"
-		 add_absolutism = -5
+		 add_absolutism = -2
 		 add_mil_power = 200
 		 ai_chance = {
 		       factor = 90
@@ -3077,7 +3077,7 @@ country_event = {
 	}
 	option = { #No need of that
 	     name = "state.104.b"
-		 add_absolutism = 5
+		 add_absolutism = 3
 		 ai_chance = {
 		       factor = 10
 		 }

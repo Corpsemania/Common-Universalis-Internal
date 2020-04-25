@@ -22,7 +22,6 @@ tax_policy_1 = {
 					has_country_flag = tax_policy_2
 				}
 				adm_power = 50
-				absolutism = 5
 			}
 		}
 	}
@@ -41,7 +40,6 @@ tax_policy_1 = {
         set_ruler_flag = chose_tax_policy
         set_country_flag = chose_tax_policy_timer 
 		set_country_flag = tax_policy_1
-		add_absolutism = -5
 		if = { 
 			limit = { has_country_flag = tax_policy_2 }
 			add_adm_power = -50
@@ -163,8 +161,7 @@ tax_policy_2 = {
         clr_country_flag = chose_tax_policy_timer 
         set_ruler_flag = chose_tax_policy
         set_country_flag = chose_tax_policy_timer
-		set_country_flag = tax_policy_2		
-		add_absolutism = -5
+		set_country_flag = tax_policy_2	
 		if = {
 			limit = { has_country_flag = tax_policy_3 }
 			add_adm_power = -50
@@ -305,7 +302,7 @@ tax_policy_3 = {
 				cu_didnt_change_tax_policy = yes  
 				ai = no
 				adm_tech = 3
-				absolutism = 5
+				absolutism = 10
 				OR = {
 					AND = {
 						custom_trigger_tooltip = {
@@ -335,7 +332,7 @@ tax_policy_3 = {
         set_ruler_flag = chose_tax_policy
         set_country_flag = chose_tax_policy_timer 
 		set_country_flag = tax_policy_3
-		add_absolutism = -5
+		add_absolutism = -2
 		if = {
 			limit = { has_country_flag = tax_policy_4 }
 			add_adm_power = -50
@@ -476,7 +473,7 @@ tax_policy_4 = {
 				cu_didnt_change_tax_policy = yes  
 				ai = no
 				adm_tech = 3
-				absolutism = 5
+				absolutism = 15
 				OR = {
 					AND = {
 						custom_trigger_tooltip = {
@@ -511,7 +508,7 @@ tax_policy_4 = {
         set_ruler_flag = chose_tax_policy
         set_country_flag = chose_tax_policy_timer 
 		set_country_flag = tax_policy_4
-		add_absolutism = -5
+		add_absolutism = -2
 		if = {
 			limit = { has_country_flag = tax_policy_5 }
 			add_adm_power = -50
@@ -650,7 +647,6 @@ tax_policy_5 = {
 			has_reform = tax_policy_5
 			AND = {
 				cu_didnt_change_tax_policy = yes
-				absolutism = 5
 				ai = no
 				custom_trigger_tooltip = {
 					tooltip = has_tax_policy_4
@@ -676,7 +672,7 @@ tax_policy_5 = {
         set_ruler_flag = chose_tax_policy
         set_country_flag = chose_tax_policy_timer 
 		set_country_flag = tax_policy_5
-		add_absolutism = -5
+		add_absolutism = -2
 		if = {
 			limit = { has_country_flag = tax_policy_4 }
 			add_legitimacy = -20
@@ -759,12 +755,12 @@ economic_policy_1 = {
 				ai = no
 				adm_tech = 3
 				adm_power = 80
-				absolutism = 5
 			}
 		}
 	}
 	modifiers = {
 		inflation_reduction = -0.1
+		
 	}
 	effect = {
 	    if = {
@@ -775,7 +771,6 @@ economic_policy_1 = {
 				cu_change_stability_point_hidden = yes
 				custom_tooltip = cu_change_stability_n25
 		}
-		add_absolutism = -5
 		clr_ruler_flag = chose_economic_policy 
         clr_country_flag = chose_economic_policy_timer 
         set_ruler_flag = chose_economic_policy
@@ -798,7 +793,6 @@ economic_policy_2 = {
 				ai = no
 				adm_tech = 3
 				adm_power = 40
-				absolutism = 5
 			}
 		}
 	}
@@ -814,7 +808,6 @@ economic_policy_2 = {
 				cu_change_stability_point_hidden = yes
 				custom_tooltip = cu_change_stability_n25
 		}
-		add_absolutism = -5
 		clr_ruler_flag = chose_economic_policy 
         clr_country_flag = chose_economic_policy_timer 
         set_ruler_flag = chose_economic_policy
@@ -874,7 +867,6 @@ economic_policy_4 = {
 				ai = no
 				adm_tech = 3
 				adm_power = 40
-				absolutism = 5
 			}
 		}
 	}
@@ -882,7 +874,6 @@ economic_policy_4 = {
 		inflation_reduction = 0.05
 	}
 	effect = {
-		add_absolutism = -5
 	    if = {
 				limit = { NOT = { has_country_flag = cu_stability_fixed } }
 				hidden_effect = {
@@ -913,7 +904,6 @@ economic_policy_5 = {
 				ai = no
 				adm_tech = 3
 				adm_power = 80
-				absolutism = 5
 			}
 		}
 	}		
@@ -921,7 +911,6 @@ economic_policy_5 = {
 		inflation_reduction = 0.10
 	}
 	effect = {
-	    add_absolutism = -5
 	    if = {
 				limit = { NOT = { has_country_flag = cu_stability_fixed } }
 				hidden_effect = {
@@ -953,7 +942,6 @@ trade_policy_5 = {
 				ai = no
 				adm_tech = 3
 				NOT = { mercantilism = 30 }
-				absolutism = 5
 			}
 		}
 	}
@@ -964,7 +952,6 @@ trade_policy_5 = {
 		global_tariffs = -0.3
 	}
 	effect = {
-		add_absolutism = -5
 	    if = {
 				limit = { NOT = { has_country_flag = cu_stability_fixed } }
 				hidden_effect = {
@@ -995,7 +982,6 @@ trade_policy_4 = {
 				ai = no
 				adm_tech = 3
 				NOT = { mercantilism = 56 }
-				absolutism = 5
 			}
 		}
 	}
@@ -1006,7 +992,6 @@ trade_policy_4 = {
 		global_tariffs = -0.1
 	}
 	effect = {
-		add_absolutism = -5
 	    if = {
 				limit = { NOT = { has_country_flag = cu_stability_fixed } }
 				hidden_effect = {
@@ -1037,7 +1022,6 @@ trade_policy_3 = {
 				ai = no
 				NOT = { mercantilism = 81 }
 				mercantilism = 20
-				absolutism = 5
 			}
 		}
 	}
@@ -1046,7 +1030,6 @@ trade_policy_3 = {
 		trade_efficiency = 0.05
 	}
 	effect = {
-	    add_absolutism = -5
 	    if = {
 				limit = { NOT = { has_country_flag = cu_stability_fixed } }
 				hidden_effect = {
@@ -1076,7 +1059,6 @@ trade_policy_2 = {
 				ai = no
 				adm_tech = 3
 				mercantilism = 45
-				absolutism = 5
 			}
 		}
 	}
@@ -1087,7 +1069,6 @@ trade_policy_2 = {
 		global_tariffs = 0.15
 	}
 	effect = {
-	    add_absolutism = -5
 	    if = {
 				limit = { NOT = { has_country_flag = cu_stability_fixed } }
 				hidden_effect = {
@@ -1118,7 +1099,6 @@ trade_policy_1 = {
 				ai = no
 				adm_tech = 3
 				mercantilism = 70
-				absolutism = 5
 			}
 		}
 	}
@@ -1129,7 +1109,6 @@ trade_policy_1 = {
 		global_tariffs = 0.3
 	}
 	effect = {
-		add_absolutism = -5
 	    if = {
 				limit = { NOT = { has_country_flag = cu_stability_fixed } }
 				hidden_effect = {
