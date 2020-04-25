@@ -1,0 +1,17 @@
+namespace = cu_test
+
+#Set game year
+country_event = {
+	id = cu_test.1
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = PRAYING_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "EVT_HIDDEN"
+		every_country = {
+		    set_variable = { which = cu_year value = 1478 }
+			cu_calc_tech_cost = yes
+		}
+	}
+}
