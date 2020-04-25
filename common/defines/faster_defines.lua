@@ -1,0 +1,28 @@
+--NDiplomacy
+NDefines.NDiplomacy.TRUCE_YEARS = 1
+NDefines.NDiplomacy.PEACE_COST_HUMILIATE_RIVAL = 25
+NDefines.NDiplomacy.SPY_DISCOVERY_COOLDOWN_MONTHS = 3
+
+--NCountry
+NDefines.NCountry.MAXIMUM_CONDOTTIERI = 24
+
+NDefines.NCountry.PARLIAMENT_DEBATE_DURATION = 3
+NDefines.NCountry.NUM_PARLIAMENT_ISSUES = 12
+
+NDefines.NCountry.LIBERTY_DESIRE_TRUST = -0.6
+NDefines.NCountry.DIVERT_TRADE_LIBERTY = 20
+
+NDefines.NEconomy.TRADE_NON_CAPITAL_OFFICE = -0.25
+
+NDefines.NMilitary.COMBAT_DICE_SIDE = 8
+NDefines.NMilitary.CANNOT_RETREAT_DAYS = 6
+NDefines.NMilitary.DAYS_PER_PHASE = 1
+
+NDefines.NMilitary.EXPLORER_LEADER_POWER = 0.95
+NDefines.NMilitary.UNLOAD_COST_FRIENDLY = 7
+NDefines.NMilitary.UNLOAD_COST_ENEMY = 28
+NDefines.NMilitary.SEA_LANDING_PENALTY = -1
+
+NDefines.NMilitary.NOMAD_LOOT_TRADITION = 0.05
+
+NDefines.NReligion.CHANGE_SECONDARY_PRESTIGE_HIT = -5
