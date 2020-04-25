@@ -102,7 +102,13 @@ country_decisions = {
 			change_tag = UKR
 			swap_non_generic_missions = yes
 			remove_non_electors_emperors_from_empire_effect = yes
-			set_government_rank = 3			
+			if = {
+				limit = { total_development = 800 }
+				set_government_rank = 3			
+			}
+			else = {
+				set_government_rank = 2
+			}
 			set_country_flag = formed_ruthenia_flag
 			if = {
 				limit = { has_custom_ideas = no }
