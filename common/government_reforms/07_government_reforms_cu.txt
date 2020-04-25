@@ -22,7 +22,7 @@ tax_policy_1 = {
 					has_country_flag = tax_policy_2
 				}
 				adm_power = 50
-				absolutism = 10
+				absolutism = 5
 			}
 		}
 	}
@@ -128,7 +128,7 @@ tax_policy_2 = {
 				cu_didnt_change_tax_policy = yes  
 				ai = no
 				adm_tech = 3
-				absolutism = 10
+				absolutism = 5
 				OR = {
 					AND = {
 						custom_trigger_tooltip = {
@@ -305,7 +305,7 @@ tax_policy_3 = {
 				cu_didnt_change_tax_policy = yes  
 				ai = no
 				adm_tech = 3
-				absolutism = 10
+				absolutism = 5
 				OR = {
 					AND = {
 						custom_trigger_tooltip = {
@@ -476,7 +476,7 @@ tax_policy_4 = {
 				cu_didnt_change_tax_policy = yes  
 				ai = no
 				adm_tech = 3
-				absolutism = 10
+				absolutism = 5
 				OR = {
 					AND = {
 						custom_trigger_tooltip = {
@@ -648,9 +648,9 @@ tax_policy_5 = {
 	trigger = {
 		OR = {
 			has_reform = tax_policy_5
-			absolutism = 10
 			AND = {
 				cu_didnt_change_tax_policy = yes
+				absolutism = 5
 				ai = no
 				custom_trigger_tooltip = {
 					tooltip = has_tax_policy_4
@@ -759,7 +759,7 @@ economic_policy_1 = {
 				ai = no
 				adm_tech = 3
 				adm_power = 80
-				absolutism = 10
+				absolutism = 5
 			}
 		}
 	}
@@ -798,7 +798,7 @@ economic_policy_2 = {
 				ai = no
 				adm_tech = 3
 				adm_power = 40
-				absolutism = 10
+				absolutism = 5
 			}
 		}
 	}
@@ -836,7 +836,7 @@ economic_policy_3 = {
 				cu_didnt_change_economic_policy = yes
 				ai = no
 				adm_tech = 3
-				absolutism = 10
+				absolutism = 5
 			}
 		}
 	}
@@ -874,7 +874,7 @@ economic_policy_4 = {
 				ai = no
 				adm_tech = 3
 				adm_power = 40
-				absolutism = 10
+				absolutism = 5
 			}
 		}
 	}
@@ -913,7 +913,7 @@ economic_policy_5 = {
 				ai = no
 				adm_tech = 3
 				adm_power = 80
-				absolutism = 10
+				absolutism = 5
 			}
 		}
 	}		
@@ -953,7 +953,7 @@ trade_policy_5 = {
 				ai = no
 				adm_tech = 3
 				NOT = { mercantilism = 30 }
-				absolutism = 10
+				absolutism = 5
 			}
 		}
 	}
@@ -995,7 +995,7 @@ trade_policy_4 = {
 				ai = no
 				adm_tech = 3
 				NOT = { mercantilism = 56 }
-				absolutism = 10
+				absolutism = 5
 			}
 		}
 	}
@@ -1037,7 +1037,7 @@ trade_policy_3 = {
 				ai = no
 				NOT = { mercantilism = 81 }
 				mercantilism = 20
-				absolutism = 10
+				absolutism = 5
 			}
 		}
 	}
@@ -1076,7 +1076,7 @@ trade_policy_2 = {
 				ai = no
 				adm_tech = 3
 				mercantilism = 45
-				absolutism = 10
+				absolutism = 5
 			}
 		}
 	}
@@ -1118,7 +1118,7 @@ trade_policy_1 = {
 				ai = no
 				adm_tech = 3
 				mercantilism = 70
-				absolutism = 10
+				absolutism = 5
 			}
 		}
 	}
@@ -1160,7 +1160,7 @@ minimum_government_capacity = {
 				cu_didnt_change_GC_policy = yes
 				ai = no
 				adm_tech = 3
-				absolutism = 10
+				absolutism = 5
 			}
 		}
 	}
@@ -1207,7 +1207,7 @@ shrink_government_capacity = {
 				cu_didnt_change_GC_policy = yes
 				ai = no
 				adm_tech = 3
-				absolutism = 10
+				absolutism = 5
 			}
 		}
 	}
@@ -1252,7 +1252,7 @@ cur_government_capacity = {
 				cu_didnt_change_GC_policy = yes
 				ai = no
 				adm_tech = 3
-				absolutism = 10
+				absolutism = 5
 			}
 		}
 	}
@@ -1291,7 +1291,7 @@ expand_government_capacity = {
 				ai = no
 				adm_tech = 3
 				adm_power = -60
-				absolutism = 10
+				absolutism = 5
 			}
 		}
 	}
@@ -1344,7 +1344,7 @@ maximum_government_capacity = {
 				ai = no
 				adm_tech = 3
 				adm_power = 0
-				absolutism = 10
+				absolutism = 5
 			}
 		}
 	}
@@ -2938,7 +2938,7 @@ court_despotism = {
 					tooltip = government_reform_cd_20_tooltip
 					NOT = { has_country_modifier = tur_janissaries_timer }
 				}
-				absolutism = 30
+				absolutism = 20
 				ai = no
 			}
 		}
@@ -3021,7 +3021,7 @@ noble_council = {
 					tooltip = government_reform_cd_20_tooltip
 					NOT = { has_country_modifier = tur_janissaries_timer }
 				}
-				absolutism = 25
+				absolutism = 10
 				ai = no
 			}
 		}
@@ -3373,7 +3373,7 @@ cu_feudalism_reform = {
 					tooltip = government_reform_cd_20_tooltip
 					NOT = { has_country_modifier = tur_janissaries_timer }
 				}
-				absolutism = 15
+				absolutism = 10
 				has_institution = feudalism
 				ai = no
 			}
@@ -3438,7 +3438,7 @@ mandate_system = {
 			has_reform = mandate_system
 			AND = {
 				ai = no
-				absolutism = 30
+				absolutism = 20
 				custom_trigger_tooltip = {
 					tooltip = government_reform_cd_20_tooltip
 					NOT = { has_country_modifier = tur_janissaries_timer }
@@ -3459,7 +3459,7 @@ mandate_system = {
 	effect = {
 		custom_tooltip = mandate_system_estate_tt
 		custom_tooltip = mandate_system_tooltip
-		add_absolutism = -15
+		add_absolutism = -10
 		if = {
 			limit = { NOT = { has_country_flag = cu_stability_fixed } }
 			hidden_effect = {
@@ -3529,7 +3529,7 @@ bureaucratic = {
 					tooltip = government_reform_cd_20_tooltip
 					NOT = { has_country_modifier = tur_janissaries_timer }
 				}
-				absolutism = 50	
+				absolutism = 30	
 				has_reform = cu_feudalism_reform
 				adm_tech = 18
 				ai = no
@@ -3547,7 +3547,7 @@ bureaucratic = {
 	effect = {
 		custom_tooltip = bureaucratic_estate_tt
 		custom_tooltip = bureaucratic_tooltip
-		add_absolutism = -20
+		add_absolutism = -15
 		if = {
 			limit = { NOT = { has_country_flag = cu_stability_fixed } }
 			hidden_effect = {
@@ -3621,7 +3621,7 @@ oral_tradition = {
 					tooltip = government_reform_cd_20_tooltip
 					NOT = { has_country_modifier = tur_janissaries_timer }
 				}
-				absolutism = 30
+				absolutism = 20
 			}
 		}
 	}
@@ -3704,7 +3704,7 @@ sovereign_code = {
 					tooltip = government_reform_cd_20_tooltip
 					NOT = { has_country_modifier = tur_janissaries_timer }
 				}
-				absolutism = 30
+				absolutism = 10
 				ai = no
 			}
 		}
@@ -3796,7 +3796,7 @@ divine_law = {
 					tooltip = government_reform_cd_20_tooltip
 					NOT = { has_country_modifier = tur_janissaries_timer }
 				}
-				absolutism = 30
+				absolutism = 10
 				ai = no
 			}
 		}
@@ -3879,7 +3879,7 @@ constitution_reform = {
 						absolutism = 20
 					}
 					adm_tech = 22
-					absolutism = 40
+					absolutism = 20
 				}
 				ai = no
 			}
@@ -3977,7 +3977,7 @@ no_election = {
 					tooltip = government_reform_cd_20_tooltip
 					NOT = { has_country_modifier = tur_janissaries_timer }
 				}
-				absolutism = 30
+				absolutism = 20
 				ai = no
 			}
 	   }
@@ -4028,7 +4028,7 @@ noble_election = {
 					tooltip = government_reform_cd_20_tooltip
 					NOT = { has_country_modifier = tur_janissaries_timer }
 				}
-				absolutism = 25
+				absolutism = 10
 				OR = {
 					has_reform = noble_council
 					has_reform = parliament_reform
@@ -4130,7 +4130,7 @@ burghers_election = {
 					tooltip = government_reform_cd_20_tooltip
 					NOT = { has_country_modifier = tur_janissaries_timer }
 				}
-				absolutism = 20
+				absolutism = 10
 				NOT = { government = tribal }
 				OR = { 
 					has_reform = constitution_reform
@@ -4236,7 +4236,7 @@ universal_suffrage = {
 					tooltip = government_reform_cd_20_tooltip
 					NOT = { has_country_modifier = tur_janissaries_timer }
 				}
-				absolutism = 15
+				absolutism = 10
 				has_reform = burghers_election
 				ai = no
 				has_reform = parliament_reform

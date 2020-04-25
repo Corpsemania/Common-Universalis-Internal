@@ -154,7 +154,7 @@
  disaster_nomadic_tribes.0.d: "The tribes are outraged with our government reform. Finding no other ways to change [Root.Monarch.GetName]'s mind, they now start a massive rebellion to enforce their will."
  disaster_nomadic_tribes.0.a: "Crush them!"
  disaster_nomadic_tribes.0.a.tt: "The disaster will end either when the tribes feel satisfied, or when the rebellion is crushed."
- disaster_nomadic_tribes.0.b: "Give in to nomadic_tribes' demand."
+ disaster_nomadic_tribes.0.b: "Give in to tribes' demand."
  disaster_nomadic_tribes.0.b.tt: "Adopt all government reforms demanded by the tribes.\nThe disaster will end as the tribes feel satisfied."
  nomadic_tribes_reform_progress: "Tribe Reform Progress"
  disaster_nomadic_tribes.0.c: "Bribe the leaders"

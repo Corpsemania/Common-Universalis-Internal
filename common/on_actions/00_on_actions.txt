@@ -1294,7 +1294,7 @@ on_startup = {
 							tag = QNG
 						}
 					}
-					add_absolutism = 30
+					add_absolutism = 40
 				}
 				else_if = {
 					limit = {
@@ -1325,7 +1325,7 @@ on_startup = {
 					limit = {
 						tag = BYZ
 					}
-					add_absolutism = 25
+					add_absolutism = 30
 				}
 				else_if = {
 					limit = {
@@ -1357,10 +1357,10 @@ on_startup = {
 							}
 						}
 					}
-					add_absolutism = 20
+					add_absolutism = 10
 				}
 				else = {
-					add_absolutism = 10
+					add_absolutism = 20
 				}
 				if = {
 					limit = {
