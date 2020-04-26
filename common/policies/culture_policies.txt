@@ -65,6 +65,7 @@ hired_troubadour  = {
 
 
 	reform_progress_growth = 0.10
+	global_tax_modifier = -0.10
 	
 
 	ai_will_do = {
@@ -81,7 +82,7 @@ hired_troubadour  = {
 }
 
 
-sense_of_honor  = {
+war_propaganda  = {
 	monarch_power = MIL
 
 
@@ -168,9 +169,8 @@ avant_garde = {
 		full_idea_group = culture_ideas
 	}
 
-
-	prestige_decay = -0.015
 	prestige = 1
+	prestige_decay = 0.015
 
 	ai_will_do = {
 		factor = 1
@@ -205,7 +205,7 @@ ecclesiastical_patronage = {
 
 
 	tolerance_own = 0.5
-	global_tax_modifier = -0.15 #Nerfed since religious + culture make assimilation a lot easier
+	missionaries = -1 #Nerfed since religious + culture make assimilation a lot easier
 
 	ai_will_do = {
 		factor = 1
@@ -272,6 +272,503 @@ foreign_endorsement = {
 
 	embracement_cost = -0.25
 	global_unrest = 2
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			check_variable = { which = go value = 110 }
+		}
+		modifier = {
+			factor = 0 
+			NOT = { check_variable = { which = go value = 100 } }
+		}		
+	}
+}
+
+femme_fatale = {
+	monarch_power = DIP
+
+
+	potential = {
+		has_idea_group = spy_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = spy_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = spy_ideas
+		full_idea_group = culture_ideas
+	}
+
+
+	spy_offence = 0.2
+	prestige_decay = 0.015
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			check_variable = { which = go value = 110 }
+		}
+		modifier = {
+			factor = 0 
+			NOT = { check_variable = { which = go value = 100 } }
+		}		
+	}
+}
+
+stately_quadrille = {
+	monarch_power = DIP
+
+	potential = {
+		has_idea_group = diplomatic_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = diplomatic_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = diplomatic_ideas
+		full_idea_group = culture_ideas
+	}
+
+	improve_relation_modifier = 0.25
+	diplomatic_upkeep = -1
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			check_variable = { which = go value = 110 }
+		}
+		modifier = {
+			factor = 0 
+			NOT = { check_variable = { which = go value = 100 } }
+		}		
+	}
+}
+
+stiff_upper_lip = {
+	monarch_power = MIL
+
+	potential = {
+		has_idea_group = defensive_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = defensive_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = defensive_ideas
+		full_idea_group = culture_ideas
+	}
+
+	war_exhaustion = -0.05
+	monthly_splendor = -1
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			check_variable = { which = go value = 110 }
+		}
+		modifier = {
+			factor = 0 
+			NOT = { check_variable = { which = go value = 100 } }
+		}		
+	}
+}
+
+baroque = {
+	monarch_power = DIP
+
+	potential = {
+		has_idea_group = economic_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = economic_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = economic_ideas
+		full_idea_group = culture_ideas
+	}
+
+	monthly_splendor = 1
+	global_tax_modifier = -0.05
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			check_variable = { which = go value = 110 }
+		}
+		modifier = {
+			factor = 0 
+			NOT = { check_variable = { which = go value = 100 } }
+		}		
+	}
+}
+
+el_dorado = {
+	monarch_power = DIP
+
+	potential = {
+		has_idea_group = exploration_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = exploration_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = exploration_ideas
+		full_idea_group = culture_ideas
+	}
+
+	colonist_placement_chance = 0.05
+	inflation_action_cost = 0.1
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			check_variable = { which = go value = 110 }
+		}
+		modifier = {
+			factor = 0 
+			NOT = { check_variable = { which = go value = 100 } }
+		}		
+	}
+}
+
+trade_language = {
+	monarch_power = ADM
+
+	potential = {
+		has_idea_group = trade_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = trade_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = trade_ideas
+		full_idea_group = culture_ideas
+	}
+
+	max_states = 5
+	harmonization_speed = -0.2
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			check_variable = { which = go value = 110 }
+		}
+		modifier = {
+			factor = 0 
+			NOT = { check_variable = { which = go value = 100 } }
+		}		
+	}
+}
+
+tulip_mania = {
+	monarch_power = ADM
+
+	potential = {
+		has_idea_group = maritime_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = maritime_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = maritime_ideas
+		full_idea_group = culture_ideas
+	}
+
+	prestige = 1
+	inflation_reduction = -0.05
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			check_variable = { which = go value = 110 }
+		}
+		modifier = {
+			factor = 0 
+			NOT = { check_variable = { which = go value = 100 } }
+		}		
+	}
+}
+
+sea_shanties = {
+	monarch_power = DIP
+
+	potential = {
+		has_idea_group = naval_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = naval_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = naval_ideas
+		full_idea_group = culture_ideas
+	}
+
+	global_ship_cost = -0.1
+	prestige_decay = 0.01
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			check_variable = { which = go value = 110 }
+		}
+		modifier = {
+			factor = 0 
+			NOT = { check_variable = { which = go value = 100 } }
+		}		
+	}
+}
+
+haute_couture = {
+	monarch_power = DIP
+
+	potential = {
+		has_idea_group = quality_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = quality_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = quality_ideas
+		full_idea_group = culture_ideas
+	}
+
+	prestige_decay = -0.015
+	prestige = -0.5
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			check_variable = { which = go value = 110 }
+		}
+		modifier = {
+			factor = 0 
+			NOT = { check_variable = { which = go value = 100 } }
+		}		
+	}
+}
+
+mission_tactics = {
+	monarch_power = MIL
+
+	potential = {
+		has_idea_group = quantity_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = quantity_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = quantity_ideas
+		full_idea_group = culture_ideas
+	}
+
+	movement_speed = 0.1
+	reinforce_speed = -0.1
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			check_variable = { which = go value = 110 }
+		}
+		modifier = {
+			factor = 0 
+			NOT = { check_variable = { which = go value = 100 } }
+		}		
+	}
+}
+
+marching_bands = {
+	monarch_power = MIL
+
+	potential = {
+		has_idea_group = militarist_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = militarist_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = militarist_ideas
+		full_idea_group = culture_ideas
+	}
+
+	drill_gain_modifier = 0.2
+	land_forcelimit_modifier = -0.1
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			check_variable = { which = go value = 110 }
+		}
+		modifier = {
+			factor = 0 
+			NOT = { check_variable = { which = go value = 100 } }
+		}		
+	}
+}
+
+empire_style = {
+	monarch_power = DIP
+
+	potential = {
+		has_idea_group = expansion_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = expansion_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = expansion_ideas
+		full_idea_group = culture_ideas
+	}
+
+	harmonization_speed = 0.15
+	culture_conversion_cost = 0.25
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			check_variable = { which = go value = 110 }
+		}
+		modifier = {
+			factor = 0 
+			NOT = { check_variable = { which = go value = 100 } }
+		}		
+	}
+}
+
+neoclassicism = {
+	monarch_power = DIP
+
+	potential = {
+		has_idea_group = administrative_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = administrative_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = administrative_ideas
+		full_idea_group = culture_ideas
+	}
+
+	max_states = 5
+	yearly_absolutism = -0.05
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			check_variable = { which = go value = 110 }
+		}
+		modifier = {
+			factor = 0 
+			NOT = { check_variable = { which = go value = 100 } }
+		}		
+	}
+}
+
+bill_of_rights = {
+	monarch_power = ADM
+
+	potential = {
+		has_idea_group = constitution_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = constitution_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = constitution_ideas
+		full_idea_group = culture_ideas
+	}
+
+	advisor_cost = -0.05
+	max_absolutism = -5
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			check_variable = { which = go value = 110 }
+		}
+		modifier = {
+			factor = 0 
+			NOT = { check_variable = { which = go value = 100 } }
+		}		
+	}
+}
+
+fusion_art = {
+	monarch_power = DIP
+
+	potential = {
+		has_idea_group = humanist_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = humanist_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = humanist_ideas
+		full_idea_group = culture_ideas
+	}
+
+	idea_cost = -0.05
+	harmonization_speed = -0.1
 
 	ai_will_do = {
 		factor = 1
