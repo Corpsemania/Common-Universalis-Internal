@@ -1,4 +1,4 @@
-#Heavy Frigate
+#Great Frigate
 type = light_ship
 trigger = { 
 				NOT = {
@@ -7,10 +7,10 @@ trigger = {
 						has_country_flag = lightship_mod_s
 				}
 }
-hull_size = 27
-base_cannons = 42
+hull_size = 33
+base_cannons = 50
 sail_speed = 10
 
-trade_power = 4.5
+trade_power = 5.7
 
-sprite_level = 5
+sprite_level = 6

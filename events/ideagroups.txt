@@ -10226,6 +10226,10 @@ country_event = {
 		custom_tooltip = ideagroups.4936.at
 		set_country_flag = heavyship_mod_f
 		add_treasury = -200
+		if = {
+			limit = { NOT = { naval_ideas = 3 } }
+			add_navy_tradition = -40
+		}
 		clr_country_flag = cu_updating_heavy_ship
 		hidden_effect = {
 			cu_upgrade_ship_check_tech = yes
@@ -10235,6 +10239,13 @@ country_event = {
 			modifier = {
 				factor = 0
 				NOT = { treasury = 200 }
+			}
+			modifier = {
+				factor = 0
+				AND = {
+					NOT = { navy_tradition = 60 }
+					NOT = { naval_ideas = 3 }
+				}
 			}
 		}
 	}
@@ -10243,6 +10254,10 @@ country_event = {
 		custom_tooltip = ideagroups.4936.bt
 		set_country_flag = heavyship_mod_h
 		add_treasury = -200
+		if = {
+			limit = { NOT = { naval_ideas = 3 } }
+			add_navy_tradition = -40
+		}
 		clr_country_flag = cu_updating_heavy_ship
 		hidden_effect = {
 			cu_upgrade_ship_check_tech = yes
@@ -10253,6 +10268,13 @@ country_event = {
 				factor = 0
 				NOT = { treasury = 200 }
 			}
+			modifier = {
+				factor = 0
+				AND = {
+					NOT = { navy_tradition = 60 }
+					NOT = { naval_ideas = 3 }
+				}
+			}
 		}
 	}
 	option = {
@@ -10260,6 +10282,10 @@ country_event = {
 		custom_tooltip = ideagroups.4936.ct
 		set_country_flag = heavyship_mod_s
 		add_treasury = -200
+		if = {
+			limit = { NOT = { naval_ideas = 3 } }
+			add_navy_tradition = -40
+		}
 		clr_country_flag = cu_updating_heavy_ship
 		hidden_effect = {
 			cu_upgrade_ship_check_tech = yes
@@ -10269,6 +10295,13 @@ country_event = {
 			modifier = {
 				factor = 0
 				NOT = { treasury = 200 }
+			}
+			modifier = {
+				factor = 0
+				AND = {
+					NOT = { navy_tradition = 60 }
+					NOT = { naval_ideas = 3 }
+				}
 			}
 		}
 	}
@@ -10280,10 +10313,6 @@ country_event = {
 		}
 		ai_chance = {
 			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { treasury = 200 }
-			}
 		}
 	}
 }
@@ -10308,6 +10337,10 @@ country_event = {
 		custom_tooltip = ideagroups.4937.at
 		set_country_flag = lightship_mod_f
 		add_treasury = -100
+		if = {
+			limit = { NOT = { naval_ideas = 3 } }
+			add_navy_tradition = -30
+		}
 		clr_country_flag = cu_updating_light_ship
 		hidden_effect = {
 			cu_upgrade_ship_check_tech = yes
@@ -10317,6 +10350,13 @@ country_event = {
 			modifier = {
 				factor = 0
 				NOT = { treasury = 100 }
+			}
+			modifier = {
+				factor = 0
+				AND = {
+					NOT = { navy_tradition = 50 }
+					NOT = { naval_ideas = 3 }
+				}
 			}
 		}
 	}
@@ -10325,6 +10365,10 @@ country_event = {
 		custom_tooltip = ideagroups.4937.bt
 		set_country_flag = lightship_mod_h
 		add_treasury = -100
+		if = {
+			limit = { NOT = { naval_ideas = 3 } }
+			add_navy_tradition = -30
+		}
 		clr_country_flag = cu_updating_light_ship
 		hidden_effect = {
 			cu_upgrade_ship_check_tech = yes
@@ -10334,6 +10378,13 @@ country_event = {
 			modifier = {
 				factor = 0
 				NOT = { treasury = 100 }
+			}
+			modifier = {
+				factor = 0
+				AND = {
+					NOT = { navy_tradition = 50 }
+					NOT = { naval_ideas = 3 }
+				}
 			}
 		}
 	}
@@ -10342,6 +10393,10 @@ country_event = {
 		custom_tooltip = ideagroups.4937.ct
 		set_country_flag = lightship_mod_s
 		add_treasury = -100
+		if = {
+			limit = { NOT = { naval_ideas = 3 } }
+			add_navy_tradition = -30
+		}
 		clr_country_flag = cu_updating_light_ship
 		hidden_effect = {
 			cu_upgrade_ship_check_tech = yes
@@ -10352,6 +10407,13 @@ country_event = {
 				factor = 0
 				NOT = { treasury = 100 }
 			}
+			modifier = {
+				factor = 0
+				AND = {
+					NOT = { navy_tradition = 50 }
+					NOT = { naval_ideas = 3 }
+				}
+			}
 		}
 	}
 	option = {
@@ -10359,6 +10421,10 @@ country_event = {
 		custom_tooltip = ideagroups.4937.d1t
 		set_country_flag = lightship_mod_t
 		add_treasury = -100
+		if = {
+			limit = { NOT = { naval_ideas = 3 } }
+			add_navy_tradition = -30
+		}
 		clr_country_flag = cu_updating_light_ship
 		hidden_effect = {
 			cu_upgrade_ship_check_tech = yes
@@ -10368,6 +10434,13 @@ country_event = {
 			modifier = {
 				factor = 0
 				NOT = { treasury = 100 }
+			}
+			modifier = {
+				factor = 0
+				AND = {
+					NOT = { navy_tradition = 50 }
+					NOT = { naval_ideas = 3 }
+				}
 			}
 		}
 	}
@@ -10379,10 +10452,6 @@ country_event = {
 		}
 		ai_chance = {
 			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { treasury = 200 }
-			}
 		}
 	}
 }
@@ -10406,6 +10475,10 @@ country_event = {
 		custom_tooltip = ideagroups.4938.at
 		set_country_flag = galley_mod_f
 		add_treasury = -80
+		if = {
+			limit = { NOT = { naval_ideas = 3 } }
+			add_navy_tradition = -20
+		}
 		clr_country_flag = cu_updating_galley
 		hidden_effect = {
 			cu_upgrade_ship_check_tech = yes
@@ -10415,6 +10488,13 @@ country_event = {
 			modifier = {
 				factor = 0
 				NOT = { treasury = 80 }
+			}
+			modifier = {
+				factor = 0
+				AND = {
+					NOT = { navy_tradition = 40 }
+					NOT = { naval_ideas = 3 }
+				}
 			}
 		}
 	}
@@ -10423,6 +10503,10 @@ country_event = {
 		custom_tooltip = ideagroups.4938.bt
 		set_country_flag = galley_mod_h
 		add_treasury = -80
+		if = {
+			limit = { NOT = { naval_ideas = 3 } }
+			add_navy_tradition = -20
+		}
 		clr_country_flag = cu_updating_galley
 		hidden_effect = {
 			cu_upgrade_ship_check_tech = yes
@@ -10433,6 +10517,13 @@ country_event = {
 				factor = 0
 				NOT = { treasury = 80 }
 			}
+			modifier = {
+				factor = 0
+				AND = {
+					NOT = { navy_tradition = 40 }
+					NOT = { naval_ideas = 3 }
+				}
+			}
 		}
 	}
 	option = {
@@ -10440,6 +10531,10 @@ country_event = {
 		custom_tooltip = ideagroups.4938.ct
 		set_country_flag = galley_mod_s
 		add_treasury = -80
+		if = {
+			limit = { NOT = { naval_ideas = 3 } }
+			add_navy_tradition = -20
+		}
 		clr_country_flag = cu_updating_galley
 		hidden_effect = {
 			cu_upgrade_ship_check_tech = yes
@@ -10449,6 +10544,13 @@ country_event = {
 			modifier = {
 				factor = 0
 				NOT = { treasury = 80 }
+			}
+			modifier = {
+				factor = 0
+				AND = {
+					NOT = { navy_tradition = 40 }
+					NOT = { naval_ideas = 3 }
+				}
 			}
 		}
 	}
@@ -10460,10 +10562,6 @@ country_event = {
 		}
 		ai_chance = {
 			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { treasury = 80 }
-			}
 		}
 	}
 }
@@ -10477,7 +10575,7 @@ country_event = {
 	is_triggered_only = yes
 	immediate = {
 		hidden_effect = {
-			clr_country_flag = transport_mod_f
+			clr_country_flag = transport_mod_t
 			clr_country_flag = transport_mod_h
 			clr_country_flag = transport_mod_s
 		}
@@ -10487,6 +10585,10 @@ country_event = {
 		custom_tooltip = ideagroups.4939.at
 		set_country_flag = transport_mod_t
 		add_treasury = -100
+		if = {
+			limit = { NOT = { naval_ideas = 3 } }
+			add_navy_tradition = -30
+		}
 		clr_country_flag = cu_updating_transport
 		hidden_effect = {
 			cu_upgrade_ship_check_tech = yes
@@ -10496,6 +10598,13 @@ country_event = {
 			modifier = {
 				factor = 0
 				NOT = { treasury = 100 }
+			}
+			modifier = {
+				factor = 0
+				AND = {
+					NOT = { navy_tradition = 50 }
+					NOT = { naval_ideas = 3 }
+				}
 			}
 		}
 	}
@@ -10504,6 +10613,10 @@ country_event = {
 		custom_tooltip = ideagroups.4939.bt
 		set_country_flag = transport_mod_h
 		add_treasury = -100
+		if = {
+			limit = { NOT = { naval_ideas = 3 } }
+			add_navy_tradition = -30
+		}
 		clr_country_flag = cu_updating_transport
 		hidden_effect = {
 			cu_upgrade_ship_check_tech = yes
@@ -10514,6 +10627,13 @@ country_event = {
 				factor = 0
 				NOT = { treasury = 100 }
 			}
+			modifier = {
+				factor = 0
+				AND = {
+					NOT = { navy_tradition = 50 }
+					NOT = { naval_ideas = 3 }
+				}
+			}
 		}
 	}
 	option = {
@@ -10521,6 +10641,10 @@ country_event = {
 		custom_tooltip = ideagroups.4939.ct
 		set_country_flag = transport_mod_s
 		add_treasury = -100
+		if = {
+			limit = { NOT = { naval_ideas = 3 } }
+			add_navy_tradition = -30
+		}
 		clr_country_flag = cu_updating_transport
 		hidden_effect = {
 			cu_upgrade_ship_check_tech = yes
@@ -10530,6 +10654,13 @@ country_event = {
 			modifier = {
 				factor = 0
 				NOT = { treasury = 100 }
+			}
+			modifier = {
+				factor = 0
+				AND = {
+					NOT = { navy_tradition = 50 }
+					NOT = { naval_ideas = 3 }
+				}
 			}
 		}
 	}
@@ -10541,10 +10672,6 @@ country_event = {
 		}
 		ai_chance = {
 			factor = 1
-			modifier = {
-				factor = 0
-				NOT = { treasury = 100 }
-			}
 		}
 	}
 }

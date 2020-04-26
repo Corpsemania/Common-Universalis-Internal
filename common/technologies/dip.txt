@@ -38,6 +38,10 @@ technology = {
 	
 	global_colonial_growth	= 	10
 	enable = barque
+	enable = barque_f
+	enable = barque_h
+	enable = barque_s
+	enable = barque_t
 	trade_efficiency		= 	0.05
 	trade_range				=	100
 	enable = cog
@@ -125,6 +129,10 @@ technology = {
 	enable = carrack_h
 	enable = carrack_f
 	enable = carrack_s
+	enable = caravel_f
+	enable = caravel_h
+	enable = caravel_s
+	enable = caravel_t
 	
 }
 
@@ -190,6 +198,10 @@ technology = {
 	enable = galleon_h
 	enable = galleon_s
 	enable = early_frigate
+	enable = early_frigate_f
+	enable = early_frigate_h
+	enable = early_frigate_s
+	enable = early_frigate_t
         may_sabotage_recruitment = yes
 }
 
@@ -241,6 +253,10 @@ technology = {
 	enable = wargalleon_h
 	enable = wargalleon_s
 	enable = frigate
+	enable = frigate_f
+	enable = frigate_h
+	enable = frigate_s
+	enable = frigate_t
 }
 
 technology = {
@@ -292,6 +308,10 @@ technology = {
 	allow_client_states = yes		
 
 	enable = heavy_frigate
+	enable = heavy_frigate_f
+	enable = heavy_frigate_h
+	enable = heavy_frigate_s
+	enable = heavy_frigate_t
 }
 
 technology = {
@@ -331,6 +351,10 @@ technology = {
         num_accepted_cultures = 1
 	enable = eastindiaman
 	enable = great_frigate
+	enable = great_frigate_f
+	enable = great_frigate_h
+	enable = great_frigate_s
+	enable = great_frigate_t
 }
 
 technology = {

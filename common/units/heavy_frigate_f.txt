@@ -1,0 +1,12 @@
+#Heavy Frigate
+type = light_ship
+trigger = { 
+				has_country_flag = lightship_mod_f
+}
+hull_size = 31
+base_cannons = 42
+sail_speed = 10
+
+trade_power = 4.5
+
+sprite_level = 5

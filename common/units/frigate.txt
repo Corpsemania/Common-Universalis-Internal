@@ -1,6 +1,13 @@
 #Frigate
 type = light_ship
-
+trigger = { 
+				NOT = {
+						has_country_flag = lightship_mod_f
+						has_country_flag = lightship_mod_h
+						has_country_flag = lightship_mod_s
+						has_country_flag = lightship_mod_t
+				}
+}
 hull_size = 22
 base_cannons = 35
 sail_speed = 10

@@ -4,16 +4,11 @@ trigger = {
                 NOT = { 
                         unit_type = chinese
                 }
-				NOT = {
-						has_country_flag = lightship_mod_f
-						has_country_flag = lightship_mod_h
-						has_country_flag = lightship_mod_s
-						has_country_flag = lightship_mod_t
-				}
+				has_country_flag = lightship_mod_s
 }
 hull_size = 10
 base_cannons = 15
-sail_speed = 10
+sail_speed = 12
 
 trade_power = 2.5
 

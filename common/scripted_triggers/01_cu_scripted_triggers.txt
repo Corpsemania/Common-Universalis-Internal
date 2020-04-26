@@ -325,7 +325,10 @@ cu_ai_reform_trigger = {
 }
 
 cu_can_update_heavy_ship = {
-	naval_ideas = 3
+	OR = {
+		naval_ideas = 3
+		navy_tradition = 40
+	}
 	OR = {
 		dip_tech = 2
 		dip_tech = 8
@@ -337,7 +340,10 @@ cu_can_update_heavy_ship = {
 }
 
 cu_can_update_light_ship = {
-	naval_ideas = 3
+	OR = {
+		naval_ideas = 3
+		navy_tradition = 30
+	}
 	OR = {
 		dip_tech = 2
 		dip_tech = 8
@@ -349,19 +355,25 @@ cu_can_update_light_ship = {
 }
 
 cu_can_update_galley = {
-	naval_ideas = 3
 	OR = {
-		dip_tech = 2
+		naval_ideas = 3
+		navy_tradition = 20
+	}
+	OR = {
+		dip_tech = 1
 		dip_tech = 8
 		dip_tech = 14
 		dip_tech = 18
-		dip_tech = 21
-		dip_tech = 24
+		dip_tech = 22
+		dip_tech = 25
 	}
 }
 
 cu_can_update_transport = {
-	naval_ideas = 3
+	OR = {
+		naval_ideas = 3
+		navy_tradition = 30
+	}
 	OR = {
 		dip_tech = 2
 		dip_tech = 8

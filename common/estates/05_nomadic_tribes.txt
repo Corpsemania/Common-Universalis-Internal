@@ -108,16 +108,21 @@ estate_nomadic_tribes = {
 	# These do not scale, but only applied in provinces owned by the estate
 	province_modifier_happy = {
 		local_manpower_modifier = 0.3
-		local_unrest = -2
+		local_state_maintenance_modifier = -0.2
 		local_development_cost = 0.2
+		land_forcelimit = 0.1
 	}
 	province_modifier_neutral = {
 		local_manpower_modifier = 0.3
+		local_state_maintenance_modifier = -0.2
 		local_development_cost = 0.2
+		land_forcelimit = 0.1
 	}	
 	province_modifier_angry = {
 		local_unrest = 5
+		local_state_maintenance_modifier = -0.2
 		local_development_cost = 0.2
+		land_forcelimit = 0.1
 	}		
 	
 	# Influence modifiers

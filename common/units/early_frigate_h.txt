@@ -1,0 +1,12 @@
+#Early Frigate
+type = light_ship
+trigger = { 
+				has_country_flag = lightship_mod_h
+}
+hull_size = 20
+base_cannons = 27
+sail_speed = 10
+
+trade_power = 3.5
+
+sprite_level = 3

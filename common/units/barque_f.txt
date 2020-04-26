@@ -1,0 +1,15 @@
+#Barque
+type = light_ship
+trigger = { 
+                NOT = { 
+                        unit_type = chinese
+                }
+				has_country_flag = lightship_mod_f
+}
+hull_size = 10
+base_cannons = 17
+sail_speed = 10
+
+trade_power = 2.5
+
+sprite_level = 1
