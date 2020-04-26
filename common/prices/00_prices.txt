@@ -4,23 +4,23 @@
 
 # Base resources
 grain = {
-	base_price = 2.2
+	base_price = 2
 }
 
 wine = {
-	base_price = 3.1
+	base_price = 2.5
 }
 
 wool = {
-	base_price = 2.7
+	base_price = 2.5
 }
 
 cloth = {
-	base_price = 3.3
+	base_price = 3
 }
 
 fish = {
-	base_price = 3.3
+	base_price = 2.5
 }
 
 fur = {
@@ -28,77 +28,77 @@ fur = {
 }
 
 salt = {
-	base_price = 3.2
+	base_price = 3
 }
 
 naval_supplies = {
-	base_price = 2.9
+	base_price = 3
 }
 
 
 # Metals
 copper = {
-	base_price = 3.3
+	base_price = 3
 }
 
 gold = {
-	base_price = 3.5
+	base_price = 0
 	goldtype = yes
 }
 
 iron = {
-	base_price = 3.3
+	base_price = 3
 }
 
 
 # African Resources
 slaves = {
-	base_price = 2.5
+	base_price = 3
 }
 ivory = {
-	base_price = 4.4
+	base_price = 4 
 }
 
 
 # Eastern Resources
 tea = {
-	base_price = 3.7
+	base_price = 3
 }
 
 chinaware = {
-	base_price = 4.1
+	base_price = 3
 }
 
 spices = {
-	base_price = 4
+	base_price = 3
 }
 
 
 # New World Resources
 coffee = {
-	base_price = 3.4
+	base_price = 4
 }
 
 cotton = {
-	base_price = 2.6
+	base_price = 3
 }
 
 sugar = {
-	base_price = 3.2
+	base_price = 4 
 }
 
 tobacco = {
-	base_price = 3.4
+	base_price = 5
 }
 
 cocoa = {
-	base_price = 4.2
+	base_price = 4
 }
 
 # New Non-European Tradegoods
 
 silk = {
-	base_price = 4.6
+	base_price = 4
 }
 
 
@@ -107,35 +107,35 @@ tropical_wood = {
 }
 
 dyes = {
-	base_price = 3.9
+	base_price = 4 
 }
 
 #Additional Trade Goods
 
 livestock = {
-	base_price = 2.4
+	base_price = 2
 }
 
 incense = {
-	base_price = 2.8
+	base_price = 2.5
 }
 
 glass = {
-	base_price = 3.6
+	base_price = 3
 }
 
 gems = {
-	base_price = 4.8
+	base_price = 4
 }
 
 paper = {
-	base_price = 3.8
+	base_price = 3.5
 }
 
 coal = {
-	base_price = 7.2
+	base_price = 5
 }
 
 unknown = {
-	base_price = 1.8
+	base_price = 0
 }
