@@ -1149,14 +1149,16 @@ is_great_power = {						#Only works with Rights of Man DLC enabled
 
 in_golden_era = {
 	
+	global_unrest = -1
 	state_maintenance_modifier = -0.10
 	stability_cost_modifier = -0.10
 	global_tax_modifier = 0.1
 	production_efficiency = 0.1
 	trade_efficiency = 0.1
-	global_unrest = -0.5
-	development_cost = -0.05
 	yearly_absolutism = 0.1
+	all_power_cost = -0.05
+	land_morale = 0.05
+	naval_morale = 0.05
 	
 }
 

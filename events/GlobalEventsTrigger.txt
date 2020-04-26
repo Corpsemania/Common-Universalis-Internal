@@ -220,6 +220,10 @@ country_event = {
 					total_development = 200
 				}			
 			}
+			if = {
+				limit = { in_golden_age = yes }
+				set_country_flag = cu_had_golden_age
+			}
 			if = { #In case year is not initialized
 			    limit = {
 					OR = {

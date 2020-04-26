@@ -1198,8 +1198,6 @@
  HRETHREATENWAR: "§RHRE members cannot use Treaten War action on each other.§!"
  war_elephant: "§MWar Elephant?"
  war_elephantDESCR: "In Southeast Asia elephants continued to be employed in warfare far into the Middle Ages. In Siam, particularly, war elephants were highly prized, and leaders often fought from atop them. In 1593 a war between Burma and Siam ended in a Siamese victory when Siamese King Naresuan killed Burmese crown prince Minchit Sra in single combat atop elephants."
- formalized_officer_corps_2: "Advanced Siege Techniques"
- formalized_officer_corps_2_desc: "The advancement of war technology allows us to besiege enemy's castles more efficiently."
  culture_acceptance.1.t: "Accept [Root. Culture.GetName] Minority"
  culture_acceptance.1.d: "Good news, my [Root. Owner. Monarch.GetTitle]! The [Root. Culture.GetName] population of [Root. Owner.GetName] have declared themselves your loyal subjects, and their only wish is an official recognition and equal treatment of their minor culture."
  culture_acceptance.1.a: "Embrace the §R[Root. Culture.GetName]§! culture!"

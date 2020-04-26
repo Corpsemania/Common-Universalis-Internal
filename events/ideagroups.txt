@@ -10677,3 +10677,58 @@ country_event = {
 }
 
 #4940 is occupied
+
+#Cultural Golden age
+country_event = {
+    id = ideagroups.4941
+	title = "ideagroups.4941.t"
+	desc = "ideagroups.4941.d"
+	picture = IMPORTANT_STATUE_eventPicture
+	major = yes
+	trigger = {
+		in_golden_age = no
+		NOT = { has_country_flag = cu_golden_age_fired } 
+		full_idea_group = culture_ideas
+		check_variable = { which = art_power_level value = 10 }
+		OR = {
+			ai = no
+			has_country_flag = cu_had_golden_age
+		}
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+	immediate = {
+		hidden_effect = {
+			set_country_flag = cu_golden_age_fired
+		}
+	}
+	option = { #Hurrah!
+        name = "ideagroups.4941.a"	
+		add_country_modifier = { #Last 50 years
+			name = cu_cultural_golden_age
+			duration = 18250
+		}
+		custom_tooltip = ideagroups.4941.at
+	}
+}
+
+#Cultural Golden age end
+country_event = {
+    id = ideagroups.4942
+	title = "ideagroups.4942.t"
+	desc = "ideagroups.4942.d"
+	picture = IMPORTANT_STATUE_eventPicture
+	hidden = yes
+	trigger = {
+		in_golden_age = yes
+		has_country_modifier = cu_cultural_golden_age
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+	option = { 
+        name = "ideagroups.4942.a"	
+		remove_country_modifier = cu_cultural_golden_age
+	}
+}

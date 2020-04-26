@@ -1420,7 +1420,25 @@ cu_calc_cultural_acceptance_growth = {
 		divide_variable = { which = p_caygc which = cu_var2 }
 		multiply_variable = { which = p_cayg which = p_caygc }
 		
+		#AI Growth Modifier
 		
+		if = {
+			limit = { 
+				owner = { 
+					culture_ideas = 5 
+					check_variable = { which = art_power_level value = 1 }
+				} 
+				
+			}
+			set_variable = { which = p_caygm which = art_power_level }
+			multiply_variable = { which = p_caygm value = 5 }
+			change_variable = { which = p_caygm value = 100 }
+		}
+		else = {
+			set_variable = { which = p_caygm value = 100 }
+		}
+		multiply_variable = { which = p_cayg which = p_caygm }
+		divide_variable = { which = p_cayg value = 100 }
     }
     #End
 	

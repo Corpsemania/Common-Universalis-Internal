@@ -943,3 +943,13 @@ russian_krepost_modifier = {
 	#local Administrative Integrity Cap: +10%
 	local_development_cost = 0.2
 }
+
+cu_cultural_golden_age = {
+	stability_cost_modifier = -0.10
+	global_unrest = -1
+	yearly_absolutism = 0.1
+	reform_progress_growth = 0.20
+	max_states = 5
+	prestige = 1
+	harmonization_speed = 0.1
+}

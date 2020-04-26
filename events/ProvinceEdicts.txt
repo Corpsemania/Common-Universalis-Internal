@@ -1495,7 +1495,7 @@ province_event = {
 				NOT = { has_province_modifier = cu_art_patronage }							 
 			}
 			if = {
-				limit = { NOT = { owner = { innovativeness_ideas = 1 } } }
+				limit = { NOT = { owner = { culture_ideas = 1 } } }
 				add_province_modifier = {
 					name = cu_art_patronage
 					duration = 7300
@@ -3859,7 +3859,7 @@ province_event = {
 				NOT = { has_province_modifier = cu_art_patronage }							 
 			}
 			if = {
-				limit = { NOT = { owner = { innovativeness_ideas = 1 } } }
+				limit = { NOT = { owner = { culture_ideas = 1 } } }
 				add_province_modifier = {
 					name = cu_art_patronage
 					duration = 7300
