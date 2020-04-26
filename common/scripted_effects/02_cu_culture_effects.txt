@@ -1349,7 +1349,12 @@ cu_calc_cultural_acceptance_growth = {
 		     limit = {
 			        NOT = { check_variable = { which = p_caygd value = 0 } } 
 			 }
+			 
 			 multiply_variable = { which = p_caygd value = 2.5 } #If Integrity is above the cap, decay rate is 5% * difference a year
+			 if = {
+					limit = { owner = { culture_ideas = 5 } } 
+					multiply_variable = { which = p_caygd value = 0.66 } #-33% decay
+			 }
 		}
 		change_variable = { which = p_cayg which = p_caygd }
 		
