@@ -1,0 +1,287 @@
+noble_palace = {
+	monarch_power = DIP
+
+
+	potential = {
+		has_idea_group = aristocracy_ideas
+		has_idea_group = culture_ideas
+		has_estate = estate_nobles
+		OR = {
+			full_idea_group = aristocracy_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = aristocracy_ideas
+		full_idea_group = culture_ideas
+		has_estate = estate_nobles
+	}
+
+
+	state_maintenance_modifier = 0.10
+	estate_nobles_influence = -0.07
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			NOT = {
+				estate_influence = {
+					estate = estate_nobles
+					influence = 20
+				}	
+			}
+		}
+		modifier = {
+			factor = 1.5
+			estate_influence = {
+					estate = estate_nobles
+					influence = 40
+				}
+		}		
+	}
+}
+
+
+
+hired_troubadour  = {
+	monarch_power = DIP
+
+
+	potential = {
+		has_idea_group = plutocracy_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = plutocracy_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = plutocracy_ideas
+		full_idea_group = culture_ideas
+	}
+
+
+	reform_progress_growth = 0.10
+	
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			check_variable = { which = art_power_level value = 2 }
+		}
+		modifier = {
+			factor = 0 #No art power at all!
+			NOT = { check_variable = { which = art_power_level value = 1 } }
+		}		
+	}
+}
+
+
+hired_troubadour  = {
+	monarch_power = DIP
+
+
+	potential = {
+		has_idea_group = offensive_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = offensive_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = offensive_ideas
+		full_idea_group = culture_ideas
+	}
+
+
+	reform_progress_growth = 0.10
+	global_tax_modifier = -0.10
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			check_variable = { which = art_power_level value = 2 }
+		}
+		modifier = {
+			factor = 0 #No art power at all!
+			NOT = { check_variable = { which = art_power_level value = 1 } }
+		}		
+	}
+}
+
+courtly_love = {
+	monarch_power = ADM
+
+	potential = {
+		has_idea_group = influence_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = influence_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = influence_ideas
+		full_idea_group = culture_ideas
+	}
+
+
+	heir_chance = 0.25
+	legitimacy = -0.5
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			check_variable = { which = art_power_level value = 2 }
+		}
+		modifier = {
+			factor = 0 #No art power at all!
+			NOT = { check_variable = { which = art_power_level value = 1 } }
+		}		
+	}
+}
+
+avant_garde = {
+	monarch_power = ADM
+
+
+	potential = {
+		has_idea_group = innovativeness_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = innovativeness_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = innovativeness_ideas
+		full_idea_group = culture_ideas
+	}
+
+
+	prestige_decay = -0.015
+	prestige = 1
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			check_variable = { prestige = 60 }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { prestige = 30 }
+		}		
+	}
+}
+
+ecclesiastical_patronage = {
+	monarch_power = ADM
+
+
+	potential = {
+		has_idea_group = religious_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = religious_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = religious_ideas
+		full_idea_group = culture_ideas
+	}
+
+
+	tolerance_own = 0.5
+	global_tax_modifier = -0.15 #Nerfed since religious + culture make assimilation a lot easier
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			num_of_loans = 1
+		}	
+	}
+}
+
+four_books_five_classics = {
+	monarch_power = ADM
+
+
+	potential = {
+		has_idea_group = tradition_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = tradition_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = tradition_ideas
+		full_idea_group = culture_ideas
+	}
+
+
+	administrative_efficiency = 0.05
+	idea_cost = 0.1
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			check_variable = { which = go value = 110 }
+		}
+		modifier = {
+			factor = 0 
+			NOT = { check_variable = { which = go value = 100 } }
+		}		
+	}
+}
+
+foreign_endorsement = {
+	monarch_power = ADM
+
+
+	potential = {
+		has_idea_group = reform_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = reform_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = reform_ideas
+		full_idea_group = culture_ideas
+	}
+
+
+	embracement_cost = -0.25
+	global_unrest = 2
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			check_variable = { which = go value = 110 }
+		}
+		modifier = {
+			factor = 0 
+			NOT = { check_variable = { which = go value = 100 } }
+		}		
+	}
+}
