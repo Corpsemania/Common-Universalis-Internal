@@ -148,7 +148,7 @@ age_of_discovery = {
 		
 		ab_free_war_taxes = {
 			modifier = {
-				war_taxes_cost_modifier = -0.75
+				war_taxes_cost_modifier = -0.5
 			}
 			ai_will_do = {
 				factor = 10
@@ -158,7 +158,7 @@ age_of_discovery = {
 
 		ab_cavalry_armies = {
 			modifier = {
-				cav_to_inf_ratio = 0.2
+				cav_to_inf_ratio = 0.1
 			}
 			ai_will_do = {
 				factor = 10
@@ -192,7 +192,7 @@ age_of_discovery = {
 				tag = TUR
 			}
 			modifier = {
-				siege_ability = 0.2
+				siege_ability = 0.15
 			}
 			ai_will_do = {
 				factor = 100
@@ -339,7 +339,7 @@ age_of_reformation = {
 	
 		ab_allow_religion_enforced = {
 			modifier = {
-				global_heretic_missionary_strength = 0.02
+				global_heretic_missionary_strength = 0.01
 			}
 			ai_will_do = {
 				factor = 0
@@ -415,7 +415,7 @@ age_of_reformation = {
 				tag = SPA
 			}
 			modifier = {
-				shock_damage_received = -0.15
+				shock_damage_received = -0.1
 			}
 			ai_will_do = {
 				factor = 100
@@ -426,7 +426,7 @@ age_of_reformation = {
 				tag = MUG
 			}
 			modifier = {
-				artillery_cost = -0.25
+				artillery_cost = -0.15
 			}
 			ai_will_do = {
 				factor = 100
@@ -441,7 +441,7 @@ age_of_reformation = {
 				}
 			}
 			modifier = {
-				global_trade_goods_size_modifier = 0.15
+				global_trade_goods_size_modifier = 0.1
 			}
 			ai_will_do = {
 				factor = 100
@@ -608,7 +608,7 @@ age_of_absolutism = {
 				tag = FRA
 			}
 			modifier = {
-				fire_damage = 0.125
+				fire_damage = 0.1
 			}
 			ai_will_do = {
 				factor = 100
@@ -619,7 +619,7 @@ age_of_absolutism = {
 				tag = NED
 			}
 			modifier = {
-				yearly_corruption = -0.15
+				yearly_corruption = -0.1
 			}
 			ai_will_do = {
 				factor = 100
@@ -630,7 +630,7 @@ age_of_absolutism = {
 				tag = SWE
 			}
 			modifier = {
-				manpower_recovery_speed = 0.25
+				manpower_recovery_speed = 0.2
 			}
 			ai_will_do = {
 				factor = 100
@@ -716,7 +716,7 @@ age_of_revolutions = {
 
 		ab_allow_anti_revolutionary_zeal = {
 			modifier = {
-				liberty_desire_from_subject_development = -0.25
+				liberty_desire_from_subject_development = -0.15
 			}
 			ai_will_do = {
 				factor = 15
@@ -733,7 +733,7 @@ age_of_revolutions = {
 
 		ab_napoleonic_warfare = {
 			modifier = {
-				artillery_bonus_vs_fort = 2
+				artillery_bonus_vs_fort = 1
 			}
 			ai_will_do = {
 				factor = 10
@@ -752,7 +752,7 @@ age_of_revolutions = {
 		}
 		ab_more_ships_can_fire = {
 			modifier = {
-				global_naval_engagement_modifier = 0.15
+				global_naval_engagement_modifier = 0.1
 			}
 			ai_will_do = {
 				factor = 10
@@ -777,7 +777,7 @@ age_of_revolutions = {
 		}
 		ab_same_contine_lib_desire = {
 			modifier = {
-				reduced_liberty_desire_on_same_continent = 20
+				reduced_liberty_desire_on_same_continent = 15
 			}
 			ai_will_do = {
 				factor = 15
@@ -797,7 +797,7 @@ age_of_revolutions = {
 				tag = PRU
 			}
 			modifier = {
-				fire_damage_received = -0.125
+				fire_damage_received = -0.1
 			}
 			ai_will_do = {
 				factor = 100
@@ -808,7 +808,7 @@ age_of_revolutions = {
 				tag = GBR
 			}
 			modifier = {
-				naval_maintenance_modifier = -0.25
+				naval_maintenance_modifier = -0.15
 			}
 			ai_will_do = {
 				factor = 100
@@ -830,7 +830,7 @@ age_of_revolutions = {
 				tag = HAB
 			}
 			modifier = {
-				diplomatic_reputation = 3
+				diplomatic_reputation = 2
 			}
 			ai_will_do = {
 				factor = 100
