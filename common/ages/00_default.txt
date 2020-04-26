@@ -167,7 +167,7 @@ age_of_discovery = {
 		ab_colony_boost_development = {
 			modifier = {
 				native_uprising_chance = -0.25
-		        native_assimilation = 0.5
+		        native_assimilation = 0.25
 			}
 			ai_will_do = {
 				factor = 10
@@ -192,7 +192,7 @@ age_of_discovery = {
 				tag = TUR
 			}
 			modifier = {
-				siege_ability = 0.15
+				siege_ability = 0.1
 			}
 			ai_will_do = {
 				factor = 100
