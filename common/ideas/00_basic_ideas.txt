@@ -804,7 +804,7 @@ naval_ideas = {
 		sailors_recovery_speed = 0.2
 	}
 	line_of_battle = {
-		global_naval_engagement_modifier = 0.1
+		global_naval_engagement_modifier = 0.15
 	}
 	grand_navy = {
 		naval_forcelimit_modifier = 0.5
