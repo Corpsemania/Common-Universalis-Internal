@@ -4,13 +4,9 @@ trigger = {
                 NOT = { 
                         tag = KOR
                 }
-				NOT = {
-						has_country_flag = galley_mod_f
-						has_country_flag = galley_mod_h
-						has_country_flag = galley_mod_s
-				}
+				has_country_flag = galley_mod_h
 }
-hull_size = 12
+hull_size = 14
 base_cannons = 17
 sail_speed = 8
 

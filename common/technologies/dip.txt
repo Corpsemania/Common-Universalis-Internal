@@ -45,7 +45,13 @@ technology = {
 	trade_efficiency		= 	0.05
 	trade_range				=	100
 	enable = cog
+	enable = cog_t
+	enable = cog_h
+	enable = cog_s
 	enable = galley
+	enable = galley_f
+	enable = galley_h
+	enable = galley_s
 }
 
 # The 30 big techs from here on
@@ -142,7 +148,13 @@ technology = {
 	
 	trade_range				=	20
 	enable = flute
+	enable = flute_t
+	enable = flute_h
+	enable = flute_s
 	enable = war_galley
+	enable = war_galley_f
+	enable = war_galley_h
+	enable = war_galley_s
 }
 
 technology = {
@@ -172,6 +184,9 @@ technology = {
 	trade_efficiency 		= 	0.05
 	tradecompany = yes
 	enable = brig
+	enable = brig_t
+	enable = brig_h
+	enable = brig_s
         enable = sea_beggar
 }
 
@@ -183,6 +198,9 @@ technology = {
         range				= 	40
 	num_accepted_cultures = 1
 	enable = galleass
+	enable = galleass_f
+	enable = galleass_h
+	enable = galleass_s
 }
 
 technology = {
@@ -225,6 +243,9 @@ technology = {
     naval_maintenance		=	0.1
 
 	enable = merchantman
+	enable = merchantman_t
+	enable = merchantman_h
+	enable = merchantman_s
 }
 
 technology = {
@@ -232,6 +253,9 @@ technology = {
 	year = 2635
 	
 	enable = galiot
+	enable = galiot_f
+	enable = galiot_h
+	enable = galiot_s
 	naval_morale			=	0.5
 	global_colonial_growth	= 	10
 	
@@ -280,6 +304,9 @@ technology = {
         global_colonial_growth  = 	10
         
 	    enable = chebeck
+		enable = chebeck_f
+		enable = chebeck_h
+		enable = chebeck_s
         may_corrupt_officials = yes
 }
 
@@ -297,6 +324,9 @@ technology = {
 	enable = twodecker_h
 	enable = twodecker_s
 	enable = trabakul
+	enable = trabakul_t
+	enable = trabakul_h
+	enable = trabakul_s
 }
 
 technology = {
@@ -325,6 +355,9 @@ technology = {
 	trade_efficiency 		= 	0.05
 	trade_range				=	20
 	enable = archipelago_frigate
+	enable = archipelago_frigate_f
+	enable = archipelago_frigate_h
+	enable = archipelago_frigate_s
         
         may_infiltrate_administration = yes
 }
@@ -350,6 +383,9 @@ technology = {
 	naval_maintenance		= 	0.10
         num_accepted_cultures = 1
 	enable = eastindiaman
+	enable = eastindiaman_t
+	enable = eastindiaman_h
+	enable = eastindiaman_s
 	enable = great_frigate
 	enable = great_frigate_f
 	enable = great_frigate_h

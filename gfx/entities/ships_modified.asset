@@ -75,16 +75,7 @@ entity = {
 	}
 }
 
-entity = {
-	name = "eastindiaman_t"
-	pdxmesh = "eastindiaman"
-	state = { name = "idle" 		animation = "idle" }
-	state = { name = "walk" 		animation = "walk" }
-	state = { name = "attack"		animation = "attack"
-		event = { time = 3.8	node = "gun_02"	particle = "ship_cannon" }
-		event = { time = 0.8	node = "gun_01"	particle = "ship_cannon" }
-	}
-}
+
 
 entity = {
 	name = "galleon_f"
@@ -743,6 +734,459 @@ entity = {
 		event = { time = 3.15	node = "gun_09"	particle = "ship_cannon" }
 	}
 }
+
+entity = {
+	name = "galley_f"
+	pdxmesh = "galley"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.6	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 2.55	node = "gun_02"	particle = "ship_cannon" }
+		event = { time = 0.65	node = "gun_03"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "galley_h"
+	pdxmesh = "galley"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.6	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 2.55	node = "gun_02"	particle = "ship_cannon" }
+		event = { time = 0.65	node = "gun_03"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "galley_s"
+	pdxmesh = "galley"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.6	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 2.55	node = "gun_02"	particle = "ship_cannon" }
+		event = { time = 0.65	node = "gun_03"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "war_galley_f"
+	pdxmesh = "galley" # TODO
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.6	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 2.55	node = "gun_02"	particle = "ship_cannon" }
+		event = { time = 0.65	node = "gun_03"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "war_galley_h"
+	pdxmesh = "galley" # TODO
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.6	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 2.55	node = "gun_02"	particle = "ship_cannon" }
+		event = { time = 0.65	node = "gun_03"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "war_galley_s"
+	pdxmesh = "galley" # TODO
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.6	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 2.55	node = "gun_02"	particle = "ship_cannon" }
+		event = { time = 0.65	node = "gun_03"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "galleass_f"
+	pdxmesh = "galleass"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.9	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 0.9	node = "gun_05"	particle = "ship_cannon" }
+		event = { time = 3.9	node = "gun_02"	particle = "ship_cannon" }
+		event = { time = 3.9	node = "gun_04"	particle = "ship_cannon" }
+		event = { time = 7.2	node = "gun_03"	particle = "ship_cannon" }
+		event = { time = 7.2	node = "gun_06"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "galleass_h"
+	pdxmesh = "galleass"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.9	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 0.9	node = "gun_05"	particle = "ship_cannon" }
+		event = { time = 3.9	node = "gun_02"	particle = "ship_cannon" }
+		event = { time = 3.9	node = "gun_04"	particle = "ship_cannon" }
+		event = { time = 7.2	node = "gun_03"	particle = "ship_cannon" }
+		event = { time = 7.2	node = "gun_06"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "galleass_s"
+	pdxmesh = "galleass"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.9	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 0.9	node = "gun_05"	particle = "ship_cannon" }
+		event = { time = 3.9	node = "gun_02"	particle = "ship_cannon" }
+		event = { time = 3.9	node = "gun_04"	particle = "ship_cannon" }
+		event = { time = 7.2	node = "gun_03"	particle = "ship_cannon" }
+		event = { time = 7.2	node = "gun_06"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "galiot_f"
+	pdxmesh = "galleass" # TODO
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.9	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 0.9	node = "gun_05"	particle = "ship_cannon" }
+		event = { time = 3.9	node = "gun_02"	particle = "ship_cannon" }
+		event = { time = 3.9	node = "gun_04"	particle = "ship_cannon" }
+		event = { time = 7.2	node = "gun_03"	particle = "ship_cannon" }
+		event = { time = 7.2	node = "gun_06"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "galiot_h"
+	pdxmesh = "galleass" # TODO
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.9	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 0.9	node = "gun_05"	particle = "ship_cannon" }
+		event = { time = 3.9	node = "gun_02"	particle = "ship_cannon" }
+		event = { time = 3.9	node = "gun_04"	particle = "ship_cannon" }
+		event = { time = 7.2	node = "gun_03"	particle = "ship_cannon" }
+		event = { time = 7.2	node = "gun_06"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "galiot_s"
+	pdxmesh = "galleass" # TODO
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.9	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 0.9	node = "gun_05"	particle = "ship_cannon" }
+		event = { time = 3.9	node = "gun_02"	particle = "ship_cannon" }
+		event = { time = 3.9	node = "gun_04"	particle = "ship_cannon" }
+		event = { time = 7.2	node = "gun_03"	particle = "ship_cannon" }
+		event = { time = 7.2	node = "gun_06"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "chebeck_f"
+	pdxmesh = "chebeck"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.38	node = "gun_04"	particle = "ship_cannon" }
+		event = { time = 0.4	node = "gun_06"	particle = "ship_cannon" }
+		event = { time = 0.43	node = "gun_08"	particle = "ship_cannon" }
+		event = { time = 0.65	node = "gun_03"	particle = "ship_cannon" }
+		event = { time = 0.60	node = "gun_07"	particle = "ship_cannon" }
+		event = { time = 0.63	node = "gun_09"	particle = "ship_cannon" }
+		event = { time = 3.2	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 3.0	node = "gun_02"	particle = "ship_cannon" }
+		event = { time = 2.8	node = "gun_05"	particle = "ship_cannon" }
+		event = { time = 3.5	node = "gun_10"	particle = "ship_cannon" }
+		event = { time = 3.0	node = "gun_04"	particle = "ship_cannon" }
+		event = { time = 3.2	node = "gun_06"	particle = "ship_cannon" }
+		event = { time = 2.9	node = "gun_08"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "chebeck_h"
+	pdxmesh = "chebeck"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.38	node = "gun_04"	particle = "ship_cannon" }
+		event = { time = 0.4	node = "gun_06"	particle = "ship_cannon" }
+		event = { time = 0.43	node = "gun_08"	particle = "ship_cannon" }
+		event = { time = 0.65	node = "gun_03"	particle = "ship_cannon" }
+		event = { time = 0.60	node = "gun_07"	particle = "ship_cannon" }
+		event = { time = 0.63	node = "gun_09"	particle = "ship_cannon" }
+		event = { time = 3.2	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 3.0	node = "gun_02"	particle = "ship_cannon" }
+		event = { time = 2.8	node = "gun_05"	particle = "ship_cannon" }
+		event = { time = 3.5	node = "gun_10"	particle = "ship_cannon" }
+		event = { time = 3.0	node = "gun_04"	particle = "ship_cannon" }
+		event = { time = 3.2	node = "gun_06"	particle = "ship_cannon" }
+		event = { time = 2.9	node = "gun_08"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "chebeck_s"
+	pdxmesh = "chebeck"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.38	node = "gun_04"	particle = "ship_cannon" }
+		event = { time = 0.4	node = "gun_06"	particle = "ship_cannon" }
+		event = { time = 0.43	node = "gun_08"	particle = "ship_cannon" }
+		event = { time = 0.65	node = "gun_03"	particle = "ship_cannon" }
+		event = { time = 0.60	node = "gun_07"	particle = "ship_cannon" }
+		event = { time = 0.63	node = "gun_09"	particle = "ship_cannon" }
+		event = { time = 3.2	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 3.0	node = "gun_02"	particle = "ship_cannon" }
+		event = { time = 2.8	node = "gun_05"	particle = "ship_cannon" }
+		event = { time = 3.5	node = "gun_10"	particle = "ship_cannon" }
+		event = { time = 3.0	node = "gun_04"	particle = "ship_cannon" }
+		event = { time = 3.2	node = "gun_06"	particle = "ship_cannon" }
+		event = { time = 2.9	node = "gun_08"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "archipelago_frigate_f"
+	pdxmesh = "archipelago_frigate"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.435	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 0.440	node = "gun_04"	particle = "ship_cannon" }
+		event = { time = 0.430	node = "gun_07"	particle = "ship_cannon" }
+		event = { time = 0.435	node = "gun_09"	particle = "ship_cannon" }
+		event = { time = 2.9	node = "gun_03"	particle = "ship_cannon" }
+		event = { time = 3.0	node = "gun_05"	particle = "ship_cannon" }
+		event = { time = 3.1	node = "gun_08"	particle = "ship_cannon" }
+		event = { time = 4.1	node = "gun_02"	particle = "ship_cannon" }
+		event = { time = 4.3	node = "gun_06"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "archipelago_frigate_h"
+	pdxmesh = "archipelago_frigate"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.435	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 0.440	node = "gun_04"	particle = "ship_cannon" }
+		event = { time = 0.430	node = "gun_07"	particle = "ship_cannon" }
+		event = { time = 0.435	node = "gun_09"	particle = "ship_cannon" }
+		event = { time = 2.9	node = "gun_03"	particle = "ship_cannon" }
+		event = { time = 3.0	node = "gun_05"	particle = "ship_cannon" }
+		event = { time = 3.1	node = "gun_08"	particle = "ship_cannon" }
+		event = { time = 4.1	node = "gun_02"	particle = "ship_cannon" }
+		event = { time = 4.3	node = "gun_06"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "archipelago_frigate_s"
+	pdxmesh = "archipelago_frigate"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.435	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 0.440	node = "gun_04"	particle = "ship_cannon" }
+		event = { time = 0.430	node = "gun_07"	particle = "ship_cannon" }
+		event = { time = 0.435	node = "gun_09"	particle = "ship_cannon" }
+		event = { time = 2.9	node = "gun_03"	particle = "ship_cannon" }
+		event = { time = 3.0	node = "gun_05"	particle = "ship_cannon" }
+		event = { time = 3.1	node = "gun_08"	particle = "ship_cannon" }
+		event = { time = 4.1	node = "gun_02"	particle = "ship_cannon" }
+		event = { time = 4.3	node = "gun_06"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "cog_h"
+	pdxmesh = "cog"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 2.5	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 0.7	node = "gun_02"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "cog_s"
+	pdxmesh = "cog"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 2.5	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 0.7	node = "gun_02"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "cog_t"
+	pdxmesh = "cog"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 2.5	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 0.7	node = "gun_02"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "flute_h"
+	pdxmesh = "flute"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.45	node = "gun_01"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "flute_s"
+	pdxmesh = "flute"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.45	node = "gun_01"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "flute_t"
+	pdxmesh = "flute"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.45	node = "gun_01"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "brig_h"
+	pdxmesh = "flute" # TODO
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.45	node = "gun_01"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "brig_s"
+	pdxmesh = "flute" # TODO
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.45	node = "gun_01"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "brig_t"
+	pdxmesh = "flute" # TODO
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.45	node = "gun_01"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "merchantman_h"
+	pdxmesh = "merchantman"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.8	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 3.79	node = "gun_02"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "merchantman_s"
+	pdxmesh = "merchantman"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.8	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 3.79	node = "gun_02"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "merchantman_t"
+	pdxmesh = "merchantman"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.8	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 3.79	node = "gun_02"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "trabakul_h"
+	pdxmesh = "merchantman" # TODO
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.8	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 3.79	node = "gun_02"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "trabakul_s"
+	pdxmesh = "merchantman" # TODO
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.8	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 3.79	node = "gun_02"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "trabakul_t"
+	pdxmesh = "merchantman" # TODO
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 0.8	node = "gun_01"	particle = "ship_cannon" }
+		event = { time = 3.79	node = "gun_02"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "eastindiaman_t"
+	pdxmesh = "eastindiaman"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 3.8	node = "gun_02"	particle = "ship_cannon" }
+		event = { time = 0.8	node = "gun_01"	particle = "ship_cannon" }
+	}
+}
+
 entity = {
 	name = "eastindiaman_h"
 	pdxmesh = "eastindiaman"
@@ -756,6 +1200,17 @@ entity = {
 
 entity = {
 	name = "eastindiaman_s"
+	pdxmesh = "eastindiaman"
+	state = { name = "idle" 		animation = "idle" }
+	state = { name = "walk" 		animation = "walk" }
+	state = { name = "attack"		animation = "attack"
+		event = { time = 3.8	node = "gun_02"	particle = "ship_cannon" }
+		event = { time = 0.8	node = "gun_01"	particle = "ship_cannon" }
+	}
+}
+
+entity = {
+	name = "eastindiaman_t"
 	pdxmesh = "eastindiaman"
 	state = { name = "idle" 		animation = "idle" }
 	state = { name = "walk" 		animation = "walk" }

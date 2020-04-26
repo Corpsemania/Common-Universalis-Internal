@@ -1,0 +1,12 @@
+#Cog
+type = transport
+trigger = { 
+				has_country_flag = transport_mod_t
+}
+hull_size = 10
+base_cannons = 2
+sail_speed = 5
+
+trade_power = 3.1
+
+sprite_level = 1

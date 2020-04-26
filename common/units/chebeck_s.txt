@@ -1,0 +1,10 @@
+#Chebeck
+type = galley
+trigger = { 
+				has_country_flag = galley_mod_s
+}
+hull_size = 18
+base_cannons = 25
+sail_speed = 10
+
+sprite_level = 5

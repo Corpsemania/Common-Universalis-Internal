@@ -1,0 +1,10 @@
+#Archipelago Frigate
+type = galley
+trigger = { 
+				has_country_flag = galley_mod_f
+}
+hull_size = 21
+base_cannons = 34
+sail_speed = 8
+
+sprite_level = 6

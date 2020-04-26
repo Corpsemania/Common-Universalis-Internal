@@ -1,0 +1,10 @@
+#Galiot
+type = galley
+trigger = { 
+				has_country_flag = galley_mod_s
+}
+hull_size = 15
+base_cannons = 21
+sail_speed = 10
+
+sprite_level = 4

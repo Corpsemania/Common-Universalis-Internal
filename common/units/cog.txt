@@ -1,6 +1,12 @@
 #Cog
 type = transport
-
+trigger = { 
+				NOT = {
+						has_country_flag = transport_mod_t
+						has_country_flag = transport_mod_h
+						has_country_flag = transport_mod_s
+				}
+}
 hull_size = 10
 base_cannons = 2
 sail_speed = 5

@@ -1,0 +1,12 @@
+#Merchantman
+type = transport
+trigger = {
+    has_country_flag = transport_mod_h
+}
+hull_size = 20
+base_cannons = 4
+sail_speed = 6
+
+trade_power = 4.5
+
+sprite_level = 4

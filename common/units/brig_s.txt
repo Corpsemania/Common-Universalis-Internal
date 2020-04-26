@@ -1,0 +1,12 @@
+#Brig
+type = transport
+trigger = { 
+				has_country_flag = transport_mod_s
+}
+hull_size = 18
+base_cannons = 4
+sail_speed = 7
+
+trade_power = 3.8
+
+sprite_level = 3

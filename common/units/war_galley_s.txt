@@ -1,0 +1,10 @@
+#War Galley
+type = galley
+trigger = { 
+				has_country_flag = galley_mod_s
+}
+hull_size = 9
+base_cannons = 13
+sail_speed = 10
+
+sprite_level = 2

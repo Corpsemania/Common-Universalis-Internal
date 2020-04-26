@@ -1,0 +1,12 @@
+#Flute
+type = transport
+trigger = {
+    has_country_flag = transport_mod_t
+}
+hull_size = 14
+base_cannons = 3
+sail_speed = 5.5
+
+trade_power = 3.7
+
+sprite_level = 2

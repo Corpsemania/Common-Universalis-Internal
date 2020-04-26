@@ -361,11 +361,11 @@ cu_can_update_galley = {
 	}
 	OR = {
 		dip_tech = 1
-		dip_tech = 8
-		dip_tech = 14
-		dip_tech = 18
-		dip_tech = 22
-		dip_tech = 25
+		dip_tech = 9
+		dip_tech = 13
+		dip_tech = 17
+		dip_tech = 20
+		dip_tech = 23
 	}
 }
 
@@ -375,12 +375,12 @@ cu_can_update_transport = {
 		navy_tradition = 30
 	}
 	OR = {
-		dip_tech = 2
-		dip_tech = 8
-		dip_tech = 14
-		dip_tech = 18
+		dip_tech = 1
+		dip_tech = 9
+		dip_tech = 12
+		dip_tech = 16
 		dip_tech = 21
-		dip_tech = 24
+		dip_tech = 25
 	}
 }
 

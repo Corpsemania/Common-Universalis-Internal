@@ -1,6 +1,12 @@
 #Trabakul
 type = transport
-
+trigger = {
+    NOT = {
+		has_country_flag = transport_mod_t
+		has_country_flag = transport_mod_h
+		has_country_flag = transport_mod_s
+	}
+}
 hull_size = 20
 base_cannons = 6
 sail_speed = 7
