@@ -749,7 +749,7 @@ maritime_ideas = {
 		trade_efficiency = 0.1
 	}
 	merchant_marine = {
-		light_ship_power = 0.25
+		light_ship_power = 0.2
 	}
 	informal_empire = {
 		ship_power_propagation = 0.1
