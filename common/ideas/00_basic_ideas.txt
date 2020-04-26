@@ -728,6 +728,7 @@ maritime_ideas = {
 	}
 
 	bonus = {
+		sea_repair = yes
 		trade_steering = 0.2
 	}
 	
@@ -743,18 +744,20 @@ maritime_ideas = {
 		navy_tradition = 1
 	}
 	letter_of_marque = {
-		privateer_efficiency = 0.25
-		embargo_efficiency = 0.25
+		privateer_efficiency = 0.2
+		capture_ship_chance = 0.2
+		leader_naval_shock = 1
 	}
 	global_trade_idea = {
 		trade_efficiency = 0.1
 		global_trade_power = 0.1
 	}
 	merchant_marine = {
-		light_ship_power = 0.2
+		light_ship_power = 0.25
 	}
 	informal_empire = {
-		ship_power_propagation = 0.1
+		ship_power_propagation = 0.15
+		embargo_efficiency = 0.15
 		#Additional merchants from the size of your trade fleet
 	}
 	ai_will_do = {
@@ -788,10 +791,11 @@ naval_ideas = {
 	
 	bonus = {
 	    naval_morale = 0.15
+		global_ship_cost = -0.1
 	}
 
-	ships_penny = {
-		global_ship_cost = -0.1
+	oak_forests_for_ships = {
+		ship_durability = 0.05
 		global_ship_recruit_speed = -0.1
 	}
 	sheltered_ports = {
@@ -799,7 +803,8 @@ naval_ideas = {
 		global_ship_repair = 0.25
 	}
 	excellent_shipwrights_2 = {
-		ship_durability = 0.05
+		heavy_ship_power = 0.1
+		galley_power = 0.1
 		#Allows Ship Modification
 	}
 	press_gangs = {
@@ -807,6 +812,7 @@ naval_ideas = {
 	}
 	line_of_battle = {
 		global_naval_engagement_modifier = 0.1
+		leader_naval_fire = 1
 	}
 	grand_navy = {
 		naval_forcelimit_modifier = 0.5
