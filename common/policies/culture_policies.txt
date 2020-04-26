@@ -81,8 +81,8 @@ hired_troubadour  = {
 }
 
 
-hired_troubadour  = {
-	monarch_power = DIP
+sense_of_honor  = {
+	monarch_power = MIL
 
 
 	potential = {
@@ -100,8 +100,8 @@ hired_troubadour  = {
 	}
 
 
-	reform_progress_growth = 0.10
-	global_tax_modifier = -0.10
+	land_morale = 0.1
+	fire_damage_received = 0.1
 
 	ai_will_do = {
 		factor = 1
