@@ -4,12 +4,8 @@ monetary_support = {
 	}
 	
 	effect = {
-		add_years_of_income = -0.1
+		add_years_of_income = -0.2
 		custom_tooltip = parliament_bribe_20t
-		add_estate_loyalty = {
-			estate = estate_burghers
-			loyalty = 2
-		}
 		hidden_effect = {
 		     country_event = { id = parlaments.999}
 		}

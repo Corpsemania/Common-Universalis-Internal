@@ -4,16 +4,8 @@ pay_rep_tradition = {
 	}
 	
 	effect = {
-		add_republican_tradition = -2
+		add_republican_tradition = -4
 		custom_tooltip = parliament_bribe_25t
-		add_estate_loyalty = {
-			estate = estate_nobles
-			loyalty = 1
-		}
-		add_estate_loyalty = {
-			estate = estate_burghers
-			loyalty = 1
-		}
 		hidden_effect = {
 		     country_event = { id = parlaments.999}
 		}

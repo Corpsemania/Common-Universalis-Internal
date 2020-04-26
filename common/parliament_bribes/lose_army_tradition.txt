@@ -4,12 +4,8 @@ lose_army_tradition = {
 	}
 	
 	effect = {
-		add_army_tradition = -3
+		add_army_tradition = -8
 		custom_tooltip = parliament_bribe_15t
-		add_estate_loyalty = {
-			estate = estate_nobles
-			loyalty = 2
-		}
 		hidden_effect = {
 		     country_event = { id = parlaments.999}
 		}

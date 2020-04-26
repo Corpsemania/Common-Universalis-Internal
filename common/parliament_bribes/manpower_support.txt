@@ -4,12 +4,8 @@ manpower_support = {
 	}
 	
 	effect = {
-		add_manpower = -0.5
+		add_manpower = -1
 		custom_tooltip = parliament_bribe_20t
-		add_estate_loyalty = {
-			estate = estate_nobles
-			loyalty = 2
-		}
 		hidden_effect = {
 		     country_event = { id = parlaments.999}
 		}

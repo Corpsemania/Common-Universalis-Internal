@@ -7,11 +7,7 @@ pay_devotion = {
 	}
 	
 	effect = {
-		add_devotion = -2
-		add_estate_loyalty = {
-			estate = estate_church
-			loyalty = 2
-		}
+		add_devotion = -5
 	}
 	
 	ai_will_do = {

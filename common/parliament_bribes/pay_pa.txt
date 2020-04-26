@@ -13,12 +13,8 @@ pay_pa = {
 	}
 	
 	effect = {
-		add_patriarch_authority = -0.03
+		add_patriarch_authority = -0.05
 		custom_tooltip = parliament_bribe_25t
-		add_estate_loyalty = {
-			estate = estate_church
-			loyalty = 1
-		}
 		hidden_effect = {
 		    country_event = { id = parlaments.999}
 		}

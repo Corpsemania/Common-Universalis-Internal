@@ -6,19 +6,7 @@ pay_reformprogress = {
 	}
 	
 	effect = {
-		change_government_reform_progress = -3
-		add_estate_loyalty = {
-			estate = estate_nobles
-			loyalty = 1
-		}
-		add_estate_loyalty = {
-			estate = estate_burghers
-			loyalty = 1
-		}
-		add_estate_loyalty = {
-			estate = estate_church
-			loyalty = 1
-		}
+		change_government_reform_progress = -5
 	}
 	
 	ai_will_do = {

@@ -4,12 +4,8 @@ lose_navy_tradition = {
 	}
 	
 	effect = {
-		add_navy_tradition = -3
+		add_navy_tradition = -10
 		custom_tooltip = parliament_bribe_15t
-		add_estate_loyalty = {
-			estate = estate_burghers
-			loyalty = 2
-		}
 		hidden_effect = {
 		     country_event = { id = parlaments.999}
 		}

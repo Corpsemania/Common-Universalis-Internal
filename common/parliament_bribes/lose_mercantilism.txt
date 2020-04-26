@@ -4,20 +4,8 @@ lose_mercantilism = { #Changed to corruption, keep the old name for compatibilit
 	}
 	
 	effect = {
-		add_corruption = 0.3
+		add_corruption = 0.5
 		custom_tooltip = parliament_bribe_25t
-		add_estate_loyalty = {
-			estate = estate_nobles
-			loyalty = 1
-		}
-		add_estate_loyalty = {
-			estate = estate_burghers
-			loyalty = 1
-		}
-		add_estate_loyalty = {
-			estate = estate_church
-			loyalty = 1
-		}
 		hidden_effect = {
 		     country_event = { id = parlaments.999}
 		}

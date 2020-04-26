@@ -7,12 +7,8 @@ gain_piety = {
 	}
 	
 	effect = {
-		add_piety = 0.05
+		add_piety = 0.1
 		custom_tooltip = parliament_bribe_15t
-		add_estate_loyalty = {
-			estate = estate_church
-			loyalty = 1
-		}
 		hidden_effect = {
 		     country_event = { id = parlaments.999}
 		}
