@@ -764,6 +764,8 @@
  secular_education_desc: "The nature of god is beyond our understanding, but his creation is not."
  advanced_siege_technique: "Advanced Siege Techniques"
  advanced_siege_technique_desc: "The advancement of war technology allows us to besiege enemy's castles more efficiently."
+ culture_ideas: "Cultural Ideas"
+ culture_ideas_bonus: "Fully Cultural"
  museum_exhibition: "Grand Exhibition"
  museum_exhibition_desc: "\nMuseum Theming Bonus: §G+100.0%§!"
  magnificent_court: "Magnificent Court"
