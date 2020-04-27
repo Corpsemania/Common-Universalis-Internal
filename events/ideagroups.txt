@@ -10689,7 +10689,7 @@ country_event = {
 		in_golden_age = no
 		NOT = { has_country_flag = cu_golden_age_fired } 
 		full_idea_group = culture_ideas
-		check_variable = { which = art_power_level value = 10 }
+		check_variable = { which = art_power_level value = 8 }
 		OR = {
 			ai = no
 			has_country_flag = cu_had_golden_age
