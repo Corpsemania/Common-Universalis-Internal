@@ -364,6 +364,7 @@ native_aggressiveness = {
 }
 
 core = {
+	local_unrest = -2
 	local_tax_modifier = 0.8				#80% more in a core
 	local_production_efficiency = 0.80		#80% more in a core
 	local_manpower_modifier = 0.65			#65% more in a core
@@ -604,9 +605,7 @@ ai_nation = {
 	land_forcelimit = 1
     advisor_cost = -0.075
 	war_exhaustion = -0.05
-	global_unrest = -2
 	interest = -1
-	yearly_corruption = -0.05
 	yearly_absolutism = 0.10 #AI bonus for not knowing how to reform their government efficiently
 	#global_autonomy = -0.03 #compensate for ai's hardcoded behavior on autonomy
 	global_trade_power = 0.2 # To compensate for ai not sending transport to protect trade
@@ -616,7 +615,7 @@ ai_nation = {
 	diplomatic_upkeep = 2 #AI pays 120 dip power every 5 years to make up for this cheat.
 	horde_unity = 1
     inflation_action_cost = -0.20
-	idea_cost = -0.2
+	idea_cost = -0.1
 	harsh_treatment_cost = -0.1
 	land_maintenance_modifier = -0.1
 	naval_maintenance_modifier = -0.1

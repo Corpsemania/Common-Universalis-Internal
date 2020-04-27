@@ -8,7 +8,7 @@ monarchy_mechanic = {
 	modifiers = {
 		min_autonomy = 10
 		yearly_absolutism = 0.1
-		yearly_corruption = 0.1
+		yearly_corruption = 0.05
 	}
 }
 
