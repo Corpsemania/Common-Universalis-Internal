@@ -27,4 +27,12 @@ spriteTypes = {
 		norefcount = yes
 		effectFile = "gfx/FX/buttonstate_linear.shader"
 	}
+	
+	spriteType = {
+		name = "GFX_idea_culture_ideas"
+		texturefile = "gfx//interface//ideas//idea_culture_ideas.tga"
+		noOfFrames = 1
+		norefcount = yes
+		effectFile = "gfx/FX/buttonstate_linear.shader"
+	}
 }

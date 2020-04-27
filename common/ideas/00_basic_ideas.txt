@@ -19,19 +19,19 @@ culture_ideas = {
         prestige = 1
 		#+100% duration of art patronage edict
 	}
+	magnificent_court = {
+		diplomatic_reputation = 1
+	}
 	museum_exhibition = {
 		prestige_decay = -0.01
 		#Museum Theming Bonus: +100%
 	}
-	magnificent_court = {
-		diplomatic_reputation = 1
-	}
-	lingua_franca = {
-		max_states = 5 #Max Administrative Integrity
-	}
 	cultural_bond = {
 		culture_conversion_cost = -0.33 #Administrative Integrity decay if above the cap
 		#Administrative Integrity Growth: +5% per country art influence level(+100% at maximum) 		
+	}
+	lingua_franca = {
+		max_states = 5 #Max Administrative Integrity
 	}
 	cultural_unification = {
 		harmonization_speed = 0.2
@@ -45,11 +45,12 @@ culture_ideas = {
 		factor = 0.4
 	}
 }
+
 aristocracy_ideas = {
 	category = MIL
 
 	bonus = {
-		leader_cost = -0.33
+		free_leader_pool = 30
 		yearly_army_professionalism = 0.005
 	}
 	
@@ -107,6 +108,7 @@ plutocracy_ideas = {
 	}
 	foreign_leaders = {
 	    leader_land_fire = 1
+		leader_cost = -0.25
 	}
 	mercenary_society = {
 	    num_accepted_cultures = 1

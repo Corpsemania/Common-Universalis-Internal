@@ -1,11 +1,10 @@
-noble_palace = {
+spirit_of_paladin = {
 	monarch_power = DIP
 
 
 	potential = {
 		has_idea_group = aristocracy_ideas
 		has_idea_group = culture_ideas
-		has_estate = estate_nobles
 		OR = {
 			full_idea_group = aristocracy_ideas
 			full_idea_group = culture_ideas
@@ -15,17 +14,15 @@ noble_palace = {
 	allow = {
 		full_idea_group = aristocracy_ideas
 		full_idea_group = culture_ideas
-		has_estate = estate_nobles
 	}
 
-
-	state_maintenance_modifier = 0.10
-	estate_nobles_influence = -0.07
+	loot_amount = -0.25
+	cavalry_power = 0.10
 
 	ai_will_do = {
 		factor = 1
 		modifier = {
-			factor = 1.5
+			factor = 0.5
 			NOT = {
 				estate_influence = {
 					estate = estate_nobles
@@ -43,10 +40,8 @@ noble_palace = {
 	}
 }
 
-
-
-hired_troubadour  = {
-	monarch_power = DIP
+hired_troubadour = {
+	monarch_power = MIL
 
 
 	potential = {
@@ -63,23 +58,23 @@ hired_troubadour  = {
 		full_idea_group = culture_ideas
 	}
 
-
-	reform_progress_growth = 0.10
-	
+	reform_progress_growth = 0.1
+	state_maintenance_modifier = 0.1
 
 	ai_will_do = {
 		factor = 1
 		modifier = {
-			factor = 1.5
-			check_variable = { which = art_power_level value = 2 }
+			factor = 0
+			NOT = {
+				check_variable = { which = art_power_level value = 1 }
+			}
 		}
 		modifier = {
-			factor = 0 #No art power at all!
-			NOT = { check_variable = { which = art_power_level value = 1 } }
+			factor = 1.5
+			check_variable = { which = art_power_level value = 3 }
 		}		
 	}
 }
-
 
 sense_of_honor  = {
 	monarch_power = MIL
@@ -169,7 +164,7 @@ avant_garde = {
 	}
 
 
-	prestige_decay = -0.015
+	prestige_decay = 0.015
 	prestige = 1
 
 	ai_will_do = {
