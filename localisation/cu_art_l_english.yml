@@ -32,6 +32,7 @@
  empireim.68.a: "No!"
  empireim.68.at: "Loses §R[Root.cu_var2.GetValue]§! §MGreat Work(s)§!"
  cu_create_art_piece_t: "An art piece of random level will be created and placed in the museum of this province."
+ cu_create_art_piece_ct: "An art piece of random level will be created and placed in one of our provinces."
  cu_place_art_piece_t: "An art piece will be created and placed in the museum of this province.\n"
  cu_place_art_piece_2t: "A §MGreat Work(s)§! will be created and placed in the museum of this province.\n"
  cu_place_art_piece_1t: "A §MMasterpiece(s)§! will be created and placed in the museum of this province.\n"

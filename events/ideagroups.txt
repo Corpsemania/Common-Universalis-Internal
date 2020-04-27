@@ -10732,3 +10732,118 @@ country_event = {
 		remove_country_modifier = cu_cultural_golden_age
 	}
 }
+
+######Flavor events for cultural ideas##########
+#two pros, one con
+
+#Funding a grand tour
+country_event = {
+    id = ideagroups.4943
+	title = "ideagroups.4943.t"
+	desc = "ideagroups.4943.d"
+	picture = IMPORTANT_STATUE_eventPicture
+	is_triggered_only = yes
+	trigger = {
+		culture_ideas = 1
+	}
+	option = { 
+        name = "ideagroups.4943.a"	
+		add_treasury = -100
+		add_dip_power = -20
+		add_prestige = 5
+		custom_tooltip = cu_change_cultural_legacy_4t
+		hidden_effect = {
+			change_variable = { which = art_legacy value = 4 }
+			cu_display_cultural_power = yes
+		}
+		ai_chance = {
+			factor = 80
+			modifier = {
+				factor = 0
+				NOT = { treasury = 100 }
+			}
+		}
+	}
+	option = { 
+        name = "ideagroups.4943.b"	
+		add_prestige = -5
+		ai_chance = {
+			factor = 20
+		}
+	}
+}
+
+#Patronage come to fruit
+country_event = {
+    id = ideagroups.4944
+	title = "ideagroups.4944.t"
+	desc = "ideagroups.4944.d"
+	picture = IMPORTANT_STATUE_eventPicture
+	is_triggered_only = yes
+	trigger = {
+		culture_ideas = 1
+	}
+	immediate = {
+		hidden_effect = {
+			random_list = {
+				85 = { 
+				    set_country_flag = cu_create_masterpiece 
+					set_variable = { which = cu_var1 value = 1 } #for display
+				}
+				15 = { 
+				    set_country_flag = cu_create_greatwork 
+					set_variable = { which = cu_var1 value = 2 } #for display
+				}
+			}
+		}
+	}
+	option = { 
+        name = "ideagroups.4944.a"
+		trigger = {
+			has_country_flag = cu_create_greatwork
+		}
+		clr_country_flag = cu_create_greatwork	
+		add_prestige = 10
+		hidden_effect = {
+				set_variable = { which = cu_var1 value = 2 }
+		}
+		cu_place_art_piece_country = yes
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = { 
+        name = "ideagroups.4944.b"
+		trigger = {
+			NOT = { has_country_flag = cu_create_greatwork }
+		}
+		clr_country_flag = cu_create_masterpiece 
+		add_prestige = 5
+		hidden_effect = {
+				set_variable = { which = cu_var1 value = 1 }
+		}
+		cu_place_art_piece_country = yes
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+#Artist defects
+country_event = {
+    id = ideagroups.4945
+	title = "ideagroups.4945.t"
+	desc = "ideagroups.4945.d"
+	picture = IMPORTANT_STATUE_eventPicture
+	is_triggered_only = yes
+	trigger = {
+		culture_ideas = 1
+	}
+	option = { 
+        name = "ideagroups.4945.a"
+		add_prestige = -5
+		ai_chance = {
+			factor = 1
+		}
+	}
+}

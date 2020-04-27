@@ -4183,6 +4183,11 @@ on_five_year_pulse = {
 		100 = ideagroups.1909
 		100 = ideagroups.1910
 		
+		#Culture 
+		100 = ideagroups.4943
+		100 = ideagroups.4944
+		100 = ideagroups.4945
+		
 		1000 = 0
 	}
 	
