@@ -35,11 +35,7 @@ country_decisions = {
 			OR = {
 				custom_trigger_tooltip = {
 					tooltip = malay_nation_malaya_borneo_tooltip
-					AND = { #Malay Peninsula and Borneo
-						malaya_area = {
-							type = all
-							owned_by = ROOT
-						}
+					AND = { #Malay Peninsula and Borneo						
 						malacca_area = {
 							type = all
 							owned_by = ROOT
@@ -60,11 +56,7 @@ country_decisions = {
 				}
 				custom_trigger_tooltip = {
 					tooltip = malay_nation_malaya_sumatra_tooltip
-					AND = { #Malay Peninsula and Sumatra
-						malaya_area = {
-							type = all
-							owned_by = ROOT
-						}
+					AND = { #Malay Peninsula and Sumatra						
 						malacca_area = {
 							type = all
 							owned_by = ROOT
@@ -72,19 +64,7 @@ country_decisions = {
 						north_sumatra_area = {
 							type = all
 							owned_by = ROOT
-						}
-						batak_area = {
-							type = all
-							owned_by = ROOT
-						}
-						central_sumatra_area = {
-							type = all
-							owned_by = ROOT
-						}
-						minangkabau_area = {
-							type = all
-							owned_by = ROOT
-						}
+						}						
 						south_sumatra_area = {
 							type = all
 							owned_by = ROOT
@@ -109,11 +89,7 @@ country_decisions = {
 						north_sumatra_area = {
 							type = all
 							owned_by = ROOT
-						}
-						central_sumatra_area = {
-							type = all
-							owned_by = ROOT
-						}
+						}						
 						south_sumatra_area = {
 							type = all
 							owned_by = ROOT

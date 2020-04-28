@@ -415,14 +415,7 @@ byz_pp_maritime = {
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
-			}
-			djerba_area = {
-				limit = {
-					NOT = { owned_by = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
+			}			
 		}
 	}
 	
@@ -433,8 +426,7 @@ byz_pp_maritime = {
 		}
 		provinces_to_highlight = {
 			OR = {
-				area = tripolitania_area
-				area = djerba_area
+				area = tripolitania_area				
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
@@ -442,11 +434,7 @@ byz_pp_maritime = {
 			tripolitania_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			}
-			djerba_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
+			}			
 		}
 		effect = {
 			tunisia_area = {
@@ -741,16 +729,11 @@ byz_pp_religion = {
 					NOT = { has_global_flag = constantinople_restored }
 				}
 				151 = {
-					add_base_tax = 3
-					add_base_production = 3
-					add_base_manpower = 5
+					add_base_tax = 4
+					add_base_production = 4
+					add_base_manpower = 3
 				}
 				set_global_flag = constantinople_restored
-			}
-			every_owned_province = {
-				limit = { area = thrace_area }
-				change_culture = greek 
-				change_religion = ROOT	
 			}
 			hidden_effect = {		
 					every_owned_province = {
@@ -913,14 +896,7 @@ byz_pp_religion = {
 					NOT = { owned_by = ROOT }
 				}
 				add_claim = ROOT
-			}
-			cyrenaica_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { owned_by = ROOT }
-				}
-				add_claim = ROOT
-			}
+			}			
 		}
 	}
 	

@@ -45,6 +45,7 @@ tur_conquerors_of_the_near_east = {
 				province_id = 145
 				province_id = 146
 				province_id = 1773
+				province_id = 8506
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
@@ -52,6 +53,7 @@ tur_conquerors_of_the_near_east = {
 			owns = 145
 			owns = 146
 			owns = 1773
+			owns = 8506
 		}
 		completed_by = 1460.1.1
 		effect = {
@@ -130,6 +132,13 @@ tur_conquerors_of_the_near_east = {
 				add_permanent_claim = ROOT
 			}
 			wallachia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			east_wallachia_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
 					NOT = { is_core = ROOT	}
@@ -254,6 +263,10 @@ tur_eastern_balkans = {
 		}
 		trigger = {
 			wallachia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			east_wallachia_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -803,14 +816,7 @@ tur_eastern_mediterrenean_missions = {
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
-			}
-			cyrenaica_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
+			}			
 		}
 	}
 	conquer_egypt = {
@@ -830,8 +836,7 @@ tur_eastern_mediterrenean_missions = {
 				area = bahari_area
 				area = said_area
 				area = vostani_area				
-				area = gulf_of_arabia_area
-				area = cyrenaica_area
+				area = gulf_of_arabia_area				
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
@@ -855,11 +860,7 @@ tur_eastern_mediterrenean_missions = {
 			gulf_of_arabia_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			}
-			cyrenaica_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
+			}			
 		}
 		effect = {
 			egypt_region = {
@@ -910,14 +911,7 @@ tur_eastern_mediterrenean_missions = {
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
-			}
-			djerba_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
+			}			
 		}
 	}
 	defeat_the_knights = { #Conquer Rhodes
@@ -979,8 +973,7 @@ tur_conquer_western_mediterrenean = {
 		position = 8
 		provinces_to_highlight = {
 			OR = {
-				area = tripolitania_area
-				area = djerba_area
+				area = tripolitania_area				
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
@@ -988,11 +981,7 @@ tur_conquer_western_mediterrenean = {
 			tripolitania_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			}
-			djerba_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
+			}			
 		}
 		effect = {
 			tunisia_area = {

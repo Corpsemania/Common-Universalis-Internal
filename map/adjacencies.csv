@@ -88,7 +88,7 @@ From;To;Type;Through;start_x;start_y;stop_x;stop_y;Comment
 748;2890;sea;1529;1879;988;1876;989;Belem-Marajo
 747;2890;sea;1529;-1;-1;-1;-1;Amapa-Marajo
 2954;353;sea;1305;2805;1548;2806;1545;Djerba-Tataouine
-624;623;sea;1352;4292;910;4290;913;Banten-Tulungbewang
+624;622;sea;1352;4292;910;4290;913;Banten-Tulungbewang
 431;2999;sea;1334;3511;1436;3510;1434;Mogostan-Hormuz
 398;2999;sea;1334;3515;1425;3513;1431;Qawasim-Hormuz
 8505;3003;sea;1319;3001;1633;3003;1636;Lamia-Euboea
@@ -98,7 +98,7 @@ From;To;Type;Through;start_x;start_y;stop_x;stop_y;Comment
 41;43;sea;1927;-1;-1;-1;-1;Danzig-K?nigsberg
 112;111;sea;1308;2832;1755;2833;1756;Venice-Friuli
 112;113;sea;1308;2830;1753;2829;1752;Venice-Ferrara
-96;97;sea;1269;2700;1878;2701;1880;Zeeland-Holland
+96;4383;sea;1269;2700;1878;2701;1880;Zeeland-Holland
 96;95;sea;1269;2701;1873;2703;1872;Zeeland-Breda
 96;1744;sea;1269;2702;1867;2703;1865;Zeeland-Antwerp
 96;1865;sea;1269;2693;1869;2692;1867;Zeeland-Ghent
@@ -121,4 +121,5 @@ From;To;Type;Through;start_x;start_y;stop_x;stop_y;Comment
 597;8580;sea;1361;-1;-1;-1;-1;Johor-Temasek
 738;8624;sea;1372;-1;-1;-1;-1;Sakam-Penghu
 4273;2347;lake;2334;-1;-1;-1;-1;Al-kariatan - Hofuf
+360;2321;lake;4321;-1;-1;-1;-1;-1;Qus-Qusayr
 -1;-1;;-1;-1;-1;-1;-1;-1;

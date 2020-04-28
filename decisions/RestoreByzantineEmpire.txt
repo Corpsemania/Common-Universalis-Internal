@@ -28,10 +28,8 @@ country_decisions = {
                                area = palestine_area
                                area = delta_area
                                area = bahari_area
-                               area = vostani_area
-                               area = cyrenaica_area  
-                               area = tripolitania_area 
-                               area = djerba_area
+                               area = vostani_area                                 
+                               area = tripolitania_area                               
                                area = tunisia_area 
                                area = sicily_area                          
                                province_id = 1756		# Basarabia
@@ -108,11 +106,8 @@ country_decisions = {
 				type = all
 				owned_by = ROOT
 			}
-                                                 cyrenaica_area = {
-				type = all
-				owned_by = ROOT
-			}  
-                                                 tripolitania_area = {
+                                                 
+                                                tripolitania_area = {
 				type = all
 				owned_by = ROOT
 			} 
@@ -175,8 +170,7 @@ country_decisions = {
                                 region = france_region
                                 region = balkan_region
                                 region = anatolia_region 
-                                area = algiers_area
-                                area = djerba_area
+                                area = algiers_area                               
                                 area = tunisia_area                         
                                 area = kabylia_area
                                 area = western_morocco_area

@@ -20,8 +20,6 @@ gc_tunis_1 = {
 				province_id = 4567
 				province_id = 2449
 				province_id = 2448
-				area = north_saharan_area
-				area = ouled_nail_area
 				area = tripolitania_area
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
@@ -37,14 +35,6 @@ gc_tunis_1 = {
 						is_empty = yes
 					}
 				}
-			}
-			north_saharan_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
-			ouled_nail_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
 			}
 			tripolitania_area = {
 				type = all
@@ -125,15 +115,7 @@ gc_tunis_1 = {
 				}
 				discover_country = ROOT	
 				add_permanent_claim = ROOT
-			}
-			east_azbin_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				discover_country = ROOT
-				add_permanent_claim = ROOT				
-			}
+			}			
 			katsina_area = {
 				discover_country = ROOT
 			}
@@ -145,8 +127,7 @@ gc_tunis_1 = {
 		
 		provinces_to_highlight = {
 			OR = {
-				area = azbin_area
-				area = east_azbin_area
+				area = azbin_area				
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			has_discovered = ROOT
@@ -156,11 +137,7 @@ gc_tunis_1 = {
 			azbin_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			}
-			east_azbin_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
+			}			
 		}
 		effect = {
 			add_country_modifier = {
@@ -182,15 +159,7 @@ gc_tunis_1 = {
 				}
 				discover_country = ROOT
 				add_permanent_claim = ROOT
-			}
-			bornu_area = {
-				limit = {
-					NOT = { is_core = ROOT }
-					NOT = { is_permanent_claim = ROOT }
-				}
-				discover_country = ROOT
-				add_permanent_claim = ROOT
-			}
+			}			
 		}
 	}
 	gc_tun_kanem = {
@@ -200,8 +169,7 @@ gc_tunis_1 = {
 		provinces_to_highlight = {
 			OR = {
 				area = katsina_area
-				area = kanem_area
-				area = bornu_area
+				area = kanem_area				
 			}
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 			has_discovered = ROOT
@@ -215,11 +183,7 @@ gc_tunis_1 = {
 			kanem_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
-			}
-			bornu_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
+			}			
 		}
 		effect = {
 			add_country_modifier = {

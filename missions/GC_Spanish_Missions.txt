@@ -19,42 +19,9 @@ gc_spain_1 = {
 	}
 	has_country_shield = yes
 
-	gc_cas_spa_plus_ultra = {
-		icon = mission_plus_ultra
-		required_missions = { }
-		completed_by = 1492.1.1
-
-		provinces_to_highlight = {
-			province_id = 4565
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
-		}
-
-		trigger = {
-			num_of_explorers = 1
-			custom_trigger_tooltip = {
-				tooltip = spa_plus_ultra_tooltip
-				OR = {
-					owns_core_province = 4565
-					any_owned_province = {
-						OR = {
-							continent = north_america
-							continent = south_america
-							continent = new_world
-						}
-					}
-				}
-			}
-		}
-		effect = {
-			add_country_modifier = {
-				name = "spa_plus_ultra"
-				duration = 7300
-			}
-		}
-	}
+	
 	gc_cas_spa_caribbean_discovery = {
-		icon = mission_establish_high_seas_navy
-		required_missions = { gc_cas_spa_plus_ultra }
+		icon = mission_establish_high_seas_navy		
 		position = 4
 		completed_by = 1492.1.1
 

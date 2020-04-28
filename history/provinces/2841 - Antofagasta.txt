@@ -1,0 +1,41 @@
+# - Concepcion
+
+culture = mapuche
+
+
+
+discovered_by = south_american
+discovered_by = andean
+
+religion = animism
+capital = "Concepcion"
+trade_goods = unknown
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+native_size = 5
+native_ferocity = 2
+native_hostileness = 1
+
+1489.1.1 = {
+	owner = INC
+	controller = INC
+	add_core = INC
+	religion = inti
+}
+1520.1.1 = { discovered_by = SPA } # Ferdinand Magellan
+1541.2.12 = {
+	owner = SPA
+	controller = SPA
+	add_core = SPA	
+	culture = castillian
+	religion = catholic
+	is_city = yes
+}
+1810.9.18 = {
+	owner = CHL
+	controller = CHL
+	add_core = CHL
+}# First National Government Junta
+

@@ -130,6 +130,9 @@ country_decisions = {
 			NOT = { tag = GER }
 			NOT = { tag = PRU }
 			NOT = { tag = SWI }
+			NOT = { tag = ROM }
+			NOT = { tag = BYZ }
+			NOT = { tag = HBR }
 			NOT = { exists = WES }
 			NOT = { has_reform =  celestial_empire }
 			OR = {
@@ -158,6 +161,7 @@ country_decisions = {
 					ai = no
 				}
 			}
+			NOT = { government_rank = 3 }
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -573,7 +577,7 @@ country_decisions = {
 				cu_calc_country_absolute_dist = yes		
 			}			
 			remove_non_electors_emperors_from_empire_effect = yes			
-			cu_change_stability_point_n100 = yes
+			add_stability = -2
 			add_prestige = -25
 			set_country_flag = exile_country
 		}
@@ -676,7 +680,7 @@ country_decisions = {
 				cu_calc_country_absolute_dist = yes		
 			}			
 			remove_non_electors_emperors_from_empire_effect = yes			
-			cu_change_stability_point_n100 = yes
+			add_stability = -2
 			add_prestige = -25
 			set_country_flag = exile_country
 		}
@@ -779,7 +783,7 @@ country_decisions = {
 				cu_calc_country_absolute_dist = yes	
 			}			
 			remove_non_electors_emperors_from_empire_effect = yes			
-			cu_change_stability_point_n100 = yes
+			add_stability = -2
 			add_prestige = -25
 			set_country_flag = exile_country
 		}
@@ -882,7 +886,7 @@ country_decisions = {
 				cu_calc_country_absolute_dist = yes					
 			}			
 			remove_non_electors_emperors_from_empire_effect = yes			
-			cu_change_stability_point_n100 = yes
+			add_stability = -2
 			add_prestige = -25
 			set_country_flag = exile_country
 		}
@@ -985,7 +989,7 @@ country_decisions = {
 				cu_calc_country_absolute_dist = yes					
 			}			
 			remove_non_electors_emperors_from_empire_effect = yes			
-			cu_change_stability_point_n100 = yes
+			add_stability = -2
 			add_prestige = -25
 			set_country_flag = exile_country
 		}
@@ -1089,7 +1093,7 @@ country_decisions = {
 				cu_calc_country_absolute_dist = yes					
 			}			
 			remove_non_electors_emperors_from_empire_effect = yes			
-			cu_change_stability_point_n100 = yes
+			add_stability = -2
 			add_prestige = -25
 			set_country_flag = exile_country
 		}
@@ -1192,7 +1196,7 @@ country_decisions = {
 				cu_calc_country_absolute_dist = yes	
 			}			
 			remove_non_electors_emperors_from_empire_effect = yes			
-			cu_change_stability_point_n100 = yes
+			add_stability = -2
 			add_prestige = -25
 			set_country_flag = exile_country
 		}
@@ -1295,7 +1299,7 @@ country_decisions = {
 				cu_calc_country_absolute_dist = yes					
 			}			
 			remove_non_electors_emperors_from_empire_effect = yes			
-			cu_change_stability_point_n100 = yes
+			add_stability = -2
 			add_prestige = -25
 			set_country_flag = exile_country
 		}
@@ -1398,7 +1402,7 @@ country_decisions = {
 				cu_calc_country_absolute_dist = yes					
 			}			
 			remove_non_electors_emperors_from_empire_effect = yes			
-			cu_change_stability_point_n100 = yes
+			add_stability = -2
 			add_prestige = -25
 			set_country_flag = exile_country
 		}
@@ -1501,7 +1505,7 @@ country_decisions = {
 				cu_calc_country_absolute_dist = yes					
 			}			
 			remove_non_electors_emperors_from_empire_effect = yes			
-			cu_change_stability_point_n100 = yes
+			add_stability = -2
 			add_prestige = -25
 			set_country_flag = exile_country
 		}
@@ -1603,7 +1607,7 @@ country_decisions = {
 				cu_calc_country_absolute_dist = yes					
 			}			
 			remove_non_electors_emperors_from_empire_effect = yes			
-			cu_change_stability_point_n100 = yes
+			add_stability = -2
 			add_prestige = -25
 			set_country_flag = exile_country
 		}

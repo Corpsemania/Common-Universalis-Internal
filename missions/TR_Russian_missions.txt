@@ -583,6 +583,13 @@ tr_russia_conquest_1 = {
 				}
 				add_permanent_claim = ROOT
 			}
+			east_wallachia_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}			
 			moldavia_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -616,6 +623,7 @@ tr_russia_exclusive_1 = {
 			OR = {
 				area = wallachia_area
 				area = moldavia_area
+				area = east_wallachia_area
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -623,6 +631,10 @@ tr_russia_exclusive_1 = {
 		}
 		trigger = {
 			wallachia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			east_wallachia_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
@@ -1560,24 +1572,25 @@ tr_siberia_missions = {
 		icon = mission_colonize_alaska
 		required_missions = { tr_russian_colony_in_east_siberia }
 		provinces_to_highlight = {
-			colonial_region = colonial_alaska
+			colonial_region = colonial_california
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
 			}
 			has_discovered = ROOT
 		}
 		trigger = {
-			colonial_alaska = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT
-			}
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+					colonial_region = colonial_california
+					value = 10
+				}
+			owns_core_province = 976		
 		}
 		effect = {
 			add_country_modifier = {
 				name = "rus_alaska_modifier"
 				duration = 7300
 			}
-			2613 = {
+			976 = {
 				change_province_name = "Novo-Arkhangelsk"
 				rename_capital = "Novo-Arkhangelsk"
 				add_base_tax = 1

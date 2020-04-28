@@ -125,10 +125,8 @@ gc_morocco_1 = {
 		
 		provinces_to_highlight = {
 			OR = {
-				province_id = 1128
-				province_id = 1129
-				province_id = 1132
-				province_id = 2247
+				province_id = 1128				
+				province_id = 1132				
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -138,16 +136,10 @@ gc_morocco_1 = {
 		trigger = {
 			1128 = {
 				country_or_non_sovereign_subject_holds = ROOT
-			}
-			1129 = {
-				country_or_non_sovereign_subject_holds = ROOT
-			}
+			}			
 			1132 = {
 				country_or_non_sovereign_subject_holds = ROOT
-			}
-			2247 = {
-				country_or_non_sovereign_subject_holds = ROOT
-			}
+			}			
 		}
 		
 		effect = {
@@ -156,10 +148,7 @@ gc_morocco_1 = {
 			}
 			guinea_region = {
 				discover_country = ROOT
-			}
-			niger_region = {
-				discover_country = ROOT
-			}
+			}			
 			niger_bend_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -173,14 +162,7 @@ gc_morocco_1 = {
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
-			}
-			dendi_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
+			}			
 		}
 	}
 	gc_mor_songhai = {
@@ -190,8 +172,7 @@ gc_morocco_1 = {
 		provinces_to_highlight = {
 			OR = {
 				area = niger_bend_area
-				area = western_sahara_area
-				area = dendi_area
+				area = western_sahara_area				
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -206,11 +187,7 @@ gc_morocco_1 = {
 			western_sahara_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT	
-			}
-			dendi_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
-			}
+			}			
 		}
 		
 		effect = {
@@ -235,20 +212,6 @@ gc_morocco_1 = {
 				}
 				add_permanent_claim = ROOT
 			}
-			hausa_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			bornu_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
 			kanem_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -262,14 +225,7 @@ gc_morocco_1 = {
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
-			}
-			massina_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
+			}			
 			upper_volta_area = {
 				limit = {
 					NOT = { is_permanent_claim = ROOT	}
@@ -290,21 +246,7 @@ gc_morocco_1 = {
 					NOT = { is_core = ROOT	}
 				}
 				add_permanent_claim = ROOT
-			}
-			baghena_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}
-			futa_jallon_area = {
-				limit = {
-					NOT = { is_permanent_claim = ROOT	}
-					NOT = { is_core = ROOT	}
-				}
-				add_permanent_claim = ROOT
-			}			
+			}							
 		}
 	}
 	gc_mor_mali = {
@@ -313,13 +255,10 @@ gc_morocco_1 = {
 		
 		provinces_to_highlight = {
 			OR = {
-				area = jenne_area
-				area = massina_area
+				area = jenne_area				
 				area = upper_volta_area
 				area = kong_area
-				area = manding_area
-				area = baghena_area
-				area = futa_jallon_area
+				area = manding_area				
 			}
 			NOT = {
 				country_or_non_sovereign_subject_holds = ROOT
@@ -330,11 +269,7 @@ gc_morocco_1 = {
 			jenne_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT	
-			}
-			massina_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
-			}
+			}			
 			upper_volta_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT	
@@ -346,15 +281,7 @@ gc_morocco_1 = {
 			manding_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT	
-			}
-			baghena_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
-			}
-			futa_jallon_area = {
-				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
-			}
+			}			
 		}
 		
 		effect = {

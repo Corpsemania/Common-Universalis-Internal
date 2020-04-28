@@ -3493,6 +3493,14 @@ country_event = {
 			}
 		}
 		option = {
+		name = "mandate.99.w" #Liang
+                trigger = { NOT = { exists = LNG } }
+               change_tag =  LNG
+                ai_chance = {
+                        factor = 1
+                }
+        }
+		option = {
 			name = "mandate.99.x" #Yan
 			trigger = { NOT = { exists = YAN } }
 			change_tag =  YAN

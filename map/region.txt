@@ -286,14 +286,11 @@ carpathia_region = {
 
 egypt_region = {
 	areas = {
-		lower_nubia_area
-		cyrenaica_area
-		gulf_of_arabia_area
-		al_wahat_area
+		gulf_of_arabia_area		
 		delta_area
-		bahari_area
-		vostani_area
+		bahari_area		
 		said_area
+		vostani_area
 	}
 }
 
@@ -418,20 +415,7 @@ arabia_region = {
 }
 
 niger_region = {
-	areas = {
-		adamawa_plateau_area
-		lower_niger_area
-		hausa_area
-		katsina_area
-		zazzau_area
-		upper_volta_area
-		atacora_oueme_area
-		lower_volta_area
-		kong_area
-		massina_area
-		manding_area
-		tekrur_area
-		jenne_area
+	areas = {		
 	}
 	monsoon = {
 		00.06.01
@@ -468,6 +452,19 @@ sahel_region = {
 		baghena_area
 		niger_bend_area
 		east_azbin_area
+		adamawa_plateau_area
+		lower_niger_area
+		hausa_area
+		katsina_area
+		zazzau_area
+		upper_volta_area
+		atacora_oueme_area
+		lower_volta_area
+		kong_area
+		massina_area
+		manding_area
+		tekrur_area
+		jenne_area
 	}
 	monsoon = {
 		00.06.01
@@ -476,32 +473,27 @@ sahel_region = {
 }
 
 horn_of_africa_region = {
-	areas = {
-		ajuuran_area
+	areas = {		
 		southern_ethiopia_area
-		central_ethiopia_area
-		ifat_area
+		central_ethiopia_area		
 		tigray_area
 		somaliland_area
-		ogaden_area
-		majarteen_area
+		ogaden_area		
 		mogadishu_area
 		red_sea_coast_area
-		upper_nubia_area
-		sennar_area
-		dongola_area
+		upper_nubia_area		
 		hadiya_area
 		damot_area
 		aussa_area
 		shewa_area
 		kurdufan_area
+		lower_nubia_area
 	}
 }
 
 east_africa_region = {
 	areas = {
-		northern_swahili_coast_area
-		mozambique_area
+		northern_swahili_coast_area		
 		ngonde_area
 		betsimasaraka_area
 		mascarenes_area
@@ -544,11 +536,8 @@ central_africa_region = {
 kongo_region = {
 	areas = {
 		coastal_kongo
-		kongo_area
-		angola_namibia_area
-		matamba_area
-		lower_kasai
-		kasai_area
+		kongo_area		
+		matamba_area		
 	}
 	monsoon = {
 		00.02.01
@@ -587,6 +576,7 @@ south_africa_region = {
 		cape_of_good_hope_area
 		zimbabwe_area
 		limpopo_area
+		mozambique_area
 	}
 	monsoon = {
 		00.11.01
@@ -603,21 +593,18 @@ west_siberia_region = {
 		yrtesh_area
 		ob_area
 		central_siberia_area
-		tunguska_area
-		irkutsk_area
-		kara_area
+		tunguska_area		
+		kara_area		
 	}
 }
 
 east_siberia_region = {
 	areas = {
-		yakutia_area
-		sakha_area
-		okhotsk_area
-		magadan_area
+		yakutia_area		
+		okhotsk_area		
 		kamchatka_area
+		irkutsk_area		
 		buryatia_area
-		kolyma_area
 	}
 }
 

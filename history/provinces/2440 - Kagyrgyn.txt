@@ -3,7 +3,7 @@
 
 culture = kamchatkan
 religion = tengri_pagan_reformed
-capital = "Kagyrgyn"
+capital = "Klyuchi"
 
 hre = no
 base_tax = 1 
