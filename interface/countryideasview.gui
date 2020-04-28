@@ -167,7 +167,7 @@ guiTypes = {
 			name = "ideagroups_listbox_left"
 			backGround = ""
 			position = { x=17 y=243 }
-			size = { x=250 y=330 }
+			size = { x=250 y=500 }
 			Orientation = "UPPER_LEFT"
 			horizontal = 0
 			spacing = 1
@@ -179,7 +179,7 @@ guiTypes = {
 			name = "ideagroups_listbox_right"
 			backGround = ""
 			position = { x=281 y=243 }
-			size = { x=250 y=330 }
+			size = { x=250 y=500 }
 			Orientation = "UPPER_LEFT"
 			horizontal = 0
 			spacing = 1
