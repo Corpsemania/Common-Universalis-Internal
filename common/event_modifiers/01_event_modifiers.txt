@@ -953,3 +953,8 @@ cu_cultural_golden_age = {
 	prestige = 1
 	harmonization_speed = 0.1
 }
+
+seven_grievance_mod = {
+	land_morale = 0.15
+	shock_damage = 0.1
+}

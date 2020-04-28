@@ -7,15 +7,20 @@ color = { 176  81  111 }
 historical_score = 1500
 
 historical_idea_groups = {
-	aristocracy_ideas	
-	diplomatic_ideas
-	humanist_ideas
-	trade_ideas	
-	offensive_ideas
-	economic_ideas
-	defensive_ideas
-	constitution_ideas
+	aristocracy_ideas #MIL
+	diplomatic_ideas #DIP
+	humanist_ideas #ADM
+	trade_ideas	 #DIP
+	offensive_ideas #MIL
+	influence_ideas #ADM
+	defensive_ideas #MIL
+	constitution_ideas #ADM
+	spy_ideas #DIP
+	economic_ideas #ADM
+	quantity_ideas #MIL
+	administrative_ideas #ADM
 }
+
 
 historical_units = {
 	bardiche_infantry

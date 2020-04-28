@@ -149,157 +149,6 @@ country_event = {
 	}
 }
 
-namespace = mandate
-
-#State claims mandate of heaven
-country_event = {
-    major = yes
-    id = mandate.000
-	title = "mandate.0.t"
-	desc = "mandate.0.d"
-	picture = CULTURE_eventPicture
-	is_triggered_only = yes
-
-	option = {
-		name = "mandate.0.a" #Good
-		set_country_flag = moh_declared
-		every_known_country = {
-			limit = {
-				OR = {
-					has_reform =  chinese_revolter
-					has_reform =  zhuhou
-					has_reform =  celestial_empire
-					has_reform =  celestial_empire_2
-					has_reform =  celestial_empire_3
-					capital_scope = { 
-						OR = {
-							region = south_china_region
-							region = xinan_region
-							region = north_china_region
-						} 
-					}	
-				}  
-			}
-			country_event = { id = mandate.001 }
-		}
-    }
-}
-
-#State declares mandate of heaven(Foreign Response)
-
-country_event = {
-    id = mandate.001
-	title = "mandate.01.t"
-	desc = "mandate.01.d"
-	picture = CULTURE_eventPicture
-	is_triggered_only = yes
-
-	option = {
-		name = "mandate.01.a" #OK
-		if = {
-		    limit = {
-				is_emperor_of_china = yes
-            }  
-			add_mandate = -5
-			add_meritocracy = -3
-		}
-    }
-}
-
-#Province Flipping
-
-province_event = {
-    id = mandate.002
-	title = "mandate.1.t"
-	desc = "mandate.1.d"
-	picture = CONQUEST_eventPicture
-	is_triggered_only = yes
-	
-	option = {
-		name = "mandate.1.a" #No!
-		tooltip = {
-			owner = {
-				if = {
-					limit = {
-						is_emperor_of_china = yes
-					}  
-					add_meritocracy = -1
-				}
-			}
-			cede_province = controller
-		}
-	}
-}
-
-#Province Flipping(Target)
-
-country_event = {
-    id = mandate.101
-	title = "mandate.11.t"
-	desc = "mandate.11.d"
-	picture = CONQUEST_eventPicture
-	is_triggered_only = yes
-
-	option = {
-		name = "mandate.11.a" #Great!
-		tooltip = {
-			FROM = {
-				remove_core = owner
-				add_core = ROOT
-				cede_province = ROOT
-			}
-			add_absolutism = 1
-			if = {
-				limit = {
-					is_emperor_of_china = yes
-				}
-				add_meritocracy = 1
-			}
-		}
-		country_event = { id = mandate.110 } 
-	}
-}
-
-#AI Chinese emperor automatically annex chinese tributary
-
-country_event = {
-    id = mandate.003
-	title = "EVT_HIDDEN"
-	desc = "EVT_HIDDEN"
-	picture = CONQUEST_eventPicture
-	
-	trigger = {
-		is_subject_of_type = tributary_state
-		culture_group = east_asian
-		ai = yes
-		OR = {
-			capital_scope = {
-				superregion = china_superregion
-			}
-			has_reform =  zhuhou	
-			has_reform =  chinese_revolter
-		}
-		any_known_country = {
-			is_emperor_of_china = yes
-			overlord_of = ROOT
-			ai = yes
-			OR = {
-				meritocracy = 60
-				culture_group = east_asian
-			}
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 1
-	}
-
-	option = {
-		name = "EVT_HIDDEN" #Join China!
-		overlord = { inherit = ROOT }
-	}
-}
-
 #Update Province Core
 
 country_event = {
@@ -387,7 +236,7 @@ province_event = {
 					} 
 				} 
 			}
-			adm_power = 200
+			adm_power = 100
 		}
 	}
 
@@ -3032,7 +2881,8 @@ country_event = {
 				} 
 				NOT = { tag = MNG }							 
 				NOT = { tag = CHF }					
-			}                                                   
+			}
+			has_country_flag = moh_declared			
 		}
 	    OR = {
 			num_of_owned_provinces_with = {

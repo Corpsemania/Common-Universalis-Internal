@@ -9,14 +9,18 @@ revolutionary_colors = { 5  8  5 }
 historical_score = 7400
 
 historical_idea_groups = {
-	exploration_ideas
-	religious_ideas
-	offensive_ideas	
-	expansion_ideas
-	maritime_ideas
-	administrative_ideas
-	defensive_ideas
-	influence_ideas
+	exploration_ideas #DIP
+	religious_ideas #ADM
+	offensive_ideas	#MIL
+	quality_ideas #MIL
+	expansion_ideas #DIP
+	administrative_ideas #ADM
+	maritime_ideas #DIP
+	defensive_ideas #MIL
+	influence_ideas #ADM
+	culture_ideas #DIP
+	quantity_ideas #MIL
+	economic_ideas #ADM
 }
 
 historical_units = {

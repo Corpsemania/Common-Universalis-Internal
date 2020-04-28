@@ -20,7 +20,7 @@ historical_idea_groups = {
 	defensive_ideas #MIL
 	maritime_ideas #DIP
 	influence_ideas #ADM
-	trade_ideas #DIP
+	culture_ideas #DIP
 }
 
 historical_units = {

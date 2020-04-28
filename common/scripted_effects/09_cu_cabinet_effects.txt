@@ -652,6 +652,9 @@ cu_do_cabinet = {
 cu_do_cabinet_country = {
     hidden_effect = {
         set_variable = { which = cu_var2 value = 0 } 
+		#every_owned_province = { #No longer needed
+			#set_variable = { which = cabinet_ca which = owner }
+		#}
 		every_owned_province = {
 		        limit = { has_province_modifier = cu_province_highlight }
 				owner = { change_variable = { which = cu_var2 value = 1 } }

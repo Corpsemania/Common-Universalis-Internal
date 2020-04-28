@@ -82,6 +82,59 @@ country_decisions = {
 		ai_importance = 500		
 	}
 
+	the_seven_grievances = {
+		major = yes
+		potential = {
+			OR = {
+				tag = MCH
+				tag = QNG
+			}
+			normal_or_historical_nations = yes		
+			NOT = { has_country_modifier = seven_grievance_mod }
+			NOT = { has_country_flag = seven_grievance_flag }
+			MNG = {
+				exits = yes
+				is_emperor_of_china = yes
+			}
+			any_owned_province = {
+				any_neighbor_province = {
+					owned_by = MNG
+				}
+			}
+		}
+		allow = {
+			total_development = 100
+			NOT = {
+				has_opinion = {
+					    who = MNG
+					    value = 50
+				}
+			}
+			NOT = { alliance_with = MNG }
+			MNG = { NOT = { meritocracy = 70 } } 
+		}
+		effect = {
+			declare_war_with_cb = {
+				    who = MNG
+				    casus_belli = cb_border_war
+		    }
+			add_country_modifier = {
+				name = seven_grievance_mod
+				duration = 3650
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { army_size = 15 } #no suicide
+			}
+			modifier = {
+				factor = 0
+				MNG = { army_size = 70 } #no suicide
+			}
+		}
+	}
 	form_manchu_dynasty = {
 		major = yes
 		potential = {

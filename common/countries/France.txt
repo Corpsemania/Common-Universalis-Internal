@@ -11,7 +11,7 @@ historical_score = 6700
 historical_idea_groups = {
 	economic_ideas #ADM
 	offensive_ideas #MIL
-	diplomatic_ideas #DIP
+	culture_ideas #DIP
 	exploration_ideas #DIP
 	defensive_ideas	#MIL
 	administrative_ideas #ADM	

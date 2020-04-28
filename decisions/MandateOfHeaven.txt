@@ -42,7 +42,6 @@ country_decisions = {
 			add_prestige = -10		
 			add_government_reform = becomes_monarchy_reform			
 			add_government_reform = zhuhou
-			add_mercantilism = 10
             country_event = { id = mandate.000 }
 			if = {
 				limit = { 
@@ -92,7 +91,7 @@ country_decisions = {
 		}
 		allow = {
 			is_subject = no
-			prestige = 30
+			prestige = 20
 			capital_scope = { 
 				OR = {
 					region = south_china_region
@@ -112,8 +111,21 @@ country_decisions = {
 			stability = 0
 		}
 		effect = {
-			add_prestige = -30
+			add_prestige = -20		
+			add_government_reform = becomes_monarchy_reform			
+			add_government_reform = zhuhou
+			add_mercantilism = 10
             country_event = { id = mandate.000 }
+			if = {
+					limit = { 
+							OR = {
+									has_reform = tribal_conscription
+									has_reform = mercenary_conscription
+									has_reform = feudal_conscription
+								}
+							}
+					add_government_reform = military_household		   
+				}
 		}
 		ai_will_do = {
 			factor = 1

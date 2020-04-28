@@ -16,7 +16,7 @@ historical_idea_groups = {
 	maritime_ideas #DIP
 	quality_ideas #MIL
 	economic_ideas #ADM
-	trade_ideas #DIP
+	diplomatic_ideas #DIP
 	defensive_ideas #MIL
 	influence_ideas #ADM
 }

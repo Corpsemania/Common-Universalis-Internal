@@ -14,7 +14,7 @@ country_event = {
 			if = {
 				limit = { NOT = { has_country_flag = cabinet_inialized } }
 				#Initial Setup
-				set_country_flag = cabinet_ep_state
+				set_variable = { which = cabinet_ca value = 60 }
 				set_country_flag = cabinet_ep_primary
 				set_country_flag = cabinet_inialized
 			}
@@ -1118,6 +1118,14 @@ country_event = {
 					 custom_tooltip = cabinet_autoimall_dt
 			   }
 		 }
+		 if = {
+		       limit = { has_country_flag = cabinet_autofeg }
+			   custom_tooltip = cabinet_autofeg_dt
+		 }
+		 else_if = {
+				limit = { has_country_flag = cabinet_autofe }
+			   custom_tooltip = cabinet_autofen_dt
+		 }
 	}
     
 	option = { 
@@ -1359,13 +1367,6 @@ country_event = {
     
     is_triggered_only = yes
 	immediate = { #Display Current Settings
-	     if = {
-		       limit = { has_country_flag = cabinet_ep_state }
-			   custom_tooltip = cabinet_ep_state_dt
-		 }
-		 else = {
-		       custom_tooltip = cabinet_ep_territory_dt
-		 }
 		 if = {
 		       limit = { has_country_flag = cabinet_ep_primary }
 			   custom_tooltip = cabinet_ep_primary_dt
@@ -1500,13 +1501,7 @@ country_event = {
     
     is_triggered_only = yes
 	immediate = { #Display Current Settings
-	     if = {
-		       limit = { has_country_flag = cabinet_ep_state }
-			   custom_tooltip = cabinet_ep_state_dt
-		 }
-		 else = {
-		       custom_tooltip = cabinet_ep_territory_dt
-		 }
+
 		 if = {
 		       limit = { has_country_flag = cabinet_ep_primary }
 			   custom_tooltip = cabinet_ep_primary_dt
@@ -1521,25 +1516,31 @@ country_event = {
 		 }
 	}
 	option = {
-	       name = "cabinet.41.state"  #State Provinces Only
+	       name = "cabinet.41.incca"  #Increase CA limit by 10%
 		   trigger = {
-		          NOT = { has_country_flag = cabinet_ep_state }
+		          NOT = { check_variable = { which = cabinet_ca value = 100 } }
 		   }
-		   set_country_flag = cabinet_ep_state
-		   custom_tooltip = cabinet.statet
+		   custom_tooltip = cabinet.incca_tt
 		   hidden_effect = {
+		        change_variable = { which = cabinet_ca value = 10 }
+				every_owned_province = { #Update to all provinces
+					set_variable = { which = cabinet_ca which = owner }
+				}
 		        country_event = { id = cabinet.4 }
 		   }
 	}
 	
 	option = {
-	       name = "cabinet.41.territory"  #Territory Allowed
+	       name = "cabinet.41.decca"  #Decrease CA limit by 10%
 		   trigger = {
-		          has_country_flag = cabinet_ep_state
+		          check_variable = { which = cabinet_ca value = 10 }
 		   }
-		   clr_country_flag = cabinet_ep_state
-		   custom_tooltip = cabinet.territoryt
+		   custom_tooltip = cabinet.decca_tt
 		   hidden_effect = {
+		        subtract_variable = { which = cabinet_ca value = 10 }
+				every_owned_province = { #Update to all provinces
+					set_variable = { which = cabinet_ca which = owner }
+				}
 		        country_event = { id = cabinet.4 }
 		   }
 	}

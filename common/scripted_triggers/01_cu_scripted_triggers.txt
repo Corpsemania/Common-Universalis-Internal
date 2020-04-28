@@ -100,11 +100,7 @@ cu_west_africa_company_region = {
 
 
 cu_eligible_cabinet_province = {
-	OR = {
-		cu_not_terr_trigger = yes
-		owner = { NOT = { has_country_flag = cabinet_ep_state } }
-		has_province_modifier = cu_province_highlight
-	}
+	check_variable = { which = p_ca which = cabinet_ca }
 	OR = {
 		has_province_modifier = cu_province_highlight
 		has_owner_culture = yes

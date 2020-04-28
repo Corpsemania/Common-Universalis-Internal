@@ -13,7 +13,7 @@ historical_idea_groups = {
 	innovativeness_ideas #ADM
 	expansion_ideas #DIP
 	administrative_ideas #ADM
-	trade_ideas #DIP
+	diplomatic_ideas #DIP
 	quality_ideas #MIL
 	constitution_ideas #ADM
 	quantity_ideas #MIL

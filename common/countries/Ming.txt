@@ -13,8 +13,8 @@ historical_idea_groups = {
 	spy_ideas #DIP
 	defensive_ideas #MIL
 	administrative_ideas #ADM
+	culture_ideas #DIP
 	quantity_ideas #MIL
-	trade_ideas #DIP
 	economic_ideas #ADM
 	quality_ideas #MIL
 	reform_ideas #ADM
