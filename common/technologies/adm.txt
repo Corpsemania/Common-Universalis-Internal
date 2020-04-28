@@ -28,6 +28,51 @@ technology = {
 	# Tech 1
 	year = 2390
 	production_efficiency	=	0.1
+	 
+	highlight = yes
+	remove_highlight = yes
+	move_capital_b = yes
+	second_capital_b = yes
+	remove_second_capital = yes
+	administration_way = yes
+	drainage = yes
+	sanitation = yes
+	reclaim_wasteland = yes
+	import_food = yes
+	c_import_food = yes
+	change_goods_minaral = yes
+	terrain_improvement = yes
+	cultural_assimilation = yes
+	c_cultural_assimilation = yes
+	inspection_tour = yes
+	benign_neglect_b = yes
+	language_education = yes
+	art_patronage = yes
+	art_festival = yes
+	minor_culture = yes
+	art_dest = yes
+	c_art_dest = yes
+	theatre = yes
+	salon = yes
+	museum = yes
+	immigration = yes
+	c_immigration = yes
+	claime_center = yes
+	upgrade_center = yes
+	change_goods_coffee = yes
+	change_goods_cotton = yes
+	change_goods_sugar = yes
+	change_goods_tobacco = yes
+	change_goods_cocoa = yes
+	change_goods_silk = yes
+	change_goods_spices = yes
+	change_goods_dyes = yes
+	change_goods_tea = yes
+	change_goods = yes
+	change_goods_industry = yes
+	art_transfer_gw = yes
+	art_transfer_mp = yes
+	art_transfer_nw = yes
 }
 
 technology = {
@@ -50,7 +95,7 @@ technology = {
 	year = 2440
 
 	production_efficiency	=	0.05
-    mill = yes
+    mill = yes	
 	may_support_rebels = yes
 }
 
