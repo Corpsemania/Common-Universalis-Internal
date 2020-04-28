@@ -212,7 +212,7 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_macro_buildings_category_strip"
 		texturefile = "gfx//interface//macro_buildings_category_strip.dds"
-		noOfFrames = 10
+		noOfFrames = 14
 	}
 	
 			spriteType = {

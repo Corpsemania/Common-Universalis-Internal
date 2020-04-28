@@ -167,6 +167,20 @@ on_startup = {
 				set_variable = { which = cabinet_ca which = owner }
 			}
 			cu_switch_hybrid_culture = yes
+			#Tusi Administration
+			if = {
+				limit = {
+					region = xinan_region
+					owner = { is_emperor_of_china = yes }
+					NOT = { has_owner_religion = yes }
+					NOT = { culture_group = east_asian }
+					NOT = { is_year = 1731 } #Tusi abolished
+				}
+				add_permanent_province_modifier = {
+					name = tusi_administration
+					duration = -1
+				}
+			}
 			#Indian Cast System
 				if = {
 				       limit = {

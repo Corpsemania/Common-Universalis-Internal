@@ -1724,6 +1724,225 @@ spriteTypes = {
 		name = "GFX_fort_southamericagfx"
 		texturefile = "gfx//interface//buildings//southamerica_fort.tga"
 		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_highlight"
+		texturefile = "gfx//interface//buildings//edict_administrative.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_remove_highlight"
+		texturefile = "gfx//interface//buildings//edict_administrative.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_move_capital_b"
+		texturefile = "gfx//interface//buildings//edict_administrative.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_second_capital_b"
+		texturefile = "gfx//interface//buildings//edict_administrative.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_remove_second_capital"
+		texturefile = "gfx//interface//buildings//edict_administrative.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_administration_way"
+		texturefile = "gfx//interface//buildings//edict_administrative.dds"
+		loadType = "INGAME"
 	}	
-
+	spriteType = {
+		name = "GFX_drainage"
+		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_sanitation"
+		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_reclaim_wasteland"
+		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_import_food"
+		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_c_import_food"
+		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_change_goods_minaral"
+		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_terrain_improvement"
+		texturefile = "gfx//interface//buildings//edict_terrain_improvement.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_cultural_assimilation"
+		texturefile = "gfx//interface//buildings//edict_cultural.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_c_cultural_assimilation"
+		texturefile = "gfx//interface//buildings//edict_cultural.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_inspection_tour"
+		texturefile = "gfx//interface//buildings//edict_administrative.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_benign_neglect_b"
+		texturefile = "gfx//interface//buildings//edict_cultural.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_language_education"
+		texturefile = "gfx//interface//buildings//edict_cultural.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_art_patronage"
+		texturefile = "gfx//interface//buildings//edict_art.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_art_festival"
+		texturefile = "gfx//interface//buildings//edict_art.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_minor_culture"
+		texturefile = "gfx//interface//buildings//edict_cultural.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_art_dest"
+		texturefile = "gfx//interface//buildings//edict_art.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_c_art_dest"
+		texturefile = "gfx//interface//buildings//edict_art.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_art_transfer_gw"
+		texturefile = "gfx//interface//buildings//edict_art.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_art_transfer_mp"
+		texturefile = "gfx//interface//buildings//edict_art.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_art_transfer_nw"
+		texturefile = "gfx//interface//buildings//edict_art.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_theatre"
+		texturefile = "gfx//interface//buildings//theatre.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_salon"
+		texturefile = "gfx//interface//buildings//salon.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_museum"
+		texturefile = "gfx//interface//buildings//museum.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_immigration"
+		texturefile = "gfx//interface//buildings//edict_reclaim_wasteland.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_c_immigration"
+		texturefile = "gfx//interface//buildings//edict_cultural.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_claime_center"
+		texturefile = "gfx//interface//buildings//edict_cot.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_upgrade_center"
+		texturefile = "gfx//interface//buildings//edict_cot.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_change_goods_coffee"
+		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_change_goods_cotton"
+		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_change_goods_sugar"
+		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_change_goods_tobacco"
+		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_change_goods_cocoa"
+		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_change_goods_silk"
+		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_change_goods_spices"
+		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_change_goods_dyes"
+		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_change_goods_tea"
+		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_change_goods"
+		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_change_goods_industry"
+		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		loadType = "INGAME"
+	}
 }

@@ -958,3 +958,9 @@ seven_grievance_mod = {
 	land_morale = 0.15
 	shock_damage = 0.1
 }
+
+tusi_administration = {
+	local_unrest = -4
+	local_autonomy = 0.05
+	local_state_maintenance_modifier = -0.2
+}

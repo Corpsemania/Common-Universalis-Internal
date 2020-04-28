@@ -1175,7 +1175,44 @@ country_decisions = {
 			factor = 1
 		}			
 	}
-	
+	abolish_tusi_system = {
+		potential = {
+				any_owned_province = {
+					has_province_modifier = tusi_administration
+				}
+		}
+		allow = {
+				absolutism = 70
+				adm_power = 20
+				dip_power = 20
+		}
+		effect = {
+			custom_tooltip = abolish_tusi_system_tt
+			hidden_effect = {
+				while = {
+					limit = {
+						adm_power = 20
+						dip_power = 20
+					}
+					random_owned_province = {
+						limit = { has_province_modifier = tusi_administration }
+						remove_province_modifier = tusi_administration
+						add_unrest = 8
+					}
+					add_adm_power = -20
+					add_dip_power = -20
+				}
+			}
+			
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				factor = 0
+				check_variable = { which = go value = 110 } #Not enough GC to rule these provinces.
+			}
+		}
+	}
 	hold_keju_examination = {
 		potential = {
                 OR = {

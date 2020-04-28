@@ -1,0 +1,2577 @@
+highlight = {
+	cost = 0.1
+	time = 0
+	trigger = {		
+		owner = { ai = no }
+		NOT = { has_province_modifier = cu_province_highlight }
+		is_territory = no		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {	    
+		add_province_modifier = {
+			name =  cu_province_highlight
+			duration = -1
+		} 	     
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+remove_highlight = {
+	cost = 0.1
+	time = 0
+	trigger = {		
+		owner = { ai = no }
+		has_province_modifier = cu_province_highlight
+		is_territory = no		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {	    
+		remove_province_modifier = cu_province_highlight 	     
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+move_capital_b = {
+	cost = 0.1
+	time = 0
+	trigger = {	
+		owner = { 
+			ai = no 
+			adm_power = 200 
+		}
+		is_state_core = owner
+		cu_not_terr_trigger = yes
+		is_capital = no
+		is_territory = no		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {	    
+		add_adm_power = -200
+		set_capital = ROOT 
+		hidden_effect = { 
+			if = {
+				limit = { has_province_modifier = second_capital }
+				remove_province_modifier = second_capital
+				clr_province_flag = second_capital_f
+				owner = { clr_country_flag = has_a_second_capital }
+			}
+			owner = { cu_calc_country_absolute_dist = yes } 
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+second_capital_b = {
+	cost = 0.1
+	time = 0
+	trigger = {
+		owner = { 
+			ai = no 
+			NOT = { has_country_flag = has_a_second_capital } 
+		}
+		is_capital = no		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {	    
+		add_province_modifier = {
+			name = second_capital
+			duration = -1
+		}
+		set_province_flag = second_capital_f
+		owner = {
+			hidden_effect = { 
+				set_variable = { which = cu_power value = 80 } 
+				cu_calc_power_cost = yes
+				cu_subtract_adm_power = yes
+				set_country_flag = has_a_second_capital
+				cu_calc_country_absolute_dist = yes 
+			}
+		}		 	     
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+remove_second_capital = {
+	cost = 0.1
+	time = 0
+	trigger = {
+		owner = { 
+			ai = no 
+			has_country_flag = has_a_second_capital
+		}
+		has_province_flag = second_capital_f		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {	    
+		clr_province_flag = second_capital_f
+		remove_province_modifier = second_capital
+		owner = {
+			hidden_effect = { 
+				set_variable = { which = cu_power value = 80 } 
+				cu_calc_power_cost = yes
+				cu_subtract_adm_power = yes
+				clr_country_flag = has_a_second_capital
+				cu_calc_country_absolute_dist = yes 
+			}
+		}		 	     
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+administration_way = {
+	cost = 0.1
+	time = 0
+	trigger = {
+		owner = { ai = no }
+		has_province_modifier = cu_local_autonomy_administration
+		NOT = { owner = { has_country_flag = cu_core_event_fired } }		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {	    
+		hidden_effect = { remove_province_modifier = cu_local_autonomy_administration }
+		set_province_flag = cu_newly_conquered_province
+		province_event = { id = core.1 }		 	     
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+drainage = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		improve_drainage_trigger = yes
+		NOT = { has_province_modifier = cu_improve_drainage }		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {
+					NOT = {	owner = { treasury = 1 } }
+					NOT = {	owner = { adm_power = 1 } }
+				}				
+			}
+		}
+		else = { improve_drainage_effect = yes }		 	     
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+sanitation = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		improve_sanitation_trigger = yes 
+	    NOT = { has_province_modifier = cu_improve_sanitation }		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {
+					NOT = {	owner = { treasury = 1 } }
+					NOT = {	owner = { adm_power = 1 } }
+				}				
+			}
+		}
+		else = { improve_sanitation_effect = yes }		 	     
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+reclaim_wasteland = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		reclaim_wasteland_trigger = yes
+		NOT = { has_province_modifier = ti_military_cultivation }
+	    NOT = { has_province_modifier = ti_mc_done } 		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {
+					NOT = {	owner = { treasury = 1 } }
+					NOT = {	owner = { mil_power = 1 } }
+					NOT = {	owner = { manpower = 1 } }
+				}				
+			}
+		}
+		else = {		
+			owner = {
+				add_manpower = -2
+				add_treasury = -40
+				hidden_effect = { 
+					set_variable = { which = cu_power value = 80 } 
+					cu_calc_power_cost = yes
+					cu_subtract_mil_power = yes
+				}
+			}		
+			add_province_modifier = {
+				name = ti_military_cultivation
+				duration = -1
+			}
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+import_food = {
+	cost = 0.1
+	time = 0
+	trigger = {
+		owner = { ai = no }
+		development = 20
+		cu_not_terr_trigger = yes
+		NOT = { check_variable = { which = food_sur value = 4 } }
+		NOT = { has_province_modifier = import_food }
+		any_neighbor_province = {
+			owned_by = ROOT
+			check_variable = { which = food_sur value = 5 }
+			NOT = { has_province_modifier = export_food }
+		} 		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {	    
+		add_province_modifier = {
+			name = import_food 
+			duration = -1
+		}		
+		random_neighbor_province = {
+			limit = {
+				owned_by = ROOT
+				check_variable = { which = food_sur value = 5 }
+				NOT = { has_province_modifier = export_food }
+			}
+			add_province_modifier = {
+				name = export_food 
+				duration = -1
+			}
+			set_province_flag = food_to@ROOT 
+			ROOT = {
+				set_province_flag = food_from@PREV
+			}			
+		}
+		owner = { hidden_effect = { set_variable = { which = cu_power value = 0 } } }		 	     
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+c_import_food = {
+	cost = 0.1
+	time = 0
+	trigger = {
+		owner = { ai = no }
+		has_province_modifier = import_food		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {	    
+		remove_province_modifier = import_food 
+		random_neighbor_province = {
+			limit = {
+			   has_province_modifier = export_food
+			   has_province_flag = food_to@ROOT
+			}
+			remove_province_modifier = export_food 
+			clr_province_flag = food_to@ROOT
+			ROOT = {
+				clr_province_flag = food_from@PREV
+			}
+		}		
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+terrain_improvement = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		OR = {
+			AND = {
+				development = 9
+				owner = { 
+					treasury = 75
+					adm_power = 15
+					adm_tech = 9
+				}
+				has_terrain = forest
+				NOT = { has_province_modifier = ti_forest }
+				NOT = { has_province_modifier = ti_forest_done }
+			}
+			AND = {
+				development = 9
+				owner = { 
+					adm_power = 15
+					treasury = 100
+					adm_tech = 16
+				}
+				has_terrain = jungle
+				NOT = { has_province_modifier = ti_jungle }
+				NOT = { has_province_modifier = ti_jungle_done }
+			}
+			AND = {
+				development = 9
+				owner = { 
+					adm_tech = 9
+					treasury = 75
+					adm_power = 15
+				}
+				has_terrain = woods
+				NOT = { has_province_modifier = ti_woods }
+				NOT = { has_province_modifier = ti_woods_done }
+			}
+			AND = {
+				development = 9
+				owner = { 
+					treasury = 120
+					adm_tech = 13
+					adm_power = 22
+				}
+				has_terrain = marsh
+				NOT = { has_province_modifier = ti_marsh }
+				NOT = { has_province_modifier = ti_marsh_done }
+				NOT = { has_province_modifier = holland_polders }
+			}
+			AND = {
+				base_manpower = 4
+				owner = { 
+					treasury = 100
+					OR = {
+						adm_tech = 6
+						technology_group = chinese
+					}
+					adm_power = 22
+				}
+				OR = {
+					base_manpower = 10
+					has_province_modifier = river_estuary_modifier
+					any_neighbor_province = {
+						OR = {
+							has_province_modifier = ti_irragation_done
+							has_terrain = mountain
+							has_terrain = impassable_mountains
+							has_terrain = glacier
+							has_terrain = farmlands
+							has_terrain = marsh
+							has_river_estuary_trigger = yes
+						}
+					}
+				}
+				OR = {
+					has_terrain = drylands
+					has_terrain = coastline                        
+					has_terrain = savannah
+					has_terrain = grasslands
+					has_terrain = highlands	 
+					has_terrain = desert
+					has_terrain = coastal_desert		  
+					AND = {
+						has_terrain = steppe
+						owner = { NOT = { has_reform = steppe_horde } }
+					}
+				}			
+				NOT = { has_province_modifier = ti_irragation }
+				NOT = { has_province_modifier = ti_irragation_done }
+			}
+			AND = {
+				base_manpower = 4
+				OR = {
+					owner = { adm_tech = 3 }
+					owner = { technology_group = andean }
+				}
+				owner = { 
+					treasury = 100
+					adm_power = 22
+				}			
+				OR = {
+					has_terrain = hills
+					has_terrain = mountain
+				}
+				NOT = { has_province_modifier = ti_terrace }
+				NOT = { has_province_modifier = ti_terrace_done }
+			}
+		}	
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {
+					NOT = {	owner = { treasury = 1 } }
+					NOT = {	owner = { adm_power = 1 } }					
+				}				
+			}
+		}
+		else_if = {
+			limit = { has_terrain = forest }
+			owner = { add_treasury = -75 }
+			hidden_effect = {
+				owner = {
+					set_variable = { which = cu_power value = 70 }
+					cu_calc_power_cost = yes
+					cu_subtract_adm_power = yes
+				}
+			}			
+			add_province_modifier = {
+				name = ti_forest
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = { has_terrain = jungle }
+			owner = { add_treasury = -100 }
+			hidden_effect = {
+				owner = {
+					set_variable = { which = cu_power value = 70 }
+					cu_calc_power_cost = yes
+					cu_subtract_adm_power = yes
+				}
+			}			
+			add_province_modifier = {
+				name = ti_jungle
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = { has_terrain = woods }
+			owner = { add_treasury = -75 }
+			hidden_effect = {
+				owner = {
+					set_variable = { which = cu_power value = 70 }
+					cu_calc_power_cost = yes
+					cu_subtract_adm_power = yes
+				}
+			}			
+			add_province_modifier = {
+				name = ti_woods
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = { has_terrain = marsh }
+			owner = { add_treasury = -120 }
+			hidden_effect = {
+				owner = {
+					set_variable = { which = cu_power value = 80 }
+					cu_calc_power_cost = yes
+					cu_subtract_adm_power = yes
+				}
+			}			
+			add_province_modifier = {
+				name = ti_marsh
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = { 
+				OR = {
+					has_terrain = drylands
+					has_terrain = coastline                        
+					has_terrain = savannah
+					has_terrain = grasslands
+					has_terrain = highlands	 
+					has_terrain = desert
+					has_terrain = coastal_desert 
+					has_terrain = steppe 
+				}	
+			}
+			owner = { add_treasury = -100 }
+			hidden_effect = {
+				owner = {
+					set_variable = { which = cu_power value = 80 }
+					cu_calc_power_cost = yes
+					cu_subtract_adm_power = yes
+				}
+			}			
+			add_province_modifier = {
+				name = ti_irragation
+				duration = -1
+			}
+		}
+		else_if = {
+			limit = { 
+				OR = {
+					has_terrain = hills
+					has_terrain = mountain
+				} 
+			}
+			owner = { add_treasury = -100 }
+			hidden_effect = {
+				owner = {
+					set_variable = { which = cu_power value = 80 }
+					cu_calc_power_cost = yes
+					cu_subtract_adm_power = yes
+				}
+			}
+			add_province_modifier = {
+				name = ti_terrace
+				duration = -1
+			}
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+cultural_assimilation = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		NOT = { has_province_modifier = cu_cultural_assimilation }
+		check_variable = { which = p_ca value = 70 }
+		has_owner_culture = no
+		is_core = owner
+		NOT = { nationalism = 1 }
+        owner = {
+			prestige = 10
+			dip_power = 50
+		}		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {
+					NOT = {	owner = { prestige = 1 } }
+					NOT = {	owner = { dip_power = 1 } }					
+				}				
+			}			
+		}
+		else = { 
+			hidden_effect = {
+				owner = {
+					export_to_variable = {
+						which = cu_power
+						value = development
+						who = ROOT
+					}
+					if = {
+						limit = { check_variable = { which = cu_power value = 41 } }
+						set_variable = { which = cu_power which = 40 }
+					}
+					set_variable = { which = cu_prestige which = cu_power }
+					multiply_variable = { which = cu_prestige value = 0.33 }
+					multiply_variable = { which = cu_power value = 5 }
+					cu_calc_power_cost_culture = yes
+					cu_subtract_dip_power = yes
+					cu_subtract_prestige = yes
+				}
+			}			
+			add_province_modifier = {
+				name = cu_cultural_assimilation
+				duration = -1
+			}			
+			set_province_flag = cu_display_mode
+			hidden_effect = {
+				cu_cultural_assimilation_growth = yes
+			} 
+		}		 	     
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+c_cultural_assimilation = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		has_province_modifier = cu_cultural_assimilation		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		remove_province_modifier = cu_cultural_assimilation		
+		hidden_effect = {
+			owner = {
+				set_variable = { which = cu_power value = 0 }
+				set_variable = { which = cu_prestige value = 0 }
+			}
+		}		 	     
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+inspection_tour = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		NOT = { owner = { has_country_modifier = inspection_tour } }
+		is_core = owner
+		cu_not_terr_trigger = yes
+		is_capital = no
+		owner = {
+			capital_scope = {
+				NOT = { area = ROOT }
+			}
+			adm_power = 15
+			OR = {
+				adm_tech = 10
+				full_idea_group = administrative_ideas
+				has_reform = celestial_empire
+				has_reform = celestial_empire_2
+			}
+		}		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {
+					NOT = {	owner = { prestige = 1 } }
+					NOT = {	owner = { adm_power = 1 } }					
+				}				
+			}
+		}
+		else = {
+			owner = {
+				hidden_effect = { 
+					set_variable = { which = cu_power value = 60 } 
+					cu_calc_power_cost = yes
+					cu_subtract_adm_power = yes
+					set_variable = { which = cu_prestige value = 0 } 
+				}
+				add_country_modifier = {
+					name = inspection_tour 
+					duration = 1825
+				}				  
+			}
+			area = {
+				limit = { 
+					owned_by = ROOT 
+					is_core = owner							 
+				}
+				add_province_modifier = {
+					name = inspection_tour_local
+					duration = 1825
+				}
+			}
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+benign_neglect_b = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		NOT = { has_province_modifier = cu_benign_neglect }
+		is_core = owner
+		cu_not_terr_trigger = yes
+		owner = {
+			economic_ideas = 6
+			adm_power = 12
+		}		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {
+					NOT = {	owner = { prestige = 1 } }
+					NOT = {	owner = { adm_power = 1 } }						
+				}				
+			}
+		}
+		else = {
+			owner = {
+				hidden_effect = { 
+					set_variable = { which = cu_power value = 60 }
+					cu_calc_power_cost = yes
+					cu_subtract_adm_power = yes
+					set_variable = { which = cu_prestige value = 0 }
+				}
+			}
+			area = {
+				limit = { 
+					NOT = { has_province_modifier = cu_benign_neglect } 
+					owned_by = ROOT 
+					is_core = owner	
+					cu_not_terr_trigger = yes 		  
+				}
+				add_province_modifier = {
+					name = cu_benign_neglect
+					duration = 7300
+				}
+				set_province_flag = cu_benign_neglect_prov			
+			}
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+language_education = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		NOT = { has_province_modifier = cu_language_education }
+		NOT = { has_owner_culture = yes }
+		is_core = owner
+		cu_not_terr_trigger = yes
+		OR = {
+			has_building = university
+			has_building = public_school
+		}
+		owner = {
+			adm_power = 8
+			dip_power = 8
+			prestige = 6
+		}		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		owner = {
+			hidden_effect = { 
+				set_variable = { which = cu_power value = 60 }
+				cu_calc_power_cost = yes
+				cu_subtract_adm_power = yes
+				set_variable = { which = cu_power value = 60 }
+				cu_calc_power_cost = yes
+				cu_subtract_dip_power = yes
+				set_variable = { which = cu_prestige value = 6 }
+				cu_subtract_prestige = yes
+			}
+		}		
+		add_province_modifier = {
+		     name = cu_language_education
+			 duration = 7300
+		}			 	     
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+immigration = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		NOT = { development = 15 }
+		has_owner_culture = no
+		check_variable = { which = r_ac value = 2 }
+		OR = {
+			cu_not_terr_trigger = yes
+			is_overseas = no
+		}
+		is_core = owner
+		NOT = { has_province_modifier = cu_immigration }
+		owner = {
+			mil_power = 22
+			manpower_percentage = 0.5
+			any_owned_province = {
+				has_owner_culture = yes
+				OR = {
+					cu_not_terr_trigger = yes
+					is_overseas = no
+				}
+				base_manpower = 2
+				check_variable = { which = food_sur value = 6 }
+			}
+		} 		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {					
+					NOT = {	owner = { mil_power = 1 } }
+					NOT = {	owner = { manpower = 1 } }
+				}				
+			}
+		}
+		else = {		
+			owner = { 
+				hidden_effect = { 
+					set_variable = { which = cu_power value = 40 }
+					cu_calc_power_cost = yes
+					cu_subtract_mil_power = yes
+				}
+				add_manpower = -2 
+				}
+			add_province_modifier = {
+				name = cu_immigration
+				duration = -1
+			}
+			hidden_effect = {
+				if = {
+					limit = { NOT = { check_variable = { which = p_as value = 0.01 } } }
+					set_variable = { which = p_as value = 0 }
+					cu_check_cultural_assimilation = yes
+				}	
+			}
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+c_immigration = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		has_province_modifier = cu_immigration		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		remove_province_modifier = cu_immigration
+		owner = { 
+			hidden_effect = { 
+				set_variable = { which = cu_power value = 0 }
+			}
+		}		 	     
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+art_patronage = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		is_core = owner
+		cu_not_terr_trigger = yes
+		owner = {
+			prestige = 5
+			treasury = 60
+			dip_power = 8
+		}
+        NOT = { has_province_modifier = cu_art_patronage }		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {
+					NOT = {	owner = { prestige = 1 } }
+					NOT = {	owner = { adm_power = 1 } }						
+				}				
+			}
+		}
+		else = {
+			owner = {
+				add_prestige = -5
+				add_treasury = -60
+				hidden_effect = { 
+					set_variable = { which = cu_power value = 60 }
+					cu_calc_power_cost = yes
+					cu_subtract_dip_power = yes
+				}
+			}
+			area = {
+				limit = { 
+					owned_by = ROOT 
+					is_core = owner	
+					cu_not_terr_trigger = yes
+					NOT = { has_province_modifier = cu_art_patronage }							 
+				}
+				if = {
+					limit = { NOT = { owner = { innovativeness_ideas = 1 } } }
+					add_province_modifier = {
+						name = cu_art_patronage
+						duration = 7300
+					}
+				}
+				else = {
+					add_province_modifier = {
+						name = cu_art_patronage
+						duration = 10950
+					}
+				}			
+			}
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+art_festival = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		check_variable = { which = art_power value = 10 }
+		NOT = { has_province_modifier = cu_art_festival }
+		owner = {
+			dip_power = 33
+			treasury = 100
+		}		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		owner = {
+			hidden_effect = { 
+				set_variable = { which = cu_power value = 120 } 			
+			    cu_calc_power_cost = yes
+			    cu_subtract_dip_power = yes
+			}
+			add_treasury = -100
+		}
+		add_province_modifier = {
+			name = cu_art_festival
+			duration = 3650
+		}		
+		if = {
+			limit = { check_variable = { which = art_power value = 100 } }
+			owner = { add_prestige = 10 }
+		}
+		else_if = {
+			limit = { check_variable = { which = art_power value = 90 } }
+			owner = { add_prestige = 9 }
+		}
+		else_if = {
+			limit = { check_variable = { which = art_power value = 80 } }
+			owner = { add_prestige = 8 }
+		}
+		else_if = {
+			limit = { check_variable = { which = art_power value = 70 } }
+			owner = { add_prestige = 7 }
+		}
+		else_if = {
+			limit = { check_variable = { which = art_power value = 60 } }
+			owner = { add_prestige = 6 }
+		}
+		else_if = {
+			limit = { check_variable = { which = art_power value = 50 } }
+			owner = { add_prestige = 5 }
+		}
+		else_if = {
+			limit = { check_variable = { which = art_power value = 40 } }
+			owner = { add_prestige = 4 }
+		}
+		else_if = {
+			limit = { check_variable = { which = art_power value = 30 } }
+			owner = { add_prestige = 3 }
+		}
+		else_if = {
+			limit = { check_variable = { which = art_power value = 20 } }
+			owner = { add_prestige = 2 }
+		}
+		else = {
+			owner = { add_prestige = 1 }
+		}		 	     
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+minor_culture = {
+	cost = 0.1
+	time = 0
+	trigger = {
+		owner = { ai = no }
+		owner = {
+			NOT = { has_country_modifier = cu_minor_culture_understanding }
+			dip_power = 36
+			humanist_ideas = 6
+			prestige = 15
+		}
+		OR = {
+			has_owner_accepted_culture = yes
+			AND = {
+				NOT = { has_owner_culture = yes }
+				owner = { culture_group = PREV }
+			}
+		}		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		owner = {
+			hidden_effect = { 
+				set_variable = { which = cu_power value = 120 } 
+				cu_calc_power_cost = yes
+				cu_subtract_dip_power = yes
+			}
+			add_prestige = -15
+		}		
+		hidden_effect = {
+			owner = {
+				every_owned_province = { remove_province_modifier = cu_culture_understanding }
+				every_owned_province = {
+					limit = { culture = ROOT }
+					add_province_modifier = {
+						name = cu_culture_understanding
+						duration = 7300
+					}
+				}
+				add_country_modifier = {
+					name = cu_minor_culture_understanding
+					duration = 7300
+				}
+			}						   
+		}		 	     
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+art_dest = {
+	cost = 0.1
+	time = 0
+	trigger = {
+		owner = { ai = no }
+		check_variable = { which = cu_art_slot value = 1 }
+		NOT = { has_province_flag = art_transfer_dest }
+		NOT = { owner = { has_country_flag = art_transfer_ing } }
+		controlled_by = owner		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		hidden_effect = {
+			owner = { #Clear former destination flag
+				every_owned_province = {
+					limit = { has_province_flag = art_transfer_dest }
+					clr_province_flag = art_transfer_dest
+				}
+			}
+		}
+        set_province_flag = art_transfer_dest		 	     
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+c_art_dest = {
+	cost = 0.1
+	time = 0
+	trigger = {
+		owner = { ai = no }
+		has_province_flag = art_transfer_dest
+		NOT = { owner = { has_country_flag = art_transfer_ing } }		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		clr_province_flag = art_transfer_dest		 	     
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+change_goods_minaral = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		NOT = { has_province_flag = cu_change_minaral_flag }
+		NOT = { has_province_flag = cu_no_minaral_flag }
+		NOT = { has_province_modifier = unexploited_copper_mine }
+		NOT = { has_province_modifier = unexploited_iron_mine }
+		NOT = { has_province_modifier = unexploited_gold_mine }
+		OR = {
+			has_terrain = hills
+			has_terrain = mountain
+			NOT = { 
+				base_production = 6
+			} 
+		}
+		owner = { 
+			mil_power = 75
+			treasury = 150
+		}		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {					
+					NOT = {	owner = { mil_power = 1 } }
+					NOT = {	owner = { manpower = 1 } }
+					NOT = {	owner = { treasury = 1 } }
+				}				
+			}
+		}
+		else = {
+			set_province_flag = cu_change_minaral_flag		
+			add_province_modifier = {
+				name = cu_dig_for_minerals
+				duration = -1
+			}
+			owner = {
+				hidden_effect = {
+					set_variable = { which = cu_power value = 150 }
+					cu_calc_power_cost = yes
+					cu_subtract_mil_power = yes				
+				}	
+				add_manpower = -3
+				add_treasury = -150
+			}		
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+claime_center = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		owner = { 
+			dip_power = 20
+			trade_ideas = 7
+		}
+		province_has_center_of_trade_of_level = 1
+		NOT = { has_province_modifier = claimed_center_of_trade }		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {									
+				NOT = {	owner = { dip_power = 1 } }		
+			}
+		}
+		else = {		
+			owner = { 
+				hidden_effect = { 
+					set_variable = { which = cu_power value = 40 }
+					cu_calc_power_cost = yes
+					cu_subtract_dip_power = yes
+				}				 
+			}
+			add_province_modifier = {
+				name = claimed_center_of_trade
+				duration = 3650
+			}			
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+upgrade_center = {
+	cost = 0.1
+	time = 0
+	trigger = {
+		owner = { ai = no }
+		is_core = owner
+		OR = {
+			AND = {
+				OR = {
+					AND = {
+						base_tax = 2
+						has_province_modifier = claimed_center_of_trade
+					}
+					base_tax = 5
+				}
+				province_has_center_of_trade_of_level = 1
+				NOT = {	province_has_center_of_trade_of_level = 2 }
+				owner = {
+					dip_power = 50
+					treasury = 500
+				}
+			}
+			AND = {
+				OR = {
+					AND = {
+						base_tax = 10
+						has_province_modifier = claimed_center_of_trade
+					}
+					base_tax = 16
+				}
+				province_has_center_of_trade_of_level = 2
+				NOT = {	province_has_center_of_trade_of_level = 3 }
+				owner = {
+					dip_power = 200
+					treasury = 2000
+				}
+				is_institution_enabled = global_trade
+			}
+		}	
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {
+					NOT = {	owner = { dip_power = 1 } }
+					NOT = {	owner = { treasury = 1 } }
+				}	
+			}
+		}
+		else_if = {		
+			province_has_center_of_trade_of_level = 1
+			NOT = {	province_has_center_of_trade_of_level = 2 }
+			owner = {				 
+				hidden_effect = { 
+					set_variable = { which = cu_power value = 50 }
+					cu_calc_power_cost = yes
+					cu_subtract_dip_power = yes
+				}
+				add_treasury = -500
+			}
+			add_center_of_trade_level = 1	
+		}
+		else_if = {		
+			province_has_center_of_trade_of_level = 2
+			NOT = {	province_has_center_of_trade_of_level = 3 }
+			owner = {				 
+				hidden_effect = { 
+					set_variable = { which = cu_power value = 200 }
+					cu_calc_power_cost = yes
+					cu_subtract_dip_power = yes
+				}
+				add_treasury = -2000
+			}
+			add_center_of_trade_level = 1	
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+theatre = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		development = 10
+		owner = {
+			prestige = 5
+			treasury = 80
+			dip_power = 30
+		}
+		NOT = { check_variable = { which = cu_theatre value = 1 } }		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {
+					NOT = {	owner = { treasury = 1 } }
+					NOT = {	owner = { dip_power = 1 } }
+					NOT = {	owner = { prestige = 1 } }					
+				}				
+			}			
+		}
+		else = {
+			owner = {
+				add_prestige = -5
+				add_treasury = -80
+				hidden_effect = { 
+					set_variable = { which = cu_power value = 90 } 
+					cu_calc_power_cost = yes
+					cu_subtract_dip_power = yes
+				}
+			}
+			hidden_effect = {
+				set_variable = { which = cu_theatre value = 1 } 
+				change_variable = { which = cu_art_slot value = 1 }
+				cu_calc_cultural_power_effect = yes
+			}
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+salon = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		NOT = { check_variable = { which = cu_salon value = 1 } }
+		development = 15
+		check_variable = { which = literacy value = 4 }
+		owner = {
+			prestige = 8
+			treasury = 150
+			OR = {
+				capital_scope = { continent = europe }
+				dip_tech = 5
+			}
+			dip_power = 30
+		}		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {
+					NOT = {	owner = { treasury = 1 } }
+					NOT = {	owner = { dip_power = 1 } }
+					NOT = {	owner = { prestige = 1 } }					
+				}				
+			}
+		}
+		else = {
+			owner = {
+				add_prestige = -8
+				add_treasury = -150
+				hidden_effect = { 
+					set_variable = { which = cu_power value = 90 }
+					cu_calc_power_cost = yes
+					cu_subtract_dip_power = yes
+				}
+			}
+			hidden_effect = {
+				set_variable = { which = cu_salon value = 1 } 
+				cu_calc_cultural_power_effect = yes
+			}
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+museum = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		OR = {
+			AND = {
+				NOT = { check_variable = { which = cu_museum_level value = 2 } } 
+				development = 15
+				owner = {
+					treasury = 90
+					dip_power = 22
+				}
+			}
+			AND = {
+				NOT = { check_variable = { which = cu_museum_level value = 3 } } 
+				development = 20
+				owner = {
+					   treasury = 150
+					dip_power = 30
+				}
+			}
+			AND = {
+				NOT = { check_variable = { which = cu_museum_level value = 4 } } 
+				development = 25
+				owner = {
+					   treasury = 300
+					dip_power = 30
+				}
+			}
+			AND = {
+				NOT = { check_variable = { which = cu_museum_level value = 5 } } 
+				development = 30
+				owner = {
+					treasury = 450
+					dip_power = 30
+				}
+			}
+			AND = {
+				NOT = { check_variable = { which = cu_museum_level value = 6 } } 
+				development = 35
+				owner = {
+					   treasury = 600
+					dip_power = 30
+				}
+			}
+			AND = {
+				NOT = { check_variable = { which = cu_museum_level value = 7 } } 
+				development = 40
+				owner = {
+					treasury = 800
+					dip_power = 30
+				}
+			}
+		}
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {					
+					NOT = {	owner = { dip_power = 1 } }
+					NOT = {	owner = { treasury = 1 } }					
+				}				
+			}
+		}
+		else_if = {
+			limit = { NOT = { check_variable = { which = cu_museum_level value = 2 } } }							
+			owner = {
+				add_treasury = -90
+				hidden_effect = { 
+					set_variable = { which = cu_power value = 80 }
+					cu_calc_power_cost = yes
+					cu_subtract_dip_power = yes
+				}
+			}			
+		}
+		else_if = {
+			limit = { NOT = { check_variable = { which = cu_museum_level value = 3 } } }							
+			owner = {
+				add_treasury = -150
+				hidden_effect = { 
+					set_variable = { which = cu_power value = 60 }
+					cu_calc_power_cost = yes
+					cu_subtract_dip_power = yes
+				}
+			}			
+		}
+		else_if = {
+			limit = { NOT = { check_variable = { which = cu_museum_level value = 4 } } }							
+			owner = {
+				add_treasury = -300
+				hidden_effect = {
+					set_variable = { which = cu_power value = 70 }
+					cu_calc_power_cost = yes
+					cu_subtract_dip_power = yes
+				}
+			}			
+		}
+		else_if = {
+			limit = { NOT = { check_variable = { which = cu_museum_level value = 5 } } }							
+			owner = {
+				add_treasury = -450
+				hidden_effect = { 
+					set_variable = { which = cu_power value = 80 }
+					cu_calc_power_cost = yes
+					cu_subtract_dip_power = yes
+				}
+			}			
+		}
+		else_if = {
+			limit = { NOT = { check_variable = { which = cu_museum_level value = 6 } } }							
+			owner = {
+				add_treasury = -600
+				hidden_effect = { 
+					set_variable = { which = cu_power value = 90 }
+					cu_calc_power_cost = yes
+					cu_subtract_dip_power = yes
+				}
+			}			
+		}
+		else = {						
+			owner = {
+				add_treasury = -800
+				hidden_effect = { 
+					set_variable = { which = cu_power value = 100 } 
+					cu_calc_power_cost = yes
+					cu_subtract_dip_power = yes
+				}
+			}			
+		}
+		hidden_effect = {
+			change_variable = { which = cu_museum_level value = 1 }
+			change_variable = { which = cu_art_slot value = 2 }
+			cu_calc_cultural_power_effect = yes
+		}
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+change_goods_coffee = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		new_world_i = 100
+		cu_can_change_plantation_trigger = yes
+		has_climate = tropical
+		check_variable = { which = r_ac value = 5 }
+		NOT = { base_production = 6 }
+		owner = { 
+            adm_power = 36					   
+            treasury = 200
+			any_province = {
+				has_discovered = PREV
+				trade_goods = coffee
+			}
+		}		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {					
+					NOT = {	owner = { adm_power = 1 } }					
+					NOT = {	owner = { treasury = 1 } }
+				}				
+			}
+		}
+		else = {
+			set_province_flag = cu_change_planting_flag
+			add_province_modifier = {
+				name = cu_planting_coffee
+				duration = -1
+			}
+			owner = {
+				hidden_effect = {
+					set_variable = { which = cu_power value = 100 }
+					cu_calc_power_cost = yes
+					cu_subtract_adm_power = yes				
+				}				
+				add_treasury = -200
+			}		
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+change_goods_cotton = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		new_world_i = 100
+		cu_can_change_plantation_trigger = yes		
+		check_variable = { which = r_ac value = 6 }
+		NOT = { base_production = 6 }
+		owner = { 
+            adm_power = 36					   
+            treasury = 200
+			any_province = {
+				has_discovered = PREV
+				trade_goods = cotton
+			}
+		}		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {					
+					NOT = {	owner = { adm_power = 1 } }					
+					NOT = {	owner = { treasury = 1 } }
+				}				
+			}
+		}
+		else = {
+			set_province_flag = cu_change_planting_flag
+			add_province_modifier = {
+				name = cu_planting_cotton
+				duration = -1
+			}
+			owner = {
+				hidden_effect = {
+					set_variable = { which = cu_power value = 100 }
+					cu_calc_power_cost = yes
+					cu_subtract_adm_power = yes				
+				}				
+				add_treasury = -200
+			}		
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+change_goods_sugar = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		new_world_i = 100
+		cu_can_change_plantation_trigger = yes		
+		check_variable = { which = r_ac value = 5 }
+		NOT = { base_production = 6 }
+		owner = { 
+            adm_power = 36					   
+            treasury = 200
+			any_province = {
+				has_discovered = PREV
+				trade_goods = sugar
+			}
+		}		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {					
+					NOT = {	owner = { adm_power = 1 } }					
+					NOT = {	owner = { treasury = 1 } }
+				}				
+			}
+		}
+		else = {
+			set_province_flag = cu_change_planting_flag
+			add_province_modifier = {
+				name = cu_planting_sugar
+				duration = -1
+			}
+			owner = {
+				hidden_effect = {
+					set_variable = { which = cu_power value = 100 }
+					cu_calc_power_cost = yes
+					cu_subtract_adm_power = yes				
+				}				
+				add_treasury = -200
+			}		
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+change_goods_tobacco = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		new_world_i = 100
+		cu_can_change_plantation_trigger = yes	
+		NOT = { development = 20 }	
+		check_variable = { which = r_ac value = 6 }
+		NOT = { base_production = 6 }
+		owner = { 
+            adm_power = 36					   
+            treasury = 200
+			any_province = {
+				has_discovered = PREV
+				trade_goods = tobacco
+			}
+		}		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {					
+					NOT = {	owner = { adm_power = 1 } }					
+					NOT = {	owner = { treasury = 1 } }
+				}				
+			}
+		}
+		else = {
+			set_province_flag = cu_change_planting_flag
+			add_province_modifier = {
+				name = cu_planting_tobacco
+				duration = -1
+			}
+			owner = {
+				hidden_effect = {
+					set_variable = { which = cu_power value = 100 }
+					cu_calc_power_cost = yes
+					cu_subtract_adm_power = yes				
+				}				
+				add_treasury = -200
+			}		
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+change_goods_cocoa = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		new_world_i = 100
+		has_climate = tropical
+		cu_can_change_plantation_trigger = yes		
+		check_variable = { which = r_ac value = 6 }
+		NOT = { base_production = 6 }
+		owner = { 
+            adm_power = 36					   
+            treasury = 200
+			any_province = {
+				has_discovered = PREV
+				trade_goods = cocoa
+			}
+		}		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {					
+					NOT = {	owner = { adm_power = 1 } }					
+					NOT = {	owner = { treasury = 1 } }
+				}				
+			}
+		}
+		else = {
+			set_province_flag = cu_change_planting_flag
+			add_province_modifier = {
+				name = cu_planting_cocoa
+				duration = -1
+			}
+			owner = {
+				hidden_effect = {
+					set_variable = { which = cu_power value = 100 }
+					cu_calc_power_cost = yes
+					cu_subtract_adm_power = yes				
+				}				
+				add_treasury = -200
+			}		
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+change_goods_silk = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		new_world_i = 100
+		OR = {
+			continent = asia
+			dip_tech = 25
+		}
+		cu_can_change_plantation_trigger = yes		
+		check_variable = { which = r_ac value = 8 }
+		NOT = { base_production = 6 }
+		owner = { 
+            adm_power = 36					   
+            treasury = 200
+			any_province = {
+				has_discovered = PREV
+				trade_goods = silk
+			}
+		}		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {					
+					NOT = {	owner = { adm_power = 1 } }					
+					NOT = {	owner = { treasury = 1 } }
+				}				
+			}
+		}
+		else = {
+			set_province_flag = cu_change_planting_flag
+			add_province_modifier = {
+				name = cu_planting_silk
+				duration = -1
+			}
+			owner = {
+				hidden_effect = {
+					set_variable = { which = cu_power value = 100 }
+					cu_calc_power_cost = yes
+					cu_subtract_adm_power = yes				
+				}				
+				add_treasury = -200
+			}		
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+change_goods_spices = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		new_world_i = 100
+		OR = {
+			continent = asia
+			dip_tech = 25
+		}
+		cu_can_change_plantation_trigger = yes		
+		check_variable = { which = r_ac value = 7 }
+		NOT = { base_production = 6 }
+		owner = { 
+            adm_power = 36					   
+            treasury = 200
+			any_province = {
+				has_discovered = PREV
+				trade_goods = spices
+			}
+		}		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {					
+					NOT = {	owner = { adm_power = 1 } }					
+					NOT = {	owner = { treasury = 1 } }
+				}				
+			}
+		}
+		else = {
+			set_province_flag = cu_change_planting_flag
+			add_province_modifier = {
+				name = cu_planting_spices
+				duration = -1
+			}
+			owner = {
+				hidden_effect = {
+					set_variable = { which = cu_power value = 100 }
+					cu_calc_power_cost = yes
+					cu_subtract_adm_power = yes				
+				}				
+				add_treasury = -200
+			}		
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+change_goods_dyes = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		new_world_i = 100
+		OR = {
+			continent = asia
+			dip_tech = 25
+		}
+		cu_can_change_plantation_trigger = yes		
+		check_variable = { which = r_ac value = 6 }
+		NOT = { base_production = 6 }
+		owner = { 
+            adm_power = 36					   
+            treasury = 200
+			any_province = {
+				has_discovered = PREV
+				trade_goods = dyes
+			}
+		}		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {					
+					NOT = {	owner = { adm_power = 1 } }					
+					NOT = {	owner = { treasury = 1 } }
+				}				
+			}
+		}
+		else = {
+			set_province_flag = cu_change_planting_flag
+			add_province_modifier = {
+				name = cu_planting_dyes
+				duration = -1
+			}
+			owner = {
+				hidden_effect = {
+					set_variable = { which = cu_power value = 100 }
+					cu_calc_power_cost = yes
+					cu_subtract_adm_power = yes				
+				}				
+				add_treasury = -200
+			}		
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+change_goods_tea = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		new_world_i = 100
+		OR = {
+			continent = asia
+			dip_tech = 22
+		}
+		cu_can_change_plantation_trigger = yes		
+		check_variable = { which = r_ac value = 6 }
+		NOT = { base_production = 6 }
+		owner = { 
+            adm_power = 36					   
+            treasury = 200
+			any_province = {
+				has_discovered = PREV
+				trade_goods = tea
+			}
+		}		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {
+		if = {
+			limit = {
+				OR = {					
+					NOT = {	owner = { adm_power = 1 } }					
+					NOT = {	owner = { treasury = 1 } }
+				}				
+			}
+		}
+		else = {
+			set_province_flag = cu_change_planting_flag
+			add_province_modifier = {
+				name = cu_planting_tea
+				duration = -1
+			}
+			owner = {
+				hidden_effect = {
+					set_variable = { which = cu_power value = 100 }
+					cu_calc_power_cost = yes
+					cu_subtract_adm_power = yes				
+				}				
+				add_treasury = -200
+			}		
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+change_goods = {
+	cost = 0.1
+	time = 0
+	trigger = {
+		owner = { ai = no }		
+		new_world_i = 100
+		NOT = { has_province_flag = cu_change_planting_flag }
+		OR = {
+			has_terrain = farmlands
+			has_terrain = grasslands
+			has_province_modifier = ti_woods_done
+			has_province_modifier = ti_terrace_done
+			has_province_modifier = ti_marsh_done 
+			has_province_modifier = holland_polders
+			has_province_modifier = ti_irragation_done
+			has_province_modifier = ti_terrace_done
+			has_province_modifier = ti_jungle_done
+			has_province_modifier = ti_forest_done
+        }
+		owner = { 
+			has_institution = new_world_i
+            adm_power = 36 
+            treasury = 200
+			any_province = {
+				has_discovered = PREV
+				OR = {
+					trade_goods = coffee
+					trade_goods = cotton
+					trade_goods = sugar
+					trade_goods = tobacco
+					trade_goods = cocoa
+					trade_goods = silk
+					trade_goods = dyes
+					trade_goods = spices
+					trade_goods = tea
+				}
+			}
+		}		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {		
+		province_event = { id = terra.102 }
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+change_goods_industry = {
+	cost = 0.1
+	time = 0
+	trigger = {
+		owner = { ai = no }
+		NOT = { trade_goods = cloth }
+		NOT = { trade_goods = paper }
+		NOT = { trade_goods = glass }
+		NOT = { trade_goods = naval_supplies }
+		NOT = { trade_goods = chinaware }
+		base_production = 5
+		NOT = { base_production = 11 }
+		check_variable = { which = r_uc value = 3 }
+		NOT = { has_province_flag = cu_foster_industry_flag }
+		owner = {
+			adm_power = 75
+			treasury = 200
+		}		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {		
+		province_event = { id = terra.110 }
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+art_transfer_gw = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		check_variable = { which = cu_art_piece2 value = 1 }
+		NOT = { has_province_flag = art_transfer_dest } #Can't be the destination
+		NOT = { has_province_flag = art_transfer_source }
+		NOT = { owner = { has_country_flag = art_transfer_ing } }
+		controlled_by = owner
+		owner = {
+			any_owned_province = { 
+				has_province_flag = art_transfer_dest 
+				check_variable = { which = cu_art_slot value = 1 }
+			}
+			AND = {
+				adm_power = 22
+				dip_power = 22
+				mil_power = 22
+			}
+			treasury = 50
+		}		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {		
+		owner = {
+			hidden_effect = { 
+				set_variable = { which = cu_power value = 30 }
+				cu_calc_power_cost = yes
+				cu_subtract_adm_power = yes
+				set_variable = { which = cu_power value = 30 }
+				cu_calc_power_cost = yes
+				cu_subtract_dip_power = yes
+				set_variable = { which = cu_power value = 30 }
+				cu_calc_power_cost = yes
+				cu_subtract_mil_power = yes
+			}
+			add_treasury = -50
+		}		
+		set_province_flag = art_transfer_source
+		set_province_flag = art_transfer_2
+		hidden_effect = {
+			owner = {
+				set_country_flag = art_transfer_ing
+				random_owned_province = {
+					limit = { has_province_flag = art_transfer_dest }
+					set_province_flag = art_transfer_2
+					province_event = { 
+						id = urban.71
+						days = 30
+					}
+				}
+			} 
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+art_transfer_mp = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		check_variable = { which = cu_art_piece1 value = 1 }
+		NOT = { has_province_flag = art_transfer_dest } #Can't be the destination
+		NOT = { has_province_flag = art_transfer_source }
+		NOT = { owner = { has_country_flag = art_transfer_ing } }
+		controlled_by = owner
+		owner = {
+			any_owned_province = { 
+				has_province_flag = art_transfer_dest 
+				check_variable = { which = cu_art_slot value = 1 }
+			}
+			AND = {
+				adm_power = 22
+				dip_power = 22
+				mil_power = 22
+			}
+			treasury = 50
+		}		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {		
+		owner = {
+			hidden_effect = { 
+				set_variable = { which = cu_power value = 30 }
+				cu_calc_power_cost = yes
+				cu_subtract_adm_power = yes
+				set_variable = { which = cu_power value = 30 }
+				cu_calc_power_cost = yes
+				cu_subtract_dip_power = yes
+				set_variable = { which = cu_power value = 30 }
+				cu_calc_power_cost = yes
+				cu_subtract_mil_power = yes
+			}
+			add_treasury = -50
+		}		
+		set_province_flag = art_transfer_source
+		set_province_flag = art_transfer_1
+		hidden_effect = {
+			owner = {
+				set_country_flag = art_transfer_ing
+				random_owned_province = {
+					limit = { has_province_flag = art_transfer_dest }
+					set_province_flag = art_transfer_1
+					province_event = { 
+						id = urban.71
+						days = 30
+					}
+				}
+			} 
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}
+
+art_transfer_nw = {
+	cost = 0.1
+	time = 2
+	trigger = {
+		owner = { ai = no }
+		check_variable = { which = cu_art_piece0 value = 1 }
+		NOT = { has_province_flag = art_transfer_dest } #Can't be the destination
+		NOT = { has_province_flag = art_transfer_source }
+		NOT = { owner = { has_country_flag = art_transfer_ing } }
+		controlled_by = owner
+		owner = {
+			any_owned_province = { 
+				has_province_flag = art_transfer_dest 
+				check_variable = { which = cu_art_slot value = 1 }
+			}
+			AND = {
+				adm_power = 22
+				dip_power = 22
+				mil_power = 22
+			}
+			treasury = 50
+		}		
+	}
+	modifier = {		
+		allowed_num_of_buildings = 1
+	}
+	on_built = {		
+		owner = {
+			hidden_effect = { 
+				set_variable = { which = cu_power value = 30 }
+				cu_calc_power_cost = yes
+				cu_subtract_adm_power = yes
+				set_variable = { which = cu_power value = 30 }
+				cu_calc_power_cost = yes
+				cu_subtract_dip_power = yes
+				set_variable = { which = cu_power value = 30 }
+				cu_calc_power_cost = yes
+				cu_subtract_mil_power = yes
+			}
+			add_treasury = -50
+		}		
+		set_province_flag = art_transfer_source
+		set_province_flag = art_transfer_0
+		hidden_effect = {
+			owner = {
+				set_country_flag = art_transfer_ing
+				random_owned_province = {
+					limit = { has_province_flag = art_transfer_dest }
+					set_province_flag = art_transfer_0
+					province_event = { 
+						id = urban.71
+						days = 30
+					}
+				}
+			} 
+		}	
+	}
+	
+	on_destroyed = {	    
+	}
+	
+	on_obsolete = {        
+    }
+	ai_will_do = {
+		factor = 0		
+	}
+}

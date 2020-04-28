@@ -498,7 +498,7 @@ local_autonomy_multiplicative = {
     local_sailors_modifier = -1
 	local_tax_modifier = -1
 	local_production_efficiency = -1
-	province_trade_power_modifier = -1
+	province_trade_power_modifier = -0.95
 	land_forcelimit_modifier = -1.0 # Misleading, only used to avoid errors when applying effect of Estates in code. 
 	naval_forcelimit_modifier = -1.0 # Misleading, only used to avoid errors when applying effect of Estates in code. 
 }
@@ -578,7 +578,7 @@ base_values = {
 	monthly_fervor_increase = 1
 	vassal_income = 0.10
     devotion = -0.5
-    meritocracy = 0.3
+    meritocracy = 0.4
     inflation_reduction = -0.01
     num_accepted_cultures = 2
     monthly_splendor = 1
@@ -645,7 +645,7 @@ positive_stability = {
 	devotion = 0.5
     #global_autonomy = -0.005
     yearly_harmony = 0.25
-	meritocracy = 0.2
+	meritocracy = 0.1
 	development_cost = -0.005
 	adm_tech_cost_modifier = -0.0334
 }
