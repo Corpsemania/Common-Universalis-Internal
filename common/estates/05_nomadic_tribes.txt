@@ -92,11 +92,13 @@ estate_nomadic_tribes = {
         yearly_corruption = 0.05
 		max_absolutism = -30
 		yearly_absolutism = -0.3
+		land_maintenance = -0.2
 	}
 	country_modifier_neutral = {
         yearly_corruption = 0.1
 		max_absolutism = -30
 		yearly_absolutism = -0.45
+		land_maintenance = -0.1
 	}	
 	country_modifier_angry = {
 		horde_unity = -2
