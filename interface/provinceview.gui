@@ -2836,7 +2836,7 @@ guiTypes = {
 				name = "edicts_listbox"
 				backGround = ""
 				position = { x = 500 y = 0 }
-				size = { x = 380 y = 560 }
+				size = { x = 380 y = 450 }
 				horizontal = 0
 				scrollbartype = "standardlistbox_slider"
 				borderSize = {x = 0 y = 0}
@@ -3709,8 +3709,8 @@ guiTypes = {
 		windowType = {
 			name = "institutions_window"
 			backGround=""
-			position = { x=480 y=-105 }
-			size = { x=475 y=580 }
+			position = { x=480 y=13 }
+			size = { x=475 y=480 }
 			dontRender = ""
 			horizontalBorder= ""
 			verticalBorder= ""
@@ -3752,7 +3752,7 @@ guiTypes = {
 			listboxType = {
 				name = "institutions"
 				position = { x= 26 y = 178 }
-				size = { x = 290 y = 520 }
+				size = { x = 290 y = 420 }
 				Orientation = "UPPER_LEFT"
 				spacing = 0
 				scrollbartype = "standardlistbox_slider"
