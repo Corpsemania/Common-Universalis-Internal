@@ -1351,3 +1351,344 @@ country_event = {
 	    }
 	}
 }
+
+#Wokou Invasion
+province_event = {
+	id = flavor_mng.28
+	title = "flavor_mng.28.t"
+	desc = "flavor_mng.28.d"
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+		region = south_china_region
+		has_port = yes
+		1 = { check_variable = { which = wokou_strength value = 1 } }
+		NOT = { has_province_modifier = wokou_invade_coastal }
+		NOT = { has_province_modifier = wokou_invade_countryside }
+		NOT = { has_province_modifier = wokou_invade_city }
+	}
+	mean_time_to_happen = {
+		months = 600
+		modifier = {
+			factor = 2
+			owner = { has_country_modifier = sea_trade_banned }
+		}
+		modifier = {
+			factor = 0.8
+			1 = { check_variable = { which = wokou_strength value = 5 } }
+		}
+		modifier = {
+			factor = 0.8
+			1 = { check_variable = { which = wokou_strength value = 10 } }
+		}
+		modifier = {
+			factor = 0.8
+			1 = { check_variable = { which = wokou_strength value = 15 } }
+		}
+		modifier = {
+			factor = 0.8
+			1 = { check_variable = { which = wokou_strength value = 20 } }
+		}
+		modifier = {
+			factor = 0.8
+			1 = { check_variable = { which = wokou_strength value = 25 } }
+		}
+		modifier = {
+			factor = 0.8
+			1 = { check_variable = { which = wokou_strength value = 30 } }
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			1 = { save_event_target_as = wokou_strength_prov }
+		}
+	}
+	option = {
+		name = "flavor_mng.28.a" #Assemble a force to crush them!
+	    trigger = { 
+			owner = {
+				manpower_percentage = 0.2 
+				treasury = 80
+				mil_power = 30
+			}
+		}
+		owner = {
+			add_manpower = -4
+			add_treasury = -80
+			add_mil_power = -30
+			add_army_tradition = 3
+			add_prestige = 2
+		}
+		
+		add_unrest = -5
+		random_list = {
+			20 = { add_base_manpower = -1 }
+			80 = {  }
+		}
+		add_prosperity = -25
+		add_devastation = 5
+		add_province_modifier = {
+			name = wokou_invade_coastal
+			duration = 3650
+		}
+		custom_tooltip = flavor_mng.28.at
+		hidden_effect = {
+			1 = { change_variable = { which = wokou_strength value = -1  } }
+		}
+		ai_chance = {
+	           factor = 60
+			   modifier = {
+					factor = 0.5
+					owner = { is_at_war = yes }
+			   }
+			   modifier = {
+					factor = 0.5
+					owner = { corruption = 20 }
+			   }
+			   modifier = {
+					factor = 0.5
+					owner = { corruption = 30 }
+			   }
+		}
+	}
+	option = {
+		name = "flavor_mng.28.b" #Defend the city
+	    trigger = { 
+				owner = {
+					manpower_percentage = 0.1 
+					treasury = 40
+				}
+		}
+		owner = {
+			add_manpower = -1
+			add_treasury = -40
+			add_army_tradition = 1
+		}
+		
+		add_prosperity = -50
+		add_devastation = 15
+		add_province_modifier = {
+			name = wokou_invade_countryside
+			duration = 3650
+		}
+		random_list = {
+			70 = { add_base_manpower = -1 }
+			30 = {  }
+		}
+		custom_tooltip = flavor_mng.28.bt
+		hidden_effect = {
+			1 = { change_variable = { which =  wokou_strength value = -0.5 } }
+		}
+		ai_chance = {
+	           factor = 30
+			   modifier = {
+					factor = 0.75
+					owner = { corruption = 20 }
+			   }
+			   modifier = {
+					factor = 0.5
+					owner = { corruption = 30 }
+			   }
+		}
+	}
+	option = {
+		name = "flavor_mng.28.c" #We can't do anything for now......
+		add_prestige = -2
+		add_unrest = 5
+		random_list = {
+			20 = { add_base_tax = -1 add_base_production = -1 add_base_manpower = -1 }
+			20 = { add_base_tax = -1 add_base_production = -1 }
+			20 = { add_base_production = -1 add_base_manpower = -1 }
+			20 = { add_base_tax = -1 add_base_manpower = -1 }
+			20 = { add_base_manpower = -1 }
+		}
+		add_prosperity = -75
+		add_devastation = 30
+		add_province_modifier = {
+			name = wokou_invade_city
+			duration = 3650
+		}
+		custom_tooltip = flavor_mng.28.ct
+		ai_chance = {
+	           factor = 10
+		}
+	}
+	
+}
+
+#Wokou gathers strength
+province_event = {
+	id = flavor_mng.29
+	title = "flavor_mng.29.t"
+	desc = "flavor_mng.29.d"
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+		region = japan_region
+		devastation = 1
+		NOT = { has_province_modifier = wokou_left }
+	}
+	mean_time_to_happen = {
+		months = 1200
+		modifier = {
+			factor = 0.8
+			devastation = 5
+		}
+		modifier = {
+			factor = 0.8
+			devastation = 10
+		}
+		modifier = {
+			factor = 0.8
+			devastation = 15
+		}
+		modifier = {
+			factor = 0.8
+			devastation = 20
+		}
+		modifier = {
+			factor = 0.8
+			devastation = 25
+		}
+		modifier = {
+			factor = 0.8
+			devastation = 30
+		}
+		modifier = {
+			factor = 0.8
+			devastation = 40
+		}
+		modifier = {
+			factor = 0.8
+			devastation = 50
+		}
+		modifier = {
+			factor = 0.8
+			devastation = 60
+		}
+	}
+	immediate = {
+		hidden_effect = {
+			1 = { save_event_target_as = wokou_strength_prov }
+		}
+	}
+	option = {
+		name = "flavor_mng.29.a" #Not OUR concern!
+		add_province_modifier = {
+			name = wokou_left
+			duration = 3650
+		}
+		if = {
+			limit = { development = 20 }
+			hidden_effect = { 1 = { change_variable = { which = wokou_strength value = 2  } } }
+			custom_tooltip = wokou_strength_p2
+		}
+		else_if = {
+			limit = { development = 15 }
+			hidden_effect = { 1 = { change_variable = { which = wokou_strength value = 1.5 } } }
+			custom_tooltip = wokou_strength_p1.5
+		}
+		else_if = {
+			limit = { development = 10 }
+			hidden_effect = { 1 = { change_variable = { which = wokou_strength value = 1 } } }
+			custom_tooltip = wokou_strength_p1
+		}
+		else_if = {
+			limit = { development = 5 }
+			hidden_effect = { 1 = { change_variable = { which = wokou_strength value = 0.5 } } }
+			custom_tooltip = wokou_strength_p0.5
+		}
+		else = {
+			hidden_effect = { 1 = { change_variable = { which = wokou_strength value = 0.1 } } }
+			custom_tooltip = wokou_strength_p0.1
+		}
+	    
+	}
+	
+}
+
+#Chinese Joins Wokou
+province_event = {
+	id = flavor_mng.30
+	title = "flavor_mng.30.t"
+	desc = "flavor_mng.30.d"
+	picture = BATTLE_eventPicture
+	
+	trigger = {
+		OR = {
+			region = south_china_region
+			region = north_china_region
+		}
+		has_port = yes
+		owner = { has_country_modifier = sea_trade_banned }
+		has_province_modifier = chinese_wokou_left
+	}
+	mean_time_to_happen = {
+		months = 1200
+		modifier = {
+			factor = 0.8
+			base_tax = 5
+		}
+		modifier = {
+			factor = 0.8
+			base_tax = 8
+		}
+		modifier = {
+			factor = 0.8
+			base_tax = 11
+		}
+		modifier = {
+			factor = 0.8
+			devastation = 14
+		}
+		
+	}
+	immediate = {
+		hidden_effect = {
+			1 = { save_event_target_as = wokou_strength_prov }
+		}
+	}
+	option = {
+		name = "flavor_mng.30.a" #What?
+		add_province_modifier = {
+			name = chinese_wokou_left
+			duration = 3650
+		}
+		if = {
+			limit = { development = 30 }
+			hidden_effect = { 1 = { change_variable = { which = wokou_strength value = 2 } } }
+			custom_tooltip = wokou_strength_p3
+		}
+		else_if = {
+			limit = { development = 25 }
+			hidden_effect = { 1 = { change_variable = { which = wokou_strength value = 1.5 } } }
+			custom_tooltip = wokou_strength_p2.5
+		}
+		else_if = {
+			limit = { development = 20 }
+			hidden_effect = { 1 = { change_variable = { which = wokou_strength value = 2 } } }
+			custom_tooltip = wokou_strength_p2
+		}
+		else_if = {
+			limit = { development = 15 }
+			hidden_effect = { 1 = { change_variable = { which = wokou_strength value = 1.5 } } }
+			custom_tooltip = wokou_strength_p1.5
+		}
+		else_if = {
+			limit = { development = 10 }
+			hidden_effect = { 1 = { change_variable = { which = wokou_strength value = 1 } } }
+			custom_tooltip = wokou_strength_p1
+		}
+		else_if = {
+			limit = { development = 5 }
+			hidden_effect = { 1 = { change_variable = { which = wokou_strength value = 0.5 } } }
+			custom_tooltip = wokou_strength_p0.5
+		}
+		else = {
+			hidden_effect = { 1 = { change_variable = { which = wokou_strength value = 0.1 } } }
+			custom_tooltip = wokou_strength_p0.1
+		}
+	    
+	}
+	
+}

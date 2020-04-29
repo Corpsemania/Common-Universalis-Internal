@@ -254,6 +254,18 @@ on_startup = {
 			add_province_triggered_modifier = cu_terr_abandon
         }
 		
+		#Province 1 is used to store global variable
+		1 = {
+			set_variable = { which = wokou_strength value = 15 }
+			if = {
+				limit = { is_year = 1644 }
+				change_variable = { which = wokou_strength value = -15 }
+			}
+			else_if = {
+				limit = { is_year = 1567 }
+				change_variable = { which = wokou_strength value = -5 }
+			}
+		}
 		#Some provinces have starting art buildings and start with art piece
 		183 = { #Paris - Notre Dome
 		     add_permanent_province_modifier = {
@@ -438,9 +450,28 @@ on_startup = {
 				if = {
 				     limit = { tag = MNG }
 				     add_treasury = -300
-					set_country_flag = has_a_second_capital						 
+					 set_country_flag = has_a_second_capital	
+					 if = {
+							limit = {
+								NOT = { is_year = 1567 } #Longqing dynasty removed sea ban
+							}
+							add_country_modifier = {
+								name = sea_trade_banned
+								duration = -1
+							}
+					 }
 				}
-				if = {
+				else_if = {
+					limit = { 
+							tag = QNG 
+							is_year = 1644
+					}
+					add_country_modifier = {
+								name = sea_trade_banned
+								duration = -1
+					}
+				}
+				else_if = {
 					limit = { 
 					    tag = RUS 
 						is_year = 1600

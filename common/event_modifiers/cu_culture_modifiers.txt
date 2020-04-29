@@ -29,7 +29,7 @@ cu_ca_0 = {
 	local_tax_modifier = -1
 	local_production_efficiency = -1
 	local_autonomy = 0.16
-	local_state_maintenance = 1
+	local_state_maintenance_modifier = 1
 	local_defensiveness = -0.20
 	picture = "cu_ca_0"
 }
@@ -42,7 +42,7 @@ cu_ca_10 = {
     local_tax_modifier = -0.90
 	local_production_efficiency = -0.90
 	local_autonomy = 0.14
-	local_state_maintenance = 0.9
+	local_state_maintenance_modifier = 0.9
 	local_defensiveness = -0.18
 	picture = "cu_ca_10"
 }
@@ -55,7 +55,7 @@ cu_ca_20 = {
     local_tax_modifier = -0.80
 	local_production_efficiency = -0.80
 	local_autonomy = 0.12
-	local_state_maintenance = 0.8
+	local_state_maintenance_modifier = 0.8
 	local_defensiveness = -0.16
 	picture = "cu_ca_20"
 }
@@ -68,7 +68,7 @@ cu_ca_30 = {
     local_tax_modifier = -0.70
 	local_production_efficiency = -0.70
 	local_autonomy = 0.1
-	local_state_maintenance = 0.7
+	local_state_maintenance_modifier = 0.7
 	local_defensiveness = -0.14
 	picture = "cu_ca_30"
 }
@@ -81,7 +81,7 @@ cu_ca_40 = {
     local_tax_modifier = -0.60
 	local_production_efficiency = -0.60
 	local_autonomy = 0.08
-	local_state_maintenance = 0.6
+	local_state_maintenance_modifier = 0.6
 	local_defensiveness = -0.12
 	picture = "cu_ca_40"
 }
@@ -94,7 +94,7 @@ cu_ca_50 = {
     local_tax_modifier = -0.50
 	local_production_efficiency = -0.50
 	local_autonomy = 0.06
-	local_state_maintenance = 0.5
+	local_state_maintenance_modifier = 0.5
 	local_defensiveness = -0.1
 	picture = "cu_ca_50"
 }
@@ -107,7 +107,7 @@ cu_ca_60 = {
     local_tax_modifier = -0.40
 	local_production_efficiency = -0.40
 	local_autonomy = 0.04
-	local_state_maintenance = 0.4
+	local_state_maintenance_modifier = 0.4
 	local_defensiveness = -0.08
 	picture = "cu_ca_60"
 }
@@ -120,7 +120,7 @@ cu_ca_70 = {
     local_tax_modifier = -0.30
 	local_production_efficiency = -0.30
 	local_autonomy = 0.02
-	local_state_maintenance = 0.3
+	local_state_maintenance_modifier = 0.3
 	local_defensiveness = -0.06
 	picture = "cu_ca_70"
 }
@@ -132,7 +132,7 @@ cu_ca_80 = {
 	local_unrest = 2
     local_tax_modifier = -0.20
 	local_production_efficiency = -0.20
-	local_state_maintenance = 0.2
+	local_state_maintenance_modifier = 0.2
 	local_defensiveness = -0.04
 	picture = "cu_ca_80"
 }
@@ -145,7 +145,7 @@ cu_ca_90 = {
     local_tax_modifier = -0.10
 	local_production_efficiency = -0.10
 	local_autonomy = -0.02
-	local_state_maintenance = 0.1
+	local_state_maintenance_modifier = 0.1
 	local_defensiveness = -0.02
 	picture = "cu_ca_90"
 }

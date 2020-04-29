@@ -68,26 +68,26 @@ unexploited_iron_mine = {
 }
 
 cu_foster_industry_cloth = {
-	production_efficiency = -0.25
+	local_production_efficiency = -0.25
 	trade_goods_size_modifier = -0.25
 }
 
 cu_foster_industry_paper = {
-	production_efficiency = -0.25
+	local_production_efficiency = -0.25
 	trade_goods_size_modifier = -0.25
 }
 
 cu_foster_industry_glass = {
-	production_efficiency = -0.25
+	local_production_efficiency = -0.25
 	trade_goods_size_modifier = -0.25
 }
 
 cu_foster_industry_naval = {
-	production_efficiency = -0.25
+	local_production_efficiency = -0.25
 	trade_goods_size_modifier = -0.25
 }
 
 cu_foster_industry_chinaware = {
-	production_efficiency = -0.25
+	local_production_efficiency = -0.25
 	trade_goods_size_modifier = -0.25
 }

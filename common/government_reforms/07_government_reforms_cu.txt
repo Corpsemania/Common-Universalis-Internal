@@ -3782,10 +3782,8 @@ divine_law = {
 	}
 	modifiers = {
 		state_maintenance_modifier = 0.2
-		tolerance_own = 0.5
-		global_missionary_strength = 0.005
-		global_institution_spread = -0.2
-		min_autonomy = -5		
+		tolerance_own = 1
+		global_institution_spread = -0.15
 	}
 	effect = {
 	    custom_tooltip = divine_law_estate_tt

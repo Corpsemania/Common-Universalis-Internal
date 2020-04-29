@@ -964,3 +964,42 @@ tusi_administration = {
 	local_autonomy = 0.05
 	local_state_maintenance_modifier = -0.2
 }
+
+sea_trade_banned = {
+	imperial_mandate = 0.1
+	global_ship_trade_power = -0.5
+	global_sailors_modifier = -0.5
+	navy_tradition_decay = 0.02
+	#Wokou Strength will grow in coastal provinces
+}
+
+wokou_invade_coastal = {
+	local_development_cost = 0.05
+	province_trade_power_modifier = -0.1
+}
+
+wokou_invade_countryside = {
+	local_unrest = 2
+	local_development_cost = 0.15
+	trade_goods_size_modifier = -0.2
+	province_trade_power_modifier = -0.2
+}
+
+wokou_invade_city = {
+	local_unrest = 5
+	local_development_cost = 0.3
+	local_tax_modifier = -0.2
+	local_production_efficiency = -0.2
+	trade_goods_size_modifier = -0.4
+	province_trade_power_modifier = -0.4
+}
+
+wokou_left = {
+	local_unrest = -3
+	local_manpower_modifier = -0.2
+}
+
+chinese_wokou_left = {
+	local_sailors_modifier = -0.2
+	province_trade_power_modifier = -0.2
+}

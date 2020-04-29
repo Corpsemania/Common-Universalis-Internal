@@ -1176,16 +1176,6 @@ entity = {
 	}
 }
 
-entity = {
-	name = "eastindiaman_t"
-	pdxmesh = "eastindiaman"
-	state = { name = "idle" 		animation = "idle" }
-	state = { name = "walk" 		animation = "walk" }
-	state = { name = "attack"		animation = "attack"
-		event = { time = 3.8	node = "gun_02"	particle = "ship_cannon" }
-		event = { time = 0.8	node = "gun_01"	particle = "ship_cannon" }
-	}
-}
 
 entity = {
 	name = "eastindiaman_h"

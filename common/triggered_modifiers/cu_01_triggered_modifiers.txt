@@ -739,9 +739,9 @@ trade_limitation = {
 				} 
 		}
 	}
-        global_sailors_modifier = -0.3
+        global_foreign_trade_power = -0.2
 		trade_efficiency = -0.2
-		imperial_mandate = 0.05
+		development_cost = -0.05
         #icon = 3
 }
 

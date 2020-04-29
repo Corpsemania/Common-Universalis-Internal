@@ -175,6 +175,7 @@ province_event = {
 		name = "slaughter.2.b"
                 set_province_flag = no_slaughter
                 add_adm_power = 20
+				add_core = owner
                 ai_chance = {
 			factor = 0
 		}
@@ -234,6 +235,7 @@ country_event = {
 				cede_province = TUR
 				add_core = TUR
 				add_local_autonomy = 10
+				hidden_effect = { change_variable = { which = p_ca value = 20 } } 
 				add_province_modifier = {
 					name = mamluks_corruption
 					duration = -1
@@ -247,6 +249,7 @@ country_event = {
 					}
 				}
 				cede_province = TUR
+				hidden_effect = { change_variable = { which = p_ca value = 10 } } 
                 add_core = TUR
 		    }
             every_owned_province = {

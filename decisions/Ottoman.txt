@@ -27,7 +27,7 @@ country_decisions = {
 		}
 		effect = {
 			set_country_flag = relocated_capital_constantinople
-			cu_change_stability_point_p50 = yes
+			cu_change_stability_point_p100 = yes
 			add_core = 151
 			set_capital = 151
 			151 = {
@@ -59,7 +59,10 @@ country_decisions = {
 				    add_base_tax = 2
 					add_base_production = 2
 					add_base_manpower = 8
-					hidden_effect = { change_variable = { which = literacy value = -1 } }
+					hidden_effect = { 
+							change_variable = { which = literacy value = -1 } 
+							set_variable = { which = p_ca value = 100 } 
+					}
 					change_trade_goods = silk										
 				}
 				set_global_flag = constantinople_restored

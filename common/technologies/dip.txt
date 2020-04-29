@@ -14,9 +14,6 @@ technology = {
 	naval_morale			=	2.0
 	range					=	55
     may_fabricate_claims = yes	
-	enable = eastindiaman_h
-	enable = eastindiaman_s
-	enable = eastindiaman_t
 	
 }
 

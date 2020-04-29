@@ -1270,4 +1270,70 @@ country_decisions = {
 			}
 		}			
 	}
+	revoke_sea_trade_ban = {
+		potential = {
+                has_country_modifier = sea_trade_banned
+		}
+		allow = {
+                dip_power = 100
+		}
+		effect = {
+		        add_dip_power = -100
+				remove_country_modifier = sea_trade_banned
+				custom_tooltip = revoke_sea_trade_ban_tooltip
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+			         factor = 0
+			         check_variable = { which = wokou_strength value = 1 }
+					 NOT = { check_variable = { which = wokou_strength value = 20 } } #Only revoke when wokou is too powerful or does not exist
+			}
+			modifier = {
+			         factor = 0
+			         OR = {
+							NOT = { is_year = 1567 }
+							tag = QNG
+					 }
+					 OR = {
+						has_global_flag = cu_realistic_handicap_set
+						has_global_flag = cu_x_handicap_set
+					}
+			}
+		}			
+	}
+	announce_sea_trade_ban = {
+		potential = {
+                NOT = { has_country_modifier = sea_trade_banned }
+				is_emperor_of_china = yes
+				1 = { check_variable = { which = wokou_strength value = 0.1 } }
+		}
+		allow = {
+                dip_power = 100
+		}
+		effect = {
+		        add_dip_power = -100
+				add_country_modifier = {
+					name = sea_trade_banned
+					duration = -1
+				}
+				custom_tooltip = announce_sea_trade_ban_tooltip
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = {
+			         factor = 0
+					 check_variable = { which = wokou_strength value = 20 }
+					 NOT = {
+						AND = {
+							tag = QNG
+							OR = {
+								has_global_flag = cu_realistic_handicap_set
+								has_global_flag = cu_x_handicap_set
+							}
+						}
+					 }
+			}
+		}			
+	}
 }

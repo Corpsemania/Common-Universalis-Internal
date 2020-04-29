@@ -765,7 +765,7 @@ ottoman_government = {
 		locked_government_type = yes
 	}
 	modifiers = {		
-		stability_cost_modifier = 0.2
+		stability_cost_modifier = 0.15
 		heir_chance = 0.25
         war_exhaustion = -0.02
 	}

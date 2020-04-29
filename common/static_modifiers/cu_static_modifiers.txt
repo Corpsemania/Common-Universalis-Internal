@@ -504,8 +504,8 @@ local_autonomy_multiplicative = {
 }
 
 local_autonomy = {
-	regiment_recruit_speed = 1.0
-	ship_recruit_speed = 1.0
+	regiment_recruit_speed = 2.0
+	ship_recruit_speed = 2.0
     #local_unrest = -5
     local_autonomy = -0.2
 	local_state_maintenance_modifier = -1
@@ -595,6 +595,7 @@ base_values = {
 	max_states = 1000
 	land_forcelimit = 2
 	naval_forcelimit = 3
+	global_ship_cost = 0.1
 }
 
 # AI 'cheats' that compensate for flaws in its long-term decision making, removing these may severely cripple the AI
@@ -817,7 +818,7 @@ army_tradition = {
 navy_tradition = {
 	recover_navy_morale_speed = 0.1
 	naval_morale = 0.15
-    dip_tech_cost_modifier = -0.2
+    dip_tech_cost_modifier = -0.1
 	trade_steering = 0.1
 	privateer_efficiency = 0.25
     range = 0.33
@@ -826,6 +827,8 @@ navy_tradition = {
 	mr_traders_influence = 0.1
 	blockade_efficiency = 1
     global_sailors_modifier = 0.2
+	global_ship_cost = -0.2
+	global_ship_recruit_speed = -0.2
     free_leader_pool = 10
 }
 
