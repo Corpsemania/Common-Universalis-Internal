@@ -29,6 +29,7 @@ cu_piazza_san_marco = {
 
 cu_forbidden_palace = {
      stability_cost_modifier = -0.1
+	 advisor_cost = -0.05
 	 picture = "cu_forbidden_palace"
 }
 

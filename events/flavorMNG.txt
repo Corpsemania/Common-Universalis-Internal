@@ -1360,7 +1360,11 @@ province_event = {
 	picture = BATTLE_eventPicture
 	
 	trigger = {
-		region = south_china_region
+		OR = {
+			region = south_china_region
+			region = north_china_region
+			region = korea_region
+		}
 		has_port = yes
 		1 = { check_variable = { which = wokou_strength value = 1 } }
 		NOT = { has_province_modifier = wokou_invade_coastal }
@@ -1370,8 +1374,36 @@ province_event = {
 	mean_time_to_happen = {
 		months = 600
 		modifier = {
+			factor = 1.5
+			region = north_china_region
+		}
+		modifier = {
+			factor = 2.5
+			region = korea_region
+		}
+		modifier = {
 			factor = 2
 			owner = { has_country_modifier = sea_trade_banned }
+		}
+		modifier = {
+			factor = 1.5
+			NOT = { owner = { corruption = 10 } }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { navy_size = 40 }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { navy_size = 60 }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { navy_size = 80 }
+		}
+		modifier = {
+			factor = 1.5
+			owner = { navy_size = 100 }
 		}
 		modifier = {
 			factor = 0.8
@@ -1624,7 +1656,7 @@ province_event = {
 		has_province_modifier = chinese_wokou_left
 	}
 	mean_time_to_happen = {
-		months = 1200
+		months = 2400
 		modifier = {
 			factor = 0.8
 			base_tax = 5
@@ -1639,9 +1671,32 @@ province_event = {
 		}
 		modifier = {
 			factor = 0.8
-			devastation = 14
+			devastation = 1
 		}
-		
+		modifier = {
+			factor = 0.8
+			devastation = 10
+		}
+		modifier = {
+			factor = 0.8
+			owner = { corruption = 10 }
+		}
+		modifier = {
+			factor = 0.8
+			owner = { corruption = 15 }
+		}
+		modifier = {
+			factor = 0.8
+			owner = { corruption = 20 }
+		}
+		modifier = {
+			factor = 0.8
+			owner = { corruption = 25 }
+		}
+		modifier = {
+			factor = 0.8
+			owner = { corruption = 30 }
+		}
 	}
 	immediate = {
 		hidden_effect = {

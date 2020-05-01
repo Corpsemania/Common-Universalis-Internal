@@ -11264,11 +11264,25 @@ province_event = {
 	hidden = yes
 	
 	trigger = {
-				owner = {
-					capital_scope = {
-						continent = ROOT
+				OR = {
+					AND = {
+						owner = {
+							capital_scope = {
+								continent = asia
+							}
+						}
+						continent = asia
+					}
+					AND = {
+						owner = {
+							capital_scope = {
+								continent = africa
+							}
+						}
+						continent = africa
 					}
 				}
+				
 				
 				AND = {
 						OR = {
