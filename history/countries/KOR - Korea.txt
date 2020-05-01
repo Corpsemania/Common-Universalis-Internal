@@ -64,7 +64,7 @@ capital = 735	# Hanseong
 	clear_scripted_personalities = yes
 	add_ruler_personality = scholar_personality
 	add_ruler_personality = well_advised_personality
-	add_ruler_personality = industrious_personality
+	add_ruler_personality = calm_personality
 }
 
 1418.1.1 = {
