@@ -1913,6 +1913,7 @@
  british_scottish_tooltip: "§YScottish§! culture will be integrated to §GBritish§! culture group."
  form_britain_militarily_tooltip: "Forming Great Britain by force will §RNOT§! integrate §YScottish§! culture to §GBritish§! culture group, but you can do it afterwards via a special decision."
  british_scottish_tooltip: "Primary culture group changed to §GBritish§!.\nProvinces with §YScottish§! culture will change culture group to §GBritish§! culture group.\nOur §YScottish§! subjects will follow the way, while our provinces and subjects of other §YGaelic§! cultures will be angered as we turn away from them."
+ british_scottish_tooltip_eng: "Provinces with §YScottish§! culture will change culture group to §GBritish§! culture group.\nOur §YScottish§! subjects will follow the way, while our provinces and subjects of other §YGaelic§! cultures will be angered as we turn away from them."
  scottish_embrace_british_culture_title: "Integrate Scottish Into British Group"
  scottish_embrace_british_culture_desc: ""
  scottish_embrace_british_culture_tooltip: "All provinces with §YScottish§! culture have more than §Y60%§! Administrative Integrity"

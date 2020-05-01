@@ -270,6 +270,7 @@ british_nation = {
 				}
 				inherit = SCO
 				custom_tooltip = form_british_diplomatically_eng_tooltip
+				custom_tooltip = british_scottish_tooltip_eng
 			}
 			if = {
 				limit = {
@@ -280,10 +281,10 @@ british_nation = {
 				}
 				inherit = ENG
 				custom_tooltip = form_british_diplomatically_sco_tooltip
+				custom_tooltip = british_scottish_tooltip
+				hidden_effect = { change_primary_culture = scottish_british }
 			}
-			custom_tooltip = british_scottish_tooltip
 			hidden_effect = {
-				change_primary_culture = scottish_british
 				every_owned_province = {
 					if = {
 						limit = { culture = scottish }
