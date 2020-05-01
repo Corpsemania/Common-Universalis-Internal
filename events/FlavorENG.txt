@@ -3028,4 +3028,81 @@ country_event = {
 		}
 	}
 }
+
+# Propose Financial Aid To Scotland
+
+country_event = { 
+	id = flavor_eng.9881
+	title = flavor_eng.9881.t
+	desc = flavor_eng.9881.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	option = {
+		name = flavor_eng.9881.a
+		FROM = { country_event = { id = flavor_eng.9882 } }
+		ai_chance = {
+			factor = 100
+		}
+	}
+	option = {
+		name = flavor_eng.9881.b
+		FROM = { country_event = { id = flavor_eng.9883 } }
+		ai_chance = {
+			factor = 0
+		}
+	}
+}
+
+country_event = { 
+	id = flavor_eng.9882
+	title = flavor_eng.9882.t
+	desc = flavor_eng.9882.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	option = {
+		name = flavor_eng.9882.a
+		add_treasury = -500
+		SCO = { add_treasury = 500 }
+		add_country_modifier = {
+			name = investment_in_scotland
+			duration = 7300
+		}
+		custom_tooltip = flavor_eng.9882.at
+		set_country_flag = scotland_agree_to_annex
+		hidden_effect = {
+			FROM = {
+				every_owned_province = {
+					limit = { culture = scottish }
+					add_permanent_province_modifier = {
+						name = english_investment
+						duration = 36500
+					}
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
+
+country_event = { 
+	id = flavor_eng.9883
+	title = flavor_eng.9883.t
+	desc = flavor_eng.9883.d
+	picture = DIPLOMACY_eventPicture
+	
+	is_triggered_only = yes
+	option = {
+		name = flavor_eng.9883.a
+		add_prestige = -5
+		SCO = { add_liberty_desire = 10 }
+		ai_chance = {
+			factor = 100
+		}
+	}
+}
 	

@@ -26,6 +26,7 @@ country_decisions = {
 						limit = { culture = aragonese }
 						change_culture = aragonese_iberian
 						cu_calc_base_cultural_acceptance = yes
+						cu_check_cultural_acceptance = yes
 					}
 					else_if = { #Italian provinces become furious for your betrayal 
 						limit = { culture_group = latin }
@@ -37,6 +38,7 @@ country_decisions = {
 					else_if = {
 						limit = { culture_group = iberian }
 						cu_calc_base_cultural_acceptance = yes
+						cu_check_cultural_acceptance = yes
 					}
 				}
 				every_subject_country = {
@@ -49,6 +51,7 @@ country_decisions = {
 								limit = { culture = aragonese }
 								change_culture = aragonese_iberian
 								cu_calc_base_cultural_acceptance = yes
+								cu_check_cultural_acceptance = yes
 							}
 							else_if = { #Italian province becomes furious for your betrayal 
 								limit = { culture_group = latin }
@@ -60,11 +63,101 @@ country_decisions = {
 							else_if = {
 								limit = { culture_group = iberian }
 								cu_calc_base_cultural_acceptance = yes
+								cu_check_cultural_acceptance = yes
 							}
 						}
 					}
 					else_if = {
 						limit = { culture_group = latin }
+						add_liberty_desire = 20
+					}
+				} 
+				
+			}
+		}
+	}
+	scottish_embrace_british_culture = {
+		major = yes
+		potential = {
+			tag = GBR
+			NOT = { has_country_flag = british_scottish_flag }
+	    }
+		allow = {
+			dip_power = 200
+			stability = 1
+			adm_tech = 15
+			custom_trigger_tooltip = {
+				tooltip = scottish_embrace_british_culture_tooltip
+				NOT = {
+					any_owned_province = {
+						culture = scottish
+						NOT = { check_variable = { which = p_ca value = 60  } }
+					}
+				}
+			}
+		}
+		effect = {
+			add_dip_power = -200
+			if = {
+				limit = { primary_culture = scottish }
+				cu_change_stability_point_n100 = yes
+				
+			}
+			set_country_flag = british_scottish_flag
+			custom_tooltip = british_scottish_tooltip
+			hidden_effect = {
+				change_primary_culture = scottish_british
+				every_owned_province = {
+					if = {
+						limit = { culture = scottish }
+						change_culture = scottish_british
+						cu_calc_base_cultural_acceptance = yes
+						cu_check_cultural_acceptance = yes
+					}
+					else_if = { #Gaelic provinces become furious for your betrayal 
+						limit = { culture_group = gaelic }
+						add_unrest = 5
+						cu_calc_base_cultural_acceptance = yes
+						set_variable = { which = cu_var1 value = -10 }
+						cu_add_cultural_acceptance = yes
+					}
+					else_if = {
+						limit = { culture_group = british }
+						cu_calc_base_cultural_acceptance = yes
+						cu_check_cultural_acceptance = yes
+					}
+				}
+				every_subject_country = {
+					if = {
+						limit = { primary_culture = scottish }
+						cu_change_stability_point_n100 = yes
+						change_primary_culture = scottish_british
+						set_country_flag = scottish_british
+						every_owned_province = {
+							every_owned_province = {
+								if = {
+									limit = { culture = scottish }
+									change_culture = scottish_british
+									cu_calc_base_cultural_acceptance = yes
+									cu_check_cultural_acceptance = yes
+								}
+								else_if = { #Other gaelic provinces become furious for your betrayal 
+									limit = { culture_group = gaelic }
+									add_unrest = 5
+									cu_calc_base_cultural_acceptance = yes
+									set_variable = { which = cu_var1 value = -10 }
+									cu_add_cultural_acceptance = yes
+								}
+								else_if = {
+									limit = { culture_group = british }
+									cu_calc_base_cultural_acceptance = yes
+									cu_check_cultural_acceptance = yes
+								}
+							}
+						}
+					}
+					else_if = {
+						limit = { culture_group = gaelic }
 						add_liberty_desire = 20
 					}
 				} 
