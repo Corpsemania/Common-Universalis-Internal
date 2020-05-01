@@ -3040,7 +3040,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = flavor_eng.9881.a
-		ENG ·= { country_event = { id = flavor_eng.9882 } }
+		ENG = { country_event = { id = flavor_eng.9882 } }
 		ai_chance = {
 			factor = 100
 		}
