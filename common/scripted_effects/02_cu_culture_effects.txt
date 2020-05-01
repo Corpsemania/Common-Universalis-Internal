@@ -1843,4 +1843,32 @@ cu_switch_hybrid_culture = {
 		}
 		change_culture = scottish
 	}
+	else_if = {
+		limit = {
+			culture = dutch
+			owner = { culture_group = germanic }
+		}
+		change_culture = dutch_german
+	}
+	else_if = {
+		limit = {
+			culture = dutch_german
+			owner = { culture_group = dutch_g }
+		}
+		change_culture = dutch
+	}
+	else_if = {
+		limit = {
+			culture = flemish
+			owner = { culture_group = germanic }
+		}
+		change_culture = flemish_german
+	}
+	else_if = {
+		limit = {
+			culture = flemish_german
+			owner = { culture_group = dutch_g }
+		}
+		change_culture = flemish
+	}
 }
