@@ -1563,6 +1563,8 @@ country_event = {
 			OR = {
 				culture = dutch
 				culture = flemish
+				culture = dutch_german
+				culture = flemish_german
 				is_core = NED
 			}
 		}
@@ -1772,8 +1774,11 @@ country_event = {
 			region = low_countries_region
 		}
 		OR = {
-			primary_culture = dutch
-			primary_culture = flemish
+				culture = dutch
+				culture = flemish
+				culture = dutch_german
+				culture = flemish_german
+				is_core = NED
 		}
 		NOT = {
 			has_country_flag = state_joined_netherlands
@@ -1834,9 +1839,11 @@ province_event = {
 		}
 		region = low_countries_region
 		OR = {
-			culture = dutch
-			culture = flemish
-			is_core = NED
+				culture = dutch
+				culture = flemish
+				culture = dutch_german
+				culture = flemish_german
+				is_core = NED
 		}
 		OR = {
 			NOT = { has_province_flag = dutch_revolt }
