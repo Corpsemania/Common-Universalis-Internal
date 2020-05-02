@@ -3,19 +3,17 @@
 owner = CHA
 controller = CHA
 culture = cham
-religion = hinduism
+religion = mahayana
 capital = "Vijaya"
 trade_goods = tropical_wood
 hre = no
 base_tax = 5
 base_production = 5
 base_manpower = 2
-fort_15th = yes
 is_city = yes
 add_core = CHA
+add_core = DAI
 center_of_trade = 1
-
-
 
 discovered_by = chinese
 discovered_by = indian
@@ -42,7 +40,6 @@ discovered_by = ottoman
 	remove_core = TOK
 }
 1600.1.1 = {
-	religion = buddhism
 	culture = vietnamese
 } # Vietnamese Assimilation
 1692.1.1 = { unrest = 6 } # Rebellion against Vietnamese rule
