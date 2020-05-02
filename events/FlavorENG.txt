@@ -238,8 +238,67 @@ country_event = {
 	}
 	
 	option = {			# We have lost our foothold in France
+		name = "flavor_eng.EVTOPTA9104CU"
+		ai_chance = { factor = 90 }
+		add_stability_or_adm_power = yes
+		custom_tooltip = form_british_cultural_group_eng_hyw
+		hidden_effect = {
+					change_primary_culture = english_british
+					every_owned_province = {
+						if = {
+							limit = { culture = english }
+							change_culture = english_british
+							cu_calc_base_cultural_acceptance = yes
+							cu_check_cultural_acceptance = yes
+						}
+						else_if = {
+							limit = { culture_group = norman }
+							change_variable = { which = p_ca value = -10 }
+							add_unrest = 5
+							cu_calc_base_cultural_acceptance = yes
+							cu_check_cultural_acceptance = yes
+						}
+					}
+					every_subject_country = {
+						if = {
+							limit = { primary_culture = english }
+							if = {
+								limit = { culture = english }
+								change_culture = english_british
+								cu_calc_base_cultural_acceptance = yes
+								cu_check_cultural_acceptance = yes
+							}
+							else_if = {
+								limit = { culture_group = norman }
+								change_variable = { which = p_ca value = -10 }
+								add_unrest = 5
+								cu_calc_base_cultural_acceptance = yes
+								cu_check_cultural_acceptance = yes
+							}
+						}
+						else_if = {
+							limit = { culture_group = norman }
+							add_liberty_desire = 10
+						}
+					}
+		}
+		every_core_province = {
+			limit = {
+				region = france_region
+				NOT = { owned_by = ROOT }
+			}
+			remove_core = ROOT
+		}
+		FRA = {
+			add_opinion = {
+				who = ROOT
+				modifier = eng_no_english_in_france
+			}
+		}
+	}
+	option = {			# We have lost our foothold in France
 		name = "flavor_eng.EVTOPTA9104"
-		ai_chance = { factor = 80 }
+		ai_chance = { factor = 5 }
 		add_stability_or_adm_power = yes
 		every_core_province = {
 			limit = {
@@ -257,7 +316,7 @@ country_event = {
 	}
 	option = {		# We will never give this up!
 		name = "flavor_eng.EVTOPTB9104"
-		ai_chance = { factor = 20 }
+		ai_chance = { factor = 5 }
 		cu_change_stability_point_n75 = yes
 		FRA = {
 			add_opinion = {
