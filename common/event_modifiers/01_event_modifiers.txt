@@ -884,6 +884,7 @@ mikado_in_power = {
 theodosian_walls = {
 	garrison_growth = 0.10
 	local_defensiveness = 0.25
+	fort_level = 1
 }
 
 cu_civilian_integration = {
@@ -1002,4 +1003,20 @@ wokou_left = {
 chinese_wokou_left = {
 	local_sailors_modifier = -0.2
 	province_trade_power_modifier = -0.2
+}
+
+tur_roman_path = {
+	prestige = 1
+	ae_impact = 0.1
+	#Greek Culture Administrative Integrity: +10%
+}
+
+tur_arabian_path = {
+	tolerance_own = 1
+	tolerance_heathen = -1
+}
+
+tur_turkish_path = {
+	cavalry_power = 0.1
+	province_warscore_cost = -0.1
 }

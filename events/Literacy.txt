@@ -406,6 +406,8 @@ province_event = {
 			cu_calc_base_cultural_acceptance = yes
 		}
 		
+		cu_do_nationalism_growth = yes
+		
 		#new tech system
 		#points
 		#p_res:province research points
@@ -832,6 +834,7 @@ province_event = {
 		divide_variable = { which = lit_gl value = 1000 } 
 		subtract_variable = { which = lit_g which = lit_gl }
 		
+		cu_do_nationalism_growth = yes
 		#new tech system
 		#points
 		#p_res:province research points

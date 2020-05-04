@@ -6385,39 +6385,40 @@ guiTypes = {
 			position = { x = 406 y = 3 }
 			frame = 2	
 		}
-		
+
 		checkboxType = {
-			name = "build_highlight"
+			name = "build_administration_way"
 			position = { x = 399 y = 32 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 		
 		checkboxType = {
-			name = "build_remove_highlight"
+			name = "build_diplomatic_way"
 			position = { x = 451 y = 32 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 		
 		checkboxType = {
-			name = "build_move_capital_b"
+			name = "build_military_way"
 			position = { x = 503 y = 32 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
+		
 		checkboxType = {
-			name = "build_second_capital_b"
+			name = "build_move_capital_b"
 			position = { x = 555 y = 32 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 		checkboxType = {
-			name = "build_remove_second_capital"
+			name = "build_second_capital_b"
 			position = { x = 607 y = 32 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 		checkboxType = {
-			name = "build_administration_way"
+			name = "build_remove_second_capital"
 			position = { x = 659 y = 32 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
-		}
+		}		
 		
 		checkboxType = {
 			name = "build_inspection_tour"
@@ -6467,20 +6468,26 @@ guiTypes = {
 		}
 		
 		checkboxType = {
-			name = "build_import_food"
+			name = "build_change_goods"
 			position = { x = 555 y = 109 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 		
 		checkboxType = {
-			name = "build_c_import_food"
+			name = "build_change_goods_minaral"
 			position = { x = 607 y = 109 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
-		}	
+		}
+		
+		checkboxType = {
+			name = "build_change_goods_industry"
+			position = { x = 659 y = 109 }
+			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
+		}
 		
 		checkboxType = {
 			name = "build_terrain_improvement"
-			position = { x = 659 y = 109 }
+			position = { x = 711 y = 109 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 		
@@ -6710,25 +6717,32 @@ guiTypes = {
 			spriteType = "GFX_macro_buildings_category_strip"
 			position = { x = 406 y = 388 }
 			frame = 13
-		}	
-			
+		}
+
 		checkboxType = {
-			name = "build_change_goods"
+			name = "build_highlight"
 			position = { x = 399 y = 417 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 		
 		checkboxType = {
-			name = "build_change_goods_minaral"
+			name = "build_remove_highlight"
 			position = { x = 451 y = 417 }
+			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
+		}	
+		
+		checkboxType = {
+			name = "build_import_food"
+			position = { x = 503 y = 417 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 		
 		checkboxType = {
-			name = "build_change_goods_industry"
-			position = { x = 503 y = 417 }
+			name = "build_c_import_food"
+			position = { x = 555 y = 417 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
-		}
+		}		
+		
 	}
 
 	windowType =

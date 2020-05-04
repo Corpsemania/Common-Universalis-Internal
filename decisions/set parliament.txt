@@ -34,4 +34,36 @@ country_decisions = {
 			factor = 0			
 		}
 	}
+	
+	auto_integration = {
+		potential = {
+			ai = no	
+			NOT = { has_country_flag = cu_core_event_auto }
+			has_global_flag = test_version
+		}
+		allow = {			         
+		}
+		effect = {
+			set_country_flag = cu_core_event_auto			
+		}
+		ai_will_do = {
+			factor = 0			
+		}
+	}
+	
+	c_auto_integration = {
+		potential = {
+			ai = no	
+			has_country_flag = cu_core_event_auto 
+			has_global_flag = test_version
+		}
+		allow = {			         
+		}
+		effect = {
+			clr_country_flag = cu_core_event_auto			
+		}
+		ai_will_do = {
+			factor = 0			
+		}
+	}
 }			

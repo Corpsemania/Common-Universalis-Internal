@@ -470,6 +470,8 @@ cu_province_initialization = {
 			set_variable = { which = b_uc value = 0 } #Base Urbanization Capacity
 			set_variable = { which = p_ca value = 0 } #Cultural Acceptance
 			set_variable = { which = p_cad value = 0 } #Dynamic Cultural Acceptance
+			set_variable = { which = p_nationalism value = 0 } #Nationalism
+			set_variable = { which = p_nationalism_g value = 0 } #Nationalism Yearly Growth
 			
 			#Initialize Art Values
 		    set_variable = { which = cu_art_slot value = 0 }

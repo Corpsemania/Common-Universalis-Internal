@@ -9,7 +9,7 @@ connect_to_capital_oversea = {
 
 second_capital = {
 	local_autonomy = -0.10
-	local_state_maintenance_modifier = 0.5
+	global_tax_income = -60
 	#Local Government Influnce: +50%
 }
 ##computer power

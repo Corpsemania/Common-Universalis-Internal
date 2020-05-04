@@ -8,6 +8,7 @@ province_event = {
 	picture = GOOD_WITH_MONARCH_eventPicture
 	
 	trigger = {
+		NOT = { owner = { has_country_flag = cu_core_event_auto } }
 	    has_province_flag = cu_newly_conquered_province
 		NOT = { has_province_modifier = cu_local_autonomy_administration }
 		NOT = { owner = { has_country_flag = cu_core_event_fired } }
@@ -2182,3 +2183,47 @@ province_event = {
 		  add_core = owner
 	}
 }
+
+province_event = {
+	id = core.7
+	title = "core.7.t"
+	desc = "core.7.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	hidden = yes
+	
+	trigger = {
+		owner = { has_country_flag = cu_core_event_auto }
+	    has_province_flag = cu_newly_conquered_province
+		NOT = { has_province_modifier = cu_local_autonomy_administration }
+		NOT = { owner = { has_country_flag = cu_core_event_fired } }
+		is_core = owner		
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	
+	}
+
+    immediate = {
+	    hidden_effect = {
+		    owner = {
+			    set_country_flag = cu_core_event_fired
+			}			
+		    add_province_modifier = {
+			    name = cu_local_autonomy_administration
+				duration = -1
+			}
+		}
+	}
+	
+	option = {
+		name = "core.7.c" #Leave it to locals		
+		owner = { clr_country_flag = cu_core_event_fired }
+		
+		clr_province_flag = cu_newly_conquered_province	
+		ai_chance = {
+		    factor = 0
+		}
+	}	
+}
+

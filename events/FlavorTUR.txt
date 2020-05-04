@@ -2401,3 +2401,74 @@ country_event = {
 		set_country_flag = lapse_of_devshirme
 	}
 }
+
+
+
+###############################CU new events###############
+
+#Successor of Rome
+country_event = {
+	id = flavor_tur.109
+	title = "flavor_tur.109.t"
+	desc = "flavor_tur.109.d"
+	picture = COURT_eventPicture
+	
+	is_triggered_only = yes
+	
+	option = {		#We are the successor of rome!
+		name = "flavor_tur.109.a"
+		set_government_rank = 3
+		add_country_modifier = {
+			name = tur_roman_path
+			duration = -1
+		}
+		custom_tooltip = flavor_tur.109.at
+		hidden_effect = {
+			every_owned_province = {
+				limit = { culture = greek }
+				cu_calc_base_cultural_acceptance = yes
+				set_variable = { which = cu_var1 value = 10 }
+				cu_add_cultural_acceptance = yes
+			}
+		}
+		ai_chance = {
+			factor = 80
+		}
+	}
+	option = {		#We are the successor of arabian empire and gravedigger of rome!
+		name = "flavor_tur.109.b"
+		set_government_rank = 3
+		add_country_modifier = {
+			name = tur_arabian_path
+			duration = -1
+		}
+		custom_tooltip = flavor_tur.109.bt
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				OR = {
+					has_global_flag = cu_realistic_handicap_set
+					has_global_flag = cu_x_handicap_set
+				}
+			}
+		}
+	}
+	option = {		#A new Turkish empire!
+		name = "flavor_tur.109.c"
+		add_country_modifier = {
+			name = tur_turkish_path
+			duration = -1
+		}
+		ai_chance = {
+			factor = 10
+			modifier = {
+				factor = 0
+				OR = {
+					has_global_flag = cu_realistic_handicap_set
+					has_global_flag = cu_x_handicap_set
+				}
+			}
+		}
+	}
+}

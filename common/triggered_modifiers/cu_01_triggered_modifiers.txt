@@ -2412,5 +2412,7 @@ protectorate_mil_tech_bonus = {
 		}
 	}
 	mil_tech_cost_modifier = -0.15
-}						
+}				
+
+		
 	

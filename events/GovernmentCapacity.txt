@@ -42,11 +42,11 @@ country_event = {
 			set_variable = { which = cgmc value = 0 } #Capital GC Modifier(Culture)
 			set_variable = { which = cgmi value = 0 } #Capital GC Modifier(Idea)
 			set_variable = { which = cgmr value = 0 } #Capital GC Modifier(Ruler)
-			set_variable = { which = zgcm value = 95 } #GC Modifier from primary culture
-			set_variable = { which = sgcm value = 85 } #GC Modifier from accepted culture of the same group
-			set_variable = { which = agcm value = 75 } #GC Modifier from accepted culture of the differnent group
+			set_variable = { which = zgcm value = 100 } #GC Modifier from primary culture
+			set_variable = { which = sgcm value = 90 } #GC Modifier from accepted culture of the same group
+			set_variable = { which = agcm value = 80 } #GC Modifier from accepted culture of the differnent group
 			set_variable = { which = ggcm value = 70 } #GC Modifier from unccepted culture of the same group
-			set_variable = { which = ngcm value = 50 } #GC Modifier from unaccepted culture of the different group
+			set_variable = { which = ngcm value = 60 } #GC Modifier from unaccepted culture of the different group
 			set_variable = { which = tgcm value = 0 } #GC Modifier from Tech
 			set_variable = { which = egcm value = 0 } #GC Modifier from Effect
 			set_variable = { which = kgcm value = 0 } #GC Modifier from Government Rank
@@ -84,64 +84,72 @@ country_event = {
 		        limit = { has_reform = court_despotism }
 		        change_variable = { which = cgcm value = 25 }
 			}
-			else_if = {
-		        limit = { has_reform = noble_council }
-				change_variable = { which = sgcm value = 5 }
-				change_variable = { which = agcm value = 5 }
-			}
-			if = {
-		        limit = { has_reform = cu_feudalism_reform }
-				change_variable = { which = ngcm value = 5 }
-				change_variable = { which = agcm value = 5 }
-			}
 			if = {
 				limit = { has_reform = oral_tradition }
 				change_variable = { which = zgcm value = 5 }
 			}
 			else_if = {
 		        limit = { has_reform = sovereign_code }
-				change_variable = { which = zgcm value = 5 }
 				change_variable = { which = cgcm value = 25 }								 
-			}
-			else_if = {
-		        limit = { has_reform = constitution_reform }
-		        change_variable = { which = ngcm value = 10 }
-				change_variable = { which = agcm value = 10 }
-			}		   
+			}	   
 			if = {
 		        limit = { has_reform = confederate }
-				change_variable = { which = agcm value = 5 }
-				change_variable = { which = ngcm value = 5 }
+				change_variable = { which = ggcm value = 5 }
+				change_variable = { which = agcm value = 10 }
+				change_variable = { which = ngcm value = 15 }
 			}
 			if = {
 		        limit = { government = monarchy }
 		        change_variable = { which = cgcm value = 25 }
-				change_variable = { which = zgcm value = 5 }
 			}
 			else_if = {
 		        limit = { government = theocracy }
-				change_variable = { which = sgcm value = 10 }
-				change_variable = { which = agcm value = 10 }
+				change_variable = { which = sgcm value = 5 }
+				change_variable = { which = agcm value = 5 }
 			}
 			else_if = {
 		        limit = { government = tribal }
-		        change_variable = { which = ggcm value = -10 }
-				change_variable = { which = ngcm value = -10 }
-			}	  
-		    else_if = {
-		        limit = { government = republic }
-		        change_variable = { which = zgcm value = 5 }
+				change_variable = { which = zgcm value = 5 }
+		        change_variable = { which = ggcm value = 5 }
 				change_variable = { which = sgcm value = 5 }
-				change_variable = { which = agcm value = 5 }
+				change_variable = { which = ngcm value = -10 }
+			}	
+		    if = {
+		        limit = { has_reform = elective_monarchy }		
 				change_variable = { which = ggcm value = 5 }
 				change_variable = { which = ngcm value = 5 }
 			}
-		    if = {
-		        limit = { has_reform = elective_monarchy }		          
+			if = {
+				limit = { has_reform = cu_cultural_policy_1 }
+				change_variable = { which = zgcm value = 10 }
+				change_variable = { which = sgcm value = 10 }
+		        change_variable = { which = ggcm value = -5 }
+				change_variable = { which = agcm value = -10 }
+				change_variable = { which = ngcm value = -10 }	
+			}
+			else_if = {
+				limit = { has_reform = cu_cultural_policy_2 }
+				change_variable = { which = zgcm value = 5 }
 				change_variable = { which = sgcm value = 5 }
+		        change_variable = { which = ggcm value = 0 }
+				change_variable = { which = agcm value = -5 }
+				change_variable = { which = ngcm value = -5 }	
+			}
+			else_if = {
+				limit = { has_reform = cu_cultural_policy_4 }
+				change_variable = { which = zgcm value = -5 }
+				change_variable = { which = sgcm value = -5 }
+		        change_variable = { which = ggcm value = 0 }
 				change_variable = { which = agcm value = 5 }
-				change_variable = { which = ggcm value = 5 }
-				change_variable = { which = ngcm value = 5 }
+				change_variable = { which = ngcm value = 5 }	
+			}
+			else_if = {
+				limit = { has_reform = cu_cultural_policy_5 }
+				change_variable = { which = zgcm value = -15 }
+				change_variable = { which = sgcm value = -5 }
+		        change_variable = { which = ggcm value = 5 }
+				change_variable = { which = agcm value = 5 }
+				change_variable = { which = ngcm value = 10 }	
 			}
 			#Governemnt End
 		   

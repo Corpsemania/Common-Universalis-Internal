@@ -154,54 +154,32 @@ province_event = {
                                       }
                                     }
                 }
-                NOT = { local_autonomy = 75 }				 
+                NOT = { local_autonomy = 100 }				 
                 unrest = -10
-                #is_year = 1600
-				OR = {
-				    AND = {
-					       check_variable = { which = literacy value = 4 }
-						   unrest = -1
-					}
-					AND = {
-					       check_variable = { which = literacy value = 6 }
-						   unrest = -3
-					}
-					AND = {
-					       check_variable = { which = literacy value = 8 }
-						   unrest = -6
-					}
-					AND = {
-					       check_variable = { which = literacy value = 10 }
-						   unrest = -10
-					}
-				}
+                check_variable = { which = p_nationalism value = 10 }
 	}
 
 	mean_time_to_happen = {
 		months = 3600
                 modifier = {
                       factor = 0.75
-                      check_variable = { which = literacy value = 6 }
+                      check_variable = { which = p_nationalism value = 15 }
                 }
                 modifier = {
                       factor = 0.75
-                      check_variable = { which = literacy value = 8 }
+                      check_variable = { which = p_nationalism value = 20 }
                 }
                 modifier = {
                       factor = 0.75
-                      check_variable = { which = literacy value = 10 }
+                      check_variable = { which = p_nationalism value = 25 }
                 }
                 modifier = {
                       factor = 0.75
-                      check_variable = { which = literacy value = 12 }
+                      check_variable = { which = p_nationalism value = 30 }
                 }
 				modifier = {
                       factor = 0.75
-                      check_variable = { which = literacy value = 14 }
-                }
-                modifier = {
-                      factor = 0.75
-                      nationalism = 1
+                      check_variable = { which = p_nationalism value = 35 }
                 }
                 modifier = {
                       factor = 2
@@ -278,21 +256,31 @@ province_event = {
 		name = "empire.1.a" #Grant Autonomy
 		add_local_autonomy = 50
                 add_nationalism = 5
+		ai_chance = {
+			factor = 33
+		}
 	}
     option = {
 		name = "empire.1.b" #Try Negotiation
-                trigger = {
+        trigger = {
 			owner = {
-				dip_power = 40
+				dip_power = 20
 			}
 		}
 		add_nationalism = 10
-        owner = { add_dip_power = -40 }
+		add_local_autonomy = 20
+        owner = { add_dip_power = -20 }
+		ai_chance = {
+			factor = 33
+		}
 	}
     option = {
 		name = "empire.1.c" #Refuse demand
 		add_unrest = 10
-                add_nationalism = 20
+        add_nationalism = 20
+		ai_chance = {
+			factor = 33
+		}
 	}
 }
 
@@ -2142,4 +2130,130 @@ country_event = {
 				remove_core = ROOT		
             }
         }	  
+}
+
+
+#Rise of Nationalism
+province_event = {
+      id = empireim.87
+	  title = "empireim.87.t"
+	  desc = "empireim.87.d"
+	  picture = ARTWORK_eventPicture
+	  major = yes
+	  trigger = {	        
+			check_variable = { which = p_nationalism value = 15 }
+			NOT = { has_province_flag = p_nationalism_awareness }
+	  }
+	   mean_time_to_happen = {
+	         months = 12
+	  }
+	  immediate = {
+			hidden_effect = {
+					every_country = {
+						limit = { 
+							NOT = { PREV = { owned_by = PREV } }
+							any_owned_province = {
+								culture = ROOT
+							}
+						}
+						country_event = { id = empireim.88 }
+					}
+					every_province = {
+						limit = { culture = ROOT }
+						set_province_flag = p_nationalism_awareness
+						if = {
+							limit = { NOT = { check_variable = { which = p_nationalism value = 5 } } }
+							set_variable = { which = p_nationalism value = 5 }
+						}
+					}
+			}
+			
+	  }
+	  option = { #A most welcome news!
+	        name = "empireim.87.a"
+			trigger = {
+				OR = {
+					has_owner_culture = yes
+					AND = {
+						owner = { culture_group = PREV }
+						OR = {
+							has_owner_accepted_culture = yes
+							owner = { government_rank = 3 }
+						}
+					}
+				}
+			}
+			custom_tooltip = cu_nationalism_tooltip
+      }
+	  option = { #Terrible!
+	        name = "empireim.87.b"
+			trigger = {
+				NOT = {
+					OR = {
+						has_owner_culture = yes
+						AND = {
+							owner = { culture_group = PREV }
+							OR = {
+								has_owner_accepted_culture = yes
+								owner = { government_rank = 3 }
+							}
+						}
+					}
+				}
+				
+			}
+			custom_tooltip = cu_nationalism_tooltip
+      }		  
+}
+
+country_event = {
+      id = empireim.88
+	  title = "empireim.88.t"
+	  desc = "empireim.88.d"
+	  picture = ARTWORK_eventPicture
+	  is_triggered_only = yes	 
+	  option = { #A most welcome news!
+	        name = "empireim.88.a"
+			trigger = {
+				OR = {
+					primary_culture = FROM
+					AND = {
+						culture_group = FROM
+						OR = {
+							any_owned_province = {
+								culture = FROM
+								has_owner_accepted_culture = yes
+							}
+							government_rank = 3
+						}
+						
+					}
+				}
+			}
+			custom_tooltip = cu_nationalism_tooltip1
+      }
+	  option = { #Terrible!
+	        name = "empireim.88.b"
+			trigger = {
+				NOT = {
+					OR = {
+						primary_culture = FROM
+						AND = {
+							culture_group = FROM
+							OR = {
+								any_owned_province = {
+									culture = FROM
+									has_owner_accepted_culture = yes
+								}
+								government_rank = 3
+							}
+							
+						}
+					}
+				}
+				
+			}
+			custom_tooltip = cu_nationalism_tooltip1
+      }	
+	  
 }

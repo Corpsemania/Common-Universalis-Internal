@@ -1754,7 +1754,17 @@ spriteTypes = {
 		name = "GFX_administration_way"
 		texturefile = "gfx//interface//buildings//edict_administrative.dds"
 		loadType = "INGAME"
-	}	
+	}
+	spriteType = {
+		name = "GFX_diplomatic_way"
+		texturefile = "gfx//interface//buildings//edict_administrative.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_military_way"
+		texturefile = "gfx//interface//buildings//edict_administrative.dds"
+		loadType = "INGAME"
+	}
 	spriteType = {
 		name = "GFX_drainage"
 		texturefile = "gfx//interface//buildings//edict_economic.dds"
@@ -1889,52 +1899,7 @@ spriteTypes = {
 		name = "GFX_upgrade_center"
 		texturefile = "gfx//interface//buildings//edict_cot.dds"
 		loadType = "INGAME"
-	}
-	spriteType = {
-		name = "GFX_change_goods_coffee"
-		texturefile = "gfx//interface//buildings//edict_economic.dds"
-		loadType = "INGAME"
-	}
-	spriteType = {
-		name = "GFX_change_goods_cotton"
-		texturefile = "gfx//interface//buildings//edict_economic.dds"
-		loadType = "INGAME"
-	}
-	spriteType = {
-		name = "GFX_change_goods_sugar"
-		texturefile = "gfx//interface//buildings//edict_economic.dds"
-		loadType = "INGAME"
-	}
-	spriteType = {
-		name = "GFX_change_goods_tobacco"
-		texturefile = "gfx//interface//buildings//edict_economic.dds"
-		loadType = "INGAME"
-	}
-	spriteType = {
-		name = "GFX_change_goods_cocoa"
-		texturefile = "gfx//interface//buildings//edict_economic.dds"
-		loadType = "INGAME"
-	}
-	spriteType = {
-		name = "GFX_change_goods_silk"
-		texturefile = "gfx//interface//buildings//edict_economic.dds"
-		loadType = "INGAME"
-	}
-	spriteType = {
-		name = "GFX_change_goods_spices"
-		texturefile = "gfx//interface//buildings//edict_economic.dds"
-		loadType = "INGAME"
-	}
-	spriteType = {
-		name = "GFX_change_goods_dyes"
-		texturefile = "gfx//interface//buildings//edict_economic.dds"
-		loadType = "INGAME"
-	}
-	spriteType = {
-		name = "GFX_change_goods_tea"
-		texturefile = "gfx//interface//buildings//edict_economic.dds"
-		loadType = "INGAME"
-	}
+	}		
 	spriteType = {
 		name = "GFX_change_goods"
 		texturefile = "gfx//interface//buildings//edict_economic.dds"
@@ -1945,4 +1910,30 @@ spriteTypes = {
 		texturefile = "gfx//interface//buildings//edict_economic.dds"
 		loadType = "INGAME"
 	}
+	spriteType = {
+		name = "GFX_c_literacy_5"
+		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_c_literacy_10"
+		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_c_literacy_20"
+		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_c_literacy_40"
+		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_c_terrain"
+		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		loadType = "INGAME"
+	}
+	
 }

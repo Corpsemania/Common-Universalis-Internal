@@ -1393,15 +1393,23 @@ cu_cultural_policy_1 = {
 		#Unaccepted Culture Base Cultural Acceptance: -10%
 	}
 	effect = {
-		add_absolutism = -10
 		clr_ruler_flag = chose_cultural_policy
         clr_country_flag = chose_cultural_policy_timer
         set_ruler_flag = chose_cultural_policy
         set_country_flag = chose_cultural_policy_timer
 		set_country_flag = cu_cultural_policy_1
+		
 		hidden_effect = {
-			set_variable = { which = cu_var1 value = -1 }
+			clr_country_flag = cu_cultural_policy_2
+			clr_country_flag = cu_cultural_policy_3
+			clr_country_flag = cu_cultural_policy_4
+			clr_country_flag = cu_cultural_policy_5
 		}
+		custom_tooltip = cu_cultural_policy_1_tooltip
+		custom_tooltip = cu_administrative_integraty_toolbar
+		custom_tooltip = Unaccepted_CA_10cent_lower
+		custom_tooltip = Accepted_CA_10cent_higher
+		add_absolutism = -10
 		if = { 
 			limit = { has_country_flag = cu_cultural_policy_2 }
 			custom_tooltip = cu_change_stability_n1
@@ -1412,14 +1420,6 @@ cu_cultural_policy_1 = {
 				cu_calc_base_cultural_acceptance = yes
 			}
 		}
-		hidden_effect = {
-			clr_country_flag = cu_cultural_policy_2
-			clr_country_flag = cu_cultural_policy_3
-			clr_country_flag = cu_cultural_policy_4
-			clr_country_flag = cu_cultural_policy_5
-		}
-		custom_tooltip = Unaccepted_CA_10cent_lower
-		custom_tooltip = Accepted_CA_10cent_higher
 	}
 }
 
@@ -1456,15 +1456,22 @@ cu_cultural_policy_2 = {
 		#Unaccepted Culture Base Cultural Acceptance: -5%
 	}
 	effect = {
-		add_absolutism = -5
 		clr_ruler_flag = chose_cultural_policy
         clr_country_flag = chose_cultural_policy_timer
         set_ruler_flag = chose_cultural_policy
         set_country_flag = chose_cultural_policy_timer
 		set_country_flag = cu_cultural_policy_2
 		hidden_effect = {
-			set_variable = { which = cu_var1 value = -1 }
+			clr_country_flag = cu_cultural_policy_1
+			clr_country_flag = cu_cultural_policy_3
+			clr_country_flag = cu_cultural_policy_4
+			clr_country_flag = cu_cultural_policy_5
 		}
+		custom_tooltip = cu_cultural_policy_2_tooltip
+		custom_tooltip = cu_administrative_integraty_toolbar
+		custom_tooltip = Unaccepted_CA_5cent_lower
+		custom_tooltip = Accepted_CA_5cent_higher
+		add_absolutism = -5
 		if = { 
 			limit = {
 				OR = {
@@ -1480,14 +1487,6 @@ cu_cultural_policy_2 = {
 				cu_calc_base_cultural_acceptance = yes
 			}
 		}
-		hidden_effect = {
-			clr_country_flag = cu_cultural_policy_1
-			clr_country_flag = cu_cultural_policy_3
-			clr_country_flag = cu_cultural_policy_4
-			clr_country_flag = cu_cultural_policy_5
-		}
-		custom_tooltip = Unaccepted_CA_5cent_lower
-		custom_tooltip = Accepted_CA_5cent_higher
 	}
 }
 
@@ -1525,9 +1524,6 @@ cu_cultural_policy_3 = {
         set_ruler_flag = chose_cultural_policy
         set_country_flag = chose_cultural_policy_timer
 		set_country_flag = cu_cultural_policy_3
-		hidden_effect = {
-			set_variable = { which = cu_var1 value = -1 }
-		}
 		if = { 
 			limit = {
 				OR = {
@@ -1585,15 +1581,22 @@ cu_cultural_policy_4 = {
 		#Unaccepted Culture Base Cultural Acceptance: +5%
 	}
 	effect = {
-		add_absolutism = -5
 		clr_ruler_flag = chose_cultural_policy
         clr_country_flag = chose_cultural_policy_timer
         set_ruler_flag = chose_cultural_policy
         set_country_flag = chose_cultural_policy_timer
 		set_country_flag = cu_cultural_policy_4
 		hidden_effect = {
-			set_variable = { which = cu_var1 value = -1 }
+			clr_country_flag = cu_cultural_policy_2
+			clr_country_flag = cu_cultural_policy_3
+			clr_country_flag = cu_cultural_policy_1
+			clr_country_flag = cu_cultural_policy_5
 		}
+		custom_tooltip = cu_cultural_policy_4_tooltip
+		custom_tooltip = cu_administrative_integraty_toolbar
+		custom_tooltip = Unaccepted_CA_5cent_higher
+		custom_tooltip = Accepted_CA_2.5cent_lower
+		add_absolutism = -5
 		if = { 
 			limit = {
 				OR = {
@@ -1609,14 +1612,6 @@ cu_cultural_policy_4 = {
 				cu_calc_base_cultural_acceptance = yes
 			}
 		}
-		hidden_effect = {
-			clr_country_flag = cu_cultural_policy_2
-			clr_country_flag = cu_cultural_policy_3
-			clr_country_flag = cu_cultural_policy_1
-			clr_country_flag = cu_cultural_policy_5
-		}
-		custom_tooltip = Unaccepted_CA_5cent_higher
-		custom_tooltip = Accepted_CA_2.5cent_lower
 	}
 }
 
@@ -1651,15 +1646,24 @@ cu_cultural_policy_5 = {
 		#Unaccepted Culture Base Cultural Acceptance: +10%
 	}
 	effect = {
-		add_absolutism = -5
+		custom_tooltip = cu_cultural_policy_5_tooltip
 		clr_ruler_flag = chose_cultural_policy
         clr_country_flag = chose_cultural_policy_timer
         set_ruler_flag = chose_cultural_policy
         set_country_flag = chose_cultural_policy_timer
 		set_country_flag = cu_cultural_policy_5
+		
 		hidden_effect = {
-			set_variable = { which = cu_var1 value = -1 }
+			clr_country_flag = cu_cultural_policy_2
+			clr_country_flag = cu_cultural_policy_3
+			clr_country_flag = cu_cultural_policy_4
+			clr_country_flag = cu_cultural_policy_1
 		}
+		custom_tooltip = cu_cultural_policy_4_tooltip
+		custom_tooltip = cu_administrative_integraty_toolbar
+		custom_tooltip = Unaccepted_CA_10cent_higher
+		custom_tooltip = Accepted_CA_5cent_lower
+		add_absolutism = -5
 		if = {
 			limit = { has_country_flag = cu_cultural_policy_4 }
 			custom_tooltip = cu_change_stability_n1
@@ -1670,14 +1674,6 @@ cu_cultural_policy_5 = {
 				cu_calc_base_cultural_acceptance = yes
 			}
 		}
-		hidden_effect = {
-			clr_country_flag = cu_cultural_policy_2
-			clr_country_flag = cu_cultural_policy_3
-			clr_country_flag = cu_cultural_policy_4
-			clr_country_flag = cu_cultural_policy_1
-		}
-		custom_tooltip = Unaccepted_CA_10cent_higher
-		custom_tooltip = Accepted_CA_5cent_lower
 	}
 }
 
@@ -2173,9 +2169,8 @@ volunteer_training = {
 			AND = {
 				NOT = { has_country_modifier = tur_janissary }
 				cu_didnt_change_conscription_policy = yes
-		        mil_tech = 7
-                OR = {
-					custom_trigger_tooltip = {
+		        mil_tech = 8
+                custom_trigger_tooltip = {
 						tooltip = has_fulfill_at_least_a_mil_idea_group
 						OR = {
 							full_idea_group = aristocracy_ideas
@@ -2186,9 +2181,7 @@ volunteer_training = {
 							full_idea_group = quantity_ideas
 							full_idea_group = militarist_ideas
 						}
-					}
-					mil_tech = 12
-                }
+				}
 				mil_power = 200
 				army_tradition = 20
 				stability = 1
@@ -2198,6 +2191,7 @@ volunteer_training = {
 						NOT = { has_reform = celestial_empire_2 }
 					}
 					NOT = { has_reform = military_household }
+					NOT = { has_reform = steppe_horde }
 					custom_trigger_tooltip = {
 						tooltip = tooltip_celestial_army_reform
 						NOT = { has_country_modifier = weisuo_system }
@@ -3856,8 +3850,9 @@ constitution_reform = {
 						absolutism = 20
 					}
 					adm_tech = 22
-					absolutism = 20
 				}
+				
+				absolutism = 20
 				ai = no
 			}
 		}

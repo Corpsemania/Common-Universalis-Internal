@@ -203,6 +203,22 @@ cu_add_cultural_acceptance = {
 	set_variable = { which = cu_var1 value = 0 }
 }
 
+
+#cu_calc_nationalism_impact[] - Calculate nationalism impact on A.I.
+cu_calc_nationalism_impact = {
+	set_variable = { which = cu_var1 which = p_nationalism }
+	cu_check_cultural_assimilation = yes
+	if = {
+		limit = { check_variable = { which = p_as value = 1 } }
+		set_variable = { which = cu_var2 value = 1 }
+		set_variable = { which = cu_var3 which = p_as }
+		divide_variable = { which = cu_var3 value = p_asc }
+		subtract_variable = { which = cu_var2 which = cu_var3 }
+		multiply_variable = { which = cu_var1 which = cu_var2 }
+	}
+	set_variable = { which = p_cabn which = cu_var1 }
+}
+
 #cu_calc_base_cultural_acceptance[]: Calculate Max Administrative Integrity
 
 cu_calc_base_cultural_acceptance = {
@@ -212,7 +228,7 @@ cu_calc_base_cultural_acceptance = {
 		 value = modifier:max_states
 		 who = owner
 	}
-	subtract_variable = { which = p_cab value = 980 } #Base Value:20, max_states has a base value of 1000 which should be removed here.
+	subtract_variable = { which = p_cab value = 970 } #Base Value:30, max_states has a base value of 1000 which should be removed here.
 	if = {  
 	     limit = { is_capital = yes }
 		 change_variable = { which = p_cab value = 20 }
@@ -256,8 +272,6 @@ cu_calc_base_cultural_acceptance = {
 			}
 		}
 		change_variable = { which = p_cab value = 45 }
-		set_variable = { which = cu_var2 which = literacy }
-		divide_variable = { which = cu_var2 value = 10 }
 		if = {
 			limit = { owner = { has_reform = cu_cultural_policy_1 } }
 			change_variable = { which = p_cab value = 10 }
@@ -274,25 +288,15 @@ cu_calc_base_cultural_acceptance = {
 			limit = { owner = { has_reform = cu_cultural_policy_5 } }
 			change_variable = { which = p_cab value = -10 }
 		}
-		if = {
-			limit = { enlightenment = 100 }
-			subtract_variable = { which = p_cab value = -5 }
-		}
 	}
     else_if = { #Same Cultural Group
 		limit = { owner = { culture_group = ROOT } }
 		change_variable = { which = p_cab value = 40 }
-		set_variable = { which = cu_var2 which = literacy }
-		divide_variable = { which = cu_var2 value = 4 }
-		subtract_variable = { which = p_cab which = cu_var2 }
 		if = {
 			  limit = { printing_press = 100 }
 			  subtract_variable = { which = p_cab value = -5 }
 		}
-		if = {
-			  limit = { enlightenment = 100 }
-			  subtract_variable = { which = p_cab value = -5 }
-		}
+
 		if = {
 			  limit = { owner = { has_reform = cu_cultural_policy_1 } }
 			  change_variable = { which = p_cab value = -5 }
@@ -309,19 +313,15 @@ cu_calc_base_cultural_acceptance = {
 			  limit = { owner = { has_reform = cu_cultural_policy_5 } }
 			  change_variable = { which = p_cab value = 5 }
 		}
+		cu_calc_nationalism_impact = yes
+		multiply_variable = { which = p_cabn value = 0.3 }
+		subtract_variable = { which = p_cab which = p_cabn }
 	}
     else_if = { #Foreign Accepted Culture
 		limit = { has_owner_accepted_culture = yes }
-		change_variable = { which = p_cab value = 40 }
-		set_variable = { which = cu_var2 which = literacy }
-		divide_variable = { which = cu_var2 value = 3.5 }
-		subtract_variable = { which = p_cab which = cu_var2 }
+		change_variable = { which = p_cab value = 45 }
 		if = {
 			  limit = { printing_press = 100 }
-			  subtract_variable = { which = p_cab value = -5 }
-		}
-		if = {
-			  limit = { enlightenment = 100 }
 			  subtract_variable = { which = p_cab value = -5 }
 		}
 		if = {
@@ -340,22 +340,26 @@ cu_calc_base_cultural_acceptance = {
 			  limit = { owner = { has_reform = cu_cultural_policy_5 } }
 			  change_variable = { which = p_cab value = -5 }
 		}
+		cu_calc_nationalism_impact = yes
+		multiply_variable = { which = p_cabn value = 0.5 }
+		subtract_variable = { which = p_cab which = p_cabn }
+		#Special Case
+		if = {
+			limit = { 
+				culture = greek 
+				owner = { has_country_modifier = tur_roman_path }
+			}
+			change_variable = { which = p_cab value = 10 }
+		}
 	}	
 	else = { #Unaccepted Culture
-		change_variable = { which = p_cab value = 30 }
-		set_variable = { which = cu_var2 which = literacy }
-		divide_variable = { which = cu_var2 value = 2.5 }
-		subtract_variable = { which = p_cab which = cu_var2 }
+		change_variable = { which = p_cab value = 35 }
 		if = {
 			  limit = { renaissance = 100 }
 			  subtract_variable = { which = p_cab value = -5 }
 		}
 		if = {
 			  limit = { printing_press = 100 }
-			  subtract_variable = { which = p_cab value = -5 }
-		}
-		if = {
-			  limit = { enlightenment = 100 }
 			  subtract_variable = { which = p_cab value = -5 }
 		}
 		if = {
@@ -374,6 +378,9 @@ cu_calc_base_cultural_acceptance = {
 			  limit = { owner = { has_reform = cu_cultural_policy_5 } }
 			  change_variable = { which = p_cab value = 10 }
 		}
+		cu_calc_nationalism_impact = yes
+		#multiply_variable = { which = p_cabn value = 1 }
+		subtract_variable = { which = p_cab which = p_cabn }
 	}
 	
 	if = {
@@ -512,20 +519,6 @@ cu_calc_base_cultural_acceptance = {
 	change_variable = { which = cu_var3 which = epimg }
 	multiply_variable = { which = cu_var3 value = 0.15 }
 	change_variable = { which = p_cab which = cu_var3 }
-	
-	#Seperatism
-	set_variable = { which = p_cabs value = 0 }
-	export_to_variable = {
-	    which = p_cabs
-		value = nationalism
-	}
-	multiply_variable = { which = p_cabs value = -0.5 }
-	set_variable = { which = cu_var2 which = literacy }
-	multiply_variable = { which = cu_var2 value = 0.01 }
-	change_variable = { which = cu_var2 value = 1 }
-	multiply_variable = { which = p_cabs which = cu_var2 }
-	change_variable = { which = p_cab which = p_cabs }
-	
 	
 	#Citizen Unhappiness
 	export_to_variable = {
@@ -670,7 +663,7 @@ cu_show_cultural_acceptance = {
 		 value = modifier:max_states
 		 who = owner
 	}
-	subtract_variable = { which = p_cab value = 980 } #Base Value:20, max_states has a base
+	subtract_variable = { which = p_cab value = 970 } #Base Value:30, max_states has a base
 	set_variable = { which = p_cabb which = p_cab }
 	if = {  
 	     limit = { is_capital = yes }
@@ -685,8 +678,8 @@ cu_show_cultural_acceptance = {
 	
     if = { #Primary Culture
 	    limit = { has_owner_culture = yes }
-		change_variable = { which = p_cab value = 55 }
-		change_variable = { which = p_cabc value = 55 }
+		change_variable = { which = p_cab value = 50 }
+		change_variable = { which = p_cabc value = 50 }
 		if = {
 			limit = { owner = { has_reform = cu_cultural_policy_1 } }
 			change_variable = { which = p_cab value = 10 }
@@ -725,15 +718,6 @@ cu_show_cultural_acceptance = {
 		}
 		change_variable = { which = p_cab value = 45 }
 		change_variable = { which = p_cabc value = 45 }
-		set_variable = { which = cu_var2 which = literacy }
-		divide_variable = { which = cu_var2 value = 10 }
-		subtract_variable = { which = p_cab which = cu_var2 }
-		subtract_variable = { which = p_cabc which = cu_var2 }
-		if = {
-			  limit = { enlightenment = 100 }
-			  subtract_variable = { which = p_cab value = -5 }
-			  subtract_variable = { which = p_cabc value = -5 }
-		}
 		if = {
 			  limit = { owner = { has_reform = cu_cultural_policy_1 } }
 			  change_variable = { which = p_cab value = 10 }
@@ -759,19 +743,10 @@ cu_show_cultural_acceptance = {
 	        limit = {
 			     owner = { culture_group = ROOT }
 			}
-			change_variable = { which = p_cab value = 35 }
-			set_variable = { which = cu_var2 which = literacy }
-			divide_variable = { which = cu_var2 value = 4 }
-			subtract_variable = { which = p_cab which = cu_var2 }
-			change_variable = { which = p_cabc value = 35 }
-			subtract_variable = { which = p_cabl which = cu_var2 }
+			change_variable = { which = p_cab value = 40 }
+			change_variable = { which = p_cabc value = 40 }
 			if = {
 			      limit = { printing_press = 100 }
-				  subtract_variable = { which = p_cab value = -5 }
-				  subtract_variable = { which = p_cabc value = -5 }
-			}
-			if = {
-			      limit = { enlightenment = 100 }
 				  subtract_variable = { which = p_cab value = -5 }
 				  subtract_variable = { which = p_cabc value = -5 }
 			}
@@ -795,24 +770,18 @@ cu_show_cultural_acceptance = {
 				  change_variable = { which = p_cab value = 5 }
 				  change_variable = { which = p_cabc value = 5 }
 		   }
+		   cu_calc_nationalism_impact = yes
+		   multiply_variable = { which = p_cabn value = 0.3 }
+		   subtract_variable = { which = p_cab which = p_cabn }
 	}
     else_if = { #Foreign Accepted Culture
 	        limit = {
 			     has_owner_accepted_culture = yes
 			}
-			change_variable = { which = p_cab value = 35 }
-			set_variable = { which = cu_var2 which = literacy }
-			divide_variable = { which = cu_var2 value = 3.5 }
-			subtract_variable = { which = p_cab which = cu_var2 }
-			change_variable = { which = p_cabc value = 35 }
-			subtract_variable = { which = p_cabl which = cu_var2 }
+			change_variable = { which = p_cab value = 45 }
+			change_variable = { which = p_cabc value = 45 }
 			if = {
 			      limit = { printing_press = 100 }
-				  subtract_variable = { which = p_cab value = -5 }
-				  subtract_variable = { which = p_cabc value = -5 }
-			}
-			if = {
-			      limit = { enlightenment = 100 }
 				  subtract_variable = { which = p_cab value = -5 }
 				  subtract_variable = { which = p_cabc value = -5 }
 			}
@@ -836,14 +805,22 @@ cu_show_cultural_acceptance = {
 				  change_variable = { which = p_cab value = -5 }
 				  change_variable = { which = p_cabc value = -5 }
 		   }
+		   #Special Case
+			if = {
+				limit = { 
+					culture = greek 
+					owner = { has_country_modifier = tur_roman_path }
+				}
+				change_variable = { which = p_cab value = 10 }
+				change_variable = { which = p_cabc value = 10 }
+			}
+			cu_calc_nationalism_impact = yes
+			multiply_variable = { which = p_cabn value = 0.5 }
+			subtract_variable = { which = p_cab which = p_cabn }
 	}	
 	else = { #Unaccepted Culture
-		change_variable = { which = p_cab value = 25 }
-		set_variable = { which = cu_var2 which = literacy }
-		divide_variable = { which = cu_var2 value = 2.5 }
-		subtract_variable = { which = p_cab which = cu_var2 }
-		change_variable = { which = p_cabc value = 25 }
-		subtract_variable = { which = p_cabl which = cu_var2 }
+		change_variable = { which = p_cab value = 35 }
+		change_variable = { which = p_cabc value = 35 }
 		if = {
 			  limit = { renaissance = 100 }
 			  subtract_variable = { which = p_cab value = -5 }
@@ -851,11 +828,6 @@ cu_show_cultural_acceptance = {
 		}
 		if = {
 			  limit = { printing_press = 100 }
-			  subtract_variable = { which = p_cab value = -5 }
-			  subtract_variable = { which = p_cabc value = -5 }
-		}
-		if = {
-			  limit = { enlightenment = 100 }
 			  subtract_variable = { which = p_cab value = -5 }
 			  subtract_variable = { which = p_cabc value = -5 }
 		}
@@ -879,6 +851,9 @@ cu_show_cultural_acceptance = {
 			  change_variable = { which = p_cab value = 10 }
 			  change_variable = { which = p_cabc value = 10 }
 		}
+		cu_calc_nationalism_impact = yes
+		multiply_variable = { which = p_cabn value = 1 }
+		subtract_variable = { which = p_cab which = p_cabn }
 	}
 	if = {
 		limit = { 
@@ -1028,20 +1003,6 @@ cu_show_cultural_acceptance = {
 	change_variable = { which = p_cabgi which = epimg }
 	multiply_variable = { which = p_cabgi value = 0.15 }
 	change_variable = { which = p_cab which = p_cabgi }
-	
-	#Seperatism
-	set_variable = { which = p_cabs value = 0 }
-	export_to_variable = {
-	    which = p_cabs
-		value = nationalism
-	}
-	multiply_variable = { which = p_cabs value = -0.5 }
-	set_variable = { which = p_cabsl value = 0 }
-	change_variable = { which = p_cabsl which = literacy }
-	multiply_variable = { which = p_cabsl value = 0.01 }
-	change_variable = { which = p_cabsl value = 1 }
-	multiply_variable = { which = p_cabs which = p_cabsl }
-	change_variable = { which = p_cab which = p_cabs }
 
 	#Citizen Unhappiness
 	export_to_variable = {
@@ -1854,4 +1815,218 @@ cu_switch_hybrid_culture = {
 		}
 		change_culture = flemish
 	}
+}
+
+#cu_convert_nationalism_seperatism - convert nationalism to seperatism based on province culture
+cu_convert_nationalism_seperatism = {
+	set_variable = { which = cu_var1 which = p_nationalism }
+	if = {
+		limit = {
+			OR = {
+					has_owner_culture = yes
+					AND = {
+						owner = { culture_group = PREV }
+						OR = {
+							has_owner_accepted_culture = yes
+							owner = { government_rank = 3 }
+						}
+					}
+			}
+		}
+		#Do nothing
+		set_variable = { which = cu_var1 value = 0 }
+	}
+	else_if = {
+		owner = { culture_group = PREV }
+		multiply_variable = { which = cu_var1 value = 0.3 }
+	}
+	else_if = {
+		has_owner_accepted_culture = yes
+		multiply_variable = { which = cu_var1 value = 0.5 }
+	}
+	while = {
+		limit = { check_variable = { which = cu_var1 value = 1 } }
+		if = {
+			limit = { check_variable = { which = cu_var1 value = 30 } }
+			subtract_variable = { which = cu_var1 value = 30 }
+			add_nationalism = 30
+		}
+		else_if = {
+			limit = { check_variable = { which = cu_var1 value = 10 } }
+			subtract_variable = { which = cu_var1 value = 10 }
+			add_nationalism = 10
+		}
+		else_if = {
+			limit = { check_variable = { which = cu_var1 value = 3 } }
+			subtract_variable = { which = cu_var1 value = 3 }
+			add_nationalism = 3
+		}
+		else = {
+			add_nationalism = 1
+		}
+	}
+}
+
+#Province Scope
+#cu_set_historical_nationalism[] - Set historical nationalism for later game start
+cu_set_historical_nationalism = {
+	if = {
+		limit = { culture = greek } #Greek under ottomans rule
+		if = {
+			limit = { is_year = 1800 }
+			set_variable = { which = p_nationalism value = 50 }
+		}
+		else_if = {
+			limit = { is_year = 1750 }
+			set_variable = { which = p_nationalism value = 35 }
+		}
+		else_if = {
+			limit = { is_year = 1700 }
+			set_variable = { which = p_nationalism value = 20 }
+		}
+	}
+	else_if = {
+		limit = {  culture = irish } #Irish under british rule
+		if = {
+			limit = { is_year = 1800 }
+			set_variable = { which = p_nationalism value = 30 }
+		}
+		else_if = {
+			limit = { is_year = 1750 }
+			set_variable = { which = p_nationalism value = 20 }
+		}
+		else_if = {
+			limit = { is_year = 1700 }
+			set_variable = { which = p_nationalism value = 15 }
+		}
+		else_if = {
+			limit = { is_year = 1650 }
+			set_variable = { which = p_nationalism value = 10 }
+		}
+	}
+	
+	else = {	#Generic Mechanic
+		if = {
+			limit = {
+				NOT = {
+						OR = {
+							has_owner_culture = yes
+							AND = {
+								owner = { culture_group = PREV }
+								OR = {
+									has_owner_accepted_culture = yes
+									owner = { government_rank = 3 }
+								}
+							}
+						}
+				}
+				OR = {
+					check_variable = { which = literacy value = 15 }
+					enlightenment = 100
+				}
+			}
+			if = {
+				limit = { check_variable = { which = literacy value = 40 } }
+				set_variable = { which = p_nationalism value = 80 }
+			}
+			else_if = {
+				limit = { check_variable = { which = literacy value = 35 } }
+				set_variable = { which = p_nationalism value = 70 }
+			}
+			else_if = {
+				limit = { check_variable = { which = literacy value = 30 } }
+				set_variable = { which = p_nationalism value = 60 }
+			}
+			else_if = {
+				limit = { check_variable = { which = literacy value = 25 } }
+				set_variable = { which = p_nationalism value = 50 }
+			}
+			else_if = {
+				limit = { check_variable = { which = literacy value = 20 } }
+				set_variable = { which = p_nationalism value = 40 }
+			}
+			else_if = {
+				limit = { check_variable = { which = literacy value = 15 } }
+				set_variable = { which = p_nationalism value = 30 }
+			}
+			else_if = {
+				limit = { check_variable = { which = literacy value = 10 } }
+				set_variable = { which = p_nationalism value = 20 }
+			}
+			else = {
+				set_variable = { which = p_nationalism value = 10 }
+			}
+			if = {
+				limit = { NOT = { religion = owner } }
+				change_variable = { which = p_nationalism value = 10 }
+			}
+		}
+	}
+	if = {
+		limit = { check_variable = { which = p_nationalism value = 1 } }
+		cu_convert_nationalism_seperatism = yes
+	}
+}
+
+cu_do_nationalism_growth = {
+
+		#Calculate Base Nationalism Growth
+		set_variable = { which = cu_var1 which = literacy }
+		multiply_variable = { which = cu_var1 value = 0.005 }
+		subtract_variable = { which = cu_var1 value = 0.1 }
+		if = {
+			limit = { renaissance = 100 }
+			change_variable = { which = cu_var1 value = 0.05 }
+		}
+		if = {
+			limit = { printing_press = 100 }
+			change_variable = { which = cu_var1 value = 0.05 }
+		}
+		if = {
+			limit = { enlightenment = 100 }
+			change_variable = { which = cu_var1 value = 0.10 }
+		}
+		if = {
+			limit = { has_province_flag = p_nationalism_awareness }
+			change_variable = { which = cu_var1 value = 0.10 }
+		}
+		#Apply Nationalism Growth
+		if = {
+				limit = { check_variable = { which = cu_var1 value = 0.01 } }
+				if = {
+					limit = {
+						OR = {
+							has_owner_culture = yes
+							AND = {
+								owner = { culture_group = PREV }
+								OR = {
+									has_owner_accepted_culture = yes
+									owner = { government_rank = 3 }
+								}
+							}
+						}
+					}
+					multiply_variable = { which = cu_var1 value = 1.5 } #Sense of pride
+				}
+				else = {
+					#100%+5% * ( local unrest + 10 )
+					export_to_variable = {
+							which = cu_var2
+						    value = trigger_value:unrest
+					}
+					multiply_variable = { which = cu_var2 value = 0.05 }
+					change_variable = { which = cu_var2 value = 1.5 }
+					multiply_variable = { which = cu_var1 which = cu_var2 }
+				}
+				set_variable = { which = p_nationalism_g which = cu_var1 }
+				if = {
+					limit = { owner = { ai = yes } }
+					multiply_variable = { which = cu_var1 value = 5 }
+				}
+				change_variable = { which = p_nationalism which = cu_var1 }
+				if = {
+					limit = { check_variable = { which = p_nationalism value = 100 } }
+					set_variable = { which = p_nationalism value = 100 }
+				}
+		}
 }

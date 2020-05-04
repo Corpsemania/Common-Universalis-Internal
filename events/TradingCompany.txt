@@ -979,7 +979,7 @@ province_event = {
 	
 	trigger = {
                     is_colony = no
-					#cu_is_terr_trigger = yes
+					cu_is_terr_trigger = no
 					NOT = {
 					     owner = { has_country_flag = hide_tc_event }
 					}
@@ -1672,7 +1672,7 @@ province_event = {
 	hidden = yes
 	trigger = {
                     is_colony = no
-					cu_is_terr_trigger = yes
+					cu_is_terr_trigger = no
 					owner = { has_country_flag = hide_tc_event }
                     OR = {
                             owner = { has_country_flag = india_official_company }

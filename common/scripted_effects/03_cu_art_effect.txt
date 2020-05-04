@@ -209,7 +209,7 @@ cu_calc_cultural_power = {
 		set_variable = { which = art_power_mod value = 0 } #This Modifier affects all art power.
 		export_to_variable = {
 			which = art_power_mod
-			value = reform_progress_growth  #Global Art Power Modifier
+			value = modifier:reform_progress_growth  #Global Art Power Modifier
 			who = owner
 		}
 		change_variable = { which = art_power_mod value = 1 }

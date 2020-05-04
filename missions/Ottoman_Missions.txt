@@ -116,6 +116,7 @@ tur_conquerors_of_the_near_east = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
+			has_country_modifier = tur_roman_path
 		}
 		effect = {
 			add_country_modifier = {

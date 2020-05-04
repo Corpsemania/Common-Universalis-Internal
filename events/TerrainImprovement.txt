@@ -1155,6 +1155,7 @@ province_event = {
 	option = {
 		name = "terra.101.c" #Foster new industry
 	    trigger = {
+			manufactories = 100
 		    NOT = { trade_goods = cloth }
 			NOT = { trade_goods = paper }
 			NOT = { trade_goods = glass }
@@ -2436,4 +2437,64 @@ province_event = {
 			  change_trade_goods = chinaware
 		}
 	}
+}
+
+province_event = {
+	id = terra.112
+	title = "terra.112.t"
+	desc = "terra.112.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_province_flag = cu_change_planting_flag }
+		is_core = owner 
+		has_building = change_goods
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	
+	}
+
+    immediate = {
+	    remove_building = change_goods
+	}
+	
+	option = {
+		name = "terra.112.c" 		
+		ai_chance = {
+		    factor = 0
+		}
+	}	
+}
+
+province_event = {
+	id = terra.113
+	title = "terra.113.t"
+	desc = "terra.113.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	hidden = yes
+	
+	trigger = {
+		NOT = { has_province_flag = cu_foster_industry_flag }
+		is_core = owner 
+		has_building = change_goods_industry
+	}
+	
+	mean_time_to_happen = {
+		months = 3
+	
+	}
+
+    immediate = {
+	    remove_building = change_goods_industry
+	}
+	
+	option = {
+		name = "terra.113.c" 		
+		ai_chance = {
+		    factor = 0
+		}
+	}	
 }

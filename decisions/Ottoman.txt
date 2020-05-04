@@ -1,6 +1,7 @@
 country_decisions = {
 
 	make_constantinople_capital = {
+		major = yes
 		potential = {
 			OR = {
 				tag = TUR
@@ -67,16 +68,19 @@ country_decisions = {
 				}
 				set_global_flag = constantinople_restored
 			}
-			set_government_rank = 3
+			#set_government_rank = 3 #Gained From Event
 			hidden_effect = {
 			     set_variable = { which = cu_var1 value = 50 }
 				 cu_change_cultural_legacy = yes
 				 cu_calc_country_absolute_dist = yes
-				 151= { set_variable = { which = p_ca value = 80 } }
-				 cu_calc_base_cultural_acceptance = yes
-				 cu_check_cultural_acceptance = yes
+				 151= { 
+					set_variable = { which = p_ca value = 100 } 
+					cu_calc_base_cultural_acceptance = yes
+					cu_check_cultural_acceptance = yes
+				 }
 			}
 			custom_tooltip = cu_change_cultural_legacy_50t
+			country_event = { id = flavor_tur.109 }
 		}
 		ai_will_do = {
 			factor = 1
@@ -116,17 +120,17 @@ country_decisions = {
 		}
 	}
 	
-	repire_theodosian_walls = {
-		major = yes
+	repair_theodosian_walls = {
 		potential = {
 			normal_or_historical_nations = yes
 			owns = 151
-			NOT = { has_global_flag = wall_repired }
+			NOT = { has_global_flag = theodosian_wall_repaired }
 		}
 		allow = {
 			is_at_war = no
+			capital = 151
 			owns = 151
-			treasury = 500
+			treasury = 300
 			adm_power = 100
 		}
 		effect = {
@@ -139,7 +143,7 @@ country_decisions = {
 					duration = -1  
 				}
 			}
-			set_global_flag = wall_repired
+			set_global_flag = theodosian_wall_repaired
 		}
 		ai_will_do = {
 			factor = 1
