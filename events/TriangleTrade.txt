@@ -7,7 +7,6 @@ province_event = {
    picture = COLONIZATION_eventPicture
 
    trigger = {
-            has_global_flag = global_events_trigger
             has_global_flag = triangle_happened
             is_colony = no
             is_core = owner

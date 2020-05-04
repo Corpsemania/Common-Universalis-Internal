@@ -1866,6 +1866,7 @@ cu_convert_nationalism_seperatism = {
 			add_nationalism = 3
 		}
 		else = {
+			subtract_variable = { which = cu_var1 value = 1 }
 			add_nationalism = 1
 		}
 	}

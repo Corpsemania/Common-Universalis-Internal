@@ -135,7 +135,6 @@ province_event = {
 	picture = BAD_WITH_MONARCH_eventPicture
 	
 	trigger = {
-	            has_global_flag = global_events_trigger
                 NOT = {
 					OR = {
 						has_owner_culture = yes
@@ -305,8 +304,7 @@ province_event = {
 	picture = BAD_WITH_MONARCH_eventPicture
 	
 	trigger = {
-	            has_global_flag = global_events_trigger		
-				NOT = { unrest = 20 } #Already revolting
+				NOT = { nationalism = 100 } #Maximum
 				NOT = {
 					OR = {
 						has_owner_culture = yes
@@ -450,7 +448,7 @@ province_event = {
 					limit = {
 						culture = ROOT
 						check_variable = { which = p_nationalism value = 10 }
-						NOT = { check_variable = { which = p_nationalism value = 10 } }
+						NOT = { nationalism = 100 } 
 					}
 					add_nationalism = 20
 				}
