@@ -274,8 +274,7 @@ counter_revolution = {
 	}
 
 	
-	stability_cost_modifier = 0.3
-	global_unrest = 5
+	diplomatic_reputation = -1
 }
 
 
