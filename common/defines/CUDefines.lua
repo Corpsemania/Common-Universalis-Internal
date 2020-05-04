@@ -135,7 +135,7 @@ NDefines.NCountry.CORE_LOSE = 40		--How many years until a core is lost.
 NDefines.NCountry.CORE_LOSE_CULTURE_GROUP = 120			--How many years until a core in a country's culture group is lost.
 NDefines.NCountry.CORE_LOSE_PRIMARY_CULTURE_TAG = 400	--How many years until a core is lost for the primary tag of a country (-1 = never lost).
 NDefines.NCountry.CORE_LOSE_PRESTIGE = -2.0
-NDefines.NCountry.YEARS_OF_NATIONALISM = 30		--Years of separatism.
+NDefines.NCountry.YEARS_OF_NATIONALISM = 20		--Years of separatism.
 NDefines.NCountry.YEARS_UNTIL_BROKEN = 2.5		--Years until rebel held capital results in broken country.
 NDefines.NCountry.ABANDON_CORE_PRESTIGE = -1.0
 NDefines.NCountry.ABANDON_IDEAGROUP_REFUND = 0.20

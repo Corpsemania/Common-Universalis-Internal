@@ -1844,6 +1844,10 @@ cu_convert_nationalism_seperatism = {
 		has_owner_accepted_culture = yes
 		multiply_variable = { which = cu_var1 value = 0.5 }
 	}
+	if = {
+		limit = { check_variable = { which = cu_var1 value = 100 } }
+		set_variable = { which = cu_var1 value = 100 }
+	}
 	while = {
 		limit = { check_variable = { which = cu_var1 value = 1 } }
 		if = {
