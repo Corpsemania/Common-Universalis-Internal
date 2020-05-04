@@ -1,0 +1,3 @@
+Content List:
+
+Native Country Name: localisation/countries_1_english - replace the same file in mod/Common Universalis/localisation
