@@ -1,3 +1,10 @@
+the file "customizable_contents" contain all contents that are officially included in the mod pack but not required to install. Players can choose to play with or without any of these contents.
+
+To use these contents, copy the file to mod/Common Universalis/... and replace the file with the same name.
+
 Content List:
 
-Native Country Name: localisation/countries_1_english - replace the same file in mod/Common Universalis/localisation
+
+Native Country Name: localisation/countries_1_english - All countries' name are displayed in their native language
+
+Alternative Russian Flag: gfx/flags/RUS.tga - Flag of Russian Republic
