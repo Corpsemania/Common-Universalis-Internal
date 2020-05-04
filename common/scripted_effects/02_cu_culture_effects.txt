@@ -1798,7 +1798,7 @@ cu_switch_hybrid_culture = {
 		}
 		change_culture = aragonese
 	}
-	else_if = {
+	if = {
 		limit = { 
 			culture = catalan
 			owner = { culture_group = iberian }
@@ -1825,23 +1825,6 @@ cu_switch_hybrid_culture = {
 			owner = { culture_group = dutch_g }
 		}
 		change_culture = wallonian_dutch
-	}
-	else_if = {
-		limit = {
-			culture = scottish
-			owner = {
-				culture_group = british
-				has_country_flag = british_scottish_flag
-			}
-		}
-		change_culture = scottish_british
-	}
-	else_if = {
-		limit = {
-			culture = scottish_british
-			owner = { culture_group = gaelic }
-		}
-		change_culture = scottish
 	}
 	else_if = {
 		limit = {

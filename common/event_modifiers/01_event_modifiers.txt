@@ -1003,13 +1003,3 @@ chinese_wokou_left = {
 	local_sailors_modifier = -0.2
 	province_trade_power_modifier = -0.2
 }
-
-investment_in_scotland = {
-	global_tax_income = -60
-}
-
-english_investment = {
-	local_development_cost = -0.05
-	local_institution_spread = 0.1
-	province_trade_power_modifier = 0.15
-}
