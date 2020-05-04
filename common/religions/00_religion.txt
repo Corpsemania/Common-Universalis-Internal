@@ -1124,7 +1124,7 @@ eastern = {
 			buddhism #Theravada
 		}
 		country = {
-			no_religion_penalty = yes		
+			tolerance_heretic = 1
 			idea_cost = -0.05
 		}
 		country_as_secondary = {

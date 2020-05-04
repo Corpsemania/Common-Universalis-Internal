@@ -306,7 +306,7 @@ province_event = {
 	
 	trigger = {
 	            has_global_flag = global_events_trigger		
-				NOT = { years_of_nationalism = 100 }
+				NOT = { unrest = 20 } #Already revolting
 				NOT = {
 					OR = {
 						has_owner_culture = yes
