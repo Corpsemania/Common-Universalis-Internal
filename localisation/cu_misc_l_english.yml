@@ -1935,7 +1935,3 @@
  desc_investment_in_scotland: ""
  english_investment: "Financial Aid From England"
  desc_english_investment: ""
- form_british_cultural_group_eng: "Primary culture group changed to §GBritish§!.\nProvinces with §YEnglish§! culture will change culture group to §GBritish§! culture group.\nOur §YEnglish§! subjects will follow the way, while our provinces and subjects of other §YNorman§! cultures will be angered as we turn away from them."
- form_british_cultural_group: "Provinces with §YEnglish§! culture will change culture group to §GBritish§! culture group.\nOur §YEnglish§! subjects will follow the way, while our provinces and subjects of other §YNorman§! cultures will be angered as we turn away from them."
- form_british_cultural_group_eng_hyw: "Primary culture group changed to §GBritish§!.\nProvinces with §YEnglish§! culture will change culture group to §GBritish§! culture group.\nOur §YEnglish§! subjects will also follow the way."
- flavor_eng.EVTOPTA9104CU: "It's time to focus on the isles"

@@ -1866,33 +1866,9 @@ cu_switch_hybrid_culture = {
 	}
 	else_if = {
 		limit = {
-			culture = normand
-			owner = { culture_group = french }
+			culture = flemish_german
+			owner = { culture_group = dutch_g }
 		}
-		change_culture = normand_french
-	}
-	else_if = {
-		limit = {
-			culture = normand_french
-			owner = { culture_group = norman }
-		}
-		change_culture = normand
-	}
-	else_if = {
-		limit = {
-			culture = english_british
-			owner = { culture_group = norman }
-		}
-		change_culture = english
-	}
-	else_if = {
-		limit = {
-			culture = english
-			owner = {
-				cultire_group = british
-				has_country_flag = english_british_flag
-			}
-		}
-		change_culture = english_british
+		change_culture = flemish
 	}
 }
