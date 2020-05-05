@@ -1,6 +1,8 @@
 government = tribal
 add_government_reform = steppe_horde
 primary_culture = kazani
+add_accepted_culture = bashkir
+add_accepted_culture = uralic
 religion = sunni
 technology_group = nomad_group
 capital = 1082	# Kazan
