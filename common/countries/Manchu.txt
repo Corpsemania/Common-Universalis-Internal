@@ -5,14 +5,18 @@ graphical_culture = asiangfx
 color = { 165  132  57 }
 
 historical_idea_groups = {
-	aristocracy_ideas
-	tradition_ideas
-	offensive_ideas
-	trade_ideas
-	quantity_ideas
-	administrative_ideas
-	spy_ideas
-	economic_ideas
+	aristocracy_ideas #MIL
+	tradition_ideas #ADM
+	diplomatic_ideas #DIP
+	offensive_ideas #MIL
+	administrative_ideas #ADM
+	spy_ideas #DIP
+	defensive_ideas #MIL
+	agrarian_ideas #ADM
+	trade_ideas #DIP
+	quantity_ideas #MIL
+	humanist_ideas #ADM
+	expansion_ideas #DIP
 }
 
 historical_units = {

@@ -12,7 +12,7 @@ historical_idea_groups = {
 	trade_ideas #DIP
 	expansion_ideas #DIP
 	offensive_ideas	#MIL
-	economic_ideas	#ADM
+	agrarian_ideas #ADM
 	innovativeness_ideas #ADM	
 	militarist_ideas #MIL
 	spy_ideas #DIP
