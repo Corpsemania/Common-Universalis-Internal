@@ -79,7 +79,7 @@ province_event = {
 					      limit = { owner = { adm_tech = 17 } }
 						  subtract_variable = { which = gdev_m value = 0.05 }
 					}
-					change_variable = { which = ucdev_m value = 1 }
+					#change_variable = { which = ucdev_m value = 1 }
 					change_variable = { which = ucdev_m which = gdev_m }
 					if = {
 					    limit = { 
@@ -91,7 +91,10 @@ province_event = {
 					
 					if = {
 					    limit = { 
-						           owner = { aristocracy_ideas = 6 } 
+						           owner = { 
+										agrarian_ideas = 7 
+										is_at_war = no
+									} 
 						}
 						change_variable = { which = pop_gm value = 0.10 }
 					}
@@ -535,10 +538,10 @@ province_event = {
 					     limit = { NOT = { check_variable = { which = food_con value = 1 } } }
 						 set_variable = { which = food_con value = 1 }
 					}
-					if = { #In case of bug
-					     limit = { NOT = { check_variable = { which = ucdev_m value = 0.1 } } }
-						 set_variable = { which = ucdev_m  value = 0.1 }
-					}
+					#if = { #In case of bug
+					     #limit = { NOT = { check_variable = { which = ucdev_m value = 0.1 } } }
+						 #set_variable = { which = ucdev_m  value = 0.1 }
+					#}
 					
 					#Calculate Food Impact
 					change_variable = { which = food_im which = food_sur }
@@ -625,7 +628,11 @@ province_event = {
 						 
 					}
 					
-					divide_variable = { which = pop_growth which = ucdev_m }
+					#divide_variable = { which = pop_growth which = ucdev_m }
+					multiply_variable = { which = ucdev_m value = -1 }
+					change_variable = { which = ucdev_m value = 1 }
+					multiply_variable = { which = pop_growth which = ucdev_m }
+					
 					
 					#Food Calculation Complete
 					
@@ -649,22 +656,40 @@ province_event = {
 					            has_building = road_1		        
 							}
 					        change_variable = { which = uc_m value = 0.2 }
+							if = {
+								limit = { owner = { economic_ideas = 5 } }
+								change_variable = { which = uc_m value = 0.04 }
+							}
 					}
 					else_if = {
 					        limit = {
 					            has_building = road_2		        
 							}
 					        change_variable = { which = uc_m value = 0.4 }
+							if = {
+								limit = { owner = { economic_ideas = 5 } }
+								change_variable = { which = uc_m value = 0.08 }
+							}
 					}
 					else_if = {
 					        limit = {
 					            has_building = road_3		        
 							}
 					        change_variable = { which = uc_m value = 0.7 }
+							if = {
+								limit = { owner = { economic_ideas = 5 } }
+								change_variable = { which = uc_m value = 0.14 }
+							}
 					}
 					
 					
 					#Ideas
+					if = {
+					        limit = {
+					            owner = { agrarian_ideas = 1 }		        
+							}
+					        change_variable = { which = ac_m value = 0.05 }
+					}
 					
 					#Literacy Index ( LI = Lit * 0.006 + 0.6 )
 					
@@ -893,7 +918,20 @@ province_event = {
 					      limit = {  
 						         owner = { has_country_modifier = artisan_regulation }
 						  }
-							set_variable = { which = indu_gm value = -0.3 }
+							change_variable = { which = indu_gm value = -0.3 }
+					}
+					if = {
+					      limit = {  
+						         owner = { has_country_modifier = trade_limitation }
+						  }
+							change_variable = { which = merc_gm value = -0.3 }
+					}
+					if = {
+						  limit = {
+								owner = { economic_ideas = 5 }
+						  }
+						  change_variable = { which = merc_gm value = 0.1 }
+						  change_variable = { which = indu_gm value = 0.1 }
 					}
 					if = {
 					      limit = {  
@@ -963,7 +1001,7 @@ province_event = {
 					multiply_variable = { which = merc_g which = lit_index }
 					multiply_variable = { which = merc_g which = merc_gm }
 					multiply_variable = { which = merc_g which = food_im }
-					divide_variable = { which = merc_g which = ucdev_m }
+					multiply_variable = { which = merc_g which = ucdev_m }
 					
 					#Calculate Industry Growth Speed
 					change_variable = { which = indu_g which = indu_c }
@@ -973,7 +1011,7 @@ province_event = {
 					multiply_variable = { which = indu_g which = lit_index }
 					multiply_variable = { which = indu_g which = indu_gm }
 					multiply_variable = { which = indu_g which = food_im }
-					divide_variable = { which = indu_g which = ucdev_m }
+					multiply_variable = { which = indu_g which = ucdev_m }
 					
 					#Inflation Impact on Urbanization 
 					set_variable = { which = inflation_index which = owner }
@@ -1221,7 +1259,7 @@ province_event = {
 					set_variable = { which = indu_gm value = 1 } #Industry Growth Modifier
 					set_variable = { which = lit_index value = 0 } #Literacy Index
 					set_variable = { which = ucdev_m value = 1 }
-					set_variable = { which = gdev_m value = 1 }
+					set_variable = { which = gdev_m value = 0 }
 					
 					set_variable = { which = pop_cost value = 100 } #Population Growth Cost
 					set_variable = { which = merc_cost value = 100 } #Commerce Growth Cost
@@ -1244,10 +1282,18 @@ province_event = {
 							value = modifier:local_development_cost
 					}
 					export_to_variable = {
-					        which = gdev_m
+					        which = cu_var1
 							value = modifier:development_cost
 							who = owner
 					}
+					change_variable = { which = pop_gm which = cu_var1 } #Population Growth Modifier
+					export_to_variable = {
+					        which = cu_var1
+							value = modifier:trade_company_investment_cost
+							who = owner
+					}
+					change_variable = { which = merc_gm which = cu_var1 } #Population Growth Modifier
+					change_variable = { which = indu_gm which = cu_var1 } #Population Growth Modifier
 					if = {
 					      limit = { owner = { adm_tech = 17 } }
 						  subtract_variable = { which = gdev_m value = 0.05 }
@@ -1260,7 +1306,7 @@ province_event = {
 					      limit = { owner = { adm_tech = 27 } }
 						  subtract_variable = { which = gdev_m value = 0.05 }
 					}
-					change_variable = { which = ucdev_m value = 1 }
+					#change_variable = { which = ucdev_m value = 1 }
 					change_variable = { which = ucdev_m which = gdev_m }
 					if = {
 					    limit = { 
@@ -1272,7 +1318,10 @@ province_event = {
 					
 					if = {
 					    limit = { 
-						           owner = { aristocracy_ideas = 6 } 
+						           owner = { 
+										agrarian_ideas = 7 
+										is_at_war = no
+									} 
 						}
 						change_variable = { which = pop_gm value = 0.10 }
 					}
@@ -1691,10 +1740,10 @@ province_event = {
 					     limit = { NOT = { check_variable = { which = food_con value = 1 } } }
 						 set_variable = { which = food_con value = 1 }
 					}
-					if = { #In case of bug
-					     limit = { NOT = { check_variable = { which = ucdev_m value = 0.1 } } }
-						 set_variable = { which = ucdev_m  value = 0.1 }
-					}
+					#if = { #In case of bug
+					     #limit = { NOT = { check_variable = { which = ucdev_m value = 0.1 } } }
+						 #set_variable = { which = ucdev_m  value = 0.1 }
+					#}
 					#Calculate Food Impact
 					change_variable = { which = food_im which = food_sur }
 					divide_variable = { which = food_im which = food_con }
@@ -1746,8 +1795,9 @@ province_event = {
 								change_variable = { which = indu_g value = 3 }
 						 }
 					}
-					
-					divide_variable = { which = pop_growth which = ucdev_m }
+					multiply_variable = { which = ucdev_m value = -1 }
+					change_variable = { which = ucdev_m value = 1 }
+					multiply_variable = { which = pop_growth which = ucdev_m }
 					
 					#Food Calculation Complete
 					
@@ -1771,21 +1821,39 @@ province_event = {
 					            has_building = road_1		        
 							}
 					        change_variable = { which = uc_m value = 0.2 }
+							if = {
+								limit = { owner = { economic_ideas = 5 } }
+								change_variable = { which = uc_m value = 0.04 }
+							}
 					}
-					if = {
+					else_if = {
 					        limit = {
 					            has_building = road_2		        
 							}
 					        change_variable = { which = uc_m value = 0.4 }
+							if = {
+								limit = { owner = { economic_ideas = 5 } }
+								change_variable = { which = uc_m value = 0.08 }
+							}
 					}
-					if = {
+					else_if = {
 					        limit = {
 					            has_building = road_3		        
 							}
 					        change_variable = { which = uc_m value = 0.7 }
+							if = {
+								limit = { owner = { economic_ideas = 5 } }
+								change_variable = { which = uc_m value = 0.14 }
+							}
 					}
 					
 					#Ideas
+					if = {
+					        limit = {
+					            owner = { agrarian_ideas = 1 }		        
+							}
+					        change_variable = { which = ac_m value = 0.05 }
+					}
 					
 					#Literacy Index ( LI = Lit *0.006 + 0.6 )
 					
@@ -1871,12 +1939,7 @@ province_event = {
 					subtract_variable = { which = merc_tm value = 0.15 }
 					change_variable = { which = merc_gm which = merc_tm }
 					
-					if = {
-					      limit = {  
-						         owner = { has_country_modifier = trade_limitation }
-						  }
-							set_variable = { which = merc_gm value = -0.3 }
-					}
+					
 					
 					if = {
 					      limit = {  
@@ -1985,9 +2048,14 @@ province_event = {
 					      limit = {  
 						         owner = { has_country_modifier = artisan_regulation }
 						  }
-							set_variable = { which = indu_gm value = -0.3 }
+							change_variable = { which = indu_gm value = -0.3 }
 					}
-					
+					if = {
+					      limit = {  
+						         owner = { has_country_modifier = trade_limitation }
+						  }
+							change_variable = { which = merc_gm value = -0.3 }
+					}
 					if = {
 					      limit = {  
 						         NOT = { check_variable = { which = merc_gm value = 0.1 } }
@@ -2058,7 +2126,7 @@ province_event = {
 					multiply_variable = { which = merc_g which = lit_index }
 					multiply_variable = { which = merc_g which = merc_gm }
 					multiply_variable = { which = merc_g which = food_im }
-					divide_variable = { which = merc_g which = ucdev_m }
+					multiply_variable = { which = merc_g which = ucdev_m }
 					
 					#Calculate Industry Growth Speed
 					change_variable = { which = indu_g which = indu_c }
@@ -2068,7 +2136,7 @@ province_event = {
 					multiply_variable = { which = indu_g which = lit_index }
 					multiply_variable = { which = indu_g which = indu_gm }
 					multiply_variable = { which = indu_g which = food_im }
-					divide_variable = { which = indu_g which = ucdev_m }
+					multiply_variable = { which = indu_g which = ucdev_m }
 					
 					#Inflation Impact on Urbanization
 					set_variable = { which = inflation_index which = owner }
@@ -2104,7 +2172,7 @@ province_event = {
 					}
 					
 					set_variable = { which = ucdev_dm which = ucdev_m } #Displayed Modifier
-					subtract_variable = { which = ucdev_dm value = -100 }
+					multiply_variable = { which = ucdev_dm value = 100 }
 			 }
 }
 

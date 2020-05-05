@@ -5093,6 +5093,15 @@ on_province_owner_change = {
 					ai = yes
 					manpower = 2
 					mil_power = 20
+					any_owned_province = {
+						has_owner_culture = yes
+						OR = {
+							cu_not_terr_trigger = yes
+							is_overseas = no
+						}
+						base_manpower = 2
+						check_variable = { which = food_sur value = 6 }
+					}
 				}
 				OR = {
 					NOT = { development = 10 }

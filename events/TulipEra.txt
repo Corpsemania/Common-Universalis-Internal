@@ -519,7 +519,7 @@ country_event = {
 				   custom_tooltip = tulip.4.b1t
 				   hidden_effect = { country_event = { id = tulip.5 } }
                    ai_chance = {
-                            factor = 0.2
+                            factor = 10
                             modifier = {
                                    factor = 0
                                    AND = {
@@ -541,11 +541,11 @@ country_event = {
                             }
 							modifier = {
                                    factor = 0.5
-                                   check_variable = { which = go value = 90 }
+                                   check_variable = { which = go value = 80 }
                             }
 							modifier = {
                                    factor = 0
-                                   check_variable = { which = go value = 110 }
+                                   check_variable = { which = go value = 100 }
                             }
                    }
 	}
@@ -556,7 +556,7 @@ country_event = {
 				   custom_tooltip = tulip.4.bt
 				   hidden_effect = { country_event = { id = tulip.5 } }
                    ai_chance = {
-                            factor = 0.2
+                            factor = 15
                             modifier = {
                                    factor = 0
                                    AND = {
@@ -578,11 +578,11 @@ country_event = {
                             }
 							modifier = {
                                    factor = 0.5
-                                   check_variable = { which = go value = 100 }
+                                   check_variable = { which = go value = 90 }
                             }
 							modifier = {
                                    factor = 0
-                                   check_variable = { which = go value = 120 }
+                                   check_variable = { which = go value = 110 }
                             }
                    }
 	}
@@ -592,18 +592,18 @@ country_event = {
                    add_government_reform = cur_government_capacity
 				   hidden_effect = { country_event = { id = tulip.5 } }
                    ai_chance = {
-                            factor = 0.2
+                            factor = 50
                    }
 	}
 	
-	option = {
+	option = { #Expand GC
                    trigger = { adm_power = -60 }
 		           name = "tulip.4.a" #Expand GC
                    add_government_reform = expand_government_capacity
 				   custom_tooltip = tulip.4.at
 				   hidden_effect = { country_event = { id = tulip.5 } }
                    ai_chance = {
-                            factor = 0.2
+                            factor = 15
 							modifier = {
                                    factor = 2
                                    check_variable = { which = go value = 120 }
@@ -639,7 +639,7 @@ country_event = {
 				   custom_tooltip = tulip.4.dt
 				   hidden_effect = { country_event = { id = tulip.5 } }
                    ai_chance = {
-                            factor = 0.2
+                            factor = 10
 							modifier = {
                                    factor = 2
                                    check_variable = { which = go value = 130 }

@@ -777,7 +777,7 @@
  GOV_HAS_PARLIAMENT:0 "Has $NAME$"
  MACRO_IS_ONE_PER_COUNTRY:0 "Only one per country allowed."
  BUILD_BUILDING_COST_TOO_HIGH:0 "Cannot afford the $COST|Y$¤ needed."
- DEVELOPMENT_COST:0 "Development Time"
+ DEVELOPMENT_COST:0 "Agriculture Growth Time"
  LOCAL_DEVELOPMENT_COST:0 "Local Development Time"
  MODIFIER_ALLOWED_NUM_OF_BUILDINGS:0 "Possible Number of Buildings"
  BUILDING_NOT_IN_GOLD_PROVINCE:0 "$NAME$ cannot be built in a province that produces $GOODS$."

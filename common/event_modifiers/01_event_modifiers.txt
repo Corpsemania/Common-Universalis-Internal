@@ -626,8 +626,7 @@ french_army_reform_3 = {
 }
 
 cu_immigration = {
-      local_unrest = 5
-      global_colonial_growth = -10
+      local_unrest = 6
 }
 
 cu_dissents_against_constitution = {

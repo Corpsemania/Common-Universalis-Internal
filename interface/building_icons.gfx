@@ -1727,142 +1727,137 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_highlight"
-		texturefile = "gfx//interface//buildings//edict_administrative.dds"
+		texturefile = "gfx//interface//buildings//highlight.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_remove_highlight"
-		texturefile = "gfx//interface//buildings//edict_administrative.dds"
+		texturefile = "gfx//interface//buildings//remove_highlight.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_move_capital_b"
-		texturefile = "gfx//interface//buildings//edict_administrative.dds"
+		texturefile = "gfx//interface//buildings//move_capital_b.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_second_capital_b"
-		texturefile = "gfx//interface//buildings//edict_administrative.dds"
+		texturefile = "gfx//interface//buildings//second_capital_b.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_remove_second_capital"
-		texturefile = "gfx//interface//buildings//edict_administrative.dds"
+		texturefile = "gfx//interface//buildings//remove_second_capital.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_administration_way"
-		texturefile = "gfx//interface//buildings//edict_administrative.dds"
+		texturefile = "gfx//interface//buildings//administration_way.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_diplomatic_way"
-		texturefile = "gfx//interface//buildings//edict_administrative.dds"
+		texturefile = "gfx//interface//buildings//diplomatic_way.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_military_way"
-		texturefile = "gfx//interface//buildings//edict_administrative.dds"
+		texturefile = "gfx//interface//buildings//military_way.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_drainage"
-		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		texturefile = "gfx//interface//buildings//drainage.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_sanitation"
-		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		texturefile = "gfx//interface//buildings//sanitation.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_reclaim_wasteland"
-		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		texturefile = "gfx//interface//buildings//reclaim_wasteland.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_import_food"
-		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		texturefile = "gfx//interface//buildings//import_food.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_c_import_food"
-		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		texturefile = "gfx//interface//buildings//c_import_food.dds"
 		loadType = "INGAME"
-	}
-	spriteType = {
-		name = "GFX_change_goods_minaral"
-		texturefile = "gfx//interface//buildings//edict_economic.dds"
-		loadType = "INGAME"
-	}
+	}	
 	spriteType = {
 		name = "GFX_terrain_improvement"
-		texturefile = "gfx//interface//buildings//edict_terrain_improvement.dds"
+		texturefile = "gfx//interface//buildings//terrain_improvement.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_cultural_assimilation"
-		texturefile = "gfx//interface//buildings//edict_cultural.dds"
+		texturefile = "gfx//interface//buildings//cultural_assimilation.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_c_cultural_assimilation"
-		texturefile = "gfx//interface//buildings//edict_cultural.dds"
+		texturefile = "gfx//interface//buildings//c_cultural_assimilation.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_inspection_tour"
-		texturefile = "gfx//interface//buildings//edict_administrative.dds"
+		texturefile = "gfx//interface//buildings//inspection_tour.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_benign_neglect_b"
-		texturefile = "gfx//interface//buildings//edict_cultural.dds"
+		texturefile = "gfx//interface//buildings//benign_neglect_b.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_language_education"
-		texturefile = "gfx//interface//buildings//edict_cultural.dds"
+		texturefile = "gfx//interface//buildings//language_education.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_art_patronage"
-		texturefile = "gfx//interface//buildings//edict_art.dds"
+		texturefile = "gfx//interface//buildings//art_patronage.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_art_festival"
-		texturefile = "gfx//interface//buildings//edict_art.dds"
+		texturefile = "gfx//interface//buildings//art_festival.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_minor_culture"
-		texturefile = "gfx//interface//buildings//edict_cultural.dds"
+		texturefile = "gfx//interface//buildings//minor_culture.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_art_dest"
-		texturefile = "gfx//interface//buildings//edict_art.dds"
+		texturefile = "gfx//interface//buildings//art_dest.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_c_art_dest"
-		texturefile = "gfx//interface//buildings//edict_art.dds"
+		texturefile = "gfx//interface//buildings//c_art_dest.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_art_transfer_gw"
-		texturefile = "gfx//interface//buildings//edict_art.dds"
+		texturefile = "gfx//interface//buildings//art_transfer_gw.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_art_transfer_mp"
-		texturefile = "gfx//interface//buildings//edict_art.dds"
+		texturefile = "gfx//interface//buildings//art_transfer_mp.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_art_transfer_nw"
-		texturefile = "gfx//interface//buildings//edict_art.dds"
+		texturefile = "gfx//interface//buildings//art_transfer_nw.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
@@ -1882,57 +1877,62 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_immigration"
-		texturefile = "gfx//interface//buildings//edict_reclaim_wasteland.dds"
+		texturefile = "gfx//interface//buildings//immigration.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_c_immigration"
-		texturefile = "gfx//interface//buildings//edict_cultural.dds"
+		texturefile = "gfx//interface//buildings//c_immigration.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_claime_center"
-		texturefile = "gfx//interface//buildings//edict_cot.dds"
+		texturefile = "gfx//interface//buildings//claime_center.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_upgrade_center"
-		texturefile = "gfx//interface//buildings//edict_cot.dds"
+		texturefile = "gfx//interface//buildings//upgrade_center.dds"
 		loadType = "INGAME"
 	}		
 	spriteType = {
 		name = "GFX_change_goods"
-		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		texturefile = "gfx//interface//buildings//change_goods.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_change_goods_minaral"
+		texturefile = "gfx//interface//buildings//change_goods_minaral.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_change_goods_industry"
-		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		texturefile = "gfx//interface//buildings//change_goods_industry.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_c_literacy_5"
-		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		texturefile = "gfx//interface//buildings//c_literacy_5.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_c_literacy_10"
-		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		texturefile = "gfx//interface//buildings//c_literacy_10.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_c_literacy_20"
-		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		texturefile = "gfx//interface//buildings//c_literacy_20.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_c_literacy_40"
-		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		texturefile = "gfx//interface//buildings//c_literacy_40.dds"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_c_terrain"
-		texturefile = "gfx//interface//buildings//edict_economic.dds"
+		texturefile = "gfx//interface//buildings//c_terrain.dds"
 		loadType = "INGAME"
 	}
 	

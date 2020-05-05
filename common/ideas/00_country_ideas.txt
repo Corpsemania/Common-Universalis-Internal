@@ -153,14 +153,15 @@ RUS_ideas = {
 	life_long_conscription  = {
 		global_manpower_modifier = 0.33
 	}
+	siberian_frontier = {
+		may_establish_frontier = yes
+		auto_explore_adjacent_to_colony = yes
+	}
 	abolish_the_mestnichestvo = {
 		administrative_efficiency = 0.05 
 	}	
 	pomestnoe_voisko = {
 		shock_damage = 0.10
-	}
-	fur_trade = {
-        global_trade_goods_size_modifier = 0.1
 	}
 	third_rome_idea = {		   
 	    tolerance_own = 1

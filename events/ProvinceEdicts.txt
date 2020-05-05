@@ -211,7 +211,10 @@ province_event = {
 				owner = { clr_country_flag = has_a_second_capital }
 			}
 			owner = { cu_calc_country_absolute_dist = yes } 
-		}	
+		}
+		ai_chance = {
+			factor = 0
+		}		
 	}
 
 	option = { 
@@ -1214,7 +1217,7 @@ province_event = {
 			is_core = owner
 			cu_not_terr_trigger = yes
 			owner = {
-				economic_ideas = 6
+				has_idea = agr_benign_neglect_2
 				adm_power = 12
 			}
 		}
@@ -1248,7 +1251,7 @@ province_event = {
 		name = "urban.50.c5n" #Benign Neglect
 		trigger = {
 			NOT = { has_province_modifier = cu_benign_neglect }
-			owner = { economic_ideas = 6 }
+			owner = { has_idea = agr_benign_neglect_2 }
 			NOT = {
 				AND = {
 					is_core = owner
@@ -2990,50 +2993,6 @@ province_event = {
 			}
 		}
 	}
-	option = {  #Set A Second Capital
-	    name = "urban.503.g"
-		trigger = {
-			owner = {
-				NOT = { has_country_flag = has_a_second_capital } 
-			}
-		}
-		add_province_modifier = {
-			name = second_capital
-			duration = -1
-		}
-		set_province_flag = second_capital_f
-		owner = {
-			hidden_effect = { set_variable = { which = cu_power value = 80 } }
-			cu_calc_power_cost = yes
-			cu_subtract_adm_power = yes
-			set_country_flag = has_a_second_capital
-			hidden_effect = { cu_calc_country_absolute_dist = yes }
-		}
-		ai_chance = {
-			factor = 0
-		}
-	}
-	option = {  #Remove Second Capital
-	    name = "urban.503.g1"
-		trigger = {
-			owner = {
-				has_country_flag = has_a_second_capital
-			}
-			has_province_flag = second_capital_f
-		}
-		clr_province_flag = second_capital_f
-		remove_province_modifier = second_capital
-		owner = {
-			hidden_effect = { set_variable = { which = cu_power value = 80 } }
-			cu_calc_power_cost = yes
-			cu_subtract_adm_power = yes
-			clr_country_flag = has_a_second_capital
-			hidden_effect = { cu_calc_country_absolute_dist = yes }
-		}
-		ai_chance = {
-			factor = 0
-		}
-	}
 	option = {  #Claim Center of Trade in province
 		name = "urban.503.f"
 		trigger = {
@@ -3928,7 +3887,7 @@ province_event = {
 			is_core = owner
 			cu_not_terr_trigger = yes
 			owner = {
-				economic_ideas = 6
+				has_idea = agr_benign_neglect_2
 				adm_power = 12
 			}
 		}
@@ -4374,7 +4333,7 @@ province_event = {
 			is_core = owner
 			cu_not_terr_trigger = yes
 			owner = {
-				economic_ideas = 6
+				has_idea = agr_benign_neglect_2
 				adm_power = 12
 			}
 		}

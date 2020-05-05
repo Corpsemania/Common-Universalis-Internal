@@ -1166,14 +1166,9 @@ in_golden_era = {
 
 absolutism = {
 	yearly_absolutism = -1
-	core_decay_on_your_own = -0.25
 	all_power_cost = -0.1
-	global_tax_modifier = 0.15
-	production_efficiency = 0.15
-	trade_efficiency = 0.15
-	administrative_efficiency = 0.15
-	global_unrest = 5
-	yearly_corruption = 0.4
+	global_autonomy = -0.05
+	administrative_efficiency = 0.2
 }
 
 low_army_professionalism = {

@@ -1013,7 +1013,7 @@ benign_neglect_b = {
 		is_core = owner
 		cu_not_terr_trigger = yes
 		owner = {
-			full_idea_group = economic_ideas
+			has_idea = agr_benign_neglect_2
 			adm_power = 12
 		}		
 	}

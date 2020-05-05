@@ -1054,8 +1054,6 @@
  patriotism_desc: "A defeat is not a defeat, if our soldiers know that they are not only fighting for their king, but also for their nation and their own property.\n§GReduce War Exhaustion when war score is below 0.§!"
  superior_weapons: "Superior Weapons"
  superior_weapons_desc: "By investing more in war technology, we can equip our soldiers with weapons our enemies only dare to imagine.\nMilitary Technology Ahead of Time Penalty: §G-20.0%§!"
- benign_neglect_2: "Laissez-faire"
- benign_neglect_2_desc: "When the bereaucrats try to solve a problem, they usually create a new one. Sometimes the best way to govern is not to govern at all.\nUnlocks §YBenign Neglect§! Province Edict."
  additional_colonists_2: "New Frontier"
  additional_colonists_2_desc: "The new world is many things, most important of all, empty. Well no one important lives there at any rate. By letting people know of the boundless opportunities we have in the new world we will encourage more people to go forth and settle there.\n- Development Time of provinces with less than 15 Development: §G-10.0%§!"
  subject_forcelimit_bonus: "Marcher Lord"

@@ -264,8 +264,8 @@ superior_supply_system = {
 		full_idea_group = exploration_ideas
 	}
 	
-	production_efficiency = -0.1
-	land_attrition = -0.2
+	production_efficiency = -0.05
+	land_attrition = -0.15
 
 	ai_will_do = {
 		factor = 1
@@ -736,7 +736,7 @@ the_licensing_of_the_press_act = {
 		full_idea_group = aristocracy_ideas
 	}
 
-	improve_relation_modifier = -0.25
+	improve_relation_modifier = -0.2
 	ae_impact = -0.1
 	
 	ai_will_do = {
@@ -915,7 +915,7 @@ autonomous_estates = {
 	}	
 	
 	global_unrest = -2
-	global_autonomy = 0.03
+	global_autonomy = 0.02
 	
 	ai_will_do = {
 		factor = 1

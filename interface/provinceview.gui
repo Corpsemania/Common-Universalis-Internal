@@ -6618,15 +6618,27 @@ guiTypes = {
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 		
+		checkboxType = {
+			name = "build_claime_center"
+			position = { x = 555 y = 340 }
+			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
+		}
+		
+		checkboxType = {
+			name = "build_upgrade_center"
+			position = { x = 607 y = 340 }
+			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
+		}
+		
 		iconType = {
-			name = "cot_banner"
-			position = { x = 630 y = 308 }
-			spriteType = "GFX_banner_right_2"
+			name = "museum_banner"
+			position = { x = 394 y = 308 }
+			spriteType = "GFX_banner_left_5m"
 		}
 		
 		instantTextBoxType={
-			name = "cot_other"
-			position = {x = 678 y = 317 }
+			name = "title_museum"
+			position = {x = 434 y = 317 }
 			font = "vic_18"
 			borderSize = {x = 0 y = 0}
 			maxWidth = 200
@@ -6635,47 +6647,10 @@ guiTypes = {
 		}
 		
 		iconType ={
-			name ="edict_cot"
-			spriteType = "GFX_macro_buildings_category_strip"
-			position = { x = 652 y = 311 }
-			frame = 1
-		}
-		
-		
-		
-		checkboxType = {
-			name = "build_claime_center"
-			position = { x = 659 y = 340 }
-			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
-		}
-		
-		checkboxType = {
-			name = "build_upgrade_center"
-			position = { x = 711 y = 340 }
-			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
-		}
-		
-		iconType = {
-			name = "museum_banner"
-			position = { x = 394 y = 308 }
-			spriteType = "GFX_banner_left_3"
-		}
-		
-		instantTextBoxType={
-			name = "title_museum"
-			position = {x = 442 y = 317 }
-			font = "vic_18"
-			borderSize = {x = 0 y = 0}
-			maxWidth = 200
-			maxHeight = 18
-			text = "ART_BUILDING"	
-		}
-		
-		iconType ={
 			name ="edict_art_building"
 			spriteType = "GFX_macro_buildings_category_strip"
 			position = { x = 406 y = 311 }
-			frame = 14
+			frame = 1
 		}
 		
 		checkboxType = {
@@ -6704,7 +6679,7 @@ guiTypes = {
 		
 		instantTextBoxType={
 			name = "title_goods"
-			position = {x = 442 y = 394 }
+			position = {x = 434 y = 394 }
 			font = "vic_18"
 			borderSize = {x = 0 y = 0}
 			maxWidth = 200

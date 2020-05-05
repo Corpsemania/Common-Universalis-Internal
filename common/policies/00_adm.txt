@@ -15,7 +15,7 @@ estate_modernization_act = {
 		full_idea_group = innovativeness_ideas
 	}
 	
-	global_manpower_modifier = -0.3
+	global_manpower_modifier = -0.2
     development_cost = -0.05
 
 	ai_will_do = {
@@ -99,8 +99,6 @@ the_court_of_wards_and_liveries = {
 		}
 	}
 }
-
-
 
 
 
@@ -1189,7 +1187,7 @@ enlightened_aristocracy = {
 		full_idea_group = aristocracy_ideas
 	}	
 	
-	global_autonomy = 0.02
+	global_autonomy = 0.01
 	num_accepted_cultures = 1
 	
 	ai_will_do = {

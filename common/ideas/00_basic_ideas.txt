@@ -69,14 +69,14 @@ aristocracy_ideas = {
 		diplomatic_upkeep = 1
 	}
 	serfdom = {
-		global_manpower_modifier = 0.20
+		global_manpower_modifier = 0.2
 	}
-	noble_estate = {
+	noble_army = {
 	    infantry_cost = -0.1
-		#Agriculture Growth: + 10%
+		cavalry_cost = -0.1
 	}	
     military_traditions = {
-		land_morale = 0.10
+		land_morale = 0.15
 	}
 	ai_will_do = {
 		factor = 0.25
@@ -155,7 +155,7 @@ innovativeness_ideas = {
 		siege_ability = 0.10
 	}
 	bureaucratic_system_reform = {
-	    state_maintenance_modifier = -0.1
+	    yearly_corruption = -0.05
 		#Province Edict MP Cost: - 20%
 	}
 	scientific_revolution_2 = {
@@ -397,7 +397,7 @@ diplomatic_ideas = {
 		diplomatic_upkeep = 1
 	}
 	benign_diplomats = {
-		improve_relation_modifier = 0.25
+		improve_relation_modifier = 0.3
 	}
 	experienced_diplomats  = {
 		diplomatic_reputation = 1
@@ -412,7 +412,7 @@ diplomatic_ideas = {
 	}
 	diplomatic_corps = {
 	    reduced_stab_impacts = yes
-		dip_tech_cost_modifier = -0.05
+		dip_tech_cost_modifier = -0.1
 	}
 	
 	ai_will_do = {
@@ -435,15 +435,15 @@ offensive_ideas = {
 
 	bonus = {
         artillery_bonus_vs_fort = 1
-		yearly_army_professionalism = 0.008
+		yearly_army_professionalism = 0.005
 	}
 
 	bayonet_leaders = {
 		leader_land_shock = 1
 	}
     glorious_arms = {
-		prestige_from_land = 0.25
-		army_tradition_from_battle = 0.25
+		prestige_from_land = 0.33
+		army_tradition_from_battle = 0.33
 	}
 	supression_fire = {
 		leader_land_fire = 1
@@ -510,34 +510,38 @@ defensive_ideas = {
 
 
 
+#Financial Ideas
+
 economic_ideas = {
 	category = ADM
-
-	bonus = {
-		development_cost = -0.05
-	}	
-    centralized_tax_collection = {
-		global_tax_modifier = 0.10
+	trigger = {
+		NOT = { has_idea_group = agrarian_ideas }
 	}
+	bonus = {
+		global_tax_modifier = 0.15
+	}	
+
 	national_bank = {
         inflation_action_cost = -0.2
 	}
 	debt_and_loans = {
 		interest = -1
 	}
-	nationalistic_enthusiasm = {
-		land_maintenance_modifier = -0.10
-	}
 	smithian_economics = {
 		production_efficiency = 0.1
  	}
-    benign_neglect_2 = {
-        global_trade_goods_size_modifier = 0.1
-		#Unlocks Benign Neglect Edict
-	}
 	organised_construction = {
 		build_cost = -0.10
-		build_time = -0.10
+	}
+	aggressive_urbanization = {
+		build_time = -0.1
+		#Urbanization Capacity From Buildings: +20%
+	}
+	private_corporation = {
+		global_trade_goods_size_modifier = 0.1
+	}
+	metropolitan  = {
+		trade_company_investment_cost = -0.10 #Urbanization Time Modifier
 	}
 	ai_will_do = {
 		factor = 1
@@ -563,6 +567,43 @@ economic_ideas = {
 		}
 	}
 }
+
+agrarian_ideas = {
+	category = ADM
+	trigger = {
+		NOT = { has_idea_group = economic_ideas }
+	}
+	bonus = {
+		development_cost = -0.1 #Agriculture Growth Time
+	}
+	
+	agr_land_reform = {
+		global_unrest = -1
+		#Agriculture Capacity: +5%
+	}
+	agr_military_cultivation = {
+		land_maintenance_modifier = -0.10
+	}
+	agr_noninterference = {
+		advisor_cost = -0.05
+	}
+	agr_cottage_economy = {
+		global_tax_modifier = 0.05
+        production_efficiency = 0.05
+	}
+	agr_benign_neglect_2 = {
+	    state_maintenance_modifier = -0.1
+		#Unlocks Benign Neglect Edict
+	}
+	agr_free_resettlement = {
+		expel_minorities_cost = -0.20 #Migration Time
+	}
+	agr_agrarian_idyll = {
+		stability_cost_modifier = -0.10
+		#Agriculture Growth: + 10%
+	}
+}
+
 
 
 exploration_ideas = {
@@ -730,7 +771,7 @@ trade_ideas = {
 		placed_merchant_power = 3
 	}
 	national_trade_policy = {
-		trade_efficiency = 0.15
+		trade_efficiency = 0.1
 	}
 	foreign_merchants = {
 		merchants = 1
@@ -910,7 +951,7 @@ quality_ideas = {
 		artillery_power = 0.1
 	}
 	superior_weapons = {
-		mil_tech_cost_modifier  = -0.05
+		mil_tech_cost_modifier  = -0.1
 		#Military Technology Ahead of Time Penalty: -20.0%
 	}
 	ai_will_do = {
@@ -1167,7 +1208,7 @@ constitution_ideas = {
 	}
     
 	constitutional_democracy = {
-                adm_tech_cost_modifier = -0.05
+                adm_tech_cost_modifier = -0.1
                 #Unlocks Representative Monarchy and Constitutional Monarchy
 	}
 	

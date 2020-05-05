@@ -68,7 +68,7 @@ small_state = {
         ae_impact = -0.1
         inflation_action_cost = -0.15
         global_colonial_growth = 15
-		yearly_corruption = -0.025
+		yearly_corruption = -0.02
 		state_maintenance_modifier = -0.05
 		placed_merchant_power = -2
         spy_offence = -0.15	
@@ -133,7 +133,7 @@ large_state = {
         years_of_nationalism = -2
         inflation_action_cost = -0.05
         global_colonial_growth = 5
-		yearly_corruption = 0.04
+		yearly_corruption = 0.03
 		state_maintenance_modifier = 0.05
 		stability_cost_modifier = 0.1
         #icon = 3
@@ -159,7 +159,7 @@ huge_state = {
         core_creation = 0.05
         ae_impact = 0.1
         years_of_nationalism = -3
-		yearly_corruption = 0.08
+		yearly_corruption = 0.06
 		state_maintenance_modifier = 0.1
 		placed_merchant_power = 1
 		spy_offence = 0.05
@@ -189,7 +189,7 @@ continental_state = {
         years_of_nationalism = -4
         inflation_action_cost = 0.05
         missionaries = 1
-		yearly_corruption = 0.12
+		yearly_corruption = 0.10
 		state_maintenance_modifier = 0.15
 		placed_merchant_power = 2	
 		spy_offence = 0.15	
@@ -615,7 +615,7 @@ gentrys_landholding = {
 		}
 	}
 		global_tax_modifier = -0.2
-		global_autonomy = 0.05
+		global_autonomy = 0.06
 		advisor_cost = -0.05
        #icon = 3
 }
@@ -697,7 +697,7 @@ weisuo_system = {
 		}
 	}
         global_manpower_modifier = -0.3
-		yearly_corruption = 0.05
+		yearly_corruption = 0.06
 		land_forcelimit_modifier = 0.10
         #icon = 3
 }

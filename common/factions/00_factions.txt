@@ -9,7 +9,7 @@ bureaucrats =
 	#buildings, Internal Stability.
 	modifier = 
 	{
-	            global_autonomy = -0.02
+	            development_cost = -0.05
                 stability_cost_modifier = -0.1
                 meritocracy = 0.10
                 discipline = -0.05
