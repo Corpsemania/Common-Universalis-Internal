@@ -92,7 +92,7 @@
  building_c_art_dest_desc: "\nRemove the mark of art transfer destination from this province.\n"
  building_art_transfer_gw: "Transfer A Great Work"
  building_art_transfer_gw_desc: "\nBase cost is §R30§! £adm£, £dip£, and £mil£, will be modifiered by your power cost and country size.\nTransfer a §OGreat Work§! in this province to the preset destination. It will take about one month to conduct the transfer.\n"
- building_art_transfer_mp: "ransfer A Masterpiece"
+ building_art_transfer_mp: "Transfer A Masterpiece"
  building_art_transfer_mp_desc: "\nBase cost is §R30§! £adm£, £dip£, and £mil£, will be modifiered by your power cost and country size.\nTransfer a §MMasterpiece§! in this province to the preset destination. It will take about one month to conduct the transfer.\n"
  building_art_transfer_nw: "Transfer An Ordinary Work"
  building_art_transfer_nw_desc: "\nBase cost is §R30§! £adm£, £dip£, and £mil£, will be modifiered by your power cost and country size.\nTransfer an §GOrdinary Work§! in this province to the preset destination. It will take about one month to conduct the transfer.\n"
