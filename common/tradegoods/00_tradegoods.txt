@@ -273,7 +273,7 @@ cloth = {
 fish = {
 	color = { 0.55 0.82 0.97 }
 	modifier = {
-		global_sailors_modifier = 0.20
+		global_sailors_modifier = 0.15
 	}
 	province = {
 		local_sailors_modifier = 0.2
@@ -503,7 +503,7 @@ naval_supplies = {
 copper = {
 	color = { 0.85 0.46 0.15 }
 	modifier = {
-		global_regiment_recruit_speed = -0.2
+		global_regiment_recruit_speed = -0.15
 	}
 	province = {
 		regiment_recruit_speed = -0.2
@@ -762,7 +762,7 @@ iron = {
 slaves = {
 	color = { 0.0 0.0 0.0 }
 	modifier = {
-		global_tariffs = 0.25
+		global_tariffs = 0.2
 	}
 	province = {
 		local_build_cost = -0.1
@@ -861,7 +861,7 @@ ivory = {
 tea = {
 	color = { 0.07 0.33 0.09 }
 	modifier = {
-		advisor_cost = -0.10
+		advisor_cost = -0.05
 	}
 	province = {
 		trade_goods_size = 0.1
@@ -956,11 +956,11 @@ tea = {
 chinaware = {
 	color = { 0.18 0.57 0.8 }
 	modifier = {
-		legitimacy = 0.5
-		devotion = 0.5
-		horde_unity = 0.5
-		republican_tradition = 0.3
-		meritocracy = 0.3
+		legitimacy = 0.4
+		devotion = 0.4
+		horde_unity = 0.4
+		republican_tradition = 0.2
+		meritocracy = 0.1
 	}
 	province = {
 		trade_goods_size = 0.1

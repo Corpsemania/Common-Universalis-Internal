@@ -291,7 +291,7 @@ country_event = {
 			         NOT = { has_country_flag = cu_invest_in_mil_tech_timer }
 				     had_country_flag = {
 				       flag = cu_invest_in_mil_tech_timer
-					   days = 1095
+					   days = 1825
 				     }
 			    }
 				years_of_income = 0.2

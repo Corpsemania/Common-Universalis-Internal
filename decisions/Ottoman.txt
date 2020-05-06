@@ -258,9 +258,10 @@ country_decisions = {
 			}
 		}
 		allow = {
-			adm_power = 500
-			dip_power = 500
-			mil_power = 500
+			army_tradition = 50
+			adm_power = 400
+			dip_power = 400
+			mil_power = 400
 			stability = 1
 			OR = {
 				AND = {
@@ -277,9 +278,9 @@ country_decisions = {
 			}
 		}
 		effect = {
-			add_army_tradition = -100
-			add_army_professionalism = -100
-			add_prestige = -50
+			add_army_tradition = -50
+			add_army_professionalism = -0.5
+			add_prestige = -30
 			if = {
 				limit = {
 					has_country_modifier = tur_janissary
@@ -292,9 +293,9 @@ country_decisions = {
 			}
 			if = {
 				limit = { has_country_flag = turarmydis }
-				add_adm_power = -500
-				add_dip_power = -500
-				add_mil_power = -500
+				add_adm_power = -400
+				add_dip_power = -400
+				add_mil_power = -400
 				cu_change_stability_point_n150 = yes
 				end_disaster = janissary_decadence
 				country_event = { id = janissary_decadence.100 }

@@ -98,6 +98,7 @@ country_event = {
 				change_variable = { which = agcm value = 10 }
 				change_variable = { which = ngcm value = 15 }
 			}
+			
 			if = {
 		        limit = { government = monarchy }
 		        change_variable = { which = cgcm value = 25 }
@@ -118,6 +119,15 @@ country_event = {
 		        limit = { has_reform = elective_monarchy }		
 				change_variable = { which = ggcm value = 5 }
 				change_variable = { which = ngcm value = 5 }
+			}
+			else_if = {
+		        limit = { has_reform = ottoman_government }
+				change_variable = { which = agcm value = 5 }
+			}
+			else_if = {
+		        limit = { has_reform = celestial_empire }
+				change_variable = { which = agcm value = -5 }
+				change_variable = { which = ngcm value = -5 }
 			}
 			if = {
 				limit = { has_reform = cu_cultural_policy_1 }

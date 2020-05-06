@@ -299,6 +299,7 @@ celestial_empire = {
 	}
 	modifiers = {	
         heir_chance = 0.25
+		advisor_cost = 0.05
 		min_autonomy = 10
 	}
 	effect = {

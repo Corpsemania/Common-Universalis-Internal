@@ -1005,7 +1005,7 @@ chinese_wokou_left = {
 }
 
 tur_roman_path = {
-	prestige = 1
+	administrative_efficiency = 0.05
 	ae_impact = 0.1
 	#Greek Culture Administrative Integrity: +10%
 }

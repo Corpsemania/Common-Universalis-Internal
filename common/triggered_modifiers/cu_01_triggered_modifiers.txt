@@ -615,7 +615,7 @@ gentrys_landholding = {
 		}
 	}
 		global_tax_modifier = -0.2
-		global_autonomy = 0.06
+		global_autonomy = 0.05
 		advisor_cost = -0.05
        #icon = 3
 }
@@ -697,7 +697,7 @@ weisuo_system = {
 		}
 	}
         global_manpower_modifier = -0.3
-		yearly_corruption = 0.06
+		yearly_corruption = 0.05
 		land_forcelimit_modifier = 0.10
         #icon = 3
 }

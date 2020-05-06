@@ -1102,7 +1102,8 @@ muslim_enforced_religion = {
 
 khalifah = {
 	legitimacy = 0.5
-        religion = yes
+	tolerance_own = 0.5
+    religion = yes
 }
 
 sect_practices = {
