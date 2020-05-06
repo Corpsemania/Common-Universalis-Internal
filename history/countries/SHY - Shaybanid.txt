@@ -4,7 +4,8 @@ technology_group = nomad_group
 religion = sunni
 primary_culture = uzbehk
 add_accepted_culture = khazak
-capital = 1075 #Chimgi-Tura
+add_accepted_culture = siberian
+capital = 476 #Kypshak
 historical_rival = TIM
 religious_school = hanafi_school
 

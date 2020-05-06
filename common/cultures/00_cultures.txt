@@ -8835,7 +8835,7 @@ sudanese = {
 	}
 }
 
-evenks = {
+tungusic = {
 	graphical_culture = asiangfx
 
 	evenk = {

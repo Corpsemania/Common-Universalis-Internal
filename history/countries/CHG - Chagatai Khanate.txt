@@ -1,9 +1,11 @@
 government = tribal
 add_government_reform = steppe_horde
 primary_culture = kirgiz
+add_accepted_culture = uzbehk
+add_accepted_culture = yughur
 religion = sunni
 technology_group = nomad_group
-capital = 715
+capital = 8603	# Tekes
 religious_school = hanafi_school
 
 #Khans of Mughalistan

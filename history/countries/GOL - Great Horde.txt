@@ -1,9 +1,10 @@
 government = tribal
 add_government_reform = steppe_horde
 primary_culture = mishary
+add_accepted_culture = astrakhani
 religion = sunni
 technology_group = nomad_group
-capital = 303	# Saratov
+capital = 466	# Sarai
 historical_rival = TUR
 historical_rival = KAZ
 religious_school = hanafi_school

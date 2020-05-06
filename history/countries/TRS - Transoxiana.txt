@@ -3,6 +3,7 @@
 #######################################
 technology_group = muslim
 primary_culture = uzbehk
+add_accepted_culture = turkmeni
 religion = sunni
 government = monarchy
 add_government_reform = iqta
