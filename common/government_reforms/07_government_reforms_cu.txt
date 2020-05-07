@@ -3263,7 +3263,7 @@ self_governance = {
 	}
 	modifiers = {
 		min_autonomy = 30
-        global_autonomy = 0.03
+        global_autonomy = 0.05
 		state_maintenance_modifier = -0.1
 		yearly_corruption = -0.1
 		max_states = -5
@@ -3349,11 +3349,11 @@ cu_feudalism_reform = {
 		}
 	}
 	modifiers = {
-		global_autonomy = 0.02
+		global_autonomy = 0.03
 		vassal_income = 0.15
 		min_autonomy = 15
 		max_absolutism = -10
-		yearly_absolutism = -0.1
+		yearly_absolutism = -0.2
 	}
 	effect = {
 		custom_tooltip = feudalism_estate_tt
@@ -3423,6 +3423,8 @@ mandate_system = {
 		advisor_cost = 0.05
 		yearly_corruption = 0.05
 		max_states = 5
+		yearly_absolutism = -0.1
+		global_autonomy = 0.01
 	}
 	effect = {
 		custom_tooltip = mandate_system_estate_tt
@@ -3594,8 +3596,7 @@ oral_tradition = {
 		}
 	}
 	modifiers = {
-		max_absolutism = 10
-		yearly_absolutism = -0.2 
+		state_maintenance_modifier = -0.2
 		min_autonomy = 5
 		global_autonomy = 0.02
 	}
@@ -3678,7 +3679,8 @@ sovereign_code = {
 		}
 	}
 	modifiers = {
-		yearly_absolutism = -0.1 
+		max_absolutism = 10
+		yearly_corruption = 0.1
 		state_maintenance_modifier = 0.10
 		global_autonomy = -0.01
 	}
@@ -3771,6 +3773,8 @@ divine_law = {
 	}
 	modifiers = {
 		state_maintenance_modifier = 0.2
+		max_absolutism = 5
+		yearly_corruption = 0.05
 		tolerance_own = 1
 		global_institution_spread = -0.15
 	}
@@ -3854,7 +3858,6 @@ constitution_reform = {
 	}
 	modifiers = {
 	    max_absolutism = -10
-		yearly_absolutism = 0.1
 		state_maintenance_modifier = 0.3
 		min_autonomy = -10
 	}
@@ -4115,6 +4118,7 @@ burghers_election = {
 		trade_efficiency = 0.05
 		production_efficiency = 0.05
 		republican_tradition = 0.2
+		yearly_corruption = 0.01
 		max_absolutism = -10
 		yearly_absolutism = 0.1
 	}

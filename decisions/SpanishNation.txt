@@ -4,6 +4,7 @@ country_decisions = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
+			culture_group = iberian
 			NOT = { has_country_flag = formed_spain_flag }
 			OR = {
 				ai = no
@@ -149,6 +150,7 @@ country_decisions = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
+			culture_group = iberian
 			NOT = { has_country_flag = formed_spain_flag }
 			OR = {
 				ai = no

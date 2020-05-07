@@ -3716,9 +3716,13 @@ province_event = {
 		}
 		province_event = { id = terra.101 }
 		ai_chance = {
-			factor = 7
+			factor = 4
 			modifier = {
-				factor = 0.5
+				factor = 0.2
+				development = 15
+			}
+			modifier = {
+				factor = 0.25
 				is_overseas = no
 			}
 			modifier = {

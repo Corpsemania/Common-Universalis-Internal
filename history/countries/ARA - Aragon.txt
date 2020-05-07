@@ -1,7 +1,7 @@
 government = monarchy
 add_government_reform = feudalism_reform
-primary_culture = aragonese
-add_accepted_culture = catalan
+primary_culture = catalan
+add_accepted_culture = aragonese
 add_accepted_culture = sicilian
 religion = catholic
 technology_group = western

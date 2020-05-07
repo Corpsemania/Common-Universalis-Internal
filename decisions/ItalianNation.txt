@@ -10,9 +10,20 @@ country_decisions = {
 				is_playing_custom_nation = no
 			}
 			NOT = { exists = ITA }
+			OR = {
+				NOT = { tag = ARA }
+				NOT = {
+					any_owned_province = {
+						region = iberia_region
+					}
+				}
+			}
 			NOT = { tag = PAP }
 			NOT = { tag = HLR }
-			culture_group = latin
+			OR = {
+				culture_group = latin
+				culture_group = gallo_italic
+			}
 			OR = {
 				ai = no
 				AND = {
@@ -121,6 +132,10 @@ country_decisions = {
 			}
 			NOT = { exists = ITA }
 			tag = PAP
+			OR = {
+				culture_group = latin
+				culture_group = gallo_italic
+			}
 			NOT = { has_country_modifier = kingdom_of_god }
 			OR = {
 				ai = no
@@ -188,5 +203,107 @@ country_decisions = {
 			factor = 1
 		}
 	}
-
+	
+	ita_unify_italian_culture = {
+		major = yes
+		potential = {
+			normal_or_historical_nations = yes
+			OR = {
+				tag = ITA
+				AND = {
+					tag = PAP
+					has_country_modifier = kingdom_of_god
+				}
+				tag = ROM
+			}
+			OR = {
+				culture_group = latin
+				culture_group = gallo_italic
+			}
+			NOT = { has_country_flag = unify_italian_culture }
+		}
+		allow = {
+			custom_trigger_tooltip = {
+			    tooltip = unify_italian_culture_condition
+				NOT = {
+					any_owned_province = {
+						AND = {
+							region = italy_region
+							OR = {
+								NOT = { check_variable = { which = literacy value = 20 } }
+								NOT = { check_variable = { which = p_ca value = 90 } }
+							}
+						}
+					}
+				}
+                        
+			}
+			adm_power = 500
+			dip_power = 500
+			treasury = 1000
+			prestige = 50
+		}
+		effect = {
+			add_adm_power = -500
+			add_dip_power = -500
+			add_treasury = -100
+			add_prestige = -50
+			set_country_flag = unify_italian_culture
+			if = {
+				limit = { culture_group = latin }
+				custom_tooltip = unify_italian_culture_tooltip_south
+			}
+			else = {
+				custom_tooltip = unify_italian_culture_tooltip_north
+			}
+			hidden_effect = {
+				every_owned_province = {
+					limit = {
+						OR = {
+							culture_group = latin
+							culture_group = gallo_italic
+						}
+					}
+					cu_switch_hybrid_culture = yes
+					add_unrest = 5
+					cu_calc_base_cultural_acceptance = yes
+					set_variable = { which = cu_var1 value = -20 }
+					cu_add_cultural_acceptance = yes
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	test_unite_italy = {
+		major = yes
+		potential = {
+			ai = no
+			OR = {
+							culture_group = latin
+							culture_group = gallo_italic
+			}
+		}
+		allow = {
+			
+		}
+		effect = {
+			every_province = {
+				limit = {
+					OR = {
+							culture_group = latin
+							culture_group = gallo_italic
+					}
+				}
+				cede_province = ROOT
+				add_core = ROOT
+				set_variable = { which = p_ca value = 100 }
+				set_variable = { which = literacy value = 20 }
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
 }

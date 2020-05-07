@@ -887,18 +887,18 @@ theodosian_walls = {
 }
 
 cu_civilian_integration = {
-    local_unrest = -2
+    local_unrest = -4
 	local_autonomy = -0.10
 	local_state_maintenance_modifier = 1
 }
 
 cu_diplomatic_integration = {
-	local_unrest = -10
+	local_unrest = -15
 	local_autonomy = 0.10
 }
 
 cu_military_integration = {
-	local_unrest = -6
+	local_unrest = -8
 	land_forcelimit = -1
 }
 
@@ -1018,4 +1018,10 @@ tur_arabian_path = {
 tur_turkish_path = {
 	cavalry_power = 0.1
 	province_warscore_cost = -0.1
+}
+
+french_lingua_franca_prov = {
+	local_unrest = -2
+	#Max Administrative Integrity +10%
+	#Province convert to French group when integrity reaches 70%
 }

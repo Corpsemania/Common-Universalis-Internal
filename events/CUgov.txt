@@ -143,12 +143,12 @@ province_event = {
 		}
 		else_if = {
 				limit = {
-					has_owner_culture = yes #Same culture province starts with 50% of max integrity
+					has_owner_culture = yes #Same culture province starts with 60% of max integrity
 				}
 				set_province_flag = cu_newly_conquered_province
 				cu_calc_base_cultural_acceptance = yes
 				set_variable = { which = p_ca which = p_cab }
-				multiply_variable = { which = p_ca value = 0.5 }
+				multiply_variable = { which = p_ca value = 0.6 }
 		}
 		else_if = {
 		        limit = {

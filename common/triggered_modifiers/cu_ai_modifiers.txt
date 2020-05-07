@@ -722,17 +722,11 @@ lucky_country_1 = {
 		}
 		
 	}
-	global_institution_spread = 0.05
-	embracement_cost = -0.1
-	build_cost = -0.05
 	colonist_placement_chance = 0.05
-	global_missionary_strength = 0.005
 	spy_offence = 0.05
-	stability_cost_modifier = -0.10
 	defensiveness = 0.10
 	advisor_pool = 1
-	monthly_splendor = 0.5
-	advisor_cost = -0.05
+	advisor_cost = -0.025
 	heir_chance = 0.25
 	global_unrest = -1
 	legitimacy = 0.5
@@ -745,7 +739,6 @@ lucky_country_1 = {
 	monthly_fervor_increase = 0.5
 	church_power_modifier = 0.25
 	ae_impact = -0.1
-    yearly_corruption = -0.05
 	meritocracy = 0.3
 }
 
@@ -828,17 +821,12 @@ lucky_country_2 = {
 			tag = GBR
 		}	
 	}
-	global_institution_spread = 0.1
-	embracement_cost = -0.2
 	build_cost = -0.1
 	colonist_placement_chance = 0.10
-	global_missionary_strength = 0.01
 	spy_offence = 0.10
-	stability_cost_modifier = -0.10
 	defensiveness = 0.20
 	advisor_pool = 1
-	monthly_splendor = 1
-	advisor_cost = -0.10
+	advisor_cost = -0.05
 	heir_chance = 0.5
 	global_unrest = -2
 	legitimacy = 1
@@ -851,7 +839,6 @@ lucky_country_2 = {
 	monthly_fervor_increase = 1
 	church_power_modifier = 0.25
 	ae_impact = -0.20
-    yearly_corruption = -0.1
 	meritocracy = 0.5
 }
 

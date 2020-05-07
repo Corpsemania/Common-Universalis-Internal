@@ -2,7 +2,13 @@ country_decisions = {
 	embrace_iberian_identity = {
 		major = yes
 		potential = {
-			primary_culture = aragonese
+			OR = {
+				primary_culture = aragonese
+				primary_culture = catalan
+			}
+			any_owned_province = {
+				culture = catalan
+			}
 			NOT = { has_country_flag = iberian_identity_embraced }
 	    }
 		allow = {
@@ -20,15 +26,23 @@ country_decisions = {
 			set_country_flag = iberian_identity_embraced
 			custom_tooltip = embrace_iberian_identity_tooltip
 			hidden_effect = {
-				change_primary_culture = aragonese_iberian
+				if = {
+					limit = { primary_culture = catalan }
+					change_primary_culture = catalan_iberian
+				}
 				every_owned_province = {
 					if = {
-						limit = { culture = aragonese }
-						change_culture = aragonese_iberian
+						limit = { culture = catalan }
+						change_culture = catalan_iberian
 						cu_calc_base_cultural_acceptance = yes
 					}
-					else_if = { #Italian provinces become furious for your betrayal 
-						limit = { culture_group = latin }
+					else_if = { #Italian/Southern French provinces become furious for your betrayal 
+						limit = { 
+								OR = {
+								    culture_group = latin 
+									culture_group = southern_french
+								}
+						}
 						add_unrest = 10
 						cu_calc_base_cultural_acceptance = yes
 						set_variable = { which = cu_var1 value = -20 }
@@ -41,17 +55,31 @@ country_decisions = {
 				}
 				every_subject_country = {
 					if = {
-						limit = { primary_culture = aragonese_iberian }
-						cu_change_stability_point_n150 = yes
+						limit = {
+							OR = {
+								culture_group = iberian
+								primary_culture = catalan
+							}
+						}
+						if = {
+							limit = { primary_culture = catalan }
+							change_primary_culture = catalan_iberian
+							cu_change_stability_point_n150 = yes
+						}
 						set_country_flag = iberian_identity_embraced
 						every_owned_province = {
 							if = {
-								limit = { culture = aragonese }
-								change_culture = aragonese_iberian
+								limit = { culture = catalan }
+								change_culture = catalan_iberian
 								cu_calc_base_cultural_acceptance = yes
 							}
-							else_if = { #Italian province becomes furious for your betrayal 
-								limit = { culture_group = latin }
+							else_if = { #Italian/Southern French province becomes furious for your betrayal 
+								limit = { 
+									OR = {
+										culture_group = latin 
+										culture_group = southern_french
+									}
+								}
 								add_unrest = 10
 								cu_calc_base_cultural_acceptance = yes
 								set_variable = { which = cu_var1 value = -20 }
@@ -64,12 +92,189 @@ country_decisions = {
 						}
 					}
 					else_if = {
-						limit = { culture_group = latin }
+						limit = { 
+							OR = {
+								    culture_group = latin 
+									culture_group = southern_french
+							}
+						}
 						add_liberty_desire = 20
 					}
 				} 
 				
 			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	form_aragon_italy = {
+		major = yes
+		potential = {
+			NOT = { tag = SPA }
+			OR = {
+				primary_culture = aragonese
+				primary_culture = catalan
+			}
+			num_of_owned_provinces_with = {
+					culture_group = latin
+					has_owner_accepted_culture = yes
+					value = 5
+			}
+			NOT = { has_country_flag = aragon_italy_formed }
+	    }
+		allow = {
+			adm_tech = 10
+			dip_power = 200
+			stability = 1
+			num_of_owned_provinces_with = {
+					culture_group = latin
+					has_owner_accepted_culture = yes
+					value = 20
+			}
+			NOT = {
+				num_of_owned_provinces_with = {
+						culture_group = iberian
+						value = 10
+				}
+			}
+		}
+		effect = {
+			add_dip_power = -200
+			cu_change_stability_point_n150 = yes
+			set_country_flag = aragon_italy_formed
+			custom_tooltip = form_aragon_italy_tooltip
+			hidden_effect = {
+				if = {
+					limit = { primary_culture = catalan }
+					change_primary_culture = catalan_italian
+				}
+				every_owned_province = {
+					if = {
+						limit = { culture = catalan }
+						change_culture = catalan_italian
+						cu_calc_base_cultural_acceptance = yes
+					}
+					else_if = { #Southern French provinces become furious for your betrayal 
+						limit = { 
+								culture_group = southern_french
+						}
+						add_unrest = 10
+						cu_calc_base_cultural_acceptance = yes
+						set_variable = { which = cu_var1 value = -20 }
+						cu_add_cultural_acceptance = yes
+					}
+					else_if = {
+						limit = { culture_group = latin }
+						cu_calc_base_cultural_acceptance = yes
+						change_variable = { which = cu_var1 value = 10 }
+						cu_add_cultural_acceptance = yes
+					}
+				}
+				every_subject_country = {
+					if = {
+						limit = {
+							OR = {
+								culture_group = latin
+								primary_culture = catalan
+							}
+						}
+						if = {
+							limit = { primary_culture = catalan }
+							change_primary_culture = catalan_italian
+							cu_change_stability_point_n150 = yes
+						}
+						set_country_flag = aragon_italy_formed
+						every_owned_province = {
+							if = {
+								limit = { culture = catalan }
+								change_culture = catalan_italian
+								cu_calc_base_cultural_acceptance = yes
+							}
+							else_if = { #Southern French province becomes furious for your betrayal 
+								limit = { 
+									culture_group = southern_french
+								}
+								add_unrest = 10
+								cu_calc_base_cultural_acceptance = yes
+								set_variable = { which = cu_var1 value = -20 }
+								cu_add_cultural_acceptance = yes
+							}
+							else_if = {
+								limit = { culture_group = latin }
+								cu_calc_base_cultural_acceptance = yes
+								change_variable = { which = cu_var1 value = 10 }
+								cu_add_cultural_acceptance = yes
+							}
+						}
+					}
+					else_if = {
+						limit = { 
+							culture_group = southern_french
+						}
+						add_liberty_desire = 20
+					}
+				} 
+				
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	french_lingua_franca = {
+		major = yes
+		potential = {
+			culture_group = french
+			num_of_owned_provinces_with = {
+					OR = {
+						culture_group = southern_french
+						culture = breton
+					}
+					has_owner_accepted_culture = yes
+					value = 5
+			}
+			NOT = { has_country_flag = french_lingua_franca_promoted }
+	    }
+		allow = {
+			OR = {
+				adm_tech = 10
+				has_idea = french_language_in_all_courts
+			}
+			dip_power = 200
+			stability = 1
+			total_development = 700
+			prestige = 20
+		}
+		effect = {
+			add_dip_power = -200
+			add_prestige = -20
+			set_country_flag = french_lingua_franca_promoted
+			custom_tooltip = french_lingua_franca_tooltip
+			hidden_effect = {
+				every_owned_province = {
+					if = {
+						limit = {
+							OR = {
+								culture = occitain
+								culture = gascon
+								culture = aquitaine
+								culture = breton
+							}
+						}
+						add_province_modifier = {
+							name = french_lingua_franca_prov
+							duration = -1
+						}
+						cu_calc_base_cultural_acceptance = yes
+						cu_assimilate_into_culture_group = yes
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
 		}
 	}
 }

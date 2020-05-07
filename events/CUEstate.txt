@@ -502,15 +502,31 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = "cuestate.a"
+		export_to_variable = {
+				which = cu_var1
+				value = modifier:global_autonomy
+		}
+		#Some modifiers are not fully counted, in order to simulate historical change during the era
+		if = {
+				limit = { has_country_modifier = gentrys_landholding }
+				subtract_variable = { which = cu_var1 value = -0.04 }
+		}
 		every_owned_province = {
 			set_variable = { which = cu_var1 value = 0 }
 			export_to_variable = {
 				which = cu_var1
 				value = modifier:local_autonomy
 			}
-			if = {	limit = { owner = { ai = yes } } change_variable = { which = cu_var1 value = 0.04 } }
-			divide_variable = { which = cu_var1 value = 0.114 }
-			multiply_variable = { which = cu_var1 value = 50 }
+			change_variable = { which = cu_var1 which = owner }
+			#if = {	limit = { owner = { ai = yes } } change_variable = { which = cu_var1 value = 0.04 } }
+			multiply_variable = { which = cu_var1 value = 500 } #Fixed to the balance point
+			multiply_variable = { which = cu_var1 value = 0.84 }
+			change_variable = { which = cu_var1 value = 8 } #Province with high autonomy starts a bit lower, province with low autonomy starts a bit higher
+			export_to_variable = { #Reduced by current autonomy
+				which = cu_var2
+				value = local_autonomy
+			} 
+			subtract_variable = { which = cu_var1 which = cu_var2 }
 			while = {
 				limit = { check_variable = { which = cu_var1 value = 1 } }
 				add_local_autonomy = 1

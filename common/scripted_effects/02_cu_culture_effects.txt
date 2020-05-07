@@ -201,6 +201,9 @@ cu_add_cultural_acceptance = {
 			cu_check_cultural_acceptance = yes
 	}
 	set_variable = { which = cu_var1 value = 0 }
+	
+	#Check culture group assimilation
+	cu_assimilate_into_culture_group = yes
 }
 
 
@@ -1744,79 +1747,6 @@ cu_do_immigration = {
 	   
 }
 
-cu_switch_hybrid_culture = {
-	if = {
-		limit = { 
-			culture = aragonese
-			owner = { culture_group = iberian }
-		}
-		change_culture = aragonese_iberian
-	}
-	else_if = {
-		limit = { 
-			culture = aragonese_iberian
-			owner = { culture_group = latin }
-		}
-		change_culture = aragonese
-	}
-	if = {
-		limit = { 
-			culture = catalan
-			owner = { culture_group = iberian }
-		}
-		change_culture = catalan_iberian
-	}
-	else_if = {
-		limit = { 
-			culture = catalan_iberian
-			owner = { culture_group = latin }
-		}
-		change_culture = catalan
-	}
-	else_if = {
-		limit = {
-			culture = wallonian_dutch
-			owner = { culture_group = french }
-		}
-		change_culture = wallonian
-	}
-	else_if = {
-		limit = {
-			culture = wallonian
-			owner = { culture_group = dutch_g }
-		}
-		change_culture = wallonian_dutch
-	}
-	else_if = {
-		limit = {
-			culture = dutch
-			owner = { culture_group = germanic }
-		}
-		change_culture = dutch_german
-	}
-	else_if = {
-		limit = {
-			culture = dutch_german
-			owner = { culture_group = dutch_g }
-		}
-		change_culture = dutch
-	}
-	else_if = {
-		limit = {
-			culture = flemish
-			owner = { culture_group = germanic }
-		}
-		change_culture = flemish_german
-	}
-	else_if = {
-		limit = {
-			culture = flemish_german
-			owner = { culture_group = dutch_g }
-		}
-		change_culture = flemish
-	}
-}
-
 #cu_convert_nationalism_seperatism - convert nationalism to seperatism based on province culture
 cu_convert_nationalism_seperatism = {
 	set_variable = { which = cu_var1 which = p_nationalism }
@@ -2034,4 +1964,283 @@ cu_do_nationalism_growth = {
 					set_variable = { which = p_nationalism value = 100 }
 				}
 		}
+}
+
+cu_switch_hybrid_culture = {
+	if = {
+		limit = { 
+			culture = aragonese_italian
+			owner = { culture_group = iberian }
+		}
+		change_culture = aragonese
+	}
+	else_if = {
+		limit = { 
+			culture = aragonese
+			owner = { 
+				culture_group = latin 
+				has_country_flag = aragon_italy_formed
+			}
+		}
+		change_culture = aragonese_italian
+	}
+	else_if = {
+		limit = { 
+			culture = catalan
+			owner = { 
+				culture_group = iberian 
+				has_country_flag = iberian_identity_embraced
+			}
+		}
+		change_culture = catalan_iberian
+	}
+	else_if = {
+		limit = { 
+			culture = catalan_iberian
+			owner = { culture_group = southern_french }
+		}
+		change_culture = catalan
+	}
+	else_if = {
+		limit = { 
+			culture = catalan
+			owner = { 
+				culture_group = latin
+				has_country_flag = aragon_italy_formed
+			}
+		}
+		change_culture = catalan_italian
+	}
+	else_if = {
+		limit = { 
+			culture = catalan_italian
+			owner = { culture_group = southern_french }
+		}
+		change_culture = catalan
+	}
+	else_if = {
+		limit = {
+			culture = wallonian_dutch
+			owner = { culture_group = french }
+		}
+		change_culture = wallonian
+	}
+	else_if = {
+		limit = {
+			culture = wallonian
+			owner = { culture_group = dutch_g }
+		}
+		change_culture = wallonian_dutch
+	}
+	else_if = {
+		limit = {
+			culture = dutch
+			owner = { culture_group = germanic }
+		}
+		change_culture = dutch_german
+	}
+	else_if = {
+		limit = {
+			culture = dutch_german
+			owner = { culture_group = dutch_g }
+		}
+		change_culture = dutch
+	}
+	else_if = {
+		limit = {
+			culture = flemish
+			owner = { culture_group = germanic }
+		}
+		change_culture = flemish_german
+	}
+	else_if = {
+		limit = {
+			culture = flemish_german
+			owner = { culture_group = dutch_g }
+		}
+		change_culture = flemish
+	}
+	else_if = {
+		limit = {
+			culture_group = gallo_italic 
+			owner = { 
+				culture_group = latin
+			}
+		}
+		if = {
+			limit = { culture = sardinian_north }
+			change_culture = sardinian
+		}
+		else_if = {
+			limit = { culture = neapolitan_north }
+			change_culture = neapolitan
+		}
+		else_if = {
+			limit = { culture = umbrian_north }
+			change_culture = umbrian
+		}
+		else_if = {
+			limit = { culture = sicilian_north }
+			change_culture = sicilian
+		}
+		else_if = {
+			limit = { culture = maltese_north }
+			change_culture = maltese
+		}
+		else_if = {
+			limit = { culture = roman_north }
+			change_culture = roman
+		}
+		else_if = {
+			limit = { owner = { has_country_flag = unify_italian_culture } }
+			if = {
+				limit = { culture = lombard }
+				change_culture = lombard_south
+			}
+			else_if = {
+				limit = { culture = romagnan }
+				change_culture = romagnan_south
+			}
+			else_if = {
+				limit = { culture = ligurian }
+				change_culture = ligurian_south
+			}
+			else_if = {
+				limit = { culture = venetian }
+				change_culture = venetian_south
+			}
+			else_if = {
+				limit = { culture = piedmontese }
+				change_culture = piedmontese_south
+			}
+			else_if = {
+				limit = { culture = etrurian }
+				change_culture = etrurian_south
+			}
+		}
+		
+	}
+	else_if = {
+		limit = {
+			culture_group = latin	 
+			owner = { 
+				culture_group = gallo_italic
+			}
+		}
+		if = {
+			limit = { culture = lombard_south }
+			change_culture = lombard
+		}
+		else_if = {
+			limit = { culture = romagnan_south }
+			change_culture = romagnan
+		}
+		else_if = {
+			limit = { culture = ligurian_south }
+			change_culture = ligurian
+		}
+		else_if = {
+			limit = { culture = venetian_south }
+			change_culture = venetian
+		}
+		else_if = {
+			limit = { culture = piedmontese_south }
+			change_culture = piedmontese
+		}
+		else_if = {
+			limit = { culture = etrurian_south }
+			change_culture = etrurian
+		}
+		else_if = {
+			limit = {
+				owner = { has_country_flag = unify_italian_culture	 }
+			}
+			if = {
+				limit = { culture = sardinian }
+				change_culture = sardinian_north
+			}
+			else_if = {
+				limit = { culture = neapolitan }
+				change_culture = neapolitan_north
+			}
+			else_if = {
+				limit = { culture = umbrian }
+				change_culture = umbrian_north
+			}
+			else_if = {
+				limit = { culture = sicilian }
+				change_culture = sicilian_north
+			}
+			else_if = {
+				limit = { culture = maltese }
+				change_culture = maltese_north
+			}
+			else_if = {
+				limit = { culture = roman }
+				change_culture = roman_north
+			}
+		} 
+		
+	}
+}
+
+cu_assimilate_into_culture_group = {
+	if = {
+		limit = { check_variable = { which = p_ca value = 80 } }
+		if = {
+			limit = {
+				culture = occitain
+				owner = { culture_group = french }
+			}
+			change_culture = occitain_french
+		}
+		else_if = {
+			limit = {
+				culture = gascon
+				owner = { culture_group = french }
+			}
+			change_culture = gascon_french
+		}
+		else_if = {
+			limit = {
+				culture = aquitaine
+				owner = { culture_group = french }
+			}
+			change_culture = aquitaine_french
+		}
+		else_if = {
+			limit = {
+				culture = breton
+				owner = { culture_group = french }
+			}
+			change_culture = breton_french
+		}
+	}
+}
+
+cu_add_assimilation_policy = {
+	if = {
+		limit = {
+			owner = { 
+				has_country_flag = french_lingua_franca_promoted 
+				culture_group = french
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					culture = occitain
+					culture = gascon
+					culture = aquitaine
+					culture = breton
+				}
+			}
+			add_province_modifier = {
+					name = french_lingua_franca_prov
+					duration = -1
+			}
+			cu_calc_base_cultural_acceptance = yes
+			cu_assimilate_into_culture_group = yes
+		}
+	}
 }

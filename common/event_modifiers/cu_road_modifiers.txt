@@ -23,115 +23,115 @@ connect_to_capital_far_2 = {
 }
 
 connect_to_capital_far_3 = {
-	local_autonomy = 0.015
+	local_autonomy = 0.017
 }
 
 connect_to_capital_far_4 = {
-	local_autonomy = 0.02
-}
-
-connect_to_capital_far_5 = {
 	local_autonomy = 0.025
 }
 
+connect_to_capital_far_5 = {
+	local_autonomy = 0.032
+}
+
 connect_to_capital_far_6 = {
-	local_autonomy = 0.03
-}
-
-connect_to_capital_far_7 = {
-	local_autonomy = 0.035
-}
-
-connect_to_capital_far_8 = {
 	local_autonomy = 0.04
 }
 
+connect_to_capital_far_7 = {
+	local_autonomy = 0.048
+}
+
+connect_to_capital_far_8 = {
+	local_autonomy = 0.055
+}
+
 connect_to_capital_far_9 = {
-	local_autonomy = 0.045
+	local_autonomy = 0.063
 }
 
 connect_to_capital_far_10 = {
-	local_autonomy = 0.05
+	local_autonomy = 0.07
 }
 
 connect_to_capital_far_11 = {
-	local_autonomy = 0.056
+	local_autonomy = 0.077
 }
 
 connect_to_capital_far_12 = {
-	local_autonomy = 0.062
+	local_autonomy = 0.085
 }
 
 connect_to_capital_far_13 = {
-	local_autonomy = 0.068
+	local_autonomy = 0.093
 }
 
 connect_to_capital_far_14 = {
-	local_autonomy = 0.075
+	local_autonomy = 0.1
 }
 
 connect_to_capital_far_15 = {
-	local_autonomy = 0.082
+	local_autonomy = 0.107
 }
 
 connect_to_capital_far_16 = {
-	local_autonomy = 0.089
+	local_autonomy = 0.115
 }
 
 connect_to_capital_far_17 = {
-	local_autonomy = 0.098
+	local_autonomy = 0.123
 }
 
 connect_to_capital_far_18 = {
-	local_autonomy = 0.106
+	local_autonomy = 0.130
 }
 
 connect_to_capital_far_19 = {
-	local_autonomy = 0.114
+	local_autonomy = 0.137
 }
 
 connect_to_capital_far_20 = {
-	local_autonomy = 0.122
+	local_autonomy = 0.145
 }
 
 connect_to_capital_far_21 = {
-	local_autonomy = 0.131
+	local_autonomy = 0.153
 }
 
 connect_to_capital_far_22 = {
-	local_autonomy = 0.14
+	local_autonomy = 0.160
 }
 
 connect_to_capital_far_23 = {
-	local_autonomy = 0.149
+	local_autonomy = 0.168
 }
 
 connect_to_capital_far_24 = {
-	local_autonomy = 0.159
+	local_autonomy = 0.176
 }
 
 connect_to_capital_far_25 = {
-	local_autonomy = 0.169
+	local_autonomy = 0.185
 }
 
 connect_to_capital_far_26 = {
-	local_autonomy = 0.179
+	local_autonomy = 0.194
 }
 
 connect_to_capital_far_27 = {
-	local_autonomy = 0.190
+	local_autonomy = 0.205
 }
 
 connect_to_capital_far_28 = {
-	local_autonomy = 0.201
+	local_autonomy = 0.218
 }
 
 connect_to_capital_far_29 = {
-	local_autonomy = 0.213
+	local_autonomy = 0.233
 }
 
 connect_to_capital_far_30 = {
-	local_autonomy = 0.225
+	local_autonomy = 0.250
 }
 
 

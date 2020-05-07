@@ -4826,6 +4826,7 @@ on_province_owner_change = {
 		cu_convert_nationalism_seperatism = yes
 	}
 	cu_switch_hybrid_culture = yes
+	cu_add_assimilation_policy = yes
     if = { #Initialize 
 	      limit = { 
 		         NOT = { check_variable = { which = cu_museum_level value = 1 } }

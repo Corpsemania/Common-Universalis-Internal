@@ -1964,4 +1964,9 @@
  empire.11.d: "The nationalism wave among [Root.Culture.GetName] people has reached the point that our once loyal subjects are calling for independence and forming of a [Root.Culture.GetName] nation. An open revolt is looming in the horizon."
  empire.11.a: "How dare they!"
  empire.11.at: "All provinces with [Root.Culture.GetName] gain §R10§! years of seperatism."
+ ita_unify_italian_culture_title: "Mend The Gap Between North And South"
+ ita_unify_italian_culture_desc: "North and South Italy have very different culture due to foreign influence. The south was more affected by arabian culture, while the north keep a closer bond with western catholic brethrens. In term of economy, the gap is even greater - northern italy is far more urbanized, literate and industrious while the south remains mostly agrarian. Now, centuries after the fall of lombardy kingdom, Italy is unified once more. It's time to heal the wounds left by foreign invaders."
+ unify_italian_culture_condition: "All Italian provinces have at least §Y20.0%§! Literacy and §Y90.0%§! Administrative Integrity"
+ unify_italian_culture_tooltip_north: "All §YLatin§! cultures will be changed to §YGallo-Italic§! culture group.\nAll Italian Provinces gain §R+5.0§! Unrest and lose §R20.0§! Administrative Integrity due to social disorder."
+ unify_italian_culture_tooltip_south: "All §YGallo-Italic§! cultures will be changed to §YLatin§! culture group.\nAll Italian Provinces gain §R+5.0§! Unrest and lose §R20.0§! Administrative Integrity due to social disorder."
  
