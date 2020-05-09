@@ -533,14 +533,14 @@ economic_ideas = {
 	organised_construction = {
 		build_cost = -0.10
 	}
-	aggressive_urbanization = {
+	metropolitan = {
 		build_time = -0.1
 		#Urbanization Capacity From Buildings: +20%
 	}
 	private_corporation = {
 		global_trade_goods_size_modifier = 0.1
 	}
-	metropolitan  = {
+	aggressive_urbanizationn  = {
 		trade_company_investment_cost = -0.10 #Urbanization Time Modifier
 	}
 	ai_will_do = {
