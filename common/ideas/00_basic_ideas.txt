@@ -779,6 +779,7 @@ trade_ideas = {
 	new_caravansary = {
 		global_own_trade_power = 0.10
 		#Province Commerce Growth Modifier: +25%
+		#May claim COT
 	}
 	crossroad_of_the_world = {
 		embracement_cost = -0.25

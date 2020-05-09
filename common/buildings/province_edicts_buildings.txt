@@ -1263,7 +1263,7 @@ art_patronage = {
 					NOT = { has_province_modifier = cu_art_patronage }							 
 				}
 				if = {
-					limit = { NOT = { owner = { innovativeness_ideas = 1 } } }
+					limit = { NOT = { owner = { has_idea = patron_of_art } } }
 					add_province_modifier = {
 						name = cu_art_patronage
 						duration = 7300
@@ -1386,7 +1386,7 @@ minor_culture = {
 		owner = {
 			NOT = { has_country_modifier = cu_minor_culture_understanding }
 			dip_power = 36
-			full_idea_group = humanist_ideas
+			has_idea = cu_cultural_understanding
 			prestige = 15
 		}
 		OR = {
@@ -1567,7 +1567,7 @@ claime_center = {
 		owner = {
 			ai = no
 			dip_power = 20
-			full_idea_group = trade_ideas
+			has_idea = new_caravansary
 		}		
 		NOT = { has_province_modifier = claimed_center_of_trade }		
 	}
@@ -1658,8 +1658,10 @@ upgrade_center = {
 			}
 		}
 		else_if = {		
-			province_has_center_of_trade_of_level = 1
-			NOT = {	province_has_center_of_trade_of_level = 2 }
+			limit = { 
+				province_has_center_of_trade_of_level = 1
+				NOT = {	province_has_center_of_trade_of_level = 2 }
+			}
 			owner = {				 
 				hidden_effect = { 
 					set_variable = { which = cu_power value = 50 }
@@ -1671,8 +1673,10 @@ upgrade_center = {
 			add_center_of_trade_level = 1	
 		}
 		else_if = {		
-			province_has_center_of_trade_of_level = 2
-			NOT = {	province_has_center_of_trade_of_level = 3 }
+			limit = { 
+				province_has_center_of_trade_of_level = 2
+				NOT = {	province_has_center_of_trade_of_level = 3 }
+			}
 			owner = {				 
 				hidden_effect = { 
 					set_variable = { which = cu_power value = 200 }
@@ -1961,8 +1965,7 @@ change_goods = {
 	cost = 0.1
 	time = 0
 	trigger = {
-		owner = { ai = no }		
-		new_world_i = 100
+		owner = { ai = no }	
 		NOT = { has_province_flag = cu_change_planting_flag }
 		OR = {
 			has_terrain = farmlands

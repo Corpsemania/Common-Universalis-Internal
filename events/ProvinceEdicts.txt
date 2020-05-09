@@ -2468,7 +2468,7 @@ province_event = {
 		trigger = {
 			owner = { 
 				dip_power = 20
-				trade_ideas = 7
+				has_idea = new_caravansary
 			}
 			NOT = { has_province_modifier = claimed_center_of_trade }
 		}
@@ -2998,7 +2998,7 @@ province_event = {
 		trigger = {
 			owner = { 
 				dip_power = 15 
-				trade_ideas = 7
+				has_idea = new_caravansary
 			}
 			NOT = { has_province_modifier = claimed_center_of_trade }
 		}
@@ -3029,12 +3029,6 @@ province_event = {
 				factor = 2
 				owner = {
 					DIP = 5
-				}
-			}
-			modifier = {
-				factor = 2
-				owner = {
-					trade_ideas = 6
 				}
 			}
 			modifier = {
