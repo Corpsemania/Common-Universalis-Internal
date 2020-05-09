@@ -481,21 +481,21 @@ defensive_ideas = {
 	military_drill = {
 		land_morale = 0.15
 	}
-	militia_training = {
+	emergency_recruitment = {
 	    manpower_recovery_speed = 0.2
 	}
 	defensive_mentality_2 = {
 		fort_maintenance_modifier = -0.1
 		#Fort buildings function as province government in territory if the province does not have one.
 	}
-	defense_in_depth = {
+	defense_in_depth_2 = {
         shock_damage_received = -0.1
 	}
-	emergency_recruitment = {
+	militia_training = {
 		reinforce_speed = 0.25
 		general_cost = -0.2
 	}
-	patriotism = { 
+	stoicism = { 
 		recover_army_morale_speed = 0.05
         #Less war exhaustion in defeat
 	}
@@ -537,7 +537,7 @@ economic_ideas = {
 		build_time = -0.1
 		#Urbanization Capacity From Buildings: +20%
 	}
-	artisan_guild = {
+	private_corporation = {
 		global_trade_goods_size_modifier = 0.1
 	}
 	metropolitan  = {
@@ -587,8 +587,9 @@ agrarian_ideas = {
 	agr_noninterference = {
 		advisor_cost = -0.05
 	}
-	agr_bartering_economy = {
-        production_efficiency = 0.1
+	agr_cottage_economy = {
+		global_tax_modifier = 0.05
+        production_efficiency = 0.05
 	}
 	agr_benign_neglect_2 = {
 	    state_maintenance_modifier = -0.1
@@ -596,11 +597,10 @@ agrarian_ideas = {
 	}
 	agr_free_resettlement = {
 		expel_minorities_cost = -0.20 #Migration Time
-		global_colonial_growth = 10
 	}
 	agr_agrarian_idyll = {
 		stability_cost_modifier = -0.10
-		#Agriculture Growth in peacetime: + 10%
+		#Agriculture Growth: + 10%
 	}
 }
 
@@ -631,11 +631,11 @@ exploration_ideas = {
     new_route = {
 		trade_steering = 0.15
 	}
-	vice_roys_2  = {
+	vice_roys_3  = {
  		global_tariffs = 0.15
 		#-25%OGC by colonial subjects.
  	}
-	global_empire = {
+	global_empire_2 = {
 		naval_forcelimit_modifier = 0.1
 		#May estabilish protectorate
 	}
@@ -779,7 +779,6 @@ trade_ideas = {
 	new_caravansary = {
 		global_own_trade_power = 0.10
 		#Province Commerce Growth Modifier: +25%
-		#May claim COT
 	}
 	crossroad_of_the_world = {
 		embracement_cost = -0.25
@@ -934,7 +933,7 @@ quality_ideas = {
 	private_to_marshal = {
 		infantry_power = 0.1
 	}
-	quality_education = {
+	quality_education_2 = {
                 army_tradition_decay = -0.01
                 navy_tradition_decay = -0.01
 	}
@@ -951,7 +950,7 @@ quality_ideas = {
 	massed_battery = {
 		artillery_power = 0.1
 	}
-	superior_weapons = {
+	superior_weapons_2 = {
 		mil_tech_cost_modifier  = -0.1
 		#Military Technology Ahead of Time Penalty: -20.0%
 	}
@@ -1142,11 +1141,10 @@ administrative_ideas = {
 	    max_absolutism = 10
 	}
 	
-    bureaucracy_2 = {
+    bureaucracy_3 = {
 	    advisor_pool = 1
 	}
     bookkeeping = {
-		global_tax_modifier = 0.1
 		inflation_action_cost = -0.1
 	}
     integration_of_administration = {
@@ -1179,7 +1177,7 @@ constitution_ideas = {
 	category = ADM
 	
 	bonus = {
-		yearly_corruption = -0.1
+	    global_unrest = -2
 	}
 	
     restriction_of_power = {
@@ -1192,11 +1190,13 @@ constitution_ideas = {
 	
     national_charter = {
         legitimacy = 1
-        republican_tradition = 0.5
-		devotion = 0.5
+        republican_tradition = 0.4
+        horde_unity = 1
+        devotion = 1
+		meritocracy = 0.5
 	}
 	
-	adaptability = {
+	adaptability_2 = {
 		administrative_efficiency = 0.05
 	}
 	
