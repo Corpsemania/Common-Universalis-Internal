@@ -1177,7 +1177,7 @@ constitution_ideas = {
 	category = ADM
 	
 	bonus = {
-	    global_unrest = -2
+	    yearly_corruption = -0.1
 	}
 	
     restriction_of_power = {
@@ -1190,7 +1190,7 @@ constitution_ideas = {
 	
     national_charter = {
         legitimacy = 1
-        republican_tradition = 0.4
+        republican_tradition = 0.5
         horde_unity = 1
         devotion = 1
 		meritocracy = 0.5
