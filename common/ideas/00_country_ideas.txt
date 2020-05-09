@@ -57,7 +57,7 @@ SWE_ideas = {
 	}
 
 	bonus = {
-		development_cost = -0.075
+		development_cost = -0.1
 	}
 	
 	trigger = {
@@ -243,7 +243,7 @@ NED_ideas = {
 		merchants = 1
 	}
 	polders = {
-		development_cost = -0.05
+		development_cost = -0.1
 	}
 	instructie_voor_de_admiraliteiten = {
 		leader_naval_manuever = 1
@@ -509,7 +509,7 @@ PRU_ideas = {
 		global_regiment_recruit_speed = -0.10
 	}
 	religious_toleration = {
-		development_cost = -0.05
+		trade_company_investment_cost = -0.05
 		tolerance_heretic = 1
 	}
 }
@@ -777,7 +777,7 @@ BAV_ideas = {
 	}
 	
 	bonus = {
-		development_cost = -0.07
+		development_cost = -0.1
 	}
 	
 	trigger = {
@@ -845,7 +845,7 @@ PER_ideas = {
 		harmonization_speed = 0.1
 	}
 	promotion_of_irrigation = {
-		development_cost = -0.05
+		development_cost = -0.1
 	}
 	increased_crown_lands = {
 		state_maintenance_modifier = -0.10
@@ -900,7 +900,7 @@ BRG_Ideas = {
 	}
 	
 	bonus = {
-		development_cost = -0.075
+		trade_company_investment_cost = -0.10
 	}
 	
 	trigger = {
@@ -1157,7 +1157,7 @@ NAP_ideas = {
 		technology_cost = -0.05
 	}
 	encouraged_city_living = {
-		development_cost = -0.07 #Often among the largest cities of Europe
+		trade_company_investment_cost = -0.10
 	}
 	crush_the_barons = {
 		land_morale = 0.1
@@ -1356,7 +1356,7 @@ MLO_ideas = {
 		prestige = 1
 	}
 	lowered_power_of_barons = {
-		development_cost = -0.07
+		trade_company_investment_cost = -0.10
 	}
 	age_of_condottieri = {
 		mercenary_cost = -0.2
@@ -1392,15 +1392,14 @@ BYZ_ideas = {
 		mercenary_cost = -0.25
 	}
 	repopulation_of_countryside = {
-		development_cost = -0.05
+		development_cost = -0.1
 		global_manpower_modifier = 0.10
 	}
 	byz_state_admin_reform = {
 		global_tax_modifier = 0.10
 	}
 	byz_admin_power = {
-		years_of_nationalism = -3
-                num_accepted_cultures = 1
+		max_states = 5
 	}
 	merchant_class = {
 		global_trade_power = 0.1
@@ -1953,8 +1952,8 @@ SAV_ideas = {
 
 SAX_ideas = {
 	start = {
-	   	advisor_cost = -0.055
-		development_cost = -0.05
+	   	advisor_cost = -0.05
+		development_cost = -0.1
 	}
 	
 	bonus = {
@@ -2454,7 +2453,7 @@ ASS_ideas = {
 		heir_chance = 0.5
 	}
 	wet_rice_cultivation = {
-		development_cost = -0.05
+		development_cost = -0.1
 	}
 	river_warfare = {	
 		hostile_attrition = 1
@@ -2478,7 +2477,7 @@ ASS_ideas = {
 TUS_ideas = {
 	start = {
 		papal_influence = 1
-		development_cost = -0.05
+		trade_company_investment_cost = -0.10
 	}
 	
 	bonus = {
@@ -2587,6 +2586,7 @@ SWI_ideas = {
 	}
 	oasis_of_peace_and_prosperity = {
 		development_cost = -0.05
+		trade_company_investment_cost = -0.05
 	}
 	swiss_tolerance = {
 		tolerance_heretic = 1
@@ -3309,7 +3309,7 @@ MDI_ideas = {
 		global_trade_power = 0.1
 	}
 	city_of_mogadishu = {
-		development_cost = -0.05
+		trade_company_investment_cost = -0.05
 	}
 	mogadishan_currency = {
 		trade_efficiency = 0.1	
@@ -4437,7 +4437,7 @@ KAR_ideas = {
 		diplomats = 1
 	}
 	karamanid_architecture = {
-		development_cost = -0.05
+		trade_company_investment_cost = -0.05
 	}
 	home_of_the_whirling_dervishes = {
 		religious_unity = 0.2
@@ -4579,7 +4579,7 @@ GOT_ideas = {
 	free = yes
 	
 	rebuild_visby = {
-		development_cost = -0.05
+		development_cost = -0.1
 	}
 	invite_mercenaries_to_visby = {
 		merc_maintenance_modifier = -0.25
@@ -7051,7 +7051,7 @@ ZIM_ideas = {
 	}
 
 	bonus = {
-		development_cost = -0.05
+		development_cost = -0.1
 	}
 	
 	trigger = {
@@ -7733,7 +7733,7 @@ JMN_ideas = {
 		improve_relation_modifier = 0.3
 	}
 	expand_the_bearocracy = {
-		development_cost = -0.05
+		development_cost = -0.1
 	}
 	
 }
@@ -8350,7 +8350,7 @@ PAT_ideas = {
 		stability_cost_modifier = -0.1
 	}
 	pat_canals = {
-		development_cost = -0.05
+		development_cost = -0.1
 	}
 }
 
@@ -8566,7 +8566,7 @@ GLH_ideas = {
 		manpower_recovery_speed = 0.2
 	}
 	glh_populating_the_steppes = {
-		development_cost = -0.05
+		development_cost = -0.1
 	}
 	glh_religious_pragmatism = {
 		tolerance_heathen = 1
@@ -8638,7 +8638,7 @@ ANS_ideas = {
 		church_power_modifier = 0.1
 	}
 	ans_protestant_exiles = {
-		development_cost = -0.05
+		development_cost = -0.1
 	}
 	ans_wolf_of_ansbach = {
 		global_unrest = -1
@@ -8687,7 +8687,7 @@ OKA_ideas = {
 HBR_ideas = {
 	start = {
 		colonists = 2
-                development_cost = -0.10
+        development_cost = -0.10
 	}
 
 	bonus = {
@@ -8827,7 +8827,7 @@ ICN_ideas = {
 		prestige = 0.5
 	}
 	mitma = { #Increased Obligations on local chiefs
-		development_cost = -0.05
+		development_cost = -0.1
 	}
 	quipu = {
 		global_tax_modifier = 0.1
@@ -8961,7 +8961,7 @@ BEL_ideas = {
 		global_trade_goods_size_modifier = 0.1
 	}
 	belgian_first_railroad = {
-		development_cost = -0.075
+		trade_company_investment_cost = -0.10
 	}
 	belgian_africa = {
 		colonists = 1

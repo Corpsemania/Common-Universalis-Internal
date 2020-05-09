@@ -348,7 +348,38 @@ baroque = {
 	}
 }
 
+nongben = {
+	monarch_power = DIP
 
+	potential = {
+		has_idea_group = agrarian_ideas
+		has_idea_group = culture_ideas
+		OR = {
+			full_idea_group = agrarian_ideas
+			full_idea_group = culture_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = agrarian_ideas
+		full_idea_group = culture_ideas
+	}
+
+	development_cost = -0.07
+	trade_company_investment_cost = 0.10
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			check_variable = { which = ave_literacy value = 15 }
+		}
+		modifier = {
+			factor = 2
+			NOT = { check_variable = { which = ave_literacy value = 3 } }
+		}		
+	}
+}
 haute_couture = {
 	monarch_power = DIP
 

@@ -23,8 +23,34 @@ the_statute_of_monopolies = {
 	}
 }
 
+in_kind_tax = {
 
-the_recruiting_act = {
+	monarch_power = ADM
+
+	potential = {
+		has_idea_group = trade_ideas
+		has_idea_group = agrarian_ideas
+		OR = {
+			full_idea_group = trade_ideas
+			full_idea_group = agrarian_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = trade_ideas
+		full_idea_group = agrarian_ideas
+	}
+
+	global_trade_goods_size_modifier = 0.05
+    global_tax_modifier = -0.1
+	
+	ai_will_do = {
+		factor = 0.1
+	}
+}
+
+
+private_corporation = {
 	monarch_power = DIP
 
 	potential = {
@@ -39,6 +65,43 @@ the_recruiting_act = {
 	allow = {
 		full_idea_group = maritime_ideas
 		full_idea_group = economic_ideas
+	}
+	
+	merchants = 2
+	trade_efficiency = -0.07
+	
+	ai_will_do = {
+		factor = 2
+		modifier = {
+			factor = 0
+			num_of_merchants = 6
+		}
+		modifier = {
+			factor = 0.5
+			num_of_merchants = 4
+		}
+		modifier = {
+			factor = 2
+			NOT = { num_of_merchants = 3 }
+		}
+	}	
+}
+
+the_recruiting_act = {
+	monarch_power = DIP
+
+	potential = {
+		has_idea_group = maritime_ideas
+		has_idea_group = agrarian_ideas
+		OR = {
+			full_idea_group = maritime_ideas
+			full_idea_group = agrarian_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = maritime_ideas
+		full_idea_group = agrarian_ideas
 	}
 	
 	global_manpower_modifier = -0.10
@@ -69,8 +132,6 @@ the_recruiting_act = {
 	}	
 }
 
-
-
 convoy_system = {
 
 	monarch_power = DIP
@@ -94,6 +155,48 @@ convoy_system = {
 	
 	ai_will_do = {
 		factor = 1
+	}
+}
+
+grain_export = {
+
+	monarch_power = DIP
+
+	potential = {
+		has_idea_group = diplomatic_ideas
+		has_idea_group = agrarian_ideas
+		OR = {
+			full_idea_group = diplomatic_ideas
+			full_idea_group = agrarian_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = diplomatic_ideas
+		full_idea_group = agrarian_ideas
+	}
+	
+	global_trade_goods_size_modifier = 0.1
+	development_cost = 0.05
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 2
+			NOT = { tax_income_percentage = 0.1 }
+		}			
+		modifier = {
+			factor = 0.5
+			tax_income_percentage = 0.2
+		}
+		modifier = {
+			factor = 0.5
+			tax_income_percentage = 0.3
+		}
+		modifier = {
+			factor = 0
+			tax_income_percentage = 0.4
+		}
 	}
 }
 
@@ -163,8 +266,6 @@ the_dissolution_act = {
 		}	
 	}
 }
-
-
 
 
 

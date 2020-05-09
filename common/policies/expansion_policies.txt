@@ -24,6 +24,32 @@ manueline_architecture = {
 	}
 }
 
+westward_movement = {
+	monarch_power = ADM
+
+
+	potential = {
+		has_idea_group = agrarian_ideas
+		has_idea_group = expansion_ideas
+		OR = {
+			full_idea_group = agrarian_ideas
+			full_idea_group = expansion_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = agrarian_ideas
+		full_idea_group = expansion_ideas
+	}
+
+	native_uprising_chance = 0.5
+	global_colonial_growth = 20
+
+	ai_will_do = {
+		factor = 1
+	}
+}
+
 risk_assessment_policy = {
 	monarch_power = dip
 

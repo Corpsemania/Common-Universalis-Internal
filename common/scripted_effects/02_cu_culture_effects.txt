@@ -1708,7 +1708,15 @@ cu_do_immigration = {
 				 }
 				   
 			 }
+			 
 	    }
+		export_to_variable = {
+			which = cu_var2
+			value = modifier:expel_minorities_cost
+			who = owner
+		}
+		multiply_variable = { which = cu_var2 value = -1 }
+		change_variable = { which = cu_var2 value = 1 }
 		if = {
 	          limit = { owner = { check_variable = { which = cu_var1 value = 200 } } }
 			  set_variable = { which = cu_var1 value = 200 }
@@ -1719,7 +1727,8 @@ cu_do_immigration = {
 			       value = development
 	          }
 	          
-	          divide_variable = { which = cu_var1 which = p_dev }	 
+	          divide_variable = { which = cu_var1 which = p_dev }
+			  multiply_variable = { which = cu_var1 which = cu_var2 }
 	          add_base_manpower = 2
 			  add_unrest = 4
 	          cu_change_cultural_assimilation = yes
@@ -1734,7 +1743,8 @@ cu_do_immigration = {
 			       value = development
 	          }
 	          
-	          divide_variable = { which = cu_var1 which = p_dev }	 
+	          divide_variable = { which = cu_var1 which = p_dev }
+			  multiply_variable = { which = cu_var1 which = cu_var2 }
 	          add_base_manpower = 1
 			  add_unrest = 3
 	          cu_change_cultural_assimilation = yes

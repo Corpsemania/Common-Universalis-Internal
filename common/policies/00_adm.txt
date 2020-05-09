@@ -60,31 +60,49 @@ the_court_of_wards_and_liveries = {
 		full_idea_group = economic_ideas
 	}
 		
-	global_tax_modifier = 0.10
-	global_unrest = 1
+	global_tax_modifier = -0.10
+	prestige = 1
 		
 	ai_will_do = {
 		factor = 1	
+
 		modifier = {
-			factor = 0
-			legitimacy = 95
-		}		
-		modifier = {
-			factor = 1.5
-			NOT = { legitimacy = 80 }
-		}
-		modifier = {
-			factor = 1.5
-			NOT = { legitimacy = 60 }
+			factor = 2
+			NOT = { tax_income_percentage = 0.25 }
 		}			
 		modifier = {
-			factor = 1.5
-			NOT = { legitimacy = 40 }
+			factor = 0.5
+			tax_income_percentage = 0.45
 		}
 		modifier = {
-			factor = 1.5
-			NOT = { legitimacy = 20 }
+			factor = 0
+			tax_income_percentage = 0.7
 		}
+	}
+}
+
+serf_exploitation = {
+
+	monarch_power = ADM
+
+	potential = {
+		has_idea_group = aristocracy_ideas
+		has_idea_group = agrarian_ideas
+		OR = {
+			full_idea_group = aristocracy_ideas
+			full_idea_group = agrarian_ideas
+		}		
+	}
+	allow = {
+		full_idea_group = aristocracy_ideas
+		full_idea_group = agrarian_ideas
+	}
+		
+	global_tax_modifier = 0.2
+	development_cost = 0.1
+		
+	ai_will_do = {
+		factor = 1	
 		modifier = {
 			factor = 0.75
 			NOT = { tax_income_percentage = 0.25 }
@@ -100,8 +118,6 @@ the_court_of_wards_and_liveries = {
 	}
 }
 
-
-
 formalized_measures = {
 
 	monarch_power = ADM
@@ -109,16 +125,16 @@ formalized_measures = {
 
 	potential = {
 		has_idea_group = plutocracy_ideas
-		has_idea_group = economic_ideas
+		has_idea_group = agrarian_ideas
 		OR = {
 			full_idea_group = plutocracy_ideas
-			full_idea_group = economic_ideas
+			full_idea_group = agrarian_ideas
 		}
 	}
 	
 	allow = {
 		full_idea_group = plutocracy_ideas
-		full_idea_group = economic_ideas
+		full_idea_group = agrarian_ideas
 	}	
 
 	global_tax_modifier = 0.10
@@ -141,9 +157,46 @@ formalized_measures = {
 	}
 }
 
+mortage_duty = {
+
+	monarch_power = ADM
 
 
-field_porters_act = {
+	potential = {
+		has_idea_group = plutocracy_ideas
+		has_idea_group = economic_ideas
+		OR = {
+			full_idea_group = plutocracy_ideas
+			full_idea_group = economic_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = plutocracy_ideas
+		full_idea_group = economic_ideas
+	}	
+
+	interest = -1
+	trade_efficiency = -0.1
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = { num_of_loans = 1 }
+		}			
+		modifier = {
+			factor = 1.5
+			num_of_loans = 2
+		}
+		modifier = {
+			factor = 1.5
+			num_of_loans = 4
+		}
+	}
+}
+
+package_tax_system = {
 	monarch_power = ADM
 
 	potential = {
@@ -157,6 +210,54 @@ field_porters_act = {
 	
 	allow = {
 		full_idea_group = economic_ideas
+		full_idea_group = quantity_ideas
+	}		
+
+	global_tax_modifier = 0.15
+    yearly_corruption = 0.05
+
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = { army_size_percentage = 0.9 }
+		}			
+		modifier = {
+			factor = 1.5
+			army_size_percentage = 1.1
+		}
+		modifier = {
+			factor = 1.5
+			army_size_percentage = 1.5
+		}
+		modifier = {
+			factor = 1.5
+			army_size_percentage = 2
+		}
+		modifier = {
+			factor = 1.5
+			army_size_percentage = 2.5
+		}		
+	}
+
+}
+
+
+field_porters_act = {
+	monarch_power = ADM
+
+	potential = {
+		has_idea_group = agrarian_ideas
+		has_idea_group = quantity_ideas
+		OR = {
+			full_idea_group = agrarian_ideas
+			full_idea_group = quantity_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = agrarian_ideas
 		full_idea_group = quantity_ideas
 	}		
 
@@ -189,11 +290,6 @@ field_porters_act = {
 	}
 
 }
-
-
-
-
-
 
 
 merchant_regulation = {
@@ -356,7 +452,31 @@ the_foreign_support_act = {
 	}
 } 
 
+neighborhood_watch = {
+	monarch_power = ADM
 
+
+	potential = {
+		has_idea_group = spy_ideas
+		has_idea_group = agrarian_ideas
+		OR = {
+			full_idea_group = spy_ideas
+			full_idea_group = agrarian_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = spy_ideas
+		full_idea_group = agrarian_ideas
+	}
+
+	global_unrest = -2
+	state_maintenance_modifier = 0.2
+	
+	ai_will_do = {
+		factor = 1
+	}
+} 
 
 
 deserteur_act = {
@@ -487,8 +607,54 @@ public_welfare_act = {
 		full_idea_group = economic_ideas
 	}
 
-	global_unrest = -1.5
-	state_maintenance_modifier = 0.2
+	trade_company_investment_cost = -0.05
+	state_maintenance_modifier = 0.15
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			NOT = { average_effective_unrest = 1 }
+		}
+		modifier = {
+			factor = 1.5
+			average_effective_unrest = 2
+		}
+		modifier = {
+			factor = 1.5
+			average_effective_unrest = 4
+		}			
+		modifier = {
+			factor = 1.5
+			average_effective_unrest = 6
+		}
+		modifier = {
+			factor = 1.5
+			average_effective_unrest = 8
+		}	
+	}
+}
+
+military_cultivation_corp = {
+	monarch_power = ADM
+
+
+	potential = {
+		has_idea_group = defensive_ideas
+		has_idea_group = agrarian_ideas
+		OR = {
+			full_idea_group = defensive_ideas
+			full_idea_group = agrarian_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = defensive_ideas
+		full_idea_group = agrarian_ideas
+	}
+
+	development_cost = -0.05
+	land_maintenance_modifier = 0.15
 
 	ai_will_do = {
 		factor = 1
@@ -769,6 +935,50 @@ the_stamp_act = {
 	}
 }
 
+colonizer_landholding = {
+	monarch_power = ADM
+	
+	potential = {
+		has_idea_group = agrarian_ideas
+		has_idea_group = exploration_ideas
+		OR = {
+			full_idea_group = agrarian_ideas
+			full_idea_group = exploration_ideas
+		}	
+	}
+	allow = {
+		full_idea_group = agrarian_ideas
+		full_idea_group = exploration_ideas
+	}
+	
+	global_trade_goods_size_modifier = -0.05
+    colonist_placement_chance = 0.05
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			NOT = { colony = 1 }
+		}
+		modifier = {
+			factor = 1.5
+			colony = 2
+		}
+		modifier = {
+			factor = 1.5
+			colony = 3
+		}			
+		modifier = {
+			factor = 1.5
+			colony = 4
+		}
+		modifier = {
+			factor = 1.5
+			colony = 5
+		}		
+	}
+}
+
 weapon_quality_standards = {
 	monarch_power = ADM
 	
@@ -797,6 +1007,41 @@ weapon_quality_standards = {
 	}
 }
 
+sword_for_plough = {
+	monarch_power = ADM
+	
+	potential = {
+		has_idea_group = agrarian_ideas
+		has_idea_group = quality_ideas
+		OR = {
+			full_idea_group = agrarian_ideas
+			full_idea_group = quality_ideas
+		}	
+	}
+	allow = {
+		full_idea_group = agrarian_ideas
+		full_idea_group = quality_ideas
+	}
+	
+	land_forcelimit_modifier = -0.15
+	development_cost = -0.05
+
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 0
+			army_size_percentage = 0.8
+		}
+		modifier = {
+			factor = 2
+			NOT = { army_size_percentage = 0.5 }
+		}
+	}
+}
 
 colonial_administration_act = {
 	monarch_power = ADM
@@ -1245,8 +1490,8 @@ visionary_thinkers = {
 	}
 }
 
-the_transportation_act = {
-	monarch_power = ADM
+escort_tax = {
+	monarch_power = DIP
 	
 	potential = {
 		has_idea_group = naval_ideas
@@ -1260,6 +1505,51 @@ the_transportation_act = {
 	allow = {
 		full_idea_group = naval_ideas
 		full_idea_group = economic_ideas
+	}	
+	
+	global_naval_engagement_modifier = -0.15
+	trade_efficiency = 0.1
+	
+	ai_will_do = {
+		factor = 0.5
+		modifier = {
+			factor = 0
+			is_at_war = yes
+		}			
+		modifier = {
+			factor = 2
+			has_idea_group = maritime_ideas
+		}
+		modifier = {
+			factor = 0
+			NOT = { navy_size = 10 }
+		}
+		modifier = {
+			factor = 1.5
+			navy_size = 30
+		}
+		modifier = {
+			factor = 1.5
+			navy_size = 60
+		}
+	}
+}
+
+the_transportation_act = {
+	monarch_power = ADM
+	
+	potential = {
+		has_idea_group = naval_ideas
+		has_idea_group = agrarian_ideas
+		OR = {
+			full_idea_group = naval_ideas
+			full_idea_group = agrarian_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = naval_ideas
+		full_idea_group = agrarian_ideas
 	}	
 	
 	global_trade_goods_size_modifier = 0.10

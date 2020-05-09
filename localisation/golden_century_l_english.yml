@@ -325,7 +325,7 @@
  MODIFIER_MISSIONARY_MAINTENANCE_COST:0 "Missionary Maintenance Cost"
  MODIFIER_NAVAL_TRADITION_FROM_TRADE:1 "Naval Tradition from Protecting Trade"
  MODIFIER_ADMIRAL_COST:0 "Admiral Cost"
- MODIFIER_EXPEL_MINORITIES_COST:0 "Expel Minorities Cost"
+ MODIFIER_EXPEL_MINORITIES_COST:0 "Immigration Time"
  IDEA_MAY_FABRICATE_FOR_VASSALS:1 "May Fabricate Claims for Subjects"
  order_events.1.t:0 "Dominican Opposes Native Policy"
  order_events.1.d:0 "A Dominican friar has recently returned to [Root.GetName] from [las_casas_province.GetName], having participated in the initial efforts to set up our colony there and stayed to oversee its growth with many others from the order. He has objected to the treatment of natives in the American colonies and been outspoken about our harsh colonial policies.\n\nHaving renounced his own past as a participant in our efforts, he has now come before [Root.Monarch.GetName] to convince [Root.Monarch.GetHerHim] to be more lenient in our treatment of the native population."

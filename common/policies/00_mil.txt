@@ -85,7 +85,7 @@ the_liquor_act = {
 	}
 }
 
-horse_artillery = {
+war_gambit = {
 	monarch_power = MIL
 	
 	potential = {
@@ -100,6 +100,40 @@ horse_artillery = {
 	allow = {
 		full_idea_group = offensive_ideas
 		full_idea_group = economic_ideas
+	}
+
+	war_exhaustion_cost = 1
+	war_exhaustion = -0.03
+	
+	ai_will_do = {
+		factor = 1
+		modifier = {
+			factor = 0
+			is_at_war = no
+		}			
+		modifier = {
+			factor = 1.5
+			war_exhaustion = 8
+		}
+		
+	}
+}
+
+horse_artillery = {
+	monarch_power = MIL
+	
+	potential = {
+		has_idea_group = offensive_ideas
+		has_idea_group = agrarian_ideas
+		OR = {
+			full_idea_group = offensive_ideas
+			full_idea_group = agrarian_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = offensive_ideas
+		full_idea_group = agrarian_ideas
 	}
 
 	artillery_power = 0.10
@@ -124,8 +158,6 @@ horse_artillery = {
 		}
 	}
 }
-
-
 
 armed_neutrality_act = {
 	monarch_power = MIL

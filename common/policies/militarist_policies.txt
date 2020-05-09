@@ -150,6 +150,37 @@ militarized_economy = {
 	}
 }
 
+cottage_militia = {
+	monarch_power = ADM
+
+
+	potential = {
+		has_idea_group = militarist_ideas
+		has_idea_group = agrarian_ideas
+		OR = {
+			full_idea_group = militarist_ideas
+			full_idea_group = agrarian_ideas
+		}
+	}
+	
+	allow = {
+		full_idea_group = militarist_ideas
+		full_idea_group = agrarian_ideas
+	}
+
+
+	global_manpower_modifier = -0.1
+	manpower_recovery_speed = 0.2
+
+	ai_will_do = {
+		factor = 1	
+		modifier = {
+		       factor = 0
+			   is_at_war = no
+		}
+	}
+}
+
 military_state = {
 	monarch_power = MIL
 
