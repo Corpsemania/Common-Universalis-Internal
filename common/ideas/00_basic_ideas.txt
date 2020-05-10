@@ -514,9 +514,9 @@ defensive_ideas = {
 
 economic_ideas = {
 	category = ADM
-	trigger = {
-		NOT = { has_idea_group = agrarian_ideas }
-	}
+	#trigger = {
+		#NOT = { has_idea_group = agrarian_ideas }
+	#}
 	bonus = {
 		global_tax_modifier = 0.15
 	}	
@@ -570,9 +570,9 @@ economic_ideas = {
 
 agrarian_ideas = {
 	category = ADM
-	trigger = {
-		NOT = { has_idea_group = economic_ideas }
-	}
+	#trigger = {
+		#NOT = { has_idea_group = economic_ideas }
+	#}
 	bonus = {
 		development_cost = -0.1 #Agriculture Growth Time
 	}
