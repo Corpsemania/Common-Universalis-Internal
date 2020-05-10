@@ -39,8 +39,8 @@ province_event = {
 					set_variable = { which = indu_g value = 1 } #Industry Growth
 					set_variable = { which = indu_gm value = 1 } #Industry Growth Modifier
 					set_variable = { which = lit_index value = 0 } #Literacy Index
-					set_variable = { which = ucdev_m value = 1 }
-					set_variable = { which = gdev_m value = 1 }
+					set_variable = { which = ucdev_m value = 1 } #Province Development Time Modifier
+					set_variable = { which = gdev_m value = 1 } #Countrywide Development Time Modifier
 					
 					set_variable = { which = pop_cost value = 100 } #Population Growth Cost
 					set_variable = { which = merc_cost value = 100 } #Commerce Growth Cost
@@ -63,10 +63,18 @@ province_event = {
 							value = modifier:local_development_cost
 					}
 					export_to_variable = {
-					        which = gdev_m
+					        which = cu_var1
 							value = modifier:development_cost
 							who = owner
 					}
+					subtract_variable = { which = pop_gm which = cu_var1 } #Population Growth Modifier
+					export_to_variable = {
+					        which = cu_var1
+							value = modifier:trade_company_investment_cost
+							who = owner
+					}
+					subtract_variable = { which = merc_gm which = cu_var1 } #Population Growth Modifier
+					subtract_variable = { which = indu_gm which = cu_var1 } #Population Growth Modifier
 					if = {
 					      limit = { owner = { adm_tech = 27 } }
 						  subtract_variable = { which = gdev_m value = 0.15 }
@@ -80,7 +88,7 @@ province_event = {
 						  subtract_variable = { which = gdev_m value = 0.05 }
 					}
 					#change_variable = { which = ucdev_m value = 1 }
-					change_variable = { which = ucdev_m which = gdev_m }
+					#change_variable = { which = ucdev_m which = gdev_m }
 					if = {
 					    limit = { 
 						           owner = { expansion_ideas = 2 } 
@@ -1258,8 +1266,8 @@ province_event = {
 					set_variable = { which = indu_g value = 1 } #Industry Growth
 					set_variable = { which = indu_gm value = 1 } #Industry Growth Modifier
 					set_variable = { which = lit_index value = 0 } #Literacy Index
-					set_variable = { which = ucdev_m value = 1 }
-					set_variable = { which = gdev_m value = 0 }
+					set_variable = { which = ucdev_m value = 1 } #Province Development Time Modifier
+					set_variable = { which = gdev_m value = 1 } #Countrywide Development Time Modifier
 					
 					set_variable = { which = pop_cost value = 100 } #Population Growth Cost
 					set_variable = { which = merc_cost value = 100 } #Commerce Growth Cost
@@ -1286,14 +1294,14 @@ province_event = {
 							value = modifier:development_cost
 							who = owner
 					}
-					change_variable = { which = pop_gm which = cu_var1 } #Population Growth Modifier
+					subtract_variable = { which = pop_gm which = cu_var1 } #Population Growth Modifier
 					export_to_variable = {
 					        which = cu_var1
 							value = modifier:trade_company_investment_cost
 							who = owner
 					}
-					change_variable = { which = merc_gm which = cu_var1 } #Population Growth Modifier
-					change_variable = { which = indu_gm which = cu_var1 } #Population Growth Modifier
+					subtract_variable = { which = merc_gm which = cu_var1 } #Population Growth Modifier
+					subtract_variable = { which = indu_gm which = cu_var1 } #Population Growth Modifier
 					if = {
 					      limit = { owner = { adm_tech = 17 } }
 						  subtract_variable = { which = gdev_m value = 0.05 }
@@ -1307,7 +1315,7 @@ province_event = {
 						  subtract_variable = { which = gdev_m value = 0.05 }
 					}
 					#change_variable = { which = ucdev_m value = 1 }
-					change_variable = { which = ucdev_m which = gdev_m }
+					#change_variable = { which = ucdev_m which = gdev_m }
 					if = {
 					    limit = { 
 						           owner = { expansion_ideas = 2 } 
