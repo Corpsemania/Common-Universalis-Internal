@@ -1535,13 +1535,13 @@ guiTypes = {
 		}
 		
 		checkboxType = {
-			name = "build_art_transfer_gw"
+			name = "build_art_transfer_mp"
 			position = { x = 269 y = 795 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 		
 		checkboxType = {
-			name = "build_art_transfer_mp"
+			name = "build_art_transfer_gw"
 			position = { x = 321 y = 795 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
