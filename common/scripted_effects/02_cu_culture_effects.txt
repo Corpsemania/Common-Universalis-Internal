@@ -1935,6 +1935,15 @@ cu_do_nationalism_growth = {
 			limit = { has_province_flag = p_nationalism_awareness }
 			change_variable = { which = cu_var1 value = 0.10 }
 		}
+		#Modified by country art level( domistic/foreign nationalism growth is multiplied_divided by (1 + 0.1 * country art level )
+		set_variable = { which = art_power_level which = owner }
+		set_variable = { which = cu_var2 which = art_power_level }
+		if = {
+			limit = { NOT = { check_variable = { which = cu_var2 value = 0 } } }
+			set_variable = { which = cu_var2 value = 0 }
+		}
+		divide_variable = { which = cu_var2 value = 10 }
+		change_variable = { which = cu_var2 value = 1 }
 		#Apply Nationalism Growth
 		if = {
 				limit = { check_variable = { which = cu_var1 value = 0.01 } }
@@ -1951,9 +1960,12 @@ cu_do_nationalism_growth = {
 							}
 						}
 					}
-					multiply_variable = { which = cu_var1 value = 1.5 } #Sense of pride
+					#Art Power Modifier
+					multiply_variable = { which = cu_var1 which = cu_var2 }
 				}
 				else = {
+					#Art Power Modifier
+					divide_variable = { which = cu_var1 which = cu_var2 }
 					#100%+5% * ( local unrest + 10 )
 					export_to_variable = {
 							which = cu_var2

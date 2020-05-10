@@ -19,8 +19,8 @@ culture_ideas = {
         prestige = 1
 		#+100% duration of art patronage edict
 	}
-	magnificent_court = {
-		diplomatic_reputation = 1
+	art_school_idea = {
+		global_institution_spread = 0.1
 	}
 	museum_exhibition = {
 		prestige_decay = -0.01
@@ -34,7 +34,7 @@ culture_ideas = {
 		max_states = 5 #Max Administrative Integrity
 	}
 	cultural_unification = {
-		harmonization_speed = 0.2
+		harmonization_speed = 0.1
 	}
 	cultural_golden_age = {
 		monthly_splendor = 1
@@ -184,7 +184,7 @@ religious_ideas = {
 	category = ADM
 
 	bonus = {
-		harmonization_speed = 0.2
+		harmonization_speed = 0.1
 	}
 
         trigger = {
@@ -320,7 +320,7 @@ reform_ideas = {
 	}
 	
     custom_shift = {
-	    harmonization_speed = 0.2		
+	    harmonization_speed = 0.1		
 	}
     the_chosen_path = {
 		province_warscore_cost = -0.1
@@ -518,7 +518,7 @@ economic_ideas = {
 		#NOT = { has_idea_group = agrarian_ideas }
 	#}
 	bonus = {
-		global_tax_modifier = 0.15
+		global_tax_modifier = 0.2
 	}	
 
 	national_bank = {
@@ -540,7 +540,7 @@ economic_ideas = {
 	private_corporation = {
 		global_trade_goods_size_modifier = 0.1
 	}
-	aggressive_urbanizationn  = {
+	aggressive_urbanization  = {
 		trade_company_investment_cost = -0.10 #Urbanization Time Modifier
 	}
 	ai_will_do = {
@@ -574,7 +574,7 @@ agrarian_ideas = {
 		#NOT = { has_idea_group = economic_ideas }
 	#}
 	bonus = {
-		development_cost = -0.1 #Agriculture Growth Time
+		development_cost = -0.05 #Agriculture Growth Time
 	}
 	
 	agr_land_reform = {
@@ -600,7 +600,7 @@ agrarian_ideas = {
 	}
 	agr_agrarian_idyll = {
 		stability_cost_modifier = -0.10
-		#Agriculture Growth in peacetime: + 10%
+		#Agriculture Growth in peacetime: + 5%
 	}
 }
 

@@ -245,7 +245,7 @@ package_tax_system = {
 
 
 field_porters_act = {
-	monarch_power = ADM
+	monarch_power = MIL
 
 	potential = {
 		has_idea_group = agrarian_ideas
@@ -427,7 +427,7 @@ privy_council_establishment_act = {
 }
  
 the_foreign_support_act = {
-	monarch_power = ADM
+	monarch_power = DIP
 
 
 	potential = {
@@ -892,7 +892,7 @@ vassal_taxation_policy = {
 }
 
 the_stamp_act = {
-	monarch_power = ADM
+	monarch_power = DIP
 	
 	potential = {
 		has_idea_group = economic_ideas
@@ -980,7 +980,7 @@ colonizer_landholding = {
 }
 
 weapon_quality_standards = {
-	monarch_power = ADM
+	monarch_power = MIL
 	
 	potential = {
 		has_idea_group = economic_ideas
@@ -1536,7 +1536,7 @@ escort_tax = {
 }
 
 the_transportation_act = {
-	monarch_power = ADM
+	monarch_power = DIP
 	
 	potential = {
 		has_idea_group = naval_ideas

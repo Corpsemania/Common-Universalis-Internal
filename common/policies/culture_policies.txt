@@ -41,7 +41,7 @@ spirit_of_paladin = {
 }
 
 hired_troubadour = {
-	monarch_power = MIL
+	monarch_power = DIP
 
 
 	potential = {
@@ -365,8 +365,8 @@ nongben = {
 		full_idea_group = culture_ideas
 	}
 
-	development_cost = -0.07
-	trade_company_investment_cost = 0.10
+	development_cost = -0.05
+	trade_company_investment_cost = 0.1
 
 	ai_will_do = {
 		factor = 1

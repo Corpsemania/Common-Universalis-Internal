@@ -96,7 +96,7 @@ province_event = {
 										is_at_war = no
 									} 
 						}
-						change_variable = { which = pop_gm value = 0.10 }
+						change_variable = { which = pop_gm value = 0.05 }
 					}
 					#Institutions
 					
@@ -1323,7 +1323,7 @@ province_event = {
 										is_at_war = no
 									} 
 						}
-						change_variable = { which = pop_gm value = 0.10 }
+						change_variable = { which = pop_gm value = 0.05 }
 					}
 					
 					#Institutions

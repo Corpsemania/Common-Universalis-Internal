@@ -1951,17 +1951,17 @@ province_event = {
 	}
 	  
 	mean_time_to_happen = {
-	    months = 1200
+	    months = 2400
 		modifier = {
-			factor = 0.75
+			factor = 0.5
 			has_province_modifier = cu_art_patronage
 		}
 		modifier = {
-			factor = 0.6
+			factor = 0.8
 			has_province_modifier = cu_culture_understanding
 		}
 		modifier = {
-			factor = 0.83
+			factor = 0.9
 			AND ={
 				owner = { has_country_modifier = cu_minor_culture_understanding }			  
 				NOT = { has_province_modifier = cu_culture_understanding } 
