@@ -42,7 +42,7 @@ country_event = {
 		trigger = {
 			OR = {
 				culture_group = japanese_g
-				culture_group = evenks
+				culture_group = tungusic
 				culture = korean
 				culture_group = tibet_g
 				culture = vietnamese
@@ -154,7 +154,7 @@ country_event = {
 					set_heir_culture = japanese_conqueror
 				}
 				else_if = {
-					limit = { culture_group = evenks }
+					limit = { culture_group = tungusic }
 					change_primary_culture = manchu_han  
 					set_ruler_culture = manchu_han  
 					set_heir_culture = manchu_han
@@ -265,7 +265,7 @@ province_event = {
 	trigger = {
 		OR = {
 			culture_group = japanese_g
-			culture_group = evenks
+			culture_group = tungusic
 			culture = korean
 			culture_group = tibet_g
 			culture = vietnamese
@@ -305,7 +305,7 @@ province_event = {
             change_culture = japanese_conqueror
         }
         else_if = {
-			limit = { culture_group = evenks }
+			limit = { culture_group = tungusic }
             change_culture = manchu_han
         }
         else_if = {

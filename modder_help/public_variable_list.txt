@@ -1,0 +1,12 @@
+Temperal Variables:
+
+Use these variable to store temperal local values. Do not use other name, or use these variable to save long-time or trans-event data.
+cu_var1
+cu_var2
+cu_var3
+cu_var4
+
+
+Global Public Variable
+
+global variables are stored in province id = 1

@@ -25,7 +25,14 @@ on_startup = {
 			NOT = { has_global_flag = cu_start }
 		}
 		country_event = { id = custart.00 }
+		1 = { #Global Variable is saved in province id 1
+		    set_province_flag = cu_global_variable_prov
+			set_variable = { which = cu_year value = 0 } #Current Year
+			cu_initial_year = yes
+			
+		}
 		every_country = {
+				cu_correct_year = yes
 		        set_variable = { which = cabinet_ca value = 60 } #Default value of min administrative integrity for cabinet to invest in a province.
 		        set_variable = { which = literacy value = 0 } #Literacy
 				set_variable = { which = num_pp value = 0 } #Province of Accepted Cultures
@@ -1443,7 +1450,6 @@ on_startup = {
 		set_global_flag = cu_five_years_pulse
 	    every_country = {
 		       limit = { ai = no }
-			   country_event = { id = cuglobal.1 days = 365 } #triggers human yearly pulse
 			   country_event = { id = cuglobal.93 } #Initialize Ruler Data
 			   if = {
 			        limit = { has_regency = no }
@@ -2666,7 +2672,6 @@ on_released_hre_member = {
 	events = {
 	}
 	cu_correct_year = yes
-	country_event = { id = cuglobal.9 }
 	cu_calc_country_dist = yes
 	cu_calc_country_absolute_dist = yes	
 }
@@ -5370,7 +5375,6 @@ on_create_vassal = {
 		adopt_reform_progress = FROM
 	}
 	cu_correct_year = yes
-	country_event = { id = cuglobal.9 }
 	cu_calc_country_dist = yes
 	cu_calc_country_absolute_dist = yes	
 }
@@ -5438,7 +5442,6 @@ on_country_released = {
 		adopt_reform_progress = FROM
 	}
 	cu_correct_year = yes
-	country_event = { id = cuglobal.9 }
 	cu_calc_country_dist = yes
 	cu_calc_country_absolute_dist = yes	
 }

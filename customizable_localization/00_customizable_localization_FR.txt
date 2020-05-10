@@ -8330,7 +8330,7 @@ defined_text = {
 	}
 	text = {
 		localisation_key = string_evenks_s_FR
-		trigger = { culture_group = evenks }
+		trigger = { culture_group = tungusic }
 	}
 	text = {
 		localisation_key = string_kamchatkan_g_s_FR
@@ -8600,7 +8600,7 @@ defined_text = {
 	}
 	text = {
 		localisation_key = string_evenks_s_FR
-		trigger = { culture_group = evenks }
+		trigger = { culture_group = tungusic }
 	}
 	text = {
 		localisation_key = string_kamchatkan_g_s_FR
@@ -8870,7 +8870,7 @@ defined_text = {
 	}
 	text = {
 		localisation_key = string_evenks_p_FR
-		trigger = { culture_group = evenks }
+		trigger = { culture_group = tungusic }
 	}
 	text = {
 		localisation_key = string_kamchatkan_g_p_FR
@@ -9140,7 +9140,7 @@ defined_text = {
 	}
 	text = {
 		localisation_key = string_evenks_p_FR
-		trigger = { culture_group = evenks }
+		trigger = { culture_group = tungusic }
 	}
 	text = {
 		localisation_key = string_kamchatkan_g_p_FR

@@ -70,12 +70,6 @@ country_event = {
                          }
                          set_global_flag = start_1750
                 }
-				cu_initial_year = yes
-				every_country = {
-		             set_variable = { which = cu_year which = ROOT }
-					 country_event = { id = cuglobal.9 }
-					 
-				}
 	}
 	
 	option = {

@@ -1,0 +1,24 @@
+#Some modifiers in vanilla have different name and effect in Common Universalis, here is a list for all of them:
+
+reform_progress_growth: Global Art Power Modifier
+
+harmonization_speed: Cultural Assimilation Speed Modifier
+
+global_institution_spread: Global Education Efficiency Modifier. Affects both literacy growth and institution spread
+
+technology_cost: Still named Technology Cost. Affect research point cost of all technologies, the same goes for:
+adm_tech_cost_modifier
+dip_tech_cost_modifier
+mil_tech_cost_modifier
+
+max_states: Max Administrative Integrity. Directly added to province max administrative integrity, a powerful modifier that should not be abused.
+
+stability_cost_modifier: Still named Stability Cost Modifier. Affect stability point cost to increase stability
+
+culture_conversion_cost: Administrative Integrity Decay Modifier. Affect yearly decay of administrative integrity if it goes above the cap.
+
+trade_company_investment_cost: Urbanization Time Modifier. Affect commercial and production growth speed
+
+development_cost: Agriculture Growth Time Modifier. Affect agricultural growth speed.
+
+local_development_cost: Local Development Time Modifier. Affect province's commercial, production and agriculture growth speed

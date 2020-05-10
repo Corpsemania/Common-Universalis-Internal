@@ -2807,7 +2807,7 @@ province_event = {
             change_culture = japanese_conqueror
         }
         else_if = {
-			limit = { culture_group = evenks }
+			limit = { culture_group = tungusic }
             change_culture = manchu_han
         }
         else_if = {

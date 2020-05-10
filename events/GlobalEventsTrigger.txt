@@ -7,29 +7,85 @@ namespace = cuglobal
 #4 Monthly pulse
 #5 Ten year's pulse
 #9/91 Timer Yearly Pulse
+
+#Timer Yearly Pulse - Triggers all yearly calculations
+province_event = {
+	id = cuglobal.9
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = CITY_VIEW_eventPicture
+	hidden = yes
+	trigger = {
+		province_id = 1
+		is_month = 0
+		NOT = { is_month = 1 }
+		OR = {
+			NOT = { has_global_flag = cu_year_going }
+			had_global_flag = {
+						flag = cu_year_going
+					    days = 364
+			}
+		}
+	}
+	
+	option = {
+		name = "EVT_HIDDEN"
+		cu_get_year = yes
+		clr_global_flag = cu_year_going
+		set_global_flag = cu_year_going
+		every_country = {
+			cu_correct_year = yes
+			if = {
+				limit = {
+					OR = {
+						  ai = no
+						  has_country_flag = cu_ob_ai
+					}
+				}
+				country_event = { id = cuglobal.1 }
+			}
+			else_if = {
+				limit = {
+					OR = {
+						NOT = { has_global_flag = cu_five_years_pulse }
+						had_global_flag = {
+							flag = cu_five_years_pulse
+							days = 1825
+						}
+					}
+				}
+				country_event = { id = cuglobal.2 }
+			}
+		}
+	}
+}
+
 #Human Yearly pulse( Independent for each human player )
 country_event = {
 	id = cuglobal.1
 	title = "EVT_HIDDEN"
 	desc = "EVT_HIDDEN"
 	picture = CITY_VIEW_eventPicture
-	hidden = yes
+	#hidden = yes
+	is_triggered_only = yes
 	trigger = {
 	     OR = {
 		      ai = no
 			  has_country_flag = cu_ob_ai
 		 }
+		 
 		 OR = {
 		      NOT = { has_country_flag = cu_human_yearly_pulse }
 			  had_country_flag = {
 					flag = cu_human_yearly_pulse
-				    days = 365  #Triggering a new event chain when a new country is played by player, normaly this event will not be triggered by former event.	
+				    days = 364  #Triggering a new event chain when a new country is played by player, normaly this event will not be triggered by former event.	
 			  }
 		 }
 	}
 	
 	option = {
 		name = "EVT_HIDDEN"
+		clr_country_flag = forced_event_trigger
 		clr_country_flag = cu_human_yearly_pulse
 		set_country_flag = cu_human_yearly_pulse
 		cu_do_ruler_power_reduction = yes
@@ -46,30 +102,7 @@ country_event = {
 		set_variable = { which = s_dev value = 0 }
 		cu_export_s_dev = yes
 		cu_gov_effect = yes
-		if = { #In case year is not initialized
-	       limit = {
-		        OR = {
-				      NOT = { check_variable = { which = cu_year value = 1444 } }
-                      check_variable = { which = cu_year value = 10000 }
-				}
-		   }
-		   cu_correct_year = yes
-		   subtract_variable = { which = cu_year value = 1 }
-		   country_event = { id = cuglobal.9 }
-	    }
-		else_if = { #In case year progress stops
-		     limit = {
-				 OR = {
-					 NOT = { has_country_flag = cu_year_going }
-					 had_country_flag = {
-								  flag = cu_year_going
-								  days = 367
-					 }
-				 }
-			 }
-			 clr_country_flag = cu_year_going
-			 country_event = { id = cuglobal.9 }
-		}
+		cu_correct_year = yes
 		#Pre-determined Values
 		
 		
@@ -96,87 +129,9 @@ country_event = {
 		
 		#Cabinet Calculation
 		cu_do_cabinet_country = yes
-		#country_event = { id = cuglobal.11 days = 365 }
 	}
 }
 
-#A duplicate, since an event cannot fire itself again.
-country_event = {
-	id = cuglobal.11
-	title = "EVT_HIDDEN"
-	desc = "EVT_HIDDEN"
-	picture = CITY_VIEW_eventPicture
-	hidden = yes
-	trigger = {
-	     OR = {
-		      ai = no
-			  has_country_flag = cu_ob_ai
-		 }
-	}
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVT_HIDDEN"
-		clr_country_flag = cu_human_yearly_pulse
-		set_country_flag = cu_human_yearly_pulse
-		cu_do_ruler_power_reduction = yes
-		set_variable = { which = num_pp value = 0 }
-		export_to_variable = {
-		        which = num_pp
-				value = num_of_cities
-		}
-		set_variable = { which = t_dev value = 0 }
-		export_to_variable = {
-		        which = t_dev
-				value = total_development
-		}
-		set_variable = { which = s_dev value = 0 }
-		cu_export_s_dev = yes
-		cu_gov_effect = yes
-		if = {
-	       limit = {
-		        OR = {
-				      NOT = { check_variable = { which = cu_year value = 1444 } }
-                      check_variable = { which = cu_year value = 10000 }
-				}
-		   }
-		   cu_correct_year = yes
-		   subtract_variable = { which = cu_year value = 1 }
-		   country_event = { id = cuglobal.9 }
-	    }
-		else_if = { #In case year progress stops
-		     limit = {
-				 OR = {
-					 NOT = { has_country_flag = cu_year_going }
-					 had_country_flag = {
-								  flag = cu_year_going
-								  days = 367
-					 }
-				 }
-			 }
-			 clr_country_flag = cu_year_going
-			 country_event = { id = cuglobal.9 }
-		}
-		country_event = { id = urban.97 } #Literacy Calculation
-		country_event = { id = urban.99 } #Urbanization Calculation
-		country_event = { id = cugovernment.1 } #Government Capacity Calculation
-		#country_event = { id = cuestate.0 } #Estate Calculation
-		cu_calc_total_stability_growth = yes #Stability Calculation
-		if = {
-			limit = { check_variable = { which = art_piece_on_sale value = 1 } }
-			random_list = {
-				10 = { change_variable = { which = art_piece_on_sale value = 1 } }
-				30 = { change_variable = { which = art_piece_on_sale value = -1 } }
-				60 = { }
-			}
-		}
-		else = {
-			10 = { change_variable = { which = art_piece_on_sale value = 1 } }
-			90 = { }
-		}
-		country_event = { id = cuglobal.1 days = 365 }
-	}
-}
 
 #Five Year's pulse
 country_event = {
@@ -194,14 +149,20 @@ country_event = {
 			}
 		}
 		owns = 1
+		OR = {
+			   AND = {
+					is_month = 0
+					NOT = { is_month = 1 }
+			   }
+			   has_country_flag = forced_event_trigger
+		 }
 	}
 	
-	mean_time_to_happen = {
-	    months = 1 
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = "EVT_HIDDEN"
+		clr_country_flag = forced_event_trigger
 		clr_global_flag = cu_five_years_pulse
 		set_global_flag = cu_five_years_pulse
 		every_country = {
@@ -224,30 +185,7 @@ country_event = {
 				limit = { in_golden_age = yes }
 				set_country_flag = cu_had_golden_age
 			}
-			if = { #In case year is not initialized
-			    limit = {
-					OR = {
-						  NOT = { check_variable = { which = cu_year value = 1444 } }
-						  check_variable = { which = cu_year value = 10000 }
-					}
-			    }
-			    cu_correct_year = yes
-				subtract_variable = { which = cu_year value = 1 }
-				country_event = { id = cuglobal.9 }
-			}
-			else_if = { #In case year progress stops
-				 limit = {
-					 OR = {
-						 NOT = { has_country_flag = cu_year_going }
-						 had_country_flag = {
-									  flag = cu_year_going
-									  days = 367
-						 }
-					 }
-				 }
-				 clr_country_flag = cu_year_going
-				 country_event = { id = cuglobal.9 }
-			}
+			cu_correct_year = yes
 			cu_do_ruler_power_reduction = yes
 			add_dip_power = -60 #Compensate for ai's additional diplomatic upkeep
 			set_variable = { which = num_pp value = 0 }
@@ -518,71 +456,6 @@ country_event = {
 	}
 }
 
-#Timer Yearly Pulse
-country_event = {
-	id = cuglobal.9
-	title = "EVT_HIDDEN"
-	desc = "EVT_HIDDEN"
-	picture = CITY_VIEW_eventPicture
-	hidden = yes
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVT_HIDDEN"
-		if = { 
-		     limit = {
-			      OR = {
-				        NOT = { has_country_flag = cu_year_going }
-						had_country_flag = {
-						       flag = cu_year_going
-							   days = 364
-						} 
-				  }
-			 }
-			 cu_get_year = yes
-			 if = {
-				limit = { has_any_disaster = yes }
-				change_variable = { which = cu_ruler_disyear value = 1 }
-		     }
-		     clr_country_flag = cu_year_going
-		     set_country_flag = cu_year_going
-	         country_event = { id = cuglobal.91 days = 365 }	
-		}  #In case multiple timer event is fired
-        
-	}
-}
-#Timer Yearly Pulse(Duplicate)
-country_event = {
-	id = cuglobal.91
-	title = "EVT_HIDDEN"
-	desc = "EVT_HIDDEN"
-	picture = CITY_VIEW_eventPicture
-	hidden = yes
-	is_triggered_only = yes
-	
-	option = {
-		name = "EVT_HIDDEN"
-        if = { 
-		     limit = {
-			      OR = {
-				        NOT = { has_country_flag = cu_year_going }
-						had_country_flag = {
-						       flag = cu_year_going
-							   days = 364
-						} 
-				  }
-			 }
-			 cu_get_year = yes
-		     clr_country_flag = cu_year_going
-		     set_country_flag = cu_year_going
-			 if = {
-				limit = { has_any_disaster = yes }
-				change_variable = { which = cu_ruler_disyear value = 1 }
-		     }
-	         country_event = { id = cuglobal.9 days = 365 }	
-		}
-	}  #In case multiple timer event is fired
-}
 
 
 #Distance Calculation Event
