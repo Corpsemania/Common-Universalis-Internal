@@ -31,12 +31,15 @@ estate_government = {
 
 	# These scale with loyalty & power
 	country_modifier_happy = {
+		max_absolutism = 20
 	    yearly_absolutism = 0.5
 	}
 	country_modifier_neutral = {
+		max_absolutism = 20
 	    yearly_absolutism = 0.5
 	}	
 	country_modifier_angry = {
+		max_absolutism = 20
 	    yearly_absolutism = 0.5
 	}
 	
