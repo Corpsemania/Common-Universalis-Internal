@@ -800,7 +800,10 @@ country_event = {
 						cu_in_same_group = yes
 						OR = {
 							has_owner_accepted_culture = yes
-							owner = { government_rank = 3 }
+							AND = {
+								owner = { government_rank = 3 }
+								owner = { culture_group = PREV } 	
+							}
 						}
 					}
 					set_province_flag = s_gc

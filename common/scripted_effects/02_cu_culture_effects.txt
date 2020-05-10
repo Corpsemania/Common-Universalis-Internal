@@ -268,7 +268,10 @@ cu_calc_base_cultural_acceptance = {
 			}
 			OR = {
 				has_owner_accepted_culture = yes
-				owner = { government_rank = 3 }
+				AND = {
+					owner = { government_rank = 3 }
+					owner = { culture_group = ROOT } 	
+				}
 				AND = { #All German cultures are considered cultural union for Holy Roman Emperor 
 					culture_group = germanic
 					owner = { culture_group = germanic }
@@ -720,7 +723,10 @@ cu_show_cultural_acceptance = {
 			 }
 			 OR = {
 					has_owner_accepted_culture = yes
-					owner = { government_rank = 3 }
+					AND = {
+						owner = { government_rank = 3 }
+						owner = { culture_group = ROOT } 	
+					}
 					AND = { #All German cultures are considered cultural union for Holy Roman Emperor 
 						  culture_group = germanic
 						  owner = { culture_group = germanic }
