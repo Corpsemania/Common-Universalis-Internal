@@ -588,8 +588,7 @@ agrarian_ideas = {
 		advisor_cost = -0.05
 	}
 	agr_cottage_economy = {
-		global_tax_modifier = 0.05
-        production_efficiency = 0.05
+        production_efficiency = 0.1
 	}
 	agr_benign_neglect_2 = {
 	    state_maintenance_modifier = -0.1
@@ -597,10 +596,11 @@ agrarian_ideas = {
 	}
 	agr_free_resettlement = {
 		expel_minorities_cost = -0.20 #Migration Time
+		global_colonial_growth = 10
 	}
 	agr_agrarian_idyll = {
 		stability_cost_modifier = -0.10
-		#Agriculture Growth: + 10%
+		#Agriculture Growth in peacetime: + 10%
 	}
 }
 
@@ -779,6 +779,7 @@ trade_ideas = {
 	new_caravansary = {
 		global_own_trade_power = 0.10
 		#Province Commerce Growth Modifier: +25%
+		#May claim COT
 	}
 	crossroad_of_the_world = {
 		embracement_cost = -0.25
@@ -1145,6 +1146,7 @@ administrative_ideas = {
 	    advisor_pool = 1
 	}
     bookkeeping = {
+		global_tax_modifier = 0.1
 		inflation_action_cost = -0.1
 	}
     integration_of_administration = {
