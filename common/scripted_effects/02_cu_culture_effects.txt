@@ -1498,7 +1498,7 @@ cu_change_cultural_assimilation = {
 }
 
 #cu_cultural_assimilation_growth[]
-#Yearly Growth = ( 1+ neighbor culture bonus(0.5/1) + building bonus ) * ( 100%-| literacy - average country literacy | ) * ( 60% + 8% * religious tolerance )
+#Yearly Growth = ( 1+ neighbor culture bonus(0.5/1) + building bonus ) * ( 100%-| literacy - average country literacy | ) * ( 60% + 8% * religious tolerance ) * ( 20% + 2.66 * (adm integrity-70%)) 
 #Assimilation Cost = ( 20 + 0.8 * province development ) * ( 100% + assimilation cost modifier ) 
 cu_cultural_assimilation_growth = {
 	if = {

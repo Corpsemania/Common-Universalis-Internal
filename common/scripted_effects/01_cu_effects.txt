@@ -4981,25 +4981,12 @@ cu_correct_year = {
 
 cu_export_s_dev = {
 	set_variable = { which = s_dev value = 0 }
-	every_owned_province = {
-		limit = { cu_not_terr_trigger = yes }
-		cu_export_s_dev_p = yes
+	export_to_variable = {
+		which = s_dev
+		value = states_development
 	}
-	set_variable = { which = cu_vark value = 0 }
 }
 
-cu_export_s_dev_p = {
-	set_variable = { which = cu_vark value = 0 }
-	export_to_variable = {
-		which = cu_vark
-		value = development
-	}
-	owner = {
-		set_variable = { which = cu_vark which = PREV }
-		change_variable = { which = s_dev which = cu_vark }
-	}
-	set_variable = { which = cu_vark value = 0 }
-}
 
 cu_gov_effect = {
 	every_owned_province = {
