@@ -276,34 +276,4 @@ country_decisions = {
 			factor = 1
 		}
 	}
-	test_unite_italy = {
-		major = yes
-		potential = {
-			ai = no
-			OR = {
-							culture_group = latin
-							culture_group = gallo_italic
-			}
-		}
-		allow = {
-			
-		}
-		effect = {
-			every_province = {
-				limit = {
-					OR = {
-							culture_group = latin
-							culture_group = gallo_italic
-					}
-				}
-				cede_province = ROOT
-				add_core = ROOT
-				set_variable = { which = p_ca value = 100 }
-				set_variable = { which = literacy value = 20 }
-			}
-		}
-		ai_will_do = {
-			factor = 1
-		}
-	}
 }

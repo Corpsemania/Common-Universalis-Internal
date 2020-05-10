@@ -380,3 +380,36 @@ cu_can_update_transport = {
 	}
 }
 
+
+
+cu_in_hybrid_group = {
+	OR = {
+		AND = {
+			culture_group = latin
+			owner = { culture_group = gallo_italic }
+		}
+		AND = {
+			culture_group = gallo_italic
+			owner = { culture_group = latin }
+		}
+		AND = {
+			culture_group = southern_french
+			owner = { culture_group = french }
+		}
+		AND = {
+			culture_group = french
+			owner = { culture_group = southern_french }
+		}
+		AND = {
+			culture_group = latin
+			owner = { primary_culture = catalan }
+		}
+	}
+}
+
+cu_in_same_group = {
+		OR = {
+				owner = { culture_group = ROOT } 	
+				cu_in_hybrid_group = yes
+		}
+}

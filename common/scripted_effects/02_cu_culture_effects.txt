@@ -262,7 +262,10 @@ cu_calc_base_cultural_acceptance = {
 	}
     else_if = { #Cultural Union
 		limit = {
-			owner = { culture_group = ROOT }
+			OR = {
+				owner = { culture_group = ROOT } 	
+				cu_in_hybrid_group = yes
+			}
 			OR = {
 				has_owner_accepted_culture = yes
 				owner = { government_rank = 3 }
@@ -293,7 +296,12 @@ cu_calc_base_cultural_acceptance = {
 		}
 	}
     else_if = { #Same Cultural Group
-		limit = { owner = { culture_group = ROOT } }
+		limit = { 
+			OR = {
+				owner = { culture_group = ROOT } 	
+				cu_in_hybrid_group = yes
+			}
+		}
 		change_variable = { which = p_cab value = 40 }
 		if = {
 			  limit = { printing_press = 100 }
@@ -706,7 +714,10 @@ cu_show_cultural_acceptance = {
 	}
     else_if = { #Cultural Union
 		limit = {
-			 owner = { culture_group = ROOT }
+			 OR = {
+				owner = { culture_group = ROOT } 	
+				cu_in_hybrid_group = yes
+			 }
 			 OR = {
 					has_owner_accepted_culture = yes
 					owner = { government_rank = 3 }
@@ -743,8 +754,11 @@ cu_show_cultural_acceptance = {
 		}
 	}
     else_if = { #Same Cultural Group
-	        limit = {
-			     owner = { culture_group = ROOT }
+	        limit = { 
+				OR = {
+					owner = { culture_group = ROOT } 	
+					cu_in_hybrid_group = yes
+				}
 			}
 			change_variable = { which = p_cab value = 40 }
 			change_variable = { which = p_cabc value = 40 }

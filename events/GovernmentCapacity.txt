@@ -797,7 +797,7 @@ country_event = {
 				else_if = {
 					limit = {
 						has_owner_culture = no
-						culture_group = owner
+						cu_in_same_group = yes
 						OR = {
 							has_owner_accepted_culture = yes
 							owner = { government_rank = 3 }
@@ -823,7 +823,7 @@ country_event = {
 								owner = { government_rank = 3 }
 							}
 						}
-						culture_group = owner
+						cu_in_same_group = yes
 					}
 					set_province_flag = g_gc
 					#owner = { set_variable = { which = gpgcm which = ggcm } }
@@ -838,7 +838,7 @@ country_event = {
 				}
 				else_if = {
 					limit = {
-						NOT = { culture_group = owner }
+						NOT = { cu_in_same_group = yes }
 						has_owner_accepted_culture = yes
 					}
 					set_province_flag = a_gc
@@ -865,7 +865,7 @@ country_event = {
 						NOT = {
 							OR = {
 								has_owner_culture = yes
-								culture_group = owner
+								cu_in_same_group = yes
 								has_owner_accepted_culture = yes
 							}
 						}
@@ -894,7 +894,7 @@ country_event = {
 				if = {
 					limit = {
 						owner = { full_idea_group = humanist_ideas }
-						NOT = { culture_group = owner }
+						NOT = { cu_in_same_group = yes }
 						NOT = { has_province_flag = celestial_gc_prov }
 						NOT = { has_province_flag = celestial_gc_prov_foreign }
 						is_capital = no
