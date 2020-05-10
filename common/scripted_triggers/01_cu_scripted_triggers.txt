@@ -400,10 +400,6 @@ cu_in_hybrid_group = {
 			culture_group = french
 			owner = { culture_group = southern_french }
 		}
-		AND = {
-			culture_group = latin
-			owner = { primary_culture = catalan }
-		}
 	}
 }
 
