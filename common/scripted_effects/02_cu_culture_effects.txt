@@ -1819,11 +1819,11 @@ cu_set_historical_nationalism = {
 		limit = { culture = greek } #Greek under ottomans rule
 		if = {
 			limit = { is_year = 1800 }
-			set_variable = { which = p_nationalism value = 50 }
+			set_variable = { which = p_nationalism value = 80 }
 		}
 		else_if = {
 			limit = { is_year = 1750 }
-			set_variable = { which = p_nationalism value = 35 }
+			set_variable = { which = p_nationalism value = 50 }
 		}
 		else_if = {
 			limit = { is_year = 1700 }
@@ -1910,6 +1910,7 @@ cu_set_historical_nationalism = {
 	if = {
 		limit = { check_variable = { which = p_nationalism value = 1 } }
 		cu_convert_nationalism_seperatism = yes
+		cu_calc_base_cultural_acceptance = yes
 	}
 }
 
