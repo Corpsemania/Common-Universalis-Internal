@@ -793,7 +793,7 @@ cb_overseas = {
 		FROM = { 
 			primitives = no
 			is_subject = no	  	        
-			}
+		}
 		is_subject = no
 		is_revolution_target = no
 	}

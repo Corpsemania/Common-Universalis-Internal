@@ -14,8 +14,8 @@ newer_idea_adm_modifiers = {
 	custom_harmonization_speed = {
 		harmonization_speed = 0.1
 		max_level = 2
-		level_cost_1 = 10
-		level_cost_2 = 50
+		level_cost_1 = 20
+		level_cost_2 = 100
 		chance = {
 			factor = 0
 		}
@@ -38,15 +38,15 @@ newer_idea_adm_modifiers = {
 	}
 	custom_max_absolutism = {
 		max_absolutism = 5
-		level_cost_2 = 5
-		level_cost_3 = 15
-		level_cost_4 = 30
-	}
-	custom_yearly_absolutism = {
-		yearly_absolutism = 0.5
 		max_level = 2
 		level_cost_1 = 15
-		level_cost_2 = 60
+		level_cost_2 = 90
+	}
+	custom_yearly_absolutism = {
+		yearly_absolutism = 0.1
+		max_level = 2
+		level_cost_1 = 25
+		level_cost_2 = 100
 		
 	}
 	custom_administrative_efficiency = {
@@ -81,10 +81,10 @@ newer_idea_adm_modifiers = {
 		level_cost_4 = 18
 	}
 	custom_max_states = {
-		max_states = 3
-		level_cost_2 = 10
-		level_cost_3 = 40	
-		level_cost_4 = 100
+		max_states = 5
+		max_level = 2
+		level_cost_1 = 30
+		level_cost_2 = 150
 	}
 	custom_church_power_modifier = {
 		church_power_modifier = 0.1
@@ -98,8 +98,8 @@ newer_idea_adm_modifiers = {
 	custom_yearly_corruption = {
 		yearly_corruption = -0.05
 		max_level = 2
-		level_cost_1 = 10
-		level_cost_2 = 30
+		level_cost_1 = 15
+		level_cost_2 = 60
 	}
 	custom_caravan_power = {
 		caravan_power = 0.1
@@ -118,9 +118,10 @@ newer_idea_adm_modifiers = {
 	}
 	custom_global_trade_goods_size_modifier = {
 		global_trade_goods_size_modifier = 0.05
-		level_cost_2 = 5
-		level_cost_3 = 15		
-		level_cost_4 = 30
+		level_cost_1 = 10
+		level_cost_2 = 30
+		level_cost_3 = 60	
+		level_cost_4 = 120
 	}
 	custom_adm_tech_cost_modifier = {
 		adm_tech_cost_modifier = -0.05
@@ -152,8 +153,8 @@ newer_idea_mil_modifiers = {
 	custom_merc_discipline = {
 		mercenary_discipline = 0.025
 		level_cost_2 = 5
-		level_cost_3 = 15		
-		level_cost_4 = 30
+		level_cost_3 = 25		
+		level_cost_4 = 50
 		chance = {
 			factor = 0.25
 		}

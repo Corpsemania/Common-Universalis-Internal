@@ -154,9 +154,9 @@ adm_idea_modifiers = {
 	}		
 	custom_idea_advisor_cost = {
 		advisor_cost = -0.05
-		level_cost_2 = 3
-		level_cost_3 = 9
-		level_cost_4 = 18		
+		max_level = 2	
+		level_cost_1 = 15
+		level_cost_2 = 60		
 	}	
 	custom_idea_advisor_pool = {
 		advisor_pool = 1
@@ -223,7 +223,10 @@ adm_idea_modifiers = {
 		}
 	}	
 	custom_idea_core_creation = {
-		core_creation = -0.05
+		core_creation = -0.1
+		max_level = 2
+		level_cost_1 = 20
+		level_cost_2 = 100
 		chance = {
 			factor = 0.5
 			modifier = {
@@ -267,9 +270,11 @@ adm_idea_modifiers = {
 		}
 	}
 	custom_idea_global_autonomy = {
-		global_autonomy = -0.05		
+		global_autonomy = -0.02		
+		max_level = 2
 		level_cost_1 = 6
 		level_cost_2 = 30
+		level_cost_3 = 80
 		max_level = 2		
 	}
 	custom_idea_imperial_authority = {

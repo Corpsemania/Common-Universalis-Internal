@@ -3083,3 +3083,369 @@ country_event = {
 		 }
 	}
 }
+
+#Power Conversion
+country_event = {
+	id = state.107
+	title = "state.107.t"
+	desc = "state.107.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	is_triggered_only = yes
+	option = { #ADM TO DIP
+	     name = "state.107.atd"
+		 trigger = {
+			adm_power = 200
+		 }
+		 add_adm_power = -200
+		 add_dip_power = 100
+		 add_country_modifier = {
+				name = recent_power_conversion
+				duration = 1825
+		 }
+		 hidden_effect = {
+			country_event = { id = state.108 }
+		 }
+		 ai_chance = {
+		       factor = 10
+			   modifier = {
+					factor = 0
+					OR = {
+						NOT = { adm_power = 800 }
+						dip_power = 200
+					}
+			   }
+		 }
+	}
+	option = { #ADM TO MIL
+	     name = "state.107.atm"
+		 trigger = {
+			adm_power = 200
+		 }
+		 add_adm_power = -200
+		 add_mil_power = 100
+		 add_country_modifier = {
+				name = recent_power_conversion
+				duration = 1825
+		 }
+		 hidden_effect = {
+			country_event = { id = state.108 }
+		 }
+		 ai_chance = {
+		       factor = 10
+			   modifier = {
+					factor = 0
+					OR = {
+						NOT = { adm_power = 800 }
+						mil_power = 200
+					}
+			   }
+		 }
+	}
+	option = { #DIP TO ADM
+	     name = "state.107.dta"
+		 trigger = {
+			dip_power = 200
+		 }
+		 add_dip_power = -200
+		 add_adm_power = 100
+		 add_country_modifier = {
+				name = recent_power_conversion
+				duration = 1825
+		 }
+		 hidden_effect = {
+			country_event = { id = state.108 }
+		 }
+		 ai_chance = {
+		       factor = 10
+			   modifier = {
+					factor = 0
+					OR = {
+						NOT = { dip_power = 800 }
+						adm_power = 200
+					}
+			   }
+		 }
+	}
+	option = { #DIP TO MIL
+	     name = "state.107.dtm"
+		 trigger = {
+			dip_power = 200
+		 }
+		 add_dip_power = -200
+		 add_mil_power = 100
+		 add_country_modifier = {
+				name = recent_power_conversion
+				duration = 1825
+		 }
+		 hidden_effect = {
+			country_event = { id = state.108 }
+		 }
+		 ai_chance = {
+		       factor = 10
+			   modifier = {
+					factor = 0
+					OR = {
+						NOT = { dip_power = 800 }
+						mil_power = 200
+					}
+			   }
+		 }
+	}
+	option = { #MIL TO ADM
+	     name = "state.107.mta"
+		 trigger = {
+			mil_power = 200
+		 }
+		 add_mil_power = -200
+		 add_adm_power = 100
+		 add_country_modifier = {
+				name = recent_power_conversion
+				duration = 1825
+		 }
+		 hidden_effect = {
+			country_event = { id = state.108 }
+		 }
+		 ai_chance = {
+		       factor = 10
+			   modifier = {
+					factor = 0
+					OR = {
+						NOT = { mil_power = 800 }
+						adm_power = 200
+					}
+			   }
+		 }
+	}
+	option = { #MIL TO DIP
+	     name = "state.107.mtd"
+		 trigger = {
+			mil_power = 200
+		 }
+		 add_mil_power = -200
+		 add_dip_power = 100
+		 add_country_modifier = {
+				name = recent_power_conversion
+				duration = 1825
+		 }
+		 hidden_effect = {
+			country_event = { id = state.108 }
+		 }
+		 ai_chance = {
+		       factor = 10
+			   modifier = {
+					factor = 0
+					OR = {
+						NOT = { mil_power = 800 }
+						dip_power = 200
+					}
+			   }
+		 }
+	}
+	option = { #No need
+	     name = "state.107.exit"
+		 trigger = {
+			ai = no
+		 }
+		 clr_country_flag = power_conversion_open
+		 ai_chance = {
+		       factor = 10
+		 }
+	}
+	option = { #No need
+	     name = "state.107.exit"
+		 trigger = {
+			ai = yes
+		 }
+		 clr_country_flag = power_conversion_open
+		 add_country_modifier = {
+				name = recent_power_conversion
+				duration = 1825
+		 }
+		 ai_chance = {
+		       factor = 10
+		 }
+	}
+}
+
+#Power Conversion(Duplicate)
+country_event = {
+	id = state.108
+	title = "state.107.t"
+	desc = "state.107.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	is_triggered_only = yes
+	option = { #ADM TO DIP
+	     name = "state.107.atd"
+		 trigger = {
+			adm_power = 200
+		 }
+		 add_adm_power = -200
+		 add_dip_power = 100
+		 add_country_modifier = {
+				name = recent_power_conversion
+				duration = 1825
+		 }
+		 hidden_effect = {
+			country_event = { id = state.107 }
+		 }
+		 ai_chance = {
+		       factor = 10
+			   modifier = {
+					factor = 0
+					OR = {
+						NOT = { adm_power = 800 }
+						dip_power = 200
+					}
+			   }
+		 }
+	}
+	option = { #ADM TO MIL
+	     name = "state.107.atm"
+		 trigger = {
+			adm_power = 200
+		 }
+		 add_adm_power = -200
+		 add_mil_power = 100
+		 add_country_modifier = {
+				name = recent_power_conversion
+				duration = 1825
+		 }
+		 hidden_effect = {
+			country_event = { id = state.107 }
+		 }
+		 ai_chance = {
+		       factor = 10
+			   modifier = {
+					factor = 0
+					OR = {
+						NOT = { adm_power = 800 }
+						mil_power = 200
+					}
+			   }
+		 }
+	}
+	option = { #DIP TO ADM
+	     name = "state.107.dta"
+		 trigger = {
+			dip_power = 200
+		 }
+		 add_dip_power = -200
+		 add_adm_power = 100
+		 add_country_modifier = {
+				name = recent_power_conversion
+				duration = 1825
+		 }
+		 hidden_effect = {
+			country_event = { id = state.107 }
+		 }
+		 ai_chance = {
+		       factor = 10
+			   modifier = {
+					factor = 0
+					OR = {
+						NOT = { dip_power = 800 }
+						adm_power = 200
+					}
+			   }
+		 }
+	}
+	option = { #DIP TO MIL
+	     name = "state.107.dtm"
+		 trigger = {
+			dip_power = 200
+		 }
+		 add_dip_power = -200
+		 add_mil_power = 100
+		 add_country_modifier = {
+				name = recent_power_conversion
+				duration = 1825
+		 }
+		 hidden_effect = {
+			country_event = { id = state.107 }
+		 }
+		 ai_chance = {
+		       factor = 10
+			   modifier = {
+					factor = 0
+					OR = {
+						NOT = { dip_power = 800 }
+						mil_power = 200
+					}
+			   }
+		 }
+	}
+	option = { #MIL TO ADM
+	     name = "state.107.mta"
+		 trigger = {
+			mil_power = 200
+		 }
+		 add_mil_power = -200
+		 add_adm_power = 100
+		 add_country_modifier = {
+				name = recent_power_conversion
+				duration = 1825
+		 }
+		 hidden_effect = {
+			country_event = { id = state.107 }
+		 }
+		 ai_chance = {
+		       factor = 10
+			   modifier = {
+					factor = 0
+					OR = {
+						NOT = { mil_power = 800 }
+						adm_power = 200
+					}
+			   }
+		 }
+	}
+	option = { #MIL TO DIP
+	     name = "state.107.mta"
+		 trigger = {
+			mil_power = 200
+		 }
+		 add_mil_power = -200
+		 add_dip_power = 100
+		 add_country_modifier = {
+				name = recent_power_conversion
+				duration = 1825
+		 }
+		 hidden_effect = {
+			country_event = { id = state.107 }
+		 }
+		 ai_chance = {
+		       factor = 10
+			   modifier = {
+					factor = 0
+					OR = {
+						NOT = { mil_power = 800 }
+						dip_power = 200
+					}
+			   }
+		 }
+	}
+	option = { #No need
+	     name = "state.107.exit"
+		 trigger = {
+			ai = no
+		 }
+		 clr_country_flag = power_conversion_open
+		 ai_chance = {
+		       factor = 10
+		 }
+	}
+	option = { #No need
+	     name = "state.107.exit"
+		 trigger = {
+			ai = yes
+		 }
+		 clr_country_flag = power_conversion_open
+		 add_country_modifier = {
+				name = recent_power_conversion
+				duration = 1825
+		 }
+		 ai_chance = {
+		       factor = 10
+		 }
+	}
+}

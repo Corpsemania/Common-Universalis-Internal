@@ -1,7 +1,39 @@
 country_decisions = {
+   cu_power_conversion = {
+		potential = {
+			NOT = { has_country_flag = power_conversion_open }
+			NOT = { has_country_modifier = recent_power_conversion }
+			OR = {
+				adm_power = 1000
+				dip_power = 1000
+				mil_power = 1000
+				ai = no
+			}
+			OR = {
+				NOT = { adm_power = 100 }
+				NOT = { dip_power = 100 }
+				NOT = { mil_power = 100 }
+				ai = no
+			}
+		}
+		allow = {
+			OR = {
+				adm_power = 200
+				dip_power = 200
+				mil_power = 200
+			}
+		}
+		effect = {
+			set_country_flag = power_conversion_open
+			country_event = { id = state.5 }
+		}
+		ai_will_do = {
+			factor = 1
+		}
+   }
    cu_prestige_shop = {
         potential = {
-			ai = yes
+			has_global_flag = test_version
 			NOT = { has_global_flag = cu_fast_mode }
 			total_development = 400 
 			OR = {
@@ -50,5 +82,6 @@ country_decisions = {
 			}
 		}
    }
+   
 
 }

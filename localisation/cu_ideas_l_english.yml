@@ -631,7 +631,7 @@
  global_empire_2:0 "Global Empire"
  global_empire_2_desc:0 "As the reach of our empire extend across the globe, ever more do the lesser nations seek our help and protection.\nMay estabilish protectorate in less advanced countries."
  for_better_future: "Desperate Expansion"
- make_battle_plan_title: "Make Battle Plan"
+ make_battle_plan_title: "§M<Make Battle Plan>§!"
  make_battle_plan_desc: "Spend Military Points to make a battle plan. It will grant temporary bonus to our army after a considerably long time of preparation."
  ideagroups.4930.t: "Drawing Up Battle Plan"
  ideagroups.4930.d: "The smartest brains in [Root.GetAdjective] army gathers today to analyze the direction of future warfare. After that, they wll draw up a new battle plan to defeat the enemy once and for all, if only you wish to."

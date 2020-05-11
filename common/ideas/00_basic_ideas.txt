@@ -879,7 +879,7 @@ naval_ideas = {
 	}
 	excellent_shipwrights_2 = {
 		ship_durability = 0.05
-		#Allows Ship Modification
+		#Ship Modification does not cost naval tradition
 	}
 	press_gangs = {
 		sailors_recovery_speed = 0.2

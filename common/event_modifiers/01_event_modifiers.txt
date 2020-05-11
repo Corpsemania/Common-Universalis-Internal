@@ -1025,3 +1025,7 @@ french_lingua_franca_prov = {
 	#Max Administrative Integrity +10%
 	#Province convert to French group when integrity reaches 70%
 }
+
+recent_power_conversion = {
+	all_power_cost = 0.01
+}
