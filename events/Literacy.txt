@@ -532,14 +532,19 @@ province_event = {
 		name = "urban.97.a"
 
 		if = {
-			limit = { NOT = { check_variable = { which = literacy value = 1.001 } } }
-			set_variable = { which = ave_literacy which = owner } #Transfer country's average literacy( Only state province counted) to colony
+			limit = { 
+				NOT = { check_variable = { which = literacy value = 0.9 } }
+				NOT = { development = 6 }									
+			}
+			set_variable = { which = ave_literacy which = owner } #Transfer country's average literacy(Unaccepted cultures are not counted) to colony
 			set_variable = { which = literacy which = ave_literacy }
 		}
 		#Variable List
 		set_variable = { which = lit_g value = 0 } #Literacy Growth
 		#Base Growth
-		set_variable = { which = lit_bg value = 0.005 } #Literacy Base Growth
+		set_variable = { which = lit_bg which = literacy } #Literacy Base Growth = 0.005 - Literacy * 0.001
+		multiply_variable = { which = lit_bg value = -0.001 }
+		change_variable = { which = lit_bg value = 0.005 } #Literacy Base Growth
 		#set_variable = { which = lit_dg value = 0 } #Literacy Base Growth By Devastation(Negative)
 		set_variable = { which = lit_gc value = 0 } #Literacy Growth From Commerce
 		set_variable = { which = lit_gp value = 0 } #Literacy Growth From Production
@@ -563,7 +568,7 @@ province_event = {
 		set_variable = { which = lit_md value = 0 } #Literacy Growth Modifier From Degrees
 		set_variable = { which = p_dev value = 0 } #Province Development
 		set_variable = { which = lit_dm value = 0 } #Literacy Growth Development Modifier
-		#Current Literacy( Higher Literacy , higher efficiency )
+		#Current Literacy( Higher Literacy , higher efficiency, lower base growth )
 		change_variable = { which = lit_ml which = literacy }
 		multiply_variable = { which = lit_ml value = 0.004 }
 		change_variable = { which = lit_m which = lit_ml }
@@ -574,14 +579,14 @@ province_event = {
 			value = base_tax
 		}
 		change_variable = { which = lit_gc value = -1 }
-		divide_variable = { which = lit_gc value = 500 }
+		divide_variable = { which = lit_gc value = 250 }
 		change_variable = { which = lit_bg which = lit_gc }
 		export_to_variable = {
 			which = lit_gp
 			value = base_production
 		}
 		change_variable = { which = lit_gp value = -1 }
-		divide_variable = { which = lit_gp value = 500 }
+		divide_variable = { which = lit_gp value = 250 }
 		change_variable = { which = lit_bg which = lit_gp }
 
 		export_to_variable = {
@@ -589,12 +594,12 @@ province_event = {
 			value = base_manpower
 		}
 		change_variable = { which = lit_ga value = -1 }
-		divide_variable = { which = lit_ga value = 1000 }
+		divide_variable = { which = lit_ga value = 500 }
 		subtract_variable = { which = lit_bg which = lit_ga }
-
+		
 		#export_to_variable = {
-			#which = lit_dg
-			#value = devastation #Value Not available
+		   #which = lit_dg
+			#value = devastation #Value is not available
 		#}
 
 		#divide_variable = { which = lit_dg value = 1000 }
@@ -636,11 +641,11 @@ province_event = {
 		#Building, Estate, Effect
 		if = { 
 			limit = { has_building = temple }
-			change_variable = { which = lit_gb value = 0.005 }						
+			change_variable = { which = lit_gb value = 0.01 }						
 		}							
 		else_if = { 
 			limit = { has_building = cathedral }
-			change_variable = { which = lit_gb value = 0.01 }							
+			change_variable = { which = lit_gb value = 0.02 }							
 		}
 		if = { 
 			limit = { has_province_modifier = cu_church_school }
@@ -697,13 +702,14 @@ province_event = {
 				}
 			}
 			change_variable = { which = lit_gb value = 0.01 }
-			change_variable = { which = lit_mb value = -0.5 }								
+			change_variable = { which = lit_mb value = -0.33 }								
 		}
+		
 		if = {
 			limit = { 
 				has_province_modifier = indian_caste_system
 			}
-			change_variable = { which = lit_gb value = -0.005 }
+			change_variable = { which = lit_gb value = -0.002 }
 			change_variable = { which = lit_mb value = -0.15 }							 
 		}
 		if = {
@@ -711,39 +717,39 @@ province_event = {
 				owner = { has_country_modifier = university_1 } 
 				cu_not_terr_trigger = yes
 			}
-			change_variable = { which = lit_gb value = 0.004 }
+			change_variable = { which = lit_gb value = 0.005 }
 			change_variable = { which = lit_mb value = 0.1 }							 
 		}
-		if = {
+		else_if = {
 			limit = { 
 				owner = { has_country_modifier = university_2 } 
 				cu_not_terr_trigger = yes
 			}
-			change_variable = { which = lit_gb value = 0.006 }
+			change_variable = { which = lit_gb value = 0.01 }
 			change_variable = { which = lit_mb value = 0.2 }							 
 		}
-		if = {
+		else_if = {
 			limit = { 
 				owner = { has_country_modifier = university_3 } 
 				cu_not_terr_trigger = yes
 			}
-			change_variable = { which = lit_gb value = 0.008 }
+			change_variable = { which = lit_gb value = 0.015 }
 			change_variable = { which = lit_mb value = 0.3 }							 
 		}
-		if = {
+		else_if = {
 			limit = { 
 				owner = { has_country_modifier = university_4 } 
 				cu_not_terr_trigger = yes
 			}
-			change_variable = { which = lit_gb value = 0.01 }
+			change_variable = { which = lit_gb value = 0.02 }
 			change_variable = { which = lit_mb value = 0.4 }							 
 		}
-		if = {
-			limit = { 
-				owner = { has_active_policy = the_education_act } 
-			}
-			 change_variable = { which = lit_mb value = 0.2 }							 
-		}
+		#if = {
+			 #limit = { 
+						#owner = { has_active_policy = the_education_act } 
+			 #}
+			 #change_variable = { which = lit_mb value = 0.25 }							 
+		#}
 		if = { #Bonus for ai's HRE provinces to make up for literacy loss due to their constant war.
 			limit = { 
 				is_part_of_hre = yes
@@ -752,14 +758,14 @@ province_event = {
 			}
 			change_variable = { which = lit_gb value = 0.01 }						 
 		}
-		#Institutions
+		#Printing Press
 		if = {
-			limit = { printing_press = 100 }
+			limit = { enlightenment = 100 }
 			change_variable = { which = lit_gb value = 0.005 }
 		}
 		if = {
-			limit = { enlightenment = 100 }
-			change_variable = { which = lit_gb value = 0.015 }
+			limit = { printing_press = 100 }
+			change_variable = { which = lit_gb value = 0.01 }
 		}
 
 		change_variable = { which = lit_bg which = lit_gb }
@@ -931,10 +937,6 @@ province_event = {
 			multiply_variable = { which = p_resa value = 2 }
 			multiply_variable = { which = p_resd value = 2 }
 			multiply_variable = { which = p_resm value = 2 }
-		}
-		if = {
-			limit = { has_province_modifier = cu_national_college }
-			change_variable = { which = p_resb value = 0.5 }
 		}
 		multiply_variable = { which = p_resa which = p_resb }
 		multiply_variable = { which = p_resd which = p_resb }
