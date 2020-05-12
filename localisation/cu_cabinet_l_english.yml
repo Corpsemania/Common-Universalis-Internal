@@ -93,7 +93,7 @@
  cabinet_autofeg_dt: "Automatically Enforce Language Education in:\n Province in foreign culture group with at least 80% Administrative Integrity"
  cabinet_autofen_dt: "Automatically Enforce Language Education in:\n Province in foreign culture group"
  cabinet.4.t: "Cabinet Settings - Economy"
- cabinet.4.d: "(Currently only automatical terrain improvement is available)"
+ cabinet.4.d: "Current Settings:\n\nAdministrative Integrity Baseline: §Y[Root.cabinet_ca.GetValue]§!\n(Cabinet will only develop provinces with Administrative Integrity above the baseline)"
  cabinet.4.prov: "Set Province Eligibility"
  cabinet.4.autoti: "Start Automatic Terrain Improvement"
  cabinet_autotit: "Cabinet will use §YTerrain Improvement§! edicts in eligible provinces."

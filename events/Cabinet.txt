@@ -1415,7 +1415,7 @@ country_event = {
 		   trigger = {
 		           NOT = { has_country_flag = cabinet_autorw }
 		   }
-		   custom_tooltip = cabinet_autorwt
+		   custom_tooltip = cabinet.4.autorwt
 		   set_country_flag = cabinet_autorw
 		   hidden_effect = {
 		        country_event = { id = cabinet.0 }
@@ -1526,7 +1526,7 @@ country_event = {
 				every_owned_province = { #Update to all provinces
 					set_variable = { which = cabinet_ca which = owner }
 				}
-		        country_event = { id = cabinet.4 }
+		        country_event = { id = cabinet.42 }
 		   }
 	}
 	
@@ -1541,7 +1541,7 @@ country_event = {
 				every_owned_province = { #Update to all provinces
 					set_variable = { which = cabinet_ca which = owner }
 				}
-		        country_event = { id = cabinet.4 }
+		        country_event = { id = cabinet.42 }
 		   }
 	}
 	
@@ -1555,7 +1555,7 @@ country_event = {
 		   clr_country_flag = cabinet_ep_allculture
 		   custom_tooltip = cabinet.primaryt
 		   hidden_effect = {
-		        country_event = { id = cabinet.4 }
+		        country_event = { id = cabinet.42 }
 		   }
 	}
 	
@@ -1569,7 +1569,7 @@ country_event = {
 		   clr_country_flag = cabinet_ep_allculture
 		   custom_tooltip = cabinet.acceptedt
 		   hidden_effect = {
-		        country_event = { id = cabinet.4 }
+		        country_event = { id = cabinet.42 }
 		   }
 	}
 	option = {
@@ -1582,7 +1582,113 @@ country_event = {
 		   set_country_flag = cabinet_ep_allculture
 		   custom_tooltip = cabinet.allculturet
 		   hidden_effect = {
-		        country_event = { id = cabinet.4 }
+		        country_event = { id = cabinet.42 }
+		   }
+	}
+	option = {
+	       name = "cu.return" #Return
+		   hidden_effect = {
+		        country_event = { id = cabinet.42 }
+		   }
+	}
+	
+	option = {
+	       name = "cu.exit" #Exit
+		   clr_country_flag = cabinet_panel_open
+	}
+}
+
+#Cabinet Economic Panel - Eligibility
+country_event = {
+	id = cabinet.42
+	title = cabinet.41.t
+	desc = cabinet.41.d
+	picture = ADVISOR_eventPicture
+    
+    is_triggered_only = yes
+	immediate = { #Display Current Settings
+
+		 if = {
+		       limit = { has_country_flag = cabinet_ep_primary }
+			   custom_tooltip = cabinet_ep_primary_dt
+		 }
+		 else_if = {
+		       limit = { has_country_flag = cabinet_ep_accepted }
+			   custom_tooltip = cabinet_ep_accepted_dt
+		 }
+		 else_if = {
+		       limit = { has_country_flag = cabinet_ep_allculture }
+			   custom_tooltip = cabinet_ep_allculture_dt
+		 }
+	}
+	option = {
+	       name = "cabinet.41.incca"  #Increase CA limit by 10%
+		   trigger = {
+		          NOT = { check_variable = { which = cabinet_ca value = 100 } }
+		   }
+		   custom_tooltip = cabinet.incca_tt
+		   hidden_effect = {
+		        change_variable = { which = cabinet_ca value = 10 }
+				every_owned_province = { #Update to all provinces
+					set_variable = { which = cabinet_ca which = owner }
+				}
+		        country_event = { id = cabinet.41 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.41.decca"  #Decrease CA limit by 10%
+		   trigger = {
+		          check_variable = { which = cabinet_ca value = 10 }
+		   }
+		   custom_tooltip = cabinet.decca_tt
+		   hidden_effect = {
+		        subtract_variable = { which = cabinet_ca value = 10 }
+				every_owned_province = { #Update to all provinces
+					set_variable = { which = cabinet_ca which = owner }
+				}
+		        country_event = { id = cabinet.41 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.41.primary"  #Primary Culture and Cultural Union Only
+		   trigger = {
+		          NOT = { has_country_flag = cabinet_ep_primary }
+		   }
+		   set_country_flag = cabinet_ep_primary
+		   clr_country_flag = cabinet_ep_accepted
+		   clr_country_flag = cabinet_ep_allculture
+		   custom_tooltip = cabinet.primaryt
+		   hidden_effect = {
+		        country_event = { id = cabinet.41 }
+		   }
+	}
+	
+	option = {
+	       name = "cabinet.41.accepted"  #Primary Culture, Cultural Union and accepted culture
+		   trigger = {
+		          NOT = { has_country_flag = cabinet_ep_accepted }
+		   }
+		   clr_country_flag = cabinet_ep_primary
+		   set_country_flag = cabinet_ep_accepted
+		   clr_country_flag = cabinet_ep_allculture
+		   custom_tooltip = cabinet.acceptedt
+		   hidden_effect = {
+		        country_event = { id = cabinet.41 }
+		   }
+	}
+	option = {
+	       name = "cabinet.41.allculture"  #All cultures
+		   trigger = {
+		          NOT = { has_country_flag = cabinet_ep_allculture }
+		   }
+		   clr_country_flag = cabinet_ep_primary
+		   clr_country_flag = cabinet_ep_accepted
+		   set_country_flag = cabinet_ep_allculture
+		   custom_tooltip = cabinet.allculturet
+		   hidden_effect = {
+		        country_event = { id = cabinet.41 }
 		   }
 	}
 	option = {

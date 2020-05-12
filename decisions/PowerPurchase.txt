@@ -25,7 +25,7 @@ country_decisions = {
 		}
 		effect = {
 			set_country_flag = power_conversion_open
-			country_event = { id = state.5 }
+			country_event = { id = state.107 }
 		}
 		ai_will_do = {
 			factor = 1

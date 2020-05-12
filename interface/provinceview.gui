@@ -1244,7 +1244,7 @@ guiTypes = {
 				textureFile = ""
 				font = "vic_18"
 				borderSize = {x = 2 y = 2}
-				text = "LEDGER_MANPOWER"
+				text = "LEDGER_MANPOWER_CU"
 				maxWidth = 128
 				maxHeight = 20
 				format = left

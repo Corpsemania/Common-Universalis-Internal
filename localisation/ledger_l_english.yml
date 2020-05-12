@@ -4,6 +4,7 @@
  LEDGER_INCOME:0 "Income"
  LEDGER_INCOMING:0 "Incoming"
  LEDGER_MANPOWER:0 "Agriculture"
+ LEDGER_MANPOWER_CU: "Manpower"
  LEDGER_MAXMANPOWER:0 "Max Manpower"
  LEDGER_MONTHLY_INCOME:0 "Monthly Income: §Y$VAL$§W¤"
  LEDGER_TREASURY_TIP:0 "Money in the treasury: §Y$VAL$§W¤"
