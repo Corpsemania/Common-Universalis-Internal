@@ -1186,7 +1186,7 @@ country_event = {
 					
 					#100% autonomy reduces OGC consumption by 97% - the cost should not be zero
 					set_variable = { which = cu_var3 value = 100 }
-					multiply_variable = { which = cu_var1 value = 0.98 }
+					multiply_variable = { which = cu_var1 value = 0.97 }
 					subtract_variable = { which = cu_var3 which = cu_var1 }
 					multiply_variable = { which = cu_var3 value = 0.01 }
 					multiply_variable = { which = po which = cu_var3 }
