@@ -3418,11 +3418,9 @@ mandate_system = {
 		}
 	}
 	modifiers = {
-		state_maintenance_modifier = 0.15
+		state_maintenance_modifier = 0.1
 		min_autonomy = 10
 		advisor_cost = 0.05
-		yearly_corruption = 0.05
-		max_states = 5
 		yearly_absolutism = -0.1
 		global_autonomy = 0.01
 	}
@@ -3773,8 +3771,6 @@ divine_law = {
 	}
 	modifiers = {
 		state_maintenance_modifier = 0.2
-		max_absolutism = 5
-		yearly_corruption = 0.05
 		tolerance_own = 1
 		global_institution_spread = -0.15
 	}

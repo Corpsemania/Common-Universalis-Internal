@@ -5124,7 +5124,19 @@ on_province_owner_change = {
 		remove_province_modifier = trade_company_pri_2
 		remove_province_modifier = trade_company_pri_3
 		remove_province_modifier = trade_company_pri_4				 
-	  
+	 
+	#AI will grant 100% autonomy to foreign provinces if governance capacity is too low
+	if = {
+		limit = { 
+			owner = { 
+				ai = yes
+				check_variable = { which = go value = 140 } 
+			} 
+			NOT = { is_core = owner }
+			has_owner_culture = no
+		}
+		add_local_autonomy = 100
+	}
 	if = { #AI Russian Immigration to steppe province
 		limit = {
 				owner = {

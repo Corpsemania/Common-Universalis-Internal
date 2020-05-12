@@ -961,13 +961,13 @@ meritocracy = {
 }
 
 corruption = {
+	administrative_efficiency = -0.5
 	global_tax_modifier = -1
 	production_efficiency = -1
 	trade_efficiency = -1
 	global_tariffs = -1
 	global_manpower_modifier = -1
 	state_maintenance_modifier = 1
-    global_autonomy = 0.2
 	global_spy_defence = -1
 	spy_offence = -1	
     global_unrest = 10

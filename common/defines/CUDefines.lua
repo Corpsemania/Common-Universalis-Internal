@@ -348,16 +348,16 @@ NDefines.NAI.DEVELOPMENT_CAP_MULT = 0
 NDefines.NAI.PEACE_ALLY_BASE_RELUCTANCE_MULT = 1.5
 NDefines.NAI.PEACE_ALLY_EXCESSIVE_DEMANDS_MULT = 1.5
 NDefines.NAI.ADVISOR_BUDGET_FRACTION = 0.15
-NDefines.NAI.CORRUPTION_BUDGET_FRACTION = 0.6
-NDefines.NAI.ARMY_BUDGET_FRACTION = 0.6 -- AI will spend a maximum of this fraction of monthly income on army maintenance (based off wartime costs)
+NDefines.NAI.CORRUPTION_BUDGET_FRACTION = 0.65
+NDefines.NAI.ARMY_BUDGET_FRACTION = 0.55 -- AI will spend a maximum of this fraction of monthly income on army maintenance (based off wartime costs)
 NDefines.NAI.NAVY_BUDGET_FRACTION = 0.5 -- AI will spend a maximum of this fraction of monthly income on navy maintenance (based off wartime costs)
 NDefines.NAI.BIGSHIP_FRACTION = 0.4	-- The proportion of big ships in an AI navy of light ships and big ships (for coastal sea countries, this fraction is mostly galleys)
-NDefines.NAI.MIN_CAV_PERCENTAGE = 10 --AI will always try to have at least this many % of their army as cav, regardless of time in the game.
+NDefines.NAI.MIN_CAV_PERCENTAGE = 25 --AI will always try to have at least this many % of their army as cav, regardless of time in the game.
 NDefines.NAI.MAX_CAV_PERCENTAGE = 100
 NDefines.NAI.DIPLOMATIC_ACTION_OFFER_CONDOTTIERI_DISABLE_VERSUS_PLAYER_ENEMIES = 1 --AI will not send condottieri against human player.
 NDefines.NAI.DRILLING_BUDGET_OF_SURPLUS = 0.1		-- Max amount of surplus to be used for drilling
 NDefines.NAI.FOG_OF_WAR_FORGET_CHANCE = 0
-NDefines.NAI.ARTILLERY_FRACTION = 0.30		
+NDefines.NAI.ARTILLERY_FRACTION = 0.25
 --NAIEnd
 
 --NGraphics

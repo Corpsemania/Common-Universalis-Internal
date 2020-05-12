@@ -13,7 +13,10 @@ highlight = {
 		add_province_modifier = {
 			name =  cu_province_highlight
 			duration = -1
-		} 	     
+		} 
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}	
 	}
 	
 	on_destroyed = {	    
@@ -38,7 +41,10 @@ remove_highlight = {
 		allowed_num_of_buildings = 1
 	}
 	on_built = {	    
-		remove_province_modifier = cu_province_highlight 	     
+		remove_province_modifier = cu_province_highlight 
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -78,7 +84,10 @@ move_capital_b = {
 				owner = { clr_country_flag = has_a_second_capital }
 			}
 			owner = { cu_calc_country_absolute_dist = yes } 
-		}	
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}		
 	}
 	
 	on_destroyed = {	    
@@ -118,7 +127,10 @@ second_capital_b = {
 				set_country_flag = has_a_second_capital
 				cu_calc_country_absolute_dist = yes 
 			}
-		}		 	     
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -155,7 +167,10 @@ remove_second_capital = {
 				clr_country_flag = has_a_second_capital
 				cu_calc_country_absolute_dist = yes 
 			}
-		}		 	     
+		}	
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -228,7 +243,10 @@ administration_way = {
 				name = cu_civilian_integration
 				duration = 3650
 			}
-		}	
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -301,7 +319,10 @@ diplomatic_way = {
 				name = cu_diplomatic_integration
 				duration = 3650
 			}
-		}	
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -380,7 +401,10 @@ military_way = {
 				name = cu_military_integration
 				duration = 3650
 			}
-		}	
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -413,7 +437,10 @@ drainage = {
 				}				
 			}
 		}
-		else = { improve_drainage_effect = yes }		 	     
+		else = { improve_drainage_effect = yes }
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -446,7 +473,10 @@ sanitation = {
 				}				
 			}
 		}
-		else = { improve_sanitation_effect = yes }		 	     
+		else = { improve_sanitation_effect = yes }
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -496,6 +526,9 @@ reclaim_wasteland = {
 				duration = -1
 			}
 		}	
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -546,7 +579,10 @@ import_food = {
 				set_province_flag = food_from@PREV
 			}			
 		}
-		owner = { hidden_effect = { set_variable = { which = cu_power value = 0 } } }		 	     
+		owner = { hidden_effect = { set_variable = { which = cu_power value = 0 } } }
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -581,7 +617,10 @@ c_import_food = {
 			ROOT = {
 				clr_province_flag = food_from@PREV
 			}
-		}		
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -822,7 +861,10 @@ terrain_improvement = {
 				name = ti_terrace
 				duration = -1
 			}
-		}	
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -890,7 +932,10 @@ cultural_assimilation = {
 			hidden_effect = {
 				cu_cultural_assimilation_growth = yes
 			} 
-		}		 	     
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -920,7 +965,10 @@ c_cultural_assimilation = {
 				set_variable = { which = cu_power value = 0 }
 				set_variable = { which = cu_prestige value = 0 }
 			}
-		}		 	     
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -991,7 +1039,10 @@ inspection_tour = {
 					duration = 1825
 				}
 			}
-		}	
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -1052,7 +1103,10 @@ benign_neglect_b = {
 				}
 				set_province_flag = cu_benign_neglect_prov			
 			}
-		}	
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -1103,7 +1157,10 @@ language_education = {
 		add_province_modifier = {
 		     name = cu_language_education
 			 duration = 7300
-		}			 	     
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -1176,7 +1233,10 @@ immigration = {
 					cu_check_cultural_assimilation = yes
 				}	
 			}
-		}	
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -1205,7 +1265,10 @@ c_immigration = {
 			hidden_effect = { 
 				set_variable = { which = cu_power value = 0 }
 			}
-		}		 	     
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -1276,7 +1339,10 @@ art_patronage = {
 					}
 				}			
 			}
-		}	
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -1365,7 +1431,10 @@ art_festival = {
 			else = {
 				owner = { add_prestige = 1 }
 			}
-		}	
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -1424,7 +1493,10 @@ minor_culture = {
 					duration = 7300
 				}
 			}						   
-		}		 	     
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -1459,7 +1531,10 @@ art_dest = {
 				}
 			}
 		}
-        set_province_flag = art_transfer_dest		 	     
+        set_province_flag = art_transfer_dest
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -1484,7 +1559,10 @@ c_art_dest = {
 		allowed_num_of_buildings = 1
 	}
 	on_built = {
-		clr_province_flag = art_transfer_dest		 	     
+		clr_province_flag = art_transfer_dest
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -1506,7 +1584,7 @@ change_goods_minaral = {
 		NOT = { has_province_flag = cu_no_minaral_flag }
 		NOT = { has_province_modifier = unexploited_copper_mine }
 		NOT = { has_province_modifier = unexploited_iron_mine }
-		NOT = { has_province_modifier = unexploited_gold_mine }
+		NOT = { has_province_modifier = unexploited_gold_mine }		
 		OR = {
 			has_terrain = hills
 			has_terrain = mountain
@@ -1517,6 +1595,7 @@ change_goods_minaral = {
 		owner = { 
 			mil_power = 75
 			treasury = 150
+			manpower = 1
 		}		
 	}
 	modifier = {		
@@ -1530,7 +1609,7 @@ change_goods_minaral = {
 					NOT = {	owner = { manpower = 1 } }
 					NOT = {	owner = { treasury = 1 } }
 				}				
-			}
+			}			
 		}
 		else = {
 			set_province_flag = cu_change_minaral_flag		
@@ -1547,13 +1626,16 @@ change_goods_minaral = {
 				add_manpower = -3
 				add_treasury = -150
 			}		
-		}	
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
-	on_destroyed = {	    
+	on_destroyed = {		
 	}
 	
-	on_obsolete = {        
+	on_obsolete = {
     }
 	ai_will_do = {
 		factor = 0		
@@ -1592,7 +1674,10 @@ claime_center = {
 				name = claimed_center_of_trade
 				duration = 3650
 			}			
-		}	
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -1686,7 +1771,10 @@ upgrade_center = {
 				add_treasury = -2000
 			}
 			add_center_of_trade_level = 1	
-		}	
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -1740,7 +1828,10 @@ theatre = {
 				change_variable = { which = cu_art_slot value = 1 }
 				cu_calc_cultural_power_effect = yes
 			}
-		}	
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -1798,7 +1889,10 @@ salon = {
 				set_variable = { which = cu_salon value = 1 } 
 				cu_calc_cultural_power_effect = yes
 			}
-		}	
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -1948,6 +2042,9 @@ museum = {
 			change_variable = { which = cu_museum_level value = 1 }
 			change_variable = { which = cu_art_slot value = 2 }
 			cu_calc_cultural_power_effect = yes
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
 		}			
 	}
 	
@@ -2004,6 +2101,9 @@ change_goods = {
 	}
 	on_built = {		
 		province_event = { id = terra.102 }
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -2041,6 +2141,9 @@ change_goods_industry = {
 	}
 	on_built = {		
 		province_event = { id = terra.110 }
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -2115,7 +2218,10 @@ art_transfer_gw = {
 					}
 				}
 			}		
-		}	
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -2190,7 +2296,10 @@ art_transfer_mp = {
 					}
 				}
 			} 
-		}	
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    
@@ -2265,7 +2374,10 @@ art_transfer_nw = {
 					}
 				}
 			} 
-		}	
+		}
+		hidden_effect = {
+			province_event = { id = terra.112 }	
+		}			
 	}
 	
 	on_destroyed = {	    

@@ -2445,56 +2445,54 @@ province_event = {
 	desc = "terra.112.d"
 	picture = GOOD_WITH_MONARCH_eventPicture
 	hidden = yes
-	
-	trigger = {
-		NOT = { has_province_flag = cu_change_planting_flag }
-		is_core = owner 
-		has_building = change_goods
-	}
-	
-	mean_time_to_happen = {
-		months = 3
-	
-	}
-
+	is_triggered_only = yes
     immediate = {
-	    remove_building = change_goods
+	    remove_building = highlight
+		remove_building = remove_highlight
+		remove_building = move_capital_b
+		remove_building = second_capital_b
+		remove_building = remove_second_capital
+		remove_building = administration_way
+		remove_building = diplomatic_way
+		remove_building = military_way
+		remove_building = drainage
+		remove_building = sanitation
+		remove_building = reclaim_wasteland
+		remove_building = import_food
+		remove_building = c_import_food
+		remove_building = terrain_improvement
+		remove_building = cultural_assimilation
+		remove_building = c_cultural_assimilation
+		remove_building = inspection_tour
+		remove_building = benign_neglect_b
+		remove_building = language_education
+		remove_building = immigration
+		remove_building = c_immigration
+		remove_building = art_patronage
+		remove_building = art_festival
+		remove_building = minor_culture
+		remove_building = art_dest
+		remove_building = c_art_dest
+		remove_building = change_goods_minaral
+		remove_building = claime_center
+		remove_building = upgrade_center
+		remove_building = theatre
+		remove_building = salon
+		remove_building = museum
+		remove_building = change_goods 
+		remove_building = change_goods_industry
+		remove_building = art_transfer_gw
+		remove_building = art_transfer_mp
+		remove_building = art_transfer_nw
+		remove_building = c_literacy_5
+		remove_building = c_literacy_10
+		remove_building = c_literacy_20
+		remove_building = c_literacy_40
+		remove_building = c_terrain
 	}
 	
 	option = {
-		name = "terra.112.c" 		
-		ai_chance = {
-		    factor = 0
-		}
+		name = "terra.112.c" 
 	}	
 }
 
-province_event = {
-	id = terra.113
-	title = "terra.113.t"
-	desc = "terra.113.d"
-	picture = GOOD_WITH_MONARCH_eventPicture
-	hidden = yes
-	
-	trigger = {
-		NOT = { has_province_flag = cu_foster_industry_flag }
-		is_core = owner 
-		has_building = change_goods_industry
-	}
-	
-	mean_time_to_happen = {
-		months = 3
-	
-	}
-
-    immediate = {
-	    remove_building = change_goods_industry
-	}
-	
-	option = {
-		name = "terra.113.c" 		
-		ai_chance = {
-		    factor = 0
-		}
-	}	
-}

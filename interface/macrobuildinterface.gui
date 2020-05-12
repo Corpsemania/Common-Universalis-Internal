@@ -1548,13 +1548,13 @@ guiTypes = {
 		
 		iconType = {
 			name = "museum_banner"
-			position = { x = 4 y = 838 }
+			position = { x = 4 y = 915 }
 			spriteType = "GFX_banner_left_5m"
 		}
 		
 		instantTextBoxType={
 			name = "title_museum"
-			position = {x = 44 y = 847 }
+			position = {x = 44 y = 924 }
 			font = "vic_18"
 			borderSize = {x = 0 y = 0}
 			maxWidth = 200
@@ -1565,37 +1565,37 @@ guiTypes = {
 		iconType ={
 			name ="edict_art_building"
 			spriteType = "GFX_macro_buildings_category_strip"
-			position = { x = 16 y = 841 }
+			position = { x = 16 y = 918 }
 			frame = 14
 		}
 		
 		checkboxType = {
 			name = "build_theatre"
-			position = { x = 9 y = 872 }
+			position = { x = 9 y = 949 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 		
 		checkboxType = {
 			name = "build_salon"
-			position = { x = 62 y = 872 }
+			position = { x = 62 y = 949 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 		
 		checkboxType = {
 			name = "build_museum"
-			position = { x = 113 y = 872 }
+			position = { x = 113 y = 949 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 
 		iconType = {
 			name = "goods_banner"
-			position = { x = 4 y = 915 }
+			position = { x = 4 y = 838 }
 			spriteType = "GFX_banner_left_5m"
 		}
 		
 		instantTextBoxType={
 			name = "title_goods"
-			position = {x = 44 y = 924 }
+			position = {x = 44 y = 847 }
 			font = "vic_18"
 			borderSize = {x = 0 y = 0}
 			maxWidth = 200
@@ -1606,31 +1606,31 @@ guiTypes = {
 		iconType ={
 			name ="edict_goods"
 			spriteType = "GFX_macro_buildings_category_strip"
-			position = { x = 16 y = 918 }
+			position = { x = 16 y = 841 }
 			frame = 13
 		}
 		
 		checkboxType = {
 			name = "build_highlight"
-			position = { x = 9 y = 949 }
+			position = { x = 9 y = 872 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 		
 		checkboxType = {
 			name = "build_remove_highlight"
-			position = { x = 61 y = 949 }
+			position = { x = 61 y = 872 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 		
 		checkboxType = {
 			name = "build_import_food"
-			position = { x = 113 y = 949 }
+			position = { x = 113 y = 872 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 		
 		checkboxType = {
 			name = "build_c_import_food"
-			position = { x = 165 y = 949 }
+			position = { x = 165 y = 872 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 		

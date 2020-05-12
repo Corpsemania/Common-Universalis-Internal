@@ -624,32 +624,27 @@ cu_province_initialization = {
 							        limit = { culture_group = dutch_g }
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { culture_group = germanic }
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { culture_group = scandinavian }
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { culture_group = british }
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = gaelic								 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
-									         culture_group = latin 
-									         NOT = { culture = neapolitan }	
-                                             NOT = { culture = sicilian }
-                                             NOT = { culture = maltese }	
-											 NOT = { culture = aragonese }
-											 NOT = { culture = catalan }
+									         culture_group = gallo_italic
 									}
 									change_variable = { which = literacy value = 3.5 }
 									add_base_manpower = -1
@@ -658,164 +653,164 @@ cu_province_initialization = {
 										    add_base_production = -1
 									}
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
-									         OR = {
-									                culture = neapolitan 
-                                                    culture = sicilian
-                                                    culture = maltese
-													culture = aragonese
-													culture = catalan
-                                             }											 
+									         culture_group = southern_french
+									}
+									change_variable = { which = literacy value = 1.5 }
+							  }
+							  else_if = {
+							        limit = { 
+									        culture_group = latin 											 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = iberian 										 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = french										 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }							  
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = south_slavic										 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									culture_group = caucasian										 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = hayani										 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = romanan									 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }							  
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = basque_g							 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = west_slavic										 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }							  
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = east_slavic								 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = baltic							 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = byzantine						 
 									}
 									change_variable = { which = literacy value = 2.5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = west_turk_g			 
 											NOT = { culture = turkmeni }														  
 									}
 									change_variable = { which = literacy value = 1.5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture = greek						 
 									}
 									change_variable = { which = literacy value = 1.4 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = turko_semitic						 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }							  
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = iranian					 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = east_asian					 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = korean_g
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture = vietnamese					 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = japanese_g					 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = hindusthani				 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = western_aryan			 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = dravidian		 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = eastern_aryan 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = cushitic
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = mande
 									}
@@ -947,171 +942,170 @@ cu_province_initialization = {
 							        limit = { culture_group = dutch_g }
 									change_variable = { which = literacy value = 4 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { culture_group = germanic }
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { culture_group = scandinavian }
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { culture_group = british }
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = gaelic								 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
-									         culture_group = latin 
-									         NOT = { culture = neapolitan }	
-                                             NOT = { culture = sicilian }
-                                             NOT = { culture = maltese }												 
+									         culture_group = gallo_italic
 									}
 									change_variable = { which = literacy value = 4.5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
-									         OR = {
-									                culture = neapolitan 
-                                                    culture = sicilian
-                                                    culture = maltese
-                                             }											 
+									         culture_group = southern_french
+									}
+									change_variable = { which = literacy value = 2.5 }
+							  }
+							  else_if = {
+							        limit = { 
+									         culture_group = latin 									 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = iberian 										 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = french										 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = finno_ugric									 
 									}
 									change_variable = { which = literacy value = 1.5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = south_slavic										 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = romanan									 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
 							  
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = basque_g							 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = west_slavic										 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }							  
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = east_slavic								 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = baltic							 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = byzantine						 
 									}
 									change_variable = { which = literacy value = 4 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = west_turk_g			 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = pontic_greek						 
 									}
 									change_variable = { which = literacy value = 1.5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = turko_semitic						 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }							  
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = iranian					 
 									}
 									change_variable = { which = literacy value = 1.5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = east_asian					 
 									}
 									change_variable = { which = literacy value = 2.5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = korean_g
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = japanese_g					 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = hindusthani				 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = western_aryan			 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = dravidian		 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = central_indic 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = mande
 									}
@@ -1253,171 +1247,170 @@ cu_province_initialization = {
 							        limit = { culture_group = dutch_g }
 									change_variable = { which = literacy value = 6 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { culture_group = germanic }
 									change_variable = { which = literacy value = 6 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { culture_group = scandinavian }
 									change_variable = { which = literacy value = 5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { culture_group = british }
 									change_variable = { which = literacy value = 5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = gaelic								 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
-									         culture_group = latin 
-									         NOT = { culture = neapolitan }	
-                                             NOT = { culture = sicilian }
-                                             NOT = { culture = maltese }												 
+									         culture_group = gallo_italic
 									}
 									change_variable = { which = literacy value = 5.5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
-									         OR = {
-									                culture = neapolitan 
-                                                    culture = sicilian
-                                                    culture = maltese
-                                             }											 
+									         culture_group = southern_french
+									}
+									change_variable = { which = literacy value = 3 }
+							  }
+							  else_if = {
+							        limit = { 
+									         culture_group = latin 										 
 									}
 									change_variable = { which = literacy value = 4 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = iberian 										 
 									}
 									change_variable = { which = literacy value = 4 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = french										 
 									}
 									change_variable = { which = literacy value = 4.5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = finno_ugric									 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = south_slavic										 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = romanan									 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
 							  
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = basque_g							 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = west_slavic										 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }							 
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = east_slavic								 
 									}
 									change_variable = { which = literacy value = 2.5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = baltic							 
 									}
 									change_variable = { which = literacy value = 2.5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = byzantine						 
 									}
 									change_variable = { which = literacy value = 4 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = west_turk_g			 
 									}
 									change_variable = { which = literacy value = 2.5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = pontic_greek						 
 									}
 									change_variable = { which = literacy value = 1.5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = turko_semitic						 
 									}
 									change_variable = { which = literacy value = 4 }
 							  }							  
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = iranian					 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = east_asian					 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = korean_g
 									}
 									change_variable = { which = literacy value = 1.5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = japanese_g					 
 									}
 									change_variable = { which = literacy value = 1.5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = hindusthani				 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = western_aryan			 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = dravidian		 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = central_indic 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = mande
 									}
@@ -1574,171 +1567,170 @@ cu_province_initialization = {
 							        limit = { culture_group = dutch_g }
 									change_variable = { which = literacy value = 9 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { culture_group = germanic }
 									change_variable = { which = literacy value = 8 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { culture_group = scandinavian }
 									change_variable = { which = literacy value = 7 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { culture_group = british }
-									change_variable = { which = literacy value = 7 }
+									change_variable = { which = literacy value = 8 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = gaelic								 
 									}
 									change_variable = { which = literacy value = 5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
-									         culture_group = latin 
-									         NOT = { culture = neapolitan }	
-                                             NOT = { culture = sicilian }
-                                             NOT = { culture = maltese }												 
+									         culture_group = gallo_italic
 									}
 									change_variable = { which = literacy value = 7.5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
-									         OR = {
-									                culture = neapolitan 
-                                                    culture = sicilian
-                                                    culture = maltese
-                                             }											 
+									         culture_group = southern_french
+									}
+									change_variable = { which = literacy value = 7 }
+							  }
+							  else_if = {
+							        limit = { 
+									         culture_group = latin 											 
 									}
 									change_variable = { which = literacy value = 6 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = iberian 										 
 									}
 									change_variable = { which = literacy value = 6 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = french										 
 									}
-									change_variable = { which = literacy value = 7 }
+									change_variable = { which = literacy value = 8 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = finno_ugric									 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = south_slavic										 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = romanan									 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
 							  
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = basque_g							 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = west_slavic										 
 									}
 									change_variable = { which = literacy value = 7 }
 							  }							  
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = east_slavic								 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = baltic							 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = byzantine						 
 									}
 									change_variable = { which = literacy value = 5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = west_turk_g			 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = pontic_greek						 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = turko_semitic						 
 									}
 									change_variable = { which = literacy value = 5 }
 							  }							  
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = iranian					 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = east_asian					 
 									}
 									change_variable = { which = literacy value = 4 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = korean_g
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = japanese_g					 
 									}
 									change_variable = { which = literacy value = 2.5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = hindusthani				 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = western_aryan			 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = dravidian		 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = central_indic 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = mande
 									}
@@ -1914,171 +1906,170 @@ cu_province_initialization = {
 							        limit = { culture_group = dutch_g }
 									change_variable = { which = literacy value = 14 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { culture_group = germanic }
 									change_variable = { which = literacy value = 10 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { culture_group = scandinavian }
 									change_variable = { which = literacy value = 12 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { culture_group = british }
 									change_variable = { which = literacy value = 14 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = gaelic								 
 									}
 									change_variable = { which = literacy value = 7 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
-									         culture_group = latin 
-									         NOT = { culture = neapolitan }	
-                                             NOT = { culture = sicilian }
-                                             NOT = { culture = maltese }												 
+									         culture_group = gallo_italic
 									}
 									change_variable = { which = literacy value = 10.5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
-									         OR = {
-									                culture = neapolitan 
-                                                    culture = sicilian
-                                                    culture = maltese
-                                             }											 
+									         culture_group = southern_french
+									}
+									change_variable = { which = literacy value = 12 }
+							  }
+							  else_if = {
+							        limit = { 
+									         culture_group = latin 											 
 									}
 									change_variable = { which = literacy value = 7 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = iberian 										 
 									}
 									change_variable = { which = literacy value = 9 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = french										 
 									}
 									change_variable = { which = literacy value = 16 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = finno_ugric									 
 									}
 									change_variable = { which = literacy value = 5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = south_slavic										 
 									}
 									change_variable = { which = literacy value = 6 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = romanan									 
 									}
 									change_variable = { which = literacy value = 5 }
 							  }
 							  
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = basque_g							 
 									}
 									change_variable = { which = literacy value = 5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = west_slavic										 
 									}
 									change_variable = { which = literacy value = 9 }
 							  }							  
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = east_slavic								 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = baltic							 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = byzantine						 
 									}
 									change_variable = { which = literacy value = 6 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = west_turk_g			 
 									}
 									change_variable = { which = literacy value = 4 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = pontic_greek						 
 									}
 									change_variable = { which = literacy value = 4 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = turko_semitic						 
 									}
 									change_variable = { which = literacy value = 6 }
 							  }							  
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = iranian					 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = east_asian					 
 									}
 									change_variable = { which = literacy value = 4 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = korean_g
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = japanese_g					 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = hindusthani				 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = western_aryan			 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = dravidian		 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = central_indic 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = mande
 									}
@@ -2270,171 +2261,170 @@ cu_province_initialization = {
 							        limit = { culture_group = dutch_g }
 									change_variable = { which = literacy value = 18 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { culture_group = germanic }
 									change_variable = { which = literacy value = 18 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { culture_group = scandinavian }
 									change_variable = { which = literacy value = 19 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { culture_group = british }
 									change_variable = { which = literacy value = 19 }
 							  }
-							  if = {
+							  else_if = {
+							        limit = { 
+									         culture_group = gallo_italic
+									}
+									change_variable = { which = literacy value = 15.5 }
+							  }
+							  else_if = {
+							        limit = { 
+									         culture_group = southern_french
+									}
+									change_variable = { which = literacy value = 15 }
+							  }
+							  else_if = {
 							        limit = { 
 									         culture_group = gaelic								 
 									}
 									change_variable = { which = literacy value = 10 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
-									         culture_group = latin 
-									         NOT = { culture = neapolitan }	
-                                             NOT = { culture = sicilian }
-                                             NOT = { culture = maltese }												 
-									}
-									change_variable = { which = literacy value = 15.5 }
-							  }
-							  if = {
-							        limit = { 
-									         OR = {
-									                culture = neapolitan 
-                                                    culture = sicilian
-                                                    culture = maltese
-                                             }											 
+									         culture_group = latin 									 
 									}
 									change_variable = { which = literacy value = 9 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = iberian 										 
 									}
 									change_variable = { which = literacy value = 13 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = french										 
 									}
 									change_variable = { which = literacy value = 20 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = finno_ugric									 
 									}
 									change_variable = { which = literacy value = 8 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = south_slavic										 
 									}
 									change_variable = { which = literacy value = 6 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = romanan									 
 									}
 									change_variable = { which = literacy value = 6 }
 							  }
 							  
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = basque_g							 
 									}
 									change_variable = { which = literacy value = 5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = west_slavic										 
 									}
 									change_variable = { which = literacy value = 12 }
 							  }							  
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = east_slavic								 
 									}
 									change_variable = { which = literacy value = 7 } #Peter's reform
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = baltic							 
 									}
 									change_variable = { which = literacy value = 6 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = byzantine						 
 									}
 									change_variable = { which = literacy value = 7 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = west_turk_g			 
 									}
 									change_variable = { which = literacy value = 4.5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = pontic_greek						 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = turko_semitic						 
 									}
 									change_variable = { which = literacy value = 7 }
 							  }							  
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = iranian					 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = east_asian					 
 									}
 									change_variable = { which = literacy value = 5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = korean_g
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = japanese_g					 
 									}
 									change_variable = { which = literacy value = 4 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = hindusthani				 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = western_aryan			 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = dravidian		 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = central_indic 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = mande
 									}
@@ -2642,171 +2632,170 @@ cu_province_initialization = {
 							        limit = { culture_group = dutch_g }
 									change_variable = { which = literacy value = 24 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { culture_group = germanic }
 									change_variable = { which = literacy value = 27 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { culture_group = scandinavian }
 									change_variable = { which = literacy value = 27 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { culture_group = british }
 									change_variable = { which = literacy value = 29 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = gaelic								 
 									}
 									change_variable = { which = literacy value = 11 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
-									         culture_group = latin 
-									         NOT = { culture = neapolitan }	
-                                             NOT = { culture = sicilian }
-                                             NOT = { culture = maltese }												 
+									         culture_group = gallo_italic
 									}
 									change_variable = { which = literacy value = 19.5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
-									         OR = {
-									                culture = neapolitan 
-                                                    culture = sicilian
-                                                    culture = maltese
-                                             }											 
+									         culture_group = southern_french
+									}
+									change_variable = { which = literacy value = 20 }
+							  }
+							  else_if = {
+							        limit = { 
+									         culture_group = latin 									 
 									}
 									change_variable = { which = literacy value = 12 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = iberian 										 
 									}
 									change_variable = { which = literacy value = 14 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = french										 
 									}
 									change_variable = { which = literacy value = 24 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = finno_ugric									 
 									}
 									change_variable = { which = literacy value = 12 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = south_slavic										 
 									}
 									change_variable = { which = literacy value = 8 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = romanan									 
 									}
 									change_variable = { which = literacy value = 7 }
 							  }
 							  
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = basque_g							 
 									}
 									change_variable = { which = literacy value = 10 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = west_slavic										 
 									}
 									change_variable = { which = literacy value = 14 }
 							  }							  
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = east_slavic								 
 									}
 									change_variable = { which = literacy value = 9 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = baltic							 
 									}
 									change_variable = { which = literacy value = 9 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = byzantine						 
 									}
 									change_variable = { which = literacy value = 8 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = west_turk_g			 
 									}
 									change_variable = { which = literacy value = 5 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = pontic_greek						 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = turko_semitic						 
 									}
 									change_variable = { which = literacy value = 8 }
 							  }							  
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = iranian					 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = east_asian					 
 									}
 									change_variable = { which = literacy value = 4 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = korean_g
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = japanese_g					 
 									}
 									change_variable = { which = literacy value = 6 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = hindusthani				 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = western_aryan			 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = dravidian		 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = central_indic 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
-							  if = {
+							  else_if = {
 							        limit = { 
 									         culture_group = mande
 									}
