@@ -602,7 +602,7 @@ settled_horde_ideas12 = {
 		siege_ability = 0.10
 	}
                 custom_max_states = {
-		max_states = 3		
+		state_maintenance_modifier = -0.10	
 	}
 }
 
@@ -649,7 +649,7 @@ settled_horde_ideas13 = {
 		siege_ability = 0.10
 	}
                 custom_max_states = {
-		max_states = 3		
+		state_maintenance_modifier = -0.10	
 	}
 }
 
@@ -698,7 +698,7 @@ settled_horde_ideas14 = {
 		siege_ability = 0.10
 	}
                 custom_max_states = {
-		max_states = 3		
+		state_maintenance_modifier = -0.10	
 	}
 }
 
@@ -746,7 +746,7 @@ settled_horde_ideas15 = {
 		siege_ability = 0.10
 	}
                 custom_max_states = {
-		max_states = 3		
+		state_maintenance_modifier = -0.10	
 	}
 }
 
@@ -789,7 +789,7 @@ settled_horde_ideas16 = {
 		siege_ability = 0.10
 	}
                 custom_max_states = {
-		max_states = 3		
+		state_maintenance_modifier = -0.10	
 	}
 }
 
