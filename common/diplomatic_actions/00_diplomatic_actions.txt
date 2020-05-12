@@ -423,6 +423,34 @@ declarewar = {
 		    NOT = { has_global_flag = celestial_peace_enforced }
 		}
 	}
+	condition = { #Prevent AI from over expanding too much
+		tooltip = AI_EXPANSION_LIMIT
+		potential = {
+                ai = yes
+		}
+		allow = {
+				OR = {
+					FROM = { ai = no }
+					FROM = {  # Coalition
+                                         coalition_target = ROOT
+                                         NOT = { ROOT = { is_in_coalition_war = yes } }
+		                                 num_of_coalition_members = 3
+                    }
+					has_opinion_modifier = {
+			                        modifier = insulted
+			                        who = FROM
+		            }
+					OR = {
+                                               is_rival = FROM
+                                               FROM = {
+                                                        is_rival = PREV
+                                               }
+                    }
+                    is_revolution_target = yes # Revolution
+					NOT = { check_variable = { which = go value = 130 } }	
+				}
+		}
+	}
 }
 
 royal_marriage = {

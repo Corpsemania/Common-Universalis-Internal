@@ -239,7 +239,7 @@ country_event = {
 	
 	option = {			# We have lost our foothold in France
 		name = "flavor_eng.EVTOPTA9104"
-		ai_chance = { factor = 80 }
+		ai_chance = { factor = 90 }
 		add_stability_or_adm_power = yes
 		every_core_province = {
 			limit = {
@@ -257,7 +257,7 @@ country_event = {
 	}
 	option = {		# We will never give this up!
 		name = "flavor_eng.EVTOPTB9104"
-		ai_chance = { factor = 20 }
+		ai_chance = { factor = 10 }
 		cu_change_stability_point_n75 = yes
 		FRA = {
 			add_opinion = {

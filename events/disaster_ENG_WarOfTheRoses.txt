@@ -866,6 +866,10 @@ country_event = {
 		add_stability_or_adm_power = yes
 		add_prestige = 20
 		hidden_effect = {
+			every_owned_province = {
+				limit = { culture = english }
+				add_local_autonomy = -20
+			}
 			if = {
 				limit = {
 					has_country_flag = supports_house_of_york

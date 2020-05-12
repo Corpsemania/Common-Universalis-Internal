@@ -4332,7 +4332,6 @@ eng_grand_charter = {
 	modifiers = {
 		legitimacy = 0.5
 		global_unrest = -1 
-        global_autonomy = 0.01	
 		max_absolutism = -10
 		yearly_absolutism = 0.1
 	}

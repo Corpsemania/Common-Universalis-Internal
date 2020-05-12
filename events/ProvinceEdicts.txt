@@ -3095,6 +3095,10 @@ province_event = {
 				cu_is_terr_trigger = yes
 			}
 			modifier = {
+				factor = 0.2
+				owner = { culture_group = PREV }
+			}
+			modifier = {
 				factor = 2
 				development = 20
 			}

@@ -1969,4 +1969,5 @@
  unify_italian_culture_condition: "All Italian provinces have at least §Y20.0%§! Literacy and §Y90.0%§! Administrative Integrity"
  unify_italian_culture_tooltip_north: "All §YLatin§! cultures will be changed to §YGallo-Italic§! culture group.\nAll Italian Provinces gain §R+5.0§! Unrest and lose §R20.0§! Administrative Integrity due to social disorder."
  unify_italian_culture_tooltip_south: "All §YGallo-Italic§! cultures will be changed to §YLatin§! culture group.\nAll Italian Provinces gain §R+5.0§! Unrest and lose §R20.0§! Administrative Integrity due to social disorder."
+ AI_EXPANSION_LIMIT: "AI EXPANSION LIMIT"
  
