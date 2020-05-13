@@ -474,22 +474,22 @@ cu_upgrade_ship = {
 	if = {
 		limit = { cu_can_update_heavy_ship = yes }
 		set_country_flag = cu_updating_heavy_ship
-		country_event = { id = ideagroups.4936 }
+		#country_event = { id = ideagroups.4936 }
 	}
 	if = {
 		limit = { cu_can_update_light_ship = yes }
 		set_country_flag = cu_updating_light_ship
-		country_event = { id = ideagroups.4937 }
+		#country_event = { id = ideagroups.4937 }
 	}
 	if = {
 		limit = { cu_can_update_galley = yes }
 		set_country_flag = cu_updating_galley
-		country_event = { id = ideagroups.4938 }
+		#country_event = { id = ideagroups.4938 }
 	}
 	if = {
 		limit = { cu_can_update_transport = yes }
 		set_country_flag = cu_updating_transport
-		country_event = { id = ideagroups.4939 }
+		#country_event = { id = ideagroups.4939 }
 	}
 	cu_upgrade_ship_check_tech = yes
 }
@@ -510,6 +510,30 @@ cu_upgrade_ship_check_tech = {
 				limit = { ai = no }
 				cu_calc_tech_year_modifier = yes
 		}
+	}
+	else_if = {
+		limit = {
+			has_country_flag = cu_updating_heavy_ship
+		}
+		country_event = { id = ideagroups.4936 }
+	}
+	else_if = {
+		limit = {
+			has_country_flag = cu_updating_light_ship
+		}
+		country_event = { id = ideagroups.4937 }
+	}
+	else_if = {
+		limit = {
+			has_country_flag = cu_updating_galley
+		}
+		country_event = { id = ideagroups.4938 }
+	}
+	else_if = {
+		limit = {
+			has_country_flag = cu_updating_transport
+		}
+		country_event = { id = ideagroups.4939 }
 	}
 }
 

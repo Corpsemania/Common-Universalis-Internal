@@ -10222,7 +10222,31 @@ country_event = {
 		}
 	}
 	option = {
+        name = "ideagroups.4936.n"	
+		trigger = {
+			AND = {
+					NOT = { navy_tradition = 40 }
+					NOT = { naval_ideas = 3 }
+			}
+		}
+		custom_tooltip = ideagroups.4936.nt
+		clr_country_flag = cu_updating_heavy_ship
+		hidden_effect = {
+			cu_upgrade_ship_check_tech = yes
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
         name = "ideagroups.4936.a"	
+		trigger = {
+			#treasury = 200
+			OR = {
+				navy_tradition = 40
+				naval_ideas = 3
+			}
+		}
 		custom_tooltip = ideagroups.4936.at
 		set_country_flag = heavyship_mod_f
 		add_treasury = -200
@@ -10249,8 +10273,16 @@ country_event = {
 			}
 		}
 	}
+	
 	option = {
         name = "ideagroups.4936.b"	
+		trigger = {
+			#treasury = 200
+			OR = {
+				navy_tradition = 40
+				naval_ideas = 3
+			}
+		}
 		custom_tooltip = ideagroups.4936.bt
 		set_country_flag = heavyship_mod_h
 		add_treasury = -200
@@ -10279,6 +10311,13 @@ country_event = {
 	}
 	option = {
         name = "ideagroups.4936.c"	
+		trigger = {
+			#treasury = 200
+			OR = {
+				navy_tradition = 40
+				naval_ideas = 3
+			}
+		}
 		custom_tooltip = ideagroups.4936.ct
 		set_country_flag = heavyship_mod_s
 		add_treasury = -200
@@ -10307,6 +10346,13 @@ country_event = {
 	}
 	option = {
         name = "ideagroups.4936.d1"	
+		trigger = {
+			#treasury = 200
+			OR = {
+				navy_tradition = 40
+				naval_ideas = 3
+			}
+		}
 		clr_country_flag = cu_updating_heavy_ship
 		hidden_effect = {
 			cu_upgrade_ship_check_tech = yes
@@ -10333,7 +10379,31 @@ country_event = {
 		}
 	}
 	option = {
+        name = "ideagroups.4937.n"	
+		trigger = {
+			AND = {
+					NOT = { navy_tradition = 30 }
+					NOT = { naval_ideas = 3 }
+				}
+		}
+		custom_tooltip = ideagroups.4937.nt
+		clr_country_flag = cu_updating_light_ship
+		hidden_effect = {
+			cu_upgrade_ship_check_tech = yes
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
         name = "ideagroups.4937.a"	
+		trigger = {
+			#treasury = 100
+			OR = {
+				navy_tradition = 30
+				naval_ideas = 3
+			}
+		}
 		custom_tooltip = ideagroups.4937.at
 		set_country_flag = lightship_mod_f
 		add_treasury = -100
@@ -10361,7 +10431,14 @@ country_event = {
 		}
 	}
 	option = {
-        name = "ideagroups.4937.b"	
+        name = "ideagroups.4937.b"
+		trigger = {
+			#treasury = 100
+			OR = {
+				navy_tradition = 30
+				naval_ideas = 3
+			}
+		}		
 		custom_tooltip = ideagroups.4937.bt
 		set_country_flag = lightship_mod_h
 		add_treasury = -100
@@ -10390,6 +10467,13 @@ country_event = {
 	}
 	option = {
         name = "ideagroups.4937.c"	
+		trigger = {
+			#treasury = 100
+			OR = {
+				navy_tradition = 30
+				naval_ideas = 3
+			}
+		}	
 		custom_tooltip = ideagroups.4937.ct
 		set_country_flag = lightship_mod_s
 		add_treasury = -100
@@ -10418,6 +10502,13 @@ country_event = {
 	}
 	option = {
         name = "ideagroups.4937.d1"	
+		trigger = {
+			#treasury = 100
+			OR = {
+				navy_tradition = 30
+				naval_ideas = 3
+			}
+		}	
 		custom_tooltip = ideagroups.4937.d1t
 		set_country_flag = lightship_mod_t
 		add_treasury = -100
@@ -10446,6 +10537,13 @@ country_event = {
 	}
 	option = {
         name = "ideagroups.4937.e"	
+		trigger = {
+			#treasury = 100
+			OR = {
+				navy_tradition = 30
+				naval_ideas = 3
+			}
+		}
 		clr_country_flag = cu_updating_light_ship
 		hidden_effect = {
 			cu_upgrade_ship_check_tech = yes
@@ -10471,7 +10569,31 @@ country_event = {
 		}
 	}
 	option = {
+        name = "ideagroups.4938.n"	
+		trigger = {
+			AND = {
+					NOT = { navy_tradition = 20 }
+					NOT = { naval_ideas = 3 }
+				}
+		}
+		custom_tooltip = ideagroups.4938.nt
+		clr_country_flag = cu_updating_galley
+		hidden_effect = {
+			cu_upgrade_ship_check_tech = yes
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
         name = "ideagroups.4938.a"	
+		trigger = {
+			#treasury = 80
+			OR = {
+				navy_tradition = 20
+				naval_ideas = 3
+			}
+		}	
 		custom_tooltip = ideagroups.4938.at
 		set_country_flag = galley_mod_f
 		add_treasury = -80
@@ -10500,6 +10622,13 @@ country_event = {
 	}
 	option = {
         name = "ideagroups.4938.b"	
+		trigger = {
+			#treasury = 80
+			OR = {
+				navy_tradition = 20
+				naval_ideas = 3
+			}
+		}	
 		custom_tooltip = ideagroups.4938.bt
 		set_country_flag = galley_mod_h
 		add_treasury = -80
@@ -10528,6 +10657,13 @@ country_event = {
 	}
 	option = {
         name = "ideagroups.4938.c"	
+		trigger = {
+			#treasury = 80
+			OR = {
+				navy_tradition = 20
+				naval_ideas = 3
+			}
+		}	
 		custom_tooltip = ideagroups.4938.ct
 		set_country_flag = galley_mod_s
 		add_treasury = -80
@@ -10556,6 +10692,13 @@ country_event = {
 	}
 	option = {
         name = "ideagroups.4938.d1"	
+		trigger = {
+			#treasury = 80
+			OR = {
+				navy_tradition = 20
+				naval_ideas = 3
+			}
+		}	
 		clr_country_flag = cu_updating_galley
 		hidden_effect = {
 			cu_upgrade_ship_check_tech = yes
@@ -10581,7 +10724,31 @@ country_event = {
 		}
 	}
 	option = {
+        name = "ideagroups.4939.n"	
+		trigger = {
+			AND = {
+					NOT = { navy_tradition = 30 }
+					NOT = { naval_ideas = 3 }
+				}
+		}
+		custom_tooltip = ideagroups.4939.nt
+		clr_country_flag = cu_updating_transport
+		hidden_effect = {
+			cu_upgrade_ship_check_tech = yes
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+	option = {
         name = "ideagroups.4939.a"	
+		trigger = {
+			#treasury = 100
+			OR = {
+				navy_tradition = 30
+				naval_ideas = 3
+			}
+		}	
 		custom_tooltip = ideagroups.4939.at
 		set_country_flag = transport_mod_t
 		add_treasury = -100
@@ -10610,6 +10777,13 @@ country_event = {
 	}
 	option = {
         name = "ideagroups.4939.b"	
+		trigger = {
+			#treasury = 100
+			OR = {
+				navy_tradition = 30
+				naval_ideas = 3
+			}
+		}
 		custom_tooltip = ideagroups.4939.bt
 		set_country_flag = transport_mod_h
 		add_treasury = -100
@@ -10638,6 +10812,13 @@ country_event = {
 	}
 	option = {
         name = "ideagroups.4939.c"	
+		trigger = {
+			#treasury = 100
+			OR = {
+				navy_tradition = 30
+				naval_ideas = 3
+			}
+		}
 		custom_tooltip = ideagroups.4939.ct
 		set_country_flag = transport_mod_s
 		add_treasury = -100
@@ -10666,6 +10847,13 @@ country_event = {
 	}
 	option = {
         name = "ideagroups.4939.d1"	
+		trigger = {
+			#treasury = 100
+			OR = {
+				navy_tradition = 30
+				naval_ideas = 3
+			}
+		}
 		clr_country_flag = cu_updating_transport
 		hidden_effect = {
 			cu_upgrade_ship_check_tech = yes

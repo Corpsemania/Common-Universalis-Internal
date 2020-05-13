@@ -74,8 +74,7 @@ country_event = {
 	option = {
 		name = "EVTOPTA9451"
 		kill_heir = yes
-		change_variable = { which = cu_var1 value = -50 }
-		cu_change_stability_point = yes
+		cu_change_stability_point_n50 = yes
 		random_owned_province = {
 			limit = {
 				NOT = {
@@ -91,8 +90,7 @@ country_event = {
 	option = {
 		name = "EVTOPTB9451"
 		kill_heir = yes
-		change_variable = { which = cu_var1 value = -50 }
-		cu_change_stability_point = yes
+		cu_change_stability_point_n50 = yes
 		define_heir = {
 			dynasty = ROOT
 			claim = 30
@@ -133,8 +131,7 @@ country_event = {
 	option = {
 		name = "EVTOPTA9452"
 		kill_ruler = yes
-		change_variable = { which = cu_var1 value = -50 }
-		cu_change_stability_point = yes
+		cu_change_stability_point_n50 = yes
 		add_country_modifier = {
 			name = "illegitimate_ruler"
 			duration = 1825
@@ -144,8 +141,7 @@ country_event = {
 	option = {
 		name = "EVTOPTB9452"
 		kill_heir = yes
-		change_variable = { which = cu_var1 value = -50 }
-		cu_change_stability_point = yes
+		cu_change_stability_point_n50 = yes
 	}
 }
 
@@ -403,8 +399,7 @@ country_event = {
 		random_list = {
 			50 = { 
 				kill_heir = yes 
-				change_variable = { which = cu_var1 value = -50 }
-				cu_change_stability_point = yes
+				cu_change_stability_point_n50 = yes
 			}
 			50 = {
 				add_legitimacy = 5
@@ -418,8 +413,7 @@ country_event = {
 		random_list = {
 			75 = { 
 				kill_heir = yes 
-				change_variable = { which = cu_var1 value = -50 }
-				cu_change_stability_point = yes
+				cu_change_stability_point_n50 = yes
 			}
 			25 = {
 				add_legitimacy = 30
@@ -518,8 +512,7 @@ country_event = {
 			45 = { add_legitimacy = 20}
 			5 = { 
 				kill_heir = yes 
-				change_variable = { which = cu_var1 value = -50 }
-				cu_change_stability_point = yes
+				cu_change_stability_point_n50 = yes
 			}
 		}
 	}
@@ -555,14 +548,12 @@ country_event = {
 	option = {
 		name = "EVTOPTA9459"
 		kill_heir = yes
-		change_variable = { which = cu_var1 value = -100 }
-		cu_change_stability_point = yes
+		cu_change_stability_point_n100 = yes
 	}
 	option = {
 		name = "EVTOPTB9459"
 		kill_heir = yes
-		change_variable = { which = cu_var1 value = -50 }
-		cu_change_stability_point = yes
+		cu_change_stability_point_n50 = yes
 		add_prestige = -10
 	}
 }
@@ -628,8 +619,7 @@ country_event = {
 		name = "EVTOPTA9462"
 		ai_chance = { factor = 100 }
 		add_adm_power = -10
-		change_variable = { which = cu_var1 value = -25 }
-		cu_change_stability_point = yes
+		cu_change_stability_point_n25 = yes
 	}
 	option = {
 		name = "EVTOPTB9462"
@@ -637,8 +627,7 @@ country_event = {
 		add_government_reform = becomes_republic_reform
 		add_government_reform = noble_council
 		kill_ruler = yes
-		change_variable = { which = cu_var1 value = -300 }
-		cu_change_stability_point = yes
+		cu_change_stability_point_n150 = yes
 	}
 }
 
@@ -736,13 +725,11 @@ country_event = {
 			change_statists_vs_orangists = 1
 		}
 		
-		change_variable = { which = cu_var1 value = -150 }
-		cu_change_stability_point = yes
+		cu_change_stability_point_n150 = yes
 	}
 	option = {
 		name = "EVTOPTB9468"
-		change_variable = { which = cu_var1 value = -75 }
-		cu_change_stability_point = yes
+		cu_change_stability_point_n50 = yes
 		add_heir_claim = 30
 	}
 }
@@ -1302,17 +1289,16 @@ country_event = {
 				NOT = { stability = 3 }
 			}
 			random_list = {
-				10 = { 
-					change_variable = { which = cu_var1 value = 50 }
+				33 = { 
+					cu_change_stability_point_n50 = yes
 				}
-				10 = { 
-					change_variable = { which = cu_var1 value = 100 }
+				33 = { 
+					cu_change_stability_point_n100 = yes
 				}
-				10 = { 
-					change_variable = { which = cu_var1 value = 150 }
+				33 = { 
+					cu_change_stability_point_n150 = yes
 				}
 			}
-			cu_change_stability_point = yes
 		}
 	}
 }
@@ -1336,8 +1322,7 @@ country_event = {
 				kill_ruler = yes
 			}
 			10 = {
-				change_variable = { which = cu_var1 value = -100 }
-				cu_change_stability_point = yes
+				cu_change_stability_point_n100 = yes
 			}
 		}
 	}
