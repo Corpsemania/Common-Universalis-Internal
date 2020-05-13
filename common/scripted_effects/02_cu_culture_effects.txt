@@ -1663,10 +1663,9 @@ cu_cultural_assimilation_growth = {
 	cu_check_cultural_assimilation = yes			 
 }
 
-cu_do_immigration = {
-        owner = {
-	         random_owned_province = {
-			         limit = {
+cu_pick_emmigration_prov = {
+			random_owned_province = {
+					limit = {
 					       has_owner_culture = yes
 						   base_manpower = 2
 						   check_variable = { which = food_sur value = 6 }
@@ -1674,9 +1673,51 @@ cu_do_immigration = {
 					                    cu_not_terr_trigger = yes
 							            is_overseas = no
 					        }
+							NOT = { has_province_modifier = recent_emmigration }
 					 }
+					 save_event_target_as = force_emmigration_prov
+					 owner = { set_country_flag = force_emmigration_prov_found }
+				
+			}
+	         every_owned_province = {
+			         limit = {
+					       has_owner_culture = yes
+						   base_manpower = 2 #Find the province with highest agriculture
+						   check_variable = { which = food_sur value = 6 }
+						   OR = {
+					                    cu_not_terr_trigger = yes
+							            is_overseas = no
+					        }
+							NOT = { has_province_modifier = recent_emmigration }
+					 }
+					 cu_random_number = yes
+					 if = {
+						limit = { base_manpower = force_emmigration_prov } #Province with higher agriculture has a higher chance to be picked
+						if = {
+							limit = { check_variable = { which = cu_rd value = 33 } }
+							save_event_target_as = force_emmigration_prov
+						}
+					 }
+					 else_if = {
+						limit = { check_variable = { which = cu_rd value = 50 } }
+						save_event_target_as = force_emmigration_prov
+					 }
+			 }
+}
+
+cu_do_immigration = {
+        owner = {
+			 cu_pick_emmigration_prov = yes
+			 set_variable = { which = cu_var1 value = 0 }
+			 if = {
+				limit = {  has_country_flag = force_emmigration_prov_found } 
+				clr_country_flag = force_emmigration_prov_found
+				force_emmigration_prov = {
 					 add_base_manpower = -1
-					 owner = { set_variable = { which = cu_var1 value = 100 } }
+					 add_province_modifier = {
+						  name = recent_emmigration
+						  duration = 3650
+					 }
 					 #Estimate food surplus
 					set_variable = { which = food_sup value = 0 }
 					set_variable = { which = food_con value = 0 }
@@ -1692,41 +1733,42 @@ cu_do_immigration = {
 							value = development
 					}
 					subtract_variable = { which = food_sur which = food_con	}
-					
+				}
+				change_variable = { which = cu_var1 value = 100 }
+				
 			 }
 			 if = {
 			       limit = { PREV = { has_state_edict = edict_resettlement_focus } }
 				   
-				   random_owned_province = {
-						 limit = {
-							   has_owner_culture = yes
-							   base_manpower = 2
-							   check_variable = { which = food_sur value = 6 }
-							   OR = {
-											cu_not_terr_trigger = yes
-											is_overseas = no
-								}
-						 }
-						 add_base_manpower = -1
-						 owner = { change_variable = { which = cu_var1 value = 100 } }
-						 #Estimate food surplus
-						set_variable = { which = food_sup value = 0 }
-						set_variable = { which = food_con value = 0 }
-						
-						export_to_variable = {
-								which = food_sup
-								value = base_manpower
+				   cu_pick_emmigration_prov = yes
+				   if = {
+						limit = {  has_country_flag = force_emmigration_prov_found } 
+						clr_country_flag = force_emmigration_prov_found
+						force_emmigration_prov = {
+							 add_base_manpower = -1
+							 add_province_modifier = {
+								  name = recent_emmigration
+								  duration = 3650
+							 }
+							 #Estimate food surplus
+							set_variable = { which = food_sup value = 0 }
+							set_variable = { which = food_con value = 0 }
+							
+							export_to_variable = {
+									which = food_sup
+									value = base_manpower
+							}
+							multiply_variable = { which = food_sup value = 4 }
+							set_variable = { which = food_sur which = food_sup }
+							export_to_variable = {
+									which = food_con
+									value = development
+							}
+							subtract_variable = { which = food_sur which = food_con	}
 						}
-						multiply_variable = { which = food_sup value = 4 }
-						set_variable = { which = food_sur which = food_sup }
-						export_to_variable = {
-								which = food_con
-								value = development
-						}
-						subtract_variable = { which = food_sur which = food_con	}
-						
+						change_variable = { which = cu_var1 value = 100 }
+					
 				 }
-				   
 			 }
 			 
 	    }

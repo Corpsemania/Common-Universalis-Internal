@@ -20,3 +20,6 @@
  cuglobal.9.a: "OK."
  cu_old_version_title: "Compatibility Fix"
  cu_old_version_desc: "The save you load is from an old version of CU, or from vanilla game, which may cause compatibility issues. Use this decision to find and fix any potential problems."
+ cu_test.1.t: "Random Seed"
+ cu_test.1.d: "Current Random Number: [Root.cu_rd.GetValue]\nCurrent Random Seed: [1.cu_rd1.GetValue]"
+ cu_test.1.a: "Ok."

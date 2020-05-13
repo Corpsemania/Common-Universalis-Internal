@@ -29,10 +29,12 @@ on_startup = {
 		    set_province_flag = cu_global_variable_prov
 			set_variable = { which = cu_year value = 0 } #Current Year
 			cu_initial_year = yes
+			cu_initialize_random_number = yes #Generate initial random seed
 			
 		}
 		every_country = {
 				cu_correct_year = yes
+				1 = { PREV = { set_variable = { which = cu_rd which = PREV } } }
 		        set_variable = { which = cabinet_ca value = 60 } #Default value of min administrative integrity for cabinet to invest in a province.
 		        set_variable = { which = literacy value = 0 } #Literacy
 				set_variable = { which = num_pp value = 0 } #Province of Accepted Cultures

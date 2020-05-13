@@ -28,36 +28,90 @@ cu_sqrt = {
 
 
 
-#Create a random number between 0-100 as cu_rd
+#Create a random number between 0-100 as cu_rd in any scope
+#cu_rd can be modified to any other value
+#cu_rd1 is the random seed saved as variable of province 1, and changes every time cu_rd is read. Do not change it manually.
+#cu_rd2 is a temperal variable used to generate new cu_rd, we don't use cu_var1 here for modder's convenience
+#cu_rd does not change via save&load, thus discourage players to use S&L to avoid bad incident
+
+#Used by province 1
+cu_initialize_random_number = {
+	set_variable = { which = cu_rd value = 0 }
+	set_variable = { which = cu_var1 value = 0 }
+	while = {
+		limit = { NOT = { check_variable = { which = cu_var1 value = 2 } } }
+		multiply_variable = { which = cu_rd value = 10 }
+		random_list = {
+			10 = { change_variable = { which = cu_rd value = 1 } }
+			10 = { change_variable = { which = cu_rd value = 2 } }
+			10 = { change_variable = { which = cu_rd value = 3 } }
+			10 = { change_variable = { which = cu_rd value = 4 } }
+			10 = { change_variable = { which = cu_rd value = 5 } }
+			10 = { change_variable = { which = cu_rd value = 6 } }
+			10 = { change_variable = { which = cu_rd value = 7 } }
+			10 = { change_variable = { which = cu_rd value = 8 } }
+			10 = { change_variable = { which = cu_rd value = 9 } }
+		}
+	}
+	set_variable = { which = cu_rd1 value = cu_rd }
+}
+
+#new seed = ( total development of human nation * old seed + 50 ) Mod 100 
+cu_change_random_number = {
+	1 = {
+		set_variable = { which = cu_rd2 value = 0 }
+		random_country = {
+			limit = { 
+				total_development = 10 
+				ai = no
+			} 
+			PREV = {
+				export_to_variable = {
+					which = cu_rd2
+					value = total_development
+					who = PREV
+				}
+			}
+		}
+		while = {
+			limit = { check_variable = { which = cu_rd2 value = 100 } }
+			divide_variable = { which = cu_rd2 value = 10 } #Prevent potential overflow
+		}
+		multiply_variable = { which = cu_rd1 which = cu_rd2 }
+		change_variable = { which = cu_rd1 value = 50 }
+		while = {
+			limit = { check_variable = { which = cu_rd1 value = 10000 } }
+			subtract_variable = { which = cu_rd1 value = 10000 } #Prevent potential overflow
+		}
+		while = {
+			limit = { check_variable = { which = cu_rd1 value = 1000 } }
+			subtract_variable = { which = cu_rd1 value = 1000 } #Prevent potential overflow
+		}
+		while = {
+			limit = { check_variable = { which = cu_rd1 value = 100 } }
+			subtract_variable = { which = cu_rd1 value = 100 } #Prevent potential overflow
+		}
+		#In case of bugs
+		while = {
+			limit = { NOT = { check_variable = { which = cu_rd1 value = 0 } } }
+			set_variable = { which = cu_rd1 value = 0 }
+		}
+		set_variable = { which = cu_rd which = cu_rd1 }
+	}
+}
 cu_random_number = {
-    set_variable = { which = cu_rd which = cu_rd1 }
-    random_list = {
-	    50 = { set_variable = { which = cu_rd1 value = 0 } }
-		50 = { set_variable = { which = cu_rd1 value = 50 } }
+	1 = {
+		if = {
+			limit = { #In case the random number is not correct
+				OR = {
+					NOT = { check_variable = { which = cu_rd1 value = 0 } }
+					check_variable = { which = cu_rd1 value = 100.001 }
+				}
+			}
+			cu_initialize_random_number = yes
+		}
+		PREV = { set_variable = { which = cu_rd which = PREV } }
 	}
-	random_list = {
-	    50 = { change_variable = { which = cu_rd1 value = 25 } }
-		50 = {}
-	}
-	random_list = {
-	    50 = { change_variable = { which = cu_rd1 value = 13 } }
-		50 = {}
-	}
-	random_list = {
-	    50 = { change_variable = { which = cu_rd1 value = 6 } }
-		50 = {}
-	}
-	random_list = {
-	    50 = { change_variable = { which = cu_rd1 value = 3 } }
-		50 = {}
-	}
-	random_list = {
-	    50 = { change_variable = { which = cu_rd1 value = 2 } }
-		50 = {}
-	}
-	random_list = {
-	    50 = { change_variable = { which = cu_rd1 value = 1 } }
-		50 = {}
-	}
+	cu_change_random_number = yes
 }	
 

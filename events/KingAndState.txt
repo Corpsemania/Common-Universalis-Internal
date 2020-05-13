@@ -133,19 +133,8 @@ country_event = {
 	option = {
 		   name = "state.11.a" #ADM
 		           
-				   custom_tooltip = cu_expert_advisor_adm_tt
-                   hidden_effect = {
-				    random_list = {
-			          15 = { set_country_flag = adv_phi }
-					  15 = { set_country_flag = adv_nat }
-					  14 = { set_country_flag = adv_art }
-					  14 = { set_country_flag = adv_tre }
-					  14 = { set_country_flag = adv_the }
-					  14 = { set_country_flag = adv_mas }
-					  14 = { set_country_flag = adv_inq }
-			        }
-				    country_event = { id = state.7 }
-				   }
+				   
+                   cu_random_adm_advisor = yes
                   ai_chance = {
                             factor = 0.4
                    }
@@ -153,31 +142,7 @@ country_event = {
 
         option = {
 		   name = "state.11.b" #DIP
-		   custom_tooltip = cu_expert_advisor_dip_tt
-		   hidden_effect = {
-                   if = {
-                      limit = { num_of_colonists = 1 }
-					  random_list = {
-					     15 = { set_country_flag = adv_sta }
-					     15 = { set_country_flag = adv_nav }
-					     14 = { set_country_flag = adv_col }
-					     14 = { set_country_flag = adv_nvg }
-					     14 = { set_country_flag = adv_tra }
-					     14 = { set_country_flag = adv_spy }
-					     14 = { set_country_flag = adv_dip }
-					  }
-                  }
-				  else = {
-				     random_list = {
-				      20 = { set_country_flag = adv_sta }
-					  20 = { set_country_flag = adv_tra }
-					  20 = { set_country_flag = adv_spy }
-					  20 = { set_country_flag = adv_dip }
-					  20 = { set_country_flag = adv_nav }
-					 }
-				  }
-				  country_event = { id = state.7 }
-			}
+		   cu_random_dip_advisor = yes
             ai_chance = {
                   factor = 0.3
             }
@@ -185,18 +150,7 @@ country_event = {
 
         	option = {
 		           name = "state.11.c" #MIL
-                   custom_tooltip = cu_expert_advisor_adm_tt
-                   hidden_effect = {
-				    random_list = {
-			          17 = { set_country_flag = adv_arm }
-					  17 = { set_country_flag = adv_org }
-					  17 = { set_country_flag = adv_com }
-					  17 = { set_country_flag = adv_qua }
-					  16 = { set_country_flag = adv_rec }
-					  16 = { set_country_flag = adv_for }
-			        }
-				    country_event = { id = state.7 }
-				  }
+                   cu_random_mil_advisor = yes
                   ai_chance = {
                             factor = 0.3
                   }
@@ -410,19 +364,7 @@ province_event = {
 	}
     option = { #Bring him back.
 	      name = "state.14.a"
-		  custom_tooltip = cu_expert_advisor_adm_tt
-                   hidden_effect = {
-				    random_list = {
-			          15 = { set_country_flag = adv_phi }
-					  15 = { set_country_flag = adv_nat }
-					  14 = { set_country_flag = adv_art }
-					  14 = { set_country_flag = adv_tre }
-					  14 = { set_country_flag = adv_the }
-					  14 = { set_country_flag = adv_mas }
-					  14 = { set_country_flag = adv_inq }
-			        }
-				    country_event = { id = state.7 }
-		}
+		  cu_random_adm_advisor = yes
 				ai_chance = {
 		          factor = 33
 		        } 

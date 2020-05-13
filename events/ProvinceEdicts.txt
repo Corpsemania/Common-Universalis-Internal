@@ -3788,7 +3788,7 @@ province_event = {
 			}
 			modifier = { #High Corruption
 				factor = 3
-				owner = { corruption = 20 }
+				owner = { corruption = 30 }
 			}
 			modifier = { #No need for that
 				factor = 0.1

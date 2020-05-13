@@ -1,8 +1,26 @@
 namespace = cu_test
 
-#Set game year
+#Show Current Seed
 country_event = {
 	id = cu_test.1
+	title = "cu_test.1.t"
+	desc = "cu_test.1.d"
+	picture = PRAYING_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			cu_random_number = yes
+		}
+	}
+	option = {
+		name = "cu_test.1.a"
+		
+	}
+}
+
+#Set game year
+country_event = {
+	id = cu_test.2
 	title = "EVT_HIDDEN"
 	desc = "EVT_HIDDEN"
 	picture = PRAYING_eventPicture
@@ -19,7 +37,7 @@ country_event = {
 
 #Advance DIP Tech
 country_event = {
-	id = cu_test.2
+	id = cu_test.3
 	title = "EVT_HIDDEN"
 	desc = "EVT_HIDDEN"
 	picture = PRAYING_eventPicture

@@ -5163,7 +5163,135 @@ cu_do_ruler_power_reduction = {
 	}
 }
 
+cu_random_adm_advisor = {
+				custom_tooltip = cu_expert_advisor_adm_tt
+				hidden_effect = {
+					   cu_random_number = yes
+					   if = {
+							limit = { check_variable = { which = cu_rd value = 86 } }
+							set_country_flag = adv_phi
+					   }
+					   else_if = {
+							limit = { check_variable = { which = cu_rd value = 72 } }
+							set_country_flag = adv_nat
+					   }
+					   else_if = {
+							limit = { check_variable = { which = cu_rd value = 58 } }
+							set_country_flag = adv_art
+					   }
+					   else_if = {
+							limit = { check_variable = { which = cu_rd value = 44 } }
+							set_country_flag = adv_tre
+					   }
+					   else_if = {
+							limit = { check_variable = { which = cu_rd value = 30 } }
+							set_country_flag = adv_the
+					   }
+					   else_if = {
+							limit = { check_variable = { which = cu_rd value = 15 } }
+							set_country_flag = adv_mas
+					   }
+					   else = {
+							set_country_flag = adv_inq
+					   }
+				    
+				    country_event = { id = state.7 }
+				   }
+}
 
+cu_random_dip_advisor = {
+			custom_tooltip = cu_expert_advisor_dip_tt
+			hidden_effect = {
+                   if = {
+                      limit = { num_of_colonists = 1 }
+					  hidden_effect = {
+						   cu_random_number = yes
+						   if = {
+								limit = { check_variable = { which = cu_rd value = 86 } }
+								set_country_flag = adv_sta
+						   }
+						   else_if = {
+								limit = { check_variable = { which = cu_rd value = 72 } }
+								set_country_flag = adv_nav
+						   }
+						   else_if = {
+								limit = { check_variable = { which = cu_rd value = 58 } }
+								set_country_flag = adv_col
+						   }
+						   else_if = {
+								limit = { check_variable = { which = cu_rd value = 44 } }
+								set_country_flag = adv_nvg
+						   }
+						   else_if = {
+								limit = { check_variable = { which = cu_rd value = 30 } }
+								set_country_flag = adv_tra
+						   }
+						   else_if = {
+								limit = { check_variable = { which = cu_rd value = 15 } }
+								set_country_flag = adv_spy
+						   }
+						   else = {
+								set_country_flag = adv_dip
+						   }
+				     }
+                  }
+				  else = {
+					  hidden_effect = {
+						   cu_random_number = yes
+						   if = {
+								limit = { check_variable = { which = cu_rd value = 80 } }
+								set_country_flag = adv_sta
+						   }
+						   else_if = {
+								limit = { check_variable = { which = cu_rd value = 60 } }
+								set_country_flag = adv_tra
+						   }
+						   else_if = {
+								limit = { check_variable = { which = cu_rd value = 40 } }
+								set_country_flag = adv_spy
+						   }
+						   else_if = {
+								limit = { check_variable = { which = cu_rd value = 20 } }
+								set_country_flag = adv_nav
+						   }
+						   else = {
+								set_country_flag = adv_dip
+						   }
+				     }
+				  }
+				  country_event = { id = state.7 }
+			}
+}
 
+cu_random_mil_advisor = {
+				custom_tooltip = cu_expert_advisor_adm_tt
+                   hidden_effect = {
+							cu_random_number = yes
+						   if = {
+								limit = { check_variable = { which = cu_rd value = 84 } }
+								set_country_flag = adv_arm
+						   }
+						   else_if = {
+								limit = { check_variable = { which = cu_rd value = 68 } }
+								set_country_flag = adv_org
+						   }
+						   else_if = {
+								limit = { check_variable = { which = cu_rd value = 51 } }
+								set_country_flag = adv_com
+						   }
+						   else_if = {
+								limit = { check_variable = { which = cu_rd value = 35 } }
+								set_country_flag = adv_qua
+						   }
+						   else_if = {
+								limit = { check_variable = { which = cu_rd value = 17 } }
+								set_country_flag = adv_rec
+						   }
+						   else = {
+								set_country_flag = adv_for
+						   }
+							country_event = { id = state.7 }
+				  }
+}
 
 								  											  
