@@ -149,3 +149,233 @@ country_event = {
 	}
 	
 }
+
+#AI backstabs a country at war
+country_event = {
+    id = cuai.3
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = BIG_BOOK_eventPicture
+	hidden = yes
+	trigger = {
+		#ai = no
+		is_at_war = yes
+		any_neighbor_country = {
+			ai = yes
+			is_subject = no
+			is_bankrupt = no
+			is_at_war = no
+			NOT = {
+				OR = {
+					
+					has_country_modifier = foreign_ignorance
+					AND = {
+						is_part_of_hre = yes
+						ROOT = { is_part_of_hre = yes }
+					}
+					alliance_with = ROOT
+					truce_with = ROOT
+					has_opinion = {
+							who = ROOT
+							value = 100
+					}
+				}
+			}
+		}
+		
+	}
+	mean_time_to_happen = {
+		months = 180
+		modifier = {
+			factor = 0.5
+			ai = no
+		}
+		modifier = {
+			factor = 0.5
+			NOT = { war_score = -2 }
+		}
+	}
+	option = {
+		name = "EVT_HIDDEN"
+		#Increasing Autonomy in low integrity provinces
+		every_neighbor_country = {
+			limit = {
+				ai = yes
+				is_subject = no
+				is_bankrupt = no
+				is_at_war = no
+				NOT = {
+					OR = {
+						has_country_modifier = foreign_ignorance
+						AND = {
+							is_part_of_hre = yes
+							ROOT = { is_part_of_hre = yes }
+						}
+						alliance_with = ROOT
+						truce_with = ROOT
+						has_opinion = {
+								who = ROOT
+								value = 100
+						}
+					}
+				}
+			}
+			country_event = { id = cuai.4 }
+		}
+	}
+	
+}
+
+#AI backstabs a country at war
+country_event = {
+    id = cuai.4
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = BIG_BOOK_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	option = {
+		name = "EVT_HIDDEN" #Take Back Our Core!
+		trigger = {
+			FROM = {
+				any_owned_province = {
+					is_core = ROOT
+				}
+			}
+		}
+		 declare_war_with_cb = {
+				    who = FROM
+				    casus_belli = cb_core
+		 }
+		 ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0
+				NOT = { army_size_percentage = 0.5 }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { army_size_percentage = 0.75 }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { army_size = FROM }
+			}
+			modifier = {
+				factor = 0.25
+				NOT = { army_size = 5 }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { manpower_percentage = 0.5 }
+			}
+			modifier = {
+				factor = 0
+				NOT = { manpower_percentage = 0.25 }
+			}
+			modifier = {
+				factor = 1.5
+				manpower_percentage = 0.75
+			}
+			modifier = {
+				factor = 0.75
+				war_exhaustion = 2
+			}
+			modifier = {
+				factor = 0.5
+				war_exhaustion = 5
+			}
+			modifier = {
+				factor = 0
+				war_exhaustion = 6
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { treasury = 100 }
+			}
+			modifier = {
+				factor = 0.5
+				num_of_loans = 1
+			}
+			modifier = {
+				factor = 1.5
+				years_of_income = 1
+			}
+		 }
+	}
+	option = {
+		name = "EVT_HIDDEN" #Take Our Claim!
+		trigger = {
+			FROM = {
+				any_owned_province = {
+					is_claim = ROOT
+				}
+			}
+		}
+		 declare_war_with_cb = {
+				    who = FROM
+				    casus_belli = cb_conquest
+		 }
+		 ai_chance = {
+			factor = 25
+			modifier = {
+				factor = 0
+				NOT = { army_size_percentage = 0.5 }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { army_size_percentage = 0.75 }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { army_size = FROM }
+			}
+			modifier = {
+				factor = 0.25
+				NOT = { army_size = 5 }
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { manpower_percentage = 0.5 }
+			}
+			modifier = {
+				factor = 0
+				NOT = { manpower_percentage = 0.25 }
+			}
+			modifier = {
+				factor = 1.5
+				manpower_percentage = 0.75
+			}
+			modifier = {
+				factor = 0.75
+				war_exhaustion = 2
+			}
+			modifier = {
+				factor = 0.5
+				war_exhaustion = 5
+			}
+			modifier = {
+				factor = 0
+				war_exhaustion = 6
+			}
+			modifier = {
+				factor = 0.5
+				NOT = { treasury = 100 }
+			}
+			modifier = {
+				factor = 0.5
+				num_of_loans = 1
+			}
+			modifier = {
+				factor = 1.5
+				years_of_income = 1
+			}
+		 }
+	}
+	option = {
+		name = "EVT_HIDDEN" #Not ready!
+		 ai_chance = {
+			factor = 25
+		 }
+	}
+}
