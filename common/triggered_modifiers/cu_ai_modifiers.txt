@@ -600,9 +600,11 @@ cu_x_level = {
 	fire_damage_received = -0.1
 	global_manpower_modifier = 1
 	land_forcelimit_modifier = 0.50
-	global_regiment_cost = -0.25
+	land_maintenance_modifier -0.2
+	global_regiment_cost = -0.2
 	naval_forcelimit_modifier = 0.50
-    global_ship_cost = -0.25
+	naval_maintenance_modifier = -0.2
+    global_ship_cost = -0.2
     yearly_army_professionalism = 0.01
 	build_cost = -0.1
 	idea_cost = -0.10

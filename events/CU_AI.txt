@@ -1,0 +1,151 @@
+namespace = cuai
+
+#AI Delete oversized fleet
+country_event = {
+    id = cuai.1
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = BIG_BOOK_eventPicture
+	
+	trigger = {
+		ai = yes
+		is_at_war = no
+		navy_size_percentage = 1.01
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+	option = {
+		name = "EVT_HIDDEN"
+		set_variable = { which = cu_var1 value = 0 } #Counter
+		while = {
+			limit = { 
+				navy_size_percentage = 1
+				NOT = { check_variable = { which = cu_var1 value = 10 } }
+			}
+			change_variable = { which = cu_var1 value = 1 }
+			#Delete one ship of each type per loop
+			if = {
+				limit = { num_of_heavy_ship = 1 }
+				random_province = {
+					limit = {
+						num_of_units_in_province = {
+							type = heavy_ship
+							who = ROOT
+							amount = 1
+						}
+					}
+				}
+				kill_units = {
+					who = ROOT
+					type = heavy_ship
+					amount = 1
+				}
+			}
+			if = {
+				limit = { num_of_light_ship = 1 navy_size_percentage = 1 }
+				random_province = {
+					limit = {
+						num_of_units_in_province = {
+							type = light_ship
+							who = ROOT
+							amount = 1
+						}
+					}
+				}
+				kill_units = {
+					who = ROOT
+					type = light_ship
+					amount = 1
+				}
+			}
+			if = {
+				limit = { num_of_galley = 1 navy_size_percentage = 1 }
+				random_province = {
+					limit = {
+						num_of_units_in_province = {
+							type = galley
+							who = ROOT
+							amount = 1
+						}
+					}
+				}
+				kill_units = {
+					who = ROOT
+					type = galley
+					amount = 1
+				}
+			}
+			if = {
+				limit = { num_of_transport = 1 navy_size_percentage = 1 }
+				random_province = {
+					limit = {
+						num_of_units_in_province = {
+							type = transport
+							who = ROOT
+							amount = 1
+						}
+					}
+				}
+				kill_units = {
+					who = ROOT
+					type = transport
+					amount = 1
+				}
+			}
+		}
+	}
+	
+}
+
+#AI handles low governance capacity
+country_event = {
+    id = cuai.2
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = BIG_BOOK_eventPicture
+	
+	trigger = {
+		ai = yes
+		check_variable = { which = go value = 110 }
+	}
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+			factor = 0.5
+			check_variable = { which = go value = 120 }
+		}
+		modifier = {
+			factor = 0.5
+			check_variable = { which = go value = 130 }
+		}
+	}
+	option = {
+		name = "EVT_HIDDEN"
+		#Increasing Autonomy in low integrity provinces
+		every_owned_province = {
+			limit = {
+				NOT = { check_variable = { which = p_ca value = 50 } }
+				has_owner_culture = no
+				has_owner_accepted_culture = no
+				NOT = { PREV = { culture_group = PREV } }
+			}
+			add_unrest = -5
+			add_local_autonomy = 20
+		}
+		#Reduce Autonomy in high integrity provinces
+		every_owned_province = {
+			limit = {
+				check_variable = { which = p_ca value = 70  }
+				OR = {
+					has_owner_culture = yes
+					has_owner_accepted_culture = yes
+					PREV = { culture_group = PREV }
+				}
+			}
+			add_unrest = 5
+			add_local_autonomy = -15
+		}
+	}
+	
+}

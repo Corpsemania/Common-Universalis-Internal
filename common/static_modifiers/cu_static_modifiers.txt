@@ -619,7 +619,7 @@ ai_nation = {
 	idea_cost = -0.1
 	harsh_treatment_cost = -0.1
 	land_maintenance_modifier = -0.1
-	naval_maintenance_modifier = -0.1
+	naval_maintenance_modifier = -0.3 #AI tends to over-expand their fleet and not delete obsolete ships
 }
 
 war_taxes = {
