@@ -209,8 +209,8 @@ cu_add_cultural_acceptance = {
 
 #cu_calc_nationalism_impact[] - Calculate nationalism impact on A.I.
 cu_calc_nationalism_impact = {
-	set_variable = { which = cu_var1 which = p_nationalism }
 	cu_check_cultural_assimilation = yes
+	set_variable = { which = cu_var1 which = p_nationalism }
 	if = {
 		limit = { check_variable = { which = p_as value = 1 } }
 		set_variable = { which = cu_var2 value = 1 }
@@ -1956,7 +1956,7 @@ cu_do_nationalism_growth = {
 			limit = { has_province_flag = p_nationalism_awareness }
 			change_variable = { which = cu_var1 value = 0.10 }
 		}
-		#Modified by country art level( domistic/foreign nationalism growth is multiplied_divided by (1 + 0.1 * country art level )
+		#Modified by country art level( domistic/foreign nationalism growth is multiplied/divided by (1 + 0.1 * country art level )
 		set_variable = { which = art_power_level which = owner }
 		set_variable = { which = cu_var2 which = art_power_level }
 		if = {
