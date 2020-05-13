@@ -2,7 +2,7 @@ road_1 = {
 	cost = 120
 	time = 24
 	modifier = {
-		local_development_cost = -0.05
+		local_development_cost = -0.1
         province_trade_power_value = 2
 		allowed_num_of_buildings = 2
 		local_friendly_movement_speed = 0.15
@@ -126,7 +126,7 @@ road_2 = {
 	}
     make_obsolete = road_1
 	modifier = {
-		local_development_cost = -0.15
+		local_development_cost = -0.2
         province_trade_power_value = 3.5
 		allowed_num_of_buildings = 3
 		local_friendly_movement_speed = 0.3

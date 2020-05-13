@@ -18,12 +18,17 @@ country_event = {
 	
 	immediate = {
 		set_country_flag = noble_estate_in_power
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -100 }
+		}
 	}
 	
 	option = {
 		name = estate_disasters.1.a	
-		change_variable = { which = cu_var1 value = -100 }
-		cu_change_stability_point = yes	
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -100 }
+		}
+		cu_change_stability_point = yes
 		if = {
 			limit = {
 				has_reform =  elective_monarchy
@@ -148,11 +153,16 @@ country_event = {
 	
 	immediate = {
 		set_country_flag = church_estate_in_power
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -100 }
+		}
 	}
 	
 	option = {
 		name = estate_disasters.3.a	
-		change_variable = { which = cu_var1 value = -100 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -100 }
+		}
 		cu_change_stability_point = yes
 		custom_tooltip = estate_disasters.3.a.tt
 	}
@@ -185,11 +195,16 @@ country_event = {
 	
 	immediate = {
 		set_country_flag = burghers_estate_in_power
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -100 }
+		}
 	}
 	
 	option = {
 		name = estate_disasters.5.a	
-		change_variable = { which = cu_var1 value = -100 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -100 }
+		}
 		cu_change_stability_point = yes
 		custom_tooltip = estate_disasters.5.a.tt
 	}
@@ -222,11 +237,16 @@ country_event = {
 	
 	immediate = {
 		set_country_flag = nomadic_tribes_estate_in_power
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 100 }
+		}
 	}
 	
 	option = {
 		name = estate_disasters.7.a	
-		change_variable = { which = cu_var1 value = 100 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 100 }
+		}
 		cu_change_stability_point = yes
 		custom_tooltip = estate_disasters.7.a.tt
 	}
@@ -265,8 +285,8 @@ country_event = {
 		name = estate_disasters.9.a	
 		create_independent_estate_from_religion = {
 		    estate = estate_dhimmi
+		}
 	}
-}
 
 	option = {
 		name = estate_disasters.11.b

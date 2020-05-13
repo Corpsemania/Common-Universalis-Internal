@@ -12,22 +12,27 @@ country_event = {
 	mean_time_to_happen = {
 		days = 1
 	}
-	
 	immediate = {
-		set_country_flag = had_liberalism
-		change_variable = { which = cu_var1 value = -200 }
-		cu_change_stability_point = yes
-		capital_scope = {
-			revolutionary_rebels = 3
+		hidden_effect = {
+			set_country_flag = had_liberalism
+			set_variable = { which = cu_var1 value = -200 }
+			capital_scope = {
+				revolutionary_rebels = 3
+			}
+			random_owned_province = {
+				revolutionary_rebels = 2
+			}		
 		}
-		random_owned_province = {
-			revolutionary_rebels = 2
-		}		
+		
 	}
 
 	option = {
 		name = "EVTOPTA1061"
 		add_prestige = -5
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -200 }
+		}
+		cu_change_stability_point = yes
 	}
 }
 

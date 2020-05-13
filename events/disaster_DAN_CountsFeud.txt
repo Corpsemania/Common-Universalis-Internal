@@ -70,8 +70,8 @@ country_event = {
 				has_heir = yes
 			}
 			kill_heir = yes
-			change_variable = { which = cu_var1 value = -50 }
-			cu_change_stability_point = yes
+
+			cu_change_stability_point_p50 = yes
 		}
 		define_ruler = {
 			adm = 2

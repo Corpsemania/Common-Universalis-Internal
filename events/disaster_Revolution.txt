@@ -17,29 +17,30 @@ country_event = {
 	
 
 	immediate = {
-		random_owned_province = { 
-			limit = {
-				development = 8
+		hidden_effect = {
+			random_owned_province = { 
+				limit = {
+					development = 8
+				}
+				spawn_rebels = {
+					type = revolutionary_rebels
+					size = 3		
+					win = yes
+					unrest = 10
+				}
+				
 			}
-			spawn_rebels = {
-				type = revolutionary_rebels
-				size = 3		
-				win = yes
-				unrest = 10
-			}
-			
+			set_country_flag = had_revolution
 		}
-		change_variable = { which = cu_var1 value = -250 }
-		cu_change_stability_point = yes
-	
-	
-	
-		set_country_flag = had_revolution
 	}
 	
 	option = {
 		name = "EVTOPTA3011"			# Dire times are ahead of us
 		add_prestige = -10
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -250 }
+		}
+		cu_change_stability_point = yes
 	}
 }
 
@@ -436,11 +437,17 @@ country_event = {
 	mean_time_to_happen = {
 		days = 1
 	}
-	
+	immediate = {
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 150 }
+		}
+	}
 	option = {
 		name = "EVTOPTA3019"			# Restore order
 		country_event = { id = revolution.20 }
-		change_variable = { which = cu_var1 value = 150 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 150 }
+		}
 		cu_change_stability_point = yes
 	}
 }
@@ -554,10 +561,16 @@ country_event = {
 	picture = REVOLUTION_eventPicture
 
 	is_triggered_only = yes
-
+	immediate = {
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 350 }
+		}
+	}
 	option = {
 		name = "EVTNAME6605"
-		change_variable = { which = cu_var1 value = 350 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 350 }
+		}
 		cu_change_stability_point = yes
 		add_prestige = 200
 	}

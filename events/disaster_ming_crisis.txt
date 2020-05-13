@@ -62,12 +62,15 @@ country_event = {
 					size = 3
 				}
 			}
+			set_variable = { which = cu_var1 value = -150 }
 		}
 	}
 	
 	option = {
 		name = ming_crisis.1.a
-		change_variable = { which = cu_var1 value = -150 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -150 }
+		}
 		cu_change_stability_point = yes
 		add_mandate = -35
 		add_corruption = 5
@@ -82,10 +85,16 @@ country_event = {
 	picture = CIVIL_WAR_eventPicture
 	
 	is_triggered_only = yes
-	
+	immediate = {
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 100 }
+		}
+	}
 	option = {
 		name = ming_crisis.2.a
-		change_variable = { which = cu_var1 value = 100 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 100 }
+		}
 		cu_change_stability_point = yes
 		add_mandate = 20
 	}
@@ -176,12 +185,15 @@ country_event = {
 				add_government_reform = autocracy_reform
 				adopt_reform_progress = ROOT
 			}
+			set_variable = { which = cu_var1 value = -100 }
 		}
 	}
 	
 	option = {
 		name = ming_crisis.3.a
-		change_variable = { which = cu_var1 value = -100 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -100 }
+		}
 		cu_change_stability_point = yes
 		add_mandate = -10
 		CSH = {
@@ -614,12 +626,15 @@ country_event = {
 				}
 				save_event_target_as = emperor_of_china
 			}
+			set_variable = { which = cu_var1 value = 100 }
 		}
 	}
 	
 	option = {
 		name = ming_crisis.8.a
-		change_variable = { which = cu_var1 value = 100 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 100 }
+		}
 		cu_change_stability_point = yes
 	}
 }

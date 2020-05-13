@@ -36,7 +36,11 @@ country_event = {
 	mean_time_to_happen = {
 		days = 1
 	}
-	
+	immediate = {
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -50 }
+		}
+	}
 	
 	option = {		# Let a Sultan of their choice take control
 		name = janissary_decadence.2.a
@@ -46,7 +50,9 @@ country_event = {
 			}
 			kill_heir = yes
 		}
-		change_variable = { which = cu_var1 value = -50 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -50 }
+		}
 		cu_change_stability_point = yes
 		define_ruler = {
 			ADM = 2
@@ -62,7 +68,9 @@ country_event = {
 				size = 3
 			}
 		}
-		change_variable = { which = cu_var1 value = -25 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -50 }
+		}
 		cu_change_stability_point = yes
 	}
 }

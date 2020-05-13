@@ -101,7 +101,7 @@ workshop = {
 	time = 12
 	modifier = {
 		local_production_efficiency = 0.3
-        trade_goods_size = 0.25
+        trade_goods_size_modifier = 0.2
 	}
 	on_built = {
 	     #custom_tooltip = cu_building_bca_4
@@ -916,7 +916,7 @@ counting_house = {
 	}
 	modifier = {
 		local_production_efficiency = 0.6
-        trade_goods_size = 0.45
+        trade_goods_size_modifier = 0.4
 	}	
 	on_built = {
 	     #custom_tooltip = cu_building_bca_6
@@ -2225,7 +2225,7 @@ weapons = {
 	make_obsolete = counting_house
 	modifier = {
         local_production_efficiency = 0.9
-		trade_goods_size = 0.7
+		trade_goods_size_modifier = 0.7
 	}
 	on_built = {
 	     #custom_tooltip = cu_building_bca_8

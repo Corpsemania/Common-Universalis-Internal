@@ -15,18 +15,23 @@ country_event = {
 				limit = { NOT = { check_variable = { which = nomadic_tribes_reform_progress value = 1 } } }
 				set_variable = { which = nomadic_tribes_reform_progress value = 0 }
 			}
+			set_variable = { which = cu_var1 value = -150 }
 		}
 	}
 	option = {#OK
 		name = disaster_nomadic_tribes.0.a	
-		change_variable = { which = cu_var1 value = -150 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -150 }
+		}
 		cu_change_stability_point = yes
 		custom_tooltip = disaster_nomadic_tribes.0.a.tt
 		nomadic_tribes_rebels = 1
 	}
 	option = {#Make a Concessions
 		name = disaster_nomadic_tribes.0.b
-		change_variable = { which = nomadic_tribes_reform_progress value = 15 }
+		hidden_effect = {
+			change_variable = { which = nomadic_tribes_reform_progress value = 15 }
+		}
 		check_estate_reform_progress = yes
 		add_absolutism = -5
 		add_prestige = -5
@@ -70,10 +75,16 @@ country_event = {
 	
 	major = yes
 	is_triggered_only = yes
-	
+	immediate = {
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 50 }
+		}
+	}
 	option = {
 		name = disaster_nomadic_tribes.1.a
-		change_variable = { which = cu_var1 value = 50 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 50 }
+		}
 		cu_change_stability_point = yes
 	}
 }
@@ -105,7 +116,9 @@ country_event = {
 			estate = estate_nomadic_tribes
 			loyalty = 5
 		}
-		change_variable = { which = nomadic_tribes_reform_progress value = 5 }
+		hidden_effect = {
+			change_variable = { which = nomadic_tribes_reform_progress value = 5 }
+		}
 		check_estate_reform_progress = yes
 		random_owned_province = {
 			limit = { cu_not_terr_trigger = yes is_capital = no }

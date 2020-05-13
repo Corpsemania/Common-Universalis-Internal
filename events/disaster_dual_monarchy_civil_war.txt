@@ -8,21 +8,28 @@ country_event = {
 	
 	is_triggered_only = yes
 	immediate = {
-		every_owned_province = {
-		    limit = { 
-				OR = {
-					culture = english
-					culture = scottish
+		hidden_effect = {
+			every_owned_province = {
+				limit = { 
+					OR = {
+						culture = english
+						culture = scottish
+					}
+					continent = europe						  
 				}
-				continent = europe						  
+				add_nationalism = 15
 			}
-			add_nationalism = 15
+			set_variable = { which = cu_var1 value = -100 }
 		}
-		change_variable = { which = cu_var1 value = -100 }
-		cu_change_stability_point = yes
+		
+		
 	}
 	option = {
-		name = "dua.1.a"		
+		name = "dua.1.a"	
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -100 }
+		}
+		cu_change_stability_point = yes		
 		if = {
           limit = { dip = 3 }
 		  random_list = {
@@ -41,7 +48,11 @@ country_event = {
 		}
 	}
 	option = {
-		name = "dua.1.b" 			
+		name = "dua.1.b" 
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -100 }
+		}
+		cu_change_stability_point = yes		
 		hidden_effect = {
 		every_owned_province = {
 		       limit = { 
@@ -270,6 +281,11 @@ country_event = {
 	desc = "dualmonarchycivilwar.21.d"
 	picture = ECONOMY_eventPicture
 	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -150 }
+		}
+	}
 	option = {
 		name = "dua.21.a"
 		every_owned_province = {
@@ -285,7 +301,9 @@ country_event = {
 				duration = 3650
 			}
 		}
-		change_variable = { which = cu_var1 value = -150 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -150 }
+		}
 		cu_change_stability_point = yes
 		add_legitimacy = -20
 		add_prestige = -50
@@ -332,10 +350,17 @@ country_event = {
 	desc = "dualmonarchycivilwar.49.d"
 	picture = ECONOMY_eventPicture
 	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -75 }
+		}
+	}
 	option = {  
 	    name = cudivergence.23.a
 		set_global_flag = dua_convert_to_anglois
-		change_variable = { which = cu_var1 value = -75 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -75 }
+		}
 		cu_change_stability_point = yes
 		change_primary_culture = anglois
 		random_owned_province = {
@@ -657,6 +682,7 @@ country_event = {
 		months = 60
 	}
 	immediate = {
+		hidden_effect = {
 			every_owned_province = {
 		       limit = { 
 					OR = {
@@ -690,11 +716,16 @@ country_event = {
 				cede_province = IRE
 			}
 			set_country_flag = dua_civil_war_ending_2
+			set_variable = { which = cu_var1 value = -150 }
+		}
+			
 	}
 	option = {
 		name = "dua.53.a"
 		add_core = 236
-		change_variable = { which = cu_var1 value = -150 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -150 }
+		}
 		cu_change_stability_point = yes
 		random_country = {
 				limit = { owns = 236 }

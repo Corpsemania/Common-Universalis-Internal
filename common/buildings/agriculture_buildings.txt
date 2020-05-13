@@ -1,5 +1,5 @@
 mill = {
-	cost = 80
+	cost = 100
 	time = 12
 	trigger = {
                 OR = {
@@ -17,8 +17,7 @@ mill = {
                 }
 	}
 	modifier = {
-		local_production_efficiency = 0.125
-        trade_goods_size = 0.075
+        trade_goods_size_modifier = 0.1
 		allowed_num_of_buildings = 1
 	}
 	on_built = {
@@ -45,7 +44,7 @@ mill = {
 		 }
     }
 	ai_will_do = {
-		factor = 10
+		factor = 15
 		modifier = {
 			factor = 2
 			NOT = { base_manpower = 4 }
@@ -85,7 +84,7 @@ mill = {
 }
 
 farm_estate = {
-	cost = 300
+	cost = 350
 	time = 36
 	make_obsolete = mill
 	trigger = {
@@ -106,8 +105,7 @@ farm_estate = {
                 }
 	}
 	modifier = {
-		local_production_efficiency = 0.25
-        trade_goods_size = 0.15
+        trade_goods_size_modifier = 0.2
 		allowed_num_of_buildings = 1
 	}
 	on_built = {
@@ -136,7 +134,7 @@ farm_estate = {
 	onmap = yes
 	
 	ai_will_do = {
-		factor = 40
+		factor = 50
 		modifier = {
 			factor = 3
 			NOT = { base_manpower = 15 }

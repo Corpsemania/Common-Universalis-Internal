@@ -1175,13 +1175,17 @@ country_event = {
 			
 			# Set Flag
 			set_country_flag = had_war_of_the_roses
+			
+			set_variable = { which = cu_var1 value = -75 }
 		}
 		end_disaster = war_of_the_roses
 	}
 	
 	option = {		# Long Live the X dynasty
 		name = war_of_the_roses.106.a
-		change_variable = { which = cu_var1 value = -75 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -75 }
+		}
 		cu_change_stability_point = yes
 		add_prestige = -50
 		every_owned_province = {

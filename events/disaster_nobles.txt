@@ -14,18 +14,23 @@ country_event = {
 				limit = { NOT = { check_variable = { which = nobles_reform_progress value = 1 } } }
 				set_variable = { which = nobles_reform_progress value = 0 }
 			}
+			set_variable = { which = cu_var1 value = -150 }
 		}
 	}
 	option = {#OK
 		name = disaster_nobles.0.a	
-		change_variable = { which = cu_var1 value = -150 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -150 }
+		}
 		cu_change_stability_point = yes
 		custom_tooltip = disaster_nobles.0.a.tt
 		nobles_rebels = 1
 	}
 	option = {#Make a Concessions
 		name = disaster_nobles.0.b
-		change_variable = { which = nobles_reform_progress value = 15 }
+		hidden_effect = {
+			change_variable = { which = nobles_reform_progress value = 15 }
+		}
 		check_estate_reform_progress = yes
 		add_absolutism = -5
 		add_prestige = -5
@@ -69,7 +74,11 @@ country_event = {
 	
 	major = yes
 	is_triggered_only = yes
-	
+	immediate = {
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 50 }
+		}
+	}
 	option = {
 		name = disaster_nobles.1.a
 		clr_country_flag = other_estate_joined
@@ -82,7 +91,10 @@ country_event = {
 		clr_country_flag = ask_for_help_from_nobles
 		clr_country_flag = ask_for_help_from_church
 		clr_country_flag = ask_for_help_from_burghers
-		cu_change_stability_point_p50 = yes
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 50 }
+		}
+		cu_change_stability_point = yes
 	}
 }
 
@@ -113,7 +125,9 @@ country_event = {
 			estate = estate_nobles
 			loyalty = 5
 		}
-		change_variable = { which = nobles_reform_progress value = 5 }
+		hidden_effect = {
+			change_variable = { which = nobles_reform_progress value = 5 }
+		}
 		check_estate_reform_progress = yes
 		random_owned_province = {
 			limit = { cu_not_terr_trigger = yes is_capital = no }
@@ -297,7 +311,9 @@ country_event = {
 	}
 	option = {#Make a Concessions
 		name = disaster_nobles.9.c
-		change_variable = { which = nobles_reform_progress value = 50 }
+		hidden_effect = {
+			change_variable = { which = nobles_reform_progress value = 50 }
+		}
 		check_estate_reform_progress = yes
 		clr_country_flag = nobles_side_against_government
 	}
@@ -308,7 +324,9 @@ country_event = {
 			ruler_has_personality = intricate_web_weaver_personality
 		}
 		add_prestige = -10
-		change_variable = { which = nobles_reform_progress value = 25 }
+		hidden_effect = {
+			change_variable = { which = nobles_reform_progress value = 25 }
+		}
 		check_estate_reform_progress = yes
 		clr_country_flag = nobles_side_against_government
 		set_country_flag = nobles_side_with_government
@@ -328,7 +346,9 @@ country_event = {
 	option = {#well
 		name = disaster_nobles.10.a
 		add_yearly_manpower = 0.25
-		change_variable = { which = nobles_reform_progress value = 10 }
+		hidden_effect = {
+			change_variable = { which = nobles_reform_progress value = 10 }
+		}
 		check_estate_reform_progress = yes
 	}
 	option = {#ask for more assistance
@@ -349,7 +369,9 @@ country_event = {
 			influence = -10
 			duration = 3650
 		}
-		change_variable = { which = nobles_reform_progress value = 40 }
+		hidden_effect = {
+			change_variable = { which = nobles_reform_progress value = 40 }
+		}
 		check_estate_reform_progress = yes
 	}
 }

@@ -21,35 +21,42 @@ country_event = {
 	}
 
 	immediate = {
-		random_owned_province = { 
-			limit = {
-				fort_level = 1
-				is_capital = no
+		hidden_effect = {
+			random_owned_province = { 
+				limit = {
+					fort_level = 1
+					is_capital = no
+				}
+				spawn_rebels = {
+					type = revolutionary_rebels
+					size = 3		
+					win = yes
+					unrest = 10
+				}
 			}
-			spawn_rebels = {
-				type = revolutionary_rebels
-				size = 3		
-				win = yes
-				unrest = 10
+			random_owned_province = {
+				limit = {
+					is_capital = yes
+				}
+				spawn_rebels = {
+					type = revolutionary_rebels
+					size = 3
+				}
+				
 			}
+			set_variable = { which = cu_var1 value = -200 }
 		}
-		random_owned_province = {
-			limit = {
-				is_capital = yes
-			}
-			spawn_rebels = {
-				type = revolutionary_rebels
-				size = 3
-			}
-			
-		}
-		change_variable = { which = cu_var1 value = -200 }
+		
 		cu_change_stability_point = yes
 		set_country_flag = had_revolution
 	}
 
 	option = {		# Dire times are ahead of us
 		name = "EVTOPTA3011"
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -200 }
+		}
+		cu_change_stability_point = yes
 		add_prestige = -10
 	}
 }
@@ -126,6 +133,9 @@ country_event = {
 	
 	immediate = {
 		set_country_flag = reign_of_terror_flag
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -150 }
+		}
 	}
 
 	option = {		# Execute the enemies of the Revolution!
@@ -141,7 +151,9 @@ country_event = {
 	}
 	option = {		# Show leniency
 		name = "flavor_fra.EVTOPTB3145"
-		change_variable = { which = cu_var1 value = -150 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -150 }
+		}
 		cu_change_stability_point = yes
 	}
 }
@@ -167,11 +179,16 @@ country_event = {
 	
 	immediate = {
 		set_country_flag = the_directory_flag
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 150 }
+		}
 	}
 	
 	option = {		# A Coup-de-Etat has brought Order
 		name = "flavor_fra.EVTOPTA3781"
-		change_variable = { which = cu_var1 value = 150 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 150 }
+		}
 		cu_change_stability_point = yes
 		if = {
 			limit = {
@@ -204,6 +221,9 @@ country_event = {
 	
 	immediate = {
 		set_country_flag = had_execution_of_king_louis_event_flag
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -75 }
+		}
 	}
 	
 	option = {		# 361 votes for and 360 against execution
@@ -238,7 +258,9 @@ country_event = {
 	}
 	option = {		# 361 votes against and 360 for execution
 		name = "flavor_fra.EVTOPTB3146"
-		change_variable = { which = cu_var1 value = -75 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -75 }
+		}
 		cu_change_stability_point = yes
 	}
 }
@@ -329,11 +351,16 @@ country_event = {
 	
 	immediate = {
 		set_country_flag = napoleon_happened_flag
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -75 }
+		}
 	}
 	
 	option = {		# We need Brilliant Leadership!
 		name = "flavor_fra.EVTOPTA3148"
-		change_variable = { which = cu_var1 value = -75 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -75 }
+		}
 		cu_change_stability_point = yes
 		if = {
 			limit = {
@@ -361,8 +388,7 @@ country_event = {
 	}
 	option = {		# We don't want a new Ceasar
 		name = "flavor_fra.EVTOPTB3148"
-		change_variable = { which = cu_var1 value = 100 }
-		cu_change_stability_point = yes
+		cu_change_stability_point_p100 = yes
 	}
 }
 
@@ -408,10 +434,16 @@ country_event = {
 	picture = IMPORTANT_STATUE_eventPicture
 	
 	is_triggered_only = yes
-
+	immediate = {
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -150 }
+		}
+	}
 	option = {		# France will be an empire!
 		name = "flavor_fra.EVTOPTA101"
-		change_variable = { which = cu_var1 value = -150 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -150 }
+		}
 		cu_change_stability_point = yes
 		add_government_reform = becomes_monarchy_reform
 		add_government_reform = revolutionary_empire_reform

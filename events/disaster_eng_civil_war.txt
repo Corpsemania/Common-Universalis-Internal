@@ -22,8 +22,7 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 			set_country_flag = eng_civil_war_happened
-			change_variable = { which = cu_var1 value = -200 }
-			cu_change_stability_point = yes
+			set_variable = { which = cu_var1 value = -200 }
 			random_owned_province = {
 				limit = {
 					region = british_isles_region
@@ -45,6 +44,10 @@ country_event = {
 	option = {			# Parliamentarians
 		name = "flavor_eng.EVTOPTA9225"
 		ai_chance = { factor = 50 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -200 }
+		}
+		cu_change_stability_point = yes
 		set_country_flag = supports_parliamentarians
 		add_yearly_manpower = -2.5
 		remove_country_modifier = eng_court_star_chamber
@@ -54,8 +57,6 @@ country_event = {
 				kill_heir = yes
 			}
 		}
-		change_variable = { which = cu_var1 value = -50 }
-		cu_change_stability_point = yes
 		add_government_reform = becomes_republic_reform
 		add_government_reform = court_despotism
 		define_ruler = {
@@ -604,6 +605,9 @@ country_event = {
 
 	immediate = {
 		set_country_flag = ENG_had_event_9234
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -100 }
+		}
 	}
 	
 	option = {			# Execute those not loyal
@@ -628,7 +632,9 @@ country_event = {
 		name = "flavor_eng.EVTOPTB9234"
 		ai_chance = { factor = 25 }
 		add_prestige = -15
-		change_variable = { which = cu_var1 value = -100 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -100 }
+		}
 		cu_change_stability_point = yes
 		random_owned_province = {
 			limit = {
@@ -661,7 +667,11 @@ country_event = {
 	mean_time_to_happen = {
 		days = 1
 	}
-		
+	immediate = {
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 150 }
+		}
+	}	
 	option = {			# Order has finally been restored
 		name = "flavor_eng.EVTOPTA9235"
 		trigger = { has_country_flag = supports_royalists }
@@ -677,7 +687,9 @@ country_event = {
 		clr_country_flag = supports_royalists
 		add_prestige = 50
 		add_absolutism = 10
-		change_variable = { which = cu_var1 value = 150 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 150 }
+		}
 		cu_change_stability_point = yes
 	}
 	
@@ -686,7 +698,9 @@ country_event = {
 		trigger = { has_country_flag = supports_parliamentarians }
 		clr_country_flag = supports_parliamentarians
 		add_prestige = 50
-		change_variable = { which = cu_var1 value = 150 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 150 }
+		}
 		cu_change_stability_point = yes
 		if = {
 			limit = {
