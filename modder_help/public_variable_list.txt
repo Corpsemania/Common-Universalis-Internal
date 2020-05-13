@@ -1,4 +1,4 @@
-Temperal Variables:
+############Temperal Variables##########################
 
 Use these variable to store temperal local values. Do not use other name, or use these variable to save long-time or trans-event data.
 cu_var1
@@ -7,6 +7,40 @@ cu_var3
 cu_var4
 
 
-Global Public Variable
+################Global Variable#########################
 
-global variables are stored in province id = 1
+global variables are stored in province id = 1, to get the variable, write like:
+
+1 = { PREV = { set_variable = { which = variable_name which = PREV } } }
+
+
+cu_rd: CU's random number, use cu_random_number = yes in any scope to get this value ( and then cu_rd is changed )
+cu_rd1: internal random seed, please do not change this value. 
+cu_year: current year in game, since vanilla game engine does not offer this value
+wokou_strength: a variable used by celestial empire's wokou event chain.
+
+
+################Frequently Used Variables#######################
+
+(to be added)
+
+################Country Variable###############################
+t_dev: total development
+s_dev: state development
+go: Governance Occupancy = Occupied GC/GC
+
+################Province Public Variable########################
+
+literacy: province literacy
+p_dev: province development
+p_ca: province administrative integrity(former cultural acceptance)
+p_cab: province administrative integrity cap(former base cultural acceptance)
+p_caxxx: variables related to administrative integrity, check cu_culture_effect.txt for more information
+
+p_as: province cultural assimilation
+p_asc: province cultural assimilation cost
+p_asxxx: variables related to cultural assimilation, check cu_culture_effect.txt for more information
+
+p_nationalism: province nationalism
+p_nationalism_g: province nationalism yearly growth
+

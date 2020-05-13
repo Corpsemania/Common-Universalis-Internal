@@ -27,8 +27,8 @@ cu_sqrt = {
 }
 
 
-
-#Create a random number between 0-100 as cu_rd in any scope
+###############################CU RANDOM NUMBER ALGORITHM##########################
+#Use "cu_random_number = yes" to create a random number between 0-100 as cu_rd in any scope
 #cu_rd can be modified to any other value
 #cu_rd1 is the random seed saved as variable of province 1, and changes every time cu_rd is read. Do not change it manually.
 #cu_rd2 is a temperal variable used to generate new cu_rd, we don't use cu_var1 here for modder's convenience
@@ -99,6 +99,8 @@ cu_change_random_number = {
 		set_variable = { which = cu_rd which = cu_rd1 }
 	}
 }
+
+
 cu_random_number = {
 	1 = {
 		if = {
