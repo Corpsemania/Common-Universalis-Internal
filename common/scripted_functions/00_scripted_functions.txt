@@ -270,7 +270,7 @@ can_seize_colony = {
 		}
 		allow = {
 			FROM = {
-				NOT = { has_country_modifier = trade_limitation }
+				NOT = { has_country_modifier = sea_trade_banned }
 			}
 		}
 	}
@@ -292,7 +292,7 @@ can_colonize_province = {
 		}
 		allow = {
 			FROM = {
-				NOT = { has_country_modifier = trade_limitation }
+				NOT = { has_country_modifier = sea_trade_banned }
 			}
 		}
 	}
@@ -311,7 +311,7 @@ can_colonize_province_siberian_frontier = {
 		}
 		allow = {
 			FROM = {
-				NOT = { has_country_modifier = trade_limitation }
+				NOT = { has_country_modifier = sea_trade_banned }
 			}
 		}
 	}
