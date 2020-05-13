@@ -2855,9 +2855,16 @@ country_event = {
 		 NOT = { has_reform = no_election }
 		 NOT = { absolutism = 50 }
 		 absolutism = 5
+		 OR = {
+			NOT = { has_country_flag = recent_power_aid }
+			had_country_flag = {
+				flag = recent_power_aid
+				days = 3650
+			}
+		 }
 	}
 	mean_time_to_happen = {
-	     months = 300
+	     months = 360
 		 modifier = {
 		      factor = 1.5
 			  NOT = { stability = 0 }
@@ -2878,18 +2885,7 @@ country_event = {
 		      factor = 0.85
 			  stability = 3
 		 }
-		 modifier = {
-		      factor = 0.9
-			  NOT = { adm = 3 }
-		 }
-		 modifier = {
-		      factor = 0.9
-			  NOT = { adm = 2 }
-		 }
-		 modifier = {
-		      factor = 0.9
-			  NOT = { adm = 1 }
-		 }
+
 		 modifier = {
 		      factor = 0.9
 			  NOT = { absolutism = 40 }
@@ -2906,6 +2902,12 @@ country_event = {
 		      factor = 0.9
 			  NOT = { absolutism = 10 }
 		 }
+	}
+	immediate = {
+		hidden_effect = {
+			clr_country_flag = recent_power_aid
+			set_country_flag = recent_power_aid
+		}
 	}
 	option = { #Much Appreciated
 	     name = "state.104.a"
@@ -2935,9 +2937,16 @@ country_event = {
 		 NOT = { has_reform = no_election }
 		 NOT = { absolutism = 50 }
 		 absolutism = 5
+		 OR = {
+			NOT = { has_country_flag = recent_power_aid }
+			had_country_flag = {
+				flag = recent_power_aid
+				days = 3650
+			}
+		 }
 	}
 	mean_time_to_happen = {
-	     months = 300
+	     months = 360
 		 modifier = {
 		      factor = 1.5
 			  NOT = { stability = 0 }
@@ -2958,18 +2967,7 @@ country_event = {
 		      factor = 0.85
 			  stability = 3
 		 }
-		 modifier = {
-		      factor = 0.9
-			  NOT = { dip = 3 }
-		 }
-		 modifier = {
-		      factor = 0.9
-			  NOT = { dip = 2 }
-		 }
-		 modifier = {
-		      factor = 0.9
-			  NOT = { dip = 1 }
-		 }
+
 		 modifier = {
 		      factor = 0.9
 			  NOT = { absolutism = 40 }
@@ -2986,6 +2984,12 @@ country_event = {
 		      factor = 0.9
 			  NOT = { absolutism = 10 }
 		 }
+	}
+	immediate = {
+		hidden_effect = {
+			clr_country_flag = recent_power_aid
+			set_country_flag = recent_power_aid
+		}
 	}
 	option = { #Much Appreciated
 	     name = "state.104.a"
@@ -3015,9 +3019,16 @@ country_event = {
 		 NOT = { has_reform = no_election }
 		 NOT = { absolutism = 50 }
 		 absolutism = 5
+		 OR = {
+			NOT = { has_country_flag = recent_power_aid }
+			had_country_flag = {
+				flag = recent_power_aid
+				days = 3650
+			}
+		 }
 	}
 	mean_time_to_happen = {
-	     months = 300
+	     months = 360
 		 modifier = {
 		      factor = 1.5
 			  NOT = { stability = 0 }
@@ -3038,18 +3049,7 @@ country_event = {
 		      factor = 0.85
 			  stability = 3
 		 }
-		 modifier = {
-		      factor = 0.9
-			  NOT = { mil = 3 }
-		 }
-		 modifier = {
-		      factor = 0.9
-			  NOT = { mil = 2 }
-		 }
-		 modifier = {
-		      factor = 0.9
-			  NOT = { mil = 1 }
-		 }
+
 		 modifier = {
 		      factor = 0.9
 			  NOT = { absolutism = 40 }
@@ -3066,6 +3066,12 @@ country_event = {
 		      factor = 0.9
 			  NOT = { absolutism = 10 }
 		 }
+	}
+	immediate = {
+		hidden_effect = {
+			clr_country_flag = recent_power_aid
+			set_country_flag = recent_power_aid
+		}
 	}
 	option = { #Much Appreciated
 	     name = "state.104.a"
