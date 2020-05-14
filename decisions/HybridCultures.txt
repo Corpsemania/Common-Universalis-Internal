@@ -130,7 +130,7 @@ country_decisions = {
 			num_of_owned_provinces_with = {
 					culture_group = latin
 					has_owner_accepted_culture = yes
-					value = 20
+					value = 15
 			}
 			NOT = {
 				num_of_owned_provinces_with = {

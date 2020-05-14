@@ -9584,7 +9584,7 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 		    if = {
-			     limit = { quantity_ideas = 3 }
+			     limit = { quantity_ideas = 7 }
 				 set_variable = { which = cu_power value = 75 }
 			}
 			else = {
@@ -9617,7 +9617,7 @@ country_event = {
 		else_if = {
 			    limit = {
 				        AND = {
-						      quantity_ideas = 7
+						      quantity_ideas = 3
 							  has_country_modifier = cu_bp_ec_flag
 						}
 				}
@@ -9627,7 +9627,7 @@ country_event = {
 		}
 		else_if = {
 			     limit = {
-				       quantity_ideas = 7
+				       quantity_ideas = 3
 				 }
 				 hidden_effect = { country_event = { id = ideagroups.4931 days = 365 } } 
 		        custom_tooltip = cu_bp_po_tt550
@@ -9646,7 +9646,7 @@ country_event = {
 		}
 		hidden_effect = { 
 			if = {
-			     limit = { quantity_ideas = 3 }
+			     limit = { quantity_ideas = 7 }
 			     set_variable = { which = cu_power value = 75 }
 			}
 			else = {
@@ -9697,7 +9697,7 @@ country_event = {
 		else_if = {
 			    limit = {
 				        AND = {
-						      quantity_ideas = 7
+						      quantity_ideas = 3
 							  has_country_modifier = cu_bp_ec_flag
 						}
 				}
@@ -9707,7 +9707,7 @@ country_event = {
 		}
 		else_if = {
 			     limit = {
-				       quantity_ideas = 7
+				       quantity_ideas = 3
 				 }
 				 hidden_effect = { country_event = { id = ideagroups.4932 days = 825 } } 
 		         custom_tooltip = cu_bp_ut_tt825
@@ -9726,7 +9726,7 @@ country_event = {
 		}
 		hidden_effect = { 
 			if = {
-			     limit = { quantity_ideas = 3 }
+			     limit = { quantity_ideas = 7 }
 			     set_variable = { which = cu_power value = 75 }
 			}
 			else = {
@@ -9776,7 +9776,7 @@ country_event = {
 		else_if = {
 			    limit = {
 				        AND = {
-						      quantity_ideas = 7
+						      quantity_ideas = 3
 							  has_country_modifier = cu_bp_ec_flag
 						}
 				}
@@ -9786,7 +9786,7 @@ country_event = {
 		}
 		else_if = {
 			     limit = {
-				       quantity_ideas = 7
+				       quantity_ideas = 3
 				 }
 				 hidden_effect = { country_event = { id = ideagroups.4933 days = 273 } } 
 		         custom_tooltip = cu_bp_fd_tt273
@@ -9805,7 +9805,7 @@ country_event = {
 		}
 		hidden_effect = { 
 			if = {
-			     limit = { quantity_ideas = 3 }
+			     limit = { quantity_ideas = 7 }
 			     set_variable = { which = cu_power value = 75 }
 			}
 			else = {
@@ -9872,7 +9872,7 @@ country_event = {
 		else_if = {
 			    limit = {
 				        AND = {
-						      quantity_ideas = 7
+						      quantity_ideas = 3
 							  has_country_modifier = cu_bp_ec_flag
 						}
 				}
@@ -9882,7 +9882,7 @@ country_event = {
 		}
 		else_if = {
 			     limit = {
-				       quantity_ideas = 7
+				       quantity_ideas = 3
 				 }
 				 hidden_effect = { country_event = { id = ideagroups.4934 days = 90 } } 
 		         custom_tooltip = cu_bp_ed_tt90
@@ -9901,7 +9901,7 @@ country_event = {
 		}
 		hidden_effect = { 
 			if = {
-			     limit = { quantity_ideas = 3 }
+			     limit = { quantity_ideas = 7 }
 			     set_variable = { which = cu_power value = 75 }
 			}
 			else = {
@@ -9952,7 +9952,7 @@ country_event = {
 		}
 		else_if = {
 			     limit = {
-				       quantity_ideas = 7
+				       quantity_ideas = 3
 				 }
 				 hidden_effect = { country_event = { id = ideagroups.4935 days = 120 } } 
 		         custom_tooltip = cu_bp_ec_tt120
@@ -9963,7 +9963,7 @@ country_event = {
 		}
 		hidden_effect = { 
 			if = {
-			     limit = { quantity_ideas = 3 }
+			     limit = { quantity_ideas = 7 }
 			     set_variable = { which = cu_power value = 75 }
 			}
 			else = {

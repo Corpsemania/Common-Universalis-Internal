@@ -11,6 +11,7 @@ improve_drainage_effect = {
 		name = cu_improve_drainage
 		duration = -1
 	}
+	hidden_effect = { province_event = { id = terra.08 days = 2556 } }
 	clr_province_flag = cu_improve_drainage_flag
 	set_province_flag = cu_improve_drainage_flag
 }
@@ -30,6 +31,7 @@ improve_sanitation_effect = {
 	}
 	clr_province_flag = cu_improve_sanitation_flag
 	set_province_flag = cu_improve_sanitation_flag
+	hidden_effect = { province_event = { id = terra.08 days = 1826 } }
 }
 
 reclaim_wasteland_effect = {
@@ -45,4 +47,5 @@ reclaim_wasteland_effect = {
 		name = ti_military_cultivation
 		duration = -1
 	}
+	hidden_effect = { province_event = { id = terra.08 days = 7300 } }
 }

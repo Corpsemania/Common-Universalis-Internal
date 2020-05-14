@@ -1973,4 +1973,5 @@
  cu_prov_emmigration_tt: "Province loses §R1§! development due to emmigration"
  cu_subtract_development_1_tt: "Province loses §R1§! development of random type"
  cu_do_starvation_tt: "Province loses §R1§! development, urban development goes first"
- 
+ flavor_eng.EVTOPTA9104CU: "It's time to give up our claim and focus on the isles."
+ flavor_eng.EVTOPTA9104CUt: "All provinces in §YBritish Isles§! region gains §G5%§! Administrative Integrity."

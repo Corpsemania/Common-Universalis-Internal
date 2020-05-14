@@ -4327,9 +4327,9 @@ eng_grand_charter = {
     }
 	modifiers = {
 		legitimacy = 0.5
-		global_unrest = -1 
-		max_absolutism = -10
-		yearly_absolutism = 0.1
+		global_unrest = -1
+		max_absolutism = -5
+		yearly_absolutism = 0.05
 	}
 	conditional = {
 		has_parliament = yes

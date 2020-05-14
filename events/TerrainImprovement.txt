@@ -664,6 +664,7 @@ province_event = {
 			name = ti_military_cultivation
 			duration = -1
 		}
+		hidden_effect = { province_event = { id = terra.071 days = 7300 } }
 		ai_chance = {
             factor = 0.9
         }

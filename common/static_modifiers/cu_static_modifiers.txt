@@ -305,7 +305,7 @@ province_razed = {
 development = {
 	supply_limit_modifier = 0.02
 	local_defensiveness = 0.01
-	land_forcelimit	= 0.05			# special case, affected by autonomy
+	land_forcelimit	= 0.04			# special case, affected by autonomy
 	naval_forcelimit = 0.08 		# special case, affected by autonomy & set to 0 by code if not port
 	local_sailors = 20			# special case, affected by autonomy & set to 0 by code if not port
     garrison_growth = 0.003					#0.3% increase from Dev.
@@ -904,7 +904,7 @@ num_of_marriages = {
 
 num_of_provinces = {
        global_colonial_growth = -0.2
-       land_forcelimit = -0.1
+       #land_forcelimit = -0.1
 }
 
 # Multiplied by Development
@@ -1044,9 +1044,7 @@ prestige = {
 no_debate_in_parliament = {
 	legitimacy = -0.5
 	republican_tradition = -1
-	yearly_corruption = 0.2
-	global_unrest = 1.5
-	yearly_absolutism = 0.1
+	yearly_absolutism = -0.1
 }
 
 
