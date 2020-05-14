@@ -73,9 +73,11 @@ move_capital_b = {
 	modifier = {		
 		allowed_num_of_buildings = 1
 	}
-	on_built = {	    
-		add_adm_power = -200
-		set_capital = ROOT 
+	on_built = {
+		owner = {
+			add_adm_power = -200
+			set_capital = ROOT 
+		}
 		hidden_effect = { 
 			if = {
 				limit = { has_province_modifier = second_capital }
