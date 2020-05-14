@@ -259,7 +259,7 @@ country_event = {
 				cu_add_cultural_acceptance = yes
 			}
 			if = { 
-				limit = { is_ai = yes } #AI england weirdly ignores corruption during hyw
+				limit = { ai = yes } #AI england weirdly ignores corruption during hyw
 				add_corruption = -10
 			}
 		}

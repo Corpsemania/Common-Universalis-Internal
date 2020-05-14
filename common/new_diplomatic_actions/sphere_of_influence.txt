@@ -47,7 +47,7 @@ demand_protectorate = {
 			name = protectorate_num
 			export_to_variable = {
 				variable_name = ai_value
-				value = num_of_non_tributary_subjects
+				value = trigger_value:num_of_non_tributary_subjects
 			}
 			multiply_variable = { which = ai_value value = -5 }	
 		}
@@ -143,7 +143,7 @@ demand_protectorate = {
 			name = institution_difference_form
 			export_to_variable = {
 				variable_name = ai_value
-				value = institution_difference
+				value = trigger_value:institution_difference
 				who = ROOT
 				with = FROM
 			}

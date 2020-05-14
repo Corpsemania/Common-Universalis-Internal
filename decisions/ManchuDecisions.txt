@@ -93,7 +93,7 @@ country_decisions = {
 			NOT = { has_country_modifier = seven_grievance_mod }
 			NOT = { has_country_flag = seven_grievance_flag }
 			MNG = {
-				exits = yes
+				exists = yes
 				is_emperor_of_china = yes
 			}
 			any_owned_province = {

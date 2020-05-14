@@ -1697,13 +1697,6 @@ cu_pick_emmigration_prov = {
 					 }
 					 cu_random_number = yes
 					 if = {
-						limit = { base_manpower = force_emmigration_prov } #Province with higher agriculture has a higher chance to be picked
-						if = {
-							limit = { check_variable = { which = cu_rd value = 33 } }
-							save_event_target_as = force_emmigration_prov
-						}
-					 }
-					 else_if = {
 						limit = { check_variable = { which = cu_rd value = 50 } }
 						save_event_target_as = force_emmigration_prov
 					 }
@@ -1717,7 +1710,7 @@ cu_do_immigration = {
 			 if = {
 				limit = {  has_country_flag = force_emmigration_prov_found } 
 				clr_country_flag = force_emmigration_prov_found
-				force_emmigration_prov = {
+				event_target:force_emmigration_prov = {
 					 add_base_manpower = -1
 					 add_province_modifier = {
 						  name = recent_emmigration
@@ -1749,7 +1742,7 @@ cu_do_immigration = {
 				   if = {
 						limit = {  has_country_flag = force_emmigration_prov_found } 
 						clr_country_flag = force_emmigration_prov_found
-						force_emmigration_prov = {
+						event_target:force_emmigration_prov = {
 							 add_base_manpower = -1
 							 add_province_modifier = {
 								  name = recent_emmigration
@@ -1844,11 +1837,11 @@ cu_convert_nationalism_seperatism = {
 		set_variable = { which = cu_var1 value = 0 }
 	}
 	else_if = {
-		owner = { culture_group = PREV }
+		limit = { owner = { culture_group = PREV } }
 		multiply_variable = { which = cu_var1 value = 0.3 }
 	}
 	else_if = {
-		has_owner_accepted_culture = yes
+		limit = { has_owner_accepted_culture = yes }
 		multiply_variable = { which = cu_var1 value = 0.5 }
 	}
 	if = {

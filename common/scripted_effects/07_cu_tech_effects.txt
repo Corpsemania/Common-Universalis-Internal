@@ -55,7 +55,8 @@ cu_calc_adm_tech_cost = {
 		  multiply_variable = { which = adm_tc value = 0.5 }
 	}
 	else_if = { #Technology Sharing
-	      any_known_country = {
+		  limit = {
+			any_known_country = {
 		         PREV = {
 				      has_opinion_modifier = {
 			                  modifier = share_advanced_neighbor
@@ -63,14 +64,18 @@ cu_calc_adm_tech_cost = {
 		              }
 					  NOT = { adm_tech = PREV }
 				 }
+			}
 		  }
+	     
 		  multiply_variable = { which = adm_tc value = 0.75 }
 	}
  	else_if = { #Same Technology Group
-	      any_known_country = {
+		limit = {
+			any_known_country = {
 		        technology_group = PREV
 				PREV = { NOT = { dip_tech = PREV } }
-		  }
+		   }
+		}
 		  multiply_variable = { which = adm_tc value = 0.85 }
 	}
 	#Apply in-game modifiers
@@ -165,7 +170,8 @@ cu_calc_dip_tech_cost = {
 		  multiply_variable = { which = dip_tc value = 0.5 }
 	}
 	else_if = { #Technology Sharing
-	      any_known_country = {
+		limit = {
+			any_known_country = {
 		         PREV = {
 				      has_opinion_modifier = {
 			                  modifier = share_advanced_neighbor
@@ -173,15 +179,20 @@ cu_calc_dip_tech_cost = {
 		              }
 					  NOT = { dip_tech = PREV }
 				 }
-		  }
+			}
+		}
+	      
 		  multiply_variable = { which = dip_tc value = 0.75 }
 	}
  	else_if = { #Same Technology Group
-	      any_known_country = {
+		limit = {
+			any_known_country = {
 		        technology_group = PREV
 				PREV = { NOT = { dip_tech = PREV } }
 		  }
-		  multiply_variable = { which = dip_tc value = 0.85 }
+		}
+	      
+		multiply_variable = { which = dip_tc value = 0.85 }
 	}
 	#Apply in-game modifiers
 	set_variable = { which = cu_var1 value = 0 }
@@ -273,7 +284,8 @@ cu_calc_mil_tech_cost = {
 		  multiply_variable = { which = mil_tc value = 0.5 }
 	}
 	else_if = { #Technology Sharing
-	      any_known_country = {
+		limit = {
+			any_known_country = {
 		         PREV = {
 				      has_opinion_modifier = {
 			                  modifier = share_advanced_neighbor
@@ -281,15 +293,18 @@ cu_calc_mil_tech_cost = {
 		              }
 					  NOT = { mil_tech = PREV }
 				 }
-		  }
-		  multiply_variable = { which = mil_tc value = 0.75 }
+			}
+		}
+	    multiply_variable = { which = mil_tc value = 0.75 }
 	}
  	else_if = { #Same Technology Group
-	      any_known_country = {
+		limit = {
+			any_known_country = {
 		        technology_group = PREV
 				PREV = { NOT = { mil_tech = PREV } }
 		  }
-		  multiply_variable = { which = mil_tc value = 0.85 }
+		} 
+		multiply_variable = { which = mil_tc value = 0.85 }
 	}
 	#Apply in-game modifiers
 	set_variable = { which = cu_var1 value = 0 }

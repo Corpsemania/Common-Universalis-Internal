@@ -2208,7 +2208,7 @@ country_event = {
 							  }		  
 					}
 					hidden_effect = {
-                              add_local_autonomy = 0.1  #Allows autonomy to increase normally in province with minimum autonomy. 					
+                              add_local_autonomy = 0.01  #Allows autonomy to increase normally in province with minimum autonomy. 					
 					          province_event = { id = urban.98 } 
 					}
 			 }

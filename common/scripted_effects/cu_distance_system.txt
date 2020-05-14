@@ -291,7 +291,7 @@ calc_province_distance = {#Without Sqrt
 calc_oversea_travel_time = {
     set_variable = { which = p_stime value = 0 }
     set_variable = { which = cu_var1 value = 0 }
-    cu_dist_port = {
+    event_target:cu_dist_port = {
 		set_variable = { which = xdif which = x_coord }
 		set_variable = { which = ydif which = y_coord }
 	}
@@ -602,11 +602,11 @@ mark_next_province_set = {
                             NOT = { has_province_flag = cu_dist_p_next }
                         }
                         set_province_flag = cu_dist_p_next 
-                        set_variable = { which = p_ctime which = cu_dist_port } 
+                        set_variable = { which = p_ctime which = event_target:cu_dist_port } 
                         change_variable = { which = p_ctime which = p_stime }
                     }
                     else = { 
-                        set_variable = { which = cu_var1 which = cu_dist_port }
+                        set_variable = { which = cu_var1 which = event_target:cu_dist_port }
                         change_variable = { which = cu_var1 which = p_stime }
                         if = {
                             limit = { check_variable = { which = p_ctime which = cu_var1 } }
