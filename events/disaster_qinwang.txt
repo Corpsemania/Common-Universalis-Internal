@@ -6,7 +6,7 @@ country_event = {
 	desc = disaster_qinwang.0.d
 	picture = qinwang_ESTATE_UPSET_eventPicture
 	
-	major = yes
+	#major = yes
 	is_triggered_only = yes
 
 	immediate = {
@@ -73,7 +73,7 @@ country_event = {
 	desc = disaster_qinwang.1.d
 	picture = qinwang_ESTATE_1_eventPicture
 	
-	major = yes
+	#major = yes
 	is_triggered_only = yes
 	immediate = {
 		hidden_effect = {

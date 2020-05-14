@@ -6,7 +6,7 @@ country_event = {
 	desc = disaster_nomadic_tribes.0.d
 	picture = nomadic_tribes_ESTATE_UPSET_eventPicture
 	
-	major = yes
+	#major = yes
 	is_triggered_only = yes
 
 	immediate = {
@@ -73,7 +73,7 @@ country_event = {
 	desc = disaster_nomadic_tribes.1.d
 	picture = nomadic_tribes_ESTATE_1_eventPicture
 	
-	major = yes
+	#major = yes
 	is_triggered_only = yes
 	immediate = {
 		hidden_effect = {

@@ -6,7 +6,7 @@ country_event = {
 	desc = disaster_church.0.d
 	picture = CHURCH_ESTATE_UPSET_eventPicture
 	
-	major = yes
+	#major = yes
 	is_triggered_only = yes
 	immediate = {
 	    hidden_effect = {
@@ -72,7 +72,7 @@ country_event = {
 	desc = disaster_church.1.d
 	picture = CHURCH_ESTATE_1_eventPicture
 	
-	major = yes
+	#major = yes
 	is_triggered_only = yes
 	immediate = {
 		hidden_effect = {

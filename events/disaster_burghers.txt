@@ -6,7 +6,7 @@ country_event = {
 	desc = disaster_burghers.0.d
 	picture = burghers_ESTATE_UPSET_eventPicture
 	
-	major = yes
+	#major = yes
 	is_triggered_only = yes
 	immediate = {
 	    hidden_effect = {
@@ -102,7 +102,7 @@ country_event = {
 	}
 	picture = burghers_ESTATE_1_eventPicture
 	
-	major = yes
+	#major = yes
 	is_triggered_only = yes
 	immediate = {
 		hidden_effect = {
