@@ -212,7 +212,12 @@ cu_calc_nationalism_impact = {
 	cu_check_cultural_assimilation = yes
 	set_variable = { which = cu_var1 which = p_nationalism }
 	if = {
-		limit = { check_variable = { which = p_as value = 1 } }
+		limit = { 
+			check_variable = { which = p_as value = 1 } 
+			NOT = { check_variable = { which = p_as value = 10000 } }
+			check_variable = { which = p_asc value = 1 }
+			NOT = { check_variable = { which = p_asc value = 10000 } }
+		}
 		set_variable = { which = cu_var2 value = 1 }
 		set_variable = { which = cu_var3 which = p_as }
 		divide_variable = { which = cu_var3 value = p_asc }
