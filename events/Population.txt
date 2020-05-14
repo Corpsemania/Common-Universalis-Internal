@@ -350,7 +350,13 @@ province_event = {
                 owner = {
                           clr_country_flag = recent_emmigration_c  #Reset Timer
                 }
-		add_base_manpower = -1
+				if = {
+					limit = { NOT = { check_variable = { which = pop_growth value = 0 } } }
+					cu_do_starvation = yes
+				}
+				else = {
+					cu_subtract_development_1 = yes
+				}
                 add_province_modifier = {
                         name = recent_emmigration
                         duration = 3650

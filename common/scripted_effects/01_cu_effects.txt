@@ -5294,4 +5294,142 @@ cu_random_mil_advisor = {
 				  }
 }
 
+cu_subtract_development_1 = {
+					if = {
+						limit = { 
+							base_tax = 2
+							base_production = 2
+							base_manpower = 2
+						}
+						cu_random_number = yes
+						if = {
+							limit = { check_variable = { which = cu_rd value = 66 } }
+							add_base_tax = -1
+						}
+						else_if = {
+							limit = { check_variable = { which = cu_rd value = 33 } }
+							add_base_production = -1
+						}
+						else = {
+							add_base_manpower = -1
+						}
+					}
+					else_if = {
+						limit = { 
+						    base_tax = 2
+							base_production = 2 
+						}
+						cu_random_number = yes
+						if = {
+							limit = { check_variable = { which = cu_rd value = 50 } }
+							add_base_tax = -1
+						}
+						else = {
+							add_base_production = -1
+						}
+					}
+					else_if = {
+						limit = { 
+						    base_tax = 2
+							base_manpower = 2 
+						}
+						cu_random_number = yes
+						if = {
+							limit = { check_variable = { which = cu_rd value = 50 } }
+							add_base_tax = -1
+						}
+						else = {
+							add_base_manpower = -1
+						}
+					}
+					else_if = {
+						limit = { 
+						    base_production = 2 
+							base_manpower = 2 
+						}
+						cu_random_number = yes
+						if = {
+							limit = { check_variable = { which = cu_rd value = 50 } }
+							add_base_production = -1
+						}
+						else = {
+							add_base_manpower = -1
+						}
+					}
+					else_if = {
+						limit = {
+							base_tax = 2
+						}
+						add_base_tax = -1
+					}
+					else_if = {
+						limit = {
+							base_production = 2
+						}
+						add_base_production = -1
+					}
+					else_if = {
+						limit = { base_manpower = 2 }
+						add_base_manpower = -1
+					}
+}
+
+cu_do_starvation = {
+					if = {
+						limit = { 
+						    base_tax = 2
+							base_production = 2 
+						}
+						cu_random_number = yes
+						if = {
+							limit = { check_variable = { which = cu_rd value = 50 } }
+							add_base_tax = -1
+						}
+						else = {
+							add_base_production = -1
+						}
+					}
+					
+					else_if = {
+						limit = {
+							base_tax = 2
+						}
+						add_base_tax = -1
+					}
+					else_if = {
+						limit = {
+							base_production = 2
+						}
+						add_base_production = -1
+					}
+					else_if = {
+						limit = { base_manpower = 2 }
+						add_base_manpower = -1
+					}
+}
+
+cu_do_prov_loot = {
+	#cu_random_number = yes
+	if = {
+		limit = { check_variable = { which = cu_rd value = 85 } }
+		custom_tooltip = cu_prov_emmigration_tt
+		hidden_effect = {
+			province_event = { id = pop.01 }
+		}
+	}
+	else_if = {
+		limit = { check_variable = { which = pop_growth value = 0 } }
+		custom_tooltip = cu_subtract_development_1_tt
+		hidden_effect = {
+			cu_subtract_development_1 = yes
+		}
+	}
+	else = {
+		custom_tooltip = cu_do_starvation_tt
+		hidden_effect = {
+			cu_do_starvation = yes
+		}
+	}
+}
+
 								  											  

@@ -559,10 +559,10 @@ province_event = {
 					      limit = { 
 						       check_variable = { which = food_im value = 0 }
 						  }
-					      change_variable = { which = food_im value = 1 }
-						  else = { #Starvation
+					      change_variable = { which = food_im value = 1 }	  
+					}
+					else = { #Starvation
 						       subtract_variable = { which = food_im value = 1 }
-						  }
 					}
 					change_variable = { which = pop_growth which = food_im }
 					multiply_variable = { which = pop_growth value = 1.5 }
@@ -1119,7 +1119,8 @@ province_event = {
 					       subtract_variable = { which = pop_prog which = pop_cost }
 						   if = {
 						          limit = { check_variable = { which = r_ac value = 0.001 } }
-								  province_event = { id = pop.98 } #Population Growth
+								  #province_event = { id = pop.98 } #Population Growth
+								  cu_add_base_manpower_1 = yes
 								  else = {
 								          random_list = {
 										        50 = { province_event = { id = pop.01 } }
@@ -1161,8 +1162,7 @@ province_event = {
                                              base_production = 2
 								  }
 								  random_list = {
-								          35 = { cu_reduce_base_tax_1 = yes }
-										  35 = { cu_reduce_base_production_1 = yes }
+								          70 = { cu_do_starvation = yes }
 								          30 = { province_event = { id =  pop.01 } } #Emmigration
 								  }
 								  set_province_flag = starvation_temp
@@ -1170,34 +1170,8 @@ province_event = {
 						   else_if = {
 						          limit = { 
 								             has_province_modifier = recent_emmigration  
-											 base_tax = 2
-                                             base_production = 2
 								   }
-								  random_list = {
-								          50 = { cu_reduce_base_tax_1 = yes }
-										  50 = { cu_reduce_base_production_1 = yes }
-								  }
-						   }
-						   else_if = {
-						          limit = { 
-											NOT = { base_tax = 2 }
-											base_production = 2
-								   }
-								  cu_reduce_base_production_1 = yes
-						   }
-						   else_if = {
-						          limit = { 
-											NOT = { base_production = 2 }
-											base_tax = 2
-								   }
-								   cu_reduce_base_tax_1 = yes
-						   }
-						   else_if = {
-						          limit = { 
-											NOT = { base_tax = 2 }
-											NOT = { base_production = 2 }
-								   }
-								   cu_reduce_base_manpower_1 = yes
+								   cu_do_starvation = yes
 						   }
 						   
 					}
@@ -1771,9 +1745,10 @@ province_event = {
 						       check_variable = { which = food_im value = 0 }
 						  }
 					      change_variable = { which = food_im value = 1 }
-						  else = { #Starvation
-						       subtract_variable = { which = food_im value = 1 }
-						  }
+						  
+					}
+					else = { #Starvation
+						  subtract_variable = { which = food_im value = 1 }
 					}
 					change_variable = { which = pop_growth which = food_im }
 					multiply_variable = { which = pop_growth value = 1.5 }

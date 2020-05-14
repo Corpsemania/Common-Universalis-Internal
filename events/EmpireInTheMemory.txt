@@ -793,17 +793,13 @@ province_event = {
                 hidden_effect = {
                       clr_province_flag = recent_dev_reduction
                       set_province_flag = recent_dev_reduction
+					  cu_random_number = yes
                 }
         }
 
 	option = {
 		name = "empire.3.a" 
-		random_list = {
-			30 = { cu_reduce_base_tax_1 = yes }
-			30 = { cu_reduce_base_production_1 = yes }
-            30 = { cu_reduce_base_manpower_1 = yes }
-            10 = { province_event = { id = pop.01 } } #Emmigration
-		}
+		cu_do_prov_loot = yes
 	}
 }
 
