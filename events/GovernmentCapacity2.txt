@@ -15,7 +15,7 @@ country_event = {
 	    name = "cugovernment.1.a"
 		hidden_effect = {
            
-			clr_country_flag = gc_phase3
+			clr_country_flag = gc_phase2
 			#####################################################################################
 		   
 			########################3.Calculate Provinces########################################
@@ -31,7 +31,7 @@ country_event = {
 					change_variable = { which = ect value = 1 } 
 					if = {
 						limit = { check_variable = { which = ect value = 400 } }
-						set_country_flag = gc_phase3
+						set_country_flag = gc_phase2
 						subtract_variable = { which = ect value = 400 }
 					}
 					#Reset Variable
@@ -969,7 +969,7 @@ country_event = {
 				}
 		    }
 			if = {
-				limit = { NOT = { has_country_flag = gc_phase3 } }
+				limit = { NOT = { has_country_flag = gc_phase2 } }
 				every_owned_province = {
 					clr_province_flag = gc_calculated
 				}
@@ -1139,14 +1139,14 @@ country_event = {
 		   	
 			########################6.Extended Calculation to Prevent Overflow CTD########################################################
 			if = {
-				limit = { has_country_flag = gc_phase3 }
+				limit = { has_country_flag = gc_phase2 }
 				country_event = { id = cugovernment.21 }
 			}
 		}
 	}
 }
 country_event = {
-	id = cugovernment.2
+	id = cugovernment.21
 	title = "cugovernment.1.t"
 	desc = "cugovernment.1.d"
 	picture = CITY_VIEW_eventPicture
@@ -1158,7 +1158,7 @@ country_event = {
 	    name = "cugovernment.1.a"
 		hidden_effect = {
            
-			clr_country_flag = gc_phase3
+			clr_country_flag = gc_phase2
 			#####################################################################################
 		   
 			########################3.Calculate Provinces########################################
@@ -1174,7 +1174,7 @@ country_event = {
 					change_variable = { which = ect value = 1 } 
 					if = {
 						limit = { check_variable = { which = ect value = 400 } }
-						set_country_flag = gc_phase3
+						set_country_flag = gc_phase2
 						subtract_variable = { which = ect value = 400 }
 					}
 					#Reset Variable
@@ -2119,7 +2119,7 @@ country_event = {
 				}
 		    }
 			if = {
-				limit = { NOT = { has_country_flag = gc_phase3 } }
+				limit = { NOT = { has_country_flag = gc_phase2 } }
 				every_owned_province = {
 					clr_province_flag = gc_calculated
 				}
@@ -2283,7 +2283,7 @@ country_event = {
 		   	
 			########################6.Extended Calculation to Prevent Overflow CTD########################################################
 			if = {
-				limit = { has_country_flag = gc_phase3 }
+				limit = { has_country_flag = gc_phase2 }
 				country_event = { id = cugovernment.2 }
 			}
 		}

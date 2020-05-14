@@ -318,7 +318,7 @@ country_event = {
 					change_variable = { which = ect value = 1 } 
 					if = {
 						limit = { check_variable = { which = ect value = 400 } }
-						set_country_flag = gc_phase3
+						set_country_flag = gc_phase2
 						subtract_variable = { which = ect value = 400 }
 					}
 					#Reset Variable
