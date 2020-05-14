@@ -44,18 +44,18 @@ province_event = {
 				}
 				country_event = { id = cuglobal.1 }
 			}
-			else_if = {
-				limit = {
-					OR = {
-						NOT = { has_global_flag = cu_five_years_pulse }
-						had_global_flag = {
-							flag = cu_five_years_pulse
-							days = 1825
-						}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = { has_global_flag = cu_five_years_pulse }
+					had_global_flag = {
+						flag = cu_five_years_pulse
+						days = 1825
 					}
 				}
-				country_event = { id = cuglobal.2 }
 			}
+			owner = { country_event = { id = cuglobal.2 } }
 		}
 	}
 }
@@ -147,15 +147,8 @@ country_event = {
 				flag = cu_five_years_pulse
 				days = 1825
 			}
+			has_country_flag = forced_event_trigger
 		}
-		owns = 1
-		OR = {
-			   AND = {
-					is_month = 0
-					NOT = { is_month = 1 }
-			   }
-			   has_country_flag = forced_event_trigger
-		 }
 	}
 	
 	is_triggered_only = yes
