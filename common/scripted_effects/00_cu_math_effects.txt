@@ -56,27 +56,11 @@ cu_initialize_random_number = {
 	set_variable = { which = cu_rd1 value = cu_rd }
 }
 
-#new seed = ( total development of human nation * old seed + 50 ) Mod 100 
+#new seed = (  ( cu_year - 1400 ) * old seed + 50 ) Mod 100 
 cu_change_random_number = {
 	1 = {
-		set_variable = { which = cu_rd2 value = 0 }
-		random_country = {
-			limit = { 
-				total_development = 10 
-				ai = no
-			} 
-			PREV = {
-				export_to_variable = {
-					which = cu_rd2
-					value = total_development
-					who = PREV
-				}
-			}
-		}
-		while = {
-			limit = { check_variable = { which = cu_rd2 value = 100 } }
-			divide_variable = { which = cu_rd2 value = 10 } #Prevent potential overflow
-		}
+		set_variable = { which = cu_rd2 which = cu_year }
+		subtract_variable = { which = cu_rd2 value = 1400 }
 		multiply_variable = { which = cu_rd1 which = cu_rd2 }
 		change_variable = { which = cu_rd1 value = 50 }
 		while = {
