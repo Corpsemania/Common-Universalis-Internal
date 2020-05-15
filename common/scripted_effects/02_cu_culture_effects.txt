@@ -2036,6 +2036,16 @@ cu_do_nationalism_growth = {
 					change_variable = { which = cu_var2 value = 1.5 }
 					multiply_variable = { which = cu_var1 which = cu_var2 }
 				}
+				#Subtract by current nationalism
+				if = {
+					limit = {
+						check_variable = { which = p_nationalism value = 0 }
+						NOT = { check_variable = { which = p_nationalism value = 100 } }
+					}
+				}
+				set_variable = { which = cu_var2 which = p_nationalism }
+				multiply_variable = { which = cu_var2 value = 0.005 }
+				subtract_variable = { which = cu_var1 which = cu_var2 }
 				set_variable = { which = p_nationalism_g which = cu_var1 }
 				if = {
 					limit = { owner = { ai = yes } }

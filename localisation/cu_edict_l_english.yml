@@ -92,7 +92,7 @@
  urban.50.c6: "Start Cultural Assimilation"
  urban.50.c6t: "Starting to change province culture to our primary culture, the time needed for assimilation is affected by province development, buildings, literacy difference, religious tolerance and other factors."
  urban.50.c6n: "§RStart Cultural Assimilation(Unavailable)§!"
- urban.50.c6nt: "§RPrerequisites of this edict are not fulfilled:§!\nProvince is your core\nAdministrative Integrity is at least §G90%§!.\nYears of Seperatism is less than §R1§!\n([This.Owner.GetName])\n  Has §R50§! £dip£\n  Has §R10§! Prestige"
+ urban.50.c6nt: "§RPrerequisites of this edict are not fulfilled:§!\nProvince is your core\nAdministrative Integrity is at least §G90%§!.\n([This.Owner.GetName])\n  Has §R50§! £dip£\n  Has §R10§! Prestige"
  urban.50.c5: "Benign Neglect"
  urban.50.c5t: "Base cost is §R40§! £adm£, will be modifiered by your power cost and country size.\nYearly Administrative Integrity Growth: §G+0.5%§!"
  urban.50.c5n: "§RBenign Neglect(Unavailable)§!"

@@ -1272,7 +1272,6 @@ province_event = {
 			check_variable = { which = p_ca value = 70 }
 			has_owner_culture = no
 			is_core = owner
-			NOT = { nationalism = 1 }
             owner = {
 				prestige = 10
 				dip_power = 50
@@ -1321,7 +1320,6 @@ province_event = {
 			    AND = {
 						check_variable = { which = p_ca value = 70 }
 						is_core = owner
-						NOT = { nationalism = 1 }
 						owner = {
 							prestige = 10
 							dip_power = 50
@@ -3067,7 +3065,6 @@ province_event = {
 			check_variable = { which = p_ca value = 70 }
 			has_owner_culture = no
 			is_core = owner
-			NOT = { nationalism = 1 }
             owner = {
 				prestige = 20
 				dip_power = 50
