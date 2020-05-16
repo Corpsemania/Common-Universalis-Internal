@@ -26,32 +26,18 @@ empire_of_china_in_name = {
 	
 	can_end = {
 		OR = {
-			is_emperor_of_china = no
-			has_country_modifier = yuan_system_in_china
+			is_emperor_of_china = no			
 			AND = {
 				custom_trigger_tooltip = {
 					tooltip = disaster_active_for_10_years_tooltip
 					had_country_flag = { flag = had_empire_of_china_culture_disaster days = 3650 }
-				}
-				has_country_modifier = qing_system_in_china
+				}				
 				NOT = {
 					any_owned_province = {
 						has_rebel_faction = nationalist_rebels
 					}
 				}
-			}
-			AND = {
-				custom_trigger_tooltip = {
-					tooltip = disaster_active_for_30_years_tooltip
-					had_country_flag = { flag = had_empire_of_china_culture_disaster days = 10950 }
-				}
-				has_country_modifier = beiwei_system_in_china
-				NOT = {
-					any_owned_province = {
-						has_rebel_faction = nationalist_rebels
-					}
-				}
-			}
+			}			
 		}
 	}
 	

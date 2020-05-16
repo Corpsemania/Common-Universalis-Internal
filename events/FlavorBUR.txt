@@ -1654,7 +1654,7 @@ country_event = {
 			NED = {
 				add_government_reform = becomes_republic_reform
 				add_government_reform = dutch_republic
-				change_primary_culture = dutch_g
+				change_primary_culture = dutch
 			}
 			every_owned_province = {
 				limit = {

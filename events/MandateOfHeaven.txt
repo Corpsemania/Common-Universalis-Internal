@@ -2248,24 +2248,23 @@ country_event = {
 	picture = GOOD_WITH_MONARCH_eventPicture
 	
 	trigger = {				
-				OR ={
-             has_reform =  zhuhou 
-             has_reform =  celestial_empire 
-             has_reform =  celestial_empire_2 
-                                                    
-             }
-			 is_at_war = no	  
-				NOT = { tag = MNG }
-				NOT = { tag = CHF }
-	    	NOT = { has_country_flag = eoc_capital_picked }
-		    calc_true_if = {
-			  owns_core_province = 1816 #Beijing
-			  owns_core_province = 1821 #Nanjing
-			  owns_core_province = 700  #Chang'an
-			  owns_core_province = 1836 #Luoyang
-			  owns_core_province = 667 #Guangzhou
-			  owns_core_province = 684 #Hangzhou
-			  owns_core_province = 688 #Kaifeng
+		OR ={
+            has_reform =  zhuhou 
+            has_reform =  celestial_empire 
+            has_reform =  celestial_empire_2
+        }
+		is_at_war = no	  
+		NOT = { tag = MNG }
+		NOT = { tag = CHF }
+	    NOT = { has_country_flag = eoc_capital_picked }
+		calc_true_if = {
+			owns_core_province = 1816 #Beijing
+			owns_core_province = 1821 #Nanjing
+			owns_core_province = 700  #Chang'an
+			owns_core_province = 1836 #Luoyang
+			owns_core_province = 667 #Guangzhou
+			owns_core_province = 684 #Hangzhou
+			owns_core_province = 688 #Kaifeng
 			amount = 3
 		}
 	}
@@ -2289,8 +2288,7 @@ country_event = {
 		1816 = {
 			add_base_tax = 1
 			add_base_production = 1
-			add_base_manpower = 1
-			change_culture = ROOT 
+			add_base_manpower = 1			 
 			if = {
 			      limit = { 
 					OR = {
@@ -2318,8 +2316,7 @@ country_event = {
 		1821 = {
 			add_base_tax = 1
 			add_base_production = 1
-			add_base_manpower = 1
-			change_culture = ROOT
+			add_base_manpower = 1			
 		}
 		if = {
 		      limit = { is_emperor_of_china = yes }  
@@ -2355,8 +2352,7 @@ country_event = {
 		1836 = {
 			add_base_tax = 1
 			add_base_production = 1
-			add_base_manpower = 1
-			change_culture = ROOT
+			add_base_manpower = 1			
 		}
 		if = {
 		      limit = { is_emperor_of_china = yes }  
@@ -2379,8 +2375,7 @@ country_event = {
 			rename_capital = "Ling'an"
 			add_base_tax = 1
 			add_base_production = 1
-			add_base_manpower = 1
-			change_culture = ROOT
+			add_base_manpower = 1			
 		}
 	}
 	option = {
@@ -2399,8 +2394,7 @@ country_event = {
 			rename_capital = "Guangzhou"
 			add_base_tax = 1
 			add_base_production = 1
-			add_base_manpower = 1
-			change_culture = ROOT
+			add_base_manpower = 1			
 		}
 	}
 	option = {
@@ -2418,8 +2412,7 @@ country_event = {
 			change_province_name = "Bianjing"			
 			add_base_tax = 1
 			add_base_production = 1
-			add_base_manpower = 1
-			change_culture = ROOT
+			add_base_manpower = 1			
 		}
 	}
 	option = {

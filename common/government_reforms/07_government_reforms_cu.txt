@@ -4630,7 +4630,7 @@ becomes_monarchy_reform = {
 		NOT = { has_reform = papal_government }
 	}
 	trigger = {
-	    NOT = { stability = 1 }
+	    stability = 1 
 		custom_trigger_tooltip = {
 			tooltip = government_reform_cd_20_tooltip
 			NOT = { has_country_modifier = tur_janissaries_timer }
@@ -4672,13 +4672,13 @@ becomes_monarchy_reform = {
 				}
 				OR = {
 					AND = {
-						DIP = 5
-						ADM = 5
+						DIP = 4
+						ADM = 4
 					}
 					AND = {
 						adm_tech = 12
-						DIP = 4
-						ADM = 4
+						DIP = 3
+						ADM = 3
 					}
 				}
 			}
@@ -5169,7 +5169,7 @@ becomes_republic_reform = {
 			tooltip = government_reform_cd_20_tooltip
 			NOT = { has_country_modifier = tur_janissaries_timer }
 		}
-        NOT = { stability = 1 }	
+        stability = 1 	
 		OR = {
 			AND = {
 				OR = {
@@ -5190,8 +5190,8 @@ becomes_republic_reform = {
 				NOT = { has_reform = steppe_horde }	
 				adm_tech = 8
 				dip_tech = 8
-				DIP = 6
-				ADM = 6
+				DIP = 5
+				ADM = 5
 				any_neighbor_country = {
 					government = republic
 				}

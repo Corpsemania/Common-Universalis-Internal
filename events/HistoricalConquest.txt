@@ -112,6 +112,7 @@ province_event = {
 	picture = ANGRY_MOB_eventPicture
 	
 	trigger = {
+				always = no
                 is_colony = no
                 OR = {
                       owner = { tag = MCH }

@@ -9228,7 +9228,7 @@ country_event = {
 
 #Start
 country_event = {
-    id = ideagroups.4930
+    id = ideagroups.4921
 	title = "EVT_HIDDEN"
 	desc = "EVT_HIDDEN"
 	picture = SPY_eventPicture
