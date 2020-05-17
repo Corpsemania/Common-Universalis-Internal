@@ -218,11 +218,13 @@ cu_calc_nationalism_impact = {
 			check_variable = { which = p_asc value = 1 }
 			NOT = { check_variable = { which = p_asc value = 10000 } }
 		}
-		set_variable = { which = cu_var2 value = 1 }
+		set_variable = { which = cu_var2 value = p_asc }
 		set_variable = { which = cu_var3 which = p_as }
-		divide_variable = { which = cu_var3 value = p_asc }
+		multiply_variable = { which = cu_var2 which = cu_var1 }
+		multiply_variable = { which = cu_var3 which = cu_var1 }
 		subtract_variable = { which = cu_var2 which = cu_var3 }
-		multiply_variable = { which = cu_var1 which = cu_var2 }
+		divide_variable = { which = cu_var2 value = p_asc }
+		set_variable = { which = cu_var1 value = cu_var2 }		
 	}
 	set_variable = { which = p_cabn which = cu_var1 }
 }
