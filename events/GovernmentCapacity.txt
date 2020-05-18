@@ -1423,7 +1423,7 @@ country_event = {
 		   
 			########################6.Extended Calculation to Prevent Overflow CTD########################################################
 			if = {
-				limit = { has_country_flag = gc_phase2  }
+				limit = { has_country_flag = gc_phase3  }
 				country_event = { id = cugovernment.2 }
 			}
 			if = {
