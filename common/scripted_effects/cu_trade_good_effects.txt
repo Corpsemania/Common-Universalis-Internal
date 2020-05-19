@@ -1,0 +1,128 @@
+cu_setup_trade_goods_prepare = {
+
+}
+
+cu_setup_trade_goods_overwrites = {
+
+	if = 	  { limit = { province_id = 387					} change_trade_goods = coffee 	set_province_flag = cu_goods_locked 	} # Mokha
+	else_if = { limit = { province_id = 6 					} change_trade_goods = fish 	set_province_flag = cu_goods_locked		} # Lund
+	else_if = { limit = { cu_amber_overwrite_trigger = yes 	} change_trade_goods = amber 	remove_province_modifier = cu_secondary_good_amber } # Baltic Amber
+	else_if = { limit = { trade_goods = gems has_port = yes } change_trade_goods = pearls 	}
+	else_if = { limit = { cu_slaves_overwrite_trigger = yes } change_trade_goods = slaves 	}
+	else_if = { limit = { cu_ivory_overwrite_trigger = yes 	} change_trade_goods = ivory 	}
+	else_if = { limit = { cu_wool_overwrite_trigger = yes 	} change_trade_goods = wool 	}
+	else_if = { limit = { cu_grain_overwrite_trigger = yes 	} change_trade_goods = grain 	}
+	else_if = { limit = { cu_jade_overwrite_trigger = yes 	} change_trade_goods = jade 	}
+}
+
+cu_setup_trade_goods_rural = {
+
+	if = { limit = { NOT = { cu_has_specific_goods = yes } is_city = yes }
+	
+		# Urban #
+		if = 	  { limit = { has_port = yes
+							  trade_goods = naval_supplies 	} add_permanent_province_modifier = { name = cu_secondary_good_naval_supplies 	duration = -1 } }
+		else_if = { limit = { trade_goods = chinaware 		} add_permanent_province_modifier = { name = cu_secondary_good_chinaware 		duration = -1 } }
+		else_if = { limit = { trade_goods = cloth 			} add_permanent_province_modifier = { name = cu_secondary_good_cloth 			duration = -1 } }
+		else_if = { limit = { trade_goods = glass 			} add_permanent_province_modifier = { name = cu_secondary_good_glass 			duration = -1 } }
+		else_if = { limit = { trade_goods = paper 			} add_permanent_province_modifier = { name = cu_secondary_good_paper 			duration = -1 } }
+		else_if = { limit = { trade_goods = silk 			} add_permanent_province_modifier = { name = cu_secondary_good_silk 			duration = -1 } }
+	
+		# Agriculture #
+		if = 	  { limit = { cu_incense_trigger = yes	}	change_trade_goods = incense	}
+		else_if = { limit = { cu_cheese_trigger = yes 	}	change_trade_goods = cheese		}
+		else_if = { limit = { cu_honey_trigger = yes 	}	change_trade_goods = apiculture	}
+		else_if = { limit = { cu_opium_trigger = yes 	}	change_trade_goods = opium		}
+		else_if = { limit = { cu_spices_trigger = yes 	}	change_trade_goods = spices		}
+		else_if = { limit = { cu_sugar_trigger = yes 	}	change_trade_goods = sugar		}
+		else_if = { limit = { cu_wine_trigger = yes 	}	change_trade_goods = wine		}
+		else_if = { limit = { cu_cotton_trigger = yes 	}	change_trade_goods = cotton		}
+		else_if = { limit = { cu_citrus_trigger = yes 	}	change_trade_goods = citrus		}
+		else_if = { limit = { cu_palm_trigger = yes 	}	change_trade_goods = palm_oil	}
+		else_if = { limit = { cu_tea_trigger = yes 		}	change_trade_goods = tea		}
+		else_if = { limit = { cu_coffee_trigger = yes 	}	change_trade_goods = coffee		}
+		else_if = { limit = { cu_olive_trigger = yes 	}	change_trade_goods = olive_oil	}
+		else_if = { limit = { cu_dates_trigger = yes 	}	change_trade_goods = dates		}
+		else_if = { limit = { cu_rice_trigger = yes 	}	change_trade_goods = rice		}
+		else_if = { limit = { cu_potato_trigger = yes 	}	change_trade_goods = potato		}
+		else_if = { limit = { cu_maize_trigger = yes 	}	change_trade_goods = maize		}
+		else_if = { limit = { cu_fields_basic = yes		}	change_trade_goods = grain		}
+		
+		# Climate #
+		else_if = { limit = { 
+						 OR = { any_neighbor_province = { has_climate = arctic } has_climate = arctic } 
+						 cu_terrain_type_wooded = yes }	
+														change_trade_goods = fur 		
+		}
+		
+		# Forests #
+		else_if = { limit = { cu_terrain_type_wooded = yes }				
+			if = { limit = { has_climate = tropical }	change_trade_goods = tropical_wood 	}
+			else = {									change_trade_goods = lumber			}
+		}
+		
+		# Coasts #
+		else_if = { limit = { cu_terrain_type_rough = yes has_port = yes }
+			if = { limit = { has_climate = tropical }	change_trade_goods = seafood	}
+			else = {
+				if = { limit = { has_climate = arctic } change_trade_goods = fish		} # whaling
+				else = {								change_trade_goods = fish 		}
+			}
+		}
+		
+		# Terrain #
+		else_if = { limit = { has_terrain = marsh		 	}	change_trade_goods = tar 		}
+		else_if = { limit = { cu_terrain_type_rough = yes 	}	change_trade_goods = wool 		}
+		else_if = { limit = { cu_terrain_type_plains = yes 	}	change_trade_goods = livestock	}
+		
+		# Catchall #
+		else = { 												change_trade_goods = grain 		}
+	}
+}
+
+cu_setup_trade_goods_urban = {
+
+	# Initialization #
+	export_to_variable = { which = cu_var1 value = base_tax }
+	export_to_variable = { which = cu_var2 value = base_production }
+	
+	change_variable = { which = cu_var1 which = cu_var2 }
+	
+	if = { limit = { check_variable = { which = cu_var1 value = 9 } NOT = { has_province_flag = cu_goods_locked } }
+		# Deposits #
+		if 		= { limit = { trade_goods = iron 			} add_permanent_province_modifier = { name = cu_secondary_good_iron 			duration = -1 } }
+		else_if = { limit = { trade_goods = copper 			} add_permanent_province_modifier = { name = cu_secondary_good_copper 			duration = -1 } }
+		else_if = { limit = { trade_goods = salt 			} add_permanent_province_modifier = { name = cu_secondary_good_salt 			duration = -1 } }
+		# Limited #
+		else_if = { limit = { trade_goods = amber 			} add_permanent_province_modifier = { name = cu_secondary_good_amber 			duration = -1 } }
+		else_if = { limit = { trade_goods = gems 			} add_permanent_province_modifier = { name = cu_secondary_good_gems 			duration = -1 } }
+		else_if = { limit = { trade_goods = jade 			} add_permanent_province_modifier = { name = cu_secondary_good_jade 			duration = -1 } }
+		
+		# Setup #
+		if = 	  { limit = { has_province_modifier = cu_secondary_good_paper } change_trade_goods = paper 	}
+		else_if = { limit = { has_province_modifier = cu_secondary_good_glass } change_trade_goods = glass 	}
+		else_if = { limit = { region = persia_region 		} change_trade_goods = carpet 					}
+		else_if = { limit = { cu_tools_trigger = yes 		} change_trade_goods = metalworking 			}
+		else_if = { limit = { cu_naval_trigger = yes 		} change_trade_goods = naval_supplies 			}
+		else_if = { limit = { cu_beer_trigger = yes 		} change_trade_goods = beer		 				}												
+		else_if = { limit = { cu_leather_trigger = yes 		} change_trade_goods = leather 					}
+		else_if = { limit = { cu_furniture_trigger = yes 	} change_trade_goods = woodworking 				}
+		else_if = { limit = { cu_silk_trigger = yes 		} change_trade_goods = silk 					}
+		else_if = { limit = { cu_chinaware_trigger = yes 	} change_trade_goods = chinaware 				}
+		
+		# Catchall #
+		else = { change_trade_goods = cloth }
+		
+		# Cleaning #
+		remove_province_modifier = cu_secondary_good_naval_supplies
+		remove_province_modifier = cu_secondary_good_chinaware
+		remove_province_modifier = cu_secondary_good_cloth
+		remove_province_modifier = cu_secondary_good_paper
+		remove_province_modifier = cu_secondary_good_glass
+		remove_province_modifier = cu_secondary_good_silk
+	}
+	
+	# Cleaning #
+	set_variable = { which = cu_var1 value = 0 }
+	set_variable = { which = cu_var2 value = 0 }
+}

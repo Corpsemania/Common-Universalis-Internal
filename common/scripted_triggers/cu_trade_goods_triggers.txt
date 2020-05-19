@@ -1,0 +1,445 @@
+cu_has_urban_goods = {
+	OR = {
+		### Old ###
+		# Basic
+		trade_goods = cloth
+		trade_goods = paper
+		trade_goods = glass
+		trade_goods = naval_supplies
+		# Eastern
+		trade_goods = chinaware
+		trade_goods = silk
+		### New ###
+		# Basic
+		trade_goods = beer
+		trade_goods = bronze
+		trade_goods = metalworks
+		trade_goods = woodworking
+		trade_goods = jewelry
+		trade_goods = leather
+		trade_goods = rum	
+		# Persian
+		trade_goods = carpets
+	}
+}
+
+cu_has_specific_goods = {
+	OR = {
+		has_province_flag = cu_goods_locked
+		# Deposits #
+		trade_goods = iron
+		trade_goods = copper
+		trade_goods = salt
+		trade_goods = gold
+		trade_goods = gems
+		trade_goods = pearls
+		trade_goods = jade
+		# Plants #
+		trade_goods = dyes
+	}
+}
+
+cu_fields_basic = {
+	OR = {
+		has_terrain = farmlands
+		base_manpower = 7
+	}
+}
+
+cu_fields_developed = {
+	cu_fields_basic = yes
+	OR = {
+		base_tax = 4
+		base_manpower = 9
+	}
+}
+
+cu_rice_trigger = {
+	cu_fields_basic = yes
+	OR = {
+		AND = { NOT = { region = north_china_region } superregion = china_superregion }
+		superregion = india_superregion
+		superregion = far_east_superregion
+		superregion = east_indies_superregion
+	}
+}
+
+cu_camels_trigger = {
+	always = no 
+	cu_terrain_type_plains = yes
+	has_climate = arid
+	OR = {
+		has_terrain = desert
+		has_terrain = coastal_desert
+	}
+	OR = {
+		region = maghreb_region
+		region = sahel_region
+		region = arabia_region
+		region = egypt_region
+	}
+}
+
+cu_dates_trigger = {
+	OR = {
+		has_terrain = drylands
+		has_terrain = desert
+		AND = { has_terrain = farmlands has_climate = arid }
+	}
+	OR = {
+		NOT = { cu_fields_basic = yes } # Marginal
+		AND = { has_climate = arid NOT = { cu_fields_developed = yes } }
+	}
+	OR = {
+		superregion = persia_superregion
+		region = mashriq_region
+		region = arabia_region
+		region = maghreb_region
+		region = egypt_region
+		region = sahel_region
+	}
+}
+
+cu_honey_trigger = {
+	cu_fields_developed = yes
+	OR = {
+		region = russia_region
+		region = scandinavia_region
+		region = north_german_region
+		region = poland_region
+		region = baltic_region
+		region = ruthenia_region
+		AND = { base_tax = 4 region = north_china_region }
+	}
+}
+
+cu_cheese_trigger = {
+	base_tax = 4
+	cu_fields_developed = yes
+	OR = {
+		region = british_isles_region
+		region = low_countries_region
+		area = normandy_area
+		area = brittany_area
+		area = picardy_area
+	}
+}
+
+cu_olive_trigger = {
+	cu_fields_basic = yes
+	cu_mediterranean_coast = yes
+	OR = {
+		region = maghreb_region
+		region = iberia_region
+		# South Italy
+		area = corsica_sardinia_area
+		area = sicily_area
+		area = naples_area
+		area = calabria_area
+		area = apulia_area	
+		# Greece
+		area = aegean_archipelago_area
+		area = northern_greece_area
+		area = morea_area
+		area = western_aegean_area
+	}
+}
+
+cu_wine_trigger = {
+	OR = {
+		AND = { base_tax = 3 region = france_region }
+		base_tax = 4
+	}
+	cu_fields_developed = yes
+	OR = {
+		region = iberia_region
+		region = carpathia_region
+		region = balkan_region
+		region = south_german_region
+		# France
+		area = provence_area
+		area = guyenne_area
+		area = languedoc_area
+		area = massif_central_area
+		area = savoy_dauphine_area
+		area = lorraine_area
+		area = champagne_area
+		area = ile_de_france_area
+		area = loire_area
+		area = bourgogne_area
+		area = pyrenees_area
+		# North Italy
+		area = venetia_area
+		area = lombardy_area
+		area = piedmont_area
+		area = tuscany_area
+		area = liguria_area
+		area = emilia_romagna_area
+		area = central_italy_area
+		# Mediterranean
+		area = crimea_area
+		province_id = 321	# Cyprus
+	}
+}
+
+cu_wool_overwrite_trigger = {
+	trade_goods = livestock
+	continent = south_america
+}
+
+cu_grain_overwrite_trigger = {
+	OR = {
+		# Nile Delta
+		province_id = 362
+		province_id = 363
+		province_id = 2316
+		province_id = 4316
+	}
+	NOT = { cu_has_specific_goods = yes }
+}
+
+cu_horses_trigger = {
+	always = no 
+	base_tax = 2
+	has_terrain = steppes
+	OR = {
+		superregion = tartary_superregion
+		area = astrakhan_area
+	}
+}
+
+cu_amber_overwrite_trigger = {
+	OR = {
+		province_id = 41	# Danzig/Gdansk
+		province_id = 43	# Konigsberg/Krolewiec
+		province_id = 39	
+		province_id = 15	
+		province_id = 47	
+		province_id = 48
+		province_id = 2995
+	}
+}
+
+cu_jade_overwrite_trigger = {
+	OR = {
+		province_id = 1845
+		province_id = 2165
+		province_id = 2173
+		province_id = 2224
+		province_id = 544 
+		province_id = 703
+		province_id = 710 	# Hotan (Khotan)
+		province_id = 2636	# Mixe (Motagua Valley)
+	}													
+}
+
+cu_citrus_trigger = {
+	cu_fields_basic = yes
+	OR = {
+		cu_terrain_type_wooded = yes
+		has_terrain = island
+		has_terrain = coastline
+	}
+	NOT = { cu_fields_developed = yes }
+	OR = {
+		region = indonesia_region
+		region = malaya_region
+		region = indo_china_region
+		region = burma_region
+	}
+}	
+
+cu_tea_trigger = {
+	base_tax = 2
+	OR = {
+		region = south_china_region
+		region = indo_china_region
+		AND = { 
+			base_tax = 3
+			superregion = far_east_superregion
+		}
+	}
+	cu_terrain_type_high = yes
+	OR = {
+		has_global_flag = cu_start
+		NOT = { cu_fields_basic = yes }
+	}
+}
+
+cu_coffee_trigger = {
+	base_tax = 2
+	cu_terrain_type_high = yes
+	OR = {
+		region = horn_of_africa_region
+		AND = { 
+			base_tax = 3 
+			region = arabia_region 
+		}
+	}
+}
+
+cu_opium_trigger = {
+	cu_fields_developed = yes
+	NOT = { has_terrain = farmlands }
+	OR = {
+		superregion = persia_superregion
+		region = burma_region
+		region = west_india_region
+		region = bengal_region
+		region = hindustan_region
+	}
+}
+
+cu_cotton_trigger = {
+	cu_fields_developed = yes
+	OR = {
+		superregion = india_superregion
+		superregion = persia_superregion
+		superregion = near_east_superregion
+		region = south_china_region
+		region = burma_region
+	}
+}
+
+cu_sugar_trigger = {
+	cu_fields_developed = yes
+	OR = {
+		region = mashriq_region
+		region = burma_region
+		region = west_india_region
+		region = bengal_region
+		region = hindustan_region
+		AND = { base_tax = 4 region = south_china_region }
+		region = maghreb_region
+		region = egypt_region
+		area = tabarestan_area
+		AND = { cu_mediterranean_coast = yes is_island = yes }
+	}
+}
+
+cu_palm_trigger = {
+	cu_terrain_type_wooded = yes
+	has_climate = tropical
+	base_tax = 3
+}
+
+cu_spices_trigger = {
+	cu_fields_developed = yes
+	has_climate = tropical
+	OR = {
+		superregion = india_superregion
+		superregion = persia_superregion
+		superregion = china_superregion
+		superregion = east_indies_superregion
+	}	
+}
+
+cu_potato_trigger = {
+	cu_fields_basic = yes
+	OR = {
+		region = peru_region
+		region = upper_peru_region
+	}
+}
+
+cu_maize_trigger = {
+	cu_fields_basic = yes
+	OR = {
+		region = central_america_region
+		region = mexico_region
+	}
+}
+
+cu_slaves_overwrite_trigger = {
+	base_tax = 2
+	OR = {
+		region = niger_region
+		region = guinea_region
+		region = central_africa_region
+		region = east_africa_region
+		region = kongo_region
+	}	
+	OR = {
+		OR = { province_trade_power = 10 province_has_center_of_trade_of_level = 1 }
+		any_neighbor_province = { province_has_center_of_trade_of_level = 2 }
+	}
+	NOT = { cu_has_specific_goods = yes }
+}	
+
+cu_ivory_overwrite_trigger = {
+	base_tax = 2
+	has_terrain = savannah
+	NOT = { cu_has_specific_goods = yes }
+}	
+
+cu_chinaware_trigger = {
+	OR = { 
+		superregion = far_east_superregion 
+		superregion = china_superregion
+	} 
+	NOT = { any_neighbor_province = { trade_goods = chinaware } }
+}
+
+cu_silk_trigger = {
+	cu_silk_road_area = yes 
+	NOT = { any_neighbor_province = { trade_goods = silk } }
+}
+
+cu_tools_trigger = {
+	OR = {
+		has_province_modifier = cu_secondary_good_iron
+	
+	any_neighbor_province = { trade_goods = iron }
+	}
+	NOT = { any_neighbor_province = { trade_goods = metalworking } }
+}
+
+cu_naval_trigger = {
+	has_port = yes
+	NOT = { superregion = china_superregion }
+	any_neighbor_province = { 
+		OR = {
+			cu_terrain_type_wooded = yes
+			trade_goods = tar
+		}
+	}
+	NOT = { any_neighbor_province = { trade_goods = naval_supplies } }
+}
+
+cu_leather_trigger = {
+	NOT = { religion_group = dharmic } # Holy cows
+	any_neighbor_province = { trade_goods = livestock }
+	NOT = { any_neighbor_province = { trade_goods = leather } }
+}
+
+cu_beer_trigger = {
+	continent = europe
+	NOT = { religion_group = muslim } # Alcohol forbidden
+	NOT = { cu_wine_trigger = yes }	# Alternative
+	any_neighbor_province = { trade_goods = grain }
+	NOT = { any_neighbor_province = { trade_goods = beer } }
+}
+
+cu_furniture_trigger = {		
+	any_neighbor_province = {
+		OR = {
+			trade_goods = lumber
+			trade_goods = tropical_wood
+			trade_goods = metalworking
+		}	
+	}
+	NOT = { any_neighbor_province = { trade_goods = woodworking } }
+}
+
+cu_incense_trigger = {
+	base_tax = 2
+	OR = {
+		region = tibet_region
+		region = arabia_region
+		region = horn_of_africa_region
+	}
+	OR = {
+		region = tibet_region
+		has_terrain = coastal_desert
+	}
+}
