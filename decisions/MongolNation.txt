@@ -4,6 +4,7 @@ country_decisions = {
 		major = yes
 		potential = {
 			normal_or_historical_nations = yes
+			always = no
 			is_nomad = yes
 			OR = {
 				ai = no

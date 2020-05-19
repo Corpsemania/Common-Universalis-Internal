@@ -111,17 +111,17 @@ estate_shizu = {
 	# These do not scale, but only applied in provinces owned by the estate
 	province_modifier_happy = {
 	    local_unrest = -3
-		local_autonomy = 0.02
+		local_autonomy = 0.04
 		local_state_maintenance_modifier = -0.15
 	}
 	province_modifier_neutral = {
 		local_unrest = -1
-		local_autonomy = 0.04
+		local_autonomy = 0.06
 		local_state_maintenance_modifier = -0.075
 	}	
 	province_modifier_angry = {
 		local_unrest = 5
-		local_autonomy = 0.06
+		local_autonomy = 0.08
 		local_state_maintenance_modifier = 0.15
 	}		
 	

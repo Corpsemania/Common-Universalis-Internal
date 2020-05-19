@@ -737,6 +737,14 @@ country_decisions = {
                                   NOT = { reverse_has_opinion = { who = ROOT value = 80 } }
                 }
 			}
+			modifier = {
+				factor = 0.5
+				government_type = tribal
+			}
+			modifier = {
+				factor = 0.1
+				government_type = republic
+			}
 		}			
 	}
 
@@ -786,7 +794,7 @@ country_decisions = {
 						        NOT = { has_country_flag = call_tribute }
 						        had_country_flag = {
 								        flag = call_tribute
-										days = 5475
+										days = 7300
 								}
 						}
 		}

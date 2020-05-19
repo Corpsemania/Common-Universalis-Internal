@@ -301,6 +301,7 @@ celestial_empire = {
         heir_chance = 0.25
 		advisor_cost = 0.05
 		min_autonomy = 10
+		global_autonomy = 0.01
 	}
 	effect = {
 		custom_tooltip = celestial_empire_mandate_mechanism
@@ -351,8 +352,7 @@ celestial_empire_2 = {
 	}
 	modifiers = {		
         heir_chance = 0.25
-		min_autonomy = 5
-		global_autonomy = -0.01
+		min_autonomy = 5		
 	}
 	effect = {
 		custom_tooltip = celestial_empire_mandate_mechanism
@@ -399,7 +399,7 @@ celestial_empire_3 = {
 	modifiers = {		
            meritocracy = 0.5
 		   stability_cost_modifier = -0.10
-		   global_autonomy = -0.03
+		   global_autonomy = -0.02
 	}
 	effect = {
 		custom_tooltip = celestial_empire_mandate_mechanism

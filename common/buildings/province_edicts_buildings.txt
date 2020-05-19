@@ -190,7 +190,8 @@ administration_way = {
 	time = 1
 	trigger = {
 		owner = { ai = no }		
-		has_province_modifier = cu_local_autonomy_administration			
+		has_province_modifier = cu_local_autonomy_administration
+		owner = { has_country_flag = cu_core_event_auto }	
 		is_core = owner 
 		owner = { adm_power = 10 }
 	}
@@ -266,7 +267,8 @@ diplomatic_way = {
 	time = 1
 	trigger = {
 		owner = { ai = no }		
-		has_province_modifier = cu_local_autonomy_administration			
+		has_province_modifier = cu_local_autonomy_administration
+		owner = { has_country_flag = cu_core_event_auto }	
 		is_core = owner 
 		owner = { dip_power = 10 }
 	}
@@ -342,7 +344,8 @@ military_way = {
 	time = 1
 	trigger = {
 		owner = { ai = no }		
-		has_province_modifier = cu_local_autonomy_administration			
+		has_province_modifier = cu_local_autonomy_administration
+		owner = { has_country_flag = cu_core_event_auto }	
 		is_core = owner 
 		owner = { mil_power = 10 }
 	}

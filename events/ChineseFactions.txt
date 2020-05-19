@@ -3224,7 +3224,7 @@ country_event = {
 	
 	option = {
 		name = "china_events.60.b" #Rescind them!
-		add_meritocracy = 50
+		add_meritocracy = 5
 		if = {
 			limit = {
 				NOT = { has_dlc = "Mandate of Heaven" }
