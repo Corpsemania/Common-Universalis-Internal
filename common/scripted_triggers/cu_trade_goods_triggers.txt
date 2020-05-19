@@ -325,7 +325,6 @@ cu_palm_trigger = {
 
 cu_spices_trigger = {
 	cu_fields_developed = yes
-	NOT = { has_terrain = farmlands }
 	has_climate = tropical
 	OR = {
 		superregion = india_superregion

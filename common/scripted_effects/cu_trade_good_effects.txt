@@ -88,7 +88,7 @@ cu_setup_trade_goods_urban = {
 	
 	change_variable = { which = cu_var1 which = cu_var2 }
 	
-	if = { limit = { check_variable = { which = cu_var1 value = 9 } NOT = { cu_has_specific_goods = yes } }
+	if = { limit = { check_variable = { which = cu_var1 value = 9 } }
 		# Deposits #
 		if 		= { limit = { trade_goods = iron 			} add_permanent_province_modifier = { name = cu_secondary_good_iron 			duration = -1 } }
 		else_if = { limit = { trade_goods = copper 			} add_permanent_province_modifier = { name = cu_secondary_good_copper 			duration = -1 } }
