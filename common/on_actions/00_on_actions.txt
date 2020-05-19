@@ -1495,7 +1495,16 @@ on_startup = {
 			   }
 		}
 	}
-        set_global_flag = cu_start
+	
+	### TRADE GOODS SETUP ###
+	# Rural #
+	every_province = { limit = { NOT = { cu_has_specific_goods = yes } is_city = yes } cu_setup_trade_goods_rural = yes }
+	# Overwrites #
+	every_province = { limit = { is_city = yes } cu_setup_trade_goods_overwrites = yes }
+	# Urban #
+	every_province = { limit = { is_city = yes } cu_setup_trade_goods_urban = yes }
+	
+	set_global_flag = cu_start
 }
 
 # country

@@ -1,0 +1,19 @@
+### Secondary goods give half of their normal province modifiers ###
+
+# Urban #
+cu_secondary_good_naval_supplies	= { local_production_efficiency = 0.25 local_tax_modifier = 0.05 province_trade_power_modifier = 0.05 picture = "cu_naval" }
+cu_secondary_good_cloth				= { local_production_efficiency = 0.25 local_tax_modifier = 0.05 province_trade_power_modifier = 0.05 picture = "cu_cloth" }
+cu_secondary_good_paper				= { local_production_efficiency = 0.25 local_tax_modifier = 0.05 province_trade_power_modifier = 0.05 picture = "cu_paper" }
+cu_secondary_good_glass				= { local_production_efficiency = 0.25 local_tax_modifier = 0.05 province_trade_power_modifier = 0.05 picture = "cu_glass" }
+cu_secondary_good_silk				= { local_production_efficiency = 0.25 local_tax_modifier = 0.05 province_trade_power_modifier = 0.05 picture = "cu_silk" }
+cu_secondary_good_chinaware			= { local_production_efficiency = 0.25 local_tax_modifier = 0.05 province_trade_power_modifier = 0.05 picture = "cu_chinaware" }
+
+# Deposit #
+cu_secondary_good_iron			= { local_production_efficiency = 0.25 }
+cu_secondary_good_copper		= { local_production_efficiency = 0.25 }
+cu_secondary_good_salt			= { local_production_efficiency = 0.25 }
+
+# Limited #
+cu_secondary_good_amber			= { trade_value = 1.5 }
+cu_secondary_good_gems			= { trade_value = 2.0 }
+cu_secondary_good_jade			= { trade_value = 2.0 }

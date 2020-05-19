@@ -1,0 +1,80 @@
+cu_terrain_type_plains = {
+	OR = {
+		has_terrain = grasslands
+		has_terrain = drylands
+		has_terrain = steppe
+		has_terrain = savannah
+	}
+}
+
+cu_terrain_type_rough = {
+	OR = {
+		has_terrain = glacial
+		has_terrain = island
+		has_terrain = coastline
+		has_terrain = coastal_desert
+		has_terrain = desert
+		has_terrain = highlands
+		has_terrain = mountain
+		has_terrain = marsh
+	}
+}
+
+cu_terrain_type_high = {
+	OR = {
+		has_terrain = highlands
+		has_terrain = hills
+		has_terrain = mountain
+	}
+}
+
+cu_terrain_type_wooded = {
+	OR = {
+		has_terrain = hills
+		has_terrain = woods
+		has_terrain = forest
+		has_terrain = jungle
+	}
+}
+
+cu_mediterranean_coast = {
+	AND = {
+		has_port = yes
+		sea_zone = {
+			OR = {
+				area = western_mediterrenean_area
+				area = eastern_mediterrenean_area
+				area = black_sea_area
+			}
+		}
+	}
+}
+
+cu_ummah_area = {
+	religion_group = islamic
+	OR = {
+		superregion = near_east_superregion
+		superregion = persia_superregion
+		superregion = tartary_superregion
+		region = horn_of_africa_region
+		region = indonesia_region
+		region = maghreb_region
+		refion = malaya_region
+		region = crimea_region
+		region = egypt_region
+		region = sahel_region
+		area = mozambique_area
+	}
+}
+
+cu_silk_road_area = {
+	OR = {
+		region = south_china_region
+		region = north_china_region
+		superregion = india_superregion
+		superregion = persia_superregion
+		superregion = near_east_superregion
+		region = central_asia_region
+		area = thrace_area
+	}
+}
