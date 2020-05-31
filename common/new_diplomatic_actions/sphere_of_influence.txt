@@ -196,6 +196,7 @@ establish_sphere_of_influence = {
 		FROM = { is_subject = no }
 		FROM = { is_emperor = no }
 		NOT = { any_country = { is_subject_of = FROM } }
+		has_global_flag = test_version
 	}
 	on_accept = {
 		create_subject = {
