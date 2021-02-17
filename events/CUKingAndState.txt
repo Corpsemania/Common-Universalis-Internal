@@ -3048,9 +3048,7 @@ country_event = {
 				name = recent_power_conversion
 				duration = 1825
 		 }
-		 hidden_effect = {
-			country_event = { id = state.108 }
-		 }
+		 
 		 ai_chance = {
 		       factor = 10
 			   modifier = {
@@ -3073,9 +3071,7 @@ country_event = {
 				name = recent_power_conversion
 				duration = 1825
 		 }
-		 hidden_effect = {
-			country_event = { id = state.108 }
-		 }
+		 
 		 ai_chance = {
 		       factor = 10
 			   modifier = {
@@ -3098,9 +3094,7 @@ country_event = {
 				name = recent_power_conversion
 				duration = 1825
 		 }
-		 hidden_effect = {
-			country_event = { id = state.108 }
-		 }
+		 
 		 ai_chance = {
 		       factor = 10
 			   modifier = {
@@ -3123,9 +3117,7 @@ country_event = {
 				name = recent_power_conversion
 				duration = 1825
 		 }
-		 hidden_effect = {
-			country_event = { id = state.108 }
-		 }
+		 
 		 ai_chance = {
 		       factor = 10
 			   modifier = {
@@ -3148,9 +3140,7 @@ country_event = {
 				name = recent_power_conversion
 				duration = 1825
 		 }
-		 hidden_effect = {
-			country_event = { id = state.108 }
-		 }
+		 
 		 ai_chance = {
 		       factor = 10
 			   modifier = {
@@ -3173,9 +3163,7 @@ country_event = {
 				name = recent_power_conversion
 				duration = 1825
 		 }
-		 hidden_effect = {
-			country_event = { id = state.108 }
-		 }
+		 
 		 ai_chance = {
 		       factor = 10
 			   modifier = {
@@ -3231,9 +3219,7 @@ country_event = {
 				name = recent_power_conversion
 				duration = 1825
 		 }
-		 hidden_effect = {
-			country_event = { id = state.107 }
-		 }
+		 
 		 ai_chance = {
 		       factor = 10
 			   modifier = {
@@ -3256,9 +3242,7 @@ country_event = {
 				name = recent_power_conversion
 				duration = 1825
 		 }
-		 hidden_effect = {
-			country_event = { id = state.107 }
-		 }
+		 
 		 ai_chance = {
 		       factor = 10
 			   modifier = {
@@ -3281,9 +3265,7 @@ country_event = {
 				name = recent_power_conversion
 				duration = 1825
 		 }
-		 hidden_effect = {
-			country_event = { id = state.107 }
-		 }
+		 
 		 ai_chance = {
 		       factor = 10
 			   modifier = {
@@ -3306,9 +3288,7 @@ country_event = {
 				name = recent_power_conversion
 				duration = 1825
 		 }
-		 hidden_effect = {
-			country_event = { id = state.107 }
-		 }
+		 
 		 ai_chance = {
 		       factor = 10
 			   modifier = {
@@ -3331,9 +3311,7 @@ country_event = {
 				name = recent_power_conversion
 				duration = 1825
 		 }
-		 hidden_effect = {
-			country_event = { id = state.107 }
-		 }
+		 
 		 ai_chance = {
 		       factor = 10
 			   modifier = {
@@ -3356,9 +3334,7 @@ country_event = {
 				name = recent_power_conversion
 				duration = 1825
 		 }
-		 hidden_effect = {
-			country_event = { id = state.107 }
-		 }
+		 
 		 ai_chance = {
 		       factor = 10
 			   modifier = {

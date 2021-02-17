@@ -313,7 +313,7 @@
  cu_change_cash_et: "Loses approximately §R[This.cu_cash_et.GetValue]§! $COST|Y$¤"
  cu_change_stability_ct: "Loses approximately §R[This.cu_sta_displayc.GetValue]§! Stability Points\n§YNote: The displayed value may be out of time and different from actual change  since the engine cannot update it in time.§!"
  cu_change_stability_cg: "Adds approximately §G[This.cu_sta_displayn.GetValue]§! Stability Points\n§YNote: The displayed value may be out of time and different from actual change  since the engine cannot update it in time.§!"
- cu_change_stability_nt: "Loses approximately §R[This.cu_sta_displayn.GetValue]§! Stability Points\n§YNote: The displayed value may be out of time and different from actual change  since the engine cannot update it in time.§!"
+ cu_change_stability_nt1: "Loses approximately §R[This.cu_sta_displayn.GetValue]§! Stability Points\n§YNote: The displayed value may be out of time and different from actual change  since the engine cannot update it in time.§!"
  cu_change_stability_ng: "Adds approximately §G[This.cu_sta_displayb.GetValue]§! Stability Points\n§YNote: The displayed value may be out of time and different from actual change  since the engine cannot update it in time.§!"
  cu_change_stability_bt: "Loses approximately §R[This.cu_sta_displayb.GetValue]§! Stability Points\n§YNote: The displayed value may be out of time and different from actual change  since the engine cannot update it in time.§!"
  cu_change_stability_bg: "Adds approximately §G[This.cu_sta_displayb.GetValue]§! Stability Points\n§YNote: The displayed value may be out of time and different from actual change  since the engine cannot update it in time.§!"

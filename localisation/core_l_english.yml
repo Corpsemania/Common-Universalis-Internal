@@ -214,6 +214,8 @@
  NAVY_COMBAT_TOOLTIP:0 "$NAME|Y$ is a §Y'$TYPE$'§!.\nThe morale is at §Y$MORALE|1$%§! of max and they are at $STRENGTH|Y$ strength."
  NAVY_COMBAT_TOOLTIP_LASTENGAGED:0 "Last engaged enemy ship was $ENEMY|R$."
  NAVY_COMBAT_TOOLTIP_NOENGAGED:0 "This ship did not engage any enemy last round."
+ NAVY_COMBAT_TOOLTIP_DISENGAGED:0 "§YThis ship has disengaged and will rejoin the fleet once the battle is over.§!"
+ NAVY_COMBAT_TOOLTIP_DEMORALIZED:0 "§YThis ship is demoralized and will only try to disengage for now.§!"
  LAND_COMBAT_TOOLTIP_LASTENGAGED:0 "Last engaged enemy unit was $ENEMY|R$."
  HOTJOIN_LABEL:0 "Hotjoin: "
  PREPARING_AFTER_HOTJOIN:0 "Preparing the game after a hotjoin."

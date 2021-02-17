@@ -997,7 +997,7 @@ low_meritocracy = {
 }
 
 corruption = {
-	global_autonomy = 0.50
+	global_autonomy = 0.25
 	state_maintenance_modifier = 1
 	global_spy_defence = -1
 	spy_offence = -1	
