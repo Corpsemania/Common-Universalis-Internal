@@ -46,7 +46,7 @@ country_decisions = {
 						province_id = 280
 					}
 					NOT = {
-						country_or_non_sovereign_subject_holds = ROOT
+						cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 					}
 				}
 			}
@@ -80,14 +80,14 @@ country_decisions = {
 			667 = { owned_by = ROOT }
 			khorasan_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			persia_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
-			295 = { country_or_non_sovereign_subject_holds = ROOT }
-			280 = { country_or_non_sovereign_subject_holds = ROOT }
+			295 = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
+			280 = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 			is_at_war = no
 			is_free_or_tributary_trigger = yes
 		}
@@ -195,7 +195,7 @@ country_decisions = {
 			OR = {
 				culture_group = tartar
 				culture_group = altaic
-				culture_group = south_turkic
+				cu_south_turkic_group = yes
 				primary_culture = turkmeni
 				primary_culture = azerbaijani
 			}

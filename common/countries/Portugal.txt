@@ -7,8 +7,8 @@ color = { 57  160  101 }
 historical_score = 4700
 
 historical_idea_groups = {
-	exploration_ideas #DIP
 	religious_ideas #ADM
+	exploration_ideas #DIP
 	offensive_ideas #MIL
 	expansion_ideas #DIP
 	administrative_ideas #ADM

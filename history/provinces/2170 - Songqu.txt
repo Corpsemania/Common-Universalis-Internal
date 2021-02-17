@@ -3,7 +3,7 @@
 owner = MNG
 controller = MNG
 add_core = MNG
-culture = rgyalrong
+culture = biema
 religion = vajrayana
 capital = "Songqu"
 trade_goods = livestock

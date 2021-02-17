@@ -6672,5 +6672,7 @@
  adu_expeditionary_sentiment_desc:0 "We have heard tales from captured Portuguese sailors about a New World to the west, abundant with gold and silver. We should organize our own expeditions across the ocean and see for ourselves whether these rumours are true."
  adu_al_awasim:0 "Al Awasim"
  adu_al_awasim_desc:0 "It is vitally important that our frontier with the Christian kingdoms is heavily fortified. A chain of strongholds shall be erected on the borders so that no enemy may pass into our territory without enduring a costly siege."
+ MODIFIER_MERCENARY_MANPOWER:1 "Mercenary Manpower"
+ 
                                         
  

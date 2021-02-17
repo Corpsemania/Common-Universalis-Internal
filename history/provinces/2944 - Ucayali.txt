@@ -1,0 +1,21 @@
+#2944 - Ucayali
+
+culture = maipurean
+
+
+
+discovered_by = south_american
+discovered_by = andean
+
+religion = inti
+capital = "Ucayali"
+trade_goods = unknown
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+native_size = 10
+native_ferocity = 1 
+native_hostileness = 1
+
+1533.8.29 = { discovered_by = SPA }

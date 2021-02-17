@@ -18,12 +18,12 @@ mlw_slot_1 = {
 		provinces_to_highlight = {
 			province_id = 2056
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			2056 = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -60,21 +60,21 @@ mlw_slot_1 = {
 				area = tapti_area
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			malwa_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			ahmedabad_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			tapti_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -219,21 +219,21 @@ mlw_slot_3 = {
 				area = mewar_area
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			central_doab_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			marwar_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			mewar_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -263,17 +263,17 @@ mlw_slot_3 = {
 				area = jaipur_area
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			jaipur_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			jaipur_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -313,28 +313,28 @@ mlw_slot_3 = {
 				province_id = 555
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			upper_doab_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			sirhind_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			lahore_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			lower_doab_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			555 = {
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -404,13 +404,13 @@ mlw_slot_4 = {
 		provinces_to_highlight = {
 			area = lower_doab_area
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			lower_doab_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -545,7 +545,10 @@ mlw_slot_5 = {
 		}
 		trigger = {
 			university = 5
-			natural_scientist = 3
+			OR = {
+				natural_scientist = 3
+				natural_scientist_1 = 3
+			}
 		}
 		effect = {
 			add_country_modifier = {

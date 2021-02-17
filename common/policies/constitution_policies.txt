@@ -18,7 +18,7 @@ compromising_legislation = {
 
 
 	global_autonomy = 0.03 
-	advisor_cost = -0.05
+	state_governing_cost = -0.05
 
 	ai_will_do = {
 		factor = 1	
@@ -167,7 +167,7 @@ department_of_admiralty = {
 
 
 	navy_tradition = 1
-	advisor_cost = 0.1
+	state_governing_cost = 0.07
 
 	ai_will_do = {
 		factor = 1		
@@ -313,7 +313,7 @@ enforced_seamanship = {
 
 
 	global_sailors_modifier = 0.1
-	naval_morale = -0.1
+	naval_morale = -0.05
 
 	ai_will_do = {
 		factor = 1	

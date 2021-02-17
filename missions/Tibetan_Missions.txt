@@ -24,21 +24,21 @@ tib_slot_2 = {
 				area = tsang_area
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			utsang_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			utsang_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			tsang_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -110,7 +110,7 @@ tib_slot_2 = {
 			area = kashmir_area
 			OR = {
 				NOT = {
-					country_or_non_sovereign_subject_holds = ROOT
+					cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 				}
 				NOT = { religion = ROOT }
 			}			
@@ -118,7 +118,7 @@ tib_slot_2 = {
 		trigger = {
 			kashmir_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 				religion = ROOT
 			}
 		}
@@ -190,7 +190,7 @@ tib_slot_2 = {
 			}
 			OR = {
 				NOT = {
-					country_or_non_sovereign_subject_holds = ROOT
+					cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 				}
 				NOT = { religion = ROOT }
 			}
@@ -198,37 +198,37 @@ tib_slot_2 = {
 		trigger = {
 			shanshan_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 				religion = ROOT
 			}
 			tarim_basin_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 				religion = ROOT
 			}
 			kashgaria_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 				religion = ROOT
 			}
 			ferghana_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 				religion = ROOT
 			}
 			turpan_kumul_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 				religion = ROOT
 			}
 			zungaria_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 				religion = ROOT
 			}
 			ili_valley_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 				religion = ROOT
 			}
 		}
@@ -261,7 +261,7 @@ tib_slot_3 = {
 		provinces_to_highlight = {
 			region = tibet_region
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
@@ -302,25 +302,25 @@ tib_slot_3 = {
 				area = yun_gui_area
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			gansu_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			west_gansu_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			yun_gui_borderland_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			yun_gui_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -340,13 +340,13 @@ tib_slot_3 = {
 		provinces_to_highlight = {
 			region = xinan_region
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {	
 			xinan_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}			
 		}
 		effect = {	
@@ -413,21 +413,21 @@ tib_slot_4 = {
 				area = garze_area
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			garze_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			amdo_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			kham_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -531,7 +531,7 @@ tib_slot_4 = {
 			}
 			OR = {
 				NOT = {
-					country_or_non_sovereign_subject_holds = ROOT
+					cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 				}
 				NOT = { religion = ROOT }
 			}
@@ -539,17 +539,17 @@ tib_slot_4 = {
 		trigger = {
 			nepal_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 				religion = ROOT
 			}
 			himalayan_hills_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 				religion = ROOT
 			}
 			baisi_rajya_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 				religion = ROOT
 			}
 		}
@@ -596,25 +596,25 @@ tib_slot_4 = {
 				area = east_bengal_area
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			gaur_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			west_bengal_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			north_bengal_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			east_bengal_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {

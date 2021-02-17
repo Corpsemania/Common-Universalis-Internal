@@ -398,12 +398,12 @@ bah_persian_branch = {
 		required_missions = {  }
 		provinces_to_highlight = {
 			area = malwa_area
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 		trigger = {
 			malwa_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -464,27 +464,27 @@ bah_persian_branch = {
 				area = saurashtra_area
 				province_id = 529
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 		trigger = {
 			ahmedabad_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			saurashtra_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			tapti_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			saurashtra_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			529 = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -557,15 +557,15 @@ bah_persian_branch = {
 		trigger = {
 			basra_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			khuzestan_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			persian_gulf_coast = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -672,12 +672,12 @@ bah_vijayanagari_branch = {
 		required_missions = { city_of_victory }
 		provinces_to_highlight = {
 			area = rayalaseema_area
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 		trigger = {
 			rayalaseema_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -723,7 +723,7 @@ bah_vijayanagari_branch = {
 				area = malabar_area
 				area = kanara_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 		trigger = {
 			if = {
@@ -734,19 +734,19 @@ bah_vijayanagari_branch = {
 			}
 			mysore_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			carnatic_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			malabar_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			kanara_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -789,16 +789,16 @@ bah_delhi_branch = {
 				area = malwa_area
 				area = central_doab_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 		trigger = {
 			malwa_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			central_doab_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -819,7 +819,7 @@ bah_delhi_branch = {
 		trigger = {
 			522 = {
 				OR = {
-					country_or_non_sovereign_subject_holds = ROOT
+					cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 					AND = {
 						controlled_by = ROOT
 						owner = { NOT = { army_size = ROOT } }
@@ -902,12 +902,12 @@ bah_coromandel_branch = {
 		required_missions = { rein_in_the_velamas }
 		provinces_to_highlight = {
 			area = andhra_area
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 		trigger = {
 			andhra_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -938,13 +938,13 @@ bah_coromandel_branch = {
 					NOT = {
 						andhra_area = {
 							type = all
-							country_or_non_sovereign_subject_holds = ROOT
+							cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 						}
 					}
 				}
 				andhra_area = {
 					type = all
-					country_or_non_sovereign_subject_holds = ROOT
+					cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 				}
 			}
 		}
@@ -997,24 +997,24 @@ bah_coromandel_branch = {
 				area = madura_area
 				area = madura_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 		trigger = {
 			coromandel_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			coromandel_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			madura_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			madura_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {

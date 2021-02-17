@@ -6,92 +6,223 @@ country_event = {
 	title = "EVT_HIDDEN"
 	desc = "EVT_HIDDEN"
 	picture = BIG_BOOK_eventPicture
-	
+	is_triggered_only = yes
 	trigger = {
 		ai = yes
 		is_at_war = no
-		navy_size_percentage = 1.01
-	}
-	mean_time_to_happen = {
-		months = 1
+		navy_size_percentage = 0.95
 	}
 	option = {
 		name = "EVT_HIDDEN"
-		set_variable = { which = cu_var1 value = 0 } #Counter
-		while = {
-			limit = { 
-				navy_size_percentage = 1
-				NOT = { check_variable = { which = cu_var1 value = 10 } }
-			}
-			change_variable = { which = cu_var1 value = 1 }
-			#Delete one ship of each type per loop
-			if = {
-				limit = { num_of_heavy_ship = 1 }
-				random_province = {
-					limit = {
-						num_of_units_in_province = {
-							type = heavy_ship
-							who = ROOT
-							amount = 1
-						}
+		add_country_modifier = {
+			name = ai_navy_oversized
+			duration = 1825
+		}
+		#Delete one ship of each type per loop
+		if = {
+			limit = { num_of_heavy_ship = 1 }
+			random_province = {
+				limit = {
+					num_of_units_in_province = {
+						type = heavy_ship
+						who = ROOT
+						amount = 1
 					}
 				}
-				kill_units = {
-					who = ROOT
-					type = heavy_ship
-					amount = 1
-				}
 			}
-			if = {
-				limit = { num_of_light_ship = 1 navy_size_percentage = 1 }
-				random_province = {
-					limit = {
-						num_of_units_in_province = {
-							type = light_ship
-							who = ROOT
-							amount = 1
-						}
+			kill_units = {
+				who = ROOT
+				type = heavy_ship
+				amount = 1
+			}
+		}
+		if = {
+			limit = { num_of_light_ship = 1 navy_size_percentage = 0.95 }
+			random_province = {
+				limit = {
+					num_of_units_in_province = {
+						type = light_ship
+						who = ROOT
+						amount = 1
 					}
 				}
-				kill_units = {
-					who = ROOT
-					type = light_ship
-					amount = 1
-				}
 			}
-			if = {
-				limit = { num_of_galley = 1 navy_size_percentage = 1 }
-				random_province = {
-					limit = {
-						num_of_units_in_province = {
-							type = galley
-							who = ROOT
-							amount = 1
-						}
+			kill_units = {
+				who = ROOT
+				type = light_ship
+				amount = 1
+			}
+		}
+		if = {
+			limit = { num_of_galley = 1 navy_size_percentage = 0.95 }
+			random_province = {
+				limit = {
+					num_of_units_in_province = {
+						type = galley
+						who = ROOT
+						amount = 1
 					}
 				}
-				kill_units = {
-					who = ROOT
-					type = galley
-					amount = 1
-				}
 			}
-			if = {
-				limit = { num_of_transport = 1 navy_size_percentage = 1 }
-				random_province = {
-					limit = {
-						num_of_units_in_province = {
-							type = transport
-							who = ROOT
-							amount = 1
-						}
+			kill_units = {
+				who = ROOT
+				type = galley
+				amount = 1
+			}
+		}
+		if = {
+			limit = { num_of_transport = 1 navy_size_percentage = 0.95 }
+			random_province = {
+				limit = {
+					num_of_units_in_province = {
+						type = transport
+						who = ROOT
+						amount = 1
 					}
 				}
-				kill_units = {
-					who = ROOT
-					type = transport
-					amount = 1
+			}
+			kill_units = {
+				who = ROOT
+				type = transport
+				amount = 1
+			}
+		}
+		#Delete one ship of each type per loop
+		if = {
+			limit = { num_of_heavy_ship = 1 }
+			random_province = {
+				limit = {
+					num_of_units_in_province = {
+						type = heavy_ship
+						who = ROOT
+						amount = 1
+					}
 				}
+			}
+			kill_units = {
+				who = ROOT
+				type = heavy_ship
+				amount = 1
+			}
+		}
+		if = {
+			limit = { num_of_light_ship = 1 navy_size_percentage = 0.95 }
+			random_province = {
+				limit = {
+					num_of_units_in_province = {
+						type = light_ship
+						who = ROOT
+						amount = 1
+					}
+				}
+			}
+			kill_units = {
+				who = ROOT
+				type = light_ship
+				amount = 1
+			}
+		}
+		if = {
+			limit = { num_of_galley = 1 navy_size_percentage = 0.95 }
+			random_province = {
+				limit = {
+					num_of_units_in_province = {
+						type = galley
+						who = ROOT
+						amount = 1
+					}
+				}
+			}
+			kill_units = {
+				who = ROOT
+				type = galley
+				amount = 1
+			}
+		}
+		if = {
+			limit = { num_of_transport = 1 navy_size_percentage = 0.95 }
+			random_province = {
+				limit = {
+					num_of_units_in_province = {
+						type = transport
+						who = ROOT
+						amount = 1
+					}
+				}
+			}
+			kill_units = {
+				who = ROOT
+				type = transport
+				amount = 1
+			}
+		}
+		#Delete one ship of each type per loop
+		if = {
+			limit = { num_of_heavy_ship = 1 }
+			random_province = {
+				limit = {
+					num_of_units_in_province = {
+						type = heavy_ship
+						who = ROOT
+						amount = 1
+					}
+				}
+			}
+			kill_units = {
+				who = ROOT
+				type = heavy_ship
+				amount = 1
+			}
+		}
+		if = {
+			limit = { num_of_light_ship = 1 navy_size_percentage = 0.95 }
+			random_province = {
+				limit = {
+					num_of_units_in_province = {
+						type = light_ship
+						who = ROOT
+						amount = 1
+					}
+				}
+			}
+			kill_units = {
+				who = ROOT
+				type = light_ship
+				amount = 1
+			}
+		}
+		if = {
+			limit = { num_of_galley = 1 navy_size_percentage = 0.95 }
+			random_province = {
+				limit = {
+					num_of_units_in_province = {
+						type = galley
+						who = ROOT
+						amount = 1
+					}
+				}
+			}
+			kill_units = {
+				who = ROOT
+				type = galley
+				amount = 1
+			}
+		}
+		if = {
+			limit = { num_of_transport = 1 navy_size_percentage = 0.95 }
+			random_province = {
+				limit = {
+					num_of_units_in_province = {
+						type = transport
+						who = ROOT
+						amount = 1
+					}
+				}
+			}
+			kill_units = {
+				who = ROOT
+				type = transport
+				amount = 1
 			}
 		}
 	}
@@ -108,6 +239,21 @@ country_event = {
 	trigger = {
 		ai = yes
 		check_variable = { which = go value = 110 }
+		NOT = {
+			has_estate_privilege = gentrys_landholding
+		}
+		NOT = {
+			has_reform = elective_monarchy
+		}
+		OR = {
+			NOT = {
+				has_country_flag = recent_refresh_gc_ai
+			}
+			had_country_flag = {
+				flag = recent_refresh_gc_ai
+				days = 1865
+			}
+		}
 	}
 	mean_time_to_happen = {
 		months = 240
@@ -122,6 +268,7 @@ country_event = {
 	}
 	option = {
 		name = "EVT_HIDDEN"
+		set_country_flag = recent_refresh_gc_ai
 		#Increasing Autonomy in low integrity provinces
 		every_owned_province = {
 			limit = {
@@ -144,8 +291,9 @@ country_event = {
 				}
 			}
 			add_unrest = 5
-			add_local_autonomy = -15
+			add_local_autonomy = -20
 		}
+		country_event = { id = cugovernment.1 days = 1 } #Government Capacity Calculation
 	}
 	
 }
@@ -385,5 +533,758 @@ country_event = {
 		 ai_chance = {
 			factor = 25
 		 }
+	}
+}
+
+#Corrupt better than loans for ai 
+country_event = {
+    id = cuai.5
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = BIG_BOOK_eventPicture
+	hidden = yes
+	trigger = {
+		ai = yes
+		NOT = { corruption = 8 }
+		OR = {
+			AND = {
+				NOT = { current_income_balance = 0.01 }
+				NOT = { treasury = 20 }
+			}
+			NOT = { treasury = 1 }
+		}
+	}
+	option = {
+		name = "EVT_HIDDEN" #Use future cash
+		add_corruption = 1
+		set_variable = { which = cu_var1 value = 0.5 }
+		cu_add_loan_cash = yes
+		if = {
+			limit = { is_at_war = yes }
+			add_corruption = 1
+			set_variable = { which = cu_var1 value = 0.5 }
+			cu_add_loan_cash = yes
+		}
+	}
+}
+
+#Trans Religion in low tolerance province[without missionaries but much slower]
+province_event = {
+	id = cuai.6
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = BIG_BOOK_eventPicture
+	hidden = yes
+	trigger = {
+		NOT = { has_construction = missionary }
+		NOT = { tolerance_to_this = 2.5 }
+		has_owner_religion = no
+		owner = {
+			monthly_income = 0.3 
+			ai = yes
+			num_of_missionaries = 1
+			NOT = {
+				has_country_flag = trans_pause
+			}
+		}
+		variable_arithmetic_trigger = {
+			custom_tooltip = HAS_ENOUGH_STRENGTH
+			export_to_variable = {
+				variable_name = lc_mi_st
+				value = modifier:local_missionary_strength
+			}
+			check_variable = {
+				which = lc_mi_st
+				value = 0
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 24
+		modifier = {
+			factor = 5
+			owner = {
+				religion = confucianism
+			}
+		}
+	}
+	option = {
+		name = "EVT_HIDDEN"
+		province_event = { id = cuai.61 days = 2880 }
+		owner = {
+			set_country_flag = trans_pause
+		}
+	}
+}
+
+province_event = {
+	id = cuai.61
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = BIG_BOOK_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	option = {
+		name = "EVT_HIDDEN"
+		change_religion = owner
+		owner = {
+			clr_country_flag = trans_pause
+		}
+	}
+}
+
+#Build schools in states
+province_event = {
+	id = cuai.7
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = BIG_BOOK_eventPicture
+	hidden = yes
+	trigger = {
+		owner = { 
+			treasury = 750 
+			adm_tech = 15
+			cu_ai_buff_trigger = yes
+			current_income_balance = 0.3
+			NOT = { has_country_modifier = cu_ai_building_pause }
+		}
+		NOT = { has_building = public_school }
+		cu_not_terr_trigger = yes
+		OR = {
+			NOT = {
+				OR = {
+					continent = africa
+					AND = {
+						continent = asia
+						NOT = { owner = { has_idea_group = reform_ideas } }
+					}
+					owner = { technology_group = indian }
+					AND = {
+						OR = {
+							continent = oceania
+							continent = south_america
+							continent = north_america
+							continent = new_world
+						}
+						NOT = {
+							owner = {
+								OR = {
+									is_colonial_nation = yes
+									is_former_colonial_nation = yes
+									tag = USA
+									tag = LAP
+									tag = BRZ
+									tag = MEX
+									tag = CAN
+									tag = LOU
+									tag = HAT
+									tag = AUS
+								}
+							}
+						}
+					}
+					government = tribal
+				}
+			}
+			owner = {
+				OR = {
+					has_reform = education_policy_burghers
+					has_reform = education_policy_public
+				}
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 2
+			NOT = { 
+				OR = {
+					has_reform = education_policy_burghers
+					has_reform = education_policy_public
+				}
+			}
+		}
+		modifier = {
+			factor = 8
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 3
+			NOT = { has_owner_culture = yes }
+			NOT = { has_owner_accepted_culture = yes }
+			NOT = { owner = { culture_group = ROOT } }
+		}		
+		modifier = {
+			factor = 1.5
+			NOT = {
+				check_variable = { which = p_ca value = 65 }
+			}
+		}
+		modifier = {
+			factor = 0.75
+			check_variable = { which = p_ca value = 75 }
+		}
+		modifier = {
+			factor = 0.8
+			development = 20
+		}
+		modifier = {
+			factor = 0.8
+			development = 25
+		}
+		modifier = {
+			factor = 0.8
+			development = 30
+		}
+		modifier = {
+			factor = 0.8
+			development = 35
+		}
+		modifier = {
+			factor = 0.8
+			development = 40
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { development = 15 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { development = 8 }
+		}
+		modifier = { 
+			factor = 0.5
+			is_capital = yes
+		}
+		modifier = { 
+			factor = 0.5
+			continent = europe
+		}
+		modifier = { 
+			factor = 5
+			continent = africa
+		}
+		modifier = { 
+			factor = 2.5
+			continent = asia
+		}
+		modifier = { 
+			factor = 0.5
+			owner = { has_idea_group = innovativeness_ideas }
+		}
+	}
+	option = {
+		name = "EVT_HIDDEN"
+		add_building_construction = {
+			building = public_school
+			speed = 0.25
+			cost = 0
+		}
+		owner = {
+			add_country_modifier = {
+				name = cu_ai_building_pause 
+				duration = 365
+			}
+		}
+		
+		add_treasury = -450 
+	}
+}
+
+#Build schools in states 2
+province_event = {
+	id = cuai.71
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = BIG_BOOK_eventPicture
+	hidden = yes
+	trigger = {
+		owner = { 
+			treasury = 1500 
+			adm_tech = 5
+			cu_ai_buff_trigger = yes
+			current_income_balance = 0.5
+			NOT = { has_country_modifier = cu_ai_building_pause }
+		}
+		NOT = { has_building = university }
+		cu_not_terr_trigger = yes
+		development = 15
+		OR = {
+			NOT = {
+				OR = {
+					continent = africa
+					AND = {
+						continent = asia
+						NOT = { owner = { has_idea_group = reform_ideas } }
+					}
+					owner = { technology_group = indian }
+					AND = {
+						OR = {
+							continent = oceania
+							continent = south_america
+							continent = north_america
+							continent = new_world
+						}
+						NOT = {
+							owner = {
+								OR = {
+									is_colonial_nation = yes
+									is_former_colonial_nation = yes
+									tag = USA
+									tag = LAP
+									tag = BRZ
+									tag = MEX
+									tag = CAN
+									tag = LOU
+									tag = HAT
+									tag = AUS
+								}
+							}
+						}
+					}
+					government = tribal
+				}
+			}
+			owner = {
+				OR = {
+					has_reform = education_policy_burghers
+					has_reform = education_policy_public
+				}
+			}
+		}
+	}
+	mean_time_to_happen = {
+		months = 120
+		modifier = {
+			factor = 2
+			NOT = { 
+				OR = {
+					has_reform = education_policy_burghers
+					has_reform = education_policy_public
+				}
+			}
+		}
+		modifier = {
+			factor = 8
+			is_at_war = yes
+		}
+		modifier = {
+			factor = 3
+			NOT = { has_owner_culture = yes }
+			NOT = { has_owner_accepted_culture = yes }
+			NOT = { owner = { culture_group = ROOT } }
+		}		
+		modifier = {
+			factor = 1.5
+			NOT = {
+				check_variable = { which = p_ca value = 65 }
+			}
+		}
+		modifier = {
+			factor = 0.75
+			check_variable = { which = p_ca value = 75 }
+		}
+		modifier = {
+			factor = 0.8
+			development = 20
+		}
+		modifier = {
+			factor = 0.8
+			development = 25
+		}
+		modifier = {
+			factor = 0.8
+			development = 30
+		}
+		modifier = {
+			factor = 0.8
+			development = 35
+		}
+		modifier = {
+			factor = 0.8
+			development = 40
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { development = 15 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { development = 10 }
+		}
+		modifier = {
+			factor = 1.1
+			NOT = { development = 8 }
+		}
+		modifier = { 
+			factor = 0.5
+			is_capital = yes
+		}
+		modifier = { 
+			factor = 0.5
+			continent = europe
+		}
+		modifier = { 
+			factor = 5
+			continent = africa
+		}
+		modifier = { 
+			factor = 2.5
+			continent = asia
+		}
+		modifier = { 
+			factor = 0.5
+			owner = { has_idea_group = innovativeness_ideas }
+		}
+	}
+	option = {
+		name = "EVT_HIDDEN"
+		add_building_construction = {
+			building = university
+			speed = 0.25
+			cost = 0
+		}
+		add_treasury = -1000
+		owner = {
+			add_country_modifier = {
+				name = cu_ai_building_pause 
+				duration = 365
+			}
+		}
+	}
+}
+
+#Trans Granada Province from Por to Cas
+country_event = {
+	id = cuai.8
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = BIG_BOOK_eventPicture
+	hidden = yes
+	trigger = {
+		any_owned_province = {
+			area = upper_andalucia_area
+		}
+		tag = POR
+		exists = CAS
+		NOT = {
+			is_year = 1550
+		}
+		CAS = {
+			ai = yes
+		}
+		ai = yes
+	}
+	option = {
+		name = "EVT_HIDDEN"
+		every_owned_province = {
+			limit = {
+				area = upper_andalucia_area
+			}
+			cede_province = CAS
+			remove_core = POR
+			add_core = CAS
+		}
+		add_years_of_income = 1
+	}
+}
+
+#Russia move captial to st.p
+country_event = {
+	id = cuai.9
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = BIG_BOOK_eventPicture
+	hidden = yes
+	trigger = {
+		owns = 33
+		NOT = { capital = 33 }
+		NOT = { has_country_flag = relocated_capital_st_petersburg }
+		is_at_war = no
+		capital_scope = {
+			base_tax = 3
+			base_production = 3
+			base_manpower = 4
+		}
+		any_province = {
+			is_capital = no
+			base_tax = 4
+			base_production = 4
+			base_manpower = 7
+			NOT = { province_id = 33 }
+		}
+		OR = {
+			DIP = 4
+			is_year = 1700
+		}
+		tag = RUS
+		cu_ai_buff_trigger = yes
+	}
+	option = {
+		name = "EVT_HIDDEN"
+		set_country_flag = relocated_capital_st_petersburg
+		add_adm_power = -150
+		add_prestige = 10
+		add_dip_power = 100
+		random_province = {
+			limit = { 
+				is_capital = yes
+				owned_by = ROOT 
+			}
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -2
+		}
+		random_province = {
+			limit = { 
+				is_capital = no
+				owned_by = ROOT
+				culture = owner
+				base_tax = 4
+				base_production = 4
+				base_manpower = 7
+				NOT = { province_id = 33 }
+			}
+			add_base_tax = -1
+			add_base_production = -1
+			add_base_manpower = -2
+		}
+		set_capital = 33
+		hidden_effect = { cu_calc_country_absolute_dist = yes }
+		33 = {
+			change_province_name = "St. Petersburg"
+			rename_capital = "St. Petersburg"
+			add_base_tax = 3
+			add_base_production = 3
+			add_base_manpower = 6
+			change_culture = owner
+			hidden_effect = {
+				change_variable = { which = b_uc value = 4 }
+				change_variable = { which = b_ac value = 5 }
+				change_trade_goods = fish
+			}
+			add_province_modifier = {
+				name = russian_western_door
+				duration = -1
+			}
+			center_of_trade = 1
+		}
+	}
+}
+
+#AI keep low autonomy in state provinces
+province_event = {
+	id = cuai.11
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = BIG_BOOK_eventPicture
+	hidden = yes
+	trigger = {
+		local_autonomy = 60
+		NOT = { unrest = 1 }
+		owner = {
+			ai = yes
+		}
+		cu_not_terr_trigger = yes
+	}
+	mean_time_to_happen = {
+		months = 240
+	}
+	option = {
+		name = "EVT_HIDDEN"
+		add_local_autonomy = -20
+		add_unrest = 3
+	}
+}
+
+#Updating Roads
+province_event = {
+	id = cuai.12
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = BIG_BOOK_eventPicture
+	hidden = yes
+	trigger = {
+		owner = { NOT = { has_country_modifier = cu_ai_building_pause } }
+		OR = {
+			AND = {
+				has_building = road_1
+				OR = {
+		            has_terrain = farmlands
+					has_terrain = grasslands
+					has_terrain = woods
+					has_terrain = drylands
+					has_province_modifier = ti_marsh_done 
+					has_province_modifier = holland_polders
+					has_province_modifier = ti_irragation_done
+					has_province_modifier = ti_terrace_done
+					has_province_modifier = ti_jungle_done
+					has_province_modifier = ti_forest_done
+					has_province_modifier = quantity_ideas_5_mod
+					has_building = road_2
+				}
+				owner = {
+					dip_tech = 16
+					treasury = 400
+				}
+			}
+			AND = {
+				has_building = road_2
+				OR = {
+					has_terrain = farmlands
+					has_terrain = grasslands
+					has_terrain = woods
+					has_terrain = drylands
+					has_province_modifier = ti_marsh_done 
+					has_province_modifier = holland_polders
+					has_province_modifier = ti_irragation_done
+					has_province_modifier = ti_terrace_done
+					has_province_modifier = ti_jungle_done
+					has_province_modifier = ti_forest_done
+					AND = {
+						has_province_modifier = quantity_ideas_5_mod
+						OR = {
+								has_terrain = hills
+								has_terrain = desert
+								has_terrain = savannah
+								has_terrain = steppe
+								has_terrain = coastline
+								has_terrain = coastal_desert
+								has_terrain = highlands
+						}					   
+					}
+					has_building = road_3
+				}
+				owner = {
+					dip_tech = 30
+					treasury = 1000
+				}
+			}
+		}
+		owner = {
+			cu_ai_buff_trigger = yes
+		}
+	}
+	mean_time_to_happen = {
+		months = 240
+	}
+	option = {
+		name = "EVT_HIDDEN"
+		if = {
+			limit = {
+				AND = {
+					has_building = road_1
+					OR = {
+						has_terrain = farmlands
+						has_terrain = grasslands
+						has_terrain = woods
+						has_terrain = drylands
+						has_province_modifier = ti_marsh_done 
+						has_province_modifier = holland_polders
+						has_province_modifier = ti_irragation_done
+						has_province_modifier = ti_terrace_done
+						has_province_modifier = ti_jungle_done
+						has_province_modifier = ti_forest_done
+						has_province_modifier = quantity_ideas_5_mod
+						has_building = road_2
+					}
+					owner = {
+						dip_tech = 16
+						treasury = 500
+					}
+				}
+			}
+			add_building_construction = {
+				building = road_2
+				speed = 0.5
+				cost = 0
+			}
+			owner = { 
+				add_treasury = -200 
+				add_country_modifier = {
+					name = cu_ai_building_pause 
+					duration = 365
+				}
+			}
+			
+		}
+		if = {
+			limit = {
+				AND = {
+					has_building = road_2
+					OR = {
+						has_terrain = farmlands
+						has_terrain = grasslands
+						has_terrain = woods
+						has_terrain = drylands
+						has_province_modifier = ti_marsh_done 
+						has_province_modifier = holland_polders
+						has_province_modifier = ti_irragation_done
+						has_province_modifier = ti_terrace_done
+						has_province_modifier = ti_jungle_done
+						has_province_modifier = ti_forest_done
+						AND = {
+							has_province_modifier = quantity_ideas_5_mod
+							OR = {
+									has_terrain = hills
+									has_terrain = desert
+									has_terrain = savannah
+									has_terrain = steppe
+									has_terrain = coastline
+									has_terrain = coastal_desert
+									has_terrain = highlands
+							}					   
+						}
+						has_building = road_3
+					}
+					owner = {
+						dip_tech = 30
+						treasury = 1000
+					}
+				}
+			}
+			add_building_construction = {
+				building = road_3
+				speed = 0.5
+				cost = 0
+			}
+			owner = { 
+				add_treasury = -500
+				add_country_modifier = {
+					name = cu_ai_building_pause 
+					duration = 365
+				}
+			}
+		}
+	}
+}
+
+
+#Recover from low stability
+country_event = {
+	id = cuai.12
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = BIG_BOOK_eventPicture
+	hidden = yes
+	trigger = {
+		NOT = { has_country_flag = use_future_stability }
+		ai = yes
+		NOT = {
+			stability = -1
+		}
+	}
+	mean_time_to_happen = {
+		months = 120
+	}
+	option = {
+		name = "EVT_HIDDEN"
+		cu_calc_total_stability_growth = yes #Stability Calculation
+		set_country_flag = use_future_stability
 	}
 }

@@ -22,61 +22,62 @@ country_decisions = {
 				base_manpower = 4
 			}
 			any_province = {
-			        is_capital = no
-					base_tax = 4
-				    base_production = 4
-				    base_manpower = 7
-					NOT = { province_id = 33 }
+				is_capital = no
+				base_tax = 4
+				base_production = 4
+				base_manpower = 7
+				NOT = { province_id = 33 }
 			}
 		}
 		effect = {
 			set_country_flag = relocated_capital_st_petersburg
-			add_years_of_income = -1
-			add_adm_power = -100
+			add_years_of_income = -0.75
+			add_adm_power = -150
 			add_prestige = 10
 			add_dip_power = 100
 			random_province = {
-			        limit = { 
-					        is_capital = yes
-					        owned_by = ROOT 
-					}
-					add_base_tax = -1
-				    add_base_production = -1
-				    add_base_manpower = -2
+				limit = { 
+					is_capital = yes
+					owned_by = ROOT 
+				}
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -2
 			}
 			random_province = {
-			        limit = { 
-					           is_capital = no
-					           owned_by = ROOT
-							   culture = owner
-							   base_tax = 4
-				               base_production = 4
-				               base_manpower = 7
-							   NOT = { province_id = 33 }
-					}
-					add_base_tax = -1
-				    add_base_production = -1
-				    add_base_manpower = -3
+				limit = { 
+					is_capital = no
+					owned_by = ROOT
+					culture = owner
+					base_tax = 4
+					base_production = 4
+					base_manpower = 7
+					NOT = { province_id = 33 }
+				}
+				add_base_tax = -1
+				add_base_production = -1
+				add_base_manpower = -2
 			}
 			set_capital = 33
 			hidden_effect = { cu_calc_country_absolute_dist = yes }
 			33 = {
 				change_province_name = "St. Petersburg"
 				rename_capital = "St. Petersburg"
-			 	add_base_tax = 2
-				add_base_production = 2
-			 	add_base_manpower = 5
+			 	add_base_tax = 3
+				add_base_production = 3
+			 	add_base_manpower = 6
 				change_culture = owner
 				hidden_effect = {
-				change_variable = { which = b_uc value = 4 }
-        change_variable = { which = b_ac value = 5 }
-        change_trade_goods = fish
-        }
-				add_province_modifier = {
-				       name = russian_western_door
-					   duration = -1
+					change_variable = { which = b_uc value = 4 }
+					change_variable = { which = b_ac value = 5 }
+					change_trade_goods = fish
 				}
-			 }
+				add_province_modifier = {
+					name = russian_western_door
+					duration = -1
+				}
+				center_of_trade = 1
+			}
 			 
 		}
 		ai_will_do = {

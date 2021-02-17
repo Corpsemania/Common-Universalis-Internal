@@ -3,7 +3,7 @@
 owner = CHG
 controller = CHG
 add_core = CHG
-culture = kirgiz
+culture = uzbehk
 religion = sunni
 capital = "Bore"
 trade_goods = wool

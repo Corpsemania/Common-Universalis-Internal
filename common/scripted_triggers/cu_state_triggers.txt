@@ -74,9 +74,68 @@ cu_oversea_trigger = {
 }
 
 cu_is_terr_trigger = {
-	is_territory = yes
+	custom_trigger_tooltip = {	
+		tooltip = cu_is_terr_trigger_tooltip
+		NOT = { 
+			OR = {
+				NOT = { #not intialization
+					owner = {
+						had_country_flag = {
+							flag = cu_estate_system_set
+							days = 2 
+						}
+					}
+					
+				}
+				check_variable = { which = p_ca value = 45 }
+				is_capital = yes #Captial always in state
+				has_province_flag = second_capital_f
+			}
+			NOT = {
+				OR = {
+					has_province_modifier = trade_company_pri_1
+					has_province_modifier = trade_company_pri_2
+					has_province_modifier = trade_company_pri_3
+					has_province_modifier = trade_company_pri_4
+					has_province_modifier = trade_company_off_1
+					has_province_modifier = trade_company_off_2
+					has_province_modifier = trade_company_off_3
+					has_province_modifier = trade_company_off_4
+				}		
+			}
+			is_overseas = no
+		}
+	}
 }
 
 cu_not_terr_trigger = {	#In case of bugs
-	is_territory = no
+	custom_trigger_tooltip = {	
+		tooltip = cu_not_terr_trigger_tooltip
+		OR = {
+			NOT = { #not intialization
+				owner = {
+					had_country_flag = {
+						flag = cu_estate_system_set
+						days = 2 
+					}
+				}
+			}
+			check_variable = { which = p_ca value = 45 }
+			is_capital = yes #Captial always in state
+			has_province_flag = second_capital_f
+		}
+		NOT = {
+			OR = {
+				has_province_modifier = trade_company_pri_1
+				has_province_modifier = trade_company_pri_2
+				has_province_modifier = trade_company_pri_3
+				has_province_modifier = trade_company_pri_4
+				has_province_modifier = trade_company_off_1
+				has_province_modifier = trade_company_off_2
+				has_province_modifier = trade_company_off_3
+				has_province_modifier = trade_company_off_4
+			}		
+		}
+		is_overseas = no
+	}
 }

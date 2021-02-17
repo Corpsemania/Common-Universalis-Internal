@@ -52,23 +52,23 @@ country_decisions = {
 				province_id = 688 #Kaifeng	
 				AND = {
 					culture = mongol
-					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 				}
 				AND = {
 					culture = ordos
-					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 				}
 				AND = {
 					culture = chahar
-					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 				}
 				AND = {
 					culture = khalkha
-					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 				}
 				AND = {
 					culture = oirats
-					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 				}
 			}
 			OR = {
@@ -94,31 +94,31 @@ country_decisions = {
 				NOT = {
 					any_province = {
 						culture = mongol
-						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 					}
 				}
 				NOT = {
 					any_province = {
 						culture = ordos
-						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 					}
 				}
 				NOT = {
 					any_province = {
 						culture = chahar
-						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 					}
 				}
 				NOT = {
 					any_province = {
 						culture = khalkha
-						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 					}
 				}
 				NOT = {
 					any_province = {
 						culture = oirats
-						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 					}
 				}
 			}
@@ -127,9 +127,9 @@ country_decisions = {
 					has_dlc = "Mandate of Heaven"
 				}
 				is_emperor_of_china = yes
-				else = {
-					government_rank = 3
-				}
+			}
+			else = {
+				government_rank = 3
 			}
 		}
 		effect = {			

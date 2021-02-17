@@ -2,7 +2,7 @@
 
 owner = KAR
 controller = KAR
-culture = turkish
+culture = cappadocian
 religion = sunni
 capital = "Konya"
 trade_goods = salt

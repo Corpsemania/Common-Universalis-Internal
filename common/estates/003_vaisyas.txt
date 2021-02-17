@@ -1,24 +1,20 @@
 estate_vaisyas = {
 	icon = 9
-	
-	color = { 230 230 15 } #Yellow
-	
-	# Is estate kept in control of province on conquest?
-	keep_on_conquest = no	
 
 	# If true, country will get estate
 	#Replaces Burghers
 	trigger = {	
-		NOT = { has_dlc = "Dharma" }
+		always = no
+		has_dlc = "Dharma"
 		technology_group = indian
 		religion = hinduism
 		NOT = { has_government_attribute = is_merchant_republic }
 		NOT = { has_reform = pirate_republic_reform }
 		NOT = { has_reform = veche_republic }
 		NOT = { has_reform = trading_city }
-		NOT = { has_reform = revolutionary_republic_reform }
+		NOT = { is_revolutionary_republic_trigger = yes }
 		NOT = { has_reform = cossacks_reform }
-		NOT = { government = native }
+		NOT = {  cu_estate_preload_native = yes }
 		NOT = { has_reform = siberian_tribe }
 		OR = {
 			NOT = { has_reform = celestial_empire }
@@ -26,32 +22,12 @@ estate_vaisyas = {
 		}
 		is_nomad = no
 		is_colonial_nation = no
+		NOT = { has_reform = revolutionary_empire_reform }
 	}
-	
-	# If true, province can be granted to estate
-	province_trigger = {
-		OR = {
-			owner = { government = republic }
-			development = 7
-			province_trade_power = 5
-		}
-	}
-
-	# Is used to weigh importance compared to other estates
-	start_territory_weight = 25
-	
-	# Min autonomy in estate provinces
-	min_autonomy = 20
-	
-	# Estate cancels out the following multiplicative local autonomy effects:
-	autonomy_does_not_affect = local_production_efficiency
-	autonomy_does_not_affect = province_trade_power_modifier
-	autonomy_does_not_affect = naval_forcelimit_modifier
-	autonomy_does_not_affect = local_sailors_modifier
 
 	# These scale with loyalty & power
 	country_modifier_happy = {
-		advisor_cost = -0.1
+		state_governing_cost = -0.1
 		production_efficiency = 0.33
 	}
 	country_modifier_neutral = {
@@ -59,20 +35,60 @@ estate_vaisyas = {
 	}	
 	country_modifier_angry = {
 		production_efficiency = -0.33
+		global_unrest = 2
 	}
-	
-	# These do not scale, but only applied in provinces owned by the estate
-	province_modifier_happy = {
-		trade_value_modifier = 0.2
-		local_development_cost = -0.2
+	land_ownership_modifier = {
+		vaisyas_loyalty_modifier = 0.2
 	}
-	province_modifier_neutral = {
-		trade_value_modifier = 0.2
-	}		
-	province_modifier_angry = {
-		local_unrest = 5
-	}	
-	
+
+	province_independence_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.1
+			NOT = { development = 5 }
+		}
+		modifier = {
+			factor = 0.1
+			NOT = { religion_group = dharmic }
+		}
+		modifier = {
+			factor = 2
+			religion = hinduism
+		}
+		modifier = {
+			factor = 0.5
+			OR = {
+				NOT = { development = 10 }
+				NOT = { province_trade_power = 5 }
+			}
+		}
+		modifier = {
+			factor = 2
+			development = 20
+		}
+		modifier = {
+			factor = 0.5
+			is_territorial_core = owner
+		}
+		modifier = {
+			factor = 1.5
+			province_trade_power = 10
+		}
+		modifier = {
+			factor = 1.5
+			province_trade_power = 20
+		}
+		modifier = {
+			factor = 1.5
+			OR = {
+				has_province_modifier = vaisya_manufactories
+				has_province_modifier = vaisya_gem_production
+				has_province_modifier = vaisya_spices_trade
+				has_province_modifier = vaisya_silk_goods
+			}
+		}
+	}
+
 	# Influence modifiers
 	base_influence = 10
 	influence_modifier = {	
@@ -95,26 +111,11 @@ estate_vaisyas = {
 		influence = 5
 	}
 	influence_modifier = {
-		desc = EST_VAL_MERITOCRATIC_RECRUITMENT
-		trigger = {
-			NOT = { religion_group = muslim }
-			has_reform = meritocratic_focus_reform
-		}
-		influence = 10
-	}
-	influence_modifier = {
 		desc = EST_VAL_LOW_TRADE_INCOME
 		trigger = {
 			NOT = { trade_income_percentage = 0.25 }
 		}	
 		influence = -5
-	}
-	influence_modifier = {
-		desc = EST_VAL_PLUTOCRATIC_REFORM
-		trigger = {
-			has_reform = plutocratic_reform
-		}
-		influence = 5
 	}
 	influence_modifier = {
 		desc = EST_VAL_HIGH_TRADE_INCOME
@@ -138,6 +139,8 @@ estate_vaisyas = {
 				has_disaster = estate_nobility_disaster
 				has_disaster = estate_church_disaster
 				has_disaster = estate_burghers_disaster
+				has_disaster = estate_brahmins_disaster
+				has_disaster = estate_jains_disaster
 			}
 		}	
 		influence = -40
@@ -150,616 +153,56 @@ estate_vaisyas = {
 				has_disaster = estate_nobility_disaster
 				has_disaster = estate_church_disaster
 				has_disaster = estate_burghers_disaster
+				has_disaster = estate_brahmins_disaster
+				has_disaster = estate_jains_disaster
 			}
 		}
 		loyalty = -20
 	}
-	loyalty_modifier = {
-		desc = EST_VAL_FULL_PLUTOCRATIC
-		trigger = {
-			full_idea_group = plutocracy_ideas
-		}
-		loyalty = 10
-	}
-	
-	# For province assignment
-	ai_grant_province = {
-		factor = 1
-		modifier = {
-			factor = 0.5
-			NOT = { province_trade_power = 5 }
-		}			
-		modifier = {
-			factor = 2
-			province_trade_power = 10
-		}
-		modifier = {
-			factor = 0.1
-			has_estate = estate_cossacks
-			has_terrain = steppe
-		}
-		modifier = {
-			factor = 4
-			local_autonomy = 25
-		}
-		modifier = {
-			factor = 0.25
-			NOT = { local_autonomy = 25 }
-		}
-	}	
-	
-	# Does the AI want to give any extra territory beyond the minimum?
-	ai_territory_modifier = {
-		trigger = {
-			has_idea_group = trade_ideas
-			num_of_cities = 10
-		}	
-		value = 5			
-	}
-	ai_territory_modifier = {
-		trigger = {
-			has_idea_group = plutocracy_ideas
-			num_of_cities = 10
-		}	
-		value = 5		
+
+	privileges = {
+		estate_vaisyas_land_rights
+		estate_vaisyas_loyalty_privilege
+		estate_vaisyas_advisor
+		estate_vaisyas_patronage_of_the_arts
+		estate_vaisyas_wartaxes
+		estate_vaisyas_control_over_monetary_policy
+		estate_vaisyas_exclusive_trade_rights
+		estate_vaisyas_private_trade_fleets
+		estate_vaisyas_monopoly_of_textiles
+		estate_vaisyas_monopoly_of_dyes
+		estate_vaisyas_monopoly_of_glass
+		estate_vaisyas_monopoly_of_paper
 	}
 
-	# Special interactions
+	agendas = {
+		estate_vaisyas_build_trade_building_in_y
+		estate_vaisyas_build_port_building_in_y
+		estate_vaisyas_build_production_building_in_y
+		estate_vaisyas_build_manufactory_in_y
+		estate_vaisyas_build_university_in_y
+		estate_vaisyas_pay_off_loans
+		estate_vaisyas_restore_republican_tradition
+		estate_vaisyas_restore_currency
+		estate_vaisyas_recovery_from_hyperinflation
+		estate_vaisyas_increase_trade_power_in_X
+		estate_vaisyas_access_sea
+		estate_vaisyas_build_a_fleet
+		estate_vaisyas_bigger_fleet_than_rival
+		estate_vaisyas_improve_dip_rep
+		estate_vaisyas_get_cash
+		estate_vaisyas_discover_X_in_america
+		estate_vaisyas_colonise_X
+		estate_vaisyas_colonise_more_X
+		estate_vaisyas_colonial_nation
+		estate_vaisyas_develop_x
+		estate_vaisyas_reduce_corruption
+		estate_vaisyas_protect_against_piracy
+		estate_vaisyas_hire_advisor
+		estate_vaisyas_fire_advisor
+	}
+
+	color = { 230 230 15 }
 	
-	interaction = {
-		name = "ASK_FOR_CONTRIBUTION"
-		icon = 6
-		
-		years_between_use = 10
-		
-		potential = {
-			NOT = { has_disaster = estate_church_disaster }
-			NOT = { has_disaster = estate_nobility_disaster }
-		}
-		
-		trigger = {
-			estate_loyalty = {
-				estate = estate_vaisyas
-				loyalty = 30
-			}				
-		}
-		
-		effect = {
-			if = {
-				limit = {
-					NOT = {
-						estate_influence = {
-							estate = estate_vaisyas
-							influence = 50
-						}	
-					}
-				}
-				add_years_of_income = 0.25
-			}
-			if = {
-				limit = {
-					estate_influence = {
-						estate = estate_vaisyas
-						influence = 50
-					}
-					NOT = {
-						estate_influence = {
-							estate = estate_vaisyas
-							influence = 75
-						}	
-					}
-				}
-				add_years_of_income = 0.5
-			}
-			if = {
-				limit = {
-					estate_influence = {
-						estate = estate_vaisyas
-						influence = 75
-					}
-					NOT = {
-						estate_influence = {
-							estate = estate_vaisyas
-							influence = 100
-						}	
-					}
-				}
-				add_years_of_income = 0.75
-			}
-			if = {
-				limit = {
-					estate_influence = {
-						estate = estate_vaisyas
-						influence = 100
-					}
-				}
-				add_years_of_income = 1
-			}				
-			add_estate_loyalty = {
-				estate = estate_vaisyas
-				loyalty = -10
-			}
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = {
-					estate_loyalty = {
-						estate = estate_vaisyas
-						loyalty = 50
-					}	
-				}
-			}
-			modifier = {
-				factor = 0
-				treasury = 1
-			}
-		}
-	}
-	interaction = {
-		name = "DEMAND_SUPPORT_VAISYAS"
-		icon = 3
-		
-		years_between_use = 20
-		
-		potential = {
-			NOT = { has_disaster = estate_church_disaster }
-			NOT = { has_disaster = estate_nobility_disaster }
-		}
-		
-		trigger = {		
-			estate_loyalty = {
-				estate = estate_vaisyas
-				loyalty = 30
-			}	
-			estate_influence = {
-				estate = estate_vaisyas
-				influence = 25
-			}			
-		}
-		
-		effect = {
-			if = {
-				limit = {
-					NOT = {
-						estate_influence = {
-							estate = estate_vaisyas
-							influence = 50
-						}	
-					}
-				}
-				add_dip_power = 50
-			}
-			else_if = {
-				limit = {
-					NOT = {
-						estate_influence = {
-							estate = estate_vaisyas
-							influence = 75
-						}	
-					}
-				}
-				add_dip_power = 100
-			}
-			else_if = {
-				limit = {
-					NOT = {
-						estate_influence = {
-							estate = estate_vaisyas
-							influence = 100
-						}	
-					}
-				}
-				add_dip_power = 150
-			}
-			else = {
-				add_dip_power = 200
-			}				
-			add_estate_loyalty = {
-				estate = estate_vaisyas
-				loyalty = -20
-			}
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	interaction = {
-		name = "SEEK_GUILD_SUPPORT"
-		icon = 17
-		
-		years_between_use = 20
-		
-		trigger = {
-			always = yes
-		}
-		
-		effect = {
-			add_prestige = -5
-			add_estate_influence_modifier = {
-				estate = estate_vaisyas
-				desc = EST_VAL_GUILD_SUPPORT
-				influence = 10
-				duration = 7300
-			}
-			add_estate_loyalty = {
-				estate = estate_vaisyas
-				loyalty = 15
-			}
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				estate_influence = {
-					estate = estate_vaisyas
-					influence = 60
-				}				
-			}
-			modifier = {
-				factor = 0
-				estate_loyalty = {
-					estate = estate_vaisyas
-					loyalty = 30
-				}				
-			}			
-		}
-	}
-	interaction = {
-		name = "RECRUIT_MINISTER"
-		icon = 10
-		
-		years_between_use = 30
-		
-		potential = {
-			NOT = { has_disaster = estate_church_disaster }
-			NOT = { has_disaster = estate_nobility_disaster }
-		}
-		
-		trigger = {
-			estate_influence = {
-				estate = estate_vaisyas
-				influence = 40
-			}
-		}
-		
-		effect = {
-			hidden_effect = {
-				random_owned_province = {
-					limit = {
-						has_estate = estate_vaisyas
-					}
-					save_event_target_as = vaisyas_estate_province
-				}
-			}
-			if = {
-				limit = {
-					monthly_income = 25
-					has_saved_event_target = vaisyas_estate_province
-					estate_influence = {
-						estate = estate_vaisyas
-						influence = 80
-					}
-				}
-				define_advisor = {
-					type = master_of_mint
-					skill = 3
-					culture = event_target:vaisyas_estate_province
-					religion = hinduism
-					location = event_target:vaisyas_estate_province
-					cost_multiplier = 0.5
-				}
-			}
-			else_if = {
-				limit = {
-					monthly_income = 25
-					NOT = { has_saved_event_target = vaisyas_estate_province }
-					estate_influence = {
-						estate = estate_vaisyas
-						influence = 80
-					}
-				}
-				define_advisor = {
-					type = master_of_mint
-					skill = 3
-					religion = hinduism
-					cost_multiplier = 0.5
-				}
-			}
-			else_if = {
-				limit = {
-					monthly_income = 25
-					has_saved_event_target = vaisyas_estate_province
-					estate_influence = {
-						estate = estate_vaisyas
-						influence = 60
-					}
-					NOT = {
-						estate_influence = {
-							estate = estate_vaisyas
-							influence = 80
-						}
-					}
-				}
-				define_advisor = {
-					type = master_of_mint
-					skill = 3
-					culture = event_target:vaisyas_estate_province
-					religion = hinduism
-					location = event_target:vaisyas_estate_province
-					cost_multiplier = 0.75
-				}
-			}
-			else_if = {
-				limit = {
-					monthly_income = 25
-					NOT = { has_saved_event_target = vaisyas_estate_province }
-					estate_influence = {
-						estate = estate_vaisyas
-						influence = 60
-					}
-					NOT = {
-						estate_influence = {
-							estate = estate_vaisyas
-							influence = 80
-						}
-					}
-				}
-				define_advisor = {
-					type = master_of_mint
-					skill = 3
-					religion = hinduism
-					cost_multiplier = 0.75
-				}
-			}
-			else_if = {
-				limit = {
-					monthly_income = 25
-					has_saved_event_target = vaisyas_estate_province
-					NOT = {
-						estate_influence = {
-							estate = estate_vaisyas
-							influence = 60
-						}
-					}
-				}
-				define_advisor = {
-					type = master_of_mint
-					skill = 3
-					culture = event_target:vaisyas_estate_province
-					religion = hinduism
-					location = event_target:vaisyas_estate_province
-				}
-			}
-			else_if = {
-				limit = {
-					monthly_income = 25
-					NOT = { has_saved_event_target = vaisyas_estate_province }
-					NOT = {
-						estate_influence = {
-							estate = estate_vaisyas
-							influence = 60
-						}
-					}
-				}
-				define_advisor = {
-					type = master_of_mint
-					skill = 3
-					religion = hinduism
-				}
-			}
-			else_if = {
-				limit = {
-					NOT = { monthly_income = 25 }
-					has_saved_event_target = vaisyas_estate_province
-					estate_influence = {
-						estate = estate_vaisyas
-						influence = 80
-					}
-				}
-				define_advisor = {
-					type = master_of_mint
-					skill = 2
-					cost_multiplier = 0.5
-					culture = event_target:vaisyas_estate_province
-					religion = hinduism
-					location = event_target:vaisyas_estate_province
-					
-				}
-			}
-			else_if = {
-				limit = {
-					NOT = { monthly_income = 25 }
-					NOT = { has_saved_event_target = vaisyas_estate_province }
-					estate_influence = {
-						estate = estate_vaisyas
-						influence = 80
-					}
-				}
-				define_advisor = {
-					type = master_of_mint
-					skill = 2
-					religion = hinduism
-					cost_multiplier = 0.5
-				}
-			}
-			else_if = {
-				limit = {
-					NOT = { monthly_income = 25 }
-					has_saved_event_target = vaisyas_estate_province
-					estate_influence = {
-						estate = estate_vaisyas
-						influence = 60
-					}
-					NOT = {
-						estate_influence = {
-							estate = estate_vaisyas
-							influence = 80
-						}
-					}
-				}
-				define_advisor = {
-					type = master_of_mint
-					skill = 2
-					cost_multiplier = 0.75
-					culture = event_target:vaisyas_estate_province
-					religion = hinduism
-					location = event_target:vaisyas_estate_province
-					
-				}
-			}
-			else_if = {
-				limit = {
-					NOT = { monthly_income = 25 }
-					NOT = { has_saved_event_target = vaisyas_estate_province }
-					estate_influence = {
-						estate = estate_vaisyas
-						influence = 60
-					}
-					NOT = {
-						estate_influence = {
-							estate = estate_vaisyas
-							influence = 80
-						}
-					}
-				}
-				define_advisor = {
-					type = master_of_mint
-					skill = 2
-					religion = hinduism
-					cost_multiplier = 0.75
-				}
-			}
-			else_if = {
-				limit = {
-					NOT = { monthly_income = 25 }
-					has_saved_event_target = vaisyas_estate_province
-					NOT = {
-						estate_influence = {
-							estate = estate_vaisyas
-							influence = 60
-						}
-					}
-				}
-				define_advisor = {
-					type = master_of_mint
-					skill = 2
-					culture = event_target:vaisyas_estate_province
-					religion = hinduism
-					location = event_target:vaisyas_estate_province
-				}
-			}
-			else_if = {
-				limit = {
-					NOT = { monthly_income = 25 }
-					NOT = { has_saved_event_target = vaisyas_estate_province }
-					NOT = {
-						estate_influence = {
-							estate = estate_vaisyas
-							influence = 60
-						}
-					}
-				}
-				define_advisor = {
-					type = master_of_mint
-					skill = 2
-					religion = hinduism
-				}
-			}
-			add_estate_influence_modifier = {
-				estate = estate_vaisyas
-				desc = EST_VAL_BURGHER_MINISTER
-				influence = 15
-				duration = 10950
-			}
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	interaction = {
-		name = "COMISSION_MERCHANT_SHIPS_FOR_WAR"
-		icon = 18
-		
-		years_between_use = 30
-		
-		potential = {
-			NOT = { has_disaster = estate_church_disaster }
-			NOT = { has_disaster = estate_nobility_disaster }
-			num_of_ports = 1
-			primitives = no
-		}
-		
-		trigger = {
-			estate_loyalty = {
-				estate = estate_vaisyas
-				loyalty = 30
-			}	
-			estate_influence = {
-				estate = estate_vaisyas
-				influence = 40
-			}
-			num_of_ports = 10
-			any_owned_province = {
-				has_port = yes
-				has_estate = estate_vaisyas
-			}
-		}
-		
-		effect = {
-			add_estate_loyalty = {
-				estate = estate_vaisyas
-				loyalty = -15
-			}
-			random_owned_province = {
-				limit = {
-					has_estate = estate_vaisyas
-					has_port = yes
-				}
-				add_unit_construction = {
-					amount = 5
-					type = heavy_ship
-					speed = 0.5
-					cost = 0
-				}
-			}
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	interaction = {
-		name = "LIMITED_WAR_SUPPORT"
-		icon = 29
-		
-		years_between_use = 20
-		
-		potential = {
-			NOT = { has_disaster = estate_church_disaster }
-			NOT = { has_disaster = estate_nobility_disaster }
-		}
-		trigger = {
-			is_at_war = yes
-			has_wartaxes = no
-			estate_loyalty = {
-				estate = estate_vaisyas
-				loyalty = 30
-			}
-		}
-		effect = {
-			raise_war_taxes = yes
-			add_estate_influence_modifier = {
-				estate = estate_vaisyas
-				desc = EST_VAL_LIMITED_WAR_SUPPORT
-				influence = 15
-				duration = 7300
-			}
-		}
-	}
+	influence_from_dev_modifier = 1.0
 }

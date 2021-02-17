@@ -1,0 +1,11 @@
+# Bonus covers  [range_from, range_to[
+
+bonus = {
+    key = crown_land_level_0
+    range_from = -100.0
+    range_to = 100.0
+    modifier = {
+        
+    }
+}
+

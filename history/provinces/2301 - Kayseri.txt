@@ -2,7 +2,7 @@
 
 owner = KAR
 controller = KAR
-culture = turkish
+culture = cappadocian
 religion = sunni
 capital = "Kayseri"
 trade_goods = iron

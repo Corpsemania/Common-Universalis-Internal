@@ -65,12 +65,16 @@ country_event = {
 			}
 			set_country_flag = can_use_qing_policy
 		}
+		if = {
+			limit = {
+				religion_group = pagan
+			}
+			set_country_flag = cu_used_to_pagan
+		}
 		change_religion = confucianism
         set_ruler_religion = confucianism
-		set_heir_religion = confucianism
-		add_mercantilism = 75
-		add_government_reform = bureaucratic
-		add_government_reform = trade_policy_1
+		set_heir_religion = confucianism		
+		add_government_reform = bureaucratic		
 		if = {
 			limit = { has_reform = education_policy_nobles }
 			add_government_reform = education_policy_church
@@ -89,7 +93,9 @@ country_event = {
 		ai_chance = {
 			factor = 0
 		}
-		change_variable = { which = cu_var1 value = -100 }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = -100 }
+		}
 		cu_change_stability_point = yes
 	}
 }

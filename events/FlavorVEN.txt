@@ -529,7 +529,7 @@ country_event = {
 	option = {		
 		name = flavor_ven.16.b
 		add_papal_influence = 10
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }	
 
@@ -611,7 +611,7 @@ country_event = {
 	}
 	option = {		
 		name = flavor_ven.18.b
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -652,7 +652,7 @@ country_event = {
 	}
 	option = {		
 		name = flavor_ven.19.b
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }	
 	
@@ -921,7 +921,7 @@ country_event = {
 	}
 	option = {	#Things are working fine as it is.
 		name = flavor_ven.26.b
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -1003,7 +1003,7 @@ country_event = {
 	}
 	option = {	#They should be content with their pensions.
 		name = flavor_ven.28.b
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -1143,7 +1143,7 @@ country_event = {
 	}
 	option = {	#This isn't that big a problem.
 		name = flavor_ven.31.b
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_prestige = 15
 	}
 }
@@ -1268,7 +1268,7 @@ country_event = {
 	}
 	option = {	#Guilty!
 		name = flavor_ven.35.a
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_prestige = -10
 	}
 	option = {	#Innocent!
@@ -1307,7 +1307,7 @@ country_event = {
 	}
 	option = {	#Disregard the moralists.
 		name = flavor_ven.36.b
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_prestige = 10
 	}
 }

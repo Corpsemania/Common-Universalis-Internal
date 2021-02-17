@@ -66,7 +66,7 @@ country_decisions = {
 			random_owned_province = {
 				limit = {
 					OR = {
-						culture = pommeranian
+						culture = pommersh
 						culture = saxon
 						culture = prussian
 					}
@@ -89,7 +89,7 @@ country_decisions = {
 						is_capital = no 
 						OR = {
 							culture = saxon
-							culture = pommeranian
+							culture = pommersh
 						}
 					} 
 					change_culture = prussian
@@ -237,7 +237,7 @@ country_decisions = {
 				is_religion_enabled = reformed
 			}
 			OR = {
-				primary_culture = pommeranian
+				primary_culture = pommersh
 				primary_culture = saxon
 				primary_culture = prussian
 			}
@@ -323,7 +323,7 @@ country_decisions = {
 					is_capital = no 
 					OR = {
 						culture = saxon
-						culture = pommeranian
+						culture = pommersh
 					}
 				} 
 				change_culture = prussian

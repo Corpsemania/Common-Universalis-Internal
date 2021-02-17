@@ -52,11 +52,83 @@ christian = {
 		
 		heretic = { BOGOMILIST WALDENSIAN FRATICELLI HUSSITE LOLLARD SOCINIAN }
 		
+		
+
 		papacy = {
 			papal_tag = PAP
 			election_cost = 5
 			seat_of_papacy = 118 # rome
 			
+
+			#Council of Trent Positions
+			harsh = {
+				relation_with_heretics = -20
+				global_religious_conversion_resistance = 0.25
+				global_institution_spread = -0.10
+				global_missionary_strength = 0.005
+			}
+			neutral = {
+				global_religious_conversion_resistance = -0.33
+			}
+			concilatory = {
+				relation_with_heretics = 10
+				global_religious_conversion_resistance = 0.25
+				global_heretic_missionary_strength = -0.015
+				improve_relation_modifier = 0.10
+			}
+
+			#Council of Trent Concessions
+			concessions = {
+				first_concession = {
+					harsh = {
+						relation_with_heretics = -5
+						global_heretic_missionary_strength  = 0.005
+						tolerance_heretic = -0.5
+					}	
+					concilatory = {
+						relation_with_heretics = 2
+						tolerance_heretic = 0.5
+						tolerance_own = -0.25
+					}
+				}
+				second_concession = {
+					harsh = {
+						relation_with_heretics = -5
+						institution_spread_from_true_faith = 0.05
+						tolerance_heretic = -0.5
+					}	
+					concilatory = {
+						relation_with_heretics = 2
+						global_institution_spread = 0.025
+						tolerance_own = -0.25
+					}
+				}
+				third_concession = {
+					harsh = {
+						relation_with_heretics = -5
+						manpower_in_true_faith_provinces  = 0.05
+						tolerance_heretic = -0.5
+					}	
+					concilatory = {
+						relation_with_heretics = 2
+						global_manpower_modifier = 0.025
+						tolerance_own = -0.25
+					}
+				}
+				fourth_concession = {
+					harsh = {
+						relation_with_heretics = -5
+						warscore_cost_vs_other_religion  = -0.05
+						tolerance_heretic = -0.5
+					}	
+					concilatory = {
+						relation_with_heretics = 2
+						curia_powers_cost = -0.075
+						tolerance_own = -0.25
+					}
+				}
+			}
+
 			levy_church_tax = {
 				cost = 60
 				potential = {
@@ -126,10 +198,12 @@ christian = {
 				}
 				allow = {
 					NOT = { war_with = PAP }
+					NOT = { has_country_modifier = local_saint_m }
 				}
 				effect = {
-					every_owned_province = {
-						add_unrest = -1.5
+					add_country_modifier = {
+						name = "local_saint_m"
+						duration = 7300
 					}
 				}
 				ai_will_do = {
@@ -226,6 +300,24 @@ christian = {
 					}
 				}
 			}	
+			investigate_heresy = {
+				curia_treasury_cost = 200
+				potential = {
+					has_dlc = "Emperor"
+					is_papal_controller = yes
+				}
+				allow = {
+					is_papal_controller = yes
+					reform_desire = 0.05
+				}
+				effect = {
+					add_reform_desire = -0.05
+					add_reform_desire_scale = 0.1
+				}
+				ai_will_do = {
+					factor = 0
+				}				
+			}	
 		}
 	}
 
@@ -237,12 +329,12 @@ christian = {
 			catholic
 		}
 		country = {
-			development_cost = -0.05
-			global_heretic_missionary_strength = 0.005
+			development_cost = -0.10
+			idea_cost = -0.05
 		}
 		
 		country_as_secondary = {
-			idea_cost = -0.1
+			innovativeness_gain = 0.25
 		}
 		
 		uses_anglican_power = yes				# Uses temple power/aspect mechanics
@@ -327,7 +419,7 @@ christian = {
 								religion = protestant
 								is_reformation_center = yes
 							}
-							amount = 2
+							amount = 3
 						}
 					}
 				}
@@ -353,7 +445,7 @@ christian = {
 								religion = protestant
 								is_reformation_center = yes
 							}
-							amount = 2
+							amount = 3
 						}
 					}
 				}
@@ -413,7 +505,7 @@ christian = {
 
                 country_as_secondary = {
 			global_unrest = -1
-			advisor_cost = -0.15
+			state_governing_cost = -0.15
 		}
 
 		will_get_center = { #Refered to even for initial CoR Spawn
@@ -444,7 +536,7 @@ christian = {
 								religion = reformed
 								is_reformation_center = yes
 							}
-							amount = 1
+							amount = 2
 						}
 					}
 				}
@@ -470,7 +562,7 @@ christian = {
 								religion = reformed
 								is_reformation_center = yes
 							}
-							amount = 1
+							amount = 2
 						}
 					}
 				}
@@ -513,6 +605,42 @@ christian = {
 		
 		fervor = yes
 	}
+
+	hussite = {
+		color = { 244 55 9 }
+		icon = 22
+
+		allowed_center_conversion = {
+			catholic
+		}
+		country = {
+			global_manpower_modifier = 0.05
+			global_heretic_missionary_strength = 0.005
+		}
+		
+		country_as_secondary = {
+			shock_damage_received = -0.025
+		}
+		
+		uses_hussite_power = yes				# Uses church power/aspect mechanics
+		
+		aspects = {
+			clerical_poverty_aspect
+			bread_and_wine_aspect
+			sola_scriptura_aspect
+			adamite_services_aspect
+			pacifism_aspect
+			punishment_of_sins_aspect
+			regular_defenestrations_aspect
+			taborite_resurgence_aspect
+			orphan_hetmans_aspect
+			freedom_to_preach_aspect
+		}
+		aspects_name = PROTESTANT_ASPECTS
+		
+		heretic = { TABORITE UTRAQUIST ORPHAN }
+	}
+	
 
 	orthodox = {
 		color = { 178 127 0 }
@@ -704,7 +832,7 @@ muslim = {
 
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
-				adm_power = 50
+				adm_power_cost = 50
 				if = {
 					limit = {
 						NOT = { religion = sunni }
@@ -745,7 +873,7 @@ muslim = {
 
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
-				adm_power = 50
+				adm_power_cost = 50
 				if = {
 					limit = {
 						NOT = { religion = sunni }
@@ -785,7 +913,7 @@ muslim = {
 
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
-				adm_power = 50
+				adm_power_cost = 50
 				if = {
 					limit = {
 						NOT = { religion = sunni }
@@ -825,7 +953,7 @@ muslim = {
 
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
-				adm_power = 50
+				adm_power_cost = 50
 				if = {
 					limit = {
 						NOT = { religion = sunni }
@@ -866,7 +994,7 @@ muslim = {
 
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
-				adm_power = 50
+				adm_power_cost = 50
 				if = {
 					limit = {
 						NOT = { religion = shiite }
@@ -910,7 +1038,7 @@ muslim = {
 
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
-				adm_power = 50
+				adm_power_cost = 50
 				if = {
 					limit = {
 						NOT = { religion = shiite }
@@ -950,7 +1078,7 @@ muslim = {
 
 			# THIS = Nation wanting to invite the scholar, FROM = Nation that follows that school
 			can_invite_scholar = {
-				adm_power = 50
+				adm_power_cost = 50
 				if = {
 					limit = {
 						NOT = { religion = shiite }
@@ -1065,11 +1193,11 @@ eastern = {
 		}
 		country = {
 			tolerance_heretic = 1
-			advisor_cost = -0.05
+			state_governing_cost = -0.05
 		}
 		country_as_secondary = {
 			tolerance_heathen = 1
-			advisor_cost = -0.05
+			state_governing_cost = -0.05
 		}
 		on_convert = {
 			add_stability = -1			
@@ -1208,7 +1336,10 @@ dharmic = {
 			tolerance_heretic = 1
 			religious_unity = 0.25
 		}
-		
+		province = {
+			local_missionary_strength = -0.008
+		}
+
 		personal_deity = yes
 		
 		on_convert = {
@@ -1439,7 +1570,7 @@ jewish_group = {
 		}
                 country_as_secondary = {
 			advisor_pool = 1
-			advisor_cost = -0.15
+			state_governing_cost = -0.15
 		}
 		province = {
 			local_missionary_strength = -0.008

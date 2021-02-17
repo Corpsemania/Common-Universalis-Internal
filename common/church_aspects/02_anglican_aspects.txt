@@ -79,14 +79,14 @@ gain_consort_aspect = {
 
 dissolve_monasteries_aspect = {
 	sprite = "GFX_dissolve_monasteries_icon"
-	cost = 200
+	cost = 175
 	trigger = {
 		NOT = {
 			treasury = 1000000
 		}
 	}
 	effect = {
-		add_years_of_income = 0.4
+		add_years_of_income = 0.3
 	}
 	ai_will_do = {
 		factor = 1
@@ -124,8 +124,11 @@ stability_aspect = {
 		always = yes
 	}
 	effect = {
-		every_owned_province = {
-			add_unrest = -1.5
+		custom_tooltip = ADD_MINUSE_TWO_UNREST_EVERYPROVINCE
+		hidden_effect = {
+			every_owned_province = {
+				add_unrest = -2
+			}
 		}
 	}
 	ai_will_do = {

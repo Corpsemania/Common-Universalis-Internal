@@ -1331,214 +1331,155 @@ country_event = {
 	}
 }
 
+
+### Dutch Revolt ###
+
+# This is now the on_start event for dutch revolt disaster
 # PROVINCENAME Revolts!
-province_event = {
+country_event = { # changed from province to country event
 	id = flavor_bur.8
 	title = "flavor_bur.EVTNAME8"
 	desc = "flavor_bur.EVTDESC8"
 	picture = ANGRY_MOB_eventPicture
 	
-	trigger = {
-		is_year = 1550
-		NOT = { is_year = 1650 }
-		owner = { ai = no }
-		NOT = { has_global_flag = dutch_revolt }
-		#NOT = { local_autonomy = 1 }
-		region = low_countries_region
-		OR = {
-			culture = dutch
-			culture = dutch_german
-			culture = flemish
-			culture = flemish_german
-			is_core = NED
-		}
-		owner = {
-			NOT = { tag = NED }
-			NOT = { tag = FLA }
-			is_free_or_tributary_trigger = yes
-			num_of_cities = 6
-			capital_scope = {
-				NOT = { region = low_countries_region }
-			}
-			NOT = {
-				OR = {
-					primary_culture = dutch
-					primary_culture = flemish
-				}
-			}
-		}
-	}
-
-	mean_time_to_happen = {
-		months = 600
-		modifier = {
-			factor = 0.75
-			owner = { is_at_war = yes }
-		}
-		modifier = {
-			factor = 0.5
-			has_owner_religion = no
-		}
-		modifier = {
-			factor = 0.5
-			owner = {
-				NOT = { culture_group = ROOT }
-			}
-		}
-		modifier = {
-			factor = 0.5
-			owner = {
-				NOT = { primary_culture = ROOT }
-				NOT = { accepted_culture = ROOT }
-			}
-		}
-		modifier = {
-			factor = 0.5
-			owner = { war_with = NED }
-		}
-		modifier = {
-			factor = 0.75
-			unrest = 3
-		}
-		modifier = {
-			factor = 0.75
-			unrest = 5
-		}
-		modifier = {
-			factor = 0.75
-			unrest = 7
-		}
-		modifier = {
-			factor = 0.75
-			unrest = 9
-		}
-	}
+	is_triggered_only = yes
 
 	immediate = {
 		set_global_flag = dutch_revolt
+		set_country_flag = dutch_revolt_target # used in incident
 	}
 	
 	option = {
 		name = "flavor_bur.EVTOPTA8"
-		set_province_flag = dutch_revolt
-		spawn_rebels = {
-			type = nationalist_rebels
-			size = 2
-			friend = NED
+		
+		#add_stability = -2
+		random_owned_province = {
+			limit = {
+				region = low_countries_region
+				OR = {
+					culture = dutch
+					culture = dutch_german
+					culture = flemish
+					culture = flemish_german
+				}
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+				friend = NED
+			}
+			set_province_flag = ned_rebels_start_flag
 		}
-	}
-	option = {
-		name = "flavor_bur.EVTOPTB8"
-		set_province_flag = no_dutch_revolt
-		add_local_autonomy = 100
+		random_owned_province = {
+			limit = {
+				NOT = { has_province_flag = ned_rebels_start_flag }
+				region = low_countries_region
+				OR = {
+					culture = dutch
+					culture = dutch_german
+					culture = flemish
+					culture = flemish_german
+				}
+			}
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 3
+				friend = NED
+			}
+			set_province_flag = ned_rebels_start_flag
+			set_province_flag = dutch_revolt
+		}
+		custom_tooltip = dutch_revolt_tt
+		hidden_effect = {
+			low_countries_region = {
+				limit = {
+					owned_by = ROOT
+					OR = {
+						culture = dutch
+						culture = dutch_german
+						culture = flemish
+						culture = flemish_german
+						NOT = { religion = ROOT }
+					}
+				}
+				add_province_modifier = {
+					name = "dutch_revolt_modifier"
+					duration = -1 # removed via the on_end event
+				}
+			}
+		}
 	}
 }
 
+# Random rebels event for disaster
 # PROVINCENAME Revolts!
-province_event = {
+country_event = {
 	id = flavor_bur.9
 	title = "flavor_bur.EVTNAME9"
 	desc = "flavor_bur.EVTDESC9"
 	picture = ANGRY_MOB_eventPicture
 	
+	is_triggered_only = yes
+
 	trigger = {
-		is_year = 1550
-		NOT = { is_year = 1650 }
-		owner = { ai = no }
-		has_global_flag = dutch_revolt
-		NOT = { has_province_flag = dutch_revolt }
-		NOT = { has_province_flag = no_dutch_revolt }
-		#NOT = { local_autonomy = 1 }
-		region = low_countries_region
-		OR = {
-			culture = dutch
-			culture = flemish
-			culture = dutch_german
-			culture = flemish_german
-			is_core = NED
-		}
-		owner = {
-			NOT = { tag = NED }
-			NOT = { tag = FLA }
-            NOT = { tag = BRG }
-			is_free_or_tributary_trigger = yes
-			num_of_cities = 6
-			capital_scope = {
-				NOT = { region = low_countries_region }
-			}
-			NOT = {
-				OR = {
-					primary_culture = dutch
-					primary_culture = flemish
-				}
+		any_owned_province = {
+			region = low_countries_region
+			NOT = { controlled_by = REB }
+			NOT = { has_province_flag = dutch_revolt }
+			NOT = { has_province_flag = no_dutch_revolt }
+			OR = {
+				culture = dutch
+				culture = dutch_german
+				culture = flemish
+				culture = flemish_german
 			}
 		}
 	}
-
-	mean_time_to_happen = {
-		months = 120
-		modifier = {
-			factor = 0.5
-			any_neighbor_province = {
-				has_province_flag = dutch_revolt
+	
+	immediate = {
+		hidden_effect = {
+			random_owned_province = {
+				limit = {
+					region = low_countries_region
+					NOT = { controlled_by = REB }
+					NOT = { has_province_flag = dutch_revolt }
+					NOT = { has_province_flag = no_dutch_revolt }
+					OR = {
+						culture = dutch
+						culture = dutch_german
+						culture = flemish
+						culture = flemish_german
+					}
+				}
+				save_event_target_as = dutch_rebels_target
 			}
-		}
-		modifier = {
-			factor = 0.5
-			has_owner_religion = no
-		}
-		modifier = {
-			factor = 0.5
-			owner = {
-				NOT = { culture_group = ROOT }
-			}
-		}
-		modifier = {
-			factor = 0.5
-			owner = {
-				NOT = { primary_culture = ROOT }
-				NOT = { accepted_culture = ROOT }
-			}
-		}
-		modifier = {
-			factor = 0.5
-			owner = { war_with = NED }
-		}
-		modifier = {
-			factor = 0.75
-			unrest = 3
-		}
-		modifier = {
-			factor = 0.75
-			unrest = 5
-		}
-		modifier = {
-			factor = 0.75
-			unrest = 7
-		}
-		modifier = {
-			factor = 0.75
-			unrest = 9
 		}
 	}
 
 	option = {
 		name = "flavor_bur.EVTOPTA9"
-		set_province_flag = dutch_revolt
-		spawn_rebels = {
-			type = nationalist_rebels
-			size = 2
-			friend = NED
+		ai_chance = { factor = 100 }
+		event_target:dutch_rebels_target = {
+			set_province_flag = dutch_revolt
+			spawn_rebels = {
+				type = nationalist_rebels
+				size = 1
+				friend = NED
+			}
 		}
 	}
 	option = {
 		name = "flavor_bur.EVTOPTB9"
-		set_province_flag = no_dutch_revolt
-		add_local_autonomy = 100
+		ai_chance = { factor = 0 }
+		event_target:dutch_rebels_target = {
+			add_local_autonomy = 100
+			set_province_flag = no_dutch_revolt
+		}
 	}
 }
 
 # Netherlands Declare Independence!
+# ends the disaster by virtue of NED existing
 country_event = {
 	id = flavor_bur.10
 	title = "flavor_bur.EVTNAME10"
@@ -1546,95 +1487,27 @@ country_event = {
 	picture = ANGRY_MOB_eventPicture
 
 	major = yes
+	is_triggered_only = yes
 	fire_only_once = yes
 	
 	trigger = {
-		is_year = 1550
-		NOT = { is_year = 1650 }
-		ai = yes
-		was_player = no
 		NOT = { exists = NED }
-		NOT = { tag = FLA }
-        NOT = { tag = BRG }
 		is_free_or_tributary_trigger = yes
-		num_of_cities = 6
-		any_owned_province = {
-			region = low_countries_region
+		num_of_owned_provinces_with = {
+			value = 5
+			OR = {
+				controlled_by = REB
+				local_autonomy = 90
+			}
 			OR = {
 				culture = dutch
-				culture = flemish
 				culture = dutch_german
+				culture = flemish
 				culture = flemish_german
-				is_core = NED
-			}
-		}
-		capital_scope = {
-			NOT = { region = low_countries_region }
-		}
-		NOT = {
-			OR = {
-				primary_culture = dutch
-				primary_culture = flemish
 			}
 		}
 	}
 	
-	mean_time_to_happen = {
-		months = 2000
-		modifier = {
-			factor = 0.75
-			NOT = { accepted_culture = dutch }
-		}
-		modifier = {
-			factor = 0.75
-			NOT = { accepted_culture = flemish }
-		}
-		modifier = {
-			factor = 0.75
-			num_of_owned_provinces_with = {
-				value = 2
-				region = low_countries_region
-				OR = {
-					culture = dutch
-					culture = flemish
-				}
-			}
-		}
-		modifier = {
-			factor = 0.75
-			num_of_owned_provinces_with = {
-				value = 4
-				region = low_countries_region
-				OR = {
-					culture = dutch
-					culture = flemish
-				}
-			}
-		}
-		modifier = {
-			factor = 0.75
-			num_of_owned_provinces_with = {
-				value = 6
-				region = low_countries_region
-				OR = {
-					culture = dutch
-					culture = flemish
-				}
-			}
-		}
-		modifier = {
-			factor = 0.75
-			num_of_owned_provinces_with = {
-				value = 8
-				region = low_countries_region
-				OR = {
-					culture = dutch
-					culture = flemish
-				}
-			}
-		}
-	}
-
 	immediate = {
 		hidden_effect = {
 			every_owned_province = {
@@ -1642,26 +1515,28 @@ country_event = {
 					region = low_countries_region
 					OR = {
 						culture = dutch
+						culture = dutch_german
 						culture = flemish
+						culture = flemish_german
 						is_core = NED
 					}
 					is_capital = no
 				}
 				discover_country = NED
 				add_core = NED
+				clear_rebels = yes
 			}
 			release = NED
 			NED = {
 				add_government_reform = becomes_republic_reform
 				add_government_reform = dutch_republic
-				change_primary_culture = dutch_g
+				change_primary_culture = dutch
 			}
 			every_owned_province = {
 				limit = {
 					region = low_countries_region
 				}
 				add_claim = NED
-				cu_switch_hybrid_culture = yes
 			}
 		}
 	}
@@ -1689,12 +1564,22 @@ country_event = {
 				country_event = { id = flavor_bur.12 days = 10 }
 			}
 			# Send messages to rivals allowing them to join
-			every_enemy_country = {
-				country_event = { id = flavor_bur.20 days = 1 }
+			if = {
+				limit = {
+					NED = { is_part_of_hre = yes }
+					has_dlc = "Emperor"
+				}
+				every_enemy_country = {
+					limit = {
+						is_emperor = no
+					}
+					country_event = { id = flavor_bur.20 days = 1 }
+				}
 			}
 		}
 	}
 }
+
 
 # Dutch Mobilization
 country_event = {
@@ -1835,15 +1720,15 @@ province_event = {
 		}
 		owner = {
 			NOT = { tag = NED }
-			NOT = { tag = BRG }
+			NOT = { tag = BGD }
 		}
 		region = low_countries_region
 		OR = {
-				culture = dutch
-				culture = flemish
-				culture = dutch_german
-				culture = flemish_german
-				is_core = NED
+			culture = dutch
+			culture = flemish
+			culture = dutch_german
+			culture = flemish_german
+			is_core = NED
 		}
 		OR = {
 			NOT = { has_province_flag = dutch_revolt }
@@ -2223,7 +2108,7 @@ country_event = {
 	fire_only_once = yes
 	
 	trigger = {
-		tag = BRG
+		tag = BGD
 		is_year = 1575
 		NOT = { is_year = 1675 }
 		mil = 5

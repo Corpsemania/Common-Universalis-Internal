@@ -59,14 +59,14 @@ manchu_missions_1 = {
 				province_id = 704
 				province_id = 4194
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 			NOT = { owner = { war_with = ROOT } }
 		}
 		trigger = {
 			OR = {
 				AND = {
-					704 = { country_or_non_sovereign_subject_holds = ROOT }
-					4194 = { country_or_non_sovereign_subject_holds = ROOT }
+					704 = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
+					4194 = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 				}
 				4194 = {
 					owner = {
@@ -102,7 +102,7 @@ manchu_missions_1 = {
 				area = hebei_area
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		completed_by = 1644.4.22
@@ -237,16 +237,16 @@ manchu_missions_1_b = {
 				area = vietnam_area
 				area = red_river_delta_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 		trigger = {
 			vietnam_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			red_river_delta_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -283,20 +283,20 @@ manchu_missions_1_b = {
 				area = shan_hill_area
 				area = kachin_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 		trigger = {
 			karenni_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			shan_hill_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			kachin_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -382,7 +382,7 @@ manchu_missions_2 = {
 		provinces_to_highlight = {
 			region = manchuria_region
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
@@ -506,7 +506,7 @@ manchu_missions_2 = {
 		position = 6
 		provinces_to_highlight = {
 			region = korea_region
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 			NOT = {	
 				owner = { 
 					is_subject_of_type = tributary_state 
@@ -517,7 +517,7 @@ manchu_missions_2 = {
 		trigger = {
 			korea_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -606,12 +606,12 @@ manchu_missions_2_b = {
 		position = 10
 		provinces_to_highlight = {
 			superregion = china_superregion
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 		trigger = {
 			china_superregion = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			if = {
 				limit = {
@@ -667,40 +667,40 @@ manchu_missions_3 = {
 				area = setsen_area
 				area = hulunbuir_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 		trigger = {
 			korchin_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			chahar_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			central_mongolia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			eastern_mongolia = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			inner_mongolia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			outer_mongolia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			setsen_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			hulunbuir_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {

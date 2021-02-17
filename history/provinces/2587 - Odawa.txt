@@ -1,0 +1,25 @@
+# No previous file for Odawa
+
+owner = OTT
+controller = OTT
+add_core = OTT
+is_city = yes
+culture = anishinabe
+religion = totemism
+capital = "Odawa"
+trade_goods = fur
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+native_size = 5
+native_ferocity = 1
+native_hostileness = 2
+
+
+
+discovered_by = north_american
+
+1609.1.1 = { discovered_by = FRA }
+1664.1.1 = { discovered_by = ENG }
+1707.5.12 = { discovered_by = GBR }

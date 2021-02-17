@@ -88,7 +88,7 @@ country_event = {
 	option = {
 		name = "flavor_sco.EVTOPTB1" #Make peace with the Douglas family
 		add_prestige = -5
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -359,7 +359,7 @@ country_event = {
 	}
 	option = {
 		name = "flavor_sco.EVTOPTB7" #Don't do it
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -494,7 +494,7 @@ country_event = {
 	# leave london alone
 	option = {
 		name = "flavor_sco.EVTOPTB11"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 

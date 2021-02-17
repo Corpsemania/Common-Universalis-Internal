@@ -60,7 +60,7 @@ country_decisions = {
 		}
 		effect = {
                         set_country_flag = in_prophecy
-			country_event = { id = 4860103 }    
+			country_event = { id = ancients.03 }    
 		}
 		ai_will_do = {
 			factor = 1

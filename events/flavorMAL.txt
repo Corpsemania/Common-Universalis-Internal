@@ -165,7 +165,7 @@ country_event = {
 	
 	option = {
 		name = flavor_mal.5.b	#The problem lies with the disloyal chiefs
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		every_owned_province = {
 			limit = {
 				OR = {
@@ -213,7 +213,7 @@ country_event = {
 	
 	option = {
 		name = flavor_mal.6.b	#Let us not rock the boat.
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_piety = -0.15
 	}
 }

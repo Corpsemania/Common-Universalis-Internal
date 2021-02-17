@@ -2,7 +2,7 @@
 
 owner = TIM
 controller = TIM
-culture = khorasani
+culture = persian
 religion = sunni
 capital = "Herat"
 trade_goods = paper

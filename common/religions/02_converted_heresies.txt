@@ -254,7 +254,7 @@ christian = {
 		}
 		country_as_secondary = {
 			global_missionary_strength = 0.01
-			advisor_cost = -0.1
+			state_governing_cost = -0.1
 		}
 		heretic = { ZAMIKAELITES STEPHANITES EUSTATHIANS }
 		
@@ -709,7 +709,7 @@ muslim = {
 			local_missionary_strength = -0.008
 		}
 		country_as_secondary = {
-			advisor_cost = -0.1
+			state_governing_cost = -0.1
 			improve_relation_modifier = 0.1
 		}
 		heretic = { HARURI SUFRI NAJADAT AZRAQI }
@@ -808,7 +808,7 @@ jewish_group = {
 		icon = 50
 		color = { 0.5 0.7 0.2 }
 		country = {
-			advisor_cost = -0.10
+			state_governing_cost = -0.10
 			adm_tech_cost_modifier = -0.05
 			tolerance_heathen = -1
 		}
@@ -817,7 +817,7 @@ jewish_group = {
 			local_tax_modifier = 0.05
 		}
 		country_as_secondary = {
-			advisor_cost = -0.10
+			state_governing_cost = -0.10
 		}
 		
 		heretic = { KARAITE }
@@ -826,7 +826,7 @@ jewish_group = {
 		icon = 51
 		color = { 0.5 0.7 0.2 }
 		country = {
-			max_states = 3
+			governing_capacity = 3
 			idea_cost = -0.1
 			tolerance_heathen = -1
 		}

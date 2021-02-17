@@ -2,6 +2,7 @@
 estate_qinwang_disaster = {
 	potential = {
 		has_estate = estate_qinwang
+		ai = no
 	}
 
 

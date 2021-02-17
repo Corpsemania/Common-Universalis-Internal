@@ -5,3 +5,5 @@ HAH = countries/Hashshashin.txt
 ISR = countries/Israel.txt
 
 TEM = countries/KnightsTemplar.txt
+
+HYP = countries/Hyperborea.txt

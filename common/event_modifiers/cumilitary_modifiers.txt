@@ -202,3 +202,58 @@ garrison_20 = {
 cu_foreign_legion = {
     local_manpower_modifier = 0.2
 }
+
+quality_inf_reform_1_mod_dis = {
+	land_morale = 0.05
+	discipline = 0.02
+	global_regiment_cost = 0.05
+}
+quality_inf_reform_2_mod_dis = {
+	land_morale = 0.75
+	discipline = 0.035
+	global_regiment_cost = 0.1
+}
+quality_inf_reform_3_mod_dis = {
+	land_morale = 0.1
+	discipline = 0.05
+	global_regiment_cost = 0.15
+}
+quality_cav_reform_1_mod_dis = {
+    infantry_shock = 0.1
+	infantry_fire = 0.1
+	cavalry_shock = 0.1
+	cavalry_fire = 0.1
+	artillery_fire = 0.1
+	global_regiment_cost = 0.05
+}
+quality_cav_reform_2_mod_dis = {
+	infantry_shock = 0.15
+	infantry_fire = 0.2
+	cavalry_shock = 0.15
+	cavalry_fire = 0.3
+	artillery_fire = 0.2
+	global_regiment_cost = 0.1
+}
+quality_cav_reform_3_mod_dis = {
+    infantry_shock = 0.25
+	infantry_fire = 0.35
+	cavalry_shock = 0.3
+	cavalry_fire = 0.5
+	artillery_fire = 0.3
+	global_regiment_cost = 0.15
+}
+quality_art_reform_1_mod_dis = {
+	siege_ability = 0.05
+	global_regiment_cost = 0.05
+}
+quality_art_reform_2_mod_dis = {
+	siege_ability = 0.075
+	shock_damage_received = -0.1
+	global_regiment_cost = 0.1
+}
+quality_art_reform_3_mod_dis = {
+	siege_ability = 0.1
+	shock_damage_received = -0.1
+	fire_damage_received = -0.1
+	global_regiment_cost = 0.15
+}

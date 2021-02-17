@@ -80,7 +80,7 @@ country_event = {
 	option = {
 		name = flavor_bng.2.b
 		ai_chance = { factor = 25 }
-		add_stability_or_adm_power = yes #Pleases the more Orthodox religious establishment.
+		cu_change_stability_point_p50 = yes #Pleases the more Orthodox religious establishment.
 		add_piety = 0.15
 	}
 }

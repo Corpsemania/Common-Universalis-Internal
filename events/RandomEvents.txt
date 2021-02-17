@@ -181,7 +181,7 @@ country_event = {
 	option = {
 		name = "EVTOPTA5015"		# Reap the administrative benefits
 		ai_chance = { factor = 55 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_prestige = 10
 		add_adm_power = 50
 	}
@@ -1251,7 +1251,7 @@ country_event = {
 				NOT = { stability = 0 }
 			}
 		}
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	option = {
 		name = "EVTOPTB5040"		# Invest the money in our government
@@ -2376,7 +2376,10 @@ country_event = {
 				ruler_has_personality = scholar_personality
 			}
 		}
-		
+		modifier = {
+			factor = 0.5
+			natural_scientist_1 = 1
+		}
 		modifier = {
 			factor = 0.5
 			natural_scientist = 1
@@ -2557,7 +2560,7 @@ country_event = {
 		ai_chance = {
 			factor = 55
 		}
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_reform_desire = 0.005
 	}
 	option = {
@@ -2928,7 +2931,7 @@ country_event = {
 				}
 			}
 		}
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_papal_influence = -20
 		if = {
 			limit = {
@@ -3043,7 +3046,7 @@ country_event = {
 				NOT = { stability = 1 }
 			}
 		}
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_prestige = 10
 	}
 	option = {
@@ -5024,7 +5027,7 @@ country_event = {
 			}
 		}
 		add_devotion = 10
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		if = {
 			limit = {
 				has_dlc = "The Cossacks"
@@ -5080,7 +5083,7 @@ country_event = {
 		trigger = { ruler_has_personality = incorruptible_personality }
 		required_personality = incorruptible_personality
 		add_devotion = 15
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_corruption = -2
 	}
 }
@@ -5570,7 +5573,7 @@ country_event = {
 		}
 		add_years_of_income = -0.25
 		add_prestige = 10
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	option = {
 		name = "EVTOPTB6012"		# Decline his services
@@ -5584,7 +5587,7 @@ country_event = {
 		required_personality = fierce_negotiator_personality
 		add_years_of_income = -0.15
 		add_prestige = 10
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -5684,7 +5687,7 @@ country_event = {
 				stability = 2
 			}
 		}
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	option = {
 		name = "EVTOPTB6015"		# Such nonsense, wasting money like that!
@@ -5699,7 +5702,7 @@ country_event = {
 		highlight = yes
 		trigger = { ruler_has_personality = drunkard_personality }
 		required_personality = drunkard_personality
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		random_neighbor_country = {
 			limit = {
 				NOT = { war_with = ROOT }
@@ -7739,7 +7742,7 @@ country_event = {
 
 	option = {
 		name = "EVTOPTA739"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -9072,7 +9075,7 @@ country_event = {
 				}
 			}
 		}
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		if = {
 			limit = {
 				has_dlc = "The Cossacks"
@@ -9123,7 +9126,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTA872"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	option = {
 		name = "EVTOPTB872"
@@ -9341,7 +9344,7 @@ country_event = {
 			name = narrowminded_modifier
 			duration = 3650
 		}
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -9368,7 +9371,7 @@ country_event = {
 		days = 1
 		modifier = {
 			factor = 5.0
-			culture_group = germanic
+			cu_germanic_group = yes
 		}
 	}
 	
@@ -10950,7 +10953,7 @@ country_event = {
 	
 	option = {
 		name = "random_event.EVTOPTA12"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 

@@ -32,14 +32,18 @@ cu_check_stability_point = {
 	change_variable = { which = cu_st_required value = 1 }
 	multiply_variable = { which = cu_st_required value = 100 }
 	if = {
-		limit = { check_variable = { which = cu_st_point value = 500 } }
-		set_variable = { which = cu_st_point value = 500 } 
+		limit = { 
+			check_variable = { which = cu_st_point value = 150 }
+			stability = 3
+		}
+		set_variable = { which = cu_st_point value = 150 } 
 	}
 	else_if = {
-		if = {
-			limit = { NOT = { check_variable = { which = cu_st_point value = -500 } } }
-			set_variable = { which = cu_st_point value = -500 } 
+		limit = { 
+			NOT = { check_variable = { which = cu_st_point value = -150 } } 
+			NOT = { stability = -2 }
 		}
+		set_variable = { which = cu_st_point value = -150 } 
 	}
     while = {
 	    limit = {
@@ -434,17 +438,27 @@ cu_calc_total_stability_growth = {
 	#Estate Effect
 	cu_calc_estate_unrest = yes
 	change_variable = { which = cu_st_growth which = cu_st_growth_e }
-	
-	#AI's cheat on high handicap
+
+	#AI cheat flag
 	if = {
-		limit = {
-			OR = {
-				has_global_flag = cu_realistic_handicap_set
-				has_global_flag = cu_x_handicap_set
-			}
-			ai = yes
+		limit = { ai = yes }
+		change_variable = { which = cu_st_growth value = 2 } 
+		if = {
+			limit = { NOT = { stability = 1 } }
+			change_variable = { which = cu_st_growth value = 1 } 
 		}
-		change_variable = { which = cu_st_growth value = 2 }
+		else_if = {
+			limit = { NOT = { stability = 0 } }
+			change_variable = { which = cu_st_growth value = 2 } 
+		}
+		if = {
+			limit = { NOT = { stability = -1 } }
+			change_variable = { which = cu_st_growth value = 3 } 
+		}
+		if = {
+			limit = { NOT = { stability = -2 } }
+			change_variable = { which = cu_st_growth value = 4 } 
+		}
 	}
 	
 	#Apply growth

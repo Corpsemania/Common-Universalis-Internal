@@ -1,0 +1,52 @@
+owner = KLE #In reality Kleves and Berg are not united before 1510.
+controller = KLE
+add_core = KLE
+culture = hessian
+religion = catholic
+trade_goods = cloth
+capital = "Kleves"
+base_tax = 5
+base_production = 5
+base_manpower = 2
+is_city = yes
+discovered_by = eastern
+discovered_by = western
+discovered_by = muslim
+discovered_by = ottoman
+
+hre = yes
+
+1610.1.1 = {
+	owner = PAL
+	controller = PAL
+	add_core = PAL
+	remove_core = KLE
+} # Berg is inherited by Pfalsz-Neuenburg
+1777.12.30 = {
+	owner = BAV
+	controller = BAV
+	add_core = BAV
+	remove_core = PAL
+} # The Palatian Wittelsbachs inherit Bavaria and govern their lands from Munich.
+1795.1.1 = { controller = FRA } # Occupied by French troops
+1796.9.7 = { owner = FRA add_core = FRA remove_core = BAV }
+1806.7.12 = {
+	owner = KLE
+	controller = KLE
+	remove_core = FRA
+	hre = no
+} # The Holy Roman Empire is dissolved. Grand Duchy of Berg
+1808.8.1 = {
+	owner = FRA
+	controller = FRA
+	add_core = FRA
+} # Murat moves to Naples
+1809.1.1 = {	owner = KLE
+	controller = KLE
+	remove_core = FRA
+} # Grand Duchy of Berg ruled by Napoleon Louis
+1814.4.11 = {
+	owner = PRU
+	controller = PRU
+	add_core = PRU
+} # Treaty of Fontainebleu, Napoleon abdicates unconditionally

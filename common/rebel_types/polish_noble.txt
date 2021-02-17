@@ -124,6 +124,8 @@ polish_noble_rebels = {
 			add_government_reform = becomes_monarchy_reform
 			set_legacy_government = feudal_monarchy
 		}
+		clr_country_flag = pol_zebrzydowski_rebellion_flag_cu
+		set_country_flag = defeated_by_pol_zebrzydowski
 		if = {
 			limit = {
 				NOT = {

@@ -3,7 +3,7 @@
 owner = SHL
 controller = SHL
 add_core = SHL
-culture = hannoverian
+culture = slesvigian
 religion = catholic
 hre = yes
 base_tax = 4

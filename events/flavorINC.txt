@@ -157,7 +157,7 @@ country_event = {
 	}
 	option = { #Our resources are better used for other things.
 		name = flavor_inc.3.b
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -235,7 +235,7 @@ country_event = {
 	}
 	option = { #Let's not get carried away.
 		name = flavor_inc.5.b
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -273,7 +273,7 @@ country_event = {
 	}
 	option = { #Let them keep their petty gods.
 		name = flavor_inc.6.b
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -464,7 +464,7 @@ country_event = {
 			limit = { has_country_modifier = inc_chimu_integration }
 			remove_country_modifier = inc_chimu_integration
 		}
-		add_stability_or_adm_power = yes #The expected way to react.
+		cu_change_stability_point_p50 = yes #The expected way to react.
 		every_owned_province = {
 			limit = {
 				culture = chimuan
@@ -676,7 +676,7 @@ country_event = {
 	option = { #Try to placate the traditional nobility.
 		name = flavor_inc.12.b
 		trigger = { has_country_flag = inc_civil_war_support_huascar }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	
 	option = { #We shall be everything Huascar is not.
@@ -720,7 +720,7 @@ country_event = {
 	}
 	option = { #Let us exact more moderate retribution.
 		name = flavor_inc.13.b
-		add_stability_or_adm_power = yes #End of a civil war.
+		cu_change_stability_point_p50 = yes #End of a civil war.
 		add_legitimacy = -10 #Still doubt about the succession.
 	}
 }
@@ -963,7 +963,7 @@ country_event = {
 	}
 	option = { #Let us focus on the here and now and not on distant dreams.
 		name = flavor_inc.17.b
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 

@@ -18,8 +18,8 @@ philosopher = {
 	
 	# Bonus
 	global_institution_spread = 0.1
-	skill_scaled_modifier = { meritocracy = 0.05 }
-	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { meritocracy = 0.03 }
+	skill_scaled_modifier = { global_institution_spread = 0.01 }
 	skill_scaled_modifier = { yearly_corruption = 0.04 }
 	chance = {
 		factor = 4
@@ -36,8 +36,8 @@ natural_scientist = {
 	
 	# Bonus
 	production_efficiency = 0.1
-    skill_scaled_modifier = { meritocracy = 0.05 }
-	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+    skill_scaled_modifier = { meritocracy = 0.03 }
+	skill_scaled_modifier = { production_efficiency = 0.01 }
     skill_scaled_modifier = { yearly_corruption = 0.04 }	
 	chance = {
 		factor = 4
@@ -53,9 +53,9 @@ artist = {
 	monarch_power = ADM
 	
 	# Bonus
-	prestige = 1
-	skill_scaled_modifier = { meritocracy = 0.05 }
-	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	reform_progress_growth = 0.10
+	skill_scaled_modifier = { meritocracy = 0.03 }
+	skill_scaled_modifier = { reform_progress_growth = 0.03 }
 	skill_scaled_modifier = { yearly_corruption = 0.04 }
 	chance = {
 		factor = 4
@@ -71,9 +71,9 @@ treasurer = {
 	monarch_power = ADM
 	
 	# Bonus
-	global_tax_modifier = 0.15
-	skill_scaled_modifier = { meritocracy = 0.05 }
-	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	global_tax_modifier = 0.10
+	skill_scaled_modifier = { meritocracy = 0.03 }
+	skill_scaled_modifier = { global_tax_modifier = 0.01 }
 	skill_scaled_modifier = { yearly_corruption = 0.04 }
 	chance = {
 		factor = 4
@@ -90,8 +90,8 @@ theologian = {
 	
 	# Bonus
 	global_unrest = -1
-	skill_scaled_modifier = { meritocracy = 0.05 }
-	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { meritocracy = 0.03 }
+	skill_scaled_modifier = { global_unrest = -0.1 }
 	skill_scaled_modifier = { yearly_corruption = 0.04 }
 
 	chance = {
@@ -110,8 +110,8 @@ master_of_mint = {
 	
 	# Bonus
 	global_trade_goods_size_modifier = 0.075
-    skill_scaled_modifier = { meritocracy = 0.05 }
-	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+    skill_scaled_modifier = { meritocracy = 0.03 }
+	skill_scaled_modifier = { global_trade_goods_size_modifier = 0.01 }
 	skill_scaled_modifier = { yearly_corruption = 0.04 }
 	chance = {
 		factor = 4
@@ -128,8 +128,8 @@ inquisitor = {
 	
 	# Bonus
 	global_missionary_strength = 0.008
-	skill_scaled_modifier = { meritocracy = 0.05 }
-	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { meritocracy = 0.03 }
+	skill_scaled_modifier = { global_missionary_strength = 0.001 }
 	skill_scaled_modifier = { yearly_corruption = 0.04 }
 
 	chance = {
@@ -152,8 +152,8 @@ statesman = {
 	
 	# Bonus
 	diplomatic_reputation = 1
-	skill_scaled_modifier = { meritocracy = 0.05 }
-	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { meritocracy = 0.03 }
+	skill_scaled_modifier = { diplomatic_reputation = 0.1 }
 	skill_scaled_modifier = { yearly_corruption = 0.04 }
 	chance = {
 		factor = 4
@@ -171,8 +171,8 @@ naval_reformer = {
 	# Bonus
 	
 	navy_tradition = 1
-	skill_scaled_modifier = { meritocracy = 0.05 }
-	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { meritocracy = 0.03 }
+	skill_scaled_modifier = { navy_tradition = 0.1 }
 	skill_scaled_modifier = { yearly_corruption = 0.04 }
 
 	chance = {
@@ -194,8 +194,8 @@ trader = {
 	
 	# Bonus
 	trade_efficiency = 0.1
-	skill_scaled_modifier = { meritocracy = 0.05 }
-	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { meritocracy = 0.03 }
+	skill_scaled_modifier = { trade_efficiency = 0.01 }
 	skill_scaled_modifier = { yearly_corruption = 0.04 }
 
 	chance = {
@@ -213,8 +213,8 @@ spymaster = {
 	
 	# Bonus
 	spy_offence = 0.25
-    skill_scaled_modifier = { meritocracy = 0.05 }
-	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+    skill_scaled_modifier = { meritocracy = 0.03 }
+	skill_scaled_modifier = { spy_offence = 0.025 }
 	skill_scaled_modifier = { yearly_corruption = 0.04 }
 	chance = {
 		factor = 4
@@ -231,8 +231,8 @@ colonial_governor = {
 	
 	# Bonus
 	global_colonial_growth = 10
-    skill_scaled_modifier = { meritocracy = 0.05 }
-	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+    skill_scaled_modifier = { meritocracy = 0.03 }
+	skill_scaled_modifier = { global_colonial_growth = 1 }
 	skill_scaled_modifier = { yearly_corruption = 0.04 }
 	
 	chance = {
@@ -258,8 +258,8 @@ diplomat = {
 	
 	# Bonus
 	improve_relation_modifier = 0.25
-	skill_scaled_modifier = { meritocracy = 0.05 }	
-	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { meritocracy = 0.03 }	
+	skill_scaled_modifier = { improve_relation_modifier = 0.02 }
 	skill_scaled_modifier = { yearly_corruption = 0.04 }
 	chance = {
 		factor = 4
@@ -277,8 +277,8 @@ navigator = {
 	# Bonus 
     colonist_placement_chance = 0.05
 	skill_scaled_modifier = { range = 0.1 }
-	skill_scaled_modifier = { meritocracy = 0.05 }
-	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { meritocracy = 0.03 }
+	skill_scaled_modifier = { colonist_placement_chance = 0.005 }
 	skill_scaled_modifier = { yearly_corruption = 0.04 }
 
 	chance = {
@@ -305,8 +305,8 @@ army_reformer = {
 	
 	# Bonus
 	army_tradition = 1
-	skill_scaled_modifier = { meritocracy = 0.05 }
-	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { meritocracy = 0.03 }
+	skill_scaled_modifier = { army_tradition = 0.1 }
     skill_scaled_modifier = { yearly_corruption = 0.04 }	
 
 	chance = {
@@ -324,8 +324,8 @@ army_organiser = {
 	
 	# Bonus
 	land_morale = 0.1
-	skill_scaled_modifier = { meritocracy = 0.05 }
-	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { meritocracy = 0.03 }
+	skill_scaled_modifier = { land_morale = 0.01 }
 	skill_scaled_modifier = { yearly_corruption = 0.04 }
 
 	chance = {
@@ -343,8 +343,8 @@ commandant = {
 	
 	# Bonus
 	discipline = 0.05
-	skill_scaled_modifier = { meritocracy = 0.05 }
-	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { meritocracy = 0.03 }
+	skill_scaled_modifier = { discipline = 0.005 }
 	skill_scaled_modifier = { yearly_corruption = 0.04 }
 
 	chance = {
@@ -362,8 +362,8 @@ quartermaster = {
 	
 	# Bonus
 	reinforce_speed = 0.25
-	skill_scaled_modifier = { meritocracy = 0.05 }
-	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { meritocracy = 0.03 }
+	skill_scaled_modifier = { reinforce_speed = 0.025 }
 	skill_scaled_modifier = { yearly_corruption = 0.04 }
 
 	chance = {
@@ -385,8 +385,8 @@ recruitmaster = {
 	
 	# Bonus
 	global_manpower_modifier = 0.15
-	skill_scaled_modifier = { meritocracy = 0.05 }
-	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { meritocracy = 0.03 }
+	skill_scaled_modifier = { global_manpower_modifier = 0.01 }
 	skill_scaled_modifier = { yearly_corruption = 0.04 }
 
 	chance = {
@@ -408,8 +408,8 @@ fortification_expert = {
 	
 	# Bonus
 	defensiveness = 0.25
-	skill_scaled_modifier = { meritocracy = 0.05 }
-	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { meritocracy = 0.03 }
+	skill_scaled_modifier = { defensiveness = 0.025 }
 	skill_scaled_modifier = { yearly_corruption = 0.04 }
 
 	chance = {
@@ -428,8 +428,8 @@ grand_captain = {
 	
 	# Bonus
 	land_maintenance_modifier = -0.1
-	skill_scaled_modifier = { meritocracy = 0.05 }
-	skill_scaled_modifier = { administrative_efficiency = 0.01 }
+	skill_scaled_modifier = { meritocracy = 0.03 }
+	skill_scaled_modifier = { land_maintenance_modifier = -0.01 }
 	skill_scaled_modifier = { yearly_corruption = 0.04 }
 
 	chance = {

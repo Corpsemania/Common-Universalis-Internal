@@ -286,15 +286,15 @@ ai_militarist = {
 			factor = 100
 			tag = AZE
 		}
-                modifier = {
+        modifier = {
 			factor = 10
 			tag = ICN
 		}
-                modifier = {
+        modifier = {
 			factor = 2
 			tag = IRF
 		}
-                modifier = {
+        modifier = {
 			factor = 100
 			has_reform =  steppe_horde
 		}
@@ -309,38 +309,48 @@ ai_militarist = {
 			factor = 2
 			is_march = yes
 		}
-                modifier = {
+        modifier = {
 			factor = 0.20
 			AND = {
-                               is_part_of_hre = yes
-                               is_elector = no
-                               is_emperor = no
-                        }
+                is_part_of_hre = yes
+                is_elector = no
+                is_emperor = no
+            }
 		}
 		modifier = {
 			factor = 2.5
 			OR = {
 				tag = MOS
-				tag = RUS
 				tag = CSU
 			}
 		}
-                modifier = {
-			factor = 3.5
-			OR = {
-				tag = TUR
-				tag = TIM
-			}
+        modifier = {
+			factor = 2.75
+			tag = TIM
 		}			
 		modifier = {
+			factor = 0.5
+			tag = FRA
+            NOT = { is_year = 1650 }
+		}
+		modifier = {#Make ai France not to be a big blue shit
 			factor = 0.75
 			tag = FRA
-                        NOT = { is_year = 1650 }
+            is_year = 1650
 		}
-                modifier = {
+        modifier = {
 			factor = 0.75
 			tag = HAB
-                        NOT = { is_year = 1610 }
+            NOT = { is_year = 1610 }
+		}	
+		modifier = {
+			factor = 0.75
+			tag = PLC
+            NOT = { is_year = 1700 }
+		}	
+		modifier = {
+			factor = 0.75
+			tag = BOH
 		}	
 		modifier = {
 			factor = 0.5
@@ -354,12 +364,12 @@ ai_militarist = {
 			factor = 0.75
 			tag = KOR
 		}
-                modifier = {
-			factor = 1.25
+        modifier = {
+			factor = 3
 			tag = TUR
 		}
-                modifier = {
-			factor = 1.25
+        modifier = {
+			factor = 3.5
 			tag = RUS
 		}	
 		modifier = {
@@ -367,6 +377,14 @@ ai_militarist = {
 			religion = nahuatl
 			is_religion_reformed = no
 		}	
+		modifier = {
+			factor = 0.5
+			check_variable = { which = go value = 120 } #Not enough GC
+	 	}
+		modifier = {
+			factor = 0
+			check_variable = { which = go value = 130 } #Not enough GC
+	 	}
 	}
 	icon = 4
 }

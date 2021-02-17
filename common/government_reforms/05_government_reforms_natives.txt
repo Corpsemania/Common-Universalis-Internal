@@ -1,21 +1,12 @@
 native_basic_reform = {
 	basic_reform = yes
-	native_mechanic = yes
 	allow_migration = yes
+	native_mechanic = yes
 	valid_for_new_country = no
 	allow_convert = yes
 	republican_name = yes
 	royal_marriage = no
 	fixed_rank = 1
-	modifiers = {
-	  min_autonomy = 20
-    max_states = 3
-		stability_cost_modifier = -0.33
-		land_maintenance_modifier = -0.5
-		diplomatic_upkeep = -1
-		global_institution_spread = -0.025
-		technology_cost = -0.05
-	}
 	valid_for_nation_designer = yes
 	nation_designer_cost = 0
 	nation_designer_trigger = {

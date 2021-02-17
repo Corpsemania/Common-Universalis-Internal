@@ -18,8 +18,9 @@ technology = {
 	cavalry_shock  		= 	0.6 #Cav 0.6:0.1	
 	cavalry_fire        =   0.1
 	artillery_shock 	=	0.1 #Art 0.1:0.5
-        artillery_fire 		= 	0.5
+    artillery_fire 		= 	0.5
 	land_morale 		= 	2.0
+	
 	
 	##ESTATE SOILDER
 	enable = estate_shizu_inf_0
@@ -726,5 +727,27 @@ technology = {
 	#Field Howitzer
 	artillery_shock		=	0.2  #Art 1:7
 	artillery_fire		=	1.2
-        military_tactics	=	0.2  #Tac 2.0
+    military_tactics	=	0.2  #Tac 2.0
+}
+
+technology = {
+	# Tech 33 
+	year = 2850
+	
+	#Post-napoleonic tactics
+	military_tactics	=	0.2  #Tac 2.0
+	enable = huai_army
+	enable = modern_ottoman_army
+	enable = ali_new_army
+	enable = modern_purbiyas
+	enable = reformed_eastern_infantry
+}
+
+technology = { #Strategic mobility
+	# Tech 34
+	year = 2865
+	
+	
+	maneuver_value = 0.25
+	military_tactics = 0.2
 }

@@ -2,7 +2,7 @@
 
 owner = SAK
 controller = SAK
-culture = sumatran
+culture = malayan
 religion = sunni
 capital = "Siak"
 trade_goods = chinaware

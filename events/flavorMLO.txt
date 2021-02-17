@@ -127,7 +127,7 @@ country_event = {
 	option = {
 		name = flavor_mlo.3.a
 		add_republican_tradition = 10
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_legitimacy = 10
 		104 = { add_base_tax = 1 add_base_manpower = 1 }
 		hidden_effect = {
@@ -303,7 +303,7 @@ country_event = {
 			location = 116
 			skill = 2
 		}	
-		add_stability_or_adm_power = yes		
+		cu_change_stability_point_p50 = yes		
 	}
 }
 
@@ -334,7 +334,7 @@ country_event = {
 	option = {
 		name = flavor_mlo.7.a
 		add_republican_tradition = 10
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_prestige = 10
 		add_legitimacy = 10
 		hidden_effect = {

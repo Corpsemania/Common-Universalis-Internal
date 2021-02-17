@@ -100,7 +100,7 @@ defined_text = {
 defined_text = {
 	name = GetDelDelaDir
 	text = {
-		localisation_key = string_up_del_SP
+		localisation_key = string_up_Del_SP
 		trigger = {
 			is_female = no
 		}
@@ -417,7 +417,7 @@ defined_text = {
 defined_text = {
 	name = GetDelDelaHer
 	text = {
-		localisation_key = string_up_del_SP
+		localisation_key = string_up_Del_SP
 		trigger = {
 			has_female_heir = no
 		}
@@ -734,7 +734,7 @@ defined_text = {
 defined_text = {
 	name = GetDelDelaCons
 	text = {
-		localisation_key = string_up_del_SP
+		localisation_key = string_up_Del_SP
 		trigger = {
 			has_female_consort = no
 		}
@@ -969,31 +969,19 @@ defined_text = {
 	text = {
 		localisation_key = string_low_el_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_low_la_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1003,31 +991,19 @@ defined_text = {
 	text = {
 		localisation_key = string_El_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_up_La_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1039,31 +1015,19 @@ defined_text = {
 	text = {
 		localisation_key = string_low_el2_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_low_ella_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1073,31 +1037,19 @@ defined_text = {
 	text = {
 		localisation_key = string_up_EL2_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_up_Ella_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1109,31 +1061,19 @@ defined_text = {
 	text = {
 		localisation_key = string_low_del_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_low_dela_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1141,33 +1081,21 @@ defined_text = {
 defined_text = {
 	name = GetDelDelaCnjAdm
 	text = {
-		localisation_key = string_up_del_SP
+		localisation_key = string_up_Del_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_up_Dela_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1179,31 +1107,19 @@ defined_text = {
 	text = {
 		localisation_key = string_al_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_low_ala_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1213,31 +1129,19 @@ defined_text = {
 	text = {
 		localisation_key = string_Al_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_up_Ala_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1249,31 +1153,19 @@ defined_text = {
 	text = {
 		localisation_key = string_o_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_a_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1285,31 +1177,19 @@ defined_text = {
 	text = {
 		localisation_key = string_e_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_a_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1321,31 +1201,19 @@ defined_text = {
 	text = {
 		localisation_key = string_X_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_a_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1357,31 +1225,19 @@ defined_text = {
 	text = {
 		localisation_key = string_on_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_ona_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1393,31 +1249,19 @@ defined_text = {
 	text = {
 		localisation_key = string_in_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_ina_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1429,15 +1273,21 @@ defined_text = {
 	text = {
 		localisation_key = string_philosopher_male_SP
 		trigger = {
-			advisor = philosopher
-			employed_advisor = { is_male = yes }
+			employed_advisor = {
+				category = ADM
+				type = philosopher
+				is_male = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = string_philosopher_fem_SP
 		trigger = {
-			advisor = philosopher
-			employed_advisor = { is_female = yes }
+			employed_advisor = {
+				category = ADM
+				type = philosopher
+				is_female = yes
+			}
 		}
 	}
 	text = {
@@ -1455,57 +1305,81 @@ defined_text = {
 	text = {
 		localisation_key = string_treasurer_male_SP
 		trigger = {
-			advisor = treasurer
-			employed_advisor = { is_male = yes }
+			employed_advisor = {
+				category = ADM
+				type = treasurer
+				is_male = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = string_treasurer_fem_SP
 		trigger = {
-			advisor = treasurer
-			employed_advisor = { is_female = yes }
+			employed_advisor = {
+				category = ADM
+				type = treasurer
+				is_female = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = string_theologian_male_SP
 		trigger = {
-			advisor = theologian
-			employed_advisor = { is_male = yes }
+			employed_advisor = {
+				category = ADM
+				type = theologian
+				is_male = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = string_theologian_fem_SP
 		trigger = {
-			advisor = theologian
-			employed_advisor = { is_female = yes }
+			employed_advisor = {
+				category = ADM
+				type = theologian
+				is_female = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = string_master_of_mint_male_SP
 		trigger = {
-			advisor = master_of_mint
-			employed_advisor = { is_male = yes }
+			employed_advisor = {
+				category = ADM
+				type = master_of_mint
+				is_male = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = string_master_of_mint_fem_SP
 		trigger = {
-			advisor = master_of_mint
-			employed_advisor = { is_female = yes }
+			employed_advisor = {
+				category = ADM
+				type = master_of_mint
+				is_female = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = string_inquisitor_male_SP
 		trigger = {
-			advisor = inquisitor
-			employed_advisor = { is_male = yes }
+			employed_advisor = {
+				category = ADM
+				type = inquisitor
+				is_male = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = string_inquisitor_fem_SP
 		trigger = {
-			advisor = inquisitor
-			employed_advisor = { is_female = yes }
+			employed_advisor = {
+				category = ADM
+				type = inquisitor
+				is_female = yes
+			}
 		}
 	}
 }
@@ -1517,31 +1391,19 @@ defined_text = {
 	text = {
 		localisation_key = string_low_lo_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_low_la_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1551,31 +1413,19 @@ defined_text = {
 	text = {
 		localisation_key = string_up_Lo_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_up_La_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1587,31 +1437,19 @@ defined_text = {
 	text = {
 		localisation_key = string_low_le_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_low_la_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1621,31 +1459,19 @@ defined_text = {
 	text = {
 		localisation_key = string_up_Le_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_up_La_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1653,35 +1479,23 @@ defined_text = {
 
 # Ex: "French" => "franc[és/esa]"
 defined_text = {
-	name = GetesesaCons
+	name = GetesesaCnjAdm
 	text = {
 		localisation_key = string_es_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_esa_SP
 		trigger = {
-			OR = {
-				advisor = philosopher
-				advisor = natural_scientist
-				advisor = artist
-				advisor = treasurer
-				advisor = theologian
-				advisor = master_of_mint
-				advisor = inquisitor
+			employed_advisor = {
+				category = ADM
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1698,31 +1512,19 @@ defined_text = {
 	text = {
 		localisation_key = string_low_el_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_low_la_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1732,31 +1534,19 @@ defined_text = {
 	text = {
 		localisation_key = string_El_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_up_La_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1768,31 +1558,19 @@ defined_text = {
 	text = {
 		localisation_key = string_low_el2_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_low_ella_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1802,31 +1580,19 @@ defined_text = {
 	text = {
 		localisation_key = string_up_EL2_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_up_Ella_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1838,31 +1604,19 @@ defined_text = {
 	text = {
 		localisation_key = string_low_del_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_low_dela_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1870,33 +1624,21 @@ defined_text = {
 defined_text = {
 	name = GetDelDelaCnjDip
 	text = {
-		localisation_key = string_up_del_SP
+		localisation_key = string_up_Del_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_up_Dela_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1908,31 +1650,19 @@ defined_text = {
 	text = {
 		localisation_key = string_al_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_low_ala_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1942,31 +1672,19 @@ defined_text = {
 	text = {
 		localisation_key = string_Al_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_up_Ala_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -1978,31 +1696,19 @@ defined_text = {
 	text = {
 		localisation_key = string_o_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_a_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2014,31 +1720,19 @@ defined_text = {
 	text = {
 		localisation_key = string_e_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_a_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2050,31 +1744,19 @@ defined_text = {
 	text = {
 		localisation_key = string_X_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_a_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2086,31 +1768,19 @@ defined_text = {
 	text = {
 		localisation_key = string_on_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_ona_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2122,31 +1792,19 @@ defined_text = {
 	text = {
 		localisation_key = string_in_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_ina_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2164,15 +1822,21 @@ defined_text = {
 	text = {
 		localisation_key = string_naval_reformer_male_SP
 		trigger = {
-			advisor = naval_reformer
-			employed_advisor = { is_male = yes }
+			employed_advisor = {
+				category = DIP
+				type = naval_reformer
+				is_male = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = string_naval_reformer_fem_SP
 		trigger = {
-			advisor = naval_reformer
-			employed_advisor = { is_female = yes }
+			employed_advisor = {
+				category = DIP
+				type = naval_reformer
+				is_female = yes
+			}
 		}
 	}
 	text = {
@@ -2184,43 +1848,61 @@ defined_text = {
 	text = {
 		localisation_key = string_spymaster_male_SP
 		trigger = {
-			advisor = spymaster
-			employed_advisor = { is_male = yes }
+			employed_advisor = {
+				category = DIP
+				type = spymaster
+				is_male = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = string_spymaster_fem_SP
 		trigger = {
-			advisor = spymaster
-			employed_advisor = { is_female = yes }
+			employed_advisor = {
+				category = DIP
+				type = spymaster
+				is_female = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = string_colonial_governor_male_SP
 		trigger = {
-			advisor = colonial_governor
-			employed_advisor = { is_male = yes }
+			employed_advisor = {
+				category = DIP
+				type = colonial_governor
+				is_male = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = string_colonial_governor_fem_SP
 		trigger = {
-			advisor = colonial_governor
-			employed_advisor = { is_female = yes }
+			employed_advisor = {
+				category = DIP
+				type = colonial_governor
+				is_female = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = string_diplomat_male_SP
 		trigger = {
-			advisor = diplomat
-			employed_advisor = { is_male = yes }
+			employed_advisor = {
+				category = DIP
+				type = diplomat
+				is_male = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = string_diplomat_fem_SP
 		trigger = {
-			advisor = diplomat
-			employed_advisor = { is_female = yes }
+			employed_advisor = {
+				category = DIP
+				type = diplomat
+				is_female = yes
+			}
 		}
 	}
 	text = {
@@ -2239,31 +1921,19 @@ defined_text = {
 	text = {
 		localisation_key = string_low_lo_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_low_la_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2273,31 +1943,19 @@ defined_text = {
 	text = {
 		localisation_key = string_up_Lo_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_up_La_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2309,31 +1967,19 @@ defined_text = {
 	text = {
 		localisation_key = string_low_le_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_low_la_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2343,31 +1989,19 @@ defined_text = {
 	text = {
 		localisation_key = string_up_Le_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_up_La_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2379,31 +2013,19 @@ defined_text = {
 	text = {
 		localisation_key = string_es_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_esa_SP
 		trigger = {
-			OR = {
-				advisor = statesman
-				advisor = naval_reformer
-				advisor = trader
-				advisor = spymaster
-				advisor = colonial_governor
-				advisor = diplomat
-				advisor = navigator
+			employed_advisor = {
+				category = DIP
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2420,31 +2042,19 @@ defined_text = {
 	text = {
 		localisation_key = string_low_el_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_low_la_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2454,31 +2064,19 @@ defined_text = {
 	text = {
 		localisation_key = string_El_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_up_La_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2490,31 +2088,19 @@ defined_text = {
 	text = {
 		localisation_key = string_low_el2_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_low_ella_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2524,31 +2110,19 @@ defined_text = {
 	text = {
 		localisation_key = string_up_EL2_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_up_Ella_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2560,31 +2134,19 @@ defined_text = {
 	text = {
 		localisation_key = string_low_del_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_low_dela_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2592,33 +2154,21 @@ defined_text = {
 defined_text = {
 	name = GetDelDelaCnjMil
 	text = {
-		localisation_key = string_up_del_SP
+		localisation_key = string_up_Del_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_up_Dela_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2630,31 +2180,19 @@ defined_text = {
 	text = {
 		localisation_key = string_al_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_low_ala_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2664,31 +2202,19 @@ defined_text = {
 	text = {
 		localisation_key = string_Al_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_up_Ala_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2700,31 +2226,19 @@ defined_text = {
 	text = {
 		localisation_key = string_o_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_a_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2736,31 +2250,19 @@ defined_text = {
 	text = {
 		localisation_key = string_e_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_a_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2772,31 +2274,19 @@ defined_text = {
 	text = {
 		localisation_key = string_X_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_a_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2808,31 +2298,19 @@ defined_text = {
 	text = {
 		localisation_key = string_on_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_ona_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2844,31 +2322,19 @@ defined_text = {
 	text = {
 		localisation_key = string_in_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_ina_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -2880,29 +2346,41 @@ defined_text = {
 	text = {
 		localisation_key = string_army_reformer_male_SP
 		trigger = {
-			advisor = army_reformer
-			employed_advisor = { is_male = yes }
+			employed_advisor = {
+				category = MIL
+				type = army_reformer
+				is_male = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = string_army_reformer_fem_SP
 		trigger = {
-			advisor = army_reformer
-			employed_advisor = { is_female = yes }
+			employed_advisor = {
+				category = MIL
+				type = army_reformer
+				is_female = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = string_army_organiser_male_SP
 		trigger = {
-			advisor = army_organiser
-			employed_advisor = { is_male = yes }
+			employed_advisor = {
+				category = MIL
+				type = army_organiser
+				is_male = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = string_army_organiser_fem_SP
 		trigger = {
-			advisor = army_organiser
-			employed_advisor = { is_female = yes }
+			employed_advisor = {
+				category = MIL
+				type = army_organiser
+				is_female = yes
+			}
 		}
 	}
 	text = {
@@ -2920,43 +2398,61 @@ defined_text = {
 	text = {
 		localisation_key = string_recruitmaster_male_SP
 		trigger = {
-			advisor = recruitmaster
-			employed_advisor = { is_male = yes }
+			employed_advisor = {
+				category = MIL
+				type = recruitmaster
+				is_male = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = string_recruitmaster_fem_SP
 		trigger = {
-			advisor = recruitmaster
-			employed_advisor = { is_female = yes }
+			employed_advisor = {
+				category = MIL
+				type = recruitmaster
+				is_female = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = string_fortification_expert_male_SP
 		trigger = {
-			advisor = fortification_expert
-			employed_advisor = { is_male = yes }
+			employed_advisor = {
+				category = MIL
+				type = fortification_expert
+				is_male = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = string_fortification_expert_fem_SP
 		trigger = {
-			advisor = fortification_expert
-			employed_advisor = { is_female = yes }
+			employed_advisor = {
+				category = MIL
+				type = fortification_expert
+				is_female = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = string_grand_captain_male_SP
 		trigger = {
-			advisor = grand_captain
-			employed_advisor = { is_male = yes }
+			employed_advisor = {
+				category = MIL
+				type = grand_captain
+				is_male = yes
+			}
 		}
 	}
 	text = {
 		localisation_key = string_grand_captain_fem_SP
 		trigger = {
-			advisor = grand_captain
-			employed_advisor = { is_female = yes }
+			employed_advisor = {
+				category = MIL
+				type = grand_captain
+				is_female = yes
+			}
 		}
 	}
 }
@@ -2968,31 +2464,19 @@ defined_text = {
 	text = {
 		localisation_key = string_low_lo_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_low_la_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -3002,31 +2486,19 @@ defined_text = {
 	text = {
 		localisation_key = string_up_Lo_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_up_La_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -3038,31 +2510,19 @@ defined_text = {
 	text = {
 		localisation_key = string_low_le_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_low_la_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -3072,31 +2532,19 @@ defined_text = {
 	text = {
 		localisation_key = string_up_Le_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_up_La_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -3108,31 +2556,19 @@ defined_text = {
 	text = {
 		localisation_key = string_es_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_male = yes
 			}
-			employed_advisor = { is_male = yes }
 		}
 	}
 	text = {
 		localisation_key = string_esa_SP
 		trigger = {
-			OR = {
-				advisor = army_reformer
-				advisor = army_organiser
-				advisor = commandant
-				advisor = quartermaster
-				advisor = recruitmaster
-				advisor = fortification_expert
-				advisor = grand_captain
+			employed_advisor = {
+				category = MIL
+				is_female = yes
 			}
-			employed_advisor = { is_female = yes }
 		}
 	}
 }
@@ -3394,7 +2830,7 @@ defined_text = {
 defined_text = {
 	name = GetDelDelaGrupoReligioso
 	text = {
-		localisation_key = string_up_del_SP
+		localisation_key = string_up_Del_SP
 		trigger = {
 			OR = { # TODO: all feminine names in this list have to be inserted under the following trigger
 				religion_group = christian
@@ -4057,7 +3493,7 @@ defined_text = {
 defined_text = {
 	name = GetDelDelaReligion
 	text = {
-		localisation_key = string_up_del_SP
+		localisation_key = string_up_Del_SP
 		trigger = {
 			OR = { # TODO: all feminine names in this list have to be inserted under the following trigger
 				religion = buddhism religion = catholic
@@ -4123,3 +3559,448 @@ defined_text = {
 }
 
 
+#####################################################################
+###   All Advisors (flag works out which) // Consejeros (todos)   ###
+#####################################################################
+
+########Event advisors (uses flags to see which one is relevant and uses that to refer to the relevant custom loc listed above in the advisors section)
+
+# Ex: "[the] advisor" => "[el] consejero/[la] consejera"
+defined_text = {
+	name = GetellaCnjEvent
+	text = {
+		localisation_key = string_GetellaCnjAdm
+		trigger = {
+			has_country_flag = advisor_events_adm
+		}
+	}
+	text = {
+		localisation_key = string_GetellaCnjDip
+		trigger = {
+			has_country_flag = advisor_events_dip
+		}
+	}
+	text = {
+		localisation_key = string_GetellaCnjMil
+		trigger = {
+			has_country_flag = advisor_events_mil
+		}
+	}
+}
+# Ex: "[The] advisor" => "[El] consejero/[La] consejera"
+defined_text = {
+	name = GetElLaCnjEvent
+	text = {
+		localisation_key = string_GetElLaCnjAdm
+		trigger = {
+			has_country_flag = advisor_events_adm
+		}
+	}
+	text = {
+		localisation_key = string_GetElLaCnjDip
+		trigger = {
+			has_country_flag = advisor_events_dip
+		}
+	}
+	text = {
+		localisation_key = string_GetElLaCnjMil
+		trigger = {
+			has_country_flag = advisor_events_mil
+		}
+	}
+}
+
+
+# Ex: "[he/she] is" => "[él/ella] es"
+defined_text = {
+	name = GetelellaCnjEvent
+	text = {
+		localisation_key = string_GetelellaCnjAdm
+		trigger = {
+			has_country_flag = advisor_events_adm
+		}
+	}
+	text = {
+		localisation_key = string_GetelellaCnjDip
+		trigger = {
+			has_country_flag = advisor_events_dip
+		}
+	}
+	text = {
+		localisation_key = string_GetelellaCnjMil
+		trigger = {
+			has_country_flag = advisor_events_mil
+		}
+	}
+}
+# Ex. "[He/She] is" => "[Él/Ella] es"
+defined_text = {
+	name = GetElEllaCnjEvent
+	text = {
+		localisation_key = string_GetElEllaCnjAdm
+		trigger = {
+			has_country_flag = advisor_events_adm
+		}
+	}
+	text = {
+		localisation_key = string_GetElEllaCnjDip
+		trigger = {
+			has_country_flag = advisor_events_dip
+		}
+	}
+	text = {
+		localisation_key = string_GetElEllaCnjMil
+		trigger = {
+			has_country_flag = advisor_events_mil
+		}
+	}
+}
+
+# Ex: "[of the] advisor" => "[del] consejero/[de la] consejera"
+defined_text = {
+	name = GetdeldelaCnjEvent
+	text = {
+		localisation_key = string_GetdeldelaCnjAdm
+		trigger = {
+			has_country_flag = advisor_events_adm
+		}
+	}
+	text = {
+		localisation_key = string_GetdeldelaCnjDip
+		trigger = {
+			has_country_flag = advisor_events_dip
+		}
+	}
+	text = {
+		localisation_key = string_GetdeldelaCnjMil
+		trigger = {
+			has_country_flag = advisor_events_mil
+		}
+	}
+}
+# Ex: "[Of the] advisor" => "[Del] consejero/[De la] consejera"
+defined_text = {
+	name = GetDelDelaCnjEvent
+	text = {
+		localisation_key = string_GetDelDelaCnjAdm
+		trigger = {
+			has_country_flag = advisor_events_adm
+		}
+	}
+	text = {
+		localisation_key = string_GetDelDelaCnjDip
+		trigger = {
+			has_country_flag = advisor_events_dip
+		}
+	}
+	text = {
+		localisation_key = string_GetDelDelaCnjMil
+		trigger = {
+			has_country_flag = advisor_events_mil
+		}
+	}
+}
+
+
+# Ex: "[for the] advisor" => "[al]/[a la] consejera"
+defined_text = {
+	name = GetalalaCnjEvent
+	text = {
+		localisation_key = string_GetalalaCnjAdm
+		trigger = {
+			has_country_flag = advisor_events_adm
+		}
+	}
+	text = {
+		localisation_key = string_GetalalaCnjDip
+		trigger = {
+			has_country_flag = advisor_events_dip
+		}
+	}
+	text = {
+		localisation_key = string_GetalalaCnjMil
+		trigger = {
+			has_country_flag = advisor_events_mil
+		}
+	}
+}
+# Ex: "[For the] advisor" => "[Al]/[A la] consejera"
+defined_text = {
+	name = GetAlAlaCnjEvent
+	text = {
+		localisation_key = string_GetAlAlaCnjAdm
+		trigger = {
+			has_country_flag = advisor_events_adm
+		}
+	}
+	text = {
+		localisation_key = string_GetAlAlaCnjDip
+		trigger = {
+			has_country_flag = advisor_events_dip
+		}
+	}
+	text = {
+		localisation_key = string_GetAlAlaCnjMil
+		trigger = {
+			has_country_flag = advisor_events_mil
+		}
+	}
+}
+
+
+# Ex: "magnificient" => "magnífic[o]/magnífic[a]"
+defined_text = {
+	name = GetoaCnjEvent
+	text = {
+		localisation_key = string_GetoaCnjAdm
+		trigger = {
+			has_country_flag = advisor_events_adm
+		}
+	}
+	text = {
+		localisation_key = string_GetoaCnjDip
+		trigger = {
+			has_country_flag = advisor_events_dip
+		}
+	}
+	text = {
+		localisation_key = string_GetoaCnjMil
+		trigger = {
+			has_country_flag = advisor_events_mil
+		}
+	}
+}
+
+# --e/--a # TODO: find an example
+defined_text = {
+	name = GeteaCnjEvent
+	text = {
+		localisation_key = string_GeteaCnjAdm
+		trigger = {
+			has_country_flag = advisor_events_adm
+		}
+	}
+	text = {
+		localisation_key = string_GeteaCnjDip
+		trigger = {
+			has_country_flag = advisor_events_dip
+		}
+	}
+	text = {
+		localisation_key = string_GeteaCnjMil
+		trigger = {
+			has_country_flag = advisor_events_mil
+		}
+	}
+}
+
+
+# Ex: "Spanish" => "español[ø]/español[a]"
+defined_text = {
+	name = GetXaCnjEvent
+	text = {
+		localisation_key = string_GetXaCnjAdm
+		trigger = {
+			has_country_flag = advisor_events_adm
+		}
+	}
+	text = {
+		localisation_key = string_GetXaCnjDip
+		trigger = {
+			has_country_flag = advisor_events_dip
+		}
+	}
+	text = {
+		localisation_key = string_GetXaCnjMil
+		trigger = {
+			has_country_flag = advisor_events_mil
+		}
+	}
+}
+
+
+# Ex: "stubborn" => "cabez[ón]/cabez[ona]
+defined_text = {
+	name = GetononaCnjEvent
+	text = {
+		localisation_key = string_GetononaCnjAdm
+		trigger = {
+			has_country_flag = advisor_events_adm
+		}
+	}
+	text = {
+		localisation_key = string_GetononaCnjDip
+		trigger = {
+			has_country_flag = advisor_events_dip
+		}
+	}
+	text = {
+		localisation_key = string_GetononaCnjMil
+		trigger = {
+			has_country_flag = advisor_events_mil
+		}
+	}
+}
+
+# Ex: "drunkard" => "borrach[ín]/borrach[ina]"			
+defined_text = {			
+	name = GetininaCnjEvent		
+	text = {		
+		localisation_key = string_GetininaCnjAdm	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetininaCnjDip	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetininaCnjMil	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+# Ex: "[Treasurer]" => "[tesorero]/[tesorera]" (lower case)
+defined_text = {			
+	name = GetCnjEvent		
+	text = {		
+		localisation_key = string_GetCnjAdm	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetCnjDip	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetCnjMil	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+# Ex: "catch [him/her]" => "capturar[lo/la]"
+defined_text = {			
+	name = GetlolaCnjEvent		
+	text = {		
+		localisation_key = string_GetlolaCnjAdm	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetlolaCnjDip	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetlolaCnjMil	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+# Ex: "Hold [him/her]" => "[Lo/La] sostuvo"
+defined_text = {			
+	name = GetLoLaCnjEvent		
+	text = {		
+		localisation_key = string_GetLoLaCnjAdm	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetLoLaCnjDip	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetLoLaCnjMil	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+# Ex: "reach [him/her]" => alcanzar[le/la]"
+defined_text = {			
+	name = GetlelaCnjEvent		
+	text = {		
+		localisation_key = string_GetlelaCnjAdm	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetlelaCnjDip	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetlelaCnjMil	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+# Ex: "Told [him/her]" => "[Le/La] dijo"
+defined_text = {
+	name = GetLeLaCnjEvent
+	text = {
+		localisation_key = string_GetLeLaCnjAdm
+		trigger = {
+			has_country_flag = advisor_events_adm
+		}
+	}
+	text = {
+		localisation_key = string_GetLeLaCnjDip
+		trigger = {
+			has_country_flag = advisor_events_dip
+		}
+	}
+	text = {
+		localisation_key = string_GetLeLaCnjMil
+		trigger = {
+			has_country_flag = advisor_events_mil
+		}
+	}
+}
+
+
+# Ex: "French" => "franc[és/esa]"
+defined_text = {
+	name = GetesesaCnjEvent
+	text = {
+		localisation_key = string_GetesesaCnjAdm
+		trigger = {
+			has_country_flag = advisor_events_adm
+		}
+	}
+	text = {
+		localisation_key = string_GetesesaCnjDip
+		trigger = {
+			has_country_flag = advisor_events_dip
+		}
+	}
+	text = {
+		localisation_key = string_GetesesaCnjMil
+		trigger = {
+			has_country_flag = advisor_events_mil
+		}
+	}
+}

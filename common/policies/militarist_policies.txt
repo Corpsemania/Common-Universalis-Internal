@@ -108,7 +108,7 @@ rich_country_powerful_army = {
 
 
 	land_maintenance_modifier = -0.1
-	advisor_cost = 0.06
+	state_governing_cost = 0.06
 
 	ai_will_do = {
 		factor = 1	
@@ -200,7 +200,7 @@ military_state = {
 	}
 
 
-	advisor_cost = 0.1
+	state_governing_cost = 0.1
 	yearly_army_professionalism = 0.005
 
 	ai_will_do = {
@@ -230,7 +230,7 @@ forced_assimilation = {
 		full_idea_group = expansion_ideas
 	}
 
-	culture_conversion_cost = -0.1
+	mercantilism_cost = -0.1
 	ae_impact = 0.2
 
 	ai_will_do = {
@@ -465,7 +465,7 @@ burden_of_empire = {
 
 
 	administrative_efficiency = 0.05
-	advisor_cost = 0.15
+	state_governing_cost = 0.15
 
 	ai_will_do = {
 		factor = 1

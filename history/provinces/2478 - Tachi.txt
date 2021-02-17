@@ -1,0 +1,28 @@
+# No previous file for Tachi
+
+culture = yokuts
+religion = totemism
+capital = "Tachi"
+trade_goods = unknown
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+native_size = 5
+native_ferocity = 1
+native_hostileness = 2
+
+
+
+discovered_by = north_american
+
+1731.1.1 = {
+	owner = YKT
+	controller = YKT
+	add_core = YKT
+	trade_goods = wool
+	is_city = yes 
+} #natives at full power
+
+
+

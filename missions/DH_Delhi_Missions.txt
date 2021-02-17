@@ -93,31 +93,31 @@ dlh_east_missions = {
 				province_id = 4495
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			upper_doab_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			524 = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			2063 = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			2059 = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			4497 = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			523 = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			4495 = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -163,25 +163,25 @@ dlh_east_missions = {
 				area = bihar_area
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			lower_doab_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			oudh_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			purvanchal_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			bihar_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -227,25 +227,25 @@ dlh_east_missions = {
 				area = east_bengal_area
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			gaur_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			west_bengal_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			north_bengal_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			east_bengal_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -396,17 +396,17 @@ dlh_east_missions = {
 				area = orissa_area
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			jharkhand_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			orissa_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {	
@@ -491,13 +491,13 @@ dlh_west_missions = {
 		provinces_to_highlight = {
 			area = multan_area
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			multan_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -571,21 +571,21 @@ dlh_west_missions = {
 				area = gondwana_area
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			central_doab_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			malwa_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			gondwana_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -650,21 +650,21 @@ dlh_west_missions = {
 				area = tapti_area
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			saurashtra_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			ahmedabad_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			tapti_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -767,17 +767,17 @@ dlh_slot_4 = {
 				area = sind_sagar_area
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			kabulistan_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			sind_sagar_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -798,17 +798,17 @@ dlh_slot_4 = {
 				area = northern_sindh_area
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			sindh_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			northern_sindh_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -828,21 +828,21 @@ dlh_slot_4 = {
 				area = jaipur_area				
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			marwar_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			mewar_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			jaipur_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}			
 		}
 		effect = {
@@ -863,25 +863,25 @@ dlh_slot_4 = {
 				area = desh_area				
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			malwa_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			konkan_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			maharashtra_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			desh_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}			
 		}
 		effect = {
@@ -918,21 +918,21 @@ dlh_slot_4 = {
 				area = coromandel_area				
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			deccan_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			carnatic_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 			coromandel_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}			
 		}
 		effect = {

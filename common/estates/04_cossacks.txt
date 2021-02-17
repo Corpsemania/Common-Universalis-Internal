@@ -1,21 +1,6 @@
 estate_cossacks = {
 	icon = 4
 	
-	color = { 200 150 150 }
-	
-	# Used for when declaring independence
-	independence_government = tribal
-	starting_reform = steppe_horde
-	independence_tech_group = nomad_group
-	independence_trigger = {
-		OR = { 		
-			has_terrain = steppe
-			has_estate = estate_cossacks
-		}
-	}
-	
-	# Is estate kept in control of province on conquest?
-	keep_on_conquest = no
 	
 	# If true, country will get estate
 	
@@ -26,7 +11,7 @@ estate_cossacks = {
 		NOT = { has_government_attribute = is_merchant_republic }
 		NOT = { has_reform = trading_city }
 		NOT = { has_reform = revolutionary_republic_reform }
-		NOT = { government = native }
+		NOT = {  cu_estate_preload_native = yes }
 		NOT = { has_reform = siberian_tribe }
 		NOT = { has_reform = veche_republic }
 		is_nomad = no
@@ -46,25 +31,8 @@ estate_cossacks = {
 				has_reform = parliament_reform
 			}
 		}
+		always = no
 	}
-	
-	# If true, province can be granted to estate
-	province_trigger = {
-		always = yes
-	}	
-	
-	# Giving territory affects power this much compared to base
-	territory_power_modifier = 2.0
-
-	# Is used to weigh importance compared to other estates
-	start_territory_weight = 0
-	
-	# Min autonomy in estate provinces
-	min_autonomy = 0
-	
-	# Estate cancels out the following multiplicative local autonomy effects:
-	#autonomy_does_not_affect = local_manpower_modifier
-	#autonomy_does_not_affect = land_forcelimit_modifier
 
 	# These scale with loyalty & power
 	country_modifier_happy = {
@@ -78,23 +46,6 @@ estate_cossacks = {
 	country_modifier_angry = {
 		cavalry_cost = 0.1
 		yearly_corruption = 0.09
-	}
-	
-	# These do not scale, but only applied in provinces owned by the estate
-	province_modifier_happy = {	
-		local_hostile_attrition = 1
-		local_manpower_modifier = 0.5
-		local_autonomy = 0.065
-	}
-	province_modifier_neutral = {
-		local_hostile_attrition = 1
-		local_manpower_modifier = 0.3
-		local_autonomy = 0.10
-	}	
-	province_modifier_angry = {
-		local_unrest = 5
-		local_autonomy = 0.14
-		development_cost = 0.10
 	}
 	
 	# Influence modifiers
@@ -295,367 +246,24 @@ estate_cossacks = {
 		}	
 		loyalty = 20
 	}
+		
 	
-	# For province assignment
-	ai_grant_province = {
-		factor = 0
-	}	
-	
-	# Does the AI want to give any extra territory beyond the minimum?
-	ai_territory_modifier = {
-		trigger = {
-			always = yes
-		}	
-		value = 100	# Code has a sanity check against pushing influence too high
-	}
 
 	#Interactions
-	interaction = {
-		name = "ASK_FOR_CONTRIBUTION"
-		icon = 6
-		
-		years_between_use = 5
-	
-		
-		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = estate_initialized
-				check_variable = { which = etie value = 0.1 } 
-			}		
-		}
-		
-		effect = {
-			hidden_effect = {
-				set_variable = { which = cu_var1 value = 0 }
-				set_variable = { which = cu_cash which = etie } 
-				export_to_variable = {
-					which = cu_var1
-					value = modifier:global_tax_modifier
-				}
-				change_variable = { which = cu_var1 value = 1 }
-				multiply_variable = { which = cu_cash which = cu_var1 }
-				set_variable = { which = t_dev value = 0 }
-				export_to_variable = {
-					which = t_dev
-					value = states_development
-				}
-				multiply_variable = { which = cu_cash which = t_dev }
-				multiply_variable = { which = cu_cash value = 0.005 }
-				set_variable = { which = cu_cash_display which = cu_cash }				
-				set_variable = { which = cu_var1 which = etie }
-				multiply_variable = { which = cu_var1 value = -0.5 }
-				set_variable = { which = cu_sta_display which = cu_var1 }			
-			}
-			cu_change_cash_hidden = yes 
-			custom_tooltip = cu_change_cash_eg		
-			cu_change_stability_point_hidden = yes
-			custom_tooltip = cu_change_stability_et
-			add_estate_loyalty = {
-				estate = estate_cossacks
-				loyalty = -15
-			}
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = {
-					estate_loyalty = {
-						estate = estate_cossacks
-						loyalty = 50
-					}	
-				}
-			}
-			modifier = {
-				factor = 0
-				treasury = 1
-			}
-		}
+	privileges = {
+	    ask_for_contribution
+		fund_the_loyalists
+		marry_with_estate
+		grant_autonomy
+		demand_more_troops
+		supply_arms
+		cu_military_coup
 	}
 	
-	interaction = {
-		name = "FUND_THE_LOYALISTS"
-		icon = 7
-		
-		years_between_use = 15
-		
-		trigger = {
-		    dip_power = 100
-			custom_trigger_tooltip = {
-				tooltip = estate_initialized
-				check_variable = { which = etie value = 0.1 } 
-			}
-		}
-		
-		effect = {
-			add_dip_power = -100
-			hidden_effect = {
-				set_variable = { which = cu_var1 which = etic }
-				multiply_variable = { which = cu_var1 value = -0.5 }
-				set_variable = { which = cu_sta_display which = cu_var1 }	
-			}	
-			cu_change_stability_point_hidden = yes
-			custom_tooltip = cu_change_stability_et
-			add_absolutism = 3
-			add_estate_loyalty = {
-				estate = estate_cossacks
-				loyalty = -10
-			}
-			add_estate_influence_modifier = {
-				estate = estate_cossacks
-				desc = EST_VAL_FUND_THE_LOYALISTS
-				influence = -10
-				duration = 5475
-			}
-			add_estate_influence_modifier = {
-				estate = estate_government
-				desc = EST_VAL_FUND_THE_LOYALISTS
-				influence = 10
-				duration = 5475
-			}
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				estate_influence = {
-					estate = estate_cossacks
-					influence = 60
-				}				
-			}
-			modifier = {
-				factor = 0
-				estate_loyalty = {
-					estate = estate_cossacks
-					loyalty = 30
-				}				
-			}			
-		}
+	agendas = {
+	
 	}
 	
-	interaction = {
-		name = "MARRY_WITH_ESTATE"
-		icon = 8
-		
-		years_between_use = 0
-		
-		
-		trigger = {
-			cu_estate_marry_trigger = yes
-		}
-		
-		effect = {
-			set_country_flag = est_consort
-			add_estate_loyalty = {
-				estate = estate_cossacks
-				loyalty = 10
-			}
-			add_estate_influence_modifier = {
-				estate = estate_cossacks
-				desc = EST_VAL_MARRY_WITH_ESTATE
-				influence = 10
-				duration = 7300
-			}
-			add_estate_influence_modifier = {
-				estate = estate_government
-				desc = EST_VAL_MARRY_WITH_ESTATE
-				influence = -10
-				duration = 7300
-			}
-			hidden_effect = {
-				set_variable = { which = cu_var1 which = etie }
-				multiply_variable = { which = cu_var1 which = 0.1 }
-				set_variable = { which = cu_sta_display which = cu_var1 }			
-			}
-			cu_change_stability_point_hidden = yes
-			custom_tooltip = cu_change_stability_eg
-		}
-		ai_will_do = {
-			factor = 0		
-		}
-	}
-	
-	interaction = {
-		name = "GRANT_AUTONOMY"
-		icon = 24
-		
-		
-		years_between_use = 20
-		
-		
-		trigger = {
-			any_owned_province = {
-				check_variable = { which = epimn value = 30 }
-			}
-		}
-		
-		effect = {
-			add_absolutism = -4
-			custom_tooltip = granted_auto_est
-			add_estate_loyalty = {
-				estate = estate_cossacks
-				loyalty = 20
-			}
-			add_estate_influence_modifier = {
-				estate = estate_cossacks
-				desc = EST_VAL_GRANT_AUTONOMY
-				influence = 10
-				duration = 7300
-			}
-			add_estate_influence_modifier = {
-				estate = estate_government
-				desc = EST_VAL_GRANT_AUTONOMY
-				influence = -10
-				duration = 7300
-			}
-			hidden_effect = {
-				set_variable = { which = cu_var1 which = etie }
-				set_variable = { which = cu_sta_display which = cu_var1 }			
-				every_owned_province = {
-					limit = { check_variable = { which = epimn value = 40 } }
-					add_local_autonomy = 10
-					add_unrest = -2
-				}
-			}
-			cu_change_stability_point_hidden = yes
-			custom_tooltip = cu_change_stability_eg
-		}
-		ai_will_do = {
-			factor = 0		
-		}
-	}
-	
-	interaction = {
-		name = "DEMAND_MORE_TROOPS"
-		icon = 12
-		
-		years_between_use = 25
-		
-		trigger = {
-			estate_loyalty = {
-				estate = estate_cossacks
-				loyalty = 40
-			}
-			any_owned_province = {
-				check_variable = { which = epimn value = 30 }
-			}
-		}
-		
-		effect = {
-			custom_tooltip = add_manpower_est
-			add_dip_power = -75
-			add_estate_loyalty = {
-				estate = estate_cossacks
-				loyalty = -20
-			}
-			hidden_effect = {
-				every_owned_province = {
-					limit = { check_variable = { which = epimn value = 30 } }
-					owner = { add_manpower = 0.15 }
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	interaction = {
-		name = "SUPPLY_ARMS"
-		icon = 21
-		
-		years_between_use = 20
-		
-		potential = {
-			NOT = { has_disaster = estate_burghers_disaster }
-			NOT = { has_disaster = estate_church_disaster }
-			NOT = { has_disaster = estate_nobility_disaster }
-		}
-		
-		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = tooltip_own_cossack_province
-				any_owned_province = {
-					has_estate = estate_cossacks
-				}
-			}
-		}
-		
-		effect = {
-			add_mil_power = -100
-			add_country_modifier = {
-				name = "armed_cossacks"
-				duration = 7300
-			}
-			add_estate_loyalty = {
-				estate = estate_cossacks
-				loyalty = 5
-			}
-		}
-		
-		ai_will_do = {
-			factor = 10
-			modifier = {
-				factor = 0
-				estate_influence = {
-					estate = estate_cossacks
-					influence = 60
-				}
-			}
-		}	
-	}	
-	
-	interaction = {
-		name = "CU_MILITARY_COUP"
-		icon = 32
-		years_between_use = 25
-		potential = {
-			NOT = { has_country_modifier = coup_timer }
-		}
-		trigger = {
-			mil_power = 200
-			estate_influence = {
-				estate = estate_cossacks
-				influence = 30
-			}
-			NOT = {
-				estate_loyalty = {
-					estate = estate_cossacks
-					loyalty = 30
-				}	
-			}
-		}
-		effect = {
-			add_mil_power = -200
-			set_country_flag = preparing_military_coup_flag
-			add_country_modifier = {
-					name =  preparing_military_coup
-					duration = 365						
-			}
-			hidden_effect = {
-				set_variable = { which = coup_support value = 0 }
-				set_country_flag = coup_against_cossacks
-			}
-			custom_tooltip = preparing_military_coup_t
-			hidden_effect = {
-				add_country_modifier = {
-					name = coup_timer
-					duration = 7300
-					hidden = yes
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-			    factor = 0
-				NOT = { mil = 4 }
-			}
-			modifier = {
-			    factor = 0
-				stability = 0
-			}
-		}
-	}
+	influence_from_dev_modifier = 1.0
+	color = { 200 150 150 }
 }

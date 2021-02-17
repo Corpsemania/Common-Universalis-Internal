@@ -1,159 +1,199 @@
 forced_emmigration = {
      local_unrest = 3
-	 local_development_cost = 0.1
+	 local_development_cost = 0.15
 }
 
 cu_cultural_education = {
      local_unrest = 3
 	 local_tax_modifier = -0.2
+	 local_culture_conversion_cost = -0.1
+}
+
+cu_immigration = {
+	local_unrest = 6
+	local_missionary_strength = 0.004
 }
 
 cu_language_education = {
-     local_unrest = 4
-	 local_tax_modifier = -0.2
+     local_unrest = 5
+	 local_tax_modifier = -0.25
+	 local_culture_conversion_cost = -0.33
 }
 
 cu_cultural_immigration = {
-     local_unrest = 5
+	 local_unrest = 5
+	 local_culture_conversion_cost = -0.075
 }
 
 cu_cultural_expelling = {
-     local_unrest = 8
+	 local_unrest = 8
+	 local_culture_conversion_cost = -0.125
 }
 
 cu_ca_0 = {
-	local_manpower_modifier = -1
-    local_sailors_modifier = -1
-	local_missionary_strength = -0.075
 	local_unrest = 15
-	local_tax_modifier = -1
-	local_production_efficiency = -1
-	local_autonomy = 0.15
+	local_autonomy = 0.36
 	local_state_maintenance_modifier = 1
 	local_defensiveness = -0.20
-	picture = "cu_ca_0"
+	picture = "AI_low"
+}
+
+cu_ca_5 = {
+	local_unrest = 14
+	local_autonomy = 0.35
+	local_state_maintenance_modifier = 0.95
+	local_defensiveness = -0.19
+	picture = "AI_low"
 }
 
 cu_ca_10 = {
-	local_manpower_modifier = -0.9
-    local_sailors_modifier = -0.9
-	local_missionary_strength = -0.0675
 	local_unrest = 13
-    local_tax_modifier = -0.80
-	local_production_efficiency = -0.80
-	local_autonomy = 0.14
+	local_autonomy = 0.34
 	local_state_maintenance_modifier = 0.9
 	local_defensiveness = -0.18
-	picture = "cu_ca_10"
+	picture = "AI_low"
+}
+
+cu_ca_15 = {
+	local_unrest = 12
+	local_autonomy = 0.33
+	local_state_maintenance_modifier = 0.85
+	local_defensiveness = -0.17
+	picture = "AI_low"
 }
 
 cu_ca_20 = {
-	local_manpower_modifier = -0.8
-    local_sailors_modifier = -0.8
-	local_missionary_strength = -0.060
 	local_unrest = 11
-    local_tax_modifier = -0.65
-	local_production_efficiency = -0.65
-	local_autonomy = 0.13
+	local_autonomy = 0.32
 	local_state_maintenance_modifier = 0.8
 	local_defensiveness = -0.16
-	picture = "cu_ca_20"
+	picture = "AI_low"
+}
+
+cu_ca_25 = {
+	local_unrest = 10
+	local_autonomy = 0.31
+	local_state_maintenance_modifier = 0.75
+	local_defensiveness = -0.15
+	picture = "AI_low"
 }
 
 cu_ca_30 = {
-	local_manpower_modifier = -0.7
-    local_sailors_modifier = -0.7
-	local_missionary_strength = -0.0525
 	local_unrest = 9
-    local_tax_modifier = -0.5
-	local_production_efficiency = -0.5
-	local_autonomy = 0.12
+	local_autonomy = 0.30
 	local_state_maintenance_modifier = 0.7
 	local_defensiveness = -0.14
-	picture = "cu_ca_30"
+	picture = "AI_low"
+}
+
+cu_ca_35 = {
+	local_unrest = 8
+	local_autonomy = 0.29
+	local_state_maintenance_modifier = 0.65
+	local_defensiveness = -0.13
+	picture = "AI_low"
 }
 
 cu_ca_40 = {
-	local_manpower_modifier = -0.6
-    local_sailors_modifier = -0.6
-	local_missionary_strength = -0.045
 	local_unrest = 7
-    local_tax_modifier = -0.35
-	local_production_efficiency = -0.35
-	local_autonomy = 0.11
+	local_autonomy = 0.28
 	local_state_maintenance_modifier = 0.6
 	local_defensiveness = -0.12
-	picture = "cu_ca_40"
+	picture = "AI_medium"
+}
+
+cu_ca_45 = {
+	local_unrest = 6
+	local_autonomy = 0.27
+	local_state_maintenance_modifier = 0.55
+	local_defensiveness = -0.11
+	picture = "AI_medium"
 }
 
 cu_ca_50 = {
-	local_manpower_modifier = -0.5
-    local_sailors_modifier = -0.5
-	local_missionary_strength = -0.0375
 	local_unrest = 5
-    local_tax_modifier = -0.25
-	local_production_efficiency = -0.25
-	local_autonomy = 0.1
+	local_autonomy = 0.26
 	local_state_maintenance_modifier = 0.5
 	local_defensiveness = -0.1
-	picture = "cu_ca_50"
+	picture = "AI_medium"
+}
+
+cu_ca_55 = {
+	local_unrest = 4.5
+	local_autonomy = 0.25
+	local_state_maintenance_modifier = 0.45
+	local_defensiveness = -0.09
+	picture = "AI_medium"
 }
 
 cu_ca_60 = {
-	local_manpower_modifier = -0.4
-    local_sailors_modifier = -0.4
-	local_missionary_strength = -0.03
 	local_unrest = 4
-    local_tax_modifier = -0.2
-	local_production_efficiency = -0.2
-	local_autonomy = 0.08
+	local_autonomy = 0.24
 	local_state_maintenance_modifier = 0.4
 	local_defensiveness = -0.08
-	picture = "cu_ca_60"
+	picture = "AI_medium"
+}
+
+cu_ca_65 = {
+	local_unrest = 3.5
+	local_autonomy = 0.22
+	local_state_maintenance_modifier = 0.35
+	local_defensiveness = -0.07
+	picture = "AI_medium"
 }
 
 cu_ca_70 = {
-	local_manpower_modifier = -0.3
-    local_sailors_modifier = -0.3
-	local_missionary_strength = -0.0225
 	local_unrest = 3
-    local_tax_modifier = -0.15
-	local_production_efficiency = -0.15
-	local_autonomy = 0.06
+	local_autonomy = 0.20
 	local_state_maintenance_modifier = 0.3
 	local_defensiveness = -0.06
-	picture = "cu_ca_70"
+	picture = "AI_medium"
+}
+
+cu_ca_75 = {
+	local_unrest = 2.5
+	local_autonomy = 0.18
+	local_state_maintenance_modifier = 0.25
+	local_defensiveness = -0.05
+	picture = "AI_medium"
 }
 
 cu_ca_80 = {
-	local_manpower_modifier = -0.2
-    local_sailors_modifier = -0.2
-	local_missionary_strength = -0.015
 	local_unrest = 2
-	local_autonomy = 0.04
-    local_tax_modifier = -0.10
-	local_production_efficiency = -0.10
+	local_autonomy = 0.16
 	local_state_maintenance_modifier = 0.2
 	local_defensiveness = -0.04
-	picture = "cu_ca_80"
+	picture = "AI_high"
+}
+
+cu_ca_85 = {
+	local_unrest = 1.5
+	local_autonomy = 0.14
+	local_state_maintenance_modifier = 0.15
+	local_defensiveness = -0.03
+	picture = "AI_high"
 }
 
 cu_ca_90 = {
-	local_manpower_modifier = -0.1
-    local_sailors_modifier = -0.1
-	local_missionary_strength = -0.0075
 	local_unrest = 1
-    local_tax_modifier = -0.05
-	local_production_efficiency = -0.05
-	local_autonomy = 0.02
+	local_autonomy = 0.12
 	local_state_maintenance_modifier = 0.1
 	local_defensiveness = -0.02
-	picture = "cu_ca_90"
+	picture = "AI_high"
+}
+
+cu_ca_95 = {
+	local_unrest = 0.5
+	local_autonomy = 0.10
+	local_state_maintenance_modifier = 0.05
+	local_defensiveness = -0.01
+	picture = "AI_high"
 }
 
 cu_ca_100 = {
 	local_unrest = -0.1
-	picture = "cu_ca_100"
+	local_autonomy = 0.08
+	picture = "AI_high"
 }
 
 cu_art_patronage = {
@@ -168,13 +208,17 @@ cu_benign_neglect = {
 	 local_production_efficiency = -0.25
 	 local_manpower_modifier = -0.25
 	 local_sailors_modifier = -0.25
-	 local_development_cost = -0.05
+	 local_development_cost = -0.1
 	 #Yearly Cultural Acceptance +0.5%
 }
 
 cu_cultural_assimilation = {
-     local_unrest = 8
 	 picture = "cultural_assimilation"
+}
+
+cu_cultural_assimilation_booster = {
+	local_unrest = 4
+	local_culture_conversion_cost = -0.25
 }
 
 cu_art_museum = {
@@ -190,63 +234,63 @@ cu_art_capital = {
 }
 
 cu_art_modifier_1 = {
-      local_development_cost = -0.01
+      local_development_cost = -0.02
 	  local_institution_spread = 0.02
-	  global_tax_income = 0.5
+	  #global_tax_income = 0.5
 }
 
 cu_art_modifier_2 = {
-      local_development_cost = -0.02
+      local_development_cost = -0.04
 	  local_institution_spread = 0.04
-	  global_tax_income = 1
+	  #global_tax_income = 1
 }
 
 cu_art_modifier_3 = {
-      local_development_cost = -0.03
+      local_development_cost = -0.06
 	  local_institution_spread = 0.06
-	  global_tax_income = 2
+	  #global_tax_income = 2
 }
 
 cu_art_modifier_4 = {
-      local_development_cost = -0.04
+      local_development_cost = -0.08
 	  local_institution_spread = 0.08
-	  global_tax_income = 3
+	  #global_tax_income = 3
 }
 
 cu_art_modifier_5 = {
-      local_development_cost = -0.05
+      local_development_cost = -0.10
 	  local_institution_spread = 0.1
-	  global_tax_income = 4
+	  #global_tax_income = 4
 }
 
 cu_art_modifier_6 = {
-      local_development_cost = -0.06
+      local_development_cost = -0.12
 	  local_institution_spread = 0.12
-	  global_tax_income = 5
+	  #global_tax_income = 5
 }
 
 cu_art_modifier_7 = {
-      local_development_cost = -0.07
+      local_development_cost = -0.1407
 	  local_institution_spread = 0.14
-	  global_tax_income = 6.5
+	  #global_tax_income = 6.5
 }
 
 cu_art_modifier_8 = {
-      local_development_cost = -0.08
+      local_development_cost = -0.16
 	  local_institution_spread = 0.16
-	  global_tax_income = 8
+	  #global_tax_income = 8
 }
 
 cu_art_modifier_9 = {
-      local_development_cost = -0.09
+      local_development_cost = -0.18
 	  local_institution_spread = 0.18
-	  global_tax_income = 10
+	  #global_tax_income = 10
 }
 
 cu_art_modifier_10 = {
-      local_development_cost = -0.1
+      local_development_cost = -0.2
 	  local_institution_spread = 0.2
-	  global_tax_income = 12
+	  #global_tax_income = 12
 }
 
 cu_art_festival = {

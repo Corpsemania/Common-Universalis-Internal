@@ -183,10 +183,9 @@
  korchin_area:0 "Korchin"
  fuyu_area:0 "Fuyu"
  ordos:0 "Ordos"
- yughur:0 "Yughur"
+ yughur:0 "Uyghur"
  tajiki:0 "Tajik"
- south_turkic:0 "Karluk"
- west_turk_g:0 "Oghuz"
+ south_turkic:0 "Chagataic"
  tibet_g:0 "Bod"
  rgyalrong:0 "Gyalrong"
  hayani:0 "Armenian"
@@ -209,5 +208,4 @@
  china_conqueror:0 "Neo Sinic"
  huaxia:0 "Huaxia"
  manchu_han:0 "Manzhou"
- tungusic:0 "Tungusic"
  

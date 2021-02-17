@@ -177,7 +177,7 @@ jewish_cult = {
 		has_unlocked_cult = jewish_cult
 	}
 	advisor_pool = 1
-	advisor_cost = -0.1
+	state_governing_cost = -0.1
 	ai_will_do = {
 		factor = 10
 		modifier = {

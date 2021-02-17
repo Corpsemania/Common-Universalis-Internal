@@ -18,16 +18,16 @@ per_western_branch = {
 				area = tabriz_area
 				area = azerbaijan_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 		trigger = {
 			tabriz_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			azerbaijan_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -48,24 +48,24 @@ per_western_branch = {
 				area = isfahan_area
 				area = farsistan_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 		trigger = {
 			azerbaijan_area = { #Must still have this
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			iraq_e_ajam_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			isfahan_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			farsistan_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -116,21 +116,21 @@ per_western_branch = {
 				area = iraq_arabi_area
 				area = basra_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 		trigger = {
 			religion = shiite
 			luristan_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			iraq_arabi_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			basra_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -185,20 +185,20 @@ per_east = {
 				area = birjand_area
 				area = herat_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 		trigger = {
 			mashhad_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			birjand_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			herat_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -240,20 +240,20 @@ per_east = {
 				area = kabulistan_area
 				area = balkh_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 		trigger = {
 			ghor_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			kabulistan_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			balkh_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {

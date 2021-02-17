@@ -346,7 +346,7 @@ country_event = {
 		}
 		if = {
 			limit = {
-				NOT {
+				NOT = {
 					has_country_modifier = "the_test_act"
 				}
 			}

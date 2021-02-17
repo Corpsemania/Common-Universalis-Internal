@@ -3,112 +3,133 @@
 #
 # Effects are fully scriptable here.
 
-ai_spa_and_por_handicap_helper = {	#Prevent ai Spain and Portugal from becoming too weak in ai_handicap
-	potential = {
-		ai = yes
+ai_france_help = { #Viva La France!
+	potential = { 
+		cu_ai_buff_trigger = yes
+		tag = FRA
+	}
+	trigger = {
+		current_age = age_of_revolutions
+	}
+	yearly_army_professionalism = 0.005
+	shock_damage_received = -0.05
+	fire_damage_received = -0.05
+}
+
+ai_russia_help_1 = {	#Prevent ai Russia from becoming too weak 
+	potential = { 
+		cu_ai_buff_trigger = yes
 		OR = {
-			AND = {
-				NOT = { total_development = 600 }
-				tag = SPA
-			}
-			AND = {
-				NOT = { total_development = 300 }
-				tag = POR
-			}
-			AND = {
-				NOT = { total_development = 400 }
-				tag = CAS
-			}
-		}
-		OR = {
-			has_global_flag = cu_realistic_handicap_set
-			has_global_flag = cu_x_handicap_set
-		}
-		NOT = { 
-			  any_known_country = {
-					OR = {
-					  junior_union_with = ROOT
-					  senior_union_with = ROOT
-					  vassal_of = ROOT
-					  overlord_of = ROOT
-					}
-					ai = no
-			  }
+			tag = RUS
+			tag = MOS
 		}
 	}
 	trigger = {
-		ai = yes
+		any_neighbor_country = {
+			tech_difference = 5
+			ai = yes
+		} 
+	}
+	technology_cost = -0.075
+}
+
+ai_russia_help_2 = {	#Prevent ai Russia from becoming too weak 
+	potential = { 
+		cu_ai_buff_trigger = yes
 		OR = {
-			AND = {
-				NOT = { total_development = 600 }
-				tag = SPA
-			}
-			AND = {
-				NOT = { total_development = 300 }
-				tag = POR
-			}
-			AND = {
-				NOT = { total_development = 400 }
-				tag = CAS
-			}
+			tag = RUS
+			tag = MOS
 		}
-		OR = {
-			has_global_flag = cu_realistic_handicap_set
-			has_global_flag = cu_x_handicap_set
+		NOT = {
+			total_development = 800
 		}
 	}
-	advisor_cost = -0.10
+	trigger = {
+	}
+	land_maintenance_modifier = -0.05
 	land_forcelimit_modifier = 0.10
 }
 
-ai_tur_handicap_modifier = { #Prevent ai Ottman from becoming too weak in ai_handicap
-	potential = {
-		ai = yes
-		tag = TUR
+ai_russia_help_3 = {	#Prevent ai Russia from becoming too weak 
+	potential = { 
+		cu_ai_buff_trigger = yes
 		OR = {
-			has_global_flag = cu_realistic_handicap_set
-			has_global_flag = cu_x_handicap_set
-		}
-		NOT = { 
-			  any_known_country = {
-					OR = {
-					  junior_union_with = ROOT
-					  senior_union_with = ROOT
-					  vassal_of = ROOT
-					  overlord_of = ROOT
-					}
-					ai = no
-			  }
+			tag = RUS
+			tag = MOS
 		}
 	}
 	trigger = {
-		NOT = { is_year = 1750 }
+	}
+	global_missionary_strength = 0.02
+	movement_speed = 0.25
+	global_institution_spread = 0.05
+	technology_cost = -0.025
+	global_unrest = -1
+	yearly_army_professionalism = 0.005
+	province_warscore_cost = 0.25 #Slow down Russian
+}
+
+ai_spa_and_por_handicap_helper = {	#Prevent ai Spain and Portugal from becoming too weak 
+	potential = {
+		cu_ai_buff_trigger = yes
+		OR = {
+			AND = {
+				NOT = { total_development = 600 }
+				tag = SPA
+			}
+			AND = {
+				NOT = { total_development = 300 }
+				tag = POR
+			}
+			AND = {
+				NOT = { total_development = 400 }
+				tag = CAS
+			}
+		}
+	}
+	trigger = {
+		ai = yes
+		OR = {
+			AND = {
+				NOT = { total_development = 600 }
+				tag = SPA
+			}
+			AND = {
+				NOT = { total_development = 300 }
+				tag = POR
+			}
+			AND = {
+				NOT = { total_development = 400 }
+				tag = CAS
+			}
+		}
+	}
+	state_governing_cost = -0.10
+	land_forcelimit_modifier = 0.125
+}
+
+ai_tur_handicap_modifier = { #Prevent ai Ottman from becoming too weak 
+	potential = {
+		cu_ai_buff_trigger = yes
+		tag = TUR
+	}
+	trigger = {
 		OR = {
 			adm = 3
 			dip = 3
 			mil = 3
 		}
 	}
-	global_unrest = -2
-	global_manpower_modifier = 0.10
+	state_governing_cost = -0.05
+	mil_tech_cost_modifier = -0.10
+	global_unrest = -1
     #icon = 3
 }
 
 ai_eng_anglican_modifier = { #Prevent ai England from becoming too weak after being Anglican
 	potential = {
-		ai = yes
 		tag = ENG
-		NOT = { 
-			  any_known_country = {
-					OR = {
-					  junior_union_with = ROOT
-					  senior_union_with = ROOT
-					  vassal_of = ROOT
-					  overlord_of = ROOT
-					}
-					ai = no
-			  }
-		}
+		cu_ai_buff_trigger = yes
 		religion = anglican
 	}
 	trigger = {
@@ -118,47 +139,11 @@ ai_eng_anglican_modifier = { #Prevent ai England from becoming too weak after be
     #icon = 3
 }
 
-ai_ming_handicap_modifier = { #Prevent ai Ming from becoming too stable in ai_handicap
-	potential = {
-		ai = yes
-		tag = MNG
-		OR = {
-			has_global_flag = cu_realistic_handicap_set
-			has_global_flag = cu_x_handicap_set
-		}
-		NOT = { 
-			  any_known_country = {
-					OR = {
-					  junior_union_with = ROOT
-					  senior_union_with = ROOT
-					  vassal_of = ROOT
-					  overlord_of = ROOT
-					}
-					ai = no
-			  }
-		}
-	}
-	trigger = {
-		is_year = 1600
-		NOT = { is_year = 1650 }
-		NOT = {
-			OR = {
-				adm = 4
-				dip = 4
-				mil = 4
-			}
-		}
-	}
-    global_unrest = 2.5
-	yearly_corruption = 0.15
-    #icon = 3
-}
 
 ai_colonization_stop_1 = { 
 	potential = {
                 ai = yes
 				num_of_colonists = 1
-				NOT = { num_of_colonists = 1 }
         }
 	trigger = {
             check_variable = { which = go value = 130 }
@@ -280,7 +265,32 @@ ai_advisor_adm3_help = {
 				   inquisitor_1 = 3
 			}
 	}
-    yearly_corruption = -0.03
+    yearly_corruption = -0.02
+}
+
+ai_advisor_adm4_help = { 
+	potential = {
+                ai = yes
+        }
+	trigger = {
+            OR = {
+			       philosopher = 4
+			       natural_scientist = 4
+				   artist = 4
+				   treasurer = 4
+				   theologian = 4
+				   master_of_mint = 4
+				   inquisitor = 4
+			       philosopher_1 = 4
+			       natural_scientist_1 = 4
+				   artist_1 = 4
+				   treasurer_1 = 4
+				   theologian_1 = 4
+				   master_of_mint_1 = 4
+				   inquisitor_1 = 4
+			}
+	}
+    yearly_corruption = -0.02
 }
 
 ai_advisor_dip2_help = { 
@@ -330,8 +340,34 @@ ai_advisor_dip3_help = {
 				   navigator_1 = 3
 			}
 	}
-    yearly_corruption = -0.03
+    yearly_corruption = -0.02
 }
+
+ai_advisor_dip4_help = { 
+	potential = {
+                ai = yes
+        }
+	trigger = {
+            OR = {
+			       naval_reformer = 4
+			       statesman = 4
+				   trader = 4
+				   spymaster = 4
+				   colonial_governor = 4
+				   diplomat = 4
+				   navigator = 4
+				   naval_reformer_1 = 4
+			       statesman_1 = 4
+				   trader_1 = 4
+				   spymaster_1 = 4
+				   colonial_governor_1 = 4
+				   diplomat_1 = 4
+				   navigator_1 = 4
+			}
+	}
+    yearly_corruption = -0.02
+}
+
 
 ai_advisor_mil2_help = { 
 	potential = {
@@ -383,6 +419,31 @@ ai_advisor_mil3_help = {
     yearly_corruption = -0.02
 }
 
+ai_advisor_mil4_help = { 
+	potential = {
+                ai = yes
+        }
+	trigger = {
+            OR = {
+			       army_reformer = 4
+			       army_organiser = 4
+				   commandant = 4
+				   quartermaster = 4
+				   recruitmaster = 4
+				   fortification_expert = 4
+				   grand_captain = 4
+				   army_reformer_1 = 4
+			       army_organiser_1 = 4
+				   commandant_1 = 4
+				   quartermaster_1 = 4
+				   recruitmaster_1 = 4
+				   fortification_expert_1 = 4
+				   grand_captain_1 = 4
+			}
+	}
+    yearly_corruption = -0.02
+}
+
 ai_colony_help = { 
 	potential = {
                 ai = yes
@@ -391,7 +452,7 @@ ai_colony_help = {
                 OR = {
                        AND = {
                                is_year = 1490
-                               NOT = { is_year = 1540 }
+                               NOT = { is_year = 1570 }
                                OR = { 
                                      tag = POR 
                                      tag = CAS
@@ -399,8 +460,8 @@ ai_colony_help = {
                                }
                        }
                        AND = {
-                               is_year = 1600
-                               NOT = { is_year = 1650 }
+                               is_year = 1580
+                               NOT = { is_year = 1660 }
                                OR = { 
                                      tag = ENG
                                      tag = FRA
@@ -411,274 +472,102 @@ ai_colony_help = {
                 }
                    
 	}
-        global_colonial_growth = 25
+	global_colonial_growth = 25
+	colonist_placement_chance = 0.025
+	envoy_travel_time = -0.25
 }
 
-ai_army_expansion_1 = { 
-	potential = {
-	            OR = {
-				         has_global_flag = cu_adaptive_handicap_set
-						 has_global_flag = cu_x_handicap_set
-			    }
-                ai = yes
-				total_development = 50
-				NOT = { total_development = 1000 }
-				NOT = { is_colonial_nation = yes }
-				NOT = { 
-				      any_known_country = {
-					        OR = {
-                                          junior_union_with = ROOT
-                                          senior_union_with = ROOT
-                                          vassal_of = ROOT
-                                          overlord_of = ROOT
-                            }
-							ai = no
-					  }
-				}
-    }
-	trigger = {
-            any_known_country = {
-			        ai = no
-                    ROOT = {
-					     has_opinion_modifier = {
-			                    modifier = aggressive_expansion
-			                    who = PREV
-								value = 50
-		                 }
-					}
-                    total_development = 1000					
-			}
-	}
-    land_forcelimit_modifier = 0.20
-	global_regiment_cost = -0.10
-	naval_forcelimit_modifier = 0.25
-    global_ship_cost = -0.10
-	yearly_army_professionalism = 0.001
-}
-
-ai_army_expansion_2 = { 
-	potential = {
-	            OR = {
-				         has_global_flag = cu_adaptive_handicap_set
-						 has_global_flag = cu_x_handicap_set
-			    }
-                ai = yes
-				total_development = 100
-				NOT = { total_development = 2000 }
-				NOT = { is_colonial_nation = yes }
-				NOT = { 
-				      any_known_country = {
-					        OR = {
-                                          junior_union_with = ROOT
-                                          senior_union_with = ROOT
-                                          vassal_of = ROOT
-                                          overlord_of = ROOT
-                            }
-							ai = no
-					  }
-				}
-    }
-	trigger = {
-            any_known_country = {
-			        ai = no
-                    ROOT = {
-					     has_opinion_modifier = {
-			                    modifier = aggressive_expansion
-			                    who = PREV
-								value = 50
-		                 }
-					}
-                    total_development = 2000					
-			}
-	}
-    land_forcelimit_modifier = 0.20
-	global_regiment_cost = -0.10
-	naval_forcelimit_modifier = 0.25
-    global_ship_cost = -0.10
-	yearly_army_professionalism = 0.005
-}
-
-ai_army_expansion_3 = { 
-	potential = {
-	            OR = {
-				         has_global_flag = cu_adaptive_handicap_set
-						 has_global_flag = cu_x_handicap_set
-			    }
-                ai = yes
-				total_development = 200
-				NOT = { total_development = 4000 }
-				NOT = { is_colonial_nation = yes }
-				NOT = { 
-				      any_known_country = {
-					        OR = {
-                                          junior_union_with = ROOT
-                                          senior_union_with = ROOT
-                                          vassal_of = ROOT
-                                          overlord_of = ROOT
-                            }
-							ai = no
-					  }
-				}
-    }
-	trigger = {
-            any_known_country = {
-			        ai = no
-                    ROOT = {
-					     has_opinion_modifier = {
-			                    modifier = aggressive_expansion
-			                    who = PREV
-								value = 50
-		                 }
-					}
-                    total_development = 4000					
-			}
-	}
-    land_forcelimit_modifier = 0.20
-	global_regiment_cost = -0.10
-	naval_forcelimit_modifier = 0.25
-    global_ship_cost = -0.10
-	yearly_army_professionalism = 0.01
-}
-
-cu_realistic_expansion = { 
-	potential = {
-	            OR = {
-				         has_global_flag = cu_realistic_handicap_set
-						 has_global_flag = cu_x_handicap_set
-			    }
-                OR = {
-					ai = no
-					AND = {
-						any_known_country = {
-					        OR = {
-								junior_union_with = ROOT
-								senior_union_with = ROOT
-								vassal_of = ROOT
-								overlord_of = ROOT
-                            }
-							ai = no
-						}
-						NOT = { is_free_or_tributary_trigger = yes }
-					}
-				}
-    }
-	trigger = {
-	}
-    core_creation = 0.25
-	diplomatic_annexation_cost = 0.25
-	culture_conversion_cost = 0.25
-	global_missionary_strength = -0.005
-    improve_relation_modifier = -0.15
-}
-
-cu_x_level = { 
-	potential = {
-	            has_global_flag = cu_x_handicap_set
-                ai = yes
-				NOT = { is_colonial_nation = yes }
-				NOT = { 
-				      any_known_country = {
-					        OR = {
-                                          junior_union_with = ROOT
-                                          senior_union_with = ROOT
-                                          vassal_of = ROOT
-                                          overlord_of = ROOT
-                            }
-							ai = no
-					  }
-					  NOT = { is_free_or_tributary_trigger = yes }
-				}
-    }
-	trigger = {
-	}
-	
-	land_morale = 0.1
-	ship_durability = 0.1
-	shock_damage = 0.1
-	shock_damage_received = -0.1
-	fire_damage = 0.1
-	fire_damage_received = -0.1
-	global_manpower_modifier = 1
-	land_forcelimit_modifier = 0.50
-	land_maintenance_modifier -0.2
-	global_regiment_cost = -0.2
-	naval_forcelimit_modifier = 0.50
-	naval_maintenance_modifier = -0.2
-    global_ship_cost = -0.2
-    yearly_army_professionalism = 0.01
-	build_cost = -0.1
-	idea_cost = -0.10
-	years_of_nationalism = -5
-	interest = -0.5
-}
 
 #AI bonus on warfare and economy, they are not applied to player's subject, so that player cannot make use of then
 ai_helper = {
 	potential = {
-		ai = yes
-		NOT = { 
-			any_known_country = {
-				OR = {
-					junior_union_with = ROOT
-					senior_union_with = ROOT
-					vassal_of = ROOT
-					overlord_of = ROOT
-				}
-				ai = no
-			}
-		}
+		cu_ai_buff_trigger = yes
 	}
 	trigger = {
 	}
 	
 	#Warfare
-	merc_maintenance_modifier = -0.33			#ai donnot know how to maintain mercenary
-	land_maintenance_modifier = -0.15
-	naval_maintenance_modifier = -0.25
-	state_maintenance_modifier = -0.1
-	global_regiment_recruit_speed = -0.33
-	global_regiment_cost = -0.1
-	global_ship_cost = -0.2
-	reinforce_speed = 0.20
-	loot_amount = 0.25
-	army_tradition_decay = -0.05
-	navy_tradition_decay = -0.05
-	land_attrition = -0.2
-	core_creation = -0.1
+	land_maintenance_modifier = -0.25
+	naval_maintenance_modifier = -0.5
+	global_regiment_recruit_speed = -0.5
+	reinforce_speed = 0.75
+	army_tradition_decay = -0.025
+	navy_tradition_decay = -0.025
+	land_attrition = -0.5
+	core_creation = -0.25
+	movement_speed_onto_off_boat_modifier = 0.25
+	shock_damage_received = -0.05
+	fire_damage_received = -0.05
+	ship_durability = 0.10
+	artillery_shock = 1
 	#Economy
-	build_cost = -0.1
-	innovativeness_gain = 0.5
-	administrative_efficiency = 0.05
-	global_tariffs = 0.20
-	treasure_fleet_income = 0.20
+	embracement_cost = -0.25
+	treasure_fleet_income = 0.5
+	build_cost = -0.10
+	build_time = -0.75
 	#Others
 	improve_relation_modifier = 0.25
-	stability_cost_modifier = -0.20
-	global_institution_spread = 0.10
+	all_power_cost = -0.10
+	global_institution_spread = 0.25
+	trade_company_investment_cost = -0.05
+	development_cost = -0.05
+	state_maintenance_modifier = 0.10 #Prevent Game death
 }
+
+ai_war_help = {
+	potential = {
+		cu_ai_buff_trigger = yes
+	}
+	trigger = {
+		is_at_war = yes
+	}
+	land_forcelimit_modifier = 0.05
+	global_regiment_recruit_speed = -0.2
+	manpower_recovery_speed = 0.10
+}
+
+rooting_corruption_ai_1 = {
+	potential = {
+		cu_ai_buff_trigger = yes
+		corruption = 0.5
+	}
+	trigger = {
+	}
+	yearly_corruption = -0.30
+	global_tax_modifier = -0.075
+}
+
+rooting_corruption_ai_2 = {
+	potential = {
+		ai = yes
+		any_known_country = {
+			OR = {
+				junior_union_with = ROOT
+				senior_union_with = ROOT
+				vassal_of = ROOT
+				overlord_of = ROOT
+			}
+			ai = no
+		}
+		NOT = { is_subject_of_type = tributary_state }
+		corruption = 0.5
+	}
+	trigger = {
+	}
+	yearly_corruption = -0.20
+	global_tax_modifier = -0.05
+}
+
 
 lucky_country_1 = {
 	potential = {
-		NOT = { 
-			any_known_country = {
-				OR = {
-					junior_union_with = ROOT
-					senior_union_with = ROOT
-					vassal_of = ROOT
-					overlord_of = ROOT
-				}
-				ai = no
-			}
-			NOT = { is_free_or_tributary_trigger = yes }
-		}
-		ai = yes
+		cu_ai_buff_trigger = yes
 	}
 	trigger = {
 		OR = {
 			AND = {
 				tag = POL
 				has_reform = elective_monarchy
-				is_year = 1600
 				NOT = { is_year = 1700 }
 			}
 			AND = {
@@ -688,7 +577,7 @@ lucky_country_1 = {
 			}
 			AND = {
 				tag = SWE
-				is_free_or_tributary_trigger = yes	
+				is_subject_of_type = tributary_state	
 			}
 			AND = {
 				tag = MUG
@@ -705,13 +594,17 @@ lucky_country_1 = {
 				has_country_flag = manchu_dynasty_formed	
 			}
 			AND = {
+				tag = TUR
+				is_year = 1750
+			}
+			AND = {
 				tag = SCO
 				is_year = 1650
 				NOT = { is_year = 1785 }					
 			}
 			AND = {
 				tag = FRA
-				is_year = 1500
+				total_development = 2500
 			}
 			AND = {
 				tag = SPA				
@@ -727,14 +620,13 @@ lucky_country_1 = {
 	colonist_placement_chance = 0.05
 	spy_offence = 0.05
 	defensiveness = 0.10
-	advisor_pool = 1
-	advisor_cost = -0.025
+	state_governing_cost = -0.03
 	heir_chance = 0.25
 	global_unrest = -1
 	legitimacy = 0.5
 	republican_tradition = 0.3
-    horde_unity = 0.3
-	interest = -0.5
+	horde_unity = 0.3
+	administrative_efficiency = 0.025
 	mercenary_cost = -0.15
 	manpower_recovery_speed = 0.20
 	improve_relation_modifier = 0.15
@@ -746,19 +638,7 @@ lucky_country_1 = {
 
 lucky_country_2 = {
 	potential = {
-		NOT = { 
-			any_known_country = {
-				OR = {
-					junior_union_with = ROOT
-					senior_union_with = ROOT
-					vassal_of = ROOT
-					overlord_of = ROOT
-				}
-				ai = no
-			}
-			NOT = { is_free_or_tributary_trigger = yes }
-		}
-		ai = yes
+		cu_ai_buff_trigger = yes
 	}
 	trigger = {
 		OR = {
@@ -792,17 +672,17 @@ lucky_country_2 = {
 				NOT = { is_year = 1660 }	
 			}
 			AND = {
-				tag = BRG
+				tag = BGD
 				is_year = 1605	
 			}
 			AND = {
 				tag = POL
-				has_reform = elective_monarchy
-				NOT = { is_year = 1600 }
+				NOT = { has_reform = elective_monarchy }
+				NOT = { is_year = 1550 }
 			}
 			AND = {
 				tag = PRU
-				NOT = { exists = BRG }
+				NOT = { exists = BGD }
 				is_year = 1605	
 			}
 			AND = {
@@ -815,7 +695,7 @@ lucky_country_2 = {
 			}	
 			AND = {
 				tag = FRA
-				NOT = { is_year = 1500 }
+				NOT = { total_development = 2500 }
 			}
 			tag = SPI
 			tag = RUS
@@ -823,18 +703,17 @@ lucky_country_2 = {
 			tag = GBR
 		}	
 	}
-	build_cost = -0.1
 	colonist_placement_chance = 0.10
 	spy_offence = 0.10
 	defensiveness = 0.20
 	advisor_pool = 1
-	advisor_cost = -0.05
+	state_governing_cost = -0.06
 	heir_chance = 0.5
 	global_unrest = -2
 	legitimacy = 1
 	republican_tradition = 0.5
-    horde_unity = 0.5
-	interest = -1
+	horde_unity = 0.5
+	administrative_efficiency = 0.05
 	mercenary_cost = -0.25
 	manpower_recovery_speed = 0.33
 	improve_relation_modifier = 0.25
@@ -842,70 +721,28 @@ lucky_country_2 = {
 	church_power_modifier = 0.25
 	ae_impact = -0.20
 	meritocracy = 0.5
+	trade_company_investment_cost = -0.05
+	development_cost = -0.05
 }
 
 ai_bankruptcy_help = {
 	potential = {
-		NOT = { 
-			any_known_country = {
-				OR = {
-					junior_union_with = ROOT
-					senior_union_with = ROOT
-					vassal_of = ROOT
-					overlord_of = ROOT
-				}
-				ai = no
-			}
-			NOT = { is_free_or_tributary_trigger = yes }
-		}
+		cu_ai_buff_trigger = yes
 	}
 	trigger = {
 		is_bankrupt = yes
 	}
 	interest = -5
-	advisor_cost = -0.10
-	idea_cost = -0.5
-	reduced_liberty_desire = 25
+	global_unrest = -3
+	state_governing_cost = -0.10
+	idea_cost = -0.25
+	reduced_liberty_desire = 12.5
+	global_autonomy = -0.02
 }
 
-ai_china_authority_help = {
+ai_corrupt_helper_1 = {
 	potential = {
-		ai = yes
-		NOT = { 
-			any_known_country = {
-				OR = {
-					junior_union_with = ROOT
-					senior_union_with = ROOT
-					vassal_of = ROOT
-					overlord_of = ROOT
-				}
-				ai = no
-			}
-		}
-	}
-	trigger = {
-		NOT = { imperial_mandate = 40 }
-		is_emperor_of_china = yes
-	}
-	imperial_mandate = 0.2
-}
-
-ai_morale_buff_1 = {
-	potential = {
-		has_global_flag = cu_x_handicap_set
-		ai = yes
-		NOT = { is_colonial_nation = yes }
-		NOT = { 
-			  any_known_country = {
-					OR = {
-								  junior_union_with = ROOT
-								  senior_union_with = ROOT
-								  vassal_of = ROOT
-								  overlord_of = ROOT
-					}
-					ai = no
-			  }
-		}
+		cu_ai_buff_trigger = yes
 	}
 	trigger = {
 		corruption = 10
@@ -913,26 +750,16 @@ ai_morale_buff_1 = {
 			corruption = 20
 		}
 	}
+	yearly_corruption = -0.01
+	idea_cost = -0.05
 	land_morale = 0.03
 	naval_morale = 0.03
 }
 
-ai_morale_buff_2 = {
+
+ai_corrupt_helper_2 = {
 	potential = {
-		has_global_flag = cu_x_handicap_set
-		ai = yes
-		NOT = { is_colonial_nation = yes }
-		NOT = { 
-			  any_known_country = {
-					OR = {
-								  junior_union_with = ROOT
-								  senior_union_with = ROOT
-								  vassal_of = ROOT
-								  overlord_of = ROOT
-					}
-					ai = no
-			  }
-		}
+		cu_ai_buff_trigger = yes
 	}
 	trigger = {
 		corruption = 20
@@ -940,26 +767,15 @@ ai_morale_buff_2 = {
 			corruption = 30
 		}
 	}
+	yearly_corruption = -0.02
+	idea_cost = -0.10
 	land_morale = 0.06
 	naval_morale = 0.06
 }
 
-ai_morale_buff_3 = {
+ai_corrupt_helper_3 = {
 	potential = {
-		has_global_flag = cu_x_handicap_set
-		ai = yes
-		NOT = { is_colonial_nation = yes }
-		NOT = { 
-			  any_known_country = {
-					OR = {
-								  junior_union_with = ROOT
-								  senior_union_with = ROOT
-								  vassal_of = ROOT
-								  overlord_of = ROOT
-					}
-					ai = no
-			  }
-		}
+		cu_ai_buff_trigger = yes
 	}
 	trigger = {
 		corruption = 30
@@ -967,26 +783,15 @@ ai_morale_buff_3 = {
 			corruption = 40
 		}
 	}
+	yearly_corruption = -0.04
+	idea_cost = -0.20
 	land_morale = 0.09
 	naval_morale = 0.09
 }
 
-ai_morale_buff_4 = {
+ai_corrupt_helper_4 = {
 	potential = {
-		has_global_flag = cu_x_handicap_set
-		ai = yes
-		NOT = { is_colonial_nation = yes }
-		NOT = { 
-			  any_known_country = {
-					OR = {
-								  junior_union_with = ROOT
-								  senior_union_with = ROOT
-								  vassal_of = ROOT
-								  overlord_of = ROOT
-					}
-					ai = no
-			  }
-		}
+		cu_ai_buff_trigger = yes
 	}
 	trigger = {
 		corruption = 40
@@ -994,30 +799,212 @@ ai_morale_buff_4 = {
 			corruption = 50
 		}
 	}
+	yearly_corruption = -0.06
+	idea_cost = -0.30
 	land_morale = 0.12
 	naval_morale = 0.12
 }
 
-ai_morale_buff_5 = {
+ai_corrupt_helper_5 = {
 	potential = {
-		has_global_flag = cu_x_handicap_set
-		ai = yes
-		NOT = { is_colonial_nation = yes }
-		NOT = { 
-			  any_known_country = {
-					OR = {
-								  junior_union_with = ROOT
-								  senior_union_with = ROOT
-								  vassal_of = ROOT
-								  overlord_of = ROOT
-					}
-					ai = no
-			  }
-		}
+		cu_ai_buff_trigger = yes
 	}
 	trigger = {
-		corruption = 50 #How can they do this?
+		corruption = 50
 	}
+	yearly_corruption = -0.08
+	idea_cost = -0.40
 	land_morale = 0.15
 	naval_morale = 0.15
+}
+
+
+ai_horde_cav_helper = { #Just Cavalry
+	potential = {
+		cu_ai_buff_trigger = yes
+		has_reform = steppe_horde
+	}
+	trigger = {
+		has_global_modifier_value = {
+			which = cav_to_inf_ratio
+			value = 1
+		}
+	}
+	infantry_cost = 10
+	cavalry_cost = -0.05
+	artillery_cost = 10
+	siege_ability = 0.1
+}
+
+ai_loan_help_1 = {
+	potential = {
+		cu_ai_buff_trigger = yes
+	}
+	trigger = {
+		num_of_loans = 5
+	}
+	interest = -2
+}
+
+ai_loan_help_2 = {
+	potential = {
+		ai = yes
+	}
+	trigger = {
+		num_of_loans = 1
+	}
+	interest = -1
+}
+
+ai_religion_help_0 = {
+	potential = {
+		cu_ai_buff_trigger = yes
+	}
+	trigger = {
+		NOT = {
+			religious_unity = 0.90
+		}
+	}
+	global_missionary_strength = 0.005
+}
+
+ai_religion_help_1 = {
+	potential = {
+		cu_ai_buff_trigger = yes
+	}
+	trigger = {
+		NOT = {
+			religious_unity = 0.80
+		}
+	}
+	global_missionary_strength = 0.005
+}
+
+ai_religion_help_2 = {
+	potential = {
+		cu_ai_buff_trigger = yes
+	}
+	trigger = {
+		NOT = {
+			religious_unity = 0.70
+		}
+	}
+	global_missionary_strength = 0.005
+}
+
+ai_religion_help_3 = {
+	potential = {
+		cu_ai_buff_trigger = yes
+	}
+	trigger = {
+		NOT = {
+			religious_unity = 0.60
+		}
+	}
+	missionaries = 1
+	global_missionary_strength = 0.005
+}
+
+ai_huge_country_help_1 = {
+	potential = {
+		cu_ai_buff_trigger = yes
+		has_country_modifier = large_state
+    }
+	trigger = {
+	}
+	yearly_corruption = -0.01
+	state_governing_cost = -0.03
+	technology_cost = -0.02
+	build_cost = -0.01
+}
+
+ai_huge_country_help_2 = {
+	potential = {
+		cu_ai_buff_trigger = yes
+		has_country_modifier = huge_state
+    }
+	trigger = {
+	}
+	yearly_corruption = -0.02
+	state_governing_cost = -0.06
+	technology_cost = -0.04
+	build_cost = -0.02
+}
+
+ai_huge_country_help_3 = {
+	potential = {
+		cu_ai_buff_trigger = yes
+		has_country_modifier = continental_state
+    }
+	trigger = {
+	}
+	yearly_corruption = -0.04
+	state_governing_cost = -0.09
+	technology_cost = -0.06
+	build_cost = -0.03
+}
+
+ai_huge_country_help_4 = {
+	potential = {
+		cu_ai_buff_trigger = yes
+		has_country_modifier = world_state
+    }
+	trigger = {
+	}
+	yearly_corruption = -0.06
+	state_governing_cost = -0.12
+	technology_cost = -0.08
+	build_cost = -0.04
+}
+
+ai_army_quailty_help_1 = {
+	potential = {
+		cu_ai_buff_trigger = yes
+		has_reform = volunteer_training
+	}
+	yearly_army_professionalism = 0.01
+	land_forcelimit_modifier = 0.04
+	shock_damage = 0.02
+	fire_damage = 0.02
+	shock_damage_received = -0.02
+	fire_damage_received = -0.02
+}
+
+ai_army_quailty_help_2 = {
+	potential = {
+		cu_ai_buff_trigger = yes
+		has_reform = standing_army
+	}
+	yearly_army_professionalism = 0.025
+	land_forcelimit_modifier = 0.08
+	shock_damage = 0.04
+	fire_damage = 0.04
+	shock_damage_received = -0.04
+	fire_damage_received = -0.04
+}
+
+ai_army_quailty_help_3 = {
+	potential = {
+		cu_ai_buff_trigger = yes
+		has_reform = limited_conscription
+	}
+	yearly_army_professionalism = 0.04
+	land_forcelimit_modifier = 0.12
+	shock_damage = 0.06
+	fire_damage = 0.06
+	shock_damage_received = -0.06
+	fire_damage_received = -0.06
+}
+
+ai_army_quailty_help_4 = {
+	potential = {
+		cu_ai_buff_trigger = yes
+		has_reform = extensive_conscription
+	}
+	yearly_army_professionalism = 0.055
+	land_forcelimit_modifier = 0.16
+	shock_damage = 0.08
+	fire_damage = 0.08
+	shock_damage_received = -0.08
+	fire_damage_received = -0.08
 }

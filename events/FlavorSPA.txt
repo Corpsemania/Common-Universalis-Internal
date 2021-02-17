@@ -258,7 +258,7 @@ country_event = {
 	option = {		# No let us marry a local talent instead
 		name = "flavor_spa.EVTOPTB3716"
 		ai_chance = { factor = 10 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		if = {
 			limit = { tag = CAS }
 			ARA = {
@@ -354,6 +354,7 @@ country_event = {
 					add_base_manpower = -2
 					add_base_tax = -1
 					add_base_production = -1
+					remove_building = university
 					set_province_flag = granada_fallen_cu
 				}
 			}
@@ -385,7 +386,7 @@ country_event = {
 		ai_chance = { factor = 0 }
 		custom_tooltip = flavor_spa.c.3150.tt
 		add_reform_desire = -0.01
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_ruler_modifier = {
 			name = religious_tolerance
 		}
@@ -2051,7 +2052,7 @@ country_event = {
 		ai_chance = {
 			factor = 10
 		}
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -2200,6 +2201,7 @@ country_event = {
 				add_base_manpower = -4
 				add_base_tax = -2
 				add_base_production = -2
+				remove_building = university
 				set_province_flag = granada_fallen_cu
 			}
 		}
@@ -2242,7 +2244,7 @@ country_event = {
 		name = "flavor_spa.8.b"
 		if = {
 			limit = { NOT = { stability = 3 } }
-			add_stability_or_adm_power = yes
+			cu_change_stability_point_p50 = yes
 		}
 		if = {
 			limit = { stability = 3 }

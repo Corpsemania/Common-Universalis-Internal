@@ -153,7 +153,7 @@ adm_idea_modifiers = {
 		level_cost_2 = 18	
 	}		
 	custom_idea_advisor_cost = {
-		advisor_cost = -0.05
+		state_governing_cost = -0.05
 		max_level = 2	
 		level_cost_1 = 15
 		level_cost_2 = 60		
@@ -270,7 +270,7 @@ adm_idea_modifiers = {
 		}
 	}
 	custom_idea_global_autonomy = {
-		global_autonomy = -0.02		
+		global_autonomy = -0.03		
 		max_level = 2
 		level_cost_1 = 6
 		level_cost_2 = 30

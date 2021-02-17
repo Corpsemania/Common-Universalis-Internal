@@ -1,7 +1,10 @@
 country_decisions = {
 
 	manage_trading_company = {
-		potential = {	
+		potential = {
+			ai = yes
+		}
+		allow = {	
 			OR = {
 				num_of_colonists = 1
 				has_country_flag = india_company
@@ -15,10 +18,12 @@ country_decisions = {
 				has_country_flag = west_africa_company
 			} 
 			num_of_ports = 1
-			NOT = {has_country_flag = ai_managed_company }
-			had_country_flag = {
-				flag = ai_managed_company  #AI checks company once per year.
-				days = 365
+			OR = {
+				NOT = { has_country_flag = ai_managed_company }
+				had_country_flag = {
+					flag = ai_managed_company  #AI checks company once per year.
+					days = 365
+				}
 			}
 			ai = yes
 			NOT = {has_global_flag = cu_fast_mode }
@@ -27,7 +32,8 @@ country_decisions = {
 		effect = {
             clr_country_flag = ai_managed_company
             set_country_flag = ai_managed_company #AI Timer
-			country_event = { id = company.0 }
+			country_event = { id = company.10 }
+			country_event = { id = company.4 }
 		}
 		ai_will_do = {
 			factor = 1

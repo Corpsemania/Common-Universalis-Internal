@@ -389,13 +389,13 @@ cu_scaled_dip_power_80 = {
                     }
 }
 
-cu_scaled_dip_power_70 = {
+cu_scaled_mil_power_70 = {
         OR = {
 						    owner = { 
 							    OR = {
-						            dip_power = 70
+						            mil_power = 70
                                     AND = {
-								      dip_power = 56
+								      mil_power = 56
 									  innovativeness_ideas = 6
 								    }
                                 } 
@@ -403,9 +403,9 @@ cu_scaled_dip_power_70 = {
 				            }
 						    owner = { 
 							    OR = {
-						            dip_power = 60
+						            mil_power = 60
                                     AND = {
-								      dip_power = 52
+								      mil_power = 52
 									  innovativeness_ideas = 6
 								    }
                                 } 
@@ -413,9 +413,9 @@ cu_scaled_dip_power_70 = {
 				            }
 							owner = { 
 							    OR = {
-						            dip_power = 50
+						            mil_power = 50
                                     AND = {
-								      dip_power = 40
+								      mil_power = 40
 									  innovativeness_ideas = 6
 								    }
                                 } 
@@ -423,9 +423,9 @@ cu_scaled_dip_power_70 = {
 				            }
 							owner = { 
 							    OR = {
-						            dip_power = 40
+						            mil_power = 40
                                     AND = {
-								      dip_power = 32
+								      mil_power = 32
 									  innovativeness_ideas = 6
 								    }
                                 } 
@@ -433,9 +433,9 @@ cu_scaled_dip_power_70 = {
 				            }
 							owner = { 
 							    OR = {
-						            dip_power = 30
+						            mil_power = 30
                                     AND = {
-								      dip_power = 24
+								      mil_power = 24
 									  innovativeness_ideas = 6
 								    }
                                 } 
@@ -443,9 +443,9 @@ cu_scaled_dip_power_70 = {
 				            }
 							owner = { 
 							    OR = {
-						            dip_power = 25
+						            mil_power = 25
                                     AND = {
-								      dip_power = 20
+								      mil_power = 20
 									  innovativeness_ideas = 6
 								    }
                                 } 
@@ -453,9 +453,9 @@ cu_scaled_dip_power_70 = {
 				            }
 							owner = { 
 							    OR = {
-						            dip_power = 20
+						            mil_power = 20
                                     AND = {
-								      dip_power = 16
+								      mil_power = 16
 									  innovativeness_ideas = 6
 								    }
                                 } 
@@ -564,7 +564,7 @@ cu_can_change_plantation_trigger = {
 
 #Terrain Improvement Trigger
 #NOT: This does not include terrain requirement and "province has not related modifier already" requirement
-When using them, remember to add requirements like below:
+#When using them, remember to add requirements like below:
 #has_terrain = woods
 #NOT = { has_province_modifier = ti_woods }
 #NOT = { has_province_modifier = ti_woods_done }

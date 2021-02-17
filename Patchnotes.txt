@@ -1,64 +1,82 @@
-#This file contains all patchnote since patch 4.9. For former patchnotes, please read "Patchnotes&Previews" thread in the mod page of steamwork shop. Thanks!
-
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Patchnote 4.95 Beta
-
-Gameplay:
-
-1. Province with 100% autonomy no longer consumes GC
-2. To prevent potential 100% autonomy spam, all provinces now consume 0.1 land forcelimit, and 100% autonomy reduces land forcelimit from development to zero.
-3. Besides that, province with 100% autonomy no longer produces anything rather than trade goods, but still cost 30% state maintenance.
-4. Removed many cheat of normal ai. Improved ai behavior to ensure they can survive this change. 
-5. Added Pragmatic Sanction special reform for France.
-6. Fixed estate stability point growth.
-7. Re-added Protectorate subject type. Consumes GC to maintain.
-8. Added dynamic culture group mechanic, certain culture will switch cultural group when switching ownership.
-9. Aragonese and Catalan culture starts in Latin group. Can convert to Iberian group via decision.
-
-Interface
-1. Government reform now shows estate opinion of it. 
-E.g. if an estate has +4(Support) opinion of an reform, this will increase estate stability growth by 4 * (estate_influence)/100 * estate loyalty modifier
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Patchnote 4.947
-
-Gameplay:
-
-Major:
-1.Change to the source of Monarch Power
-
-1.1 Monarch Power from ruler skills are now modified by country's court authority ( actual gain = ruler skill * (0.3 + 0.007 * Court Authority) ). This mechanics are implemented by automatically subtracting the excess power every year.
-
-1.2 Non-despotism countries ( not having court despotism and non-election ) will receives free monarchy power roughly every 10 years if court authority is below 50, and corresponding ruler skill is below 4. The lower your court authority and ruler skill are, the more frequent you get monarchy power.
-
-In general, despotic government still relies on the skill of monarch, while more democratic ones care less about the capability of their ruler.
-
-2 Major rework to Court Authority. Court Authority now has a cap(usually below 100), and gives decent bonus like the former centralization value once did.Most government reform affect max Court Authority and Court Authority Growth in opposite ways. Despotic reforms gives higher cap but reduce growth, while democratic reforms do the contrary. To reach and keep a high Court Authority, you can either reach a compromise between centralization and democracy, or achieve Court Authority manually through interaction, idea and victory of war.    
-
-Minor
-1. Generally increase income, and reduce corruption and autonomy in early game.
-2. Fixed CTD due to miss of monsoon modifier.
-3. Improved the calculation and UI of Administrative Integrity.
-4. Fixed 4 bugs.
-
--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Patchnote 4.943
-
-Gameplay:
+5.12 patchnotes
+Bugfixes:
+1.Fixed Development Interaction bug
+2.Prevented Moving Capital into HRE
+3.Fixed Mission Tree bugs
+4.Fixed Shadow Empire decision bug
+5.Fixed offensive war cost modifier bug
+6.Fixed Native American government types
+7.Fixed some unhistorical province cultures
+8.Fixed government types bug
+9.Fixed disasters trigger bug
+10.Fixed hisotry setup
+11.Fixed a bug where sometimes when remove public school or univeristy that the bonus will not be removed correctly
+12.Fixed base bonus weren't applied
+13.Fixed provincial decree calculation bug
+14.Fixed a bug causing AI to be too weak
+15.Fixed a bug causing elective monarchy disappear
+16.Fixed a bug causing AI Austria wants the entire world
+17.Fixed a stability calculation bug
+18.Fixed a diplomatic interaction bug with Chinese Emperor
+19.Fixed provincial integration event bug
+20.ixed a bug causing integration bonus not applied correctly.
+21.Fixed mobilisation bug and rework it
+22.Fixed tooltip bugs
+23.Fixed goverment type initialisation bug
+24.Fixed decision bugs
+25.Fixed AI switch army organisation bug
+26.Fixed cabinet auto-develop being triggered repeatedly bug
+27.Fixed Militarist ideagroup literacy bonus bug
+28.Fixed literacy calculation bug
+29.Fixed generals generation bug
+30.Fixed some areas initialisation bug
+31.Fixed some cultural groups calculation
+32.Fixed some policies bug
 
 Major:
-1.Province Integration  
-1.1 Remove the concept of coring and territory from the game. All countries can now have unlimited number of states, and receive a free core in all acquired province.
-1.2 Remove the concept of Cultural Acceptance.
-1.3 Each province now have an Administration Integrity value determining how well province receives empire administration. Newly gained province(unless it was already your core) starts with 0% Integrity, but there are ways to quickly increase it until it reaches an acceptable value(like 20%-30%). Integrating a province to the level of your capital, however, may take tremendous effort and centuries to complete. Administration Integrity in a province is capped by a maximum value, which is determined by culture, religion, distance, government type, etc.
+1.Militarization Ratio also dependent on Conscription Laws
+2.Add more icons
+3.lag tweak
+4.Add more flavor events
+5.French mission tree rework
+6.Idea group retweak
+7.UI improvement
+8.Reintroduce introduction event
+9.Add new state focus
+10.Clear up some vague tooltips
+11.Improve calculation speed
 
-2. State Focus
-State edict is replaced by a set of state focus, allowing provinces in that state to develop in the way you want. Former commercial focus, production focus and agriculture focus are removed from province edict and incorporated to state focus.
-The most special state focus is "Immigration Focus", which increases "Immigration Pull" in this state by 100%. This modifier affects development growth in colonies, immigration chance for domestic and foreign migrants, and immigration rate when using "Force Immigration" edict.
+Balance:
+1.Reduce Curia controller buff
+2.Improve vassals
+3.owered building costs
+4.Balance institution authority
+5.Improve Celestial Empire
+6.Debuff New dynasty
+7.Government reform tweak
+8.Reduce Siberia Front speed
+9.Allow greater army/navy forcelimit
+10.Increase Court authority increase speed
+11.Reduce Ottoman aggressiveness
+12.Countries national idea tweak
+13.Reduce navies number at the start
+14.Lower literacy rate at the start
+15.Reduce war exhaustation no longer affect court authority
+16.Make battle plan more powerful
+17.Reduced Polish elective event chain's rebel numbers
+18.Reduce army tradition gains from siege
+19.Institution trigger tweak
+20.HRE Emperor buff tweak
+21.Reduce development speed 
+22.Reduce military hegemony requirements
+23.Reduce province trauma decay
+24.Reduce religion conversion difficulty
 
-Minor
-1. Fixed 10+ bugs in previous version.
-2. Fixed cash/stability point display in estate interaction. 
-3. Added a new decision to help player manage stability.
-4. Rebalanced Ming and Celestial Empire.
+AI:
+1.Improve AI development strategy
+2.Reduce AI buff
+3.Enhance AI behaviour when playing hard difficulty
+4.Enhance Major Power's AI behaviour
+5.Enhance AI's late game behaviour
+
+//4.9 version had such many bugs left...

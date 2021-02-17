@@ -3,7 +3,7 @@
 # ai_will_do has to be 10 for AI to do it (with >=99 Meritocracy).
 
 expand_bureaucracy_decree = {
-	cost = 15
+	cost = 20
 	duration = 3650
 	modifier = {
 		administrative_efficiency = 0.05
@@ -18,10 +18,10 @@ expand_bureaucracy_decree = {
 }
 
 focus_on_internal_matter_decree = {
-	cost = 10
+	cost = 15
 	duration = 3650
 	modifier = {
-	    global_autonomy = -0.03		
+	    stability_cost_modifier = -0.15	
 	}
 	ai_will_do = {
 		factor = 100
@@ -33,7 +33,7 @@ focus_on_internal_matter_decree = {
 }
 
 strengthen_religious_unity_decree = {
-	cost = 10
+	cost = 15
 	duration = 3650
 	modifier = {
 		global_missionary_strength = 0.005
@@ -95,7 +95,7 @@ tax_reform_decree = {
 }
 
 fight_corruption_decree = {
-	cost = 15
+	cost = 25
 	duration = 3650
 	modifier = {
 	    yearly_corruption = -0.1
@@ -117,7 +117,7 @@ increase_tariff_control_decree = {
 	cost = 10
 	duration = 3650
 	modifier = {
-		global_prov_trade_power_modifier = 0.25
+		global_prov_trade_power_modifier = 0.20
 	}
 	ai_will_do = {
 		factor = 100
@@ -164,7 +164,7 @@ organize_corvee_decree = {
 	cost = 20
 	duration = 3650
 	modifier = {
-		development_cost = -0.05
+		development_cost = -0.10
 		build_time = -0.2
 	}
 	ai_will_do = {

@@ -68,13 +68,6 @@ country_decisions = {
 									}
 		                      }
 					    } 
-						custom_trigger_tooltip = {
-						    tooltip = tooltip_positive_militarism
-							has_global_modifier_value = {
-						          which = yearly_army_professionalism
-						          value = 0.001
-					        }
-						}
 					    OR = {
 						    custom_trigger_tooltip = {
 			                   tooltip = tooltip_ave_literacy_5
@@ -110,11 +103,14 @@ country_decisions = {
 	switch_to_standing_army = {
         major = yes
 		potential = {
-                    has_reform = limited_conscription
+				ai = yes
+				NOT = { has_reform = steppe_horde }
+				NOT = { has_reform = steppe_empire }
+				OR = {
+					has_reform = limited_conscription
 					has_reform = extensive_conscription
-					ai = yes
-					NOT = { has_reform = steppe_horde }
-					NOT = { has_reform = steppe_empire }
+					has_reform = volunteer_training
+				}
 		}
 		allow = {
 		                OR = {
@@ -166,13 +162,6 @@ country_decisions = {
 								army_tradition = 30
 							}
 						}
-						custom_trigger_tooltip = {
-						    tooltip = tooltip_positive_militarism
-							has_global_modifier_value = {
-						          which = yearly_army_professionalism
-						          value = 0.001
-					        }
-						}
 		}
 		effect = {
                         add_government_reform = standing_army
@@ -199,7 +188,11 @@ country_decisions = {
                     ai = yes
 					NOT = { has_reform = steppe_horde }
 					NOT = { has_reform = steppe_empire }
-					has_reform = extensive_conscription
+					OR = {
+						has_reform = extensive_conscription
+						has_reform = standing_army
+					}
+					
 		}
 		allow = {
 		            OR = {
@@ -250,13 +243,6 @@ country_decisions = {
 								mil_tech = 23
 								army_tradition = 40
 							}
-						}
-						custom_trigger_tooltip = {
-						    tooltip = tooltip_positive_militarism
-							has_global_modifier_value = {
-						          which = yearly_army_professionalism
-						          value = 0.001
-					        }
 						}
 		}
 		effect = {
@@ -340,13 +326,6 @@ country_decisions = {
 								mil_tech = 25
 								army_tradition = 40
 							}
-						}
-						custom_trigger_tooltip = {
-						    tooltip = tooltip_positive_militarism
-							has_global_modifier_value = {
-						          which = yearly_army_professionalism
-						          value = 0.001
-					        }
 						}
 					}
 		}

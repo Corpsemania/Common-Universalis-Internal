@@ -2,7 +2,7 @@
 
 owner = LWA
 controller = LWA
-culture = tibetan
+culture = dzhongkha
 religion = vajrayana
 capital = "Yuksom"
 trade_goods = wool

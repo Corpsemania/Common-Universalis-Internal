@@ -12,8 +12,24 @@ add_stability_or_adm_power = {
 	}
 }
 
+reduce_stability_or_adm_power = {
+	if = {
+		limit = {
+			stability = -2
+		}
+		add_stability = -1
+	}
+	else = { add_adm_power = -50 }
+}
+
 #Legitimacy
 #Country Scope
+increase_legitimacy_huge_effect = {
+	add_legitimacy = 50
+	add_horde_unity = 50
+	add_devotion = 50
+	add_republican_tradition = 25
+}
 increase_legitimacy_small_effect = { #No IFs as the game hides these itself when incorrect.
 	add_legitimacy = 5
 	add_horde_unity = 5
@@ -26,6 +42,12 @@ increase_legitimacy_medium_effect = { #No IFs as the game hides these itself whe
 	add_devotion = 10
 	add_republican_tradition = 5
 }
+increase_legitimacy_large_effect = { #No IFs as the game hides these itself when incorrect.
+	add_legitimacy = 20
+	add_horde_unity = 20
+	add_devotion = 20
+	add_republican_tradition = 10
+}
 reduce_legitimacy_small_effect = { #No IFs as the game hides these itself when incorrect.
 	add_legitimacy = -5
 	add_horde_unity = -5
@@ -37,6 +59,12 @@ reduce_legitimacy_medium_effect = { #No IFs as the game hides these itself when 
 	add_horde_unity = -10
 	add_devotion = -10
 	add_republican_tradition = -5
+}
+reduce_legitimacy_large_effect = { #No IFs as the game hides these itself when incorrect.
+	add_legitimacy = -25
+	add_horde_unity = -25
+	add_devotion = -25
+	add_republican_tradition = -12
 }
 
 #Religious Currencies
@@ -101,17 +129,11 @@ add_territorial_core_effect = { #Mission Reward
 }
 
 add_reform_progress_small_effect = {
-	if = {
-		limit = { has_dlc = "Dharma" }
-		change_government_reform_progress = 15
-	}
+	change_government_reform_progress = 15
 }
 
 add_reform_progress_medium_effect = {
-	if = {
-		limit = { has_dlc = "Dharma" }
-		change_government_reform_progress = 25
-	}
+	change_government_reform_progress = 25
 }
 
 change_reform_progress_effect = {
@@ -136,31 +158,81 @@ change_reform_progress_effect = {
 
 
 add_reform_progress_big_effect = {
-	if = {
-		limit = { has_dlc = "Dharma" }
-		change_government_reform_progress = 50
-	}
+	change_government_reform_progress = 50
 }
 
 
 reduce_reform_progress_small_effect = {
-	if = {
-		limit = { has_dlc = "Dharma" }
-		change_government_reform_progress = -25
-	}
+	change_government_reform_progress = -25
 }
 
 reduce_reform_progress_medium_effect = {
-	if = {
-		limit = { has_dlc = "Dharma" }
-		change_government_reform_progress = -50
-	}
+	change_government_reform_progress = -50
 }
 
 reduce_reform_progress_big_effect = {
+	change_government_reform_progress = -75
+}
+
+add_curia_treasur_small_effect = {
 	if = {
-		limit = { has_dlc = "Dharma" }
-		change_government_reform_progress = -75
+		limit = {
+			has_dlc = "Emperor"
+		}
+		add_curia_treasury = 25
 	}
 }
 
+add_curia_treasury_medium_effect = {
+	if = {
+		limit = {
+			has_dlc = "Emperor"
+		}
+		add_curia_treasury = 50
+	}
+}
+
+add_curia_treasury_big_effect = {
+	if = {
+		limit = {
+			has_dlc = "Emperor"
+		}
+		add_curia_treasury = 100
+	}
+}
+
+add_curia_treasury_huge_effect = {
+	if = {
+		limit = {
+			has_dlc = "Emperor"
+		}
+		add_curia_treasury = 1000
+	}
+}
+
+reduce_curia_treasury_medium_effect = {
+	if = {
+		limit = {
+			has_dlc = "Emperor"
+		}
+		add_curia_treasury = -50
+	}
+}
+
+reduce_curia_treasury_big_effect = {
+	if = {
+		limit = {
+			has_dlc = "Emperor"
+		}
+		add_curia_treasury = -100
+	}
+}
+
+reduce_curia_treasury_huge_effect = {
+	if = {
+		limit = {
+			has_dlc = "Emperor"
+		}
+		add_curia_treasury = -1000
+	}
+}

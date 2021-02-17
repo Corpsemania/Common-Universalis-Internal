@@ -1,0 +1,46 @@
+#Dorpat
+
+owner = LIV
+controller = LIV
+add_core = LIV
+add_core = LVA
+add_core = EST
+culture = estonian
+religion = catholic
+hre = no
+base_tax = 3 
+base_production = 3
+trade_goods = naval_supplies
+base_manpower = 2
+capital = "Dorpat"
+is_city = yes
+estate = estate_nobles
+discovered_by = KAZ
+discovered_by = CRI
+discovered_by = GOL
+discovered_by = AST
+discovered_by = QAS
+discovered_by = western
+discovered_by = eastern
+
+
+1542.1.1 = { religion = protestant} # Unknown date
+1558.7.18 = { controller = RUS } # Russian conquest
+1561.1.1 = {
+	owner = LIT
+	add_core = LIT
+	remove_core = LIV
+} # Livonia ceases to exist
+1569.7.1 = {
+	owner = PLC
+	add_core = PLC
+} # Union of Lublin
+1582.1.15 = { controller = PLC } # Peace of Jam-Zapolski
+1600.12.31 = { controller = SWE } # 2nd Polish War-Captured by Duke Karl
+1603.4.5 = { controller = PLC } # 2nd Polish War-Captured by Chodkiewicz
+1625.8.21 = { controller = SWE } # 2nd Polish War-Captured by Jakob de la Gardie
+1629.9.16 = { owner = SWE add_core = SWE remove_core = PLC } # The Armistice of Altmark
+1656.11.3 = { controller = RUS } # Karl X Gustavs Russian War-Captured by Russians
+1661.6.21 = { controller = SWE } # The Peace of Kardis
+1704.7.14 = { controller = RUS } # The Great Nordic War-Captured Dorpat
+1721.8.30 = { owner = RUS add_core = RUS remove_core = SWE } # The Peace of Nystad

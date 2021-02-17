@@ -1,0 +1,42 @@
+#4124 - North Karelia
+
+owner = NOV
+controller = NOV
+add_core = NOV
+culture = karelian
+religion = orthodox
+hre = no
+base_tax = 1
+base_production = 1
+trade_goods = fur
+base_manpower = 1
+capital = "Lieksa"
+is_city = yes
+discovered_by = western
+discovered_by = eastern
+discovered_by = nomad_group
+
+1478.1.15 = {
+	owner = MOS
+	controller = MOS
+	add_core = MOS
+	remove_core = NOV
+} # Muscovite annexation of Novgorod
+1503.4.1 = {
+	owner = RUS
+	controller = RUS 
+	add_core = RUS 
+	remove_core = MOS 
+} # Muscovy becomes Russia
+1580.11.4 = { controller = SWE } # Livonian War
+1583.8.10 = { owner = SWE add_core = SWE } # The Armistice of Plussa
+1595.5.18 = { owner = RUS controller = RUS remove_core = SWE} # The Peace of Teusina
+1611.3.2 = { controller = SWE } # The Ingrian War
+1617.2.27 = { owner = SWE add_core = SWE remove_core = RUS } # The Peace of Stolbova
+1710.9.8 = { controller = RUS } # The Great Nordic War-Captured Keksholm
+1721.8.30 = {
+	owner = RUS
+	add_core = RUS remove_core = SWE 
+} # The Peace of Nystad
+
+

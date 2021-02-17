@@ -124,7 +124,7 @@ country_event = {
 				NOT = { tag = MUG }
 				NOT = { tag = PER }
 				OR = {
-					culture_group = iranian
+					cu_iranian_group = yes
 					primary_culture = uzbehk
 					primary_culture = turkmeni
 				}

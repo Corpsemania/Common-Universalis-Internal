@@ -294,6 +294,7 @@ insult_marprelate = {
 				religion = protestant
 				religion = reformed
 				religion = anglican
+				religion = hussite
 			}
 		}
 	}
@@ -307,6 +308,7 @@ insult_marprelate2 = {
 				religion = protestant
 				religion = reformed
 				religion = anglican
+				religion = hussite
 			}
 		}
 	}
@@ -335,7 +337,7 @@ insult_revolutionary = {
 		FROM = {
 			OR = {
 				has_reform = revolutionary_empire_reform
-				has_reform = revolutionary_republic_reform
+				is_revolutionary_republic_trigger = yes
 			}
 		}
 	}
@@ -511,7 +513,7 @@ insult_against_england2 = {
 insult_for_persians = {
 	trigger = {
 		FROM = {
-			culture_group = iranian
+			cu_iranian_group = yes
 		}
 	}
 }
@@ -609,5 +611,14 @@ insult_jungle = {
 				has_terrain = marsh
 			}
 		}
+	}
+}
+insult_german_humor = {
+	trigger = {
+		FROM = {
+			NOT = { cu_germanic_group = yes }
+		}
+		is_germanic_but_not_swamp = yes
+		is_germanic_but_not_mountains = yes
 	}
 }

@@ -1,17 +1,17 @@
 1 = {
-	#max_states = 1
+	#governing_capacity = 1
 }
 2 = {
 	diplomatic_reputation = 0.5
 	improve_relation_modifier = 0.05
-    #max_states = 3
-	#global_autonomy = -0.01	
+    #governing_capacity = 3
+	#global_autonomy = -0.02	
 	#yearly_absolutism = 0.025	
 }
 
 3 = {
 	diplomatic_reputation = 1
-    #max_states = 5
+    #governing_capacity = 5
 	diplomats = 1	
 	improve_relation_modifier = 0.10
 	#global_autonomy = -0.03	

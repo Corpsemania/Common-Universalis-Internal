@@ -52,10 +52,11 @@ capital = 719	#Uliastai
 		birth_date = 1393.1.1
 		leader = {
 			name = "Esen Taishi"
-			type = general
-			fire = 3
+			type = general
+
+			fire = 2
 			shock = 5
-			manuever = 6
+			manuever = 5
 			siege = 2
 			personality = goal_oriented_personality
 		}
@@ -148,7 +149,7 @@ capital = 719	#Uliastai
 
 1590.1.1 = {
 	monarch = {
-		name = "Güshi"
+		name = "Gï¿½shi"
 		dynasty = "Choros"
 		adm = 1
 		dip = 1
@@ -182,7 +183,7 @@ capital = 719	#Uliastai
 
 1623.1.1 = { capital = 714 }
 
-1630.1.1 = {leader = {	name = "Güshi Khan"              	type = general	fire = 4	shock = 4	manuever = 5	siege = 0	death_date = 1655.1.1 } }
+1630.1.1 = {leader = {	name = "Gï¿½shi Khan"              	type = general	fire = 4	shock = 4	manuever = 5	siege = 0	death_date = 1655.1.1 } }
 
 
 1634.1.1 = {

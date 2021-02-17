@@ -1,0 +1,29 @@
+# No previous file for Piscatang
+
+culture = cree
+religion = totemism
+capital = "Piscatang"
+trade_goods = unknown
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+native_size = 5
+native_ferocity = 1
+native_hostileness = 2
+
+
+
+discovered_by = north_american
+
+1609.1.1 = { discovered_by = FRA } # Samuel de Champlain
+
+1650.1.1 = {
+	owner = WCR
+	controller = WCR
+	add_core = WCR 
+	trade_goods = fur
+	is_city = yes
+} #Before the Beaver Wars
+1664.1.1 = { discovered_by = ENG }
+1707.5.12 = { discovered_by = GBR }

@@ -1,0 +1,53 @@
+#56 - Osnabrück
+
+owner = MUN
+controller = MUN
+culture = hannoverian
+religion = catholic
+capital = "Osnabrück"
+estate = estate_church
+trade_goods = salt
+hre = yes
+base_tax = 2
+base_production = 2
+base_manpower = 2
+is_city = yes
+add_core = MUN
+
+
+
+discovered_by = eastern
+discovered_by = western
+discovered_by = muslim
+discovered_by = ottoman
+
+
+1585.1.1 = { owner = KOL controller = KOL add_core = KOL }
+1648.10.24 = { add_core = LUN } # Peace of Westphalia
+1650.1.1 = { owner = MUN controller = MUN }
+1723.1.1 = { owner = KOL controller = KOL }
+1803.1.1 = {
+	owner = HAN
+	controller = HAN
+	add_core = HAN
+	remove_core = KOL 
+} # Taken into possession of Hannover
+1803.7.5 = { controller = FRA } # Occupied by French forces
+1805.12.15 = {
+	owner = PRU
+	controller = PRU
+	add_core = PRU
+	remove_core = HAN
+} # Treaty of Schoenbrunn, ceded to Prussia
+1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+1807.7.9 = {
+	owner = WES
+	controller = WES
+	add_core = WES
+	remove_core = PRU
+} # The Second Treaty of Tilsit, the kingdom of Westfalia
+1813.10.13 = {	owner = HAN
+	controller = HAN
+	add_core = HAN
+	remove_core = WES
+} # The kingdom is dissolved

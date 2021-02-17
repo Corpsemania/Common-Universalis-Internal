@@ -106,7 +106,7 @@ country_event = {
 	option = {
 		name = flavor_mca.2.b #Leave it to the Zipa to administer
 		trigger = { has_country_flag = mca_zaque_supporter }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		825 = {
 			add_local_autonomy = -25 #More influence due to more cooperation
 		}
@@ -124,7 +124,7 @@ country_event = {
 	option = {
 		name = flavor_mca.2.dd #Leave it to the Zaque to administer
 		trigger = { has_country_flag = mca_zipa_supporter }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		832 = {
 			add_local_autonomy = -25 #More influence due to more cooperation
 		}
@@ -297,7 +297,7 @@ country_event = {
 	option = {
 		name = flavor_mca.5.b #There can be only one authority in the Muiscan lands!
 		ai_chance = { factor = 5 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_legitimacy = 10
 	}
 	

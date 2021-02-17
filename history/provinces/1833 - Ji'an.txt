@@ -8,11 +8,12 @@ religion = confucianism
 capital = "Ji'an"
 trade_goods = cloth
 hre = no
-base_tax = 5 
+base_tax = 8 
 
-base_production = 5
-base_manpower = 3
+base_production = 8
+base_manpower = 37
 is_city = yes
+set_province_flag = cu_neednt_dev_initialize
 add_core = NNG
 discovered_by = chinese
 discovered_by = indian

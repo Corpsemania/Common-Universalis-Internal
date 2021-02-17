@@ -1,0 +1,26 @@
+#4274 - Sudayr
+
+owner = NAJ
+controller = NAJ
+culture = bedouin_arabic
+religion = sunni
+capital = "al-Hauta"
+trade_goods = grain
+hre = no
+base_tax = 2
+base_production = 1
+base_manpower = 2
+is_city = yes
+add_core = NAJ
+discovered_by = muslim
+discovered_by = ottoman
+discovered_by = indian
+discovered_by = nomad_group
+discovered_by = east_african
+
+1515.1.1 = { discovered_by = POR }
+1818.9.9 = {
+	owner = TUR
+	controller = TUR
+	add_core = TUR 
+} # The end of the Saudi State

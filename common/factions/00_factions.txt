@@ -9,11 +9,11 @@ bureaucrats =
 	#buildings, Internal Stability.
 	modifier = 
 	{
-	            development_cost = -0.05
-                stability_cost_modifier = -0.1
-                meritocracy = 0.10
-                discipline = -0.05
-				idea_cost = 0.15
+		development_cost = -0.10
+		advisor_cost = -0.10
+		meritocracy = 0.10
+		discipline = -0.05
+		idea_cost = 0.15
 	}
 }
 
@@ -24,7 +24,7 @@ enuchs =
 	#Merchants, Traders, Expansions.
 	modifier = 
 	{
-		yearly_absolutism = 0.2
+		yearly_absolutism = 1.6
 		global_spy_defence = 0.2
         global_sailors_modifier = 0.2
         land_morale = -0.10
@@ -39,11 +39,11 @@ temples =
 	always = yes
 	modifier = 
 	{
-                global_manpower_modifier = 0.2
+        global_manpower_modifier = 0.2
 		army_tradition = 1
-                infantry_power = 0.1
+        infantry_power = 0.1
 		administrative_efficiency = -0.07
-                global_unrest = 2
+        global_unrest = 2
 	}
 }
 

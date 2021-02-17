@@ -512,7 +512,7 @@ inflation_impact_p60 = {
     production_efficiency = -0.5
     global_trade_goods_size_modifier = -0.5
 	build_cost = -0.1
-	development_cost = 0.5
+	trade_company_investment_cost = 0.5
 	global_unrest = 5.5
 	
 }
@@ -542,7 +542,7 @@ inflation_impact_p50 = {
     production_efficiency = -0.43
     global_trade_goods_size_modifier = -0.43
 	build_cost = -0.095
-	development_cost = 0.43
+	trade_company_investment_cost = 0.43
 	global_unrest = 4.7
 	
 }
@@ -573,7 +573,7 @@ inflation_impact_p40 = {
     production_efficiency = -0.36
     global_trade_goods_size_modifier = -0.36
 	build_cost = -0.09
-	development_cost = 0.36
+	trade_company_investment_cost = 0.36
 	global_unrest = 3.8
 }
 
@@ -603,7 +603,7 @@ inflation_impact_p35 = {
     production_efficiency = -0.3
     global_trade_goods_size_modifier = -0.3
 	build_cost = -0.085
-	development_cost = 0.3
+	trade_company_investment_cost = 0.3
 	global_unrest = 3
 	
 }
@@ -634,7 +634,7 @@ inflation_impact_p30 = {
     production_efficiency = -0.24
     global_trade_goods_size_modifier = -0.24
 	build_cost = -0.08
-	development_cost = 0.24
+	trade_company_investment_cost = 0.24
 	global_unrest = 2.2
 	
 }
@@ -665,7 +665,7 @@ inflation_impact_p25 = {
     production_efficiency = -0.19
     global_trade_goods_size_modifier = -0.19
 	build_cost = -0.07
-	development_cost = 0.19
+	trade_company_investment_cost = 0.19
 	global_unrest = 1.5
 	
 }
@@ -696,7 +696,7 @@ inflation_impact_p20 = {
     production_efficiency = -0.14
     global_trade_goods_size_modifier = -0.14
 	build_cost = -0.06
-	development_cost = 0.14
+	trade_company_investment_cost = 0.14
 	global_unrest = 1
 	
 }
@@ -727,7 +727,7 @@ inflation_impact_p15 = {
     production_efficiency = -0.1
     global_trade_goods_size_modifier = -0.1
 	build_cost = -0.05
-	development_cost = 0.1
+	trade_company_investment_cost = 0.1
 	global_unrest = 0.5
 	
 }
@@ -758,7 +758,7 @@ inflation_impact_p10 = {
     production_efficiency = -0.06
     global_trade_goods_size_modifier = -0.06
 	build_cost = -0.04
-	development_cost = 0.06
+	trade_company_investment_cost = 0.06
 	
 }
 
@@ -788,7 +788,7 @@ inflation_impact_p5 = {
     production_efficiency = -0.03
     global_trade_goods_size_modifier = -0.03
 	build_cost = -0.02
-	development_cost = 0.03
+	trade_company_investment_cost = 0.03
 
 }
 
@@ -816,7 +816,7 @@ inflation_impact_n5 = {
 	}
 	production_efficiency = 0.03
     global_trade_goods_size_modifier = 0.03
-	development_cost = -0.03
+	trade_company_investment_cost = -0.03
 	
 }
 
@@ -845,7 +845,7 @@ inflation_impact_n10 = {
 	global_unrest = 0.5
     production_efficiency = 0.06
     global_trade_goods_size_modifier = 0.06
-	development_cost = -0.06
+	trade_company_investment_cost = -0.06
 }
 
 inflation_impact_n15 = {
@@ -873,7 +873,7 @@ inflation_impact_n15 = {
 	global_unrest = 1
     production_efficiency = 0.08
     global_trade_goods_size_modifier = 0.08
-	development_cost = -0.08
+	trade_company_investment_cost = -0.08
 }
 
 inflation_impact_n20 = {
@@ -901,7 +901,7 @@ inflation_impact_n20 = {
 	global_unrest = 1.6
     production_efficiency = 0.1
     global_trade_goods_size_modifier = 0.1
-	development_cost = -0.1
+	trade_company_investment_cost = -0.1
 }
 
 inflation_impact_n25 = {
@@ -929,7 +929,7 @@ inflation_impact_n25 = {
 	global_unrest = 2.2
     production_efficiency = 0.115
     global_trade_goods_size_modifier = 0.115
-	development_cost = -0.115
+	trade_company_investment_cost = -0.115
 }
 
 inflation_impact_n30 = {
@@ -957,7 +957,7 @@ inflation_impact_n30 = {
 	global_unrest = 2.8
     production_efficiency = 0.13
     global_trade_goods_size_modifier = 0.13
-	development_cost = -0.13
+	trade_company_investment_cost = -0.13
 }
 
 inflation_impact_n40 = {
@@ -985,7 +985,7 @@ inflation_impact_n40 = {
 	global_unrest = 3.5
     production_efficiency = 0.14
     global_trade_goods_size_modifier = 0.14
-	development_cost = -0.14
+	trade_company_investment_cost = -0.14
 }
 
 inflation_impact_n50 = {
@@ -1014,7 +1014,7 @@ inflation_impact_n50 = {
 	global_unrest = 4.2
     production_efficiency = 0.15
     global_trade_goods_size_modifier = 0.15
-	development_cost = -0.15
+	trade_company_investment_cost = -0.15
 }
 
 inflation_impact_n60 = {
@@ -1042,7 +1042,7 @@ inflation_impact_n60 = {
 	global_unrest = 5
     production_efficiency = 0.155
     global_trade_goods_size_modifier = 0.155
-	development_cost = -0.155
+	trade_company_investment_cost = -0.155
 	
 }
 
@@ -1069,5 +1069,5 @@ inflation_impact_n70 = {
 	global_unrest = 6
     production_efficiency = 0.16
     global_trade_goods_size_modifier = 0.16
-	development_cost = -0.16
+	trade_company_investment_cost = -0.16
 }

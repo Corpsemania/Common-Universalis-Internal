@@ -73,11 +73,11 @@ country_decisions = {
 		}
 		effect = {
 		    hidden_effect = {
-			      change_tag = BRG
+			      change_tag = BGD
 				  every_province = {
 				          limit = { is_core = BUR }
 				          remove_core = BUR
-						  add_core = BRG
+						  add_core = BGD
 				  }
 			}
 			set_country_flag = kingdom_of_burgundy_restored

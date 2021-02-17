@@ -1,0 +1,14 @@
+# - Djado
+
+culture = tuareg
+religion = sunni
+capital = "Djado"
+trade_goods = unknown
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+native_size = 30
+native_ferocity = 4
+native_hostileness = 9
+discovered_by = sub_saharan

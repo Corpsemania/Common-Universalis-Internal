@@ -70,7 +70,7 @@ mongol_missions_1 = {
 				region = xinan_region
 				region = south_china_region
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 		trigger = {
 			custom_trigger_tooltip = {
@@ -113,7 +113,7 @@ mongol_missions_1 = {
 				}
 				korea_region = {
 					type = all
-					country_or_non_sovereign_subject_holds = ROOT
+					cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 				}
 			}
 		}
@@ -503,34 +503,34 @@ mongol_missions_3 = {
 				region = persia_region
 				region = khorasan_region
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 		trigger = {
 			stability = 3
 			NOT = { average_unrest = 3 }
 			mongolia_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			north_china_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			central_asia_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			crimea_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			persia_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			khorasan_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {

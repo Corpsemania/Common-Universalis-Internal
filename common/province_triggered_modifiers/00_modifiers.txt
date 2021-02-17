@@ -696,3 +696,172 @@ zoroastrian_zanjan = {
 	}
 	
 }
+
+# Perpetual Diet
+perpetual_diet = {
+	potential = {
+	}
+	
+	trigger = {
+		owner = {
+			is_part_of_hre = yes
+		}
+		controller = {
+			OR = {
+				is_part_of_hre = yes
+				NOT = { war_with = emperor }
+			}
+		}
+	}
+
+	prestige = 0.5
+	local_development_cost = -0.10
+	is_imperial_modifier = yes
+
+	on_activation = {
+		emperor = {
+			remove_country_modifier = diet_occupied
+		}
+	}
+	
+	on_deactivation = {
+		emperor = {
+			add_country_modifier = { name = diet_occupied duration = -1 }
+		}
+	}
+}
+
+# Vatican Library
+adm_vatican_library = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	trigger = {
+		owner = {
+			tag = PAP
+		}
+	}
+	adm_tech_cost_modifier = -0.05
+	global_unrest = -2
+}
+
+dip_vatican_library = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	trigger = {
+		owner = {
+			tag = PAP
+		}
+	}
+	dip_tech_cost_modifier = -0.05
+	diplomatic_reputation = 1
+}
+
+mil_vatican_library = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	trigger = {
+		owner = {
+			tag = PAP
+		}
+	}
+	
+	mil_tech_cost_modifier = -0.05
+	army_tradition_from_battle = 0.5
+}
+
+pap_sistine_chapel = {
+	potential = {
+		normal_or_historical_nations = yes
+		NOT = { has_global_flag = sistine_chapel_decorated }
+	}
+	trigger = {
+		owner = {
+			tag = PAP
+		}
+	}
+	
+	devotion = 0.1
+}
+
+pap_sistinechapel_botticelli = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	trigger = {
+		owner = {
+			tag = PAP
+		}
+	}
+	devotion = 0.1
+	global_unrest = -1
+}
+
+pap_sistinechapel_ghirlandaio = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	trigger = {
+		owner = {
+			tag = PAP
+		}
+	}
+	devotion = 0.1
+	prestige = 0.5
+}
+
+pap_sistinechapel_perugino = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	trigger = {
+		owner = {
+			tag = PAP
+		}
+	}
+	devotion = 0.1
+	improve_relation_modifier = 0.1
+}
+
+pap_sistinechapel_michelangelo = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	trigger = {
+		owner = {
+			tag = PAP
+		}
+	}
+	devotion = 0.1
+	idea_cost = -0.05
+}
+
+pap_sistinechapel_decorated = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	trigger = {
+		owner = {
+			tag = PAP
+		}
+	}
+	devotion = 0.1
+	global_missionary_strength = 0.01
+}
+
+krantor_crane = {
+	potential = {
+		normal_or_historical_nations = yes
+	}
+	trigger = {
+		is_capital = yes
+		owner = {
+			has_reform = merchants_reform
+		}
+	}
+	global_trade_power = 0.05
+	trade_efficiency = 0.1
+	dip_tech_cost_modifier = -0.01
+}

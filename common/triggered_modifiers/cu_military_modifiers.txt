@@ -418,6 +418,12 @@ cu_ml_30 = {
 			      NOT = { check_variable = { which = cu_ml value = 40 } }
 		          check_variable = { which = cu_ml value = 30 }  
 			}        
+			OR = {
+				has_reform = volunteer_training
+				has_reform = standing_army
+				has_reform = limited_conscription
+				has_reform = extensive_conscription
+			}
 	    }
         yearly_army_professionalism = 0.005
 		drill_gain_modifier = 0.3
@@ -435,7 +441,13 @@ cu_ml_40 = {
 			      tooltip = cu_ml_tt_40
 			      NOT = { check_variable = { which = cu_ml value = 50 } }
 		          check_variable = { which = cu_ml value = 40 }  
-			}        
+			}      
+			OR = {
+				has_reform = volunteer_training
+				has_reform = standing_army
+				has_reform = limited_conscription
+				has_reform = extensive_conscription
+			}  
 	    }
         yearly_army_professionalism = 0.01
 		drill_gain_modifier = 0.4
@@ -453,7 +465,13 @@ cu_ml_50 = {
 			      tooltip = cu_ml_tt_50
 			      NOT = { check_variable = { which = cu_ml value = 60 } }
 		          check_variable = { which = cu_ml value = 50 }  
-			}        
+			}   
+			OR = {
+				has_reform = volunteer_training
+				has_reform = standing_army
+				has_reform = limited_conscription
+				has_reform = extensive_conscription
+			}     
 	    }
         yearly_army_professionalism = 0.015
 		drill_gain_modifier = 0.5
@@ -471,7 +489,12 @@ cu_ml_60 = {
 			      tooltip = cu_ml_tt_60
 			      NOT = { check_variable = { which = cu_ml value = 70 } }
 		          check_variable = { which = cu_ml value = 60 }  
-			}        
+			}       
+			OR = {
+				has_reform = standing_army
+				has_reform = limited_conscription
+				has_reform = extensive_conscription
+			} 
 	    }
         yearly_army_professionalism = 0.02
 		drill_gain_modifier = 0.6
@@ -489,7 +512,12 @@ cu_ml_70 = {
 			      tooltip = cu_ml_tt_70
 			      NOT = { check_variable = { which = cu_ml value = 80 } }
 		          check_variable = { which = cu_ml value = 70 }  
-			}        
+			}       
+			OR = {
+				has_reform = standing_army
+				has_reform = limited_conscription
+				has_reform = extensive_conscription
+			}  
 	    }
         yearly_army_professionalism = 0.025
 		drill_gain_modifier = 0.7
@@ -507,7 +535,12 @@ cu_ml_80 = {
 			      tooltip = cu_ml_tt_80
 			      NOT = { check_variable = { which = cu_ml value = 90 } }
 		          check_variable = { which = cu_ml value = 80 }  
-			}        
+			}    
+			OR = {
+				has_reform = standing_army
+				has_reform = limited_conscription
+				has_reform = extensive_conscription
+			}     
 	    }
         yearly_army_professionalism = 0.03
 		drill_gain_modifier = 0.8
@@ -525,7 +558,11 @@ cu_ml_90 = {
 			      tooltip = cu_ml_tt_90
 			      NOT = { check_variable = { which = cu_ml value = 100 } }
 		          check_variable = { which = cu_ml value = 90 }  
-			}        
+			}    
+			OR = {
+				has_reform = limited_conscription
+				has_reform = extensive_conscription
+			}     
 	    }
         yearly_army_professionalism = 0.035
 		drill_gain_modifier = 0.9
@@ -543,7 +580,11 @@ cu_ml_100 = {
 			      tooltip = cu_ml_tt_100
 			      NOT = { check_variable = { which = cu_ml value = 110 } }
 		          check_variable = { which = cu_ml value = 100 }  
-			}        
+			}       
+			OR = {
+				has_reform = limited_conscription
+				has_reform = extensive_conscription
+			}  
 	    }
 		yearly_army_professionalism = 0.04
 		drill_gain_modifier = 1
@@ -561,6 +602,10 @@ cu_ml_110 = {
 			      tooltip = cu_ml_tt_110
 			      NOT = { check_variable = { which = cu_ml value = 120 } }
 		          check_variable = { which = cu_ml value = 110 }  
+			} 
+			OR = {
+				has_reform = limited_conscription
+				has_reform = extensive_conscription
 			}        
 	    }
         yearly_army_professionalism = 0.045
@@ -580,6 +625,7 @@ cu_ml_120 = {
 				  NOT = { check_variable = { which = cu_ml value = 130 } }
 		          check_variable = { which = cu_ml value = 120 }  
 			}        
+			has_reform = extensive_conscription
 	    }
         yearly_army_professionalism = 0.05
 		drill_gain_modifier = 1.2
@@ -599,8 +645,135 @@ cu_ml_130 = {
 			      #tooltip = cu_ml_tt_130
 		          #check_variable = { which = cu_ml value = 130 }  
 			}        
+			has_reform = extensive_conscription
 	    }
         yearly_army_professionalism = 0.055
 		drill_gain_modifier = 1.3
 		army_tradition = 1.3
+}
+quality_inf_reform_1_mod = {
+    potential = { quality_ideas = 7 }
+	trigger = {
+		    quality_ideas = 7
+			custom_trigger_tooltip = {
+			      tooltip = quality_inf_reform_1_tt
+		          has_country_flag = quality_inf_reform_1_flag
+			}  
+	}
+	land_morale = 0.05
+	discipline = 0.02
+	global_regiment_cost = 0.05
+}
+quality_inf_reform_2_mod = {
+    potential = { quality_ideas = 7 }
+	trigger = {
+		    quality_ideas = 7
+			custom_trigger_tooltip = {
+			      tooltip = quality_inf_reform_2_tt
+		          has_country_flag = quality_inf_reform_2_flag
+			}  
+	}
+	land_morale = 0.75
+	discipline = 0.035
+	global_regiment_cost = 0.1
+}
+quality_inf_reform_3_mod = {
+    potential = { quality_ideas = 7 }
+	trigger = {
+		    quality_ideas = 7
+			custom_trigger_tooltip = {
+			      tooltip = quality_inf_reform_3_tt
+		          has_country_flag = quality_inf_reform_3_flag
+			}  
+	}
+	land_morale = 0.1
+	discipline = 0.05
+	global_regiment_cost = 0.15
+}
+quality_cav_reform_1_mod = {
+	potential = { quality_ideas = 7 }
+	trigger = {
+		    quality_ideas = 7
+			custom_trigger_tooltip = {
+			      tooltip = quality_cav_reform_1_tt
+		          has_country_flag = quality_cav_reform_1_flag
+			}  
+	}
+    infantry_shock = 0.1
+	infantry_fire = 0.1
+	cavalry_shock = 0.1
+	cavalry_fire = 0.1
+	artillery_fire = 0.1
+	global_regiment_cost = 0.05
+}
+quality_cav_reform_2_mod = {
+     potential = { quality_ideas = 7 }
+	trigger = {
+		    quality_ideas = 7
+			custom_trigger_tooltip = {
+			      tooltip = quality_cav_reform_2_tt
+		          has_country_flag = quality_cav_reform_2_flag
+			}  
+	}
+	infantry_shock = 0.15
+	infantry_fire = 0.2
+	cavalry_shock = 0.15
+	cavalry_fire = 0.3
+	artillery_fire = 0.2
+	global_regiment_cost = 0.1
+}
+quality_cav_reform_3_mod = {
+    potential = { quality_ideas = 7 }
+	trigger = {
+		    quality_ideas = 7
+			custom_trigger_tooltip = {
+			      tooltip = quality_cav_reform_3_tt
+		          has_country_flag = quality_cav_reform_3_flag
+			}  
+	}
+    infantry_shock = 0.25
+	infantry_fire = 0.35
+	cavalry_shock = 0.3
+	cavalry_fire = 0.5
+	artillery_fire = 0.3
+	global_regiment_cost = 0.15
+}
+quality_art_reform_1_mod = {
+    potential = { quality_ideas = 7 }
+	trigger = {
+		    quality_ideas = 7
+			custom_trigger_tooltip = {
+			      tooltip = quality_art_reform_1_tt
+		          has_country_flag = quality_art_reform_1_flag
+			}  
+	}
+	siege_ability = 0.05
+	global_regiment_cost = 0.05
+}
+quality_art_reform_2_mod = {
+    potential = { quality_ideas = 7 }
+	trigger = {
+		    quality_ideas = 7
+			custom_trigger_tooltip = {
+			      tooltip = quality_art_reform_2_tt
+		          has_country_flag = quality_art_reform_2_flag
+			}  
+	}
+	siege_ability = 0.075
+	shock_damage_received = -0.1
+	global_regiment_cost = 0.1
+}
+quality_art_reform_3_mod = {
+    potential = { quality_ideas = 7 }
+	trigger = {
+		    quality_ideas = 7
+			custom_trigger_tooltip = {
+			      tooltip = quality_art_reform_3_tt
+		          has_country_flag = quality_art_reform_3_flag
+			}  
+	}
+	siege_ability = 0.1
+	shock_damage_received = -0.1
+	fire_damage_received = -0.1
+	global_regiment_cost = 0.15
 }

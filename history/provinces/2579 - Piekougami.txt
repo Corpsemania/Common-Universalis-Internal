@@ -1,0 +1,37 @@
+# No previous file for Piekougami
+
+culture = cree
+religion = totemism
+capital = "Piekougami"
+trade_goods = unknown
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+native_size = 5
+native_ferocity = 1
+native_hostileness = 2
+
+
+
+discovered_by = north_american
+
+
+1652.1.1 = {
+	discovered_by = FRA
+	owner = FRA
+	controller = FRA
+	add_core = FRA
+	is_city = yes
+	trade_goods = fur
+	culture = cosmopolitan_french
+	religion = catholic 
+} #Fort Métabéchouane
+1707.5.12 = { discovered_by = GBR }
+1760.1.1 = { controller = GBR } # The government of New France capitulate at Montreal
+1763.2.10 = {
+	owner = GBR
+	add_core = GBR
+	remove_core = FRA
+} # Treaty of Paris
+

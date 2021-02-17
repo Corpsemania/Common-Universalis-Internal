@@ -476,7 +476,7 @@ country_event = {
 	option = {		# Let us lead the True Faith from Moscow
 		name = "flavor_rus.EVTOPTA3415"
 		ai_chance = { factor = 100 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_patriarch_authority = 0.1
 		every_known_country = {
 			limit = {
@@ -593,7 +593,7 @@ country_event = {
 	option = {		# Prohibit these ideas
 		name = "flavor_rus.EVTOPTB1005"
 		ai_chance = { factor = 25 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_patriarch_authority = -0.10
 	}
 }
@@ -740,7 +740,7 @@ country_event = {
 	option = {		# Follow the heed of the Raskolniks
 		name = "flavor_rus.EVTOPTB3418"
 		ai_chance = { factor = 25 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_patriarch_authority = -0.10
 	}
 }
@@ -856,7 +856,7 @@ country_event = {
 	option = {		# Avoid outside influence
 		name = "flavor_rus.EVTOPTB1006"
 		ai_chance = { factor = 0 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -1375,7 +1375,7 @@ country_event = {
 	option = {		# The Old Way is better!
 		name = "flavor_rus.EVTOPTB3426"
 		ai_chance = { factor = 0 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -1770,7 +1770,7 @@ country_event = {
 	option = {		# It is perfect as it is
 		name = "flavor_rus.EVTOPTB3437"
 		ai_chance = { factor = 25 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -1827,7 +1827,7 @@ country_event = {
 	option = {		# Leave it be
 		name = "flavor_rus.EVTOPTB3438"
 		ai_chance = { factor = 25 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -2025,7 +2025,7 @@ country_event = {
 	option = {		# Our country holds the knowledge we need
 		name = "flavor_rus.EVTOPTB1010"
 		ai_chance = { factor = 0 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 

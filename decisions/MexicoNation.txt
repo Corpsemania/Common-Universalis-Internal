@@ -153,7 +153,7 @@ country_decisions = {
 			add_prestige = 25
 			set_country_flag = formed_mexico_flag
 			if = {
-				limit = { government = tribal }
+				limit = { government = native }
 				add_government_reform = becomes_monarchy_reform
 				set_legacy_government = despotic_monarchy
 			}

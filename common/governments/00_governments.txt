@@ -18,6 +18,7 @@ monarchy = {
 				confederate
 				eng_grand_charter
 				fra_pragmatic_sanction
+				hyperborean_government 
 			}
 		}
 		taxation_policy = {
@@ -305,6 +306,7 @@ republic = {
 				dutch_republic				
 				merchants_reform
 				revolutionary_republic_reform
+				junior_revolutionary_republic_reform
 				confederate
 			}
 		}
@@ -603,7 +605,7 @@ tribal = {
 		central_power = {
 			reforms = {
 				court_despotism
-				noble_council				
+				noble_council	
 				clergy_reform
 			}
 		}

@@ -1,0 +1,1077 @@
+namespace = cuglobal
+
+#Used to trigger complex events in order to speed up the game.
+#1/11 Human Yearly Pulse
+#2 Five year's pulse
+#3 Two year's pulse
+#4 Monthly pulse
+#5 Ten year's pulse
+#9/91 Timer Yearly Pulse
+
+#Timer Yearly Pulse - Triggers all yearly calculations
+province_event = {
+	id = cuglobal.9
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = CITY_VIEW_eventPicture
+	hidden = yes
+	trigger = {
+		province_id = 1
+		is_month = 0
+		NOT = { is_month = 1 }
+		OR = {
+			NOT = { has_global_flag = cu_year_going }
+			had_global_flag = {
+						flag = cu_year_going
+					    days = 364
+			}
+		}
+	}
+	
+	option = {
+		name = "EVT_HIDDEN"
+		cu_get_year = yes
+		clr_global_flag = cu_year_going
+		set_global_flag = cu_year_going
+		every_country = {
+			cu_correct_year = yes
+			if = {
+				limit = {
+					OR = {
+						  ai = no
+						  has_country_flag = cu_ob_ai
+					}
+				}
+				country_event = { id = cuglobal.1 }
+			}
+		}
+		if = {
+			limit = {
+				OR = {
+					NOT = { has_global_flag = cu_five_years_pulse }
+					had_global_flag = {
+						flag = cu_five_years_pulse
+						days = 1825
+					}
+				}
+			}
+			owner = { country_event = { id = cuglobal.2 } }
+		}
+	}
+}
+
+#Human Yearly pulse( Independent for each human player )
+country_event = {
+	id = cuglobal.1
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = CITY_VIEW_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	trigger = {
+	     OR = {
+		      ai = no
+			  has_country_flag = cu_ob_ai
+		 }
+		 
+		 OR = {
+		      NOT = { has_country_flag = cu_human_yearly_pulse }
+			  had_country_flag = {
+					flag = cu_human_yearly_pulse
+				    days = 364  #Triggering a new event chain when a new country is played by player, normaly this event will not be triggered by former event.	
+			  }
+		 }
+	}
+	
+	option = {
+		name = "EVT_HIDDEN"
+		clr_country_flag = forced_event_trigger
+		clr_country_flag = cu_human_yearly_pulse
+		set_country_flag = cu_human_yearly_pulse
+		cu_do_ruler_power_reduction = yes
+		country_event = { id = custart.42 }
+		set_variable = { which = num_pp value = 0 }
+		export_to_variable = {
+		        which = num_pp
+				value = num_of_cities
+		}
+		set_variable = { which = t_dev value = 0 }
+		export_to_variable = {
+		        which = t_dev
+				value = total_development
+		}
+		set_variable = { which = s_dev value = 0 }
+		cu_export_s_dev = yes
+		cu_gov_effect = yes
+		cu_correct_year = yes
+		#Pre-determined Values
+		
+		
+		
+		
+		#
+		country_event = { id = urban.97 } #Literacy Calculation
+		country_event = { id = urban.99 } #Urbanization Calculation
+		country_event = { id = cugovernment.1 } #Government Capacity Calculation
+		country_event = { id = cuestate.0 } #Estate Calculation 
+		cu_calc_total_stability_growth = yes #Stability Calculation
+		if = {
+			limit = { check_variable = { which = art_piece_on_sale value = 1 } }
+			random_list = {
+				10 = { change_variable = { which = art_piece_on_sale value = 1 } }
+				30 = { change_variable = { which = art_piece_on_sale value = -1 } }
+				60 = { }
+			}
+		}
+		else = {
+			10 = { change_variable = { which = art_piece_on_sale value = 1 } }
+			90 = { }
+		}
+		
+		#Cabinet Calculation
+		cu_do_cabinet_country = yes
+	}
+}
+
+
+#Five Year's pulse
+country_event = {
+	id = cuglobal.2
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = CITY_VIEW_eventPicture
+	hidden = yes
+	trigger = {
+	    OR = {
+		    NOT = { has_global_flag = cu_five_years_pulse }
+			had_global_flag = {
+				flag = cu_five_years_pulse
+				days = 1825
+			}
+			has_country_flag = forced_event_trigger
+		}
+	}
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVT_HIDDEN"
+		clr_country_flag = forced_event_trigger
+		clr_global_flag = cu_five_years_pulse
+		set_global_flag = cu_five_years_pulse
+		every_country = { 
+			clr_country_flag = ai_calc_complete_cu
+			if = { #Revenue from new world
+				limit = {
+					  OR = {
+							exploration_ideas = 5
+						    num_of_colonists = 1	
+				      }
+					  capital_scope = {
+					      NOT = {
+							OR = {
+								continent = north_america
+								continent = south_america
+								continent = new_world
+							}
+						  }
+					  }
+				}
+				if = {
+					limit = { NOT = { has_country_flag = new_world_col_rev_flag } }
+					set_country_flag = new_world_col_rev_flag
+					country_event = { id = ideagroups.4947 }
+				}
+				else = {
+					clr_country_flag = new_world_col_rev_flag
+				}
+			}
+		}
+		if = {
+			limit = {
+				ai = yes 
+				OR = {
+					NOT = { has_global_flag = cu_fast_mode }
+					capital_scope = {
+						OR = {
+								continent = europe
+								any_neighbor_province = {
+										owner = { ai = no }
+								}
+						}
+					}
+					total_development = 200
+				}	
+			}
+			country_event = { id = custart.42 }
+			if = {
+				limit = { in_golden_age = yes }
+				set_country_flag = cu_had_golden_age
+			}
+			cu_correct_year = yes
+			cu_do_ruler_power_reduction = yes
+			add_dip_power = -60 #Compensate for ai's additional diplomatic upkeep
+			set_variable = { which = num_pp value = 0 }
+			export_to_variable = {
+					which = num_pp
+					value = num_of_cities
+			}
+			set_variable = { which = t_dev value = 0 }
+			export_to_variable = {
+					which = t_dev
+					value = total_development
+			}
+			set_variable = { which = s_dev value = 0 }
+			cu_export_s_dev = yes
+			cu_gov_effect = yes
+			country_event = { id = urban.97 } #Literacy Calculation
+			country_event = { id = urban.99 } #Urbanization Calculation
+			country_event = { id = cugovernment.1 } #Government Capacity Calculation
+			country_event = { id = cuestate.0 } #Estate Calculation
+			country_event = { id = cuai.1 }
+			if = {
+				limit = { NOT = { has_country_flag = use_future_stability } }
+				cu_calc_total_stability_growth = yes #Stability Calculation
+			}
+			else = {
+				clr_country_flag = use_future_stability
+			}
+			if = {
+				limit = { check_variable = { which = art_piece_on_sale value = 1 } }
+				random_list = {
+					10 = { change_variable = { which = art_piece_on_sale value = 1 } }
+					30 = { change_variable = { which = art_piece_on_sale value = -1 } }
+					60 = { }
+				}
+			}
+			else = {
+				10 = { change_variable = { which = art_piece_on_sale value = 1 } }
+				90 = { }
+			}
+			#If the country has no conscription modifier, give it one.
+			if = {
+				limit = { 
+					NOT = { has_reform = feudal_conscription }
+					NOT = { has_reform = mercenary_conscription }
+					NOT = { has_reform = tribal_conscription }
+					NOT = { has_reform = military_household }
+					NOT = { has_reform = volunteer_training }
+					NOT = { has_reform = standing_army }
+					NOT = { has_reform = limited_conscription }
+					NOT = { has_reform = extensive_conscription }
+				}
+				cu_reset_conscription_law = yes
+			}
+			
+			#AI use province edicts
+			random_owned_province = {
+				limit = {
+					NOT = { has_province_flag = ai_province_edict }
+					development = 15
+					OR = {
+						has_owner_accepted_culture = yes
+						has_owner_culture = yes
+						owner = { culture_group = ROOT }
+					}
+				}
+				set_province_flag = ai_province_edict
+				province_event = { id = urban.51 }
+			}
+			random_owned_province = {
+				limit = {
+					NOT = { has_province_flag = ai_province_edict }
+					development = 10
+					OR = {
+						has_owner_accepted_culture = yes
+						has_owner_culture = yes
+						owner = { culture_group = ROOT }
+					}
+				}
+				set_province_flag = ai_province_edict
+				province_event = { id = urban.51 }
+			}
+			random_owned_province = {
+				limit = {
+					NOT = { has_province_flag = ai_province_edict }
+					OR = {
+						has_owner_accepted_culture = yes
+						has_owner_culture = yes
+						owner = { culture_group = ROOT }
+					}
+				}
+				set_province_flag = ai_province_edict
+				province_event = { id = urban.51 }
+			}
+			random_owned_province = {
+				limit = {
+					NOT = { has_province_flag = ai_province_edict }
+					development = 15
+				}
+				set_province_flag = ai_province_edict
+				province_event = { id = urban.51 }
+			}
+			random_owned_province = {
+				limit = {
+					NOT = { has_province_flag = ai_province_edict }
+					development = 10
+					NOT = { has_global_flag = cu_fast_mode }
+				}
+				set_province_flag = ai_province_edict
+				province_event = { id = urban.51 }
+			}
+			random_owned_province = {
+				limit = {
+					NOT = { has_province_flag = ai_province_edict }
+					NOT = { has_global_flag = cu_fast_mode }
+				}
+				set_province_flag = ai_province_edict
+				province_event = { id = urban.51 }
+			}
+		}
+		set_country_flag = ai_calc_complete_cu
+		random_country = {
+			limit = { 
+				NOT = { has_country_flag = ai_calc_complete_cu } 
+				ai = yes 
+				OR = {
+					NOT = { has_global_flag = cu_fast_mode }
+					capital_scope = {
+						OR = {
+							continent = europe
+							any_neighbor_province = {
+								owner = { ai = no }
+							}
+						}
+					}
+					total_development = 200
+				}		
+			}
+			country_event = { id = cuglobal.21 }
+		}
+	}
+}
+
+country_event = {
+	id = cuglobal.21
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = CITY_VIEW_eventPicture
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVT_HIDDEN"
+		set_country_flag = ai_calc_complete_cu
+		country_event = { id = custart.42 }
+		if = {
+			limit = { in_golden_age = yes }
+			set_country_flag = cu_had_golden_age
+		}
+		cu_correct_year = yes
+		cu_do_ruler_power_reduction = yes
+		add_dip_power = -60 #Compensate for ai's additional diplomatic upkeep
+		set_variable = { which = num_pp value = 0 }
+		export_to_variable = {
+				which = num_pp
+				value = num_of_cities
+		}
+		set_variable = { which = t_dev value = 0 }
+		export_to_variable = {
+				which = t_dev
+				value = total_development
+		}
+		set_variable = { which = s_dev value = 0 }
+		cu_export_s_dev = yes
+		cu_gov_effect = yes
+		country_event = { id = urban.97 } #Literacy Calculation
+		country_event = { id = urban.99 } #Urbanization Calculation
+		country_event = { id = cugovernment.1 } #Government Capacity Calculation
+		country_event = { id = cuestate.0 } #Estate Calculation
+		country_event = { id = cuai.1 }
+		if = {
+			limit = { NOT = { has_country_flag = use_future_stability } }
+			cu_calc_total_stability_growth = yes #Stability Calculation
+		}
+		else = {
+			clr_country_flag = use_future_stability
+		}
+		if = {
+			limit = { check_variable = { which = art_piece_on_sale value = 1 } }
+			random_list = {
+				10 = { change_variable = { which = art_piece_on_sale value = 1 } }
+				30 = { change_variable = { which = art_piece_on_sale value = -1 } }
+				60 = { }
+			}
+		}
+		else = {
+			10 = { change_variable = { which = art_piece_on_sale value = 1 } }
+			90 = { }
+		}
+		#If the country has no conscription modifier, give it one.
+		if = {
+			limit = { 
+				NOT = { has_reform = feudal_conscription }
+				NOT = { has_reform = mercenary_conscription }
+				NOT = { has_reform = tribal_conscription }
+				NOT = { has_reform = military_household }
+				NOT = { has_reform = volunteer_training }
+				NOT = { has_reform = standing_army }
+				NOT = { has_reform = limited_conscription }
+				NOT = { has_reform = extensive_conscription }
+			}
+			cu_reset_conscription_law = yes
+		}
+		
+		#AI use province edicts
+		random_owned_province = {
+			limit = {
+				NOT = { has_province_flag = ai_province_edict }
+				development = 15
+				OR = {
+					has_owner_accepted_culture = yes
+					has_owner_culture = yes
+					owner = { culture_group = ROOT }
+				}
+			}
+			set_province_flag = ai_province_edict
+			province_event = { id = urban.51 }
+		}
+		random_owned_province = {
+			limit = {
+				NOT = { has_province_flag = ai_province_edict }
+				development = 10
+				OR = {
+					has_owner_accepted_culture = yes
+					has_owner_culture = yes
+					owner = { culture_group = ROOT }
+				}
+			}
+			set_province_flag = ai_province_edict
+			province_event = { id = urban.51 }
+		}
+		random_owned_province = {
+			limit = {
+				NOT = { has_province_flag = ai_province_edict }
+				OR = {
+					has_owner_accepted_culture = yes
+					has_owner_culture = yes
+					owner = { culture_group = ROOT }
+				}
+			}
+			set_province_flag = ai_province_edict
+			province_event = { id = urban.51 }
+		}
+		random_owned_province = {
+			limit = {
+				NOT = { has_province_flag = ai_province_edict }
+				development = 15
+			}
+			set_province_flag = ai_province_edict
+			province_event = { id = urban.51 }
+		}
+		random_owned_province = {
+			limit = {
+				NOT = { has_province_flag = ai_province_edict }
+				development = 10
+				NOT = { has_global_flag = cu_fast_mode }
+			}
+			set_province_flag = ai_province_edict
+			province_event = { id = urban.51 }
+		}
+		random_owned_province = {
+			limit = {
+				NOT = { has_province_flag = ai_province_edict }
+				NOT = { has_global_flag = cu_fast_mode }
+			}
+			set_province_flag = ai_province_edict
+			province_event = { id = urban.51 }
+		}
+		random_country = {
+			limit = { 
+				NOT = { has_country_flag = ai_calc_complete_cu } 
+				ai = yes 
+				OR = {
+					NOT = { has_global_flag = cu_fast_mode }
+					capital_scope = {
+						OR = {
+							continent = europe
+							any_neighbor_province = {
+								owner = { ai = no }
+							}
+						}
+					}
+					total_development = 200
+				}	
+			}
+			country_event = { id = cuglobal.21 }
+		}
+	}
+}
+
+#Two year's pulse
+country_event = {
+	id = cuglobal.3
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = CITY_VIEW_eventPicture
+	hidden = yes
+	is_triggered_only = yes #Not Activated
+	trigger = {
+        ai = no
+	    OR = {
+		    NOT = { has_global_flag = cu_two_years_pulse }
+			had_global_flag = {
+				flag = cu_two_years_pulse
+				days = 730
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+	    days = 1 
+	}
+	
+	option = {
+		name = "EVT_HIDDEN"
+		clr_global_flag = cu_two_years_pulse
+		set_global_flag = cu_two_years_pulse
+	}
+}
+
+#Monthly pulse
+country_event = {
+	id = cuglobal.4
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = CITY_VIEW_eventPicture
+	hidden = yes
+	is_triggered_only = yes #Not Activated
+	trigger = {
+        ai = no
+	    OR = {
+		    NOT = { has_global_flag = cu_monthly_pulse }
+			had_global_flag = {
+				flag = cu_monthly_pulse
+				days = 30
+			}
+		}
+	}
+	
+	mean_time_to_happen = {
+	    days = 1 
+	}
+	
+	option = {
+		name = "EVT_HIDDEN"
+		clr_global_flag = cu_monthly_pulse
+		set_global_flag = cu_monthly_pulse
+	}
+}
+
+#Ten year's pulse
+country_event = {
+	id = cuglobal.5
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = CITY_VIEW_eventPicture
+	hidden = yes
+	
+	trigger = {
+        ai = no
+	    OR = {
+		    NOT = { has_global_flag = cu_ten_year_pulse }
+				had_global_flag = {
+				    flag = cu_ten_year_pulse
+					days = 3650
+				}
+		}
+	}
+	
+	mean_time_to_happen = {
+	    months = 1 
+	}
+	
+	option = {
+          name = "EVT_HIDDEN"
+          clr_global_flag = cu_ten_year_pulse
+          set_global_flag = cu_ten_year_pulse
+          every_country = {
+		         every_owned_province = {
+						if = {
+						      limit = { has_province_modifier = cu_immigration }
+							  cu_do_immigration = yes
+						}
+				 }
+		  }		  
+	}
+}
+
+#Imform Player - Five Years' Pulse
+country_event = {
+	id = cuglobal.6
+	title = "cuglobal.6.t"
+	desc = "cuglobal.6.d"
+	picture = CITY_VIEW_eventPicture
+	is_triggered_only = yes #Not Activated
+	
+	option = {
+	    name = "cuglobal.6.a"
+	}
+}
+
+#Imform Player - GC Calculation
+country_event = {
+	id = cuglobal.61
+	title = "cuglobal.61.t"
+	desc = "cuglobal.61.d"
+	picture = CITY_VIEW_eventPicture
+	is_triggered_only = yes #Not Activated
+	
+	option = {
+	    name = "cuglobal.61.a"
+	}
+}
+
+#Activate Test Version ( For modders only, may ruin normal game. Can only be fired by the console) 
+country_event = {
+	id = cuglobal.7
+	title = "cuglobal.7.t"
+	desc = "cuglobal.7.d"
+	picture = CITY_VIEW_eventPicture
+	is_triggered_only = yes 
+	
+	option = {
+	    name = "cuglobal.7.a"
+		set_global_flag = test_version
+	}
+	option = {
+	    name = "cuglobal.7.b"
+	}
+}
+
+#Deactivate Test Version
+country_event = {
+	id = cuglobal.8
+	title = "cuglobal.8.t"
+	desc = "cuglobal.8.d"
+	picture = CITY_VIEW_eventPicture
+	is_triggered_only = yes
+	
+	option = {
+	    name = "cuglobal.8.a"
+		clr_global_flag = test_version
+	}
+}
+
+
+
+#Distance Calculation Event
+country_event = {
+    id = cuglobal.92
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = CITY_VIEW_eventPicture
+	hidden = yes
+	#is_triggered_only = yes
+	trigger = {
+	    has_country_flag = cu_calc_dist_cd	
+	    OR = {
+		    AND = {
+				ai = no
+				had_country_flag = {
+					flag = cu_calc_dist_cd
+					days = 30
+				}
+			}
+		    AND = {
+				ai = yes
+				had_country_flag = {
+					flag = cu_calc_dist_cd
+					days = 1825
+				}
+				OR = {
+					NOT = { has_global_flag = road_pause_cu }
+					had_global_flag = {
+						flag = road_pause_cu
+						days = 183
+					}
+				}
+				 
+			}
+		}
+	       
+	}
+	mean_time_to_happen = {
+	    months = 1
+	}
+	
+	option = {
+		name = "EVT_HIDDEN"
+		cu_calc_country_dist = yes
+	    cu_calc_country_absolute_dist = yes
+		clr_country_flag = cu_calc_dist_cd	
+		clr_global_flag = road_pause_cu
+		set_global_flag = road_pause_cu	
+	}
+}
+
+#Initialize Ruler Data
+country_event = {
+    id = cuglobal.93
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = CITY_VIEW_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVT_HIDDEN"
+		cu_register_ruler = yes
+	}
+}
+
+country_event = {
+    id = cuglobal.94
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = CITY_VIEW_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = "EVT_HIDDEN"
+		if = {
+			limit = {
+				any_owned_province = {
+					NOT = { has_province_modifier = connect_to_capital }
+					OR = {
+						AND = { 
+							has_province_modifier = connect_to_capital_oversea 
+							owner = { has_country_flag = capital_sea_route }
+							OR = {
+								has_building = dock
+								has_building = drydock
+							}
+							is_overseas = no
+						}
+						AND = {
+							OR = {
+								has_building = road_1
+								has_building = road_2
+								has_building = road_3
+							}
+							OR = {
+								any_neighbor_province = { #Land Connection
+									owned_by = ROOT
+									OR = {
+											has_province_modifier = connect_to_capital
+											has_province_modifier = connect_to_capital_oversea
+									}
+								}
+								AND = { #Sea Connection
+									OR = {
+										has_building = dock
+										has_building = drydock
+									}
+									owner = { has_country_flag = capital_sea_route } #Capital is connected to the sea
+									#is_blockaded = no
+								}
+							}
+							NOT = { has_province_modifier = connect_to_capital_oversea  }
+						}
+					}
+				}
+			}
+			random_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = connect_to_capital }
+					OR = {
+						AND = { 
+							has_province_modifier = connect_to_capital_oversea 
+							owner = { has_country_flag = capital_sea_route }
+							OR = {
+								has_building = dock
+								has_building = drydock
+							}
+							is_overseas = no
+						}
+						AND = {
+							OR = {
+								has_building = road_1
+								has_building = road_2
+								has_building = road_3
+							}
+							OR = {
+								any_neighbor_province = { #Land Connection
+									owned_by = ROOT
+									OR = {
+											has_province_modifier = connect_to_capital
+											has_province_modifier = connect_to_capital_oversea
+									}
+								}
+								AND = { #Sea Connection
+									OR = {
+										has_building = dock
+										has_building = drydock
+									}
+									owner = { has_country_flag = capital_sea_route } #Capital is connected to the sea
+									#is_blockaded = no
+								}
+							}
+							NOT = { has_province_modifier = connect_to_capital_oversea  }
+						}
+					}
+				}
+				if = { #Land Connection
+					limit = {
+						any_neighbor_province = { 
+							owned_by = ROOT
+							has_province_modifier = connect_to_capital
+						}
+					}
+					add_province_modifier = {
+						name = connect_to_capital    
+						duration = -1
+					}
+					if = {
+						limit = { has_province_modifier = connect_to_capital_oversea }
+						remove_province_modifier = connect_to_capital_oversea
+					}
+					if = {
+						limit = { 
+								NOT = { owner = { has_country_flag = capital_sea_route } }
+								OR = {
+									has_building = dock
+									has_building = drydock
+								}
+						}
+						ROOT = { set_country_flag = capital_sea_route }
+					}
+				}
+				else_if = { #Sea Connection (Same Continent)
+					limit = {
+						owner = { has_country_flag = capital_sea_route }
+						OR = {
+							has_building = dock
+							has_building = drydock
+						}
+						is_overseas = no
+						#is_blockaded = no
+					}
+					add_province_modifier = {
+						name = connect_to_capital    
+						duration = -1
+					}
+					if = {
+						limit = { has_province_modifier = connect_to_capital_oversea }
+						remove_province_modifier = connect_to_capital_oversea
+					}
+				}
+				else = {
+					add_province_modifier = {
+						name = connect_to_capital_oversea    
+						duration = -1
+					}
+				}
+								  
+			}
+			#Loop until no further province can be connected to capital
+			if = { limit = { ai = yes } country_event = { id = cuglobal.94 days = 1 } }
+			else = { country_event = { id = cuglobal.94 } } #Prevent From overflowing
+		}
+	}
+}
+
+country_event = {
+	id = cuglobal.95
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = CITY_VIEW_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	option = {
+		name = "EVT_HIDDEN"
+		if = {
+			limit = { has_country_flag = has_a_second_capital }
+			every_owned_province = {
+				limit = { has_province_modifier = second_capital }
+				owner = {
+					set_variable = { which = x_coor which = PREV }
+					set_variable = { which = y_coor which = PREV }
+					set_variable = { which = x_coor_sc which = x_coor }
+					set_variable = { which = y_coor_sc which = y_coor }
+				}
+			}
+		}
+		every_owned_province = {
+			limit = { is_capital = yes }
+			owner = {
+				set_variable = { which = x_coor which = PREV }
+				set_variable = { which = y_coor which = PREV }
+				set_variable = { which = x_coor_c which = x_coor }
+				set_variable = { which = y_coor_c which = y_coor }
+			}
+		}
+		set_variable = { which = x_coor_c which = x_coor }
+		set_variable = { which = y_coor_c which = y_coor }
+		subtract_variable = { which = x_coor which = x_coor_sc }
+		subtract_variable = { which = y_coor which = y_coor_sc }
+		set_variable = { which = xdif which = x_coor }
+		set_variable = { which = ydif which = y_coor }
+		calc_province_distance = yes
+		set_variable = { which = cu_scc_dist which = cu_distance }
+		if = { #Prevent from stack overflow
+			limit = {
+				num_of_cities = 400
+			}
+			set_variable = { which = cu_var2 value = 0 }
+			export_to_variable = {
+				which = cu_var2
+				value = num_of_cities
+			}
+			country_event = { id = cuestate.951 } 
+		}
+		else = {
+			every_owned_province = {
+				set_variable = { which = p_dist_tc value = 0 }
+				if = {
+					limit = { owner = { has_country_flag = has_a_second_capital } }
+					set_variable = { which = x_coor_sc which = owner }
+					set_variable = { which = y_coor_sc which = owner }
+					set_variable = { which = xdif which = x_coor }
+					subtract_variable = { which = xdif which = x_coor_sc }
+					set_variable = { which = ydif which = y_coor }
+					subtract_variable = { which = ydif which = y_coor_sc }
+					calc_province_distance = yes
+					set_variable = { which = cu_var3 which = cu_distance }
+					set_variable = { which = cu_scc_dist which = owner }
+					multiply_variable = { which = cu_scc_dist value = 0.25 }
+					change_variable = { which = cu_var3 which = cu_scc_dist }
+				}
+				else = {
+					set_variable = { which = cu_var3 value = 100000 }
+				}
+				set_variable = { which = x_coor_c which = owner }
+				set_variable = { which = y_coor_c which = owner }
+				set_variable = { which = xdif which = x_coor }
+				subtract_variable = { which = xdif which = x_coor_c }
+				set_variable = { which = ydif which = y_coor }
+				subtract_variable = { which = ydif which = y_coor_c }
+				calc_province_distance = yes
+				if = { limit = { check_variable = { which = cu_var3 which = cu_distance } } set_variable = { which = cu_var3 which = cu_distance } }
+				change_variable = { which = p_dist_tc which = cu_var3 }
+				divide_variable = {  which = cu_var3 value = 39  }
+				multiply_variable = { which = cu_var3 value = 105 }
+				divide_variable = {  which = cu_var3 value = 100  }
+				change_variable = { which = cu_var3 value = 25 }
+				divide_variable = { which = p_dist_tc which = cu_var3 }
+			}	
+		}
+	}
+}
+
+country_event = {
+	id = cuglobal.951
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = CITY_VIEW_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	option = {
+		name = "EVT_HIDDEN"
+		if = {
+			limit = { check_variable = { which = cu_var2 value = 200 } }
+			set_variable = { which = cu_var1 value = 200 }
+			subtract_variable = { which = cu_var2 value = 200 }
+			while = {
+				limit = { check_variable = { which = cu_var1 value = 0 } }
+				change_variable = { which = cu_var1 value = -1 }
+				random_owned_province = {
+					limit = { 
+						NOT = { has_province_flag = had_calc_d } 
+					}
+					set_province_flag = had_calc_d 
+					set_variable = { which = p_dist_tc value = 0 }
+					if = {
+						limit = { owner = { has_country_flag = has_a_second_capital } }
+						set_variable = { which = x_coor_sc which = owner }
+						set_variable = { which = y_coor_sc which = owner }
+						set_variable = { which = xdif which = x_coor }
+						subtract_variable = { which = xdif which = x_coor_sc }
+						set_variable = { which = ydif which = y_coor }
+						subtract_variable = { which = ydif which = y_coor_sc }
+						calc_province_distance = yes
+						set_variable = { which = cu_var3 which = cu_distance }
+						set_variable = { which = cu_scc_dist which = owner }
+						multiply_variable = { which = cu_scc_dist value = 0.25 }
+						change_variable = { which = cu_var3 which = cu_scc_dist }
+					}
+					else = {
+						set_variable = { which = cu_var3 value = 100000 }
+					}
+					set_variable = { which = x_coor_c which = owner }
+					set_variable = { which = y_coor_c which = owner }
+					set_variable = { which = xdif which = x_coor }
+					subtract_variable = { which = xdif which = x_coor_c }
+					set_variable = { which = ydif which = y_coor }
+					subtract_variable = { which = ydif which = y_coor_c }
+					calc_province_distance = yes
+					if = { limit = { check_variable = { which = cu_var3 which = cu_distance } } set_variable = { which = cu_var3 which = cu_distance } }
+					change_variable = { which = p_dist_tc which = cu_var3 }
+					divide_variable = {  which = cu_var3 value = 39  }
+					multiply_variable = { which = cu_var3 value = 105 }
+					divide_variable = {  which = cu_var3 value = 100  }
+					change_variable = { which = cu_var3 value = 25 }
+					divide_variable = { which = p_dist_tc which = cu_var3 }
+				}	
+				country_event = { id = cuglobal.951 } #Prevent From overflowing
+			}
+		}
+		else = {
+			every_owned_province = {
+				limit = { 
+					NOT = { has_province_flag = had_calc_d } 
+					is_state = yes 
+					#is_state_core = yes
+				}
+				set_variable = { which = p_dist_tc value = 0 }
+					if = {
+						limit = { owner = { has_country_flag = has_a_second_capital } }
+						set_variable = { which = x_coor_sc which = owner }
+						set_variable = { which = y_coor_sc which = owner }
+						set_variable = { which = xdif which = x_coor }
+						subtract_variable = { which = xdif which = x_coor_sc }
+						set_variable = { which = ydif which = y_coor }
+						subtract_variable = { which = ydif which = y_coor_sc }
+						calc_province_distance = yes
+						set_variable = { which = cu_var1 which = cu_distance }
+						set_variable = { which = cu_scc_dist which = owner }
+						multiply_variable = { which = cu_scc_dist value = 0.25 }
+						change_variable = { which = cu_var3 which = cu_scc_dist }
+					}
+					else = {
+						set_variable = { which = cu_var3 value = 100000 }
+					}
+					set_variable = { which = x_coor_c which = owner }
+					set_variable = { which = y_coor_c which = owner }
+					set_variable = { which = xdif which = x_coor }
+					subtract_variable = { which = xdif which = x_coor_c }
+					set_variable = { which = ydif which = y_coor }
+					subtract_variable = { which = ydif which = y_coor_c }
+					calc_province_distance = yes
+					if = { limit = { check_variable = { which = cu_var3 which = cu_distance } } set_variable = { which = cu_var3 which = cu_distance } }
+					change_variable = { which = p_dist_tc which = cu_var3 }
+					divide_variable = {  which = cu_var3 value = 39  }
+					multiply_variable = { which = cu_var3 value = 105 }
+					divide_variable = {  which = cu_var3 value = 100  }
+					change_variable = { which = cu_var3 value = 25 }
+					divide_variable = { which = p_dist_tc which = cu_var3 }
+			}
+			every_owned_province = {
+				limit = { has_province_flag = had_calc_d }
+				clr_province_flag = had_calc_d
+			}
+		}
+	}
+}

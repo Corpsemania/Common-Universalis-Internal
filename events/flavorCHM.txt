@@ -65,6 +65,6 @@ country_event = {
 	}
 	option = {
 		name = flavor_chm.2.b #Ignore the reform ideas
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }

@@ -1,0 +1,2809 @@
+namespace = cuestate
+country_event = {
+	id = cuestate.100
+	title = "cuestate.100_title"
+	desc = "cuestate.100_desc"
+	picture = COURT_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "cuestate.1000_title"
+		country_event = { id = cuestate.1000 }
+	}
+	option = {
+		name = "cuestate.101_title"
+		trigger = { has_estate = estate_nobles }
+		country_event = { id = cuestate.101 }
+	}
+	option = {
+		name = "cuestate.1012_title"
+		trigger = { has_estate = estate_qinwang }
+		country_event = { id = cuestate.1012 }
+	}
+	option = {
+		name = "cuestate.102_title"
+		trigger = { has_estate = estate_burghers }
+		country_event = { id = cuestate.102 }
+	}
+	option = {
+		name = "cuestate.103_title"
+		trigger = { has_estate = estate_church }
+		country_event = { id = cuestate.103 }
+	}
+	option = {
+		name = "cuestate.1032_title"
+		trigger = { has_estate = estate_shizu }
+		country_event = { id = cuestate.1032 }
+	}
+	option = {
+		name = "cuestate.104_title"
+		trigger = { has_estate = estate_nomadic_tribes  OR = { is_nomad = yes government = native } }
+		country_event = { id = cuestate.104 }
+	}
+	option = {
+		name = "cugovernmentui.exit"
+	}
+}
+
+
+country_event = {#Government
+	id = cuestate.1000
+	title = "cuestate.1000_title"
+	desc = "cuestate.1000_desc"
+	picture = COURT_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "MANAGE_TRADING_COMPANY"
+		trigger = {
+            ai = no
+			num_of_ports = 1
+			num_of_colonists = 1
+			has_institution = new_world_i
+		}
+		country_event = { id = company.0 }
+	}
+	option = {
+		name = "cuestate.1000.an"
+		trigger = {
+			ai = no
+			NOT = {
+				num_of_ports = 1
+				num_of_colonists = 1
+				has_institution = new_world_i
+			}
+		}
+		custom_tooltip = cuestate.1000.ant
+	}
+	
+	option = {
+		name = "CU_PRESTIGE_SHOP"
+		trigger = {
+			prestige = 0
+			NOT = { has_country_flag = prestige_shop_open }
+		}
+		set_country_flag = prestige_shop_open
+		country_event = { id = state.4 }
+	}
+	option = {
+		name = "cuestate.1000.bn"
+		trigger = {
+			OR = {
+				NOT = { prestige = 0 }
+				has_country_flag = prestige_shop_open
+			}
+		}
+		custom_tooltip = cuestate.1000.bnt
+	}
+	
+	option = {
+		name = "CU_STRENGTHEN_GOVERNMENT"
+		trigger = {
+			adm_power = 100
+			dip_power = 100
+		    mil_power = 100
+			NOT = { legitimacy_equivalent = 100 }
+			NOT = { has_country_modifier = cu_strengthen_government_m }
+			NOT = {
+				OR = {
+					horde_unity = 1
+					devotion = 1
+				}
+			}
+		}
+		add_adm_power = -100
+		add_dip_power = -100
+		add_mil_power = -100
+		add_country_modifier = {
+			name =  cu_strengthen_government_m    
+			duration = 3650		
+		}
+	}
+	option = {
+		name = "cuestate.1000.dn"
+		trigger = {
+			OR = {
+				NOT = {
+					adm_power = 100
+					dip_power = 100
+					mil_power = 100
+				}
+				horde_unity = 1
+				devotion = 1
+				legitimacy_equivalent = 100
+				has_country_modifier = cu_strengthen_government_m
+			}
+		}
+		custom_tooltip = cuestate.1000.dnt
+	}
+	
+	option = {
+		name = "COURT_DECISIONS"
+		trigger = {
+			government = monarchy
+            NOT = { has_reform =  elective_monarchy }
+            NOT = { has_country_flag = enacting_court_decisions }
+			ai = no
+			legitimacy_equivalent = 50
+		}
+		set_country_flag = enacting_court_decisions
+            set_ruler_flag = enacting_court_decisions_ai
+            country_event = { id = state.1 }
+	}
+	option = {
+		name = "cuestate.1000.en"
+		trigger = {
+			OR = {
+				has_reform =  elective_monarchy
+				has_country_flag = enacting_court_decisions
+				ai = yes
+				NOT = { legitimacy_equivalent = 50 }
+				NOT = { government = monarchy }
+			}
+		}
+		custom_tooltip = cuestate.1000.ent
+	}
+	option = { 
+	    name = "urban.return"
+		country_event = { id = cuestate.100 }
+	}
+	option = {
+		name = "cugovernmentui.exit"
+	}
+}
+
+
+country_event = {#Nobles
+	id = cuestate.101
+	title = "cuestate.101_title"
+	desc = "cuestate.101_desc"
+	picture = COURT_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "cuestate.101.a"
+		trigger = {
+			has_country_flag = cu_estate_system_set
+			OR = {
+				NOT = { has_country_flag = ask_for_contribution_from_nobles }
+				had_country_flag = { flag = ask_for_contribution_from_nobles days = 1825 }
+			}
+		}
+		clr_country_flag = ask_for_contribution_from_nobles
+		set_country_flag = ask_for_contribution_from_nobles
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 0 }
+			set_variable = { which = cu_cash which = etin } 
+			export_to_variable = {
+				which = cu_var1
+				value = modifier:global_tax_modifier
+			}
+			change_variable = { which = cu_var1 value = 1 }
+			set_variable = { which = t_dev value = 0 }
+			export_to_variable = {
+				which = t_dev
+				value = states_development
+			}
+			multiply_variable = { which = cu_cash which = t_dev }
+			multiply_variable = { which = cu_cash which = cu_var1 }
+			multiply_variable = { which = cu_cash value = 0.005 }
+			set_variable = { which = cu_cash_display which = cu_cash }	
+			set_variable = { which = cu_var1 which = etin }
+			multiply_variable = { which = cu_var1 value = -0.5 }
+			set_variable = { which = cu_sta_display which = cu_var1 }	
+		}
+		cu_change_cash_hidden = yes 
+		custom_tooltip = cu_change_cash_ng		
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_nt
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = -15
+		}
+	}
+	option = {
+		name = "cuestate.101.an"
+		trigger = {
+			NOT = {
+				AND = {
+					has_country_flag = cu_estate_system_set
+					OR = {
+						NOT = { has_country_flag = ask_for_contribution_from_nobles }
+						had_country_flag = { flag = ask_for_contribution_from_nobles days = 1825 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.101.ant
+	}
+	
+	option = {
+		name = "cuestate.101.b"
+		trigger = {
+			dip_power = 100
+			has_country_flag = cu_estate_system_set
+			OR = {
+				NOT = { has_country_flag = fund_nobles }
+				had_country_flag = { flag = fund_nobles days = 5475 }
+			}
+		}
+		clr_country_flag = fund_nobles
+		set_country_flag = fund_nobles
+		add_dip_power = -100
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 0 }
+			set_variable = { which = cu_cash which = etin }
+			set_variable = { which = t_dev value = 0 }
+			export_to_variable = {
+				which = t_dev
+				value = states_development
+			}
+			multiply_variable = { which = cu_cash which = t_dev }
+			multiply_variable = { which = cu_cash value = -0.005 }
+			set_variable = { which = cu_cash_display which = cu_cash }	
+			set_variable = { which = cu_var1 which = etin }
+			multiply_variable = { which = cu_var1 value = 0.5 }
+			set_variable = { which = cu_sta_display which = cu_var1 }
+		}			
+		cu_change_cash_hidden = yes 
+		custom_tooltip = cu_change_cash_nt				
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_ng				
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nobles
+			desc = EST_VAL_FUND_THE_LOYALISTS
+			influence = -10
+			duration = 5475
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_FUND_THE_LOYALISTS
+			influence = 10
+			duration = 5475
+		}
+	}
+	option = {
+		name = "cuestate.101.bn"
+		trigger = {
+			NOT = {
+				AND = {
+					dip_power = 100
+					has_country_flag = cu_estate_system_set
+					OR = {
+						NOT = { has_country_flag = fund_nobles }
+						had_country_flag = { flag = fund_nobles days = 5475 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.101.bnt
+	}
+	
+	option = {
+		name = "MARRY_WITH_ESTATE"
+		trigger = {
+			cu_estate_marry_trigger = yes
+		}
+		set_country_flag = est_consort
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nobles
+			desc = EST_VAL_MARRY_WITH_ESTATE
+			influence = 10
+			duration = 7300
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_MARRY_WITH_ESTATE
+			influence = -10
+			duration = 7300
+		}
+		hidden_effect = {
+			set_variable = { which = cu_var1 which = etin }
+			multiply_variable = { which = cu_var1 which = 0.1 }
+			set_variable = { which = cu_sta_display which = cu_var1 }	
+		}		
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_ng
+	}
+	option = {
+		name = "cuestate.101.cn"
+		trigger = {
+			NOT = { 
+				cu_estate_marry_trigger = yes
+			}
+		}
+		custom_tooltip = cuestate.101.cnt
+	}
+	
+	option = {
+		name = "GRANT_AUTONOMY"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = grant_autonomy_to_nobles }
+				had_country_flag = { flag = grant_autonomy_to_nobles days = 7300 }
+			}
+			any_owned_province = {
+				check_variable = { which = epimn value = 30 }
+			}
+		}
+		clr_country_flag = grant_autonomy_to_nobles
+		set_country_flag = grant_autonomy_to_nobles
+		add_absolutism = -10
+		add_militarised_society = -15
+		custom_tooltip = granted_auto_est
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 20
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nobles
+			desc = EST_VAL_GRANT_AUTONOMY
+			influence = 10
+			duration = 7300
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_GRANT_AUTONOMY
+			influence = -10
+			duration = 7300
+		}
+		hidden_effect = {
+			set_variable = { which = cu_var1 which = etin }
+			set_variable = { which = cu_sta_display which = cu_var1 }	
+			every_owned_province = {
+				limit = { check_variable = { which = epimn value = 40 } }
+				add_local_autonomy = 10
+				add_unrest = -2
+			}
+		}
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_ng
+	}
+	option = {
+		name = "cuestate.101.dn"
+		trigger = {
+			NOT = {
+				AND = {
+					OR = {
+						NOT = { has_country_flag = grant_autonomy_to_nobles }
+						had_country_flag = { flag = grant_autonomy_to_nobles days = 7300 }
+					}
+					any_owned_province = {
+						check_variable = { which = epimn value = 30 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.101.dnt
+	}
+	
+	option = {
+		name = "GRANT_ESTATE_OFFICIAL_POSITIONS"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = grant_positions_to_nobles }
+				had_country_flag = { flag = grant_positions_to_nobles days = 3650 }
+			}
+		}
+		clr_country_flag = grant_positions_to_nobles
+		set_country_flag = grant_positions_to_nobles
+		add_absolutism = -5
+		add_militarised_society = -10
+		add_corruption = 0.5
+		add_dip_power = -50
+		add_adm_power = -50
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 20
+		}
+		hidden_effect = {
+			set_variable = { which = cu_var1 which = etin }
+			multiply_variable = { which = cu_var1 which = 0.33 }
+			set_variable = { which = cu_sta_display which = cu_var1 }		
+		}	
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_ng
+	}
+	option = {
+		name = "cuestate.101.en"
+		trigger = {
+			NOT = {
+				OR = {
+					NOT = { has_country_flag = grant_positions_to_nobles }
+					had_country_flag = { flag = grant_positions_to_nobles days = 3650 }
+				}
+			}
+		}
+		custom_tooltip = cuestate.101.ent
+	}
+	
+	option = {
+		name = "DEMAND_WAR_SUPPORT"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = demand_war_support_from_nobles }
+				had_country_flag = { flag = demand_war_support_from_nobles days = 7300 }
+			}
+			is_at_war = yes
+			estate_loyalty = {
+				estate = estate_nobles
+				loyalty = 40
+			}
+			any_owned_province = {
+				check_variable = { which = epimn value = 30 }
+			}
+		}
+		country_event = { id = cuestate.11 }
+		
+	}
+	option = {
+		name = "cuestate.101.fn"
+		trigger = {
+			NOT = {
+				AND = {
+					OR = {
+						NOT = { has_country_flag = demand_war_support_from_nobles }
+						had_country_flag = { flag = demand_war_support_from_nobles days = 7300 }
+					}
+					is_at_war = yes
+					estate_loyalty = {
+						estate = estate_nobles
+						loyalty = 40
+					}
+					any_owned_province = {
+						check_variable = { which = epimn value = 30 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.101.fnt
+	}
+	
+	option = {
+		name = "cuestate.101.g"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = call_diet_nobles }
+				had_country_flag = { flag = call_diet_nobles days = 7300 }
+			}
+		}
+		clr_country_flag = call_diet_nobles
+		set_country_flag = call_diet_nobles
+		add_prestige = -5
+		add_absolutism = -5
+		add_militarised_society = -5
+		add_estate_loyalty = {
+			estate = estate_nobles
+			loyalty = 15
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nobles
+			desc = EST_VAL_DIET_HELD
+			influence = 10
+			duration = 7300
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_DIET_HELD
+			influence = -10
+			duration = 7300
+		}
+		
+	}
+	option = {
+		name = "cuestate.101.gn"
+		trigger = {
+			NOT = {
+				OR = {
+					NOT = { has_country_flag = call_diet_nobles }
+					had_country_flag = { flag = call_diet_nobles days = 7300 }
+				}
+			}
+		}
+		custom_tooltip = cuestate.101.gnt
+	}
+	
+	option = {
+		name = "CU_MILITARY_COUP"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = coup_against_nobles }
+				had_country_flag = { flag = coup_against_nobles days = 9125 }
+			}
+			NOT = { has_country_modifier = coup_timer }
+			mil_power = 200
+			estate_influence = {
+				estate = estate_nobles
+				influence = 30
+			}
+			NOT = {
+				estate_loyalty = {
+					estate = estate_nobles
+					loyalty = 30
+				}	
+			}
+		}
+		clr_country_flag = coup_against_nobles
+		set_country_flag = coup_against_nobles
+		add_mil_power = -200
+		set_country_flag = preparing_military_coup_flag
+		add_country_modifier = {
+			name =  preparing_military_coup
+			duration = 365						
+		}
+		hidden_effect = {
+			set_variable = { which = coup_support value = 0 }
+			set_country_flag = coup_against_nobles
+		}
+		custom_tooltip = preparing_military_coup_t
+		hidden_effect = {
+			add_country_modifier = {
+				name = coup_timer
+				duration = 7300
+				hidden = yes
+			}
+		}
+	}
+	option = {
+		name = "cuestate.101.hn"
+		trigger = {
+			NOT = {
+				AND = {
+					OR = {
+						NOT = { has_country_flag = coup_against_nobles }
+						had_country_flag = { flag = coup_against_nobles days = 9125 }
+					}
+					NOT = { has_country_modifier = coup_timer }
+					mil_power = 200
+					estate_influence = {
+						estate = estate_nobles
+						influence = 30
+					}
+					NOT = {
+						estate_loyalty = {
+							estate = estate_nobles
+							loyalty = 30
+						}	
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.101.hnt
+	}
+	option = { 
+	    name = "urban.return"
+		country_event = { id = cuestate.100 }
+	}
+	option = {
+		name = "cugovernmentui.exit"
+	}
+}
+
+country_event = {#Qinwang
+	id = cuestate.1012
+	title = "cuestate.1012_title"
+	desc = "cuestate.1012_desc"
+	picture = COURT_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "cuestate.1012.a"
+		trigger = {
+			has_country_flag = cu_estate_system_set
+			OR = {
+				NOT = { has_country_flag = ask_for_contribution_from_qinwang }
+				had_country_flag = { flag = ask_for_contribution_from_qinwang days = 1825 }
+			}
+		}
+		clr_country_flag = ask_for_contribution_from_qinwang
+		set_country_flag = ask_for_contribution_from_qinwang
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 0 }
+			set_variable = { which = cu_cash which = etin } 
+			export_to_variable = {
+				which = cu_var1
+				value = modifier:global_tax_modifier
+			}
+			change_variable = { which = cu_var1 value = 1 }
+			set_variable = { which = t_dev value = 0 }
+			export_to_variable = {
+				which = t_dev
+				value = states_development
+			}
+			multiply_variable = { which = cu_cash which = t_dev }
+			multiply_variable = { which = cu_cash which = cu_var1 }
+			multiply_variable = { which = cu_cash value = 0.005 }
+			set_variable = { which = cu_cash_display which = cu_cash }	
+			set_variable = { which = cu_var1 which = etin }
+			multiply_variable = { which = cu_var1 value = -0.5 }
+			set_variable = { which = cu_sta_display which = cu_var1 }	
+		}
+		cu_change_cash_hidden = yes 
+		custom_tooltip = cu_change_cash_ng		
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_nt
+		add_estate_loyalty = {
+			estate = estate_qinwang
+			loyalty = -15
+		}
+	}
+	option = {
+		name = "cuestate.1012.an"
+		trigger = {
+			NOT = {
+				AND = {
+					has_country_flag = cu_estate_system_set
+					OR = {
+						NOT = { has_country_flag = ask_for_contribution_from_qinwang }
+						had_country_flag = { flag = ask_for_contribution_from_qinwang days = 1825 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.1012.ant
+	}
+	
+	option = {
+		name = "cuestate.1012.b"
+		trigger = {
+			dip_power = 100
+			has_country_flag = cu_estate_system_set
+			OR = {
+				NOT = { has_country_flag = fund_qinwang }
+				had_country_flag = { flag = fund_qinwang days = 5475 }
+			}
+		}
+		clr_country_flag = fund_qinwang
+		set_country_flag = fund_qinwang
+		add_dip_power = -100
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 0 }
+			set_variable = { which = cu_cash which = etin }
+			set_variable = { which = t_dev value = 0 }
+			export_to_variable = {
+				which = t_dev
+				value = states_development
+			}
+			multiply_variable = { which = cu_cash which = t_dev }
+			multiply_variable = { which = cu_cash value = -0.005 }
+			set_variable = { which = cu_cash_display which = cu_cash }	
+			set_variable = { which = cu_var1 which = etin }
+			multiply_variable = { which = cu_var1 value = 0.5 }
+			set_variable = { which = cu_sta_display which = cu_var1 }
+		}			
+		cu_change_cash_hidden = yes 
+		custom_tooltip = cu_change_cash_nt				
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_ng				
+		add_estate_loyalty = {
+			estate = estate_qinwang
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_qinwang
+			desc = EST_VAL_FUND_THE_LOYALISTS
+			influence = -10
+			duration = 5475
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_FUND_THE_LOYALISTS
+			influence = 10
+			duration = 5475
+		}
+	}
+	option = {
+		name = "cuestate.1012.bn"
+		trigger = {
+			NOT = {
+				AND = {
+					dip_power = 100
+					has_country_flag = cu_estate_system_set
+					OR = {
+						NOT = { has_country_flag = fund_qinwang }
+						had_country_flag = { flag = fund_qinwang days = 5475 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.1012.bnt
+	}
+	
+	option = {
+		name = "NEW_HEIR"
+		trigger = {
+			has_heir = no
+		}
+		add_prestige = -20
+		add_meritocracy = -10
+		set_country_flag = cu_qinwang_create_heir
+		custom_tooltip = choosing_heir_tooltip
+	}
+	option = {
+		name = "cuestate.1012.cn"
+		trigger = {
+			has_heir = yes
+		}
+		custom_tooltip = cuestate.1012.cnt
+	}
+	
+	option = {
+		name = "GRANT_AUTONOMY"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = grant_autonomy_to_qinwang }
+				had_country_flag = { flag = grant_autonomy_to_qinwang days = 7300 }
+			}
+			any_owned_province = {
+				check_variable = { which = epimn value = 30 }
+			}
+		}
+		clr_country_flag = grant_autonomy_to_qinwang
+		set_country_flag = grant_autonomy_to_qinwang
+		add_absolutism = -5
+		add_militarised_society = -10
+		every_owned_province = {
+			limit = { check_variable = { which = epimn value = 40 } }
+			add_local_autonomy = 10
+			add_unrest = -2
+		}
+		add_estate_loyalty = {
+			estate = estate_qinwang
+			loyalty = 20
+		}
+		add_estate_influence_modifier = {
+			estate = estate_qinwang
+			desc = EST_VAL_GRANT_AUTONOMY
+			influence = 10
+			duration = 7300
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_GRANT_AUTONOMY
+			influence = -10
+			duration = 7300
+		}
+		hidden_effect = {
+			set_variable = { which = cu_var1 which = etin }
+			set_variable = { which = cu_sta_display which = cu_var1 }	
+		}
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_ng
+	}
+	option = {
+		name = "cuestate.1012.dn"
+		trigger = {
+			NOT = {
+				AND = {
+					OR = {
+						NOT = { has_country_flag = grant_autonomy_to_qinwang }
+						had_country_flag = { flag = grant_autonomy_to_qinwang days = 7300 }
+					}
+					any_owned_province = {
+						check_variable = { which = epimn value = 30 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.1012.dnt
+	}
+	
+	option = {
+		name = "GRANT_ESTATE_OFFICIAL_POSITIONS"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = grant_positions_to_qinwang }
+				had_country_flag = { flag = grant_positions_to_qinwang days = 3650 }
+			}
+		}
+		clr_country_flag = grant_positions_to_qinwang
+		set_country_flag = grant_positions_to_qinwang
+		add_absolutism = -5
+		add_militarised_society = -10
+		add_corruption = 0.5
+		add_dip_power = -50
+		add_adm_power = -50
+		add_estate_loyalty = {
+			estate = estate_qinwang
+			loyalty = 20
+		}
+		hidden_effect = {
+			set_variable = { which = cu_var1 which = etin }
+			multiply_variable = { which = cu_var1 which = 0.33 }
+			set_variable = { which = cu_sta_display which = cu_var1 }		
+		}	
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_ng
+	}
+	option = {
+		name = "cuestate.1012.en"
+		trigger = {
+			NOT = {
+				OR = {
+					NOT = { has_country_flag = grant_positions_to_qinwang }
+					had_country_flag = { flag = grant_positions_to_qinwang days = 3650 }
+				}
+			}
+		}
+		custom_tooltip = cuestate.1012.ent
+	}
+	
+	option = {
+		name = "CU_MILITARY_COUP"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = coup_against_nobles }
+				had_country_flag = { flag = coup_against_nobles days = 9125 }
+			}
+			NOT = { has_country_modifier = coup_timer }
+			mil_power = 200
+			estate_influence = {
+				estate = estate_qinwang
+				influence = 30
+			}
+			NOT = {
+				estate_loyalty = {
+					estate = estate_qinwang
+					loyalty = 30
+				}	
+			}
+		}
+		clr_country_flag = coup_against_nobles
+		set_country_flag = coup_against_nobles
+		add_mil_power = -200
+		set_country_flag = preparing_military_coup_flag
+		add_country_modifier = {
+			name =  preparing_military_coup
+			duration = 365						
+		}
+		hidden_effect = {
+			set_variable = { which = coup_support value = 0 }
+			set_country_flag = coup_against_nobles
+		}
+		custom_tooltip = preparing_military_coup_t
+		hidden_effect = {
+			add_country_modifier = {
+				name = coup_timer
+				duration = 7300
+				hidden = yes
+			}
+		}
+	}
+	option = {
+		name = "cuestate.1012.hn"
+		trigger = {
+			NOT = {
+				AND = {
+					OR = {
+						NOT = { has_country_flag = coup_against_nobles }
+						had_country_flag = { flag = coup_against_nobles days = 9125 }
+					}
+					NOT = { has_country_modifier = coup_timer }
+					mil_power = 200
+					estate_influence = {
+						estate = estate_qinwang
+						influence = 30
+					}
+					NOT = {
+						estate_loyalty = {
+							estate = estate_qinwang
+							loyalty = 30
+						}	
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.1012.hnt
+	}
+	option = { 
+	    name = "urban.return"
+		country_event = { id = cuestate.100 }
+	}
+	option = {
+		name = "cugovernmentui.exit"
+	}
+}
+
+country_event = {#Burghers
+	id = cuestate.102
+	title = "cuestate.102_title"
+	desc = "cuestate.102_desc"
+	picture = COURT_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "cuestate.102.a"
+		trigger = {
+			has_country_flag = cu_estate_system_set
+			OR = {
+				NOT = { has_country_flag = ask_for_contribution_from_burghers }
+				had_country_flag = { flag = ask_for_contribution_from_burghers days = 1825 }
+			}
+		}
+		clr_country_flag = ask_for_contribution_from_burghers
+		set_country_flag = ask_for_contribution_from_burghers
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 0 }
+			set_variable = { which = cu_cash which = etib } 
+			export_to_variable = {
+				which = cu_var1
+				value = modifier:global_tax_modifier
+			}
+			change_variable = { which = cu_var1 value = 1 }
+			set_variable = { which = t_dev value = 0 }
+			export_to_variable = {
+				which = t_dev
+				value = states_development
+			}
+			multiply_variable = { which = cu_cash which = t_dev }
+			multiply_variable = { which = cu_cash which = cu_var1 }
+			multiply_variable = { which = cu_cash value = 0.005 }
+			set_variable = { which = cu_cash_display which = cu_cash }	
+			set_variable = { which = cu_var1 which = etib }
+			multiply_variable = { which = cu_var1 value = -0.5 }
+			set_variable = { which = cu_sta_display which = cu_var1 }	
+		}
+		cu_change_cash_hidden = yes 
+		custom_tooltip = cu_change_cash_bg		
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_bt
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = -15
+		}
+	}
+	option = {
+		name = "cuestate.102.an"
+		trigger = {
+			NOT = {
+				AND = {
+					has_country_flag = cu_estate_system_set
+					OR = {
+						NOT = { has_country_flag = ask_for_contribution_from_burghers }
+						had_country_flag = { flag = ask_for_contribution_from_burghers days = 1825 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.102.ant
+	}
+	
+	option = {
+		name = "cuestate.102.b"
+		trigger = {
+			dip_power = 100
+			has_country_flag = cu_estate_system_set
+			OR = {
+				NOT = { has_country_flag = fund_burghers }
+				had_country_flag = { flag = fund_burghers days = 5475 }
+			}
+		}
+		clr_country_flag = fund_burghers
+		set_country_flag = fund_burghers
+		add_dip_power = -100
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 0 }
+			set_variable = { which = cu_cash which = etib }
+			set_variable = { which = t_dev value = 0 }
+			export_to_variable = {
+				which = t_dev
+				value = states_development
+			}
+			multiply_variable = { which = cu_cash which = t_dev }
+			multiply_variable = { which = cu_cash value = -0.005 }
+			set_variable = { which = cu_cash_display which = cu_cash }	
+			set_variable = { which = cu_var1 which = etib }
+			multiply_variable = { which = cu_var1 value = 0.5 }
+			set_variable = { which = cu_sta_display which = cu_var1 }
+		}			
+		cu_change_cash_hidden = yes 
+		custom_tooltip = cu_change_cash_bt				
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_bg				
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_burghers
+			desc = EST_VAL_FUND_THE_LOYALISTS
+			influence = -10
+			duration = 5475
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_FUND_THE_LOYALISTS
+			influence = 10
+			duration = 5475
+		}
+	}
+	option = {
+		name = "cuestate.102.bn"
+		trigger = {
+			NOT = {
+				AND = {
+					dip_power = 100
+					has_country_flag = cu_estate_system_set
+					OR = {
+						NOT = { has_country_flag = fund_burghers }
+						had_country_flag = { flag = fund_burghers days = 5475 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.102.bnt
+	}
+	
+	option = {
+		name = "MARRY_WITH_ESTATE"
+		trigger = {
+			cu_estate_marry_trigger = yes
+		}
+		set_country_flag = est_consort
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_burghers
+			desc = EST_VAL_MARRY_WITH_ESTATE
+			influence = 10
+			duration = 7300
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_MARRY_WITH_ESTATE
+			influence = -10
+			duration = 7300
+		}
+		hidden_effect = {
+			set_variable = { which = cu_var1 which = etib }
+			multiply_variable = { which = cu_var1 which = 0.1 }
+			set_variable = { which = cu_sta_display which = cu_var1 }	
+		}		
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_bg
+	}
+	option = {
+		name = "cuestate.102.cn"
+		trigger = {
+			NOT = { 
+				cu_estate_marry_trigger = yes
+			}
+		}
+		custom_tooltip = cuestate.102.cnt
+	}
+	
+	option = {
+		name = "GRANT_AUTONOMY"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = grant_autonomy_to_burghers }
+				had_country_flag = { flag = grant_autonomy_to_burghers days = 7300 }
+			}
+			any_owned_province = {
+				check_variable = { which = epimb value = 30 }
+			}
+		}
+		clr_country_flag = grant_autonomy_to_burghers
+		set_country_flag = grant_autonomy_to_burghers
+		add_absolutism = -3
+		add_militarised_society = -9
+		custom_tooltip = granted_auto_est
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = 20
+		}
+		add_estate_influence_modifier = {
+			estate = estate_burghers
+			desc = EST_VAL_GRANT_AUTONOMY
+			influence = 10
+			duration = 7300
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_GRANT_AUTONOMY
+			influence = -10
+			duration = 7300
+		}
+		hidden_effect = {
+			set_variable = { which = cu_var1 which = etib }
+			set_variable = { which = cu_sta_display which = cu_var1 }	
+			every_owned_province = {
+				limit = { check_variable = { which = epimb value = 40 } }
+				add_local_autonomy = 10
+				add_unrest = -2
+			}
+		}
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_bg
+	}
+	option = {
+		name = "cuestate.102.dn"
+		trigger = {
+			NOT = {
+				AND = {
+					OR = {
+						NOT = { has_country_flag = grant_autonomy_to_burghers }
+						had_country_flag = { flag = grant_autonomy_to_burghers days = 7300 }
+					}
+					any_owned_province = {
+						check_variable = { which = epimb value = 30 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.102.dnt
+	}
+	
+	option = {
+		name = "GRANT_ESTATE_OFFICIAL_POSITIONS"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = grant_positions_to_burghers }
+				had_country_flag = { flag = grant_positions_to_burghers days = 3650 }
+			}
+		}
+		clr_country_flag = grant_positions_to_burghers
+		set_country_flag = grant_positions_to_burghers
+		add_absolutism = -5
+		add_militarised_society = -10
+		add_corruption = 0.5
+		add_dip_power = -50
+		add_adm_power = -50
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = 20
+		}
+		hidden_effect = {
+			set_variable = { which = cu_var1 which = etib }
+			multiply_variable = { which = cu_var1 which = 0.33 }
+			set_variable = { which = cu_sta_display which = cu_var1 }		
+		}	
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_bg
+	}
+	option = {
+		name = "cuestate.102.en"
+		trigger = {
+			NOT = {
+				OR = {
+					NOT = { has_country_flag = grant_positions_to_burghers }
+					had_country_flag = { flag = grant_positions_to_burghers days = 3650 }
+				}
+			}
+		}
+		custom_tooltip = cuestate.102.ent
+	}
+	
+	option = {
+		name = "DEMAND_WAR_SUPPORT"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = demand_war_support_from_burghers }
+				had_country_flag = { flag = demand_war_support_from_burghers days = 7300 }
+			}
+			is_at_war = yes
+			estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 40
+			}
+			any_owned_province = {
+				check_variable = { which = epimb value = 30 }
+			}
+		}
+		custom_tooltip = add_manpower_est
+		add_dip_power = -150
+		add_absolutism = -5
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 0 }
+			every_owned_province = {
+				limit = { check_variable = { which = epimb value = 30 } }
+				owner = { add_manpower = 0.25 }
+			}
+		}
+		add_country_modifier = {
+			name = estate_burghers_war_support
+			duration = -1
+		}
+		clr_country_flag = demand_war_support_from_burghers
+		set_country_flag = demand_war_support_from_burghers
+		
+	}
+	option = {
+		name = "cuestate.102.fn"
+		trigger = {
+			NOT = {
+				AND = {
+					OR = {
+						NOT = { has_country_flag = demand_war_support_from_burghers }
+						had_country_flag = { flag = demand_war_support_from_burghers days = 7300 }
+					}
+					is_at_war = yes
+					estate_loyalty = {
+						estate = estate_burghers
+						loyalty = 40
+					}
+					any_owned_province = {
+						check_variable = { which = epimb value = 30 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.102.fnt
+	}
+	
+	option = {
+		name = "cuestate.102.g"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = ask_ship_burghers }
+				had_country_flag = { flag = ask_ship_burghers days = 10950 }
+			}
+			primitives = no
+			estate_loyalty = {
+				estate = estate_burghers
+				loyalty = 30
+			}	
+			estate_influence = {
+				estate = estate_burghers
+				influence = 20
+			}
+			num_of_ports = 10
+			any_owned_province = {
+				has_port = yes
+				check_variable = { which = epimb value = 30 }
+			}
+		}
+		
+		clr_country_flag = ask_ship_burghers
+		set_country_flag = ask_ship_burghers
+		add_estate_loyalty = {
+			estate = estate_burghers
+			loyalty = -15
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = epimb value = 30 }
+				has_port = yes
+			}
+			add_unit_construction = {
+				amount = 1
+				type = heavy_ship
+				speed = 0.5
+				cost = 0
+			}
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = epimb value = 30 }
+				has_port = yes
+			}
+			add_unit_construction = {
+				amount = 1
+				type = heavy_ship
+				speed = 0.5
+				cost = 0
+			}
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = epimb value = 30 }
+				has_port = yes
+			}
+			add_unit_construction = {
+				amount = 1
+				type = heavy_ship
+				speed = 0.5
+				cost = 0
+			}
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = epimb value = 30 }
+				has_port = yes
+			}
+			add_unit_construction = {
+				amount = 1
+				type = heavy_ship
+				speed = 0.5
+				cost = 0
+			}
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = epimb value = 30 }
+				has_port = yes
+			}
+			add_unit_construction = {
+				amount = 1
+				type = heavy_ship
+				speed = 0.5
+				cost = 0
+			}
+		}
+		random_owned_province = {
+			limit = {
+				check_variable = { which = epimb value = 30 }
+				has_port = yes
+			}
+			add_unit_construction = {
+				amount = 1
+				type = heavy_ship
+				speed = 0.5
+				cost = 0
+			}
+		}
+	}
+	option = {
+		name = "cuestate.102.gn"
+		trigger = {
+			NOT = {
+				AND = {
+					OR = {
+						NOT = { has_country_flag = ask_ship_burghers }
+						had_country_flag = { flag = ask_ship_burghers days = 10950 }
+					}
+					primitives = no
+					estate_loyalty = {
+						estate = estate_burghers
+						loyalty = 30
+					}	
+					estate_influence = {
+						estate = estate_burghers
+						influence = 20
+					}
+					num_of_ports = 10
+					any_owned_province = {
+						has_port = yes
+						check_variable = { which = epimb value = 30 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.102.gnt
+	}
+	
+	option = {
+		name = "CU_MILITARY_COUP"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = coup_against_burghers }
+				had_country_flag = { flag = coup_against_burghers days = 9125 }
+			}
+			NOT = { has_country_modifier = coup_timer }
+			mil_power = 200
+			estate_influence = {
+				estate = estate_burghers
+				influence = 30
+			}
+			NOT = {
+				estate_loyalty = {
+					estate = estate_burghers
+					loyalty = 30
+				}	
+			}
+		}
+		clr_country_flag = coup_against_burghers
+		set_country_flag = coup_against_burghers
+		add_mil_power = -200
+		set_country_flag = preparing_military_coup_flag
+		add_country_modifier = {
+			name =  preparing_military_coup
+			duration = 365						
+		}
+		hidden_effect = {
+			set_variable = { which = coup_support value = 0 }
+			set_country_flag = coup_against_burghers
+		}
+		custom_tooltip = preparing_military_coup_t
+		hidden_effect = {
+			add_country_modifier = {
+				name = coup_timer
+				duration = 7300
+				hidden = yes
+			}
+		}
+	}
+	option = {
+		name = "cuestate.102.hn"
+		trigger = {
+			NOT = {
+				AND = {
+					OR = {
+						NOT = { has_country_flag = coup_against_burghers }
+						had_country_flag = { flag = coup_against_burghers days = 9125 }
+					}
+					NOT = { has_country_modifier = coup_timer }
+					mil_power = 200
+					estate_influence = {
+						estate = estate_burghers
+						influence = 30
+					}
+					NOT = {
+						estate_loyalty = {
+							estate = estate_burghers
+							loyalty = 30
+						}	
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.102.hnt
+	}
+	option = { 
+	    name = "urban.return"
+		country_event = { id = cuestate.100 }
+	}
+	option = {
+		name = "cugovernmentui.exit"
+	}
+}
+
+country_event = {#Church
+	id = cuestate.103
+	title = "cuestate.103_title"
+	desc = "cuestate.103_desc"
+	picture = COURT_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "cuestate.103.a"
+		trigger = {
+			has_country_flag = cu_estate_system_set
+			OR = {
+				NOT = { has_country_flag = ask_for_contribution_from_church }
+				had_country_flag = { flag = ask_for_contribution_from_church days = 1825 }
+			}
+		}
+		clr_country_flag = ask_for_contribution_from_church
+		set_country_flag = ask_for_contribution_from_church
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 0 }
+			set_variable = { which = cu_cash which = etic } 
+			export_to_variable = {
+				which = cu_var1
+				value = modifier:global_tax_modifier
+			}
+			change_variable = { which = cu_var1 value = 1 }
+			multiply_variable = { which = cu_cash which = cu_var1 }
+			set_variable = { which = t_dev value = 0 }
+			export_to_variable = {
+				which = t_dev
+				value = states_development
+			}
+			multiply_variable = { which = cu_cash which = t_dev }
+			multiply_variable = { which = cu_cash value = 0.005 }
+			set_variable = { which = cu_cash_display which = cu_cash }	
+			set_variable = { which = cu_var1 which = etic }
+			multiply_variable = { which = cu_var1 value = -0.5 }
+			set_variable = { which = cu_sta_display which = cu_var1 }	
+		}		
+		cu_change_cash_hidden = yes
+		custom_tooltip = cu_change_cash_cg		
+		cu_change_stability_point_hidden = yes 
+		custom_tooltip = cu_change_stability_ct
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = -15
+		}	
+	}
+	option = {
+		name = "cuestate.103.an"
+		trigger = {
+			NOT = {
+				AND = {
+					has_country_flag = cu_estate_system_set
+					OR = {
+						NOT = { has_country_flag = ask_for_contribution_from_church }
+						had_country_flag = { flag = ask_for_contribution_from_church days = 1825 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.103.ant
+	}
+	
+	option = {
+		name = "cuestate.103.b"
+		trigger = {
+			dip_power = 100
+			has_country_flag = cu_estate_system_set
+			OR = {
+				NOT = { has_country_flag = fund_church }
+				had_country_flag = { flag = fund_church days = 5475 }
+			}
+		}
+		clr_country_flag = fund_church
+		set_country_flag = fund_church
+		add_dip_power = -100
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 0 }
+			set_variable = { which = cu_cash which = etic }
+			set_variable = { which = t_dev value = 0 }
+			export_to_variable = {
+				which = t_dev
+				value = states_development
+			}
+			multiply_variable = { which = cu_cash which = t_dev }
+			multiply_variable = { which = cu_cash value = -0.005 }
+			set_variable = { which = cu_cash_display which = cu_cash }	
+			set_variable = { which = cu_var1 which = etic }
+			multiply_variable = { which = cu_var1 value = 0.5 }
+			set_variable = { which = cu_sta_display which = cu_var1 }	
+		}			
+		cu_change_cash_hidden = yes
+		custom_tooltip = cu_change_cash_ct			
+		cu_change_stability_point_hidden = yes 
+		custom_tooltip = cu_change_stability_cg
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = EST_VAL_FUND_THE_LOYALISTS
+			influence = -10
+			duration = 5475
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_FUND_THE_LOYALISTS
+			influence = 10
+			duration = 5475
+		}
+	}
+	option = {
+		name = "cuestate.103.bn"
+		trigger = {
+			NOT = {
+				AND = {
+					dip_power = 100
+					has_country_flag = cu_estate_system_set
+					OR = {
+						NOT = { has_country_flag = fund_church }
+						had_country_flag = { flag = fund_church days = 5475 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.103.bnt
+	}
+	
+	option = {
+		name = "cuestate.103.c" #SEEK_SUPPORT_OF_CLERGY
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = ask_help_church }
+				had_country_flag = { flag = ask_help_church days = 3650 }
+			}
+		}
+		clr_country_flag = ask_help_church
+		set_country_flag = ask_help_church
+		add_prestige = -5
+		add_legitimacy = -5
+		add_republican_tradition = -0.03
+		add_devotion = -3
+		add_absolutism = -5
+		add_piety = 0.05
+		if = {
+			limit = { religion = protestant }
+			add_church_power = 10
+		}
+		add_patriarch_authority = 0.05
+		if = {
+			limit = { religion = reformed }
+			add_fervor = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = EST_VAL_SOUGHT_SUPPORT
+			influence = 10
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 15
+		}
+	}
+	option = {
+		name = "cuestate.103.cn"
+		trigger = {
+			NOT = { 
+				OR = {
+					NOT = { has_country_flag = ask_help_church }
+					had_country_flag = { flag = ask_help_church days = 3650 }
+				}
+			}
+		}
+		custom_tooltip = cuestate.103.cnt
+	}
+	
+	option = {
+		name = "GRANT_AUTONOMY"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = grant_autonomy_to_church }
+				had_country_flag = { flag = grant_autonomy_to_church days = 7300 }
+			}
+			any_owned_province = {
+				check_variable = { which = epimc value = 30 }
+			}
+		}
+		clr_country_flag = grant_autonomy_to_church
+		set_country_flag = grant_autonomy_to_church
+		add_absolutism = -3
+		add_militarised_society = -9
+		custom_tooltip = granted_auto_est
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 20
+		}
+		add_estate_influence_modifier = {
+			estate = estate_church
+			desc = EST_VAL_GRANT_AUTONOMY
+			influence = 10
+			duration = 7300
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_GRANT_AUTONOMY
+			influence = -10
+			duration = 7300
+		}
+		hidden_effect = {
+			set_variable = { which = cu_var1 which = etic }
+			set_variable = { which = cu_sta_display which = cu_var1 }	
+			every_owned_province = {
+				limit = { check_variable = { which = epimc value = 40 } }
+				add_local_autonomy = 10
+				add_unrest = -2
+			}
+		}
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_cg
+	}
+	option = {
+		name = "cuestate.103.dn"
+		trigger = {
+			NOT = {
+				AND = {
+					OR = {
+						NOT = { has_country_flag = grant_autonomy_to_church }
+						had_country_flag = { flag = grant_autonomy_to_church days = 7300 }
+					}
+					any_owned_province = {
+						check_variable = { which = epimc value = 30 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.103.dnt
+	}
+	
+	option = {
+		name = "GRANT_ESTATE_OFFICIAL_POSITIONS"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = grant_positions_to_church }
+				had_country_flag = { flag = grant_positions_to_church days = 3650 }
+			}
+		}
+		clr_country_flag = grant_positions_to_church
+		set_country_flag = grant_positions_to_church
+		add_absolutism = -5
+		add_militarised_society = -10
+		add_corruption = 0.5
+		add_dip_power = -50
+		add_adm_power = -50
+		add_estate_loyalty = {
+			estate = estate_church
+			loyalty = 20
+		}
+		hidden_effect = {
+			set_variable = { which = cu_var1 which = etic }
+			multiply_variable = { which = cu_var1 which = 0.33 }
+			set_variable = { which = cu_sta_display which = cu_var1 }		
+		}	
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_cg
+	}
+	option = {
+		name = "cuestate.103.en"
+		trigger = {
+			NOT = {
+				OR = {
+					NOT = { has_country_flag = grant_positions_to_church }
+					had_country_flag = { flag = grant_positions_to_church days = 3650 }
+				}
+			}
+		}
+		custom_tooltip = cuestate.103.ent
+	}
+	
+	option = {
+		name = "cuestate.103.f" #DEMAND_MORE_TROOPS
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = demand_war_support_from_church }
+				had_country_flag = { flag = demand_war_support_from_church days = 9125 }
+			}
+			estate_loyalty = {
+				estate = estate_church
+				loyalty = 40
+			}	
+			is_at_war = yes
+			any_owned_province = {
+				check_variable = { which = epimc value = 30 }
+			}
+		}
+		clr_country_flag = demand_war_support_from_church
+		set_country_flag = demand_war_support_from_church
+		custom_tooltip = add_manpower_est
+		add_dip_power = -150
+		add_absolutism = -3
+		add_country_modifier = {
+			name = estate_church_war_support
+			duration = -1
+		}
+		if = {
+			limit = { ai = yes }
+			add_country_modifier = {
+				name = estate_ai_helper
+				duration = 366
+			}
+		}
+		hidden_effect = {
+			every_owned_province = {
+				limit = { check_variable = { which = epimc value = 30 } }
+				owner = { add_manpower = 0.20 }
+			}
+		}
+		
+	}
+	option = {
+		name = "cuestate.103.fn"
+		trigger = {
+			NOT = {
+				AND = {
+					OR = {
+						NOT = { has_country_flag = demand_war_support_from_church }
+						had_country_flag = { flag = demand_war_support_from_church days = 9125 }
+					}
+					estate_loyalty = {
+						estate = estate_church
+						loyalty = 40
+					}	
+					any_owned_province = {
+						check_variable = { which = epimc value = 30 }
+					}
+					is_at_war = yes
+				}
+			}
+		}
+		custom_tooltip = cuestate.103.fnt
+	}
+	
+	
+	option = {
+		name = "CU_MILITARY_COUP"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = coup_against_church }
+				had_country_flag = { flag = coup_against_church days = 9125 }
+			}
+			NOT = { has_country_modifier = coup_timer }
+			mil_power = 200
+			estate_influence = {
+				estate = estate_church
+				influence = 30
+			}
+			NOT = {
+				estate_loyalty = {
+					estate = estate_church
+					loyalty = 30
+				}	
+			}
+		}
+		clr_country_flag = coup_against_church
+		set_country_flag = coup_against_church
+		add_mil_power = -200
+		set_country_flag = preparing_military_coup_flag
+		add_country_modifier = {
+			name =  preparing_military_coup
+			duration = 365						
+		}
+		hidden_effect = {
+			set_variable = { which = coup_support value = 0 }
+			set_country_flag = coup_against_church
+		}
+		custom_tooltip = preparing_military_coup_t
+		hidden_effect = {
+			add_country_modifier = {
+				name = coup_timer
+				duration = 7300
+				hidden = yes
+			}
+		}
+	}
+	option = {
+		name = "cuestate.103.hn"
+		trigger = {
+			NOT = {
+				AND = {
+					OR = {
+						NOT = { has_country_flag = coup_against_church }
+						had_country_flag = { flag = coup_against_church days = 9125 }
+					}
+					NOT = { has_country_modifier = coup_timer }
+					mil_power = 200
+					estate_influence = {
+						estate = estate_church
+						influence = 30
+					}
+					NOT = {
+						estate_loyalty = {
+							estate = estate_church
+							loyalty = 30
+						}	
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.103.hnt
+	}
+	option = { 
+	    name = "urban.return"
+		country_event = { id = cuestate.100 }
+	}
+	option = {
+		name = "cugovernmentui.exit"
+	}
+}
+
+country_event = {#Shizu
+	id = cuestate.1032
+	title = "cuestate.1032_title"
+	desc = "cuestate.1032_desc"
+	picture = COURT_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "cuestate.1032.a"
+		trigger = {
+			has_country_flag = cu_estate_system_set
+			OR = {
+				NOT = { has_country_flag = ask_for_contribution_from_shizu }
+				had_country_flag = { flag = ask_for_contribution_from_shizu days = 1825 }
+			}
+		}
+		clr_country_flag = ask_for_contribution_from_shizu
+		set_country_flag = ask_for_contribution_from_shizu
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 0 }
+			set_variable = { which = cu_cash which = etic } 
+			export_to_variable = {
+				which = cu_var1
+				value = modifier:global_tax_modifier
+			}
+			change_variable = { which = cu_var1 value = 1 }
+			set_variable = { which = t_dev value = 0 }
+			export_to_variable = {
+				which = t_dev
+				value = states_development
+			}
+			multiply_variable = { which = cu_cash which = t_dev }
+			multiply_variable = { which = cu_cash which = cu_var1 }
+			multiply_variable = { which = cu_cash value = 0.005 }
+			set_variable = { which = cu_cash_display which = cu_cash }	
+			set_variable = { which = cu_var1 which = etic }
+			multiply_variable = { which = cu_var1 value = -0.5 }
+			set_variable = { which = cu_sta_display which = cu_var1 }	
+		}
+		cu_change_cash_hidden = yes 
+		custom_tooltip = cu_change_cash_cg		
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_ct
+		add_estate_loyalty = {
+			estate = estate_shizu
+			loyalty = -15
+		}
+	}
+	option = {
+		name = "cuestate.1032.an"
+		trigger = {
+			NOT = {
+				AND = {
+					has_country_flag = cu_estate_system_set
+					OR = {
+						NOT = { has_country_flag = ask_for_contribution_from_shizu }
+						had_country_flag = { flag = ask_for_contribution_from_shizu days = 1825 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.1032.ant
+	}
+	
+	option = {
+		name = "cuestate.1032.b"
+		trigger = {
+			dip_power = 100
+			has_country_flag = cu_estate_system_set
+			OR = {
+				NOT = { has_country_flag = fund_shizu }
+				had_country_flag = { flag = fund_shizu days = 5475 }
+			}
+		}
+		clr_country_flag = fund_shizu
+		set_country_flag = fund_shizu
+		add_dip_power = -100
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 0 }
+			set_variable = { which = cu_cash which = etic }
+			set_variable = { which = t_dev value = 0 }
+			export_to_variable = {
+				which = t_dev
+				value = states_development
+			}
+			multiply_variable = { which = cu_cash which = t_dev }
+			multiply_variable = { which = cu_cash value = -0.005 }
+			set_variable = { which = cu_cash_display which = cu_cash }	
+			set_variable = { which = cu_var1 which = etic }
+			multiply_variable = { which = cu_var1 value = 0.5 }
+			set_variable = { which = cu_sta_display which = cu_var1 }
+		}			
+		cu_change_cash_hidden = yes 
+		custom_tooltip = cu_change_cash_ct				
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_cg				
+		add_estate_loyalty = {
+			estate = estate_shizu
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_shizu
+			desc = EST_VAL_FUND_THE_LOYALISTS
+			influence = -10
+			duration = 5475
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_FUND_THE_LOYALISTS
+			influence = 10
+			duration = 5475
+		}
+	}
+	option = {
+		name = "cuestate.1032.bn"
+		trigger = {
+			NOT = {
+				AND = {
+					dip_power = 100
+					has_country_flag = cu_estate_system_set
+					OR = {
+						NOT = { has_country_flag = fund_shizu }
+						had_country_flag = { flag = fund_shizu days = 5475 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.1032.bnt
+	}
+	
+	option = {
+		name = "MARRY_WITH_ESTATE"
+		trigger = {
+			cu_estate_marry_trigger = yes
+		}
+		set_country_flag = est_consort
+		add_estate_loyalty = {
+			estate = estate_shizu
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_shizu
+			desc = EST_VAL_MARRY_WITH_ESTATE
+			influence = 10
+			duration = 7300
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_MARRY_WITH_ESTATE
+			influence = -10
+			duration = 7300
+		}
+		hidden_effect = {
+			set_variable = { which = cu_var1 which = etic }
+			multiply_variable = { which = cu_var1 which = 0.1 }
+			set_variable = { which = cu_sta_display which = cu_var1 }	
+		}		
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_cg
+	}
+	option = {
+		name = "cuestate.1032.cn"
+		trigger = {
+			NOT = { 
+				cu_estate_marry_trigger = yes
+			}
+		}
+		custom_tooltip = cuestate.1032.cnt
+	}
+	
+	option = {
+		name = "GRANT_AUTONOMY"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = grant_autonomy_to_shizu }
+				had_country_flag = { flag = grant_autonomy_to_shizu days = 7300 }
+			}
+			any_owned_province = {
+				check_variable = { which = epimc value = 30 }
+			}
+		}
+		clr_country_flag = grant_autonomy_to_shizu
+		set_country_flag = grant_autonomy_to_shizu
+		add_absolutism = -3
+		add_militarised_society = -9
+		custom_tooltip = granted_auto_est
+		add_estate_loyalty = {
+			estate = estate_shizu
+			loyalty = 20
+		}
+		add_estate_influence_modifier = {
+			estate = estate_shizu
+			desc = EST_VAL_GRANT_AUTONOMY
+			influence = 10
+			duration = 7300
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_GRANT_AUTONOMY
+			influence = -10
+			duration = 7300
+		}
+		hidden_effect = {
+			set_variable = { which = cu_var1 which = etic }
+			set_variable = { which = cu_sta_display which = cu_var1 }	
+			every_owned_province = {
+				limit = { check_variable = { which = epimc value = 40 } }
+				add_local_autonomy = 10
+				add_unrest = -2
+			}
+		}
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_cg
+	}
+	option = {
+		name = "cuestate.1032.dn"
+		trigger = {
+			NOT = {
+				AND = {
+					OR = {
+						NOT = { has_country_flag = grant_autonomy_to_shizu }
+						had_country_flag = { flag = grant_autonomy_to_shizu days = 7300 }
+					}
+					any_owned_province = {
+						check_variable = { which = epimc value = 30 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.1032.dnt
+	}
+	
+	option = {
+		name = "GRANT_ESTATE_OFFICIAL_POSITIONS"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = grant_positions_to_shizu }
+				had_country_flag = { flag = grant_positions_to_shizu days = 3650 }
+			}
+		}
+		clr_country_flag = grant_positions_to_shizu
+		set_country_flag = grant_positions_to_shizu
+		add_absolutism = -5
+		add_militarised_society = -10
+		add_corruption = 0.5
+		add_dip_power = -50
+		add_adm_power = -50
+		add_estate_loyalty = {
+			estate = estate_shizu
+			loyalty = 20
+		}
+		hidden_effect = {
+			set_variable = { which = cu_var1 which = etic }
+			multiply_variable = { which = cu_var1 which = 0.33 }
+			set_variable = { which = cu_sta_display which = cu_var1 }		
+		}	
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_cg
+	}
+	option = {
+		name = "cuestate.1032.en"
+		trigger = {
+			NOT = {
+				OR = {
+					NOT = { has_country_flag = grant_positions_to_shizu }
+					had_country_flag = { flag = grant_positions_to_shizu days = 3650 }
+				}
+			}
+		}
+		custom_tooltip = cuestate.1032.ent
+	}
+	
+	option = {
+		name = "DEMAND_WAR_SUPPORT"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = demand_war_support_from_shizu }
+				had_country_flag = { flag = demand_war_support_from_shizu days = 7300 }
+			}
+			is_at_war = yes
+			estate_loyalty = {
+				estate = estate_shizu
+				loyalty = 40
+			}
+			any_owned_province = {
+				check_variable = { which = epimc value = 30 }
+			}
+		}
+		custom_tooltip = add_manpower_est
+		add_absolutism = -7
+		add_dip_power = -100
+		add_estate_influence_modifier = {
+			estate = estate_shizu
+			desc = EST_VAL_CHURCH_ADVANCE
+			influence = 10
+			duration = 7300
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_CHURCH_ADVANCE
+			influence = -10
+			duration = 7300
+		}
+		add_country_modifier = {
+			name = estate_shizu_war_support
+			duration = -1
+		}
+		hidden_effect = {
+			every_owned_province = {
+				limit = { check_variable = { which = epimc value = 50 } }
+				add_local_autonomy = 10
+			}
+			set_variable = { which = cu_var1 value = 0 }
+			while = {
+				limit = { check_variable = { which = etic which = cu_var1 } }
+				random_owned_province = {
+					limit = { check_variable = { which = epimc value = 50 } }
+					if = {
+						limit = { owner = { mil_tech = 30 } }
+						add_unit_construction = {
+							type = estate_shizu_inf_30
+							amount = 1
+							speed = 0.25
+							cost = 0
+						}
+					}
+					else_if = {
+						limit = { owner = { mil_tech = 20 } }
+						add_unit_construction = {
+							type = estate_shizu_inf_20
+							amount = 1
+							speed = 0.25
+							cost = 0
+						}
+					}
+					else_if = {
+						limit = { owner = { mil_tech = 10 } }
+						add_unit_construction = {
+							type = estate_shizu_inf_10
+							amount = 1
+							speed = 0.25
+							cost = 0
+						}
+					}
+					else = {
+						add_unit_construction = {
+							type = estate_shizu_inf_0
+							amount = 1
+							speed = 0.25
+							cost = 0
+						}
+					}
+				}
+				change_variable = { which = cu_var1 value = 0.8 }
+			}
+		}
+		clr_country_flag = demand_war_support_from_shizu
+		set_country_flag = demand_war_support_from_shizu
+		
+	}
+	option = {
+		name = "cuestate.1032.fn"
+		trigger = {
+			NOT = {
+				AND = {
+					OR = {
+						NOT = { has_country_flag = demand_war_support_from_shizu }
+						had_country_flag = { flag = demand_war_support_from_shizu days = 7300 }
+					}
+					is_at_war = yes
+					estate_loyalty = {
+						estate = estate_shizu
+						loyalty = 40
+					}
+					any_owned_province = {
+						check_variable = { which = epimc value = 30 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.1032.fnt
+	}
+	
+	
+	option = {
+		name = "CU_MILITARY_COUP"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = coup_against_church }
+				had_country_flag = { flag = coup_against_church days = 9125 }
+			}
+			NOT = { has_country_modifier = coup_timer }
+			mil_power = 200
+			estate_influence = {
+				estate = estate_shizu
+				influence = 30
+			}
+			NOT = {
+				estate_loyalty = {
+					estate = estate_shizu
+					loyalty = 30
+				}	
+			}
+		}
+		clr_country_flag = coup_against_church
+		set_country_flag = coup_against_church
+		add_mil_power = -200
+		set_country_flag = preparing_military_coup_flag
+		add_country_modifier = {
+			name =  preparing_military_coup
+			duration = 365						
+		}
+		hidden_effect = {
+			set_variable = { which = coup_support value = 0 }
+			set_country_flag = coup_against_church
+		}
+		custom_tooltip = preparing_military_coup_t
+		hidden_effect = {
+			add_country_modifier = {
+				name = coup_timer
+				duration = 7300
+				hidden = yes
+			}
+		}
+	}
+	option = {
+		name = "cuestate.1032.hn"
+		trigger = {
+			NOT = {
+				AND = {
+					OR = {
+						NOT = { has_country_flag = coup_against_church }
+						had_country_flag = { flag = coup_against_church days = 9125 }
+					}
+					NOT = { has_country_modifier = coup_timer }
+					mil_power = 200
+					estate_influence = {
+						estate = estate_shizu
+						influence = 30
+					}
+					NOT = {
+						estate_loyalty = {
+							estate = estate_shizu
+							loyalty = 30
+						}	
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.1032.hnt
+	}
+	
+	option = {
+		name = "SEEK_SUPPORT_OF_SHIZU"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = ask_help_shizu }
+				had_country_flag = { flag = ask_help_shizu days = 3650 }
+			}
+		}
+		clr_country_flag = ask_help_shizu
+		set_country_flag = ask_help_shizu
+		add_absolutism = -5
+		add_meritocracy = 5
+		add_estate_influence_modifier = {
+			estate = estate_shizu
+			desc = EST_VAL_SOUGHT_SUPPORT
+			influence = 20
+			duration = 3650
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_SOUGHT_SUPPORT
+			influence = -20
+			duration = 3650
+		}
+		add_estate_loyalty = {
+			estate = estate_shizu
+			loyalty = 15
+		}
+	}
+	option = {
+		name = "cuestate.1032.in"
+		trigger = {
+			NOT = { 
+				OR = {
+					NOT = { has_country_flag = ask_help_shizu }
+					had_country_flag = { flag = ask_help_shizu days = 3650 }
+				}
+			}
+		}
+		custom_tooltip = cuestate.1032.int
+	}
+	option = { 
+	    name = "urban.return"
+		country_event = { id = cuestate.100 }
+	}
+	
+	option = {
+		name = "cugovernmentui.exit"
+	}
+}
+
+country_event = {#Tribes
+	id = cuestate.104
+	title = "cuestate.104_title"
+	desc = "cuestate.104_desc"
+	picture = COURT_eventPicture
+	is_triggered_only = yes
+	option = {
+		name = "cuestate.104.a"
+		trigger = {
+			has_country_flag = cu_estate_system_set
+			OR = {
+				NOT = { has_country_flag = ask_for_contribution_from_nomadic_tribes }
+				had_country_flag = { flag = ask_for_contribution_from_nomadic_tribes days = 1825 }
+			}
+		}
+		clr_country_flag = ask_for_contribution_from_nomadic_tribes
+		set_country_flag = ask_for_contribution_from_nomadic_tribes
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 0 }
+			set_variable = { which = cu_cash which = etie } 
+			export_to_variable = {
+				which = cu_var1
+				value = modifier:global_tax_modifier
+			}
+			change_variable = { which = cu_var1 value = 1 }
+			set_variable = { which = t_dev value = 0 }
+			export_to_variable = {
+				which = t_dev
+				value = states_development
+			}
+			multiply_variable = { which = cu_cash which = t_dev }
+			multiply_variable = { which = cu_cash which = cu_var1 }
+			multiply_variable = { which = cu_cash value = 0.005 }
+			set_variable = { which = cu_cash_display which = cu_cash }				
+			set_variable = { which = cu_var1 which = etie }
+			multiply_variable = { which = cu_var1 value = -0.5 }
+			set_variable = { which = cu_sta_display which = cu_var1 }			
+		}
+		cu_change_cash_hidden = yes 
+		custom_tooltip = cu_change_cash_eg		
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_et
+		add_estate_loyalty = {
+			estate = estate_nomadic_tribes
+			loyalty = -25
+		}
+		add_horde_unity = -10
+	}
+	option = {
+		name = "cuestate.104.an"
+		trigger = {
+			NOT = {
+				AND = {
+					has_country_flag = cu_estate_system_set
+					OR = {
+						NOT = { has_country_flag = ask_for_contribution_from_nomadic_tribes }
+						had_country_flag = { flag = ask_for_contribution_from_nomadic_tribes days = 1825 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.104.ant
+	}
+	
+	option = {
+		name = "cuestate.104.b"
+		trigger = {
+			dip_power = 100
+			has_country_flag = cu_estate_system_set
+			OR = {
+				NOT = { has_country_flag = fund_nomadic_tribes }
+				had_country_flag = { flag = fund_nomadic_tribes days = 5475 }
+			}
+		}
+		clr_country_flag = fund_nomadic_tribes
+		set_country_flag = fund_nomadic_tribes
+		add_dip_power = -100
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 0 }
+			set_variable = { which = cu_cash which = etie }
+			set_variable = { which = t_dev value = 0 }
+			export_to_variable = {
+				which = t_dev
+				value = states_development
+			}
+			multiply_variable = { which = cu_cash which = t_dev }
+			multiply_variable = { which = cu_cash value = -0.005 }
+			set_variable = { which = cu_cash_display which = cu_cash }		
+			set_variable = { which = cu_var1 which = etie }
+			multiply_variable = { which = cu_var1 value = 0.5 }
+			set_variable = { which = cu_sta_display which = cu_var1 }			
+		}
+		cu_change_cash_hidden = yes 
+		custom_tooltip = cu_change_cash_et		
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_eg
+		add_estate_loyalty = {
+			estate = estate_nomadic_tribes
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nomadic_tribes
+			desc = EST_VAL_FUND_THE_LOYALISTS
+			influence = -10
+			duration = 5475
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_FUND_THE_LOYALISTS
+			influence = 10
+			duration = 5475
+		}
+		add_horde_unity = 10
+	}
+	option = {
+		name = "cuestate.104.bn"
+		trigger = {
+			NOT = {
+				AND = {
+					dip_power = 100
+					has_country_flag = cu_estate_system_set
+					OR = {
+						NOT = { has_country_flag = fund_nomadic_tribes }
+						had_country_flag = { flag = fund_nomadic_tribes days = 5475 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.104.bnt
+	}
+	
+	option = {
+		name = "MARRY_WITH_ESTATE"
+		trigger = {
+			cu_estate_marry_trigger = yes
+		}
+		set_country_flag = est_consort
+		add_estate_loyalty = {
+			estate = estate_nomadic_tribes
+			loyalty = 10
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nomadic_tribes
+			desc = EST_VAL_MARRY_WITH_ESTATE
+			influence = 10
+			duration = 7300
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_MARRY_WITH_ESTATE
+			influence = -10
+			duration = 7300
+		}
+		hidden_effect = {
+			set_variable = { which = cu_var1 which = etie }
+			multiply_variable = { which = cu_var1 which = 0.1 }
+			set_variable = { which = cu_sta_display which = cu_var1 }			
+		}
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_eg
+	}
+	option = {
+		name = "cuestate.104.cn"
+		trigger = {
+			NOT = { 
+				cu_estate_marry_trigger = yes
+			}
+		}
+		custom_tooltip = cuestate.104.cnt
+	}
+	
+	option = {
+		name = "GRANT_AUTONOMY"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = grant_autonomy_to_nomadic_tribes }
+				had_country_flag = { flag = grant_autonomy_to_nomadic_tribes days = 7300 }
+			}
+			any_owned_province = {
+				check_variable = { which = epime value = 30 }
+			}
+		}
+		clr_country_flag = grant_autonomy_to_nomadic_tribes
+		set_country_flag = grant_autonomy_to_nomadic_tribes
+		add_absolutism = -5
+		add_militarised_society = -15
+		custom_tooltip = granted_auto_est
+		add_estate_loyalty = {
+			estate = estate_nomadic_tribes
+			loyalty = 20
+		}
+		add_estate_influence_modifier = {
+			estate = estate_nomadic_tribes
+			desc = EST_VAL_GRANT_AUTONOMY
+			influence = 10
+			duration = 7300
+		}
+		add_estate_influence_modifier = {
+			estate = estate_government
+			desc = EST_VAL_GRANT_AUTONOMY
+			influence = -10
+			duration = 7300
+		}
+		hidden_effect = {
+			set_variable = { which = cu_var1 which = etie }
+			set_variable = { which = cu_sta_display which = cu_var1 }		
+			every_owned_province = {
+				limit = { check_variable = { which = epimn value = 40 } }
+				add_local_autonomy = 10
+				add_unrest = -2
+			}
+		}
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_eg
+	}
+	option = {
+		name = "cuestate.104.dn"
+		trigger = {
+			NOT = {
+				AND = {
+					OR = {
+						NOT = { has_country_flag = grant_autonomy_to_nomadic_tribes }
+						had_country_flag = { flag = grant_autonomy_to_nomadic_tribes days = 7300 }
+					}
+					any_owned_province = {
+						check_variable = { which = epime value = 30 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.104.dnt
+	}
+	
+	option = {
+		name = "GRANT_ESTATE_OFFICIAL_POSITIONS"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = grant_positions_to_nomadic_tribes }
+				had_country_flag = { flag = grant_positions_to_nomadic_tribes days = 3650 }
+			}
+		}
+		clr_country_flag = grant_positions_to_nomadic_tribes
+		set_country_flag = grant_positions_to_nomadic_tribes
+		add_absolutism = -5
+		add_militarised_society = -10
+		add_corruption = 0.5
+		add_dip_power = -50
+		add_adm_power = -50
+		add_estate_loyalty = {
+			estate = estate_nomadic_tribes
+			loyalty = 10
+		}
+		add_horde_unity = 10
+		hidden_effect = {
+			set_variable = { which = cu_var1 which = etie }
+			multiply_variable = { which = cu_var1 which = 0.33 }
+			set_variable = { which = cu_sta_display which = cu_var1 }
+		}
+		cu_change_stability_point_hidden = yes
+		custom_tooltip = cu_change_stability_eg
+	}
+	option = {
+		name = "cuestate.104.en"
+		trigger = {
+			NOT = {
+				OR = {
+					NOT = { has_country_flag = grant_positions_to_nomadic_tribes }
+					had_country_flag = { flag = grant_positions_to_nomadic_tribes days = 3650 }
+				}
+			}
+		}
+		custom_tooltip = cuestate.104.ent
+	}
+	
+	option = {
+		name = "DEMAND_WAR_SUPPORT"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = demand_war_support_from_nomadic_tribes }
+				had_country_flag = { flag = demand_war_support_from_nomadic_tribes days = 7300 }
+			}
+			is_at_war = yes
+			estate_loyalty = {
+				estate = estate_nomadic_tribes
+				loyalty = 40
+			}
+			any_owned_province = {
+				check_variable = { which = epime value = 30 }
+			}
+		}
+		country_event = { id = cuestate.14 }
+		
+	}
+	option = {
+		name = "cuestate.104.fn"
+		trigger = {
+			NOT = {
+				AND = {
+					OR = {
+						NOT = { has_country_flag = demand_war_support_from_nomadic_tribes }
+						had_country_flag = { flag = demand_war_support_from_nomadic_tribes days = 7300 }
+					}
+					is_at_war = yes
+					estate_loyalty = {
+						estate = estate_nomadic_tribes
+						loyalty = 40
+					}
+					any_owned_province = {
+						check_variable = { which = epime value = 30 }
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.104.fnt
+	}
+	
+	option = {
+		name = "cuestate.104.g"#SUPPORT_TRIBES
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = support_nomadic_tribes }
+				had_country_flag = { flag = support_nomadic_tribes days = 3650 }
+			}
+			years_of_income = 0.25
+		}
+		clr_country_flag = support_nomadic_tribes
+		set_country_flag = support_nomadic_tribes
+		add_years_of_income = -0.25
+		add_estate_loyalty = {
+			estate = estate_nomadic_tribes
+			loyalty = 15
+		}
+	}
+	option = {
+		name = "cuestate.104.gn"
+		trigger = {
+			NOT = {
+				AND = {
+					OR = {
+						NOT = { has_country_flag = support_nomadic_tribes }
+						had_country_flag = { flag = support_nomadic_tribes days = 7300 }
+					}
+					years_of_income = 0.25
+				}
+			}
+		}
+		custom_tooltip = cuestate.104.gnt
+	}
+	
+	option = {
+		name = "CU_MILITARY_COUP"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = coup_against_nomadic_tribes }
+				had_country_flag = { flag = coup_against_nomadic_tribes days = 9125 }
+			}
+			NOT = { has_country_modifier = coup_timer }
+			mil_power = 200
+			estate_influence = {
+				estate = estate_nomadic_tribes
+				influence = 30
+			}
+			NOT = {
+				estate_loyalty = {
+					estate = estate_nomadic_tribes
+					loyalty = 30
+				}	
+			}
+		}
+		clr_country_flag = coup_against_nomadic_tribes
+		set_country_flag = coup_against_nomadic_tribes
+		add_mil_power = -200
+		set_country_flag = preparing_military_coup_flag
+		add_country_modifier = {
+				name =  preparing_military_coup
+				duration = 365						
+		}
+		hidden_effect = {
+			set_variable = { which = coup_support value = 0 }
+			set_country_flag = coup_against_nomand
+		}
+		custom_tooltip = preparing_military_coup_t
+		hidden_effect = {
+			add_country_modifier = {
+				name = coup_timer
+				duration = 7300
+				hidden = yes
+			}
+		}
+	}
+	option = {
+		name = "cuestate.104.hn"
+		trigger = {
+			OR = {
+				has_country_modifier = coup_timer
+				NOT = { mil_power = 200 }
+				AND = {
+					NOT = { had_country_flag = { flag = coup_against_nomadic_tribes days = 9125 } }
+					has_country_flag = coup_against_nomadic_tribes
+				}
+				estate_loyalty = {
+					estate = estate_nomadic_tribes
+					loyalty = 30
+				}
+				NOT = {
+					estate_influence = {
+						estate = estate_nomadic_tribes
+						influence = 30
+					}
+				}
+			}
+		}
+		custom_tooltip = cuestate.104.hnt
+	}
+	option = { 
+	    name = "urban.return"
+		country_event = { id = cuestate.100 }
+	}
+	option = {
+		name = "cugovernmentui.exit"
+	}
+}

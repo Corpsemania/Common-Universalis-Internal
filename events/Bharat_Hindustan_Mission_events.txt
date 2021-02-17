@@ -36,7 +36,7 @@ country_event = {
 			}
 		}
 		name = "india_mission_events.1.c"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		west_india_region = {
 			limit = {
 				owned_by = ROOT
@@ -81,7 +81,7 @@ country_event = {
 			NOT = { has_estate = estate_maratha }
 		}
 		name = "india_mission_events.1.c"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		deccan_region = {
 			limit = {
 				owned_by = ROOT

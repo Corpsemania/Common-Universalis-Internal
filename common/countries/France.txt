@@ -9,7 +9,7 @@ revolutionary_colors = { 15  0  16 }
 historical_score = 6700
 
 historical_idea_groups = {
-	economic_ideas #ADM
+	agrarian_ideas #ADM
 	offensive_ideas #MIL
 	culture_ideas #DIP
 	exploration_ideas #DIP

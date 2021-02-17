@@ -22,7 +22,7 @@ tiny_state = {
 		}          
 	}
         diplomatic_upkeep = -1
-        advisor_cost = -0.10
+        state_governing_cost = -0.10
         #development_cost = 0.3
         idea_cost = -0.10
         core_creation = 0.25
@@ -33,9 +33,9 @@ tiny_state = {
 		yearly_corruption = -0.05
 		state_maintenance_modifier = -0.1
 		placed_merchant_power = -3
-        spy_offence = -0.25	
+		spy_offence = -0.25	
 		stability_cost_modifier = -0.2
-		technology_cost = 0.1
+		technology_cost = 0.15
         #icon = 3
 }
 
@@ -60,7 +60,7 @@ small_state = {
                 
 	}
 		diplomatic_upkeep = -1
-        advisor_cost = -0.05
+        state_governing_cost = -0.05
         #development_cost = 0.15
         idea_cost = -0.05
         core_creation = 0.2
@@ -73,7 +73,7 @@ small_state = {
 		placed_merchant_power = -2
         spy_offence = -0.15	
 		stability_cost_modifier = -0.1
-		technology_cost = 0.07
+		technology_cost = 0.10
         #icon = 3
 }
 
@@ -102,7 +102,9 @@ medium_state = {
         global_colonial_growth = 10
 		placed_merchant_power = -1
 		spy_offence = -0.05
-		technology_cost = 0.04
+		technology_cost = 0.05
+		land_forcelimit = 2
+		naval_forcelimit = 3
         #icon = 3
 }
 
@@ -136,6 +138,8 @@ large_state = {
 		yearly_corruption = 0.03
 		state_maintenance_modifier = 0.05
 		stability_cost_modifier = 0.1
+		land_forcelimit = 4
+		naval_forcelimit = 6
         #icon = 3
 }
 
@@ -151,20 +155,21 @@ huge_state = {
 	  num_of_cities = 60
 	}
         free_leader_pool = 10
-        advisor_cost = 0.025
+        state_governing_cost = 0.025
         #development_cost = -0.1
         idea_cost = 0.10
         #fort_maintenance_modifier = -0.1
 		ae_impact = 0.1
         core_creation = 0.05
-        ae_impact = 0.1
         years_of_nationalism = -3
 		yearly_corruption = 0.06
 		state_maintenance_modifier = 0.1
 		placed_merchant_power = 1
 		spy_offence = 0.05
 		stability_cost_modifier = 0.2
-		technology_cost = -0.04
+		technology_cost = -0.05
+		land_forcelimit = 6
+		naval_forcelimit = 9
         #icon = 3
 }
 
@@ -181,7 +186,7 @@ continental_state = {
 	}
 	    diplomatic_upkeep = 1
         free_leader_pool = 15
-        advisor_cost = 0.05
+        state_governing_cost = 0.05
         #development_cost = -0.15
         idea_cost = 0.15
         #fort_maintenance_modifier = -0.05
@@ -194,7 +199,9 @@ continental_state = {
 		placed_merchant_power = 2	
 		spy_offence = 0.15	
 		stability_cost_modifier = 0.3
-		technology_cost = -0.07
+		technology_cost = -0.10
+		land_forcelimit = 8
+		naval_forcelimit = 12
         #icon = 3
 }	
 
@@ -208,21 +215,23 @@ world_state = {
 	}
 	    diplomatic_upkeep = 1
         free_leader_pool = 20
-		advisor_cost = 0.1
+		state_governing_cost = 0.1
         #development_cost = -0.2
         idea_cost = 0.20
         core_creation = -0.05
         ae_impact = 0.3
         years_of_nationalism = -5
         inflation_action_cost = 0.10
-        max_states = 4
+        governing_capacity = 4
         missionaries = 1
 		yearly_corruption = 0.15
 		state_maintenance_modifier = 0.2
 		placed_merchant_power = 3
 		spy_offence = 0.25
 		stability_cost_modifier = 0.4
-		technology_cost = -0.1
+		technology_cost = -0.15
+		land_forcelimit = 10
+		naval_forcelimit = 15
         #icon = 3
 }
 
@@ -247,7 +256,7 @@ indian_dominance = {
 Khan_1 = {
 	potential = {
 		OR = {
-			government = tribe
+			government = tribal
 			has_reform =  steppe_horde
 			has_reform =  steppe_empire
 			primitives = yes
@@ -263,17 +272,18 @@ Khan_1 = {
     land_morale = 0.01
 	shock_damage = 0.01
 	land_maintenance_modifier = -0.01
-	global_unrest = -0.1
+	global_unrest = -0.2
 	horde_unity = 0.2	
 	province_warscore_cost = -0.02
 	global_manpower_modifier = 0.02
+	prestige = 0.1
     #icon = 3
 }
 
 Khan_2 = {
 	potential = {
 		OR = {
-			government = tribe
+			government = tribal
 			has_reform =  steppe_horde
 			has_reform =  steppe_empire
 			primitives = yes
@@ -290,16 +300,17 @@ Khan_2 = {
 	shock_damage = 0.02
 	land_maintenance_modifier = -0.02
 	horde_unity = 0.4
-	global_unrest = -0.2	
+	global_unrest = -0.4	
 	province_warscore_cost = -0.04
 	global_manpower_modifier = 0.04
+	prestige = 0.3
     #icon = 3
 }
 
 Khan_3 = {
 	potential = {
 		OR = {
-			government = tribe
+			government = tribal
 			has_reform =  steppe_horde
 			has_reform =  steppe_empire
 			primitives = yes
@@ -316,16 +327,17 @@ Khan_3 = {
 	shock_damage = 0.03
 	land_maintenance_modifier = -0.03
 	horde_unity = 0.6
-	global_unrest = -0.3	
+	global_unrest = -0.6	
 	province_warscore_cost = -0.06
 	global_manpower_modifier = 0.06
+	prestige = 0.5
     #icon = 3
 }
 
 Khan_4 = {
 	potential = {
 		OR = {
-			government = tribe
+			government = tribal
 			has_reform =  steppe_horde
 			has_reform =  steppe_empire
 			primitives = yes
@@ -342,16 +354,17 @@ Khan_4 = {
 	shock_damage = 0.04
 	land_maintenance_modifier = -0.04
 	horde_unity = 0.8
-	global_unrest = -0.4	
+	global_unrest = -0.8	
 	province_warscore_cost = -0.08
 	global_manpower_modifier = 0.08
+	prestige = 0.7
     #icon = 3
 }
 
 Khan_5 = {
 	potential = {
             OR = {
-				government = tribe
+				government = tribal
 				has_reform =  steppe_horde
 				has_reform =  steppe_empire
 				primitives = yes
@@ -368,16 +381,17 @@ Khan_5 = {
 	shock_damage = 0.05
 	land_maintenance_modifier = -0.05
 	horde_unity = 1
-	global_unrest = -0.5	
+	global_unrest = -1	
 	province_warscore_cost = -0.10
 	global_manpower_modifier = 0.1
+	prestige = 0.9
     #icon = 3
 }
 
 Khan_6 = {
 	potential = {
 		OR = {
-			government = tribe
+			government = tribal
 			has_reform =  steppe_horde
 			has_reform =  steppe_empire
 			primitives = yes
@@ -394,16 +408,17 @@ Khan_6 = {
 	shock_damage = 0.06
 	land_maintenance_modifier = -0.06
 	horde_unity = 1.2
-	global_unrest = -0.6	
+	global_unrest = -1.2	
 	province_warscore_cost = -0.12
 	global_manpower_modifier = 0.12
+	prestige = 1.1
     #icon = 3
 }
 
 Khan_7 = {
 	potential = {
 		OR = {
-			government = tribe
+			government = tribal
 			has_reform =  steppe_horde
 			has_reform =  steppe_empire
 			primitives = yes
@@ -420,16 +435,17 @@ Khan_7 = {
 	shock_damage = 0.07
 	land_maintenance_modifier = -0.07
 	horde_unity = 1.4
-	global_unrest = -0.7	
+	global_unrest = -1.4	
 	province_warscore_cost = -0.14
 	global_manpower_modifier = 0.14
+	prestige = 1.3
     #icon = 3
 }
 
 Khan_8 = {
 	potential = {
 		OR = {
-			government = tribe
+			government = tribal
 			has_reform =  steppe_horde
 			has_reform =  steppe_empire
 			primitives = yes
@@ -446,16 +462,17 @@ Khan_8 = {
 	shock_damage = 0.08
 	land_maintenance_modifier = -0.08
 	horde_unity = 1.6
-	global_unrest = -0.8	
+	global_unrest = -1.6	
 	province_warscore_cost = -0.16
 	global_manpower_modifier = 0.16
+	prestige = 1.5
     #icon = 3
 }
 
 Khan_9 = {
 	potential = {
 		OR = {
-			government = tribe
+			government = tribal
 			has_reform =  steppe_horde
 			has_reform =  steppe_empire
 			primitives = yes
@@ -472,16 +489,17 @@ Khan_9 = {
 	shock_damage = 0.09
 	land_maintenance_modifier = -0.09
 	horde_unity = 1.8
-	global_unrest = -0.9	
+	global_unrest = -1.8	
 	province_warscore_cost = -0.18
 	global_manpower_modifier = 0.18
+	prestige = 1.7
     #icon = 3
 }
 
 Khan_10 = {
 	potential = {
 		OR = {
-			government = tribe
+			government = tribal
 			has_reform =  steppe_horde
 			has_reform =  steppe_empire
 			primitives = yes
@@ -501,16 +519,17 @@ Khan_10 = {
 	shock_damage = 0.1
 	land_maintenance_modifier = -0.1
 	horde_unity = 2
-	global_unrest = -1	
+	global_unrest = -2	
 	province_warscore_cost = -0.20
-    global_manpower_modifier = 0.2
+	global_manpower_modifier = 0.2
+	prestige = 1.9
     #icon = 3
 }
 
 genghis_khan = {
 	potential = {
 		OR = {
-			government = tribe
+			government = tribal
 			has_reform =  steppe_horde
 			has_reform =  steppe_empire
 			primitives = yes
@@ -523,11 +542,11 @@ genghis_khan = {
 			check_variable = { which = cu_ra_ws value = 10 }
 		}
 	}
-    land_morale = 0.1
-	shock_damage = 0.1
+    land_morale = 0.15
+	shock_damage = 0.15
 	land_maintenance_modifier = -0.15
 	horde_unity = 4
-	global_unrest = -2	
+	global_unrest = -3	
 	province_warscore_cost = -0.25
 	global_manpower_modifier = 0.25
 	
@@ -537,6 +556,7 @@ genghis_khan = {
 	free_leader_pool = 25
 	caravan_power = 0.2
 	diplomatic_reputation = 1
+	prestige = 4
 	
     #icon = 3
 }
@@ -598,28 +618,6 @@ merchant_fleet_4 = {
 
 
 
-gentrys_landholding = {
-	potential = {
-	        #NOT = { has_dlc = "Mandate of Heaven" }
-                OR = { 
-                        has_reform =  celestial_empire
-                        has_reform =  celestial_empire_2
-                }
-        }
-	trigger = {
-		NOT = { has_country_modifier = revoke_gentrys_previledge }
-		NOT = { has_country_modifier = start_of_circle }
-		custom_trigger_tooltip = {
-				tooltip = max_land_reform_acceptance_t
-				NOT = { check_variable = { which = land_reform_acceptance value = 6 } }
-		}
-	}
-		global_tax_modifier = -0.2
-		global_autonomy = 0.05
-		advisor_cost = -0.05
-       #icon = 3
-}
-
 artisan_regulation = {
 	potential = {
 	        #NOT = { has_dlc = "Mandate of Heaven" }
@@ -654,8 +652,9 @@ artisan_regulation = {
 		}
 	}
 	    technology_cost = 0.1
-		production_efficiency = -0.2
-		stability_cost_modifier = -0.1
+		build_cost = 0.25
+		fire_damage = -0.1
+		stability_cost_modifier = -0.2
         #icon = 3
 }
 
@@ -696,9 +695,10 @@ weisuo_system = {
 				} 
 		}
 	}
-        global_manpower_modifier = -0.3
-		yearly_corruption = 0.05
-		land_forcelimit_modifier = 0.10
+        land_maintenance_modifier = 0.20
+		land_morale = -0.05
+		global_manpower_modifier = -0.25
+		land_forcelimit_modifier = 0.33
         #icon = 3
 }
 
@@ -741,7 +741,8 @@ trade_limitation = {
 	}
         global_foreign_trade_power = -0.2
 		trade_efficiency = -0.2
-		development_cost = -0.05
+		global_trade_goods_size_modifier = -0.15
+		development_cost = -0.125
         #icon = 3
 }
 
@@ -784,7 +785,8 @@ foreign_ignorance = {
 	}
 	global_institution_spread = -0.10
 	diplomatic_upkeep = -2
-	meritocracy = 0.3
+	embracement_cost = 0.25
+	imperial_mandate = 0.10
     #icon = 3
 }
 
@@ -856,447 +858,319 @@ subject_forcelimit_bonus = {
 
 university_1 = {
 	potential = {
-                NOT = {
-                    OR = {
-                       AND = {
-                           num_of_owned_provinces_with = {
-			      value = 2
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                           }
-                           NOT = { num_of_cities = 25 }
-		       }
-                       AND = {
-                           num_of_owned_provinces_with = {
-			      value = 4
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                           }
-                           NOT = { num_of_cities = 50 }
-		       }
-                       AND = {
-                           num_of_owned_provinces_with = {
-			      value = 6
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                           }
-                           NOT = { num_of_cities = 100 }
-		       }
-                       num_of_owned_provinces_with = {
-			      value = 8
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                       }
-                   }
-                }
-        }
+		NOT = {
+			OR = {
+				AND = {
+					num_of_owned_provinces_with = {
+						value = 2
+						AND = {
+							has_building = university
+							cu_not_terr_trigger = yes
+							is_core = ROOT 
+						}
+					}
+					NOT = { num_of_cities = 25 }
+				}
+				AND = {
+					num_of_owned_provinces_with = {
+						value = 4
+						AND = {
+							has_building = university
+							cu_not_terr_trigger = yes
+							is_core = ROOT 
+						}
+					}
+					NOT = { num_of_cities = 50 }
+				}
+				AND = {
+					num_of_owned_provinces_with = {
+						value = 6
+						AND = {
+							has_building = university
+							cu_not_terr_trigger = yes
+							is_core = ROOT 
+						}
+					}
+					NOT = { num_of_cities = 100 }
+				}
+				num_of_owned_provinces_with = {
+					value = 8
+					AND = {
+						has_building = university
+						cu_not_terr_trigger = yes
+						is_core = ROOT 
+					}
+				}
+			}
+		}
+    }
 	trigger = {
-                num_of_owned_provinces_with = {
-			 value = 1
-			 AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                         }
+    	num_of_owned_provinces_with = {
+			value = 1
+			AND = {
+				has_building = university
+				is_core = ROOT 
+				cu_not_terr_trigger = yes
+			}
 		}
 	}
-        global_institution_spread = 0.025
-        idea_cost = -0.025
-		technology_cost = -0.025
-        #icon = 3
+	global_institution_spread = 0.025
+	idea_cost = -0.025
+	technology_cost = -0.025
+	#icon = 3
 }
 
 university_2 = {
 	potential = {
-                NOT = {
-                    OR = {
-                       AND = {
-                           num_of_owned_provinces_with = {
-			      value = 4
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                           }
-                           NOT = { num_of_cities = 25 }
-		       }
-                       AND = {
-                           num_of_owned_provinces_with = {
-			      value = 8
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                           }
-                           NOT = { num_of_cities = 50 }
-		       }
-                       AND = {
-                           num_of_owned_provinces_with = {
-			      value = 12
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                           }
-                           NOT = { num_of_cities = 100 }
-		       }
-                       num_of_owned_provinces_with = {
-			      value = 16
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                       }
-                   }
-                }
-        }
+		NOT = {
+			OR = {
+				AND = {
+					num_of_owned_provinces_with = {
+						value = 4
+						AND = {
+							has_building = university
+							cu_not_terr_trigger = yes
+							is_core = ROOT 
+						}
+					}
+					NOT = { num_of_cities = 25 }
+				}
+				AND = {
+					num_of_owned_provinces_with = {
+						value = 8
+						AND = {
+							has_building = university
+							cu_not_terr_trigger = yes
+							is_core = ROOT 
+						}
+					}
+					NOT = { num_of_cities = 50 }
+				}
+				AND = {
+					num_of_owned_provinces_with = {
+						value = 12
+						AND = {
+							has_building = university
+							cu_not_terr_trigger = yes
+							is_core = ROOT 
+						}
+					}
+					NOT = { num_of_cities = 100 }
+				}
+				num_of_owned_provinces_with = {
+					value = 16
+					AND = {
+						has_building = university
+						cu_not_terr_trigger = yes
+						is_core = ROOT 
+					}
+				}
+			}
+		}
+    }
 	trigger = {
-                OR = {
-                       AND = {
-                           num_of_owned_provinces_with = {
-			      value = 2
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                           }
-                           NOT = { num_of_cities = 25 }
-		       }
-                       AND = {
-                           num_of_owned_provinces_with = {
-			      value = 4
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                           }
-                           NOT = { num_of_cities = 50 }
-		       }
-                       AND = {
-                           num_of_owned_provinces_with = {
-			      value = 6
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                           }
-                           NOT = { num_of_cities = 100 }
-		       }
-                       num_of_owned_provinces_with = {
-			      value = 8
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                       }
-              }
-                       
+        OR = {
+			AND = {
+				num_of_owned_provinces_with = {
+					value = 2
+					AND = {
+						has_building = university
+						cu_not_terr_trigger = yes
+						is_core = ROOT 
+					}
+				}
+				NOT = { num_of_cities = 25 }
+			}		
+			AND = {
+				num_of_owned_provinces_with = {
+					value = 4
+						AND = {
+						has_building = university
+						cu_not_terr_trigger = yes
+						is_core = ROOT 
+					}
+				}	
+				NOT = { num_of_cities = 50 }
+			}		
+			AND = {
+				num_of_owned_provinces_with = {
+					value = 6
+					AND = {
+						has_building = university
+						cu_not_terr_trigger = yes
+						is_core = ROOT 
+					}
+				}
+				NOT = { num_of_cities = 100 }
+			}
+			num_of_owned_provinces_with = {
+				value = 8
+				AND = {
+					has_building = university
+					cu_not_terr_trigger = yes
+					is_core = ROOT 
+				}
+			}
+		}   
 	}
-        global_institution_spread = 0.05
-        idea_cost = -0.05
-		technology_cost = -0.05
-        #icon = 3
+	global_institution_spread = 0.05
+	idea_cost = -0.05
+	technology_cost = -0.05
+	#icon = 3
 }
 
 university_3 = {
 	potential = {
-                NOT = {
-                 OR = {
-                       AND = {
-                           num_of_owned_provinces_with = {
-			      value = 6
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                           }
-                           NOT = { num_of_cities = 25 }
-		       }
-                       AND = {
-                           num_of_owned_provinces_with = {
-			      value = 12
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                           }
-                           NOT = { num_of_cities = 50 }
-		       }
-                       AND = {
-                           num_of_owned_provinces_with = {
-			      value = 18
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                           }
-                           NOT = { num_of_cities = 100 }
-		       }
-                       num_of_owned_provinces_with = {
-			      value = 24
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                       }
-              }
-          } 
-                
-        }
+		NOT = {
+			OR = {
+				AND = {
+					num_of_owned_provinces_with = {
+						value = 8
+						AND = {
+							has_building = university
+							cu_not_terr_trigger = yes
+							is_core = ROOT 
+						}
+					}
+					NOT = { num_of_cities = 25 }
+				}
+				AND = {
+					num_of_owned_provinces_with = {
+						value = 12
+						AND = {
+							has_building = university
+							cu_not_terr_trigger = yes
+							is_core = ROOT 
+						}
+					}
+					NOT = { num_of_cities = 50 }
+				}
+				AND = {
+					num_of_owned_provinces_with = {
+						value = 16
+						AND = {
+							has_building = university
+							cu_not_terr_trigger = yes
+							is_core = ROOT 
+						}
+					}
+					NOT = { num_of_cities = 100 }
+				}
+				num_of_owned_provinces_with = {
+					value = 24
+					AND = {
+						has_building = university
+						cu_not_terr_trigger = yes
+						is_core = ROOT 
+					}
+				}
+			}
+		}
+    }
 	trigger = {
-                OR = {
-                       AND = {
-                           num_of_owned_provinces_with = {
-			      value = 4
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                           }
-                           NOT = { num_of_cities = 25 }
-		       }
-                       AND = {
-                           num_of_owned_provinces_with = {
-			      value = 8
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                           }
-                           NOT = { num_of_cities = 50 }
-		       }
-                       AND = {
-                           num_of_owned_provinces_with = {
-			      value = 12
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                           }
-                           NOT = { num_of_cities = 100 }
-		       }
-                       num_of_owned_provinces_with = {
-			      value = 16
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                       }
-              }
-                       
+        OR = {
+			AND = {
+				num_of_owned_provinces_with = {
+					value = 4
+					AND = {
+						has_building = university
+						cu_not_terr_trigger = yes
+						is_core = ROOT 
+					}
+				}
+				NOT = { num_of_cities = 25 }
+			}		
+			AND = {
+				num_of_owned_provinces_with = {
+					value = 8
+						AND = {
+						has_building = university
+						cu_not_terr_trigger = yes
+						is_core = ROOT 
+					}
+				}	
+				NOT = { num_of_cities = 50 }
+			}		
+			AND = {
+				num_of_owned_provinces_with = {
+					value = 12
+					AND = {
+						has_building = university
+						cu_not_terr_trigger = yes
+						is_core = ROOT 
+					}
+				}
+				NOT = { num_of_cities = 100 }
+			}
+			num_of_owned_provinces_with = {
+				value = 16
+				AND = {
+					has_building = university
+					cu_not_terr_trigger = yes
+					is_core = ROOT 
+				}
+			}
+		}   
 	}
-        global_institution_spread = 0.075
-        idea_cost = -0.075
-		technology_cost = -0.075
-        #icon = 3
+	global_institution_spread = 0.075
+	idea_cost = -0.075
+	technology_cost = -0.075
+	#icon = 3
 }
 
 university_4 = {
 	potential = {
                          
-        }
-	trigger = {
-                OR = {
-                       AND = {
-                           num_of_owned_provinces_with = {
-			      value = 6
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                           }
-                           NOT = { num_of_cities = 25 }
-		       }
-                       AND = {
-                           num_of_owned_provinces_with = {
-			      value = 12
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                           }
-                           NOT = { num_of_cities = 50 }
-		       }
-                       AND = {
-                           num_of_owned_provinces_with = {
-			      value = 18
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                           }
-                           NOT = { num_of_cities = 100 }
-		       }
-                       num_of_owned_provinces_with = {
-			      value = 24
-			      AND = {
-                                 has_building = university
-                                 is_overseas = no
-                                 is_core = ROOT 
-                              }
-                       }
-              }
-                       
-	}
-        global_institution_spread = 0.1
-        idea_cost = -0.1
-		technology_cost = -0.1
-        #icon = 3
-}
-
-hanseatic_leader_modifier = {
-	potential = {
-                OR = {
-                          primary_culture = hannoverian
-                          primary_culture = prussian
-                          primary_culture = pommeranian
-                 }
-                 government = republic
-                 has_global_flag = test_version
 	}
 	trigger = {
-	        
-                                AND = {
-                                         OR = {
-                                                 tag = HSA
-                                                 alliance_with = HSA
-                                                 overlord_of = HSA
-                                                 junior_union_with = HSA
-                                                 senior_union_with = HSA
-                                         }
-                                         OR = {
-                                                 tag = HAM
-                                                 alliance_with = HAM
-                                                 overlord_of = HAM
-                                                 junior_union_with = HAM
-                                                 senior_union_with = HAM
-                                         }
-                                         OR = {
-                                                 tag = BRE
-                                                 alliance_with = BRE
-                                                 overlord_of = BRE
-                                                 junior_union_with = BRE
-                                                 senior_union_with = BRE
-                                         }
-                                         OR = {
-                                                 tag = LUN
-                                                 alliance_with = LUN
-                                                 overlord_of = LUN
-                                                 junior_union_with = LUN
-                                                 senior_union_with = LUN
-                                         }
-                                         OR = {
-                                                 tag = OLD
-                                                 alliance_with = OLD
-                                                 overlord_of = OLD
-                                                 junior_union_with = OLD
-                                                 senior_union_with = OLD
-                                         }
-                                         OR = {
-                                                 tag = RIG
-                                                 alliance_with = RIG
-                                                 overlord_of = RIG
-                                                 junior_union_with = RIG
-                                                 senior_union_with = RIG
-                                         }
-                                }
+        OR = {
+			AND = {
+				num_of_owned_provinces_with = {
+					value = 8
+					AND = {
+						has_building = university
+						cu_not_terr_trigger = yes
+						is_core = ROOT 
+					}
+				}
+				NOT = { num_of_cities = 25 }
+			}
+			AND = {
+				num_of_owned_provinces_with = {
+					value = 12
+					AND = {
+						has_building = university
+						cu_not_terr_trigger = yes
+						is_core = ROOT 
+					}
+				}
+				NOT = { num_of_cities = 50 }
+			}
+			AND = {
+				num_of_owned_provinces_with = {
+					value = 16
+					AND = {
+						has_building = university
+						cu_not_terr_trigger = yes
+						is_core = ROOT 
+					}
+				}
+				NOT = { num_of_cities = 100 }
+			}
+			num_of_owned_provinces_with = {
+				value = 24
+				AND = {
+					has_building = university
+					cu_not_terr_trigger = yes
+					is_core = ROOT 
+				}
+			}
+		}              
 	}
-        diplomatic_upkeep = 3
-        merchants = 1
-        global_own_trade_power = 0.10
-        trade_range_modifier = 0.33
-        global_foreign_trade_power = 0.10
-        #icon = 3
-}
-hanseatic_league_modifier = {
-	potential = {
-                has_global_flag = test_version
-                OR = {
-                          primary_culture = hannoverian
-                          primary_culture = prussian
-                          primary_culture = pommeranian
-                 }
-                 OR = {
-                          government = republic
-                          NOT = { num_of_cities = 2 }
-                 }
-                 NOT = { has_country_modifier = hanseatic_leader_modifier }
-	}
-	trigger = {
-	        OR = { 
-                                tag = HSA
-                                alliance_with = HSA
-                }
-                OR = { 
-                                NOT = { num_of_cities = 2 }
-                                AND = {
-                                         OR = {
-                                                 tag = HAM
-                                                 alliance_with = HAM
-                                                 overlord_of = HAM
-                                                 junior_union_with = HAM
-                                                 senior_union_with = HAM
-                                         }
-                                         OR = {
-                                                 tag = BRE
-                                                 alliance_with = BRE
-                                                 overlord_of = BRE
-                                                 junior_union_with = BRE
-                                                 senior_union_with = BRE
-                                         }
-                                         OR = {
-                                                 tag = LUN
-                                                 alliance_with = LUN
-                                                 overlord_of = LUN
-                                                 junior_union_with = LUN
-                                                 senior_union_with = LUN
-                                         }
-                                         OR = {
-                                                 tag = OLD
-                                                 alliance_with = OLD
-                                                 overlord_of = OLD
-                                                 junior_union_with = OLD
-                                                 senior_union_with = OLD
-                                         }
-                                }
-                }         
-	}
-        diplomatic_upkeep = 1
-        merchants = 1
-        trade_range_modifier = 0.33
-        global_foreign_trade_power = 0.10
-        #icon = 3
+	global_institution_spread = 0.1
+	idea_cost = -0.1
+	technology_cost = -0.1
+	#icon = 3
 }
 
 sunset_adm_tech_booster = {
@@ -1869,8 +1743,10 @@ cu_tax_efficiency_1 = {
 	          NOT = { adm_tech = 7 }
 	          adm_tech = 3
 	}
-    global_tax_modifier = 0.1
-	state_maintenance_modifier = 0.025
+	global_tax_modifier = 0.05
+	yearly_absolutism = 0.1
+	monthly_militarized_society = 0.01
+	state_maintenance_modifier = 0.02
 }
 
 cu_tax_efficiency_2 = { 
@@ -1881,8 +1757,10 @@ cu_tax_efficiency_2 = {
 	          NOT = { adm_tech = 10 }
 	          adm_tech = 7
 	}
-    global_tax_modifier = 0.15
-	state_maintenance_modifier = 0.05
+	global_tax_modifier = 0.1
+	yearly_absolutism = 0.2
+	monthly_militarized_society = 0.015
+	state_maintenance_modifier = 0.04
 }
 
 cu_tax_efficiency_3 = { 
@@ -1893,8 +1771,10 @@ cu_tax_efficiency_3 = {
 	          NOT = { adm_tech = 13 }
 	          adm_tech = 10
 	}
-    global_tax_modifier = 0.2
-	state_maintenance_modifier = 0.075
+	global_tax_modifier = 0.15
+	yearly_absolutism = 0.3
+	monthly_militarized_society = 0.02
+	state_maintenance_modifier = 0.06
 }
 
 cu_tax_efficiency_4 = { 
@@ -1905,8 +1785,10 @@ cu_tax_efficiency_4 = {
 	          NOT = { adm_tech = 16 }
 	          adm_tech = 13
 	}
-    global_tax_modifier = 0.25
-	state_maintenance_modifier = 0.10
+	global_tax_modifier = 0.2
+	yearly_absolutism = 0.4
+	monthly_militarized_society = 0.025
+	state_maintenance_modifier = 0.08
 }
 
 cu_tax_efficiency_5 = { 
@@ -1917,8 +1799,9 @@ cu_tax_efficiency_5 = {
 	          NOT = { adm_tech = 20 }
 	          adm_tech = 16
 	}
-    global_tax_modifier = 0.3
-	state_maintenance_modifier = 0.125
+	global_tax_modifier = 0.25
+	yearly_absolutism = 0.5
+	state_maintenance_modifier = 0.10
 }
 
 cu_tax_efficiency_6 = { 
@@ -1929,8 +1812,10 @@ cu_tax_efficiency_6 = {
 	          NOT = { adm_tech = 23 }
 	          adm_tech = 20
 	}
-    global_tax_modifier = 0.35
-	state_maintenance_modifier = 0.15
+	global_tax_modifier = 0.3
+	yearly_absolutism = 0.6
+	monthly_militarized_society = 0.035
+	state_maintenance_modifier = 0.12
 }
 
 cu_tax_efficiency_7 = { 
@@ -1941,8 +1826,10 @@ cu_tax_efficiency_7 = {
 	          NOT = { adm_tech = 27 }
 	          adm_tech = 23
 	}
-    global_tax_modifier = 0.4
-	state_maintenance_modifier = 0.175
+	global_tax_modifier = 0.35
+	yearly_absolutism = 0.7
+	monthly_militarized_society = 0.04
+	state_maintenance_modifier = 0.14
 }
 
 cu_tax_efficiency_8 = { 
@@ -1953,8 +1840,10 @@ cu_tax_efficiency_8 = {
 	          NOT = { adm_tech = 31 }
 	          adm_tech = 27
 	}
-    global_tax_modifier = 0.45
-	state_maintenance_modifier = 0.2
+	global_tax_modifier = 0.4
+	yearly_absolutism = 0.8
+	monthly_militarized_society = 0.045
+	state_maintenance_modifier = 0.16
 }
 
 cu_tax_efficiency_9 = { 
@@ -1964,37 +1853,10 @@ cu_tax_efficiency_9 = {
 	trigger = {
 	          adm_tech = 31
 	}
-    global_tax_modifier = 0.5
-	state_maintenance_modifier = 0.225
-}
-
-cu_native_idea_penalty_1 = { 
-	potential = {
-                primitives = yes
-    }
-	trigger = {
-		custom_trigger_tooltip = {
-				tooltip = native_literacy_1_tooltip
-				NOT = { check_variable = { which = ave_literacy value = 1.25 } }
-		}
-	}
-	technology_cost = 0.5
-    idea_cost = 1
-}
-
-cu_native_idea_penalty_2 = { 
-	potential = {
-                primitives = yes
-				check_variable = { which = ave_literacy value = 1.5 }
-    }
-	trigger = {
-	    custom_trigger_tooltip = {
-				tooltip = native_literacy_2_tooltip
-				NOT = { check_variable = { which = ave_literacy value = 1.5 } }
-		}
-	}
-	technology_cost = 0.25
-    idea_cost = 0.5
+	global_tax_modifier = 0.45
+	yearly_absolutism = 0.9
+	monthly_militarized_society = 0.05
+	state_maintenance_modifier = 0.18
 }
 
 cu_extra_merchant_1 = { 
@@ -2225,14 +2087,14 @@ offensive_war_cost = {
 	potential = {
 		is_at_war = yes
 		any_known_country = {
-			defensive_war_with = PREV 
+			defensive_war_with = ROOT
 		}
 		ai = no
 	}
 	trigger = {
 		is_at_war = yes
 		any_known_country = {
-			defensive_war_with = PREV 
+			defensive_war_with = ROOT 
 		}
 	}
 	war_exhaustion_cost = 0.25
@@ -2265,13 +2127,14 @@ cu_capital_not_in_state = {
 		}
 	}
 	yearly_corruption = 0.10
-	advisor_cost = 0.15
-	yearly_absolutism = -1
+	state_governing_cost = 0.15
+	yearly_absolutism = -4
 }
 
 insufficient_diplomatic_upkeep_1 = {
 	potential = {
 		NOT = { dip_power = 0 }
+		ai = no
 	}
 	trigger = {
 		NOT = { dip_power = -99 }
@@ -2282,6 +2145,7 @@ insufficient_diplomatic_upkeep_1 = {
 insufficient_diplomatic_upkeep_2 = {
 	potential = {
 		NOT = { dip_power = -99 }
+		ai = no
 	}
 	trigger = {
 		NOT = { dip_power = -199 }
@@ -2292,6 +2156,7 @@ insufficient_diplomatic_upkeep_2 = {
 insufficient_diplomatic_upkeep_3 = {
 	potential = {
 		NOT = { dip_power = -199 }
+		ai = no
 	}
 	trigger = {
 		NOT = { dip_power = -299 }
@@ -2302,6 +2167,7 @@ insufficient_diplomatic_upkeep_3 = {
 insufficient_diplomatic_upkeep_4 = {
 	potential = {
 		NOT = { dip_power = -299 }
+		ai = no
 	}
 	trigger = {
 		NOT = { dip_power = -399 }
@@ -2312,6 +2178,7 @@ insufficient_diplomatic_upkeep_4 = {
 insufficient_diplomatic_upkeep_5 = {
 	potential = {
 		NOT = { dip_power = -399 }
+		ai = no
 	}
 	trigger = {
 		NOT = { dip_power = -499 }
@@ -2322,6 +2189,7 @@ insufficient_diplomatic_upkeep_5 = {
 insufficient_diplomatic_upkeep_6 = {
 	potential = {
 		NOT = { dip_power = -499 }
+		ai = no
 	}
 	trigger = {
 		NOT = { dip_power = -599 }
@@ -2332,6 +2200,7 @@ insufficient_diplomatic_upkeep_6 = {
 insufficient_diplomatic_upkeep_7 = {
 	potential = {
 		NOT = { dip_power = -599 }
+		ai = no
 	}
 	trigger = {
 		NOT = { dip_power = -699 }
@@ -2342,6 +2211,7 @@ insufficient_diplomatic_upkeep_7 = {
 insufficient_diplomatic_upkeep_8 = {
 	potential = {
 		NOT = { dip_power = -699 }
+		ai = no
 	}
 	trigger = {
 		NOT = { dip_power = -799 }
@@ -2352,6 +2222,7 @@ insufficient_diplomatic_upkeep_8 = {
 insufficient_diplomatic_upkeep_9 = {
 	potential = {
 		NOT = { dip_power = -799 }
+		ai = no
 	}
 	trigger = {
 		NOT = { dip_power = -899 }
@@ -2362,6 +2233,7 @@ insufficient_diplomatic_upkeep_9 = {
 insufficient_diplomatic_upkeep_10 = {
 	potential = {
 		NOT = { dip_power = -899 }
+		ai = no
 	}
 	trigger = {
 		NOT = { dip_power = -999 }
@@ -2414,5 +2286,82 @@ protectorate_mil_tech_bonus = {
 	mil_tech_cost_modifier = -0.15
 }				
 
-		
-	
+lost_mandate_cu = {
+	potential = {
+		OR = {
+			has_reform = celestial_empire
+			has_reform = celestial_empire_2
+		}
+	}
+	trigger = {
+		NOT = { meritocracy = 21 }
+	}
+	global_unrest = 2
+	land_morale = -0.1
+	global_autonomy = 0.05
+	imperial_mandate = -0.05
+}
+
+elective_monarchy_foreign_ruler = {
+	potential = {
+		has_reform = elective_monarchy
+		ruler_is_foreigner = yes
+	}
+	global_autonomy = 0.04
+	nobles_influence_modifier = 0.05
+	government_influence_modifier = -0.05
+}
+
+lack_of_chinese_land = {
+	potential = {
+		OR = {
+			has_reform = celestial_empire
+			has_reform = celestial_empire_2
+			has_reform = celestial_empire_3
+		}
+		NOT = {
+			num_of_owned_provinces_with = {
+				value = 100
+				OR = {
+					region = south_china_region
+					region = xinan_region
+					region = north_china_region
+				} 
+			}
+		}
+		ai = no #AI cheat flag
+	}
+	trigger = {
+		NOT = {
+			num_of_owned_provinces_with = {
+				value = 80
+				OR = {
+					region = south_china_region
+					region = xinan_region
+					region = north_china_region
+				} 
+			}
+		}
+	}
+	meritocracy = -2
+}
+
+cu_native_penalty = {
+	potential = { cu_native_trigger = yes }
+	trigger = { NOT = { check_variable = { which = ave_literacy value = 1 } } }
+	min_autonomy = 25
+	technology_cost = 0.25
+	idea_cost = 0.5
+}
+
+low_horde_unity_cu = {
+	potential = {
+		government = tribal
+	}
+	trigger = {
+		NOT = { horde_unity = 21 }
+	}
+	nomadic_tribes_loyalty_modifier = -0.10
+	global_unrest = 1
+	global_autonomy = 0.02
+}

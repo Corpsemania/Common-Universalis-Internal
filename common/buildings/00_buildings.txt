@@ -4,7 +4,7 @@
 # cost = x #==> cost in $ to build (subject to other modifiers)
 # time = x #==> number of months to build.
 # modifier = m # a modifier on the province that the building gives
-# trigger = t # an and trigger that needs to be fullfilled to build and keep the building
+# build_trigger = t # an and build_trigger that needs to be fullfilled to build and keep the building
 # one_per_country = yes/no # if yes, only one of these can exist in a country
 # manufactory = { trade_good trade_good } # list of trade goods that get a production bonus
 # onmap = yes/no # show as a sprite on the map
@@ -59,7 +59,7 @@ marketplace = {
     }
 	
 	ai_will_do = {
-		factor = 1.1
+		factor = 500
 		modifier = {
 			factor = 10
 			OR = { 
@@ -93,6 +93,10 @@ marketplace = {
 			factor = 1.25
 			owner = { trade_income_percentage = 0.50 }
 		}
+		modifier = {
+			factor = 0.005
+			owner = { has_country_modifier = trade_limitation  }
+		}	
 	}
 }
 
@@ -129,7 +133,7 @@ workshop = {
 	allow_in_gold_provinces = no
 
 	ai_will_do = {
-		factor = 1.2
+		factor = 600
 		
 		modifier = { 
 			factor = 5
@@ -183,48 +187,52 @@ workshop = {
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 10 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 20 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}		
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 30 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}		
 		modifier = { 
 			factor = 0.9 
 			local_autonomy = 40 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}	
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 50 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 60 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 70 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}
 		modifier = {
 			factor = 0.9
 			local_autonomy = 80 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 90 
-			NOT = { has_estate = estate_burghers} 
+			NOT = { has_province_flag = has_estate_estate_burghers} 
 		}		
+		modifier = {
+			factor = 0.001
+			owner = { has_country_modifier = artisan_regulation  }
+		}
 	}
 }
 
@@ -233,8 +241,8 @@ temple = {
 	time = 12
 	#destroy_on_conquest = yes #Destroyed on heretic conquest if tolerance is below 0
 	modifier = {
-        local_unrest = -3
-        local_missionary_strength = -0.01
+        local_unrest = -2
+        local_missionary_strength = 0.004
 	}
 	on_built = {
 	     #custom_tooltip = cu_building_bca_5
@@ -269,7 +277,7 @@ temple = {
 		 }
     }
 	ai_will_do = {
-		factor = 100
+		factor = 900
 		modifier = { 
 			factor = 1.25
 			base_manpower = 6
@@ -291,12 +299,8 @@ temple = {
 		}
 		modifier = { 
 			factor = 0.75
-			NOT = { has_estate = estate_church }
-			NOT = { has_estate = estate_dhimmi }
-		}
-		modifier = { 
-			factor = 0.75
-			NOT = { religion = owner }
+			NOT = { has_province_flag = has_estate_estate_church }
+			NOT = { has_province_flag = has_estate_estate_dhimmi }
 		}
 		modifier = { #Colonial Nations will focus more on domestic education
 			factor = 2
@@ -340,7 +344,7 @@ temple = {
 barracks = {
 	cost = 90
 	time = 12
-	trigger = {
+	build_trigger = {
 	    cu_not_terr_trigger = yes
 	}
 	modifier = {
@@ -370,7 +374,7 @@ barracks = {
 		 }
     }
 	ai_will_do = {
-		factor = 1.2
+		factor = 120
 		modifier = {
 			factor = 2
 			has_owner_culture = yes
@@ -412,65 +416,65 @@ barracks = {
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 10 
-			NOT = { has_estate = estate_nobles}
-			NOT = { has_estate = estate_nomadic_tribes}
-			NOT = { has_estate = estate_cossacks}
+			NOT = { has_province_flag = has_estate_estate_nobles}
+			NOT = { has_province_flag = has_estate_estate_nomadic_tribes}
+			NOT = { has_province_flag = has_estate_estate_cossacks}
 		}		
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 20 
-			NOT = { has_estate = estate_nobles}
-			NOT = { has_estate = estate_nomadic_tribes}
-			NOT = { has_estate = estate_cossacks}
+			NOT = { has_province_flag = has_estate_estate_nobles}
+			NOT = { has_province_flag = has_estate_estate_nomadic_tribes}
+			NOT = { has_province_flag = has_estate_estate_cossacks}
 		}		
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 30 
-			NOT = { has_estate = estate_nobles}
-			NOT = { has_estate = estate_nomadic_tribes}
-			NOT = { has_estate = estate_cossacks}
+			NOT = { has_province_flag = has_estate_estate_nobles}
+			NOT = { has_province_flag = has_estate_estate_nomadic_tribes}
+			NOT = { has_province_flag = has_estate_estate_cossacks}
 		}		
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 40 
-			NOT = { has_estate = estate_nobles}
-			NOT = { has_estate = estate_nomadic_tribes}
-			NOT = { has_estate = estate_cossacks}
+			NOT = { has_province_flag = has_estate_estate_nobles}
+			NOT = { has_province_flag = has_estate_estate_nomadic_tribes}
+			NOT = { has_province_flag = has_estate_estate_cossacks}
 		}	
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 50 
-			NOT = { has_estate = estate_nobles}
-			NOT = { has_estate = estate_nomadic_tribes}
-			NOT = { has_estate = estate_cossacks}
+			NOT = { has_province_flag = has_estate_estate_nobles}
+			NOT = { has_province_flag = has_estate_estate_nomadic_tribes}
+			NOT = { has_province_flag = has_estate_estate_cossacks}
 		}
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 60 
-			NOT = { has_estate = estate_nobles}
-			NOT = { has_estate = estate_nomadic_tribes}
-			NOT = { has_estate = estate_cossacks}
+			NOT = { has_province_flag = has_estate_estate_nobles}
+			NOT = { has_province_flag = has_estate_estate_nomadic_tribes}
+			NOT = { has_province_flag = has_estate_estate_cossacks}
 		}
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 70 
-			NOT = { has_estate = estate_nobles}
-			NOT = { has_estate = estate_nomadic_tribes}
-			NOT = { has_estate = estate_cossacks}
+			NOT = { has_province_flag = has_estate_estate_nobles}
+			NOT = { has_province_flag = has_estate_estate_nomadic_tribes}
+			NOT = { has_province_flag = has_estate_estate_cossacks}
 		}
 		modifier = {
 			factor = 0.9
 			local_autonomy = 80 
-			NOT = { has_estate = estate_nobles}
-			NOT = { has_estate = estate_nomadic_tribes}
-			NOT = { has_estate = estate_cossacks}
+			NOT = { has_province_flag = has_estate_estate_nobles}
+			NOT = { has_province_flag = has_estate_estate_nomadic_tribes}
+			NOT = { has_province_flag = has_estate_estate_cossacks}
 		}
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 90 
-			NOT = { has_estate = estate_nobles}
-			NOT = { has_estate = estate_nomadic_tribes}
-			NOT = { has_estate = estate_cossacks}
+			NOT = { has_province_flag = has_estate_estate_nobles}
+			NOT = { has_province_flag = has_estate_estate_nomadic_tribes}
+			NOT = { has_province_flag = has_estate_estate_cossacks}
 		}		
 	}
 }		
@@ -478,7 +482,7 @@ barracks = {
 shipyard = {
 	cost = 150
 	time = 24
-	trigger = {
+	build_trigger = {
 		has_port = yes
                 OR = {
                        base_production = 6
@@ -517,7 +521,7 @@ shipyard = {
 		 }
     }
 	ai_will_do = {
-		factor = 100
+		factor = 105
 		modifier = { 
 			factor = 0.5
 			NOT = {
@@ -600,10 +604,10 @@ fort_15th = {
 	modifier = {
 		fort_level = 2
         supply_limit_modifier = 0.25
-        local_defensiveness = 0.1
+        local_defensiveness = 0.15
 		local_hostile_movement_speed = -0.1
 		local_hostile_attrition = 1
-		land_forcelimit = 2
+		land_forcelimit = 1.5
 		allowed_num_of_buildings = 1
 	}
 	on_built = {
@@ -647,7 +651,7 @@ courthouse = {
 	cost = 130
 	time = 24
 	destroy_on_conquest = yes
-    trigger = {
+    build_trigger = {
 		OR = {
                         development = 15
                         any_neighbor_province = {
@@ -658,8 +662,8 @@ courthouse = {
 	}
 	modifier = {
 		local_unrest = -1
-		local_autonomy = -0.03
-		global_tax_income = -0.5
+		local_autonomy = -0.02
+		local_state_maintenance_modifier = 0.075
 	}
 	on_built = {
 	     #custom_tooltip = cu_building_bca_6
@@ -739,7 +743,7 @@ courthouse = {
 dock = {
 	cost = 100
 	time = 24
-	trigger = {
+	build_trigger = {
 		has_port = yes
 	}
 	modifier = {
@@ -776,14 +780,14 @@ dock = {
 		 }
     }
 	ai_will_do = {
-		factor = 100
+		factor = 105
 		modifier = {
 			factor = 1.5
 			is_overseas = yes
 		}	
 		modifier = {
 			factor = 1.5
-			0R = {
+			OR = {
 			      owner = { has_idea_group = maritime_ideas }
 				  owner = { has_idea_group = naval_ideas }
 				  owner = { has_idea_group = exploration_ideas }
@@ -826,7 +830,7 @@ regimental_camp = {
 	cost = 150
 	time = 24
 
-    trigger = {
+    build_trigger = {
                  check_variable = { which = literacy value = 5 }
 				 development = 18
 	}
@@ -861,7 +865,7 @@ regimental_camp = {
 		 }
     }
 	ai_will_do = {
-		factor = 150
+		factor = 120
 		modifier = { 
 			factor = 3
 			NOT = { 
@@ -901,7 +905,7 @@ counting_house = {
 	make_obsolete = workshop
 	
 	time = 60
-    trigger = {
+    build_trigger = {
                 OR = {
 		    base_production = 6
                     AND = {
@@ -944,7 +948,7 @@ counting_house = {
 	allow_in_gold_provinces = no
 	
 	ai_will_do = {
-		factor = 2
+		factor = 600
 		modifier = { 
 			factor = 5
 			OR = {
@@ -997,48 +1001,58 @@ counting_house = {
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 10 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 20 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}		
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 30 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}		
 		modifier = { 
 			factor = 0.9 
 			local_autonomy = 40 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}	
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 50 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 60 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 70 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}
 		modifier = {
 			factor = 0.9
 			local_autonomy = 80 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 90 
-			NOT = { has_estate = estate_burghers} 
+			NOT = { has_province_flag = has_estate_estate_burghers} 
 		}	
+		modifier = { 
+			factor = 5 #Update the building
+			has_building = workshop
+			cu_not_terr_trigger = yes
+			NOT = { owner = { has_country_modifier = artisan_regulation  } }
+		}	
+		modifier = {
+			factor = 0.001
+			owner = { has_country_modifier = artisan_regulation  }
+		}
 	}
 }
 
@@ -1048,9 +1062,9 @@ fort_16th = {
 	make_obsolete = fort_15th
 	modifier = {
 		fort_level = 4
-		land_forcelimit = 2.5
+		land_forcelimit = 2
         supply_limit_modifier = 0.3
-		local_defensiveness = 0.15
+		local_defensiveness = 0.225
 		local_hostile_attrition = 1.2
 		local_hostile_movement_speed = -0.15
 		allowed_num_of_buildings = 1
@@ -1098,7 +1112,7 @@ cathedral = {
 	
 	cost = 300
 	time = 24
-    trigger = {
+    build_trigger = {
                 OR = {
 		            development = 20
 					has_building = cathedral
@@ -1110,8 +1124,8 @@ cathedral = {
                 }
 	}
 	modifier = {
-		local_missionary_strength = -0.025
-        local_unrest = -5
+		local_missionary_strength = 0.008
+        local_unrest = -4
 	}
 	on_built = {
 	     #custom_tooltip = cu_building_bca_8
@@ -1146,7 +1160,7 @@ cathedral = {
 		 }
     }
 	ai_will_do = {
-		factor = 250
+		factor = 1250
         modifier = { 
 			factor = 1.5
 			base_manpower = 9
@@ -1163,8 +1177,8 @@ cathedral = {
 		}
 		modifier = { 
 			factor = 0.5
-			NOT = { has_estate = estate_church}
-			NOT = { has_estate = estate_dhimmi}
+			NOT = { has_province_flag = has_estate_estate_church }
+			NOT = { has_province_flag = has_estate_estate_dhimmi }
 		}
 		modifier = { 
 			factor = 1.25
@@ -1177,10 +1191,6 @@ cathedral = {
 				 religion = confucianism
 		    }
 		}	
-		modifier = { 
-			factor = 0.33
-			NOT = { religion = owner }
-		}
         modifier = { 
 			factor = 0.5
 			owner = { technology_group = indian }
@@ -1196,7 +1206,7 @@ cathedral = {
 university = {
 	cost = 960
 	time = 60
-    trigger = {
+    build_trigger = {
 	    OR = {
 			AND = {
 				development = 15
@@ -1242,8 +1252,8 @@ university = {
 	     hidden_effect = {
 		     set_variable = { which = cu_var1 value = -20 }
 		     cu_add_cultural_acceptance = yes
-			 remove_province_modifier = education_policy_burghers
-			 remove_province_modifier = education_policy_public
+			 remove_province_modifier = cu_burghers_university
+			 remove_province_modifier = cu_public_university
 			 remove_province_modifier = cu_national_college
 			 subtract_variable = { which = cu_art_slot value = 1 }
 		 }
@@ -1253,14 +1263,14 @@ university = {
          hidden_effect = {
 		     set_variable = { which = cu_var1 value = -10 }
 		     cu_add_cultural_acceptance = yes
-			 remove_province_modifier = education_policy_burghers
-			 remove_province_modifier = education_policy_public
+			 remove_province_modifier = cu_burghers_university
+			 remove_province_modifier = cu_public_university
 			 remove_province_modifier = cu_national_college
 			 subtract_variable = { which = cu_art_slot value = 1 }
 		 }
     }
 	ai_will_do = {
-		factor = 300
+		factor = 720
         modifier = { 
 			factor = 2
 			base_manpower = 12
@@ -1325,7 +1335,7 @@ university = {
 public_school = {
 	cost = 320
 	time = 24
-	trigger = {
+	build_trigger = {
 		OR = {
 			NOT = { 
 				owner = {
@@ -1380,7 +1390,7 @@ public_school = {
 		 }
     }
 	ai_will_do = {
-		factor = 200
+		factor = 360
         modifier = { 
 			factor = 2
 			base_manpower = 7
@@ -1457,7 +1467,7 @@ trade_depot = {
 	time = 24
 	
 	make_obsolete = marketplace
-	trigger = {
+	build_trigger = {
                 OR = {
 					base_tax = 5
                     has_province_modifier = center_of_trade_modifier
@@ -1494,7 +1504,7 @@ trade_depot = {
 		 }
     }
 	ai_will_do = {
-		factor = 1.5
+		factor = 400
 		modifier = {
 			factor = 10
 			OR = { 
@@ -1528,6 +1538,16 @@ trade_depot = {
 			factor = 1.25
 			owner = { trade_income_percentage = 0.50 }
 		}		
+		modifier = { 
+			factor = 5 #Update the building
+			has_building = marketplace
+			cu_not_terr_trigger = yes
+			NOT = { owner = { has_country_modifier = trade_limitation  } }
+		}	
+		modifier = {
+			factor = 0.001
+			owner = { has_country_modifier = trade_limitation  }
+		}
 	}
 }
 
@@ -1537,7 +1557,7 @@ grand_shipyard = {
 	
 	make_obsolete = shipyard
 	
-	trigger = {
+	build_trigger = {
 		has_port = yes
                 OR = {
                        base_production = 9
@@ -1577,7 +1597,7 @@ grand_shipyard = {
 		 }
     }
 	ai_will_do = {
-		factor = 160
+		factor = 120
 		modifier = { 
 			factor = 0.5
 			NOT = {
@@ -1687,7 +1707,7 @@ training_fields = {
 		 }
     }
 	ai_will_do = {
-		factor = 1.2
+		factor = 120
 		modifier = {
 			factor = 0
 			NOT = { base_manpower = 6 }
@@ -1721,65 +1741,65 @@ training_fields = {
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 10 
-			NOT = { has_estate = estate_nobles}
-			NOT = { has_estate = estate_nomadic_tribes}
-			NOT = { has_estate = estate_cossacks}
+			NOT = { has_province_flag = has_estate_estate_nobles}
+			NOT = { has_province_flag = has_estate_estate_nomadic_tribes}
+			NOT = { has_province_flag = has_estate_estate_cossacks}
 		}		
 		modifier = { 
 			factor = 0.9 
 			local_autonomy = 20 
-			NOT = { has_estate = estate_nobles}
-			NOT = { has_estate = estate_nomadic_tribes}
-			NOT = { has_estate = estate_cossacks}
+			NOT = { has_province_flag = has_estate_estate_nobles}
+			NOT = { has_province_flag = has_estate_estate_nomadic_tribes}
+			NOT = { has_province_flag = has_estate_estate_cossacks}
 		}		
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 30 
-			NOT = { has_estate = estate_nobles}
-			NOT = { has_estate = estate_nomadic_tribes}
-			NOT = { has_estate = estate_cossacks}
+			NOT = { has_province_flag = has_estate_estate_nobles}
+			NOT = { has_province_flag = has_estate_estate_nomadic_tribes}
+			NOT = { has_province_flag = has_estate_estate_cossacks}
 		}		
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 40 
-			NOT = { has_estate = estate_nobles}
-			NOT = { has_estate = estate_nomadic_tribes}
-			NOT = { has_estate = estate_cossacks}
+			NOT = { has_province_flag = has_estate_estate_nobles}
+			NOT = { has_province_flag = has_estate_estate_nomadic_tribes}
+			NOT = { has_province_flag = has_estate_estate_cossacks}
 		}	
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 50 
-			NOT = { has_estate = estate_nobles}
-			NOT = { has_estate = estate_nomadic_tribes}
-			NOT = { has_estate = estate_cossacks}
+			NOT = { has_province_flag = has_estate_estate_nobles}
+			NOT = { has_province_flag = has_estate_estate_nomadic_tribes}
+			NOT = { has_province_flag = has_estate_estate_cossacks}
 		}
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 60 
-			NOT = { has_estate = estate_nobles}
-			NOT = { has_estate = estate_nomadic_tribes}
-			NOT = { has_estate = estate_cossacks}
+			NOT = { has_province_flag = has_estate_estate_nobles}
+			NOT = { has_province_flag = has_estate_estate_nomadic_tribes}
+			NOT = { has_province_flag = has_estate_estate_cossacks}
 		}
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 70 
-			NOT = { has_estate = estate_nobles}
-			NOT = { has_estate = estate_nomadic_tribes}
-			NOT = { has_estate = estate_cossacks}
+			NOT = { has_province_flag = has_estate_estate_nobles}
+			NOT = { has_province_flag = has_estate_estate_nomadic_tribes}
+			NOT = { has_province_flag = has_estate_estate_cossacks}
 		}
 		modifier = {
 			factor = 0.9
 			local_autonomy = 80 
-			NOT = { has_estate = estate_nobles}
-			NOT = { has_estate = estate_nomadic_tribes}
-			NOT = { has_estate = estate_cossacks}
+			NOT = { has_province_flag = has_estate_estate_nobles}
+			NOT = { has_province_flag = has_estate_estate_nomadic_tribes}
+			NOT = { has_province_flag = has_estate_estate_cossacks}
 		}
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 90 
-			NOT = { has_estate = estate_nobles}
-			NOT = { has_estate = estate_nomadic_tribes}
-			NOT = { has_estate = estate_cossacks}
+			NOT = { has_province_flag = has_estate_estate_nobles}
+			NOT = { has_province_flag = has_estate_estate_nomadic_tribes}
+			NOT = { has_province_flag = has_estate_estate_cossacks}
 		}
 	}
 }
@@ -1793,9 +1813,9 @@ fort_17th = {
 	
 	modifier = {
 		fort_level = 6
-		land_forcelimit = 3
+		land_forcelimit = 2.5
         supply_limit_modifier = 0.4
-		local_defensiveness = 0.2
+		local_defensiveness = 0.3
 		local_hostile_attrition = 1.35
 		local_hostile_movement_speed = -0.2
 		allowed_num_of_buildings = 1
@@ -1845,7 +1865,7 @@ stock_exchange = {
 	
 	make_obsolete = trade_depot
 	
-        trigger = {
+        build_trigger = {
                 OR = {
 		    base_tax = 7
                     has_province_modifier = center_of_trade_modifier
@@ -1882,7 +1902,7 @@ stock_exchange = {
 		 }
     }
 	ai_will_do = {
-		factor = 3
+		factor = 400
 		modifier = {
 			factor = 10
 			base_tax = 8
@@ -1923,6 +1943,16 @@ stock_exchange = {
 			NOT = { has_owner_accepted_culture = yes }
 			NOT = { owner = { culture_group = ROOT } }
 		}		
+		modifier = { 
+			factor = 5 #Update the building
+			has_building = trade_depot
+			cu_not_terr_trigger = yes
+			NOT = { owner = { has_country_modifier = trade_limitation  } }
+		}	
+		modifier = {
+			factor = 0.001
+			owner = { has_country_modifier = trade_limitation  }
+		}	
 	}
 }
 
@@ -1937,7 +1967,7 @@ town_hall = {
 	
 	make_obsolete = courthouse
 	destroy_on_conquest = yes
-    trigger = {
+    build_trigger = {
 		
 	            development = 20
                 is_core = owner
@@ -1953,8 +1983,8 @@ town_hall = {
 
 	modifier = {
         local_unrest = -2
-        local_autonomy = -0.05
-		global_tax_income = -1
+        local_autonomy = -0.03
+		local_state_maintenance_modifier = 0.15
 	}
 	on_built = {
 	     #custom_tooltip = cu_building_bca_10
@@ -2037,7 +2067,7 @@ drydock = {
 	
 	make_obsolete = dock
 	
-	trigger = {
+	build_trigger = {
 		has_port = yes
 	}
 	
@@ -2128,7 +2158,7 @@ conscription_center = {
 	
 	make_obsolete = regimental_camp
 	
-    trigger = {
+    build_trigger = {
 			OR = {
 				AND = {
 					check_variable = { which = literacy value = 10 }
@@ -2169,7 +2199,7 @@ conscription_center = {
 		 }
     }
 	ai_will_do = {
-		factor = 250
+		factor = 240
 		modifier = { 
 			factor = 2
 			NOT = { 
@@ -2202,7 +2232,7 @@ conscription_center = {
 weapons = {
 	cost = 900
 	time = 60
-        trigger = {
+        build_trigger = {
                 OR = {
 		    base_production = 8
                     AND = {
@@ -2253,7 +2283,7 @@ weapons = {
 	onmap = yes	
 	allow_in_gold_provinces = no
 	ai_will_do = {
-		factor = 5
+		factor = 600
 		modifier = { 
 			factor = 2
 			OR = {
@@ -2312,48 +2342,58 @@ weapons = {
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 10 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 20 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}		
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 30 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}		
 		modifier = { 
 			factor = 0.9 
 			local_autonomy = 40 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}	
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 50 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 60 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 70 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}
 		modifier = {
 			factor = 0.9
 			local_autonomy = 80 
-			NOT = { has_estate = estate_burghers}
+			NOT = { has_province_flag = has_estate_estate_burghers}
 		}
 		modifier = { 
 			factor = 0.9
 			local_autonomy = 90 
-			NOT = { has_estate = estate_burghers} 
+			NOT = { has_province_flag = has_estate_estate_burghers} 
 		}	
+		modifier = { 
+			factor = 5 #Update the building
+			has_building = counting_house
+			cu_not_terr_trigger = yes
+			NOT = { owner = { has_country_modifier = artisan_regulation  } }
+		}	
+		modifier = {
+			factor = 0.001
+			owner = { has_country_modifier = artisan_regulation  }
+		}
 	}
 }
 
@@ -2369,9 +2409,9 @@ fort_18th = {
 	
 	modifier = {
 		fort_level = 8
-		land_forcelimit = 4
+		land_forcelimit = 3.5
         supply_limit_modifier = 0.5
-		local_defensiveness = 0.25
+		local_defensiveness = 0.375
 		local_hostile_attrition = 1.5
 		local_hostile_movement_speed = -0.25
 		allowed_num_of_buildings = 1
@@ -2413,7 +2453,7 @@ fort_18th = {
 plantations = {
     cost = 130
 	time = 12
-	trigger = {
+	build_trigger = {
 	    owner = { has_institution = new_world_i }
 		OR = {
 		      trade_goods = coffee
@@ -2457,7 +2497,7 @@ plantations = {
 		trade_goods_size = 0.4
 		province_trade_power_value = 0.25
 		local_manpower_modifier = -0.5
-		local_development_cost = 0.2
+		local_development_cost = 0.33
 	}
 	
 	ai_will_do = {
@@ -2499,7 +2539,7 @@ plantations = {
 tradecompany = {
     cost = 130
 	time = 12
-	trigger = {
+	build_trigger = {
 	    owner = { has_institution = new_world_i }
 		OR = {
 		trade_goods = ivory
@@ -2547,7 +2587,7 @@ tradecompany = {
 		trade_goods_size = 0.4
 		province_trade_power_value = 0.25
 		local_manpower_modifier = -0.5
-		local_development_cost = 0.2
+		local_development_cost = 0.33
 	}
 
 	ai_will_do = {
@@ -2595,13 +2635,12 @@ manufactory = {
 	modifier = {
 		trade_goods_size = 0.25
 		province_trade_power_value = 0.25
-		local_development_cost = 0.1
+		local_development_cost = 0.20
 	}
 }
 
 wharf = {
-        trigger = {
-		    full_idea_group = administrative_ideas
+        build_trigger = {
                 OR = {
 		    base_production = 8
                     AND = {
@@ -2612,7 +2651,8 @@ wharf = {
 							 has_province_modifier = cu_fort_government
 						 }
                     }
-                }
+				}
+				always = no
 	}
 	manufactory = {
 		naval_supplies
@@ -2672,8 +2712,8 @@ wharf = {
 
 
 textile = {
-        trigger = {
-		    full_idea_group = administrative_ideas
+        build_trigger = {
+		    always = no
                 OR = {
 		    base_production = 8
                     AND = {
@@ -2743,8 +2783,8 @@ textile = {
 
 
 mills = {
-        trigger = {
-		    full_idea_group = administrative_ideas
+        build_trigger = {
+		    always = no
                 OR = {
 		    base_production = 8
                     AND = {
@@ -2815,7 +2855,7 @@ furnace = {
 
 	potential = {
 		has_dlc = "Rule Britannia"
-		full_idea_group = administrative_ideas
+		always = no
 	}
 	modifier = {
 		global_trade_goods_size_modifier = 0.05 #National Bonus

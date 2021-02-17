@@ -9,7 +9,7 @@ grain = {
 		land_forcelimit_modifier = 0.20
 	}
 	province = {
-		local_development_cost = -0.05
+		local_development_cost = -0.10
 	}
 	chance = {
 		factor = 35
@@ -592,7 +592,7 @@ copper = {
 gold = {
 	color = { 1.0 0.84 0.19 }
 	province = {
-		local_development_cost = -0.2
+		local_development_cost = -0.25
 	}
 	
 	chance = {
@@ -635,6 +635,7 @@ gold = {
 			NOT = { region = east_siberia_region }
 			NOT = { region = australia_region }
 			NOT = { region = south_africa_region }
+			NOT = { region = central_africa_region }
 		}
 		modifier = {
 			factor = 0
@@ -678,6 +679,7 @@ gold = {
 				province_id = 857		# Guichichil
 				province_id = 858		# Tamaulipas
 				province_id = 2615		# Guamares
+				province_id = 4781		# Transvaal (Johannesburg mines)
 			}
 		}
 		modifier = {
@@ -861,7 +863,7 @@ ivory = {
 tea = {
 	color = { 0.07 0.33 0.09 }
 	modifier = {
-		advisor_cost = -0.05
+		advisor_cost = -0.20
 	}
 	province = {
 		trade_goods_size = 0.1
@@ -1701,6 +1703,15 @@ gems = {
 			NOT = { region = east_siberia_region }
 			NOT = { region = australia_region }
 			NOT = { region = south_africa_region }
+			NOT = { region = indonesia_region }
+			NOT = { region = moluccas_region }
+			NOT = { region = hindusthan_region }
+			NOT = { region = west_india_region }
+			NOT = { region = bengal_region }
+			NOT = { region = deccan_region }
+			NOT = { region = coromandel_region }
+			NOT = { region = indo_china_region }
+			NOT = { continent = oceania }
 		}
 		modifier = {
 			factor = 0

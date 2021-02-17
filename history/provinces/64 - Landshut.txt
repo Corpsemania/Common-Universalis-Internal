@@ -1,0 +1,31 @@
+#64 - Landshut
+
+owner = BAV
+controller = BAV
+add_core = BAV
+culture = bavarian
+religion = catholic
+base_tax = 5
+base_production = 5
+trade_goods = salt
+base_manpower = 2
+fort_15th = yes #Trausnitz Castle
+capital	= "Landshut" 
+is_city = yes
+estate = estate_nobles
+hre = yes
+
+
+
+discovered_by = eastern
+discovered_by = western
+discovered_by = muslim
+discovered_by = ottoman
+
+
+1704.8.13 = {	owner = HAB
+	controller = HAB
+} # Bavaria is conquered by the Emperor, is however later restored for the balance of power
+1714.9.7 = { owner = BAV controller = BAV }
+1743.1.1 = { base_tax = 4 base_production = 4 } # Economic crisis as effect of the Austrian succession war (e.g. Straubing bancrupt)
+1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved

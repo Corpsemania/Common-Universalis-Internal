@@ -52,7 +52,7 @@ country_decisions = {
 				}
 				AND = {
 					OR = {
-						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 					}
 					OR = {
 						province_id = 294
@@ -78,22 +78,22 @@ country_decisions = {
 			owns_core_province = 1778 #Qasim
 			owns_core_province = 2411 #Mansur
 			294 = { #Tver
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			295 = { #Moscow
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			301 = { #Ryazan
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			307 = { #Vladimir
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			308 = { #Yaroslavl
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			1956 = { #Suzdal
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			num_of_cities = 30
 			is_free_or_tributary_trigger = yes
@@ -175,7 +175,7 @@ country_decisions = {
 			}
 			OR = {				
 				culture_group = altaic
-				culture_group = south_turkic				
+				cu_south_turkic_group = yes				
 			}
 			capital_scope = {
 				region = persia_region

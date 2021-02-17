@@ -66,7 +66,7 @@ country_event = {
 		name = flavor_mlc.2.b #Appoint a puppet and marginalize the Bendahara. 
 		ai_chance = { factor = 10 }
 		add_prestige = 15
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -149,7 +149,7 @@ country_event = {
 	option = {
 		name = flavor_mlc.4.b #No, let us keep with our old traditions.
 		add_piety = -0.1
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 

@@ -8,7 +8,7 @@ edict_commercial_focus = {
 	}
 	
 	modifier = {
-		local_tax_modifier = 0.2
+		province_trade_power_modifier = 0.4
 	    local_production_efficiency = -0.2
 	}
 	

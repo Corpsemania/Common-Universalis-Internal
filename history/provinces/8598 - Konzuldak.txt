@@ -2,9 +2,9 @@
 
 owner = TUR
 controller = TUR
-culture = turkish
+culture = pontic_greek
 religion = sunni
-capital = "Konzuldak"
+capital = "Zonkuldak"
 trade_goods = grain
 hre = no
 base_tax = 2

@@ -2,76 +2,16 @@ estate_church =
 {
 	icon = 1
 	
-	color = { 200 150 0 }
 	
-	# Is estate kept in control of province on conquest?
-	keep_on_conquest = no
 	
-	# Estate will always be removed when conquered by a different religion than previous owner
-	always_remove_on_religious_conquest = yes
 	
-	# They want to control at least this % of the country's non-overseas development, if # of home provinecs is above set amount
-	min_territory = 10 
-	start_territory_weight = 0
-	wanted_territory_modifier = {
-		desc = EST_TOTAL_STEPPE_EMPIRE
-		trigger = {
-			has_reform = steppe_empire
-		}	
-		value = -5
-	}
-	wanted_territory_modifier = {
-		desc = EST_VAL_HINDU_CLERGY
-		trigger = {
-			religion = hinduism
-		}	
-		value = -5
-	}
-	wanted_territory_modifier = {
-		desc = EST_VAL_PAPAL_LANDS
-		trigger = {
-			tag = PAP
-		}	
-		value = -10
-	}
-	wanted_territory_modifier = {
-		desc = EST_VAL_CATHOLIC
-		trigger = {
-			religion = catholic
-			NOT = { tag = PAP }
-		}	
-		value = 5
-	}
-	wanted_territory_modifier = {
-		desc = EST_VAL_NEO_SUFISM
-		trigger = {
-			has_dlc = "Cradle of Civilization"
-			has_global_flag = neo_sufism
-			religion_group = muslim
-		}	
-		value = 5
-	}
-	wanted_territory_modifier = {
-		desc = EST_VAL_THEOCRACY
-		trigger = {
-			government = theocracy
-			NOT = { tag = PAP }
-		}	
-		value = 5
-	}	
-	wanted_territory_modifier = {
-		desc = EST_VAL_THEOCRACY
-		trigger = {
-			has_reform = celestial_empire
-		}	
-		value = 15
-	}	
+
 	
 	# If true, country will get estate
 	trigger = {		
 		#NOT = { has_reform = trading_city }
 		NOT = { has_reform = siberian_tribe }
-		NOT = { government = native }		
+		NOT = {  cu_estate_preload_native = yes }		
 		NOT = { has_reform = celestial_empire }
 		NOT = { has_reform = celestial_empire_2 }
 		NOT = { has_reform = celestial_empire_3 }
@@ -103,31 +43,19 @@ estate_church =
 		is_colonial_nation = no
 	}
 	
-	# If true, province can be granted to estate
-	province_trigger = {
-		always = yes
-	}
 	
-	# Min autonomy in estate provinces
-	min_autonomy = 0
-	
-	# Estate cancels out the following multiplicative local autonomy effects:
-	#autonomy_does_not_affect = local_tax_modifier
-
-	# These scale with loyalty & power
 	country_modifier_happy = {
 		papal_influence = 1
 		devotion = 0.5
 		church_power_modifier = 0.1
 		monthly_fervor_increase = 1
         yearly_corruption = 0.05
-		max_absolutism = -10
-		yearly_absolutism = -0.05
+		max_absolutism = -5
+		yearly_absolutism = 0.2
 	}
 	country_modifier_neutral = {
         yearly_corruption = 0.1
 		max_absolutism = -10
-		yearly_absolutism = -0.10
 	}	
 	country_modifier_angry = {
 		papal_influence = -1
@@ -137,26 +65,9 @@ estate_church =
 		global_tax_modifier = -0.1
         yearly_corruption = 0.15
 		max_absolutism = -10
-		yearly_absolutism = -0.15
+		yearly_absolutism = -0.4
 	}	
 	
-	# These do not scale, but only applied in provinces owned by the estate
-	province_modifier_happy = {
-		local_missionary_strength = 0.005
-		local_unrest = -3
-		local_tax_modifier = 0.2
-		local_autonomy = 0.02
-	}
-	province_modifier_neutral = {
-		local_missionary_strength = 0.0025
-		local_unrest = -2
-		local_tax_modifier = 0.1
-		local_autonomy = 0.04
-	}	
-	province_modifier_angry = {
-		local_unrest = 5
-		local_autonomy = 0.06
-	}	
 	
 	# Influence modifiers
 	base_influence = 0
@@ -168,13 +79,6 @@ estate_church =
 		influence = -100
 	}
 	influence_modifier = {
-		desc = EST_VAL_THEOCRACY
-		trigger = {
-			government = theocracy
-		}	
-		influence = 15
-	}
-	influence_modifier = {
 		desc = EST_VAL_OTHER_ESTATE_IN_POWER
 		trigger = {
 			OR = {
@@ -184,156 +88,7 @@ estate_church =
 		}
 		influence = -40
 	}
-	influence_modifier = {
-		desc = EST_VAL_CELESTIAL_EMPIRE
-		trigger = {
-			has_reform = celestial_empire
-		}		
-		influence = 10
-	}
-	influence_modifier = {
-		desc = EST_VAL_CHURCH_ADVANCE
-		trigger = {
-			has_reform = clergy_reform
-		}
-		influence = 10
-	}
-	influence_modifier = {
-		desc = EST_VAL_CHURCH_ADVANCE
-		trigger = {
-			has_reform = divine_law
-		}
-		influence = 10
-	}
-	influence_modifier = {
-		desc = EST_VAL_CHURCH_ADVANCE
-		trigger = {
-			has_reform = cu_feudalism_reform
-		}
-		influence = 5
-	}
-	influence_modifier = {
-		desc = EST_VAL_CHURCH_ADVANCE
-		trigger = {
-			has_reform = self_governance
-		}
-		influence = 10
-	}
-	influence_modifier = {
-		desc = EST_VAL_CHURCH_ADVANCE
-		trigger = {
-			has_reform = no_election
-		}
-		influence = 5
-	}
-	influence_modifier = {
-		desc = EST_VAL_OTHER_ESTATE_IN_POWER
-		trigger = {
-			has_reform = burghers_election
-		}
-		influence = -5
-	}
-	influence_modifier = {
-		desc = EST_VAL_OTHER_ESTATE_IN_POWER
-		trigger = {
-			has_reform = universal_suffrage
-		}
-		influence = -10
-	}
-	influence_modifier = {
-		desc = EST_VAL_FRA_PRAGMATIC_SANCTION
-		trigger = {
-			has_reform = fra_pragmatic_sanction
-		}
-		influence = -10
-	}
-	influence_modifier = {
-		desc = EST_VAL_PROVINCE_0
-		trigger = {
-			check_variable = { which = etic value = 5 }
-			NOT = { check_variable = { which = etic value = 10 } }
-		}	
-		influence = 5
-	}
-	influence_modifier = {
-		desc = EST_VAL_PROVINCE_1
-		trigger = {
-			check_variable = { which = etic value = 10 }
-			NOT = { check_variable = { which = etic value = 20 } }
-		}	
-		influence = 10
-	}
-	influence_modifier = {
-		desc = EST_VAL_PROVINCE_2
-		trigger = {
-			check_variable = { which = etic value = 20 }
-			NOT = { check_variable = { which = etic value = 30 } }
-		}	
-		influence = 20
-	}
-	influence_modifier = {
-		desc = EST_VAL_PROVINCE_3
-		trigger = {
-			check_variable = { which = etic value = 30 }
-			NOT = { check_variable = { which = etic value = 40 } }
-		}	
-		influence = 30
-	}
-	influence_modifier = {
-		desc = EST_VAL_PROVINCE_4
-		trigger = {
-			check_variable = { which = etic value = 40 }
-			NOT = { check_variable = { which = etic value = 50 } }
-		}	
-		influence = 40
-	}
-	influence_modifier = {
-		desc = EST_VAL_PROVINCE_5
-		trigger = {
-			check_variable = { which = etic value = 50 }
-			NOT = { check_variable = { which = etic value = 60 } }
-		}	
-		influence = 50
-	}
-	influence_modifier = {
-		desc = EST_VAL_PROVINCE_6
-		trigger = {
-			check_variable = { which = etic value = 60 }
-			NOT = { check_variable = { which = etic value = 70 } }
-		}	
-		influence = 60
-	}
-	influence_modifier = {
-		desc = EST_VAL_PROVINCE_7
-		trigger = {
-			check_variable = { which = etic value = 70 }
-			NOT = { check_variable = { which = etic value = 80 } }
-		}	
-		influence = 70
-	}
-	influence_modifier = {
-		desc = EST_VAL_PROVINCE_8
-		trigger = {
-			check_variable = { which = etic value = 80 }
-			NOT = { check_variable = { which = etic value = 90 } }
-		}	
-		influence = 80
-	}
-	influence_modifier = {
-		desc = EST_VAL_PROVINCE_9
-		trigger = {
-			check_variable = { which = etic value = 90 }
-			NOT = { check_variable = { which = etic value = 100 } }
-		}	
-		influence = 90
-	}
-	influence_modifier = {
-		desc = EST_VAL_PROVINCE_10
-		trigger = {
-			check_variable = { which = etic value = 100 }
-		}	
-		influence = 100
-	}
+	
 	
 	# Loyalty modifiers
 	loyalty_modifier = {
@@ -450,75 +205,7 @@ estate_church =
 		}
 		loyalty = -20
 	}
-	loyalty_modifier = {
-		desc = EST_VAL_FULL_RELIGIOUS
-		trigger = {
-			full_idea_group = religious_ideas
-		}
-		loyalty = 5
-	}
-	loyalty_modifier = {
-		desc = EST_VAL_UNREST
-		trigger = {
-			check_variable = { which = ch_unrest value = -10 }
-			NOT = { check_variable = { which = ch_unrest value = -5 } }
-		}	
-		loyalty = -10
-	}
-	loyalty_modifier = {
-		desc = EST_VAL_UNREST
-		trigger = {
-			check_variable = { which = ch_unrest value = -15 }
-			NOT = { check_variable = { which = ch_unrest value = -10 } }
-		}	
-		loyalty = -15
-	}
-	loyalty_modifier = {
-		desc = EST_VAL_UNREST
-		trigger = {
-			check_variable = { which = ch_unrest value = -20 }
-			NOT = { check_variable = { which = ch_unrest value = -15 } }
-		}	
-		loyalty = -20
-	}
-	loyalty_modifier = {
-		desc = EST_VAL_UNREST
-		trigger = {
-			NOT = { check_variable = { which = ch_unrest value = -20 } }
-		}	
-		loyalty = -25
-	}
-	loyalty_modifier = {
-		desc = EST_VAL_UNREST
-		trigger = {
-			check_variable = { which = ch_unrest value = 5 }
-			NOT = { check_variable = { which = ch_unrest value = 10 } }
-		}	
-		loyalty = 5
-	}
-	loyalty_modifier = {
-		desc = EST_VAL_UNREST
-		trigger = {
-			check_variable = { which = ch_unrest value = 10 }
-			NOT = { check_variable = { which = ch_unrest value = 15 } }
-		}	
-		loyalty = 10
-	}
-	loyalty_modifier = {
-		desc = EST_VAL_UNREST
-		trigger = {
-			check_variable = { which = ch_unrest value = 15 }
-			NOT = { check_variable = { which = ch_unrest value = 20 } }
-		}	
-		loyalty = 15
-	}
-	loyalty_modifier = {
-		desc = EST_VAL_UNREST
-		trigger = {
-			check_variable = { which = ch_unrest value = 20 }
-		}	
-		loyalty = 20
-	}
+	
 	
 	#Alternative naming of estates
 	custom_name = {
@@ -567,392 +254,12 @@ estate_church =
 		}
 	}
 	
-	# For province assignment
-	ai_grant_province = {
-		factor = 0
+	contributes_to_curia_treasury = yes
+	privileges = {
 	}
 	
-	# Does the AI want to give any extra territory beyond the minimum?
-	ai_territory_modifier = {
-		trigger = {
-			has_idea_group = religious_ideas
-			num_of_cities = 10
-		}	
-		value = 10		
-	}		
-	
-	# Special interactions
-	interaction = {
-		name = "SEEK_SUPPORT_OF_CLERGY"
-		icon = 17
-		
-		years_between_use = 10
-		
-		trigger = {
-			always = yes
-		}
-		
-		effect = {
-			add_prestige = -5
-			add_legitimacy = -5
-			add_republican_tradition = -0.03
-			add_devotion = -3
-			add_absolutism = -3
-			add_piety = 0.05
-			if = {
-				limit = { religion = protestant }
-				add_church_power = 10
-			}
-			add_patriarch_authority = 0.05
-			if = {
-				limit = { religion = reformed }
-				add_fervor = 10
-			}
-			add_estate_influence_modifier = {
-				estate = estate_church
-				desc = EST_VAL_SOUGHT_SUPPORT
-				influence = 10
-				duration = 3650
-			}
-			add_estate_loyalty = {
-				estate = estate_church
-				loyalty = 15
-			}
-		}
-	
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				estate_loyalty = {
-					estate = estate_church
-					loyalty = 30
-				}						
-			}
-			modifier = {
-				factor = 0
-				estate_influence = {
-					estate = estate_church
-					influence = 60
-				}						
-			}			
-		}
+	agendas = {
 	}
-	
-	interaction = {
-		name = "ASK_FOR_CONTRIBUTION"
-		icon = 6
-		
-		years_between_use = 5
-	
-		
-		trigger = {
-			custom_trigger_tooltip = {
-				tooltip = estate_initialized
-				check_variable = { which = etic value = 0.1 } 
-			}				
-		}
-		
-		effect = {
-			hidden_effect = {
-				set_variable = { which = cu_var1 value = 0 }
-				set_variable = { which = cu_cash which = etic } 
-				export_to_variable = {
-					which = cu_var1
-					value = modifier:global_tax_modifier
-				}
-				change_variable = { which = cu_var1 value = 1 }
-				multiply_variable = { which = cu_cash which = cu_var1 }
-				set_variable = { which = t_dev value = 0 }
-				export_to_variable = {
-					which = t_dev
-					value = states_development
-				}
-				multiply_variable = { which = cu_cash which = t_dev }
-				multiply_variable = { which = cu_cash value = 0.005 }
-				set_variable = { which = cu_cash_display which = cu_cash }	
-				set_variable = { which = cu_var1 which = etic }
-				multiply_variable = { which = cu_var1 value = -0.5 }
-				set_variable = { which = cu_sta_display which = cu_var1 }	
-			}		
-			cu_change_cash_hidden = yes
-			custom_tooltip = cu_change_cash_cg		
-			cu_change_stability_point_hidden = yes 
-			custom_tooltip = cu_change_stability_ct
-			add_estate_loyalty = {
-				estate = estate_church
-				loyalty = -15
-			}	
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				NOT = {
-					estate_loyalty = {
-						estate = estate_church
-						loyalty = 50
-					}	
-				}
-			}
-			modifier = {
-				factor = 0
-				treasury = 1
-			}
-		}
-	}
-	
-	interaction = {
-		name = "FUND_THE_LOYALISTS"
-		icon = 7
-		
-		years_between_use = 15
-		
-		trigger = {
-		    dip_power = 150
-			custom_trigger_tooltip = {
-				tooltip = estate_initialized
-				check_variable = { which = etic value = 0.1 } 
-			}
-		}
-		
-		effect = {
-			add_dip_power = -150
-			hidden_effect = {
-				set_variable = { which = cu_var1 which = etic }
-				multiply_variable = { which = cu_var1 value = -0.5 }
-				set_variable = { which = cu_sta_display which = cu_var1 }	
-			}				
-			cu_change_stability_point_hidden = yes 
-			custom_tooltip = cu_change_stability_ct
-			add_absolutism = 5
-			add_estate_loyalty = {
-				estate = estate_church
-				loyalty = -10
-			}
-			add_estate_influence_modifier = {
-				estate = estate_church
-				desc = EST_VAL_FUND_THE_LOYALISTS
-				influence = -10
-				duration = 5475
-			}
-			add_estate_influence_modifier = {
-				estate = estate_government
-				desc = EST_VAL_FUND_THE_LOYALISTS
-				influence = 10
-				duration = 5475
-			}
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				estate_influence = {
-					estate = estate_church
-					influence = 60
-				}				
-			}
-			modifier = {
-				factor = 0
-				estate_loyalty = {
-					estate = estate_church
-					loyalty = 30
-				}				
-			}			
-		}
-	}
-	
-	interaction = {
-		name = "GRANT_AUTONOMY"
-		icon = 24
-		
-		
-		years_between_use = 20
-		
-		
-		trigger = {
-			any_owned_province = {
-				check_variable = { which = epimc value = 30 }
-			}
-		}
-		
-		effect = {
-			add_absolutism = -3
-			custom_tooltip = granted_auto_est
-			add_estate_loyalty = {
-				estate = estate_church
-				loyalty = 20
-			}
-			add_estate_influence_modifier = {
-				estate = estate_church
-				desc = EST_VAL_GRANT_AUTONOMY
-				influence = 10
-				duration = 7300
-			}
-			add_estate_influence_modifier = {
-				estate = estate_government
-				desc = EST_VAL_GRANT_AUTONOMY
-				influence = -10
-				duration = 7300
-			}
-			hidden_effect = {
-				set_variable = { which = cu_var1 which = etic }
-				set_variable = { which = cu_sta_display which = cu_var1 }	
-				every_owned_province = {
-					limit = { check_variable = { which = epimc value = 40 } }
-					add_local_autonomy = 10
-					add_unrest = -2
-				}
-			}
-			cu_change_stability_point_hidden = yes
-			custom_tooltip = cu_change_stability_cg
-		}
-		ai_will_do = {
-			factor = 0		
-		}
-	}
-	
-	interaction = {
-		name = "GRANT_ESTATE_OFFICIAL_POSITIONS"
-		icon = 17
-		
-		
-		years_between_use = 10
-		
-		
-		trigger = {
-			always = yes
-		}
-		
-		effect = {
-			add_absolutism = -5
-			add_corruption = 0.5
-			add_dip_power = -50
-			add_adm_power = -50
-			add_estate_loyalty = {
-				estate = estate_church
-				loyalty = 20
-			}
-			hidden_effect = {
-				set_variable = { which = cu_var1 which = etic }
-				multiply_variable = { which = cu_var1 which = 0.33 }
-				set_variable = { which = cu_sta_display which = cu_var1 }	
-			}			
-			cu_change_stability_point_hidden = yes 
-			custom_tooltip = cu_change_stability_cg
-		}
-		ai_will_do = {
-			factor = 0		
-		}
-	}
-	
-	interaction = {
-		name = "DEMAND_MORE_TROOPS"
-		icon = 12
-		
-		years_between_use = 25
-		
-		trigger = {
-			estate_loyalty = {
-				estate = estate_church
-				loyalty = 40
-			}	
-			any_owned_province = {
-				check_variable = { which = epimc value = 30 }
-			}
-		}
-		
-		effect = {
-			custom_tooltip = add_manpower_est
-			add_dip_power = -150
-			add_absolutism = -3
-			add_country_modifier = {
-				name = estate_church_war_support
-				duration = -1
-			}
-			if = {
-				limit = { ai = yes }
-				add_country_modifier = {
-					name = estate_ai_helper
-					duration = 366
-				}
-			}
-			hidden_effect = {
-				every_owned_province = {
-					limit = { check_variable = { which = epimc value = 30 } }
-					owner = { add_manpower = 0.20 }
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 0
-			modifier = {
-				factor = 1
-				NOT = { war_score = -10 }
-			}
-			modifier = {
-				factor = 10
-				NOT = { war_score = -20 }
-			}
-			modifier = {
-				factor = 100
-				NOT = { war_score = -40 }
-			}
-		}
-	}
-	
-	interaction = {
-		name = "CU_MILITARY_COUP"
-		icon = 32
-		years_between_use = 25
-		potential = {
-			NOT = { has_country_modifier = coup_timer }
-		}
-		trigger = {
-			mil_power = 200
-			estate_influence = {
-				estate = estate_church
-				influence = 30
-			}
-			NOT = {
-				estate_loyalty = {
-					estate = estate_church
-					loyalty = 30
-				}	
-			}
-		}
-		effect = {
-			add_mil_power = -200
-			set_country_flag = preparing_military_coup_flag
-			add_country_modifier = {
-					name =  preparing_military_coup
-					duration = 365						
-			}
-			hidden_effect = {
-				set_variable = { which = coup_support value = 0 }
-				set_country_flag = coup_against_church
-			}
-			custom_tooltip = preparing_military_coup_t
-			hidden_effect = {
-				add_country_modifier = {
-					name = coup_timer
-					duration = 7300
-					hidden = yes
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 1
-			modifier = {
-			    factor = 0
-				NOT = { mil = 4 }
-			}
-			modifier = {
-			    factor = 0
-				stability = 0
-			}
-		}
-	}
+	influence_from_dev_modifier = 2.0
+	color = { 200 150 0 }
 }

@@ -3,7 +3,7 @@ add_government_reform = feudalism_reform
 government_rank = 1
 elector = yes
 technology_group = western
-primary_culture = saxon
+primary_culture = markish
 religion = catholic
 capital = 50	# Berlin
 

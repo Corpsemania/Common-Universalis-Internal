@@ -3,7 +3,7 @@
 owner = ENG
 controller = ENG 
 capital = "Calais"
-culture = wallonian
+culture = picard
 religion = catholic
 hre = no
 base_tax = 5 

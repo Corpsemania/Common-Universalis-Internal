@@ -1,0 +1,35 @@
+#373 - Meath
+
+owner = ENG
+controller = ENG
+add_core = ENG
+add_core = MTH
+culture = irish
+religion = catholic
+hre = no
+base_tax = 3
+base_production = 3
+trade_goods = livestock
+base_manpower = 2
+capital = "Dublin"
+is_city = yes
+discovered_by = western
+discovered_by = muslim
+discovered_by = ottoman
+discovered_by = eastern
+
+1641.12.3 = { revolt = { type = nationalist_rebels size = 2 } controller = REB }
+1642.4.15 = { revolt = {} controller = ENG }
+1642.6.7 = { add_core = IRE } # Confederation of Kilkenny
+1689.3.12 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # James II Lands in Ireland
+1690.1.1 = { revolt = {} controller = ENG } # Battle of the Boyne
+1707.5.12 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+	remove_core = ENG
+}
+1798.8.27 = { revolt = { type = nationalist_rebels size = 2 } controller = REB } # Republic of Connaught
+1798.9.8 = { revolt = {} controller = GBR }
+1803.7.23 = { revolt = { type = nationalist_rebels size = 2 name = "Emmet's Rebellion" } controller = REB } # Emmet's rebellion
+1803.8.25 = { revolt = {} controller = GBR }

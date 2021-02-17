@@ -55,7 +55,6 @@ monarch_names = { #Most Monarchs were named with "nori"
 	"Masamichi #0" = 50
 	"Yoshiuji #0" = 50
 	"Sadamura #0" = 50
-	"Sadanori #0" = 50
 	"Shigenori #0" = 50
     "Norihisa #0" = 50
 	"Toku #0" = -5
@@ -95,7 +94,7 @@ ship_names = {
 	"Mikawa Maru" "Ushu Maru" "Soushu Maru" "Boushu Maru" "Kai Maru" "Shinshu Maru" "Koshu Maru"
 	"Owari Maru" "Bishu Maru" "Mino Maru" "Echizen Maru" "Ise Maru" "Shima Maru" "Omi Maru" 
 	"Goushu Maru" "Yamashiro Maru" "Wakasa Maru" "Tanba Maru" "Tango Maru" "Yamato Maru" "Kii Maru"
-	"Kishu Maru" "Iga Maru" "Awa Maru" "Sanuki Maru" "Tosa Maru"
+	"Kishu Maru" "Iga Maru" "Sanuki Maru" "Tosa Maru"
 	"Iyo Maru" "Harima Maru" "Banshu Maru"
 	"Hoki Maru" "Inaba Maru" "Bizen Maru" "Mimasaka Maru" "Binshu Maru"
 	"Bingo Maru" "Bittchu Maru" "Aki Maru" "Izumo Maru" "Iwami Maru" "Suou Maru" "Nagato Maru" "Bungo Maru"

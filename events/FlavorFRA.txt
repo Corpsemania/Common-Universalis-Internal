@@ -51,7 +51,7 @@ country_event = {
 	}
 	option = {		# Let it be
 		name = "flavor_fra.EVTOPTB9100"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -65,23 +65,28 @@ country_event = {
 	fire_only_once = yes
 	
 	trigger = {
-		tag = FRA
-		NOT = { is_year = 1500 }
-		NOT = { has_country_flag = had_end_of_HYW_france }
-		NOT = {
-			france_region = { owned_by = ENG }
+		OR = {
+			has_global_flag = hyw_mission_resolution
+			AND = {
+				tag = FRA
+				NOT = { is_year = 1500 }
+				NOT = { has_country_flag = had_end_of_HYW_france }
+				NOT = {
+					france_region = { owned_by = ENG }
+				}
+				NOT = {
+					france_region = { owned_by = GBR }
+				}
+				ENG = {
+					NOT = { war_with = FRA }
+				}
+				NOT = { is_subject_of = ENG }
+				GBR = {
+					NOT = { war_with = FRA }
+				}
+				NOT = { is_subject_of = GBR }
+			}
 		}
-		NOT = {
-			france_region = { owned_by = GBR }
-		}
-		ENG = {
-			NOT = { war_with = FRA }
-		}
-		NOT = { is_subject_of = ENG }
-		GBR = {
-			NOT = { war_with = FRA }
-		}
-		NOT = { is_subject_of = GBR }
 	}
 	
 	mean_time_to_happen = {
@@ -111,7 +116,7 @@ country_event = {
 
 	option = {			# Time to build a stronger nation
 		name = "flavor_fra.EVTOPTA3104"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_adm_power = 50
 	}
 }
@@ -251,7 +256,7 @@ country_event = {
 	}
 	option = {		# Do not mess with the Guilds
 		name = "flavor_fra.EVTOPTB3106"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	option = {		# Give more control to the Guilds
 		name = "flavor_fra.EVTOPTC3106"
@@ -763,7 +768,7 @@ country_event = {
 	}
 	option = {		# Such a project will not benefit us
 		name = "flavor_fra.EVTOPTB3125"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -881,7 +886,7 @@ country_event = {
 	
 	option = {		# Expel the Traitors
 		name = "flavor_fra.EVTOPTA3128"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		if = {
 			limit = {
 				any_owned_province = {
@@ -1239,7 +1244,7 @@ country_event = {
 	}
 	option = {		# Do not introduce it
 		name = "flavor_fra.EVTOPTC3139"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -1276,7 +1281,7 @@ country_event = {
 	}
 	option = {		# Don't Let him Reform
 		name = "flavor_fra.EVTOPTB3141"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -1306,7 +1311,7 @@ country_event = {
 
 	option = {		# Remove him from his post
 		name = "flavor_fra.EVTOPTA3142"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	option ={		# Encourage his excellent work
 		name = "flavor_fra.EVTOPTB3142"
@@ -1562,7 +1567,7 @@ country_event = {
 
 	option = {		# Excellent
 		name = "EXCELLENT"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_prestige = 10
 		hidden_effect = {
    		 set_variable = { which = cu_var1 value = 5  }
@@ -1917,14 +1922,18 @@ country_event = {
 	picture = SIEGE_eventPicture
 	
 	trigger = {
-	     tag = FRA
-		 NOT = { has_country_flag = formed_france_flag } #Must be original France
-		 NOT = { has_country_flag = french_military_reform }
-		 OR = {
-		       is_year = 1650
-		       check_variable = { which = ave_literacy value = 15 }
-		 } 
-		 mil = 6
+		tag = FRA
+		NOT = { has_country_flag = formed_france_flag } #Must be original France
+		NOT = { has_country_flag = french_military_reform }
+		ai = yes
+		OR = {
+			is_year = 1650
+			check_variable = { which = ave_literacy value = 15 }
+		} 
+		OR = {
+			ai = yes
+			MIL = 6
+		}
 	}
 	fire_only_once = yes
 	major = yes
@@ -1944,7 +1953,7 @@ country_event = {
 			   duration = -1
 		}
 		ai_chance = {
-		       factor = 50
+		    factor = 90
 		}
 	}
 	option = { #Balanced Reform
@@ -1956,14 +1965,7 @@ country_event = {
 			   duration = -1
 		}
 		ai_chance = {
-		       factor = 25
-			   modifier = {
-			         factor = 0.2
-					 OR = {
-								has_global_flag = cu_realistic_handicap_set
-								has_global_flag = cu_x_handicap_set
-					}
-			   }
+		    factor = 8
 		}
 	}
 	option = { #Improve Quantity
@@ -1976,95 +1978,10 @@ country_event = {
 			   duration = -1
 		}
 		ai_chance = {
-		       factor = 25
-			   modifier = {
-			         factor = 0.2
-					 OR = {
-								has_global_flag = cu_realistic_handicap_set
-								has_global_flag = cu_x_handicap_set
-					}
-			   }
+		    factor = 2
 		}
 	}
 }
 
-# The Inheritance of Princedom in France
-country_event = {
-	id = flavor_fra.1001
-	title = "flavor_fra.1001.t"
-	desc = "flavor_fra.1001.d"
-	picture = COURT_eventPicture
-	hidden = yes
-	fire_only_once = yes
-	
-	mean_time_to_happen = {
-		months = 12
-		modifier = {
-			factor = 3
-			FRA = {
-				ai = yes
-				NOT = { absolutism = 60 }
-			}
-		}
-	}
-	
-	trigger = {
-		OR = {
-			is_subject_of_type = french_vassal
-			tag = PRO
-		}
-		exists = FRA
-		FRA = { dynasty = "de Valois" }
-		ai = yes
-		OR = {
-			AND = {
-				OR = {
-					is_female = yes
-					has_new_dynasty = yes
-				}
-				is_at_war = no
-				has_consort_regency = no
-				has_regency = no
-				FRA = {
-					OR = {
-						absolutism = 60
-						ai = yes
-					}
-				}
-			}
-			AND = {
-				tag = PRO
-				is_year = 1500
-				FRA = {
-					ai = yes
-				}
-			}
-		}
-	}
-
-	option = {
-		name = "flavor_fra.1001.a"
-		if = {
-			limit = { tag = PRO }
-			PRO = {
-				every_owned_province = {
-					limit = {
-						region = france_region
-					}
-					cede_province = FRA
-					add_core = FRA
-				}
-			}
-		}
-		else = {
-			FRA = { 
-				inherit = ROOT
-			}
-		}
-		ai_chance = {
-			factor = 100
-		}
-	}
-}
 
 

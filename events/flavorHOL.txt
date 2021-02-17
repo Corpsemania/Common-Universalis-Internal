@@ -98,7 +98,7 @@ country_event = {
 		OR = {
 			tag = NED
 			AND = { 
-			        tag = BRG
+			        tag = BGD
 					NOT = { exists = NED }
 		    }
 		}
@@ -183,7 +183,7 @@ country_event = {
 		OR = {
 			tag = NED
 			AND = { 
-			        tag = BRG
+			        tag = BGD
 					NOT = { exists = NED }
 		    }
 		}
@@ -266,7 +266,7 @@ country_event = {
 		OR = {
 			tag = NED
 			AND = { 
-			        tag = BRG
+			        tag = BGD
 					NOT = { exists = NED }
 		    }
 		}
@@ -357,7 +357,7 @@ country_event = {
 		OR = {
 			tag = NED
 			AND = { 
-			        tag = BRG
+			        tag = BGD
 					NOT = { exists = NED }
 		    }
 		}
@@ -518,7 +518,7 @@ country_event = {
 	option = {
 		name = "flavor_hol.EVTOPTA3513" #Yes, we need Order!
 		add_republican_tradition = -20
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		set_country_flag = ned_hereditary_stadtholder
 	}
 	option = {
@@ -629,7 +629,7 @@ country_event = {
 		OR = {
 			tag = NED
 			AND = { 
-			        tag = BRG
+			        tag = BGD
 					NOT = { exists = NED }
 		    }
 		}
@@ -699,7 +699,7 @@ country_event = {
 	}
 	option = {
 		name = "flavor_hol.EVTOPTC2" #Ignore it
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		
 	}
 }

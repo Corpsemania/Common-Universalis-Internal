@@ -10,7 +10,7 @@ fund_expansion_of_bureaucracy = {
 	}
 	
 	modifier = {
-		advisor_cost = -0.1
+		state_governing_cost = -0.1
         		advisor_pool = 2
 	}
 	

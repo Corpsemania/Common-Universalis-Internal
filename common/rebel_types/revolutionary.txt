@@ -173,7 +173,7 @@ revolutionary_rebels = {
 		if = {
 			limit = { 
 				OR = {
-					government = tribe
+					government = tribal
 					AND = {
 						government = theocracy 
 						NOT = { has_reform = papal_government }

@@ -1,0 +1,25 @@
+#1182 - Delagoa Bay
+
+culture = nguni
+religion = shamanism #Fetishism
+capital = "Xefina"
+trade_goods = unknown
+hre = no
+base_tax = 4 
+base_production = 4
+base_manpower = 1
+native_size = 70
+native_ferocity = 4
+native_hostileness = 9 
+
+1498.1.6 = { discovered_by = POR } #Vasco Da Gama
+1721.1.1 = { capital = "Maputo" } #Dutch establish tradepost
+1783.1.1 = {
+	owner = POR
+	controller = POR
+	add_core = POR
+	base_manpower = 1
+	capital = "Lourenco Marques"
+	trade_goods = ivory
+	is_city = yes 
+} #Permanent Portuguese outpost established

@@ -1,0 +1,21 @@
+edict_eviction_focus = { 
+	potential = {
+		always = yes		#we support "potential" if modders want to have lots and just show some.
+	}
+	
+	allow = {
+		always = yes
+	}
+	
+	modifier = {
+		local_missionary_strength = 0.008
+		local_culture_conversion_cost = -0.20
+		local_monthly_devastation = 1.5
+	}
+	
+	color = {  0 0 0  }
+	
+	ai_will_do = {
+		factor = 0
+	}
+}

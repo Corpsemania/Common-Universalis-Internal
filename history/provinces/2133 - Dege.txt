@@ -3,7 +3,7 @@
 owner = KAM
 controller = KAM
 add_core = KAM
-culture = tibetan
+culture = khams
 religion = vajrayana
 capital = "Dege"
 trade_goods = wool

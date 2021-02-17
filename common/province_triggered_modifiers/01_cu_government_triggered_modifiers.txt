@@ -14,8 +14,8 @@ cu_terr_abandon = {
 	local_production_efficiency = -1
 	local_manpower_modifier = -1		
 	local_sailors_modifier = -1
-	advisor_cost = 0.025
-	yearly_absolutism = -0.075
+	yearly_corruption = 0.05
+	min_local_autonomy = 100
 	
 	on_deactivation = {
 		#remove_province_modifier = cu_terr_abandon

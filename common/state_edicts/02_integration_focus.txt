@@ -8,8 +8,8 @@ edict_integration_focus = {
 	}
 	
 	modifier = {
-	    local_autonomy = -0.1
-		local_unrest = 8
+	    local_governing_cost = -0.15
+		local_unrest = 4
 	}
 	
 	color = { 238 121 159   }

@@ -1,0 +1,32 @@
+#977 - Yakutat
+
+culture = aleutian
+religion = totemism
+capital = "Yakutat"
+trade_goods = unknown
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+native_size = 5
+native_ferocity = 2 
+native_hostileness = 3 
+
+
+
+discovered_by = north_american
+
+1741.1.1 = { discovered_by = RUS } # Vitus Bering
+1778.1.1 = { discovered_by = GBR } # James Cook
+
+1784.1.1 = {
+	owner = RUS
+	controller = RUS
+	add_core = RUS
+	is_city = yes
+	culture = russian
+	religion = orthodox
+	trade_goods = fur
+}
+1786.1.1 = { discovered_by = FRA } # Jean Francois la Perouse
+1791.1.1 = { discovered_by = SPA } # Alessandro Malaspina

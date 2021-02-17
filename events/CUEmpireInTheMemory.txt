@@ -1,0 +1,2415 @@
+namespace = empireim
+
+###Little Ice Age Start
+country_event = {
+    id = empireim.0
+	title = "empire.0.t"
+	desc = "empire.0.d"
+	picture = FAMINE_eventPicture
+	
+	trigger = {
+                NOT = { has_country_modifier = ice_age } 
+                is_year = 1580
+                NOT = { is_year = 1680 }
+                is_month = 2
+                NOT = {  is_month = 5 }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = "empire.0.a" #Where goes the rain?
+                add_country_modifier = { name = ice_age
+                                         duration = -1 }
+			if = {
+			      limit = { NOT = { has_global_flag = ice_age_start } }
+				  set_global_flag = ice_age_start
+			}
+	}
+}
+
+
+
+###Little Ice Age Ends
+country_event = {
+        id = empireim.01
+	title = "empire.01.t"
+	desc = "empire.01.d"
+	picture = FAMINE_eventPicture
+	
+	trigger = {
+                has_country_modifier = ice_age
+                is_year = 1680
+                is_month = 2
+                NOT = {  is_month = 5 }
+	}
+
+	mean_time_to_happen = {
+		days = 1
+	}
+
+	option = {
+		name = "empire.01.a" #Thank God!
+                remove_country_modifier = ice_age
+                set_country_flag = ice_age_end
+	}
+}
+
+###Grain Price Rocketing
+country_event = {
+    id = empireim.29
+	title = "empire.02.t"
+	desc = "empire.02.d"
+	picture = FAMINE_eventPicture
+	hidden = yes
+	trigger = {
+           has_country_modifier = ice_age
+		   OR = {
+		          NOT = { has_global_flag = ice_age_grain_price }
+				  had_global_flag = {
+				       flag = ice_age_grain_price
+					   days = 3650
+				  }
+		   }
+	}
+
+	mean_time_to_happen = {
+		months = 240
+		modifier = {
+		       factor = 0.6
+			   is_year = 1600 #Coldest era of little ice age
+			   NOT = { is_year = 1650 }
+		}
+	}
+
+	option = {
+		name = "empire.02.a"
+		clr_global_flag = ice_age_grain_price
+		set_global_flag = ice_age_grain_price
+        change_price = {
+			trade_goods = grain
+			key = GRAIN_PRICE_ROCKETING
+			value = 0.5
+			duration = 3650
+		}
+		every_country = { #Inform Player
+		    limit = { ai = no }
+			country_event = { id = empireim.023 }
+		}
+	}
+}
+
+country_event = {
+    id = empireim.023
+	title = "empire.02.t"
+	desc = "empire.02.d"
+	picture = FAMINE_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = "empire.02.a"
+		custom_tooltip = empire.02.tt
+	}
+}
+
+###Province Demands Autonomy
+province_event = {
+        id = empireim.10
+	title = "empire.1.t"
+	desc = "empire.1.d"
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+                NOT = {
+					OR = {
+						has_owner_culture = yes
+						AND = {
+							owner = { culture_group = ROOT }
+							OR = {
+								owner = { government_rank = 3 }
+								has_owner_accepted_culture = yes
+							}
+						}
+					}
+				}							
+                NOT = {
+                            AND = {   
+                                 culture_group = east_asian
+                                 OR = { 
+                                         owner = { has_reform =  celestial_empire_3 }
+                                         owner = { has_reform =  celestial_empire_2 }
+                                         owner = { has_reform =  celestial_empire }
+                                         owner = { has_reform =  zhuhou }
+                                      }
+                                    }
+                }
+                NOT = { local_autonomy = 90 }				 
+                unrest = -10
+                check_variable = { which = p_nationalism value = 10 }
+	}
+
+	mean_time_to_happen = {
+		months = 3600
+                modifier = {
+                      factor = 0.75
+                      check_variable = { which = p_nationalism value = 15 }
+                }
+                modifier = {
+                      factor = 0.75
+                      check_variable = { which = p_nationalism value = 20 }
+                }
+                modifier = {
+                      factor = 0.75
+                      check_variable = { which = p_nationalism value = 25 }
+                }
+                modifier = {
+                      factor = 0.75
+                      check_variable = { which = p_nationalism value = 30 }
+                }
+				modifier = {
+                      factor = 0.75
+                      check_variable = { which = p_nationalism value = 35 }
+                }
+                modifier = {
+                      factor = 2
+                      OR = {
+                            has_owner_accepted_culture = yes
+		                    owner = { culture_group = ROOT }
+                      }
+                }
+                modifier = {
+                      factor = 0.85
+                      AND = {
+                              NOT = { religion = owner }
+                              religion_group = owner
+                      }
+                }
+                modifier = {
+                      factor = 0.75
+                      NOT = { tolerance_to_this = 0 }
+                }
+				modifier = {
+                      factor = 0.75
+                      NOT = { tolerance_to_this = -1 }
+                }
+				modifier = {
+                      factor = 0.75
+                      NOT = { tolerance_to_this = -2 }
+                }
+				modifier = {
+                      factor = 0.75
+                      NOT = { tolerance_to_this = -3 }
+                }
+                modifier = {
+                      factor = 0.80
+                      NOT = { local_autonomy = 50 }
+                }
+                modifier = {
+                      factor = 0.80
+                      NOT = { local_autonomy = 25 }
+                }
+                modifier = {
+                      factor = 0.9
+                      development = 12
+                }
+                modifier = {
+                      factor = 0.85
+                      development = 20
+                }
+                modifier = {
+                      factor = 0.8
+                      development = 28
+                }
+                modifier = {
+                      factor = 0.7
+                      development = 36
+                }
+	}
+    immediate = {
+	    hidden_effect = {
+		        if = { #Belgium
+				      limit = { 
+                                OR = {
+								       culture = flemish
+									   culture = wallonian
+								}
+								NOT = { region = france_region }
+								NOT = { is_core = BEL }
+								is_year = 1700
+					  }
+					  add_core = BEL
+				}
+				else_if = { #Greeks
+				      limit = { 
+                                culture_group = byzantine
+								religion_group = christian
+								NOT = { is_core = GRE }
+					  }
+					  add_core = GRE
+				}
+		}
+	}
+	option = {
+		name = "empire.1.a" #Grant Autonomy
+		add_local_autonomy = 50
+                add_nationalism = 5
+		ai_chance = {
+			factor = 33
+		}
+	}
+    option = {
+		name = "empire.1.b" #Try Negotiation
+        trigger = {
+			owner = {
+				dip_power = 20
+			}
+		}
+		add_nationalism = 15
+		add_local_autonomy = 15
+        owner = { add_dip_power = -20 }
+		ai_chance = {
+			factor = 33
+		}
+	}
+    option = {
+		name = "empire.1.c" #Refuse demand
+		add_unrest = 10
+        add_nationalism = 30
+		ai_chance = {
+			factor = 33
+		}
+	}
+}
+
+###Province Fight For Independence!
+province_event = {
+        id = empireim.11
+	title = "empire.11.t"
+	desc = "empire.11.d"
+	picture = BAD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+				NOT = { nationalism = 100 } #Maximum
+				NOT = {
+					OR = {
+						has_owner_culture = yes
+						AND = {
+							owner = { culture_group = ROOT }
+							OR = {
+								owner = { government_rank = 3 }
+								has_owner_accepted_culture = yes
+							}
+						}
+					}
+				}
+                NOT = {
+                            AND = {   
+                                 culture_group = east_asian
+                                 OR = { 
+                                         owner = { has_reform =  celestial_empire_3 }
+                                         owner = { has_reform =  celestial_empire_2 }
+                                         owner = { has_reform =  celestial_empire }
+                                         owner = { has_reform =  zhuhou }
+                                      }
+                                    }
+                }
+                OR = {
+						local_autonomy = 90	#Further requirement
+						check_variable = { which = p_nationalism value = 30 }
+				}
+                check_variable = { which = p_nationalism value = 10 }
+	}
+
+	mean_time_to_happen = {
+		months = 3600
+				modifier = {
+                      factor = 0.75
+                      check_variable = { which = p_nationalism value = 30 }
+                }
+                modifier = {
+                      factor = 0.75
+                      check_variable = { which = p_nationalism value = 40 }
+                }
+                modifier = {
+                      factor = 0.75
+                      check_variable = { which = p_nationalism value = 50 }
+                }
+                modifier = {
+                      factor = 0.75
+                      check_variable = { which = p_nationalism value = 60 }
+                }
+                modifier = {
+                      factor = 0.75
+                      check_variable = { which = p_nationalism value = 70 }
+                }
+				modifier = {
+                      factor = 0.75
+                      check_variable = { which = p_nationalism value = 80 }
+                }
+                modifier = {
+                      factor = 1.5
+                      OR = {
+                            has_owner_accepted_culture = yes
+		                    owner = { culture_group = ROOT }
+                      }
+                }
+                modifier = {
+                      factor = 0.85
+                      AND = {
+                              NOT = { religion = owner }
+                              religion_group = owner
+                      }
+                }
+                modifier = {
+                      factor = 0.75
+                      NOT = { tolerance_to_this = 0 }
+                }
+				modifier = {
+                      factor = 0.75
+                      NOT = { tolerance_to_this = -1 }
+                }
+				modifier = {
+                      factor = 0.75
+                      NOT = { tolerance_to_this = -2 }
+                }
+				modifier = {
+                      factor = 0.75
+                      NOT = { tolerance_to_this = -3 }
+                }
+                modifier = {
+                      factor = 0.80
+                      NOT = { local_autonomy = 50 }
+                }
+                modifier = {
+                      factor = 0.80
+                      NOT = { local_autonomy = 25 }
+                }
+                modifier = {
+                      factor = 0.9
+                      development = 12
+                }
+                modifier = {
+                      factor = 0.85
+                      development = 20
+                }
+                modifier = {
+                      factor = 0.8
+                      development = 28
+                }
+                modifier = {
+                      factor = 0.7
+                      development = 36
+                }
+	}
+    immediate = {
+	    hidden_effect = {
+		        if = { #Belgium
+				      limit = { 
+                                OR = {
+								       culture = flemish
+									   culture = wallonian
+								}
+								NOT = { region = france_region }
+								NOT = { is_core = BEL }
+					  }
+					  add_core = BEL
+				}
+				else_if = { #Greeks
+				      limit = { 
+                                culture_group = byzantine
+								religion_group = christian
+								NOT = { is_core = GRE }
+					  }
+					  add_core = GRE
+				}
+		}
+	}
+	option = {
+		name = "empire.11.a" #Damn Them!
+		custom_tooltip = empire.11.at
+		hidden_effect = {
+			owner = {
+				every_owned_province = {
+					limit = {
+						culture = ROOT
+						check_variable = { which = p_nationalism value = 10 }
+						NOT = { nationalism = 100 } 
+					}
+					add_nationalism = 20
+				}
+			}
+		}
+		
+		ai_chance = {
+			factor = 33
+		}
+	}
+
+}
+
+###Famine!(Country)
+country_event = {
+        id = empireim.20
+	title = "empire.20.t"
+	desc = "empire.20.d"
+	picture = FAMINE_eventPicture
+	
+	trigger = {
+                has_global_flag = test_version
+                has_country_modifier = ice_age
+                NOT = { has_country_flag = famine_c }
+                NOT = { capital_scope = { continent = north_america } }
+                NOT = { capital_scope = { continent = south_america } }
+                NOT = { capital_scope = { continent = oceania } }
+	}
+
+	mean_time_to_happen = {
+		months = 1000
+                modifier = {
+                       factor = 0.75  # Asian countries suffer more
+                       capital_scope = { continent = asia }
+                }
+                modifier = {
+                       factor = 0.75  # Chinese nations suffer more
+                       capital_scope = { superregion = chinese_superregion }
+                }
+	}
+        option = {
+		name = "empire.20.a" #No!
+                set_country_flag = famine_c
+                random_owned_province = {
+                          limit = {
+                                     base_tax = 2
+                                     base_production = 2
+                                     base_manpower = 2
+                          }
+                          province_event = { id = empireim.2 }
+                }
+	}
+}
+
+###Famine!
+province_event = {
+        id = empireim.02
+	title = "empire.2.t"
+	desc = "empire.2.d"
+	picture = FAMINE_eventPicture
+	
+	trigger = {
+                #owner = { has_country_flag = famine_c }
+                owner = { has_country_modifier = ice_age }
+				OR = {
+				     NOT = { check_variable = { which = r_ac value = 6 } }
+					 NOT = { check_variable = { which = food_sur value = 6 } }
+				}
+                base_tax = 2
+                base_production = 2
+                base_manpower = 2
+                OR = {
+                         NOT = { owner = { has_country_flag = famine_temp } }
+                         owner = { 
+                                         had_country_flag = { 
+                                                         flag = famine_temp 
+                                                         days = 30
+                                         }
+                         }
+                }
+                NOT = { has_province_modifier = famine_l }
+                NOT = { has_province_modifier = famine_m }
+                NOT = { has_province_modifier = famine_h }
+	}
+
+	mean_time_to_happen = {
+		months = 2400
+                modifier = {
+                            factor = 0.95
+                            base_manpower = 10
+                }
+				modifier = {
+                            factor = 0.95
+                            base_manpower = 15
+                }
+				modifier = {
+                            factor = 0.9
+                            base_manpower = 20
+                }
+				modifier = {
+                            factor = 0.85
+                            base_manpower = 25
+                }
+                modifier = {
+                            factor = 2
+                            trade_goods = grain
+                }
+                modifier = {
+                            factor = 1.5
+                            trade_goods = fish
+                }
+                modifier = {
+                            factor = 2
+                            is_overseas = yes
+                }
+				modifier = {
+                            factor = 0.5
+                            NOT = { new_world_i = 100 }
+                }
+				modifier = {
+                            factor = 0.5
+                            NOT = { check_variable = { which = food_sur value = 0 } }
+                }
+				modifier = {
+                            factor = 0.5
+                            NOT = { check_variable = { which = food_sur value = 3 } }
+                }
+				modifier = {
+                            factor = 0.5
+                            NOT = { check_variable = { which = r_ac value = 0 } }
+                }
+				modifier = {
+                            factor = 0.5
+                            NOT = { check_variable = { which = r_ac value = 3 } }
+                }
+                modifier = {
+                            factor = 0.8
+                            AND = {
+                               any_neighbor_province = {
+                                    has_province_modifier = famine_l
+                               }
+                               NOT = { 
+                                  any_neighbor_province = {
+                                      OR = { 
+                                              has_province_modifier = famine_m
+                                              has_province_modifier = famine_h
+                                      }
+                                  }
+                               }
+                            }
+                }
+                modifier = {
+                            factor = 0.6
+                            AND = {
+                               any_neighbor_province = {
+                                    has_province_modifier = famine_m
+                               }
+                               NOT = { 
+                                  any_neighbor_province = {
+                                              has_province_modifier = famine_m
+                                  }
+                               }
+                            }
+                }
+                modifier = {
+                            factor = 0.4
+                            any_neighbor_province = {
+                                    has_province_modifier = famine_h
+                            }
+                }
+	}
+        option = {
+		name = "empire.2.a" #Whatever the cost!
+                trigger = {
+			owner = {
+				adm_power = 20
+                                treasury = 80
+			}
+		}
+                owner = { 
+                          clr_country_flag = famine_temp
+                          set_country_flag = famine_temp 
+                }
+		owner = {
+                      add_adm_power = -20
+                      add_treasury = -80
+                }
+                add_province_modifier = { name = famine_l
+                                          duration = 365
+                }
+                ai_chance = { factor = 60 }
+	}
+	option = {
+		name = "empire.2.b" #Simply lower taxes.
+        trigger = {
+			owner = {
+				adm_power = 10
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = { check_variable = { which = p_nationalism value = 1 } }
+				change_variable = { which = p_nationalism value = 3 }
+			}
+		}
+		
+                owner = { 
+                          clr_country_flag = famine_temp
+                          set_country_flag = famine_temp 
+                }
+		owner = {
+                      add_adm_power = -10
+                }
+                add_local_autonomy = 33
+                
+                add_province_modifier = { name = famine_m
+                                          duration = 365
+                }
+                ai_chance = { factor = 30 }
+	}
+        option = {
+		name = "empire.2.c" #Leave them be.
+                owner = { 
+                          clr_country_flag = famine_temp
+                          set_country_flag = famine_temp 
+                }
+				hidden_effect = {
+					if = {
+						limit = { check_variable = { which = p_nationalism value = 1 } }
+						change_variable = { which = p_nationalism value = 10 }
+					}
+				}
+                
+                add_province_modifier = { name = famine_h
+                                          duration = 365
+                }
+                ai_chance = { factor = 10 }
+	}
+}
+
+###Famine End!(Country)
+country_event = {
+        id = empireim.21
+	title = "empire.21.t"
+	desc = "empire.21.d"
+	picture = FAMINE_eventPicture
+	
+	trigger = {
+                had_country_flag = { flag = famine_c
+                                     days = 365
+                }
+	}
+
+	mean_time_to_happen = {
+		months = 12
+	}
+        option = {
+		name = "empire.21.a" #Finally!
+                clr_country_flag = famine_c
+	}
+}
+
+###Occupied Province Lose Development
+province_event = {
+        id = empireim.3
+	title = "empire.3.t"
+	desc = "empire.3.d"
+	picture = PLAGUE_eventPicture
+	
+	trigger = {
+                base_tax = 2
+                base_production = 2
+                base_manpower = 2                 
+                NOT = { controlled_by = owner }
+                NOT = {   
+                         AND = {
+                                is_core = controller
+                                culture_group = controller
+                                religion_group = controller
+                         }
+                }
+                OR = {
+                        NOT = { has_province_flag = recent_dev_reduction }
+                        had_province_flag = { 
+                                    flag = recent_dev_reduction
+                                    days = 1825
+                        }
+                }
+	}
+
+	mean_time_to_happen = {
+		months = 120
+                modifier = {
+                      factor = 1.2
+                      NOT = { development = 10 }
+                }
+                modifier = {
+                      factor = 0.90
+                      development = 15
+                      NOT = { development = 20 }
+                }
+                modifier = {
+                      factor = 0.85
+                      development = 20
+                      NOT = { development = 25 }
+                }
+                modifier = {
+                      factor = 0.75
+                      development = 25
+                      NOT = { development = 30 }
+                }
+                modifier = {
+                      factor = 0.70
+                      development = 30
+                }
+                modifier = {
+                      factor = 1.25
+                      religion = controller
+                }
+                modifier = {
+                      factor = 0.75
+                      NOT = { religion_group = controller }
+                }
+                modifier = {
+                      factor = 1.5
+                      primary_culture = controller
+                }
+                modifier = {
+                      factor = 1.25
+                      accepted_culture = controller
+                      NOT = {
+                            primary_culture = controller
+                      }
+                }
+                modifier = {
+                      factor = 0.75
+                      NOT = { culture_group = controller }
+                }
+	}
+
+        immediate = {
+                hidden_effect = {
+                      clr_province_flag = recent_dev_reduction
+                      set_province_flag = recent_dev_reduction
+					  cu_random_number = yes
+                }
+        }
+
+	option = {
+		name = "empire.3.a" 
+		cu_do_prov_loot = yes
+	}
+}
+
+###Conquer a major province(Starter)
+province_event = {
+    id = empireim.40
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = PLAGUE_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+
+    immediate = {
+                hidden_effect = {
+                      clr_province_flag = recent_dev_reduction
+                      set_province_flag = recent_dev_reduction
+                }
+    }
+
+	option = {
+		name = "EVT_HIDDEN" 
+		controller = {
+		      country_event = { id = empireim.41 }
+		}
+	}
+}
+
+###Conquer a major province
+country_event = {
+    id = empireim.41
+	title = "empire.41.t"
+	desc = "empire.41.d"
+	picture = LAND_MILITARY_eventPicture
+	is_triggered_only = yes
+
+    immediate = {
+	            if = {  #Special Provinces
+					           limit = { 
+							             FROM = { 
+										          province_id = 183 #Paris
+								                  NOT = { is_core = controller }				  
+										 }
+								}		 
+					           custom_tooltip = empireim.41.paris
+					  }
+					  if = {  #Special Provinces
+					           limit = { 
+							             FROM = { 
+										          province_id = 236 #London
+								                  NOT = { is_core = controller }				  
+										 }
+								}		 
+					           custom_tooltip = empireim.41.london
+					  }
+        hidden_effect = {
+			FROM = {
+				if = {
+					limit = { 
+										   base_tax = 2
+										   NOT = { base_tax = 4 }
+								}
+					controller = { set_variable = { which = raze_temp value = 1 } }
+				}
+				else_if = {
+					limit = { 
+										   base_tax = 4
+										   NOT = { base_tax = 7 }
+								}
+					controller = { set_variable = { which = raze_temp value = 2 } }
+				}
+				else_if = {
+					limit = { 
+										   base_tax = 7
+										   NOT = { base_tax = 11 }
+					}
+					controller = { set_variable = { which = raze_temp value = 3 } }
+				}
+				else = {
+					controller = { set_variable = { which = raze_temp value = 4 } }
+				}
+				if = {
+					limit = { 
+										   base_production = 2
+										   NOT = { base_production = 4 }
+								}
+					controller = { change_variable = { which = raze_temp value = 1 } }
+				}
+				else_if = {
+					limit = { 
+										   base_production = 4
+										   NOT = { base_production = 7 }
+								}
+					controller = { change_variable = { which = raze_temp value = 2 } }
+				}
+				else_if = {
+					limit = { 
+										   base_production = 7
+										   NOT = { base_production = 11 }
+								}
+					controller = { change_variable = { which = raze_temp value = 3 } }
+				}
+				else = {
+					controller = { change_variable = { which = raze_temp value = 4 } }
+				}
+				if = {
+					limit = { 
+										   base_manpower = 2
+										   NOT = { base_manpower = 4 }
+								}
+					controller = { change_variable = { which = raze_temp value = 1 } }
+				}
+				else_if = {
+					limit = { 
+										   base_manpower = 4
+										   NOT = { base_manpower = 7 }
+								}
+					controller = { change_variable = { which = raze_temp value = 2 } }
+				}
+				else_if = {
+					limit = { 
+										   base_manpower = 7
+										   NOT = { base_manpower = 11 }
+								}
+					controller = { change_variable = { which = raze_temp value = 3 } }
+				}
+				else = {
+					controller = { change_variable = { which = raze_temp value = 4 } }
+				}
+				if = {
+					limit = { 
+										   base_tax = 2
+										   NOT = { base_tax = 9 }
+								}
+					controller = { set_variable = { which = loot_temp value = 1 } }
+				}
+				else = {
+					controller = { set_variable = { which = loot_temp value = 2 } }
+				}
+				if = {
+					limit = { 
+										   base_production = 2
+										   NOT = { base_production = 9 }
+								}
+					controller = { change_variable = { which = loot_temp value = 1 } }
+				}
+				else = {
+					controller = { change_variable = { which = loot_temp value = 2 } }
+				}
+				if = {
+					limit = { 
+										   base_manpower = 2
+										   NOT = { base_manpower = 9 }
+								}
+					controller = { change_variable = { which = loot_temp value = 1 } }
+				}
+				else_if = {
+					limit = { 
+										   base_manpower = 9
+										   NOT = { base_manpower = 18 }
+								}
+					controller = { change_variable = { which = loot_temp value = 2 } }
+				}
+				else = {
+					controller = { change_variable = { which = loot_temp value = 3 } }
+				}
+			}  
+		}
+    }
+	option = { #Raze it!(Horde)
+		name = "empire.41.a" 
+		trigger = {
+		           NOT = { FROM = { is_core = controller } }
+		           has_reform = steppe_horde
+				   ai = no
+				   NOT = { has_active_policy = self_discipline } 
+		}
+	  FROM = {
+		if = {
+			limit = { 
+                                   base_tax = 2
+                                   NOT = { base_tax = 4 }
+                        }
+			cu_reduce_base_tax_1 = yes
+		}
+		else_if = {
+			limit = { 
+                                   base_tax = 4
+                                   NOT = { base_tax = 7 }
+                        }
+			cu_reduce_base_tax_2 = yes
+		}
+        else_if = {
+			limit = { 
+                                   base_tax = 7
+                                   NOT = { base_tax = 11 }
+            }
+			cu_reduce_base_tax_3 = yes
+		}
+		else = {
+			cu_reduce_base_tax_4 = yes
+		}
+        if = {
+			limit = { 
+                                   base_production = 2
+                                   NOT = { base_production = 4 }
+                        }
+			cu_reduce_base_production_1 = yes
+		}
+        else_if = {
+			limit = { 
+                                   base_production = 4
+                                   NOT = { base_production = 7 }
+                        }
+			cu_reduce_base_production_2 = yes
+		}
+		else_if = {
+			limit = { 
+                                   base_production = 7
+                                   NOT = { base_production = 11 }
+                        }
+			cu_reduce_base_production_3 = yes
+		}
+		else = {
+			cu_reduce_base_production_4 = yes
+		}
+        if = {
+			limit = { 
+                                   base_manpower = 2
+                                   NOT = { base_manpower = 4 }
+                        }
+			cu_reduce_base_manpower_1 = yes
+		}
+        else_if = {
+			limit = { 
+                                   base_manpower = 4
+                                   NOT = { base_manpower = 7 }
+                        }
+			cu_reduce_base_manpower_2 = yes
+		}
+        else_if = {
+			limit = { 
+                                   base_manpower = 7
+                                   NOT = { base_manpower = 11 }
+                        }
+			cu_reduce_base_manpower_3 = yes
+		}
+		else = {
+			cu_reduce_base_manpower_4 = yes
+		}
+		add_permanent_province_modifier = {
+		            name = recently_razed
+					duration = 3650
+		
+		}
+	  }
+	  set_variable = { which = cu_cash which = raze_temp }
+	  multiply_variable = { which = cu_cash value = 40 }
+	  cu_change_cash = yes
+	  add_prestige = 3
+	  if = {
+	        limit = { has_reform = steppe_horde }
+			add_horde_unity = 3
+	  }
+	  if = {
+	        limit = { NOT = { has_reform = steppe_horde } }
+			add_mil_power = 20
+	  }
+	  custom_tooltip = global_ae_10
+	  hidden_effect = {
+			every_known_country = {
+				limit = {
+					NOT = { religion_group = pagan } 
+					NOT = { has_reform = steppe_horde }
+					THIS = { has_discovered = PREV }
+					capital_scope = { continent = ROOT }
+				}
+				add_opinion = {
+					who = ROOT 
+					modifier = aggressive_expansion
+				}
+				add_opinion = {
+					who = ROOT 
+					modifier = aggressive_expansion
+				}
+				add_opinion = {
+					who = ROOT 
+					modifier = aggressive_expansion
+				}
+				add_opinion = {
+					who = ROOT 
+					modifier = aggressive_expansion
+				}
+				add_opinion = {
+					who = ROOT 
+					modifier = aggressive_expansion
+				}
+				add_opinion = {
+					who = ROOT 
+					modifier = aggressive_expansion
+				}
+				add_opinion = {
+					who = ROOT 
+					modifier = aggressive_expansion
+				}
+				add_opinion = {
+					who = ROOT 
+					modifier = aggressive_expansion
+				}
+				add_opinion = {
+					who = ROOT 
+					modifier = aggressive_expansion
+				}
+				add_opinion = {
+					who = ROOT 
+					modifier = aggressive_expansion
+				}
+			}
+	  	}
+			
+	}
+	option = { #Raze it!(Pagan)
+		name = "empire.41.a1" 
+		trigger = {
+		           NOT = { FROM = { is_core = controller } }
+		           NOT = {
+				          has_reform = steppe_horde
+				   }
+				   religion_group = pagan
+				   NOT = { has_active_policy = self_discipline } 
+		}
+	  FROM = {
+		if = {
+			limit = { 
+                                   base_tax = 2
+                                   NOT = { base_tax = 4 }
+                        }
+			cu_reduce_base_tax_1 = yes
+		}
+		else_if = {
+			limit = { 
+                                   base_tax = 4
+                                   NOT = { base_tax = 7 }
+                        }
+			cu_reduce_base_tax_2 = yes
+		}
+        else_if = {
+			limit = { 
+                                   base_tax = 7
+                                   NOT = { base_tax = 11 }
+            }
+			cu_reduce_base_tax_3 = yes
+		}
+		else = {
+			cu_reduce_base_tax_4 = yes
+		}
+        if = {
+			limit = { 
+                                   base_production = 2
+                                   NOT = { base_production = 4 }
+                        }
+			cu_reduce_base_production_1 = yes
+		}
+        else_if = {
+			limit = { 
+                                   base_production = 4
+                                   NOT = { base_production = 7 }
+                        }
+			cu_reduce_base_production_2 = yes
+		}
+		else_if = {
+			limit = { 
+                                   base_production = 7
+                                   NOT = { base_production = 11 }
+                        }
+			cu_reduce_base_production_3 = yes
+		}
+		else = {
+			cu_reduce_base_production_4 = yes
+		}
+        if = {
+			limit = { 
+                                   base_manpower = 2
+                                   NOT = { base_manpower = 4 }
+                        }
+			cu_reduce_base_manpower_1 = yes
+		}
+        else_if = {
+			limit = { 
+                                   base_manpower = 4
+                                   NOT = { base_manpower = 7 }
+                        }
+			cu_reduce_base_manpower_2 = yes
+		}
+        else_if = {
+			limit = { 
+                                   base_manpower = 7
+                                   NOT = { base_manpower = 11 }
+                        }
+			cu_reduce_base_manpower_3 = yes
+		}
+		else = {
+			cu_reduce_base_manpower_4 = yes
+		}
+		add_permanent_province_modifier = {
+		            name = recently_razed
+					duration = 3650
+		
+		}
+	  }
+	  set_variable = { which = cu_cash which = raze_temp }
+	  multiply_variable = { which = cu_cash value = 40 }
+	  cu_change_cash = yes
+	  add_prestige = 5
+	  if = {
+	        limit = { has_reform = steppe_horde }
+			add_horde_unity = 5
+	  }
+	  if = {
+	        limit = { NOT = { has_reform = steppe_horde } }
+			add_mil_power = 20
+	  }
+	  custom_tooltip = global_ae_5
+	  hidden_effect = {
+ 	    every_known_country = {
+	        limit = {
+			        NOT = { religion_group = pagan }
+					NOT = { has_reform = steppe_horde }
+					THIS = { has_discovered = PREV }
+					capital_scope = { continent = ROOT }
+			}
+			add_opinion = {
+			        who = ROOT 
+					modifier = aggressive_expansion
+			}
+			add_opinion = {
+			        who = ROOT 
+					modifier = aggressive_expansion
+			}
+			add_opinion = {
+			        who = ROOT 
+					modifier = aggressive_expansion
+			}
+			add_opinion = {
+			        who = ROOT 
+					modifier = aggressive_expansion
+			}
+			add_opinion = {
+			        who = ROOT 
+					modifier = aggressive_expansion
+			}
+	    }
+	  }
+	  ai_chance = {
+	         factor = 50
+			 modifier = {
+			        factor = 0
+					FROM = { culture = ROOT } 
+			 }
+			 modifier = {
+			        factor = 0.1
+					FROM = { culture_group = ROOT }
+			 }
+			 modifier = {
+			        factor = 0.5
+					FROM = { religion = ROOT }
+			 }
+			 modifier = {
+			        factor = 2
+					NOT = { FROM = { religion_group = ROOT } }
+			 }
+			 modifier = {
+			        factor = 0
+					ai = yes
+			 }
+	  }
+	}
+	option = { #Loot it!
+		name = "empire.41.b" 
+		trigger = {
+		           FROM = { NOT = { is_core = controller } }
+				   NOT = { has_active_policy = self_discipline } 
+		}
+	   FROM = {
+		if = {
+			limit = { 
+                                   base_tax = 2
+                                   NOT = { base_tax = 9 }
+                        }
+			cu_reduce_base_tax_1 = yes
+		}
+		else = {
+			cu_reduce_base_tax_2 = yes
+		}
+        if = {
+			limit = { 
+                                   base_production = 2
+                                   NOT = { base_production = 9 }
+                        }
+			cu_reduce_base_production_1 = yes
+		}
+        else = {
+			cu_reduce_base_production_2 = yes
+		}
+        if = {
+			limit = { 
+                                   base_manpower = 2
+                                   NOT = { base_manpower = 9 }
+                        }
+			cu_reduce_base_manpower_1 = yes
+		}
+        else_if = {
+			limit = { 
+                                   base_manpower = 9
+								   NOT = { base_manpower = 18 }
+                        }
+			cu_reduce_base_manpower_2 = yes
+		}
+		else = {
+		    cu_reduce_base_manpower_3 = yes
+		}
+		add_permanent_province_modifier = {
+		            name = recently_looted
+					duration = 3650
+		
+		}
+	  }
+	  if = {
+	        limit = { has_reform = steppe_horde }
+			add_horde_unity = 1
+	  }
+	  set_variable = { which = cu_cash which = loot_temp }
+	  multiply_variable = { which = cu_cash value = 40 }
+	  cu_change_cash = yes
+		add_prestige = -2
+		custom_tooltip = global_ae_5
+		hidden_effect = {
+			if = {
+				limit = { ai = no }
+				every_known_country = {
+					limit = {
+							 NOT = { religion_group = pagan }
+							 NOT = { has_reform = steppe_horde }
+							 THIS = { has_discovered = PREV }
+					}
+					add_opinion = {
+							who = ROOT 
+							modifier = aggressive_expansion
+					}
+					add_opinion = {
+							who = ROOT 
+							modifier = aggressive_expansion
+					}
+					add_opinion = {
+							who = ROOT 
+							modifier = aggressive_expansion
+					}
+					add_opinion = {
+							who = ROOT 
+							modifier = aggressive_expansion
+					}
+					add_opinion = {
+							who = ROOT 
+							modifier = aggressive_expansion
+					}
+				}
+			}
+		}
+		ai_chance = {
+	         factor = 50
+			 modifier = {
+			        factor = 0
+					FROM = { culture = ROOT } 
+			 }
+			 modifier = {
+			        factor = 0.2
+					FROM = { culture_group = ROOT }
+			 }
+			 modifier = {
+			        factor = 0.75
+					FROM = { religion = ROOT }
+			 }
+			 modifier = {
+			        factor = 1.5
+					NOT = { FROM = { religion_group = ROOT } }
+			}
+		}
+	}
+	option = { #Show Mercy
+		name = "empire.41.c" 
+		trigger = {
+	        NOT = { FROM = { is_core = controller } }
+		}
+		add_prestige = 3
+		ai_chance = {
+	        factor = 20
+		}
+	}
+	option = { #Liberate the province
+		name = "empire.41.d1" 
+		trigger = {
+	        FROM = { is_core = controller }
+		}
+		add_prestige = 5
+		ai_chance = {
+	        factor = 100
+		}
+	}
+}
+
+
+###Take art piece(s) from an occupied province
+country_event = {
+	id = empireim.6
+	title = "empireim.6.t"
+	desc = "empireim.6.d"
+	picture = CONQUEST_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			random_list = { #Make the price of art piece a bit random.
+				40 = { set_variable = { which = cu_var3 value = 0 } }
+				30 = { set_variable = { which = cu_var3 value = 1 } }
+				20 = { set_variable = { which = cu_var3 value = 2 } }
+				10 = { set_variable = { which = cu_var3 value = 3 } }
+			}
+		}
+	}
+	option = { #Transfer it to one of our provinces.
+		name = "empireim.6.a"
+		trigger = {
+			any_owned_province = {
+				check_variable = { which = cu_art_slot value = 1 }
+				controlled_by = ROOT
+			}
+		}
+		custom_tooltip = cu_place_art_piece_c0t
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 0 }
+			cu_place_art_piece_country = yes 
+			subtract_variable = { which = cu_raid_art_piece0 value = 1 }
+			if = { #More art pieces to deal with
+				limit = { check_variable = { which = cu_raid_art_piece0 value = 1 } }
+				country_event = { id = empireim.61 }
+			}
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.5
+				government = tribal
+			}
+		}
+	}
+	option = { #Sell it to a private collector
+		name = "empireim.6.b"
+		hidden_effect = { 
+			subtract_variable = { which = cu_raid_art_piece0 value = 1 }
+			if = { #More art pieces to deal with
+				limit = { check_variable = { which = cu_raid_art_piece0 value = 1 } }
+				country_event = { id = empireim.61 }
+			}
+		}
+		if = {
+			limit = { NOT = { check_variable = { which = cu_var3 value = 1 } } }
+			add_treasury = 80
+		}
+		else_if = {
+			limit = { NOT = { check_variable = { which = cu_var3 value = 2 } } }
+			add_treasury = 100
+		}				
+		else_if = {
+			limit = { NOT = { check_variable = { which = cu_var3 value = 3 } } }
+			add_treasury = 120
+		}
+		else = {
+			add_treasury = 140
+		}
+		
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				government = tribal
+			}
+		}				
+	}
+}
+###Duplicate for chain triggering
+country_event = {
+	id = empireim.61
+	title = "empireim.6.t"
+	desc = "empireim.6.d"
+	picture = CONQUEST_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			random_list = { #Make the price of art piece a bit random.
+				40 = { set_variable = { which = cu_var3 value = 0 } }
+				30 = { set_variable = { which = cu_var3 value = 1 } }
+				20 = { set_variable = { which = cu_var3 value = 2 } }
+				10 = { set_variable = { which = cu_var3 value = 3 } }
+			}
+		}
+	}
+	option = { #Transfer it to one of our provinces.
+		name = "empireim.6.a"
+		trigger = {
+			any_owned_province = {
+				check_variable = { which = cu_art_slot value = 1 }
+				controlled_by = ROOT
+			}
+		}
+		
+		custom_tooltip = cu_place_art_piece_c0t
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 0 }
+			cu_place_art_piece_country = yes
+			subtract_variable = { which = cu_raid_art_piece0 value = 1 }
+			if = { #More art pieces to deal with
+				limit = { check_variable = { which = cu_raid_art_piece0 value = 1 } }
+				country_event = { id = empireim.6 }
+			}
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 0.5
+				government = tribal
+			}
+		}
+	}
+	option = { #Sell it to a private collector
+		name = "empireim.6.b"
+		hidden_effect = { 
+			subtract_variable = { which = cu_raid_art_piece0 value = 1 }
+			if = { #More art pieces to deal with
+				limit = { check_variable = { which = cu_raid_art_piece0 value = 1 } }
+				country_event = { id = empireim.6 }
+			}
+		}
+		if = {
+			limit = { NOT = { check_variable = { which = cu_var3 value = 1 } } }
+			add_treasury = 50
+		}
+		else_if = {
+			limit = { NOT = { check_variable = { which = cu_var3 value = 2 } } }
+			add_treasury = 60
+		}				
+		else_if = {
+			limit = { NOT = { check_variable = { which = cu_var3 value = 3 } } }
+			add_treasury = 70
+		}
+		else = {
+			add_treasury = 80
+		}
+		ai_chance = {
+			factor = 50
+			modifier = {
+				factor = 1.5
+				government = tribal
+			}
+		}				
+	}
+}
+
+###Take masterpiece(s) from an occupied province
+country_event = {
+	id = empireim.62
+	title = "empireim.62.t"
+	desc = "empireim.62.d"
+	picture = CONQUEST_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			random_list = { #Make the price of art piece a bit random.
+				40 = { set_variable = { which = cu_var3 value = 0 } }
+				30 = { set_variable = { which = cu_var3 value = 1 } }
+				20 = { set_variable = { which = cu_var3 value = 2 } }
+				10 = { set_variable = { which = cu_var3 value = 3 } }
+			}
+		}
+	}
+	option = { #Transfer it to one of our provinces.
+		name = "empireim.6.a"
+		trigger = {
+			any_owned_province = {
+				check_variable = { which = cu_art_slot value = 1 }
+				controlled_by = ROOT
+			}
+		}
+		
+		custom_tooltip = cu_place_art_piece_c1t
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 1 }
+			cu_place_art_piece_country = yes
+			subtract_variable = { which = cu_raid_art_piece1 value = 1 }
+			if = { #More art pieces to deal with
+				limit = { check_variable = { which = cu_raid_art_piece1 value = 1 } }
+				country_event = { id = empireim.63 }
+			}
+		}
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 0.5
+				government = tribal
+			}
+		}
+	}
+	option = { #Sell it to a private collector
+		name = "empireim.6.b"
+		hidden_effect = { 
+			subtract_variable = { which = cu_raid_art_piece1 value = 1 }
+			if = { #More art pieces to deal with
+				limit = { check_variable = { which = cu_raid_art_piece1 value = 1 } }
+				country_event = { id = empireim.63 }
+			}
+		}
+		if = {
+			limit = { NOT = { check_variable = { which = cu_var3 value = 1 } } }
+			add_treasury = 100
+		}
+		else_if = {
+			limit = { NOT = { check_variable = { which = cu_var3 value = 2 } } }
+			add_treasury = 120
+		}				
+		else_if = {
+			limit = { NOT = { check_variable = { which = cu_var3 value = 3 } } }
+			add_treasury = 140
+		}
+		else = {
+			add_treasury = 160
+		}
+		
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 1.75
+				government = tribal
+			}
+		}				
+	}
+}
+###Duplicate for chain triggering
+country_event = {
+	id = empireim.63
+	title = "empireim.62.t"
+	desc = "empireim.62.d"
+	picture = CONQUEST_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			random_list = { #Make the price of art piece a bit random.
+				40 = { set_variable = { which = cu_var3 value = 0 } }
+				30 = { set_variable = { which = cu_var3 value = 1 } }
+				20 = { set_variable = { which = cu_var3 value = 2 } }
+				10 = { set_variable = { which = cu_var3 value = 3 } }
+			}
+		}
+	}
+	option = { #Transfer it to one of our provinces.
+		name = "empireim.6.a"
+		trigger = {
+			any_owned_province = {
+				check_variable = { which = cu_art_slot value = 1 }
+				controlled_by = ROOT
+			}
+		}
+		custom_tooltip = cu_place_art_piece_c1t
+		
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 1 }
+			owner = { cu_place_art_piece_country = yes }
+			subtract_variable = { which = cu_raid_art_piece1 value = 1 }
+			if = { #More art pieces to deal with
+				limit = { check_variable = { which = cu_raid_art_piece1 value = 1 } }
+				country_event = { id = empireim.62 }
+			}
+		}
+		ai_chance = {
+			factor = 60
+			modifier = {
+				factor = 0.5
+				government = tribal
+			}
+		}
+	}
+	option = { #Sell it to a private collector
+		name = "empireim.6.b"
+		hidden_effect = { 
+			subtract_variable = { which = cu_raid_art_piece1 value = 1 }
+			if = { #More art pieces to deal with
+				limit = { check_variable = { which = cu_raid_art_piece1 value = 1 } }
+				country_event = { id = empireim.62 }
+			}
+		}
+		if = {
+			limit = { NOT = { check_variable = { which = cu_var3 value = 1 } } }
+			add_treasury = 100
+		}
+		else_if = {
+			limit = { NOT = { check_variable = { which = cu_var3 value = 2 } } }
+			add_treasury = 120
+		}				
+		else_if = {
+			limit = { NOT = { check_variable = { which = cu_var3 value = 3 } } }
+			add_treasury = 140
+		}
+		else = {
+			add_treasury = 160
+		}
+		
+		ai_chance = {
+			factor = 40
+			modifier = {
+				factor = 1.75
+				government = tribal
+			}
+		}
+	}
+}
+
+###Take great work(s) from an occupied province
+country_event = {
+	id = empireim.64
+	title = "empireim.64.t"
+	desc = "empireim.64.d"
+	picture = CONQUEST_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			random_list = { #Make the price of art piece a bit random.
+				40 = { set_variable = { which = cu_var3 value = 0 } }
+				30 = { set_variable = { which = cu_var3 value = 1 } }
+				20 = { set_variable = { which = cu_var3 value = 2 } }
+				10 = { set_variable = { which = cu_var3 value = 3 } }
+			}
+		}
+	}
+	option = { #Transfer it to one of our provinces.
+		name = "empireim.6.a"
+		trigger = {
+			any_owned_province = {
+				check_variable = { which = cu_art_slot value = 1 }
+				controlled_by = ROOT
+			}
+		}
+		custom_tooltip = cu_place_art_piece_c2t
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 2 }
+			cu_place_art_piece_country = yes
+			subtract_variable = { which = cu_raid_art_piece2 value = 1 }
+			if = { #More art pieces to deal with
+				limit = { check_variable = { which = cu_raid_art_piece2 value = 1 } }
+				country_event = { id = empireim.65 }
+			}
+		}
+		ai_chance = {
+			factor = 70
+			modifier = {
+				factor = 0.5
+				government = tribal
+			}
+		}
+	}
+	option = { #Sell it to a private collector
+		name = "empireim.6.b"
+		hidden_effect = { 
+			subtract_variable = { which = cu_raid_art_piece2 value = 1 }
+			if = { #More art pieces to deal with
+				limit = { check_variable = { which = cu_raid_art_piece2 value = 1 } }
+				country_event = { id = empireim.65 }
+			}
+		}
+		if = {
+			limit = { NOT = { check_variable = { which = cu_var3 value = 1 } } }
+			add_treasury = 200
+		}
+		else_if = {
+			limit = { NOT = { check_variable = { which = cu_var3 value = 2 } } }
+			add_treasury = 240
+		}				
+		else_if = {
+			limit = { NOT = { check_variable = { which = cu_var3 value = 3 } } }
+			add_treasury = 280
+		}
+		else = {
+			add_treasury = 320
+		}
+			
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2.16
+				government = tribal
+			}
+		}
+	}
+}
+###Duplicate for chain triggering
+country_event = {
+	id = empireim.65
+	title = "empireim.64.t"
+	desc = "empireim.64.d"
+	picture = CONQUEST_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			random_list = { #Make the price of art piece a bit random.
+				40 = { set_variable = { which = cu_var3 value = 0 } }
+				30 = { set_variable = { which = cu_var3 value = 1 } }
+				20 = { set_variable = { which = cu_var3 value = 2 } }
+				10 = { set_variable = { which = cu_var3 value = 3 } }
+			}
+		}
+	}
+	option = { #Transfer it to one of our provinces.
+		name = "empireim.6.a"
+		trigger = {
+			any_owned_province = {
+				check_variable = { which = cu_art_slot value = 1 }
+				controlled_by = ROOT
+			}
+		}
+		custom_tooltip = cu_place_art_piece_c2t
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 2 }
+			cu_place_art_piece_country = yes
+			subtract_variable = { which = cu_raid_art_piece2 value = 1 }
+			if = { #More art pieces to deal with
+				limit = { check_variable = { which = cu_raid_art_piece2 value = 1 } }
+				country_event = { id = empireim.64 }
+			}
+		}
+		ai_chance = {
+				factor = 70
+				modifier = {
+						factor = 0.5
+						government = tribal
+				}
+		}
+	}
+	option = { #Sell it to a private collector
+		name = "empireim.6.b"
+		hidden_effect = { 
+			subtract_variable = { which = cu_raid_art_piece2 value = 1 }
+			if = { #More art pieces to deal with
+				limit = { check_variable = { which = cu_raid_art_piece2 value = 1 } }
+				country_event = { id = empireim.64 }
+			}
+		}
+		if = {
+			limit = { NOT = { check_variable = { which = cu_var3 value = 1 } } }
+			add_treasury = 200
+		}
+		else_if = {
+			limit = { NOT = { check_variable = { which = cu_var3 value = 2 } } }
+			add_treasury = 240
+		}				
+		else_if = {
+			limit = { NOT = { check_variable = { which = cu_var3 value = 3 } } }
+			add_treasury = 280
+		}
+		else = {
+			add_treasury = 320
+		}
+			
+		ai_chance = {
+			factor = 30
+			modifier = {
+				factor = 2.16
+				government = tribal
+			}
+		}
+	}
+}
+
+province_event = {
+	id = empireim.66
+	title = "empireim.66.t"
+	desc = "empireim.66.d"
+	picture = CONQUEST_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = "empireim.66.a"
+		#custom_tooltip = empireim.66.at
+	}
+}
+
+province_event = {
+	id = empireim.67
+	title = "empireim.67.t"
+	desc = "empireim.67.d"
+	picture = CONQUEST_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = "empireim.67.a"
+		#custom_tooltip = empireim.66.at
+	}
+}
+
+province_event = {
+	id = empireim.68
+	title = "empireim.68.t"
+	desc = "empireim.68.d"
+	picture = CONQUEST_eventPicture
+	is_triggered_only = yes
+
+	option = {
+		name = "empireim.68.a"
+		#custom_tooltip = empireim.68.at
+	}
+}
+
+#Art Piece
+province_event = {
+	id = empireim.7
+	title = "empireim.7.t"
+	desc = "empireim.7.d"
+	picture = CUARTMUSEUM_eventPicture
+	hidden = yes
+	trigger = {
+		check_variable = { which = art_generation value = 100 }
+		check_variable = { which = cu_art_slot value = 1 }
+	}
+	  
+	mean_time_to_happen = {
+	    months = 2400
+		modifier = {
+			factor = 0.5
+			has_province_modifier = cu_art_patronage
+		}
+		modifier = {
+			factor = 0.8
+			has_province_modifier = cu_culture_understanding
+		}
+		modifier = {
+			factor = 0.9
+			AND ={
+				owner = { has_country_modifier = cu_minor_culture_understanding }			  
+				NOT = { has_province_modifier = cu_culture_understanding } 
+			}
+		}
+		modifier = {
+			factor = 0.91
+			check_variable = { which = art_generation value = 110 }
+		}
+		modifier = {
+			factor = 0.91
+			check_variable = { which = art_generation value = 120 }
+		}
+		modifier = {
+			factor = 0.91
+			check_variable = { which = art_generation value = 130 }
+		}
+		modifier = {
+			factor = 0.91
+			check_variable = { which = art_generation value = 140 }
+		}
+		modifier = {
+			factor = 0.91
+			check_variable = { which = art_generation value = 150 }
+		}
+		modifier = {
+			factor = 0.91
+			check_variable = { which = art_generation value = 160 }
+		}
+			 modifier = {
+			         factor = 0.91
+					 check_variable = { which = art_generation value = 170 }
+			 }
+			 modifier = {
+			         factor = 0.91
+					 check_variable = { which = art_generation value = 180 }
+			 }
+			 modifier = {
+			         factor = 0.91
+					 check_variable = { which = art_generation value = 190 }
+			 }
+			 modifier = {
+			         factor = 0.91
+					 check_variable = { which = art_generation value = 200 }
+			 }
+			 modifier = {
+			         factor = 0.91
+					 check_variable = { which = art_generation value = 210 }
+			 }
+			 modifier = {
+			         factor = 0.91
+					 check_variable = { which = art_generation value = 220 }
+			 }
+			 modifier = {
+			         factor = 0.91
+					 check_variable = { which = art_generation value = 230 }
+			 }
+			 modifier = {
+			         factor = 0.91
+					 check_variable = { which = art_generation value = 240 }
+			 }
+			 modifier = {
+			         factor = 0.91
+					 check_variable = { which = art_generation value = 250 }
+			 }
+			 modifier = {
+			         factor = 0.91
+					 check_variable = { which = art_generation value = 260 }
+			 }
+			 modifier = {
+			         factor = 0.91
+					 check_variable = { which = art_generation value = 270 }
+			 }
+			 modifier = {
+			         factor = 0.91
+					 check_variable = { which = art_generation value = 280 }
+			 }
+			 modifier = {
+			         factor = 0.91
+					 check_variable = { which = art_generation value = 290 }
+			 }
+		modifier = {
+			factor = 0.91
+			check_variable = { which = art_generation value = 300 }
+		}
+	}
+	  
+	option = {
+	    name = "empireim.7.a"
+		cu_create_art_piece = yes
+	}
+}
+
+province_event = {
+      id = empireim.71
+	  title = "empireim.71.t"
+	  desc = "empireim.71.d"
+	  picture = CUARTMUSEUM_eventPicture
+	  is_triggered_only = yes
+	  
+	  option = {
+	         name = "empireim.71.a"
+			 custom_tooltip = empireim.71.at
+	  }
+}
+
+province_event = {
+      id = empireim.72
+	  title = "empireim.72.t"
+	  desc = "empireim.72.d"
+	  picture = CUARTMUSEUM_eventPicture
+	  is_triggered_only = yes
+	  
+	  option = {
+	         name = "empireim.72.a"
+			 custom_tooltip = empireim.72.at
+	  }
+}
+
+province_event = {
+      id = empireim.73
+	  title = "empireim.73.t"
+	  desc = "empireim.73.d"
+	  picture = CUARTMUSEUM_eventPicture
+	  is_triggered_only = yes
+	  
+	  option = {
+	         name = "empireim.73.a"
+			 custom_tooltip = empireim.73.at
+	  }
+}
+
+#Art Legacy
+province_event = {
+      id = empireim.8
+	  title = "EVT_HIDDEN"
+	  desc = "EVT_HIDDEN"
+	  picture = ARTWORK_eventPicture
+	  hidden = yes
+	  trigger = {
+	         has_province_modifier = cu_art_festival
+	         check_variable = { which = art_power value = 20 }
+	  }
+	  
+	  mean_time_to_happen = {
+	         months = 240
+			 modifier = {
+			         factor = 0.9
+					 check_variable = { which = art_power value = 30 }
+			 }
+			 modifier = {
+			         factor = 0.9
+					 check_variable = { which = art_power value = 40 }
+			 }
+			 modifier = {
+			         factor = 0.9
+					 check_variable = { which = art_power value = 50 }
+			 }
+			 modifier = {
+			         factor = 0.9
+					 check_variable = { which = art_power value = 60 }
+			 }
+			 modifier = {
+			         factor = 0.9
+					 check_variable = { which = art_power value = 70 }
+			 }
+			 modifier = {
+			         factor = 0.9
+					 check_variable = { which = art_power value = 80 }
+			 }
+			 modifier = {
+			         factor = 0.9
+					 check_variable = { which = art_power value = 90 }
+			 }
+			 modifier = {
+			         factor = 0.9
+					 check_variable = { which = art_power value = 100 }
+			 }
+			 
+	  }
+	  
+	  
+	  option = {
+	         name = "EVT_HIDDEN"
+			 if = {
+			       limit = {
+				           check_variable = { which = cu_theatre value = 1 }
+						   
+				   }
+				   random_list = {
+				           33 = {
+						       province_event = { id = empireim.81 }     
+				           }
+					       33 = {
+						       province_event = { id = empireim.82 }     
+				           }
+					       33 = {
+						       province_event = { id = empireim.83 }     
+				           }
+		           }
+			 }
+			 else = {
+			       random_list = {
+				           50 = {
+						       province_event = { id = empireim.81 }     
+				           }
+					       50 = {
+						       province_event = { id = empireim.83 }     
+				           }
+		            }
+			 }
+			 
+	  }
+}
+
+province_event = {
+      id = empireim.81
+	  title = "empireim.81.t"
+	  desc = "empireim.81.d"
+	  picture = ARTWORK_eventPicture
+	  is_triggered_only = yes
+	  
+	  option = {
+	         name = "empireim.81.a"
+			 custom_tooltip = cu_change_cultural_legacy_3t
+			 hidden_effect = {
+			    owner = {
+			        set_variable = { which = cu_var1 value = 3 }
+			        cu_change_cultural_legacy = yes
+				}
+			 }
+	  }
+}
+
+province_event = {
+      id = empireim.82
+	  title = "empireim.82.t"
+	  desc = "empireim.82.d"
+	  picture = ARTWORK_eventPicture
+	  is_triggered_only = yes
+	  
+	  option = {
+	         name = "empireim.81.a"
+			 custom_tooltip = cu_change_cultural_legacy_5t
+			 hidden_effect = {
+			    owner = {
+			        set_variable = { which = cu_var1 value = 5 }
+			        cu_change_cultural_legacy = yes
+				}
+			 }
+	  }
+}
+
+province_event = {
+      id = empireim.83
+	  title = "empireim.83.t"
+	  desc = "empireim.83.d"
+	  picture = ARTWORK_eventPicture
+	  is_triggered_only = yes
+	  
+	  option = {
+	         name = "empireim.83.a"
+			 custom_tooltip = cu_change_cultural_legacy_10t
+			 hidden_effect = {
+			    owner = {
+			        set_variable = { which = cu_var1 value = 10 }
+			        cu_change_cultural_legacy = yes
+				}
+			 }
+	  }
+}
+
+country_event = {
+      id = empireim.84
+	  title = "empireim.84.t"
+	  desc = "empireim.84.d"
+	  picture = ARTWORK_eventPicture
+	  hidden = yes
+	  trigger = {
+	        has_reform = shogunate
+			any_known_country = { 
+                is_subject_of = ROOT
+                num_of_owned_provinces_with = {
+			        value = 3
+                    NOT = { region = japan_region }
+				}                  
+            }
+	  }
+	   mean_time_to_happen = {
+	         months = 3
+	  }		 
+	  option = {
+	        name = "empireim.84.a"
+			every_province = {
+				         limit = {
+					           NOT = { region = japan_region }
+							   owner = {
+									is_subject_of = ROOT
+									has_reform = daimyo
+							   }
+				         }
+						 remove_core = owner
+				         cede_province = ROOT                 
+			}
+        }	  
+}
+
+country_event = {
+      id = empireim.85
+	  title = "empireim.85.t"
+	  desc = "empireim.85.d"
+	  picture = ARTWORK_eventPicture
+	  hidden = yes
+	  trigger = {
+	        NOT = { has_reform = shogunate }
+			any_known_country = {
+				is_subject_of = ROOT
+                NOT = { is_subject_of_type = tributary_state }
+                has_reform = daimyo                 
+            }
+	  }
+	   mean_time_to_happen = {
+	         months = 1
+	  }		 
+	  option = {
+	        name = "empireim.85.a"
+			every_subject_country = {
+                limit = { has_reform = daimyo }
+					add_government_reform = ord_reform
+					country_event = { id = mandate.998 }			
+                }
+        }	  
+}
+
+country_event = {
+      id = empireim.86
+	  title = "empireim.86.t"
+	  desc = "empireim.86.d"
+	  picture = ARTWORK_eventPicture
+	  hidden = yes
+	  trigger = {	        
+			any_province = {
+				is_city = no
+                is_core = ROOT                 
+            }
+	  }
+	   mean_time_to_happen = {
+	         months = 1
+	  }		 
+	  option = {
+	        name = "empireim.86.a"
+			every_province = {
+				limit = {
+					is_city = no
+					is_core = ROOT 
+					} 
+				remove_core = ROOT		
+            }
+        }	  
+}
+
+
+#Rise of Nationalism
+province_event = {
+      id = empireim.87
+	  title = "empireim.87.t"
+	  desc = "empireim.87.d"
+	  picture = ARTWORK_eventPicture
+	  major = yes
+	  trigger = {	        
+			check_variable = { which = p_nationalism value = 15 }
+			NOT = { has_province_flag = p_nationalism_awareness }
+	  }
+	   mean_time_to_happen = {
+	         months = 12
+	  }
+	  immediate = {
+			hidden_effect = {
+					every_country = {
+						limit = { 
+							NOT = { PREV = { owned_by = PREV } }
+							any_owned_province = {
+								culture = ROOT
+							}
+						}
+						country_event = { id = empireim.88 }
+					}
+					every_province = {
+						limit = { culture = ROOT }
+						set_province_flag = p_nationalism_awareness
+						if = {
+							limit = { NOT = { check_variable = { which = p_nationalism value = 5 } } }
+							set_variable = { which = p_nationalism value = 5 }
+						}
+					}
+			}
+			
+	  }
+	  option = { #A most welcome news!
+	        name = "empireim.87.a"
+			trigger = {
+				OR = {
+					has_owner_culture = yes
+					AND = {
+						owner = { culture_group = PREV }
+						OR = {
+							has_owner_accepted_culture = yes
+							owner = { government_rank = 3 }
+						}
+					}
+				}
+			}
+			custom_tooltip = cu_nationalism_tooltip
+      }
+	  option = { #Terrible!
+	        name = "empireim.87.b"
+			trigger = {
+				NOT = {
+					OR = {
+						has_owner_culture = yes
+						AND = {
+							owner = { culture_group = PREV }
+							OR = {
+								has_owner_accepted_culture = yes
+								owner = { government_rank = 3 }
+							}
+						}
+					}
+				}
+				
+			}
+			custom_tooltip = cu_nationalism_tooltip
+      }		  
+}
+
+country_event = {
+      id = empireim.88
+	  title = "empireim.88.t"
+	  desc = "empireim.88.d"
+	  picture = ARTWORK_eventPicture
+	  is_triggered_only = yes	 
+	  option = { #A most welcome news!
+	        name = "empireim.88.a"
+			trigger = {
+				OR = {
+					primary_culture = FROM
+					AND = {
+						culture_group = FROM
+						OR = {
+							any_owned_province = {
+								culture = FROM
+								has_owner_accepted_culture = yes
+							}
+							government_rank = 3
+						}
+						
+					}
+				}
+			}
+			custom_tooltip = cu_nationalism_tooltip1
+      }
+	  option = { #Terrible!
+	        name = "empireim.88.b"
+			trigger = {
+				NOT = {
+					OR = {
+						primary_culture = FROM
+						AND = {
+							culture_group = FROM
+							OR = {
+								any_owned_province = {
+									culture = FROM
+									has_owner_accepted_culture = yes
+								}
+								government_rank = 3
+							}
+							
+						}
+					}
+				}
+				
+			}
+			custom_tooltip = cu_nationalism_tooltip1
+      }	
+	  
+}

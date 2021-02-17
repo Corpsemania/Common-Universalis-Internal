@@ -241,7 +241,7 @@ country_event = {
 		name = "EVTOPTA10500"
 		add_adm_power = -20
 		add_prestige = 10
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_country_modifier = { 
 			name = "state_council" 
 			duration = 1825 
@@ -441,7 +441,7 @@ country_event = {
 		ai_chance = {
 			factor = 10
 		}
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 

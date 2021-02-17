@@ -1,0 +1,67 @@
+# 99 Gelre - Principal cities: Arnhem & Nijmegen
+
+owner = GEL
+controller = GEL 
+capital = "Arnhem"
+is_city = yes
+culture = dutch
+religion = catholic
+hre = yes
+base_tax = 6 
+base_production = 6
+trade_goods = livestock
+base_manpower = 3
+add_core = GEL
+discovered_by = eastern
+discovered_by = western
+discovered_by = muslim
+discovered_by = ottoman
+
+1473.2.23 = {
+	owner = BUR
+	controller = BUR
+	add_core = BUR
+} # Charles the Bold annexes Gelre
+1477.1.5 = {
+	owner = HAB
+	controller = HAB
+	add_core = HAB
+	remove_core = BUR
+} # Charles the Bold dies and Gelre goes to the Habsburgs
+1492.1.1 = { 
+	owner = GEL
+	controller = GEL
+} # Karel van Gelre is released from prison and assumes control of Gelre by right of the Egmond family.
+1543.9.7 = { owner = SPA controller = SPA add_core = SPA remove_core = HAB } # Charles V annexes Gelre
+1549.11.4 = { owner = NED controller = NED add_core = NED remove_core = SPA }
+1559.5.12 = { unrest = 3 } # New bishoprics in the Lowlands create an outrage
+1565.1.1 = { unrest = 5 } # Letters of Segovia, Philip I orders the harsh persecution of Calvinists
+1566.4.5 = { unrest = 3 } # 'Eedverbond der Edelen', Margaretha of Parma promises leniency
+1567.9.10 = { unrest = 4 } # Counts of Egmont & Hoorne arrested
+1568.6.5 = { unrest = 6 } # Counts of Egmont & Hoorne beheaded
+1569.1.1 = { unrest = 12 } # The Duke of Alba reforms the taxation system ('tiende penning')
+1570.1.1 = { unrest = 20 } # The Duke of Alba reforms the penal system, 'Blood Council' (Bloedraad) established
+1572.6.5 = { unrest = 0 revolt = { type = nationalist_rebels size = 2 } controller = REB } # Rebels rise up in Gelre & Zutphen
+1572.9.1 = { revolt = {} controller = SPA unrest = 10 } # Don Frederique takes control of Gelre for Spain again
+1577.2.12 = { unrest = 16 } # Eeuwig Edict accepted by Don Juan
+1579.1.23 = {	
+	controller = NED
+	unrest = 0
+} # Union of Utrecht, Gelre joins
+1583.9.1 = { controller = SPA unrest = 15 } # Alessandro Farnese captures Zutphen and the surrounding lands
+1592.7.4 = { controller = NED unrest = 0 } # The Republic takes back Zutphen and surrounding areas
+1648.10.24 = { hre = no } # The Peace of Westphalia
+1672.5.20 = { controller = FRA } # France blitzes through the Lowlands in the Franco-Dutch War
+1678.8.10 = { controller = NED } # Peace of Nijmegen (Netherlands-France)
+1681.1.1 = { base_tax = 9 
+base_production = 9 } # Protestants expelled from France
+1810.7.10 = {	
+	owner = FRA
+	controller = FRA
+	add_core = FRA
+} # Annexed by France
+1813.11.30 = {	
+	owner = NED
+	controller = NED
+	remove_core = FRA
+} # William returns to the Netherlands

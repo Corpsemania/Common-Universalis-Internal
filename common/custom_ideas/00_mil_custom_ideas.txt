@@ -20,7 +20,7 @@ mil_idea_modifiers = {
 		level_cost_4 = 18		
 	}
 	custom_idea_possible_mercenaries = {
-		possible_mercenaries = 0.125
+		mercenary_manpower = 0.125
 		level_cost_2 = 3
 		level_cost_3 = 9
 		level_cost_4 = 18		

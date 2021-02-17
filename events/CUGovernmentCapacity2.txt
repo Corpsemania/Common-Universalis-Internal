@@ -1,0 +1,1177 @@
+namespace = cugovernment
+
+#Government Capacity 2(Extended Calculation)
+
+country_event = {
+	id = cugovernment.2
+	title = "cugovernment.1.t"
+	desc = "cugovernment.1.d"
+	picture = CITY_VIEW_eventPicture
+	hidden = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+	    name = "cugovernment.1.a"
+		hidden_effect = {
+			clr_country_flag = gc_phase2
+			#####################################################################################
+		   
+			########################3.Calculate Provinces########################################
+			while = {
+				limit = {
+					AND = {
+						NOT = { owner = { has_country_flag = gc_phase2 } }
+						any_owned_province = {
+							is_colony = no 
+							#is_core = ROOT					   
+							controlled_by = ROOT
+							NOT = { has_province_flag = gc_calculated }
+						}
+					}
+				}
+				random_owned_province = {
+					limit = { 
+						is_colony = no 
+						#is_core = ROOT					   
+						controlled_by = ROOT
+						NOT = { has_province_flag = gc_calculated }
+					}
+					set_province_flag = gc_calculated
+					owner = {
+						change_variable = { which = ect value = 1 } 
+						if = {
+							limit = { check_variable = { which = ect value = 400 } }
+							set_country_flag = gc_phase2
+							subtract_variable = { which = ect value = 400 }
+						}
+						#Reset Variable
+						set_variable = { which = po value = 0 }
+						set_variable = { which = pc value = 0 }
+						set_variable = { which = pcc value = 0 } #Additional Government Capacity from Commerce
+						set_variable = { which = pcp value = 0 } #Additional Government Capacity from Production
+						#set_variable = { which = por value = 0 }
+						#set_variable = { which = pcr value = 0 }
+						set_variable = { which = pom value = 100 }
+						set_variable = { which = pcm value = 0 }
+						#set_variable = { which = zpgcm value = -100 }
+						#set_variable = { which = spgcm value = -100 }
+						#set_variable = { which = gpgcm value = -100 }
+						#set_variable = { which = apgcm value = -100 }
+						#set_variable = { which = npgcm value = -100 }
+						#set_variable = { which = pomc value = 0 }
+						#set_variable = { which = pomt value = 0 }
+						#set_variable = { which = pcml value = 0 }
+						#set_variable = { which = poml value = 0 }
+						#set_variable = { which = pcmc value = 0 }
+						#set_variable = { which = pcmr value = 20 }
+						#set_variable = { which = pomr value = 0 }
+						#set_variable = { which = pcmb value = 0 }
+						
+						#Development
+						export_to_variable = {
+							which = po
+							value = development
+							who = PREV
+						}
+						export_to_variable = {
+							which = pcc
+							value = base_tax
+							who = PREV
+						}
+						export_to_variable = {
+							which = pcp
+							value = base_production
+							who = PREV
+						}
+						multiply_variable = { which = pcc value = 0.5 }
+						multiply_variable = { which = pcp value = 0.5 }
+						change_variable = { which = pc which = po }
+						#Commerce and Production generates 50% more GC
+						change_variable = { which = pc which = pcc }
+						change_variable = { which = pc which = pcp }
+						#Commerce and Production occupied 50% more OGC
+						change_variable = { which = po which = pcc }
+						change_variable = { which = po which = pcp }
+					}
+					set_variable = { which = cu_var1 value = 0 }
+					export_to_variable = {
+						which = cu_var1
+						value = modifier:local_governing_cost
+					}
+					change_variable = { which = cu_var1 value = 10 }
+					if = {
+						limit = { check_variable = { which = cu_var1 value = -1 } }
+						set_variable = { which = cu_var1 value = -0.90 }
+					}
+					multiply_variable = { which = cu_var1 value = 100 }
+					change_variable = { which = pom which = cu_var1 }
+					if = {
+						limit = {
+							is_overseas = yes
+							full_idea_group = expansion_ideas
+						}
+						owner = { change_variable = { which = pom value = -10 } } 
+					}
+					if = {
+						limit = { is_capital = yes } 
+						owner = { change_variable = { which = bcgc which = pc } }
+					} 
+					#Development End
+					
+					#Climate
+					if = {
+						limit = {
+							OR = {
+								has_climate = arctic
+								has_climate = arid
+							}
+						}
+						owner = { 
+							change_variable = { which = pom value = 40 }
+							if = { 
+								limit = { dip_tech = 22 } 
+								change_variable = { which = pom value = -10 } 
+							}
+							if = {
+								limit = { expansion_ideas = 5 } 
+								change_variable = { which = pom value = -10 } 
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							has_climate = tropical
+						}
+						owner = {
+							change_variable = { which = pom value = 60 }
+							if = { 
+								limit = { dip_tech = 22 } 
+								change_variable = { which = pom value = -20 } 
+							}
+							if = {
+								limit = { expansion_ideas = 5 } 
+								change_variable = { which = pom value = -20 } 
+							}
+						}
+					}
+					
+					#owner = { change_variable = { which = pom which = pomc } }
+					#Climate End
+					
+					#Terrain
+					if = {
+						limit = {
+							AND = {
+								has_terrain = jungle
+								NOT = { has_province_modifier = ti_jungle_done }  								
+							}
+						}
+						owner = {
+							change_variable = { which = pom value = 40 } 
+							if = {
+								limit = { expansion_ideas = 5 }
+								change_variable = { which = pom value = -15 }
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							has_terrain = glacier
+						}
+						owner = { 
+							change_variable = { which = pom value = 50 } 
+							if = {
+								limit = { expansion_ideas = 5 }
+								change_variable = { which = pom value = -15 }
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							has_terrain = mountain
+							NOT = { has_province_modifier = ti_terrace_done } 
+						}
+						owner = {
+							change_variable = { which = pom value = 30 } 
+							if = {
+								limit = { expansion_ideas = 5 }
+								change_variable = { which = pom value = -10 }
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							has_terrain = impassable_mountains
+						}
+						owner = { 
+							change_variable = { which = pom value = 40 }
+							if = {
+								limit = { expansion_ideas = 5 }
+								change_variable = { which = pom value = -10 }
+							}
+						}			   
+					}
+					else_if = {
+						limit = {
+							AND = {
+								has_terrain = coastal_desert
+								NOT = { has_province_modifier = ti_irragation_done }       
+							}
+						}
+						owner = { 
+							change_variable = { which = pom value = 30 } 
+							if = {
+								limit = { expansion_ideas = 5 }
+								change_variable = { which = pom value = -10 }
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							AND = {
+								has_terrain = steppe
+								NOT = { has_province_modifier = ti_irragation_done }       
+							}
+						}
+						owner = { 
+							change_variable = { which = pom value = 30 } 
+							if = {
+								limit = { expansion_ideas = 5 }
+								change_variable = { which = pom value = -10 }
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							AND = {
+								has_terrain = woods
+								NOT = { has_province_modifier = ti_woods_done }       
+							}
+						}
+						owner = { 
+							change_variable = { which = pom value = 20 } 
+							if = {
+								limit = { expansion_ideas = 5 }
+								change_variable = { which = pom value = -10 }
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							AND = {
+								has_terrain = desert
+								NOT = { has_province_modifier = ti_irragation_done }       
+							}
+						}
+						owner = { 
+							change_variable = { which = pom value = 30 } 
+							if = {
+								limit = { expansion_ideas = 5 }
+								change_variable = { which = pom value = -10 }
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							AND = {
+								has_terrain = marsh
+								NOT = { has_province_modifier = ti_marsh_done }       
+							}
+						}
+						owner = { 
+							change_variable = { which = pom value = 30 } 
+							if = {
+								limit = { expansion_ideas = 5 }
+								change_variable = { which = pom value = -10 }
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							AND = {
+								has_terrain = drylands
+								NOT = { has_province_modifier = ti_irragation_done }       
+							}
+						}
+						owner = { 
+							change_variable = { which = pom value = 20 } 
+							if = {
+								limit = { expansion_ideas = 5 }
+								change_variable = { which = pom value = -10 }
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							AND = {
+								has_terrain =  highlands
+								NOT = { has_province_modifier = ti_irragation_done }       
+							}
+						}
+						owner = { 
+							change_variable = { which = pom value = 20 } 
+							if = {
+								limit = { expansion_ideas = 5 }
+								change_variable = { which = pom value = -10 }
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							AND = {
+								has_terrain =  savannah
+								NOT = { has_province_modifier = ti_irragation_done }       
+							}
+						}
+						owner = { 
+							change_variable = { which = pom value = 20 } 
+							if = {
+								limit = { expansion_ideas = 5 }
+								change_variable = { which = pom value = -10 }
+							}
+						}
+					}
+					#owner = { change_variable = { which = pom which = pomt } }
+					#Terrain End
+					
+					#Distance To Government
+					if = {
+						limit = {
+							is_capital = yes
+						}
+						owner = { 
+							change_variable = { which = pcm which = cgcm }
+						}				
+					}
+					else_if = {
+						limit = {
+							OR = {
+								has_building = courthouse
+								has_building = town_hall
+								has_province_modifier = cu_fort_government
+							}
+						}
+						owner = { change_variable = { which = pom value = -15 } } 
+					}
+					owner = {
+						change_variable = { which = pom which = sgom }
+					}
+					#Distance End
+					
+					#Province Modifiers
+					
+					if = {
+						limit = {
+							has_province_modifier = cu_burghers_school
+						}
+						owner = { 
+							change_variable = { which = pom value = 10 } 
+							if = {
+								limit = { innovativeness_ideas = 2 }
+								change_variable = { which = pom value = -3 }
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							has_province_modifier = cu_public_school
+						}
+						owner = { 
+							change_variable = { which = pom value = 20 } 
+							if = {
+								limit = { innovativeness_ideas = 2 }
+								change_variable = { which = pom value = -6 }
+							}
+						}
+					}
+					if = {
+						limit = {
+							has_province_modifier = cu_burghers_university
+						}
+						owner = { 
+							change_variable = { which = pom value = 20 } 
+							if = {
+								limit = { innovativeness_ideas = 2 }
+								change_variable = { which = pom value = -6 }
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							has_province_modifier = cu_public_university
+						}
+						owner = { 
+							change_variable = { which = pom value = 40 } 
+							if = {
+								limit = { innovativeness_ideas = 2 }
+								change_variable = { which = pom value = -12 }
+							}
+						}
+					}
+					if = {
+						limit = {  
+							has_province_modifier = cu_national_college
+						}
+						owner = { change_variable = { which = pom value = 20 } } 
+					}
+					if = {
+						limit = {
+							cu_not_terr_trigger = yes
+							owner = { constitution_ideas = 6 }
+						}
+						owner = { change_variable = { which = pom value = -5 } }
+						if = {
+							limit = { has_seat_in_parliament = yes }
+							owner = { change_variable = { which = pom value = -5 } }
+						}
+					}
+					if = {
+						limit = {
+							has_province_modifier = keju_xiangshi
+						}
+						owner = { change_variable = { which = pcm value = 10 } } 
+					}
+					if = {
+						limit = {
+							superregion = china_superregion
+							culture_group = east_asian  
+							owner = {
+								NOT = {
+									OR = {
+										has_reform = celestial_empire
+										has_reform = celestial_empire_2
+										has_reform = celestial_empire_3
+										has_reform = zhuhou
+										has_reform = chinese_revolter
+										tag = CHF
+										has_country_flag = no_more_celestial
+										overlord = { is_emperor_of_china = yes }									  
+									}
+								}
+							}
+						}
+						owner = { change_variable = { which = pom value = 20 } } 
+					}
+					#Penalty for colonizing African inland provinces( except North Africa )
+					if = {
+						limit = {
+							continent = africa
+							NOT = { region = egypt_region }
+							NOT = { region = maghreb_region }
+							NOT = { has_port = yes }
+							owner = {
+								NOT = {
+									OR = {
+										technology_group = east_african
+										technology_group = central_african
+										technology_group = sub_saharan
+									}
+								}
+							}
+						}
+						owner = { 
+							change_variable = { which = pom value = 70 }
+							if = {
+								limit = { dip_tech = 22 }
+								owner = { change_variable = { which = pom value = -25 } } 
+							}
+							if = {
+								limit = { expansion_ideas = 5 }
+								owner = { change_variable = { which = pom value = -25 } } 
+							}
+						}
+					}
+					
+					#Races ( Not very specific )
+					#White
+					#Yellow
+					#Black
+					
+					#Culture
+					if = {
+						limit = { has_owner_culture = yes }
+						set_province_flag = z_gc
+						owner = {
+							#set_variable = { which = zpgcm which = zgcm }
+							change_variable = { which = pcm which = zgcm } 
+							change_variable = { which = pom which = zgoi }
+						}
+						if = {
+							limit = { is_capital = yes }
+							owner = {
+								change_variable = { which = cgcm which = zgcm } 
+								change_variable = { which = cgmc which = zgcm }
+							}
+						}
+					}
+					else_if = {
+						#Holy Roman Emperor( if cultural group is Germany )takes all german provinces( if in empire ) as a province in cultural union, but suffers -10% GC penalty.
+						limit = {
+							cu_germanic_group = yes
+							owner = {
+								is_emperor = yes 
+								cu_germanic_group = yes
+							}
+							has_owner_culture = no
+							is_part_of_hre = yes
+							has_owner_accepted_culture = no
+						}
+						set_province_flag = s_gc
+						if = {
+							limit = { is_capital = yes }
+							owner = { 
+								change_variable = { which = cgcm which = sgcm } 
+								change_variable = { which = cgmc which = sgcm }
+							}
+						}
+						owner = {
+							change_variable = { which = pcm which = sgcm }
+							change_variable = { which = pcm value = -10 }
+						}
+					}
+					else_if = {
+						limit = {
+							has_owner_culture = no
+							cu_in_same_group = yes
+							OR = {
+								has_owner_accepted_culture = yes
+								AND = {
+									owner = { government_rank = 3 }
+									owner = { culture_group = PREV } 	
+								}
+							}
+						}
+						set_province_flag = s_gc
+						#owner = { set_variable = { which = spgcm which = sgcm } }
+						owner = { change_variable = { which = pcm which = sgcm } }
+						if = {
+							limit = { is_capital = yes }
+							owner = { 
+								change_variable = { which = cgcm which = sgcm } 
+								change_variable = { which = cgmc which = sgcm }
+							}
+						}							
+					}
+					else_if = {
+						limit = {
+							NOT = {
+								OR = {
+									has_owner_culture = yes
+									has_owner_accepted_culture = yes
+									owner = { government_rank = 3 }
+								}
+							}
+							cu_in_same_group = yes
+						}
+						set_province_flag = g_gc
+						#owner = { set_variable = { which = gpgcm which = ggcm } }
+						owner = { change_variable = { which = pcm which = ggcm } }
+						if = {
+							limit = { is_capital = yes }
+							owner = { 
+								change_variable = { which = cgcm which = ggcm } 
+								change_variable = { which = cgmc which = ggcm }
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							NOT = { cu_in_same_group = yes }
+							has_owner_accepted_culture = yes
+						}
+						set_province_flag = a_gc
+						#owner = { set_variable = { which = apgcm which = agcm } }
+						owner = { change_variable = { which = pcm which = agcm } }
+						if = {
+							limit = { is_capital = yes }
+							owner = {
+								change_variable = { which = cgcm which = agcm } 
+								change_variable = { which = cgmc which = agcm }
+							}
+						}
+						if = {
+							limit = { enlightenment = 100 }
+							owner = { change_variable = { which = pom value = 10 } } 
+						}
+						if = {
+							limit = { is_year = 1800 }
+							owner = { change_variable = { which = pom value = 10 } } 
+						}
+					}
+					else_if = {
+						limit = {
+							NOT = {
+								OR = {
+									has_owner_culture = yes
+									cu_in_same_group = yes
+									has_owner_accepted_culture = yes
+								}
+							}
+						}
+						set_province_flag = n_gc
+						#owner = { set_variable = { which = npgcm which = ngcm } }
+						owner = { change_variable = { which = pcm which = ngcm } }
+						if = {
+							limit = { is_capital = yes }
+							owner = { change_variable = { which = cgcm which = ngcm } }
+							owner = { change_variable = { which = cgmc which = ngcm } }
+						}
+						if = {
+							limit = { enlightenment = 100 }
+							owner = { change_variable = { which = pom value = 10 } } 
+						}
+						if = {
+							limit = { is_year = 1800 }
+							owner = { change_variable = { which = pom value = 10 } } 
+						}
+					}
+					
+					#owner = { change_variable = { which = pcm which = pcmc } }
+					
+					#Humanist Ideas
+					if = {
+						limit = {
+							owner = { full_idea_group = humanist_ideas }
+							NOT = { cu_in_same_group = yes }
+							NOT = { has_province_flag = celestial_gc_prov }
+							NOT = { has_province_flag = celestial_gc_prov_foreign }
+							is_capital = no
+						}
+						set_variable = { which = cu_var1 value = 0 }
+						export_to_variable = {
+							which = cu_var1
+							value = tolerance_to_this
+						}
+						multiply_variable = {
+							which = cu_var1
+							value = 3
+						}
+						owner = { 
+							set_variable = { which = cu_var1 which = PREV }
+							change_variable = { which = pcm which = cu_var1 }
+							set_variable = { which = cu_var1 value = 0 }
+						}
+						set_variable = { which = cu_var1 value = 0 }
+					}
+					
+					#Union Ideas
+					
+					if = {
+						limit = { 
+							owner = { influence_ideas = 5 } 
+						}
+						set_variable = { which = cu_var1 value = 0 }
+						export_to_variable = {
+							which = cu_var1
+							value = local_autonomy
+						}
+						owner = {
+							set_variable = { which = cu_var1 which = PREV }
+							multiply_variable = { which = cu_var1 value = 0.002 }
+							subtract_variable = { which = pom which = cu_var1 }								  							
+						}
+					}
+					
+					owner = {
+						set_variable = { which = p_ca which = PREV }
+						multiply_variable = { which = pcm which = p_ca } 
+						divide_variable = { which = pcm value = 100 } 
+					}
+					clr_province_flag = celestial_gc_prov
+					clr_province_flag = celestial_gc_prov_foreign
+					#Culture End
+					
+					#Religion
+					if = {
+						limit = {
+							NOT = { tolerance_to_this = 0 }
+							is_capital = no #Does not apply to capital
+						}
+						set_variable = { which = cu_var1 value = 0 }
+						export_to_variable = {
+							which = cu_var1
+							value = tolerance_to_this
+						}
+						multiply_variable = {
+							which = cu_var1
+							value = 10
+						}
+						owner = {
+							set_variable = { which = cu_var1 which = PREV }
+							change_variable = { which = pcm which = cu_var1 }
+							if = {
+								limit = { NOT = { check_variable = { which = cu_var1 value = -30 } } }
+								change_variable = { which = cu_var1 value = 30 }
+								multiply_variable = { which = cu_var1 value = -1 }
+								change_variable = { which = pom which = cu_var1 }
+							}
+							set_variable = { which = cu_var1 value = 0 }
+						}
+						set_variable = { which = cu_var1 value = 0 }
+					}
+					#owner = { change_variable = { which = pcm which = pcmr } }
+					#owner = { change_variable = { which = pom which = pomr } } 						
+					#Religion End
+					
+					#Government Building GC
+					if = {
+						limit = {
+							OR = {
+								has_building = courthouse
+								has_province_modifier = cu_fort_government
+							}
+							is_capital = no #Does not apply to capital
+						}
+						owner = {
+							if = {
+								limit = { administrative_ideas = 5 }
+								change_variable = { which = pcm value = 35 } 
+							}
+							else = {
+								change_variable = { which = pcm value = 25 } 
+							}
+						}
+					}
+					else_if = {
+						limit = {
+							has_building = town_hall
+							is_capital = no #Does not apply to capital
+						}
+						owner = {
+							if = {
+								limit = { administrative_ideas = 5 }
+								change_variable = { which = pcm value = 65 } 
+							}
+							else = {
+								change_variable = { which = pcm value = 50 } 
+							}
+						}
+					}
+					if = {
+						limit = {
+							OR = {
+								has_building = town_hall
+								has_building = courthouse
+								has_province_modifier = cu_fort_government
+							}
+							owner = { has_reform = bureaucratic }
+							is_capital = no #Does not apply to capital
+						}
+						owner = { multiply_variable = { which = pcm value = 1.05 } }
+					}
+					
+					#owner = { change_variable = { which = pcm which = pcmb } }
+					#Government Building GC End
+					
+					owner = {
+						if = { #Never provides less than 5% GC in normal/adaptive handicap
+							limit = { 
+								NOT = {
+									OR = {
+										check_variable = { which = pcm value = 5 }
+										has_global_flag = cu_realistic_handicap_set
+										has_global_flag = cu_x_handicap_set
+									}
+								}					
+							}
+							set_variable = { which = pcm value = 5 }
+						}
+						if = { #Never provides negative GC
+							limit = { 
+								NOT = { check_variable = { which = pcm value = 0.1 } }
+								OR = {
+									has_global_flag = cu_realistic_handicap_set
+									has_global_flag = cu_x_handicap_set
+								}					
+							}
+							set_variable = { which = pcm value = 0 }
+						}
+						if = { #Never provides negative OC
+							limit = { NOT = { check_variable = { which = pom value = 0 } } }
+							set_variable = { which = pom value = 0 }
+						}
+						if = { #GC never more than 300%
+							limit = { 
+								check_variable = { which = pcm value = 300 }
+								PREV = { is_capital = no }		  
+							}
+							owner = { set_variable = { which = pcm value = 300 } }
+						}
+						if = { #OC never more than 300%
+							limit = { check_variable = { which = pom value = 300  } }
+							set_variable = { which = pom value = 300 }
+						}
+						
+						#Government
+						if = {
+							limit = { has_reform = cu_feudalism_reform }
+							change_variable = { which = pom value = -5 }
+						}
+						else_if = {
+							limit = { 
+								has_reform = mandate_system
+								PREV = { cu_is_terr_trigger = yes }
+							}
+							change_variable = { which = pom value = -10 }
+						}
+						else_if = {
+							limit = { 
+								has_reform = self_governance
+								PREV = { cu_not_terr_trigger = yes }
+							}
+							change_variable = { which = pom value = -10 }
+						}
+						else_if = {
+							limit = { 
+								has_reform = self_governance
+								PREV = { cu_is_terr_trigger = yes }
+							}
+							change_variable = { which = pom value = -15 }
+						}
+						else_if = {
+							limit = { 
+								has_reform = bureaucratic
+								PREV = { cu_not_terr_trigger = yes }
+							}
+							change_variable = { which = pom value = 10 }
+						}
+						if = {
+							limit = { 
+								has_reform = divine_law
+								religion = PREV
+							}
+							change_variable = { which = pcm value = 5 }
+						}
+						else_if = {
+							limit = { 
+								has_reform = oral_tradition
+								PREV = { cu_is_terr_trigger = yes }
+							}
+							change_variable = { which = pom value = -10 }
+						}
+						else_if = {
+							limit = { 
+								has_reform = constitution_reform
+								PREV = { cu_not_terr_trigger = yes }
+							}
+							change_variable = { which = pcm value = 10 }
+						}
+						if = {
+							limit = { 
+								has_reform = noble_election
+								PREV = { has_province_flag = has_estate_nobles }
+							}
+							change_variable = { which = pom value = -20 }
+						}
+						if = {
+							limit = { 
+								has_reform = elective_monarchy
+								PREV = { has_province_flag = has_estate_nobles }
+							}
+							change_variable = { which = pom value = -20 }
+						}
+						if = {
+							limit = {
+								government = theocracy
+								religion = PREV
+							}
+							change_variable = { which = pcm value = 5 }
+						}
+						
+						
+						
+						#Apply Modifier
+						divide_variable = { which = pom value = 100 }
+						multiply_variable = { which = po which = pom }
+						divide_variable = { which = pcm value = 100 }
+						multiply_variable = { which = pc which = pcm }
+						#Apply End
+						
+						#Literacy
+						PREV = { set_variable = { which = plm which = literacy } }
+						set_variable = { which = plm which = PREV }
+						divide_variable = { which = plm value = 200 }
+						change_variable = { which = plm value = 0.05 }
+						multiply_variable = { which = pc which = plm }
+						multiply_variable = { which = plm value = 1.4 }
+						subtract_variable = { which = plm value = 0.015 }
+						multiply_variable = { which = po which = plm }
+					}
+					
+					#Indian Caste System
+					if = {
+						limit = { has_province_modifier = indian_caste_system }
+						owner = { 
+							multiply_variable = { which = pc value = 0.8 }
+							multiply_variable = { which = po value = 0.75 }
+							#AI cheat flag(for pure ai)
+							if = { 
+								limit = { cu_ai_buff_trigger = yes }
+								divide_variable = { which = pc value = 4 }
+								divide_variable = { which = po value = 7.5 }
+							}
+						}
+					}
+					#Autonomy
+					export_to_variable = {
+						which = cu_var1
+						value = local_autonomy
+					}
+					owner = {
+						#GC is directly multiplied by autonomy
+						set_variable = { which = cu_var1 which = PREV }
+						set_variable = { which = cu_var2 value = 100 }
+						subtract_variable = { which = cu_var2 which = cu_var1 }
+						multiply_variable = { which = cu_var2 value = 0.01 }
+						multiply_variable = { which = pc which = cu_var2 }
+						
+						#100% autonomy reduces OGC consumption by 97% - the cost should not be zero
+						set_variable = { which = cu_var3 value = 100 }
+						multiply_variable = { which = cu_var1 value = 0.97 }
+						subtract_variable = { which = cu_var3 which = cu_var1 }
+						multiply_variable = { which = cu_var3 value = 0.01 }
+						multiply_variable = { which = po which = cu_var3 }
+					}
+					#Autonomy End
+					
+					#For display
+					if = { 
+						limit = { owner = { ai = no } }
+						if = {
+							limit = { is_capital = yes }	        
+							owner = { change_variable = { which = cgc which = pc } }					
+						}
+						else_if = {
+							limit = {
+								has_province_flag = z_gc
+							}        
+							owner = { change_variable = { which = zgc which = pc } }
+							clr_province_flag = z_gc	
+						}
+						else_if = {
+							limit = {
+								has_province_flag = s_gc
+							}
+							owner = { change_variable = { which = sgc which = pc } }
+							clr_province_flag = s_gc
+						}
+						else_if = {
+							limit = {
+								has_province_flag = a_gc
+							}           
+							owner = { change_variable = { which = agc which = pc } }		
+							clr_province_flag = a_gc			
+						}
+						else_if = {
+							limit = {
+								has_province_flag = g_gc
+							}	          
+							owner = { change_variable = { which = ggc which = pc } }	
+							clr_province_flag = g_gc			
+						}
+						else_if = {
+							limit = {
+								has_province_flag = n_gc
+							}        
+							owner = { change_variable = { which = ngc which = pc } }	
+							clr_province_flag = n_gc				
+						}
+					}
+					
+					#Set Province Variable
+					set_variable = { which = po which = owner }
+					set_variable = { which = pc which = owner }
+					
+					
+					owner = { 
+						#Added to country's GC and OGC
+
+						#AI cheat flag
+						if = { limit = { ai = yes } multiply_variable = { which = pc value = 1.20 } } #120% boost
+
+						if = { limit = { NOT = { check_variable = { which = pt value = 524288 } } } change_variable = { which = pt which = pc } } 
+						if = { limit = { NOT = { check_variable = { which = ot value = 131072 } } } change_variable = { which = ot which = po } }
+						#Reset Variable
+						set_variable = { which = po value = 0 }
+						set_variable = { which = pc value = 0 }
+					}
+				}
+			}
+			if = {
+				limit = { NOT = { has_country_flag = gc_phase2 } }
+				every_owned_province = {
+					clr_province_flag = gc_calculated
+				}
+				change_variable = { which = rc which = pt }
+				subtract_variable = { which = rc which = cgc }		
+			
+				#########################################################################################
+			   
+				########################4.Calculate GC,OGC and GO########################################
+				#GC
+				change_variable = { which = bc which = pt }
+				change_variable = { which = gc which = pt }
+
+				change_variable = { which = tcm which = kgcm }
+				change_variable = { which = tcm which = egcm }
+				divide_variable = { which = gc value = 100 }
+				multiply_variable = { which = gc which = tcm }
+
+				set_variable = { which = vgc value = 0 }
+				#Subject GC Contribution
+				if = {
+					limit = { 
+						full_idea_group = influence_ideas 				          
+						has_reform = confederate
+					}
+					every_subject_country = {
+				        limit = {
+						    NOT = { liberty_desire = 50 }
+							NOT = { is_subject_of_type = tributary_state }
+							#is_colonial_nation = no
+						}
+						set_variable = { which = ocs which = gc }
+						multiply_variable = { which = ocs value = 0.1 }
+						ROOT = { change_variable = { which = ocs which = PREV } }
+					}
+				}
+				#Tribal Ruler GC
+				if = {
+			        limit = {  
+						NOT = { check_variable = { which = ruler_gc value = 0 } }
+					}
+					set_variable = { which = ruler_gc value = 0 }
+				}
+				if = {
+			        limit = {  
+						check_variable = { which = ruler_gc value = 200 }
+					}
+					set_variable = { which = ruler_gc value = 200 }
+				}
+				change_variable = { which = gc which = ruler_gc }
+				change_variable = { which = cgc which = ruler_gc } #For display
+				#Tribal Ruler GC End
+				#GC End
+			
+			
+				#OGC
+           
+				#Subject OGC
+				
+				every_subject_country = { #Only Subjects without upkeep count
+					limit = {
+						NOT = { liberty_desire = 50 }
+						OR = {
+							is_colonial_nation = yes
+							has_reform = trading_city
+							is_subject_of_type = protectorate			
+							AND = {
+								is_part_of_hre = yes
+								ROOT = { is_emperor = yes }
+								has_global_flag = privilegia_de_non_appelando_cu
+							}
+						}
+					}
+					set_variable = { which = cu_var1 which = go }
+					if = { 
+						limit = { check_variable = { which = cu_var1 which = 300 } }
+						set_variable = { which = cu_var1 value = 300 }
+					}
+					multiply_variable = { which = cu_var1 which = oc }
+					multiply_variable = { which = cu_var1 value = 0.01 }
+					multiply_variable = { which = cu_var1 value = 0.05 }
+					ROOT = {
+						set_variable = { which = cu_var1 which = PREV }
+					}
+					
+					if = {
+						limit = { is_colonial_nation = yes }
+						ROOT = { 
+							if = { 
+								limit = { exploration_ideas = 6 } 
+								multiply_variable = { which = cu_var1 value = 0.64 } 
+							}
+							else = {
+								multiply_variable = { which = cu_var1 value = 0.8 } 
+							}
+						}
+					}
+					else_if = {
+						limit = { is_subject_of_type = protectorate	}
+						ROOT = { 
+							multiply_variable = { which = cu_var1 value = 0.8 } 
+						}
+					}
+					ROOT = { change_variable = { which = ogcs which = cu_var1 } }
+				}
+				
+				#Empire OGC End
+				
+				change_variable = { which = oc which = ot }
+				change_variable = { which = oc which = ogcs }
+				
+				#Overlord GC Contribution 
+				if = {
+					limit = {
+						OR = {
+							is_colonial_nation = yes
+							has_reform = trading_city
+							#is_protectorate = yes				
+							AND = {
+								is_part_of_hre = yes
+								overlord = { is_emperor = yes }
+								has_global_flag = privilegia_de_non_appelando_cu
+							}
+						}
+					}
+					set_variable = { which = cu_var1 which = oc }
+					multiply_variable = { which = cu_var1 value = 0.05 }
+					change_variable = { which = ocs which = cu_var1 }
+				}
+				
+				change_variable = { which = gc which = ocs }
+				#OGC End
+				
+				#GO
+				change_variable = { which = go which = oc }
+				multiply_variable = { which = go value = 100 }
+				if = {  #Prevent Calculation Mistake
+					limit = { NOT = { check_variable = { which = gc value = 1 } }  }
+					set_variable = { which = gc value = 1 }
+					set_variable = { which = go value = 100 }
+				}
+				divide_variable = { which = go which = gc }
+				#GO End
+			   
+
+				#########################################################################################
+			   
+				########################5.Display########################################################
+				if = {
+					limit = { 
+						has_country_flag = cugovernmentui_open  
+						ai = no
+					}
+					clr_country_flag = cugovernmentui_open
+					if = {
+						limit = { NOT = { check_variable = { which = go value = 100 } } }
+						country_event = { id = cugovernment.4 }
+					}
+					else = {
+						country_event = { id = cugovernment.5 }
+					}
+				}
+				clr_country_flag = cugovernmentui_open #In case of bug.
+				#########################################################################################
+			}
+			#########################################################################################
+		   	
+			########################6.Extended Calculation to Prevent Overflow CTD########################################################
+			if = {
+				limit = { has_country_flag = gc_phase2 }
+				country_event = { id = cugovernment.2 }
+			}
+		}
+	}
+}

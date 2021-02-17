@@ -459,3 +459,46 @@ defined_text = {
 		}
 	}
 }
+
+defined_text = {
+    name = cu_landholding_growtht
+	random = no
+	
+	text = {
+		localisation_key = cu_landholding_growth_p
+		trigger = {
+			check_variable = { which = landholding_progress_g value = 0 }
+		}
+	}
+	text = {
+		localisation_key = cu_landholding_growth_n
+		trigger = {
+			NOT = { check_variable = { which = landholding_progress_g value = 0 } }
+		}
+	}
+}
+
+defined_text = {
+    name = cu_landholding_level
+	random = no
+	
+	text = {
+		localisation_key = cu_landholding_level_2
+		trigger = {
+			check_variable = { which = landholding_progress value = 160 }
+		}
+	}
+	text = {
+		localisation_key = cu_landholding_level_1
+		trigger = {
+			check_variable = { which = landholding_progress value = 80 }
+		}
+	}
+	text = {
+		localisation_key = cu_landholding_level_0
+		trigger = {
+			check_variable = { which = landholding_progress value = 0 }
+		}
+	}
+}
+

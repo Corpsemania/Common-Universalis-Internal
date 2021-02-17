@@ -1,0 +1,45 @@
+#137 - Ragusa
+
+owner = RAG
+controller = RAG
+culture = dalmatian
+religion = catholic
+capital = "Ragusa"
+trade_goods = naval_supplies
+hre = no
+base_tax = 5 
+base_production = 6
+base_manpower = 3
+is_city = yes
+add_core = RAG
+
+discovered_by = KAZ
+discovered_by = CRI
+discovered_by = GOL
+discovered_by = AST
+discovered_by = QAS
+discovered_by = western
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = ottoman
+extra_cost = 16
+center_of_trade = 2
+
+1806.5.26 = { controller = FRA } # Occupied by French troops
+1806.6.17 = { controller = RAG } # The French are defeated
+1806.7.12 = { controller = FRA }
+1807.7.9 = { owner = FRA add_core = FRA } # Treaty of Tilsit
+1808.1.1 = {
+	owner = ITA
+	controller = ITA
+} # Marshal Marmont abolishes the Republic of Ragusa and merges the territory into the Napoleonic Kingdom of Italy
+1810.1.1 = {
+	owner = FRA
+	controller = FRA
+} # Ragusa with all Dalmatia went to the newly created French Illyrian Provinces
+1813.9.20 = { controller = HAB } # Occupied by Austrian forces
+1814.4.6 = {
+	owner = HAB
+	add_core = HAB
+	remove_core = FRA
+}# Napoleon abdicates

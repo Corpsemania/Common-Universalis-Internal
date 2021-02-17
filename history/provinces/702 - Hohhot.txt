@@ -8,10 +8,11 @@ religion = vajrayana
 capital = "Hohhot"
 trade_goods = iron
 hre = no
-base_tax = 4 
-base_production = 4
+base_tax = 1 
+base_production = 2
 base_manpower = 4
 is_city = yes
+set_province_flag = cu_neednt_dev_initialize
 add_core = KHA
 center_of_trade = 1
 

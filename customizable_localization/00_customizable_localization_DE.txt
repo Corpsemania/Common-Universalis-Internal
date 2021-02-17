@@ -1,4 +1,7 @@
-#VERFÜGBARE BENUTZERDEFINIERTE LOCALISATIONS-BEFEHLE:
+############################################
+###   Scripted Localization for German   ###
+###           BY Kai Bagehorn            ###
+############################################
 
 ###Monarchen (M für "monarch")
 #Artikel: GetMderdie, GetMDerDie, GetMdendie, GetMDenDie, GetMeineine, GetMEinEine, GetMDesDer, GetMdesder
@@ -53,6 +56,15 @@
 #Personalpronomen: GetMILihmihr, GetMILIhmIhr
 #Relativpronomen: GetMILdemder, GetMILDemDer
 #Endungen: GetMILsMale, GetMILeFemale, GetMILnMale, GetMILrMale, GetMILinFemale
+
+###Event Berater (EvB für "Event Berater")
+#Artikel: GetEvBderdie, GetEvBDerDie, GetEvBdendie, GetEvBDenDie, GetEvBeineine, GetEvBEinEine, GetEvBDesDer, GetEvBdesder
+#Possessivpronomen: GetEvBunseresunserer, GetEvBUnseresUnserer, GetEvBunserunsere, GetEvBUnserUnsere, GetEvBunseremUnserer, GetEvBUnseremUnserer, GetEvBunserenunsere, GetEvBUnserenUnsere, GetEvBeineseiner, GetEvBEinesEiner
+#Indefinitpronomen: GetEvBkeinkeine, GetEvBKeinKeine, GetEvBirgendeinirgendeine, GetEvBIrgendeinIrgendeine, GetHkeinemkeiner, GetHKeinemKeiner
+#Demonstrativpronomen: GetEvBdieserdiese, GetEvBDieserDiese
+#Personalpronomen: GetEvBihmihr, GetEvBIhmIhr
+#Relativpronomen: GetEvBdemder, GetEvBDemDer
+#Endungen: GetEvBsMale, GetEvBeFemale, GetEvBnMale, GetEvBrMale, GetEvBinFemale
 
 ####################################
 #
@@ -5705,3 +5717,855 @@ defined_text = {
         }
     }
 }
+
+
+
+####################################
+#
+#Event-Berater (works out which via flag)
+#
+####################################
+
+########Event advisors (uses flags to see which one is relevant and uses that to refer to the relevant custom loc listed above in the advisors section)
+
+### Artikel
+#Bsp: "Der König", "Die Königin", "...der König...", "...die Königin..."
+defined_text = {			
+	name = GetEvBderdie		
+	text = {		
+		localisation_key = string_GetADMderdie	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPderdie	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILderdie	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBDerDie		
+	text = {		
+		localisation_key = string_GetADMDerDie	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPDerDie	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILDerDie	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBdendie		
+	text = {		
+		localisation_key = string_GetADMdendie	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPdendie	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILdendie	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBDenDie		
+	text = {		
+		localisation_key = string_GetADMDenDie	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPDenDie	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILDenDie	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+	
+defined_text = {			
+	name = GetEvBeineine		
+	text = {		
+		localisation_key = string_GetADMeineine	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPeineine	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILeineine	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBEinEine		
+	text = {		
+		localisation_key = string_GetADMEinEine	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPEinEine	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILEinEine	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBDesDer		
+	text = {		
+		localisation_key = string_GetADMDesDer	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPDesDer	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILDesDer	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBdesder		
+	text = {		
+		localisation_key = string_GetADMdesder	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPdesder	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILdesder	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+###Possessivpronomen
+#Bsp: "...unseres Königs", "...unserer Königin"
+defined_text = {			
+	name = GetEvBunseresunserer		
+	text = {		
+		localisation_key = string_GetADMunseresunserer	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPunseresunserer	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILunseresunserer	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBUnseresUnserer		
+	text = {		
+		localisation_key = string_GetADMUnseresUnserer	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPUnseresUnserer	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILUnseresUnserer	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBunserunsere		
+	text = {		
+		localisation_key = string_GetADMunserunsere	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPunserunsere	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILunserunsere	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBUnserUnsere		
+	text = {		
+		localisation_key = string_GetADMUnserUnsere	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPUnserUnsere	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILUnserUnsere	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBunsermunserer		
+	text = {		
+		localisation_key = string_GetADMunsermunserer	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPunsermunserer	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILunsermunserer	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBUnseremUnserer		
+	text = {		
+		localisation_key = string_GetADMUnseremUnserer	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPUnseremUnserer	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILUnseremUnserer	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBUnserenUnsere		
+	text = {		
+		localisation_key = string_GetADMUnserenUnsere	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPUnserenUnsere	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILUnserenUnsere	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBunserenunsere		
+	text = {		
+		localisation_key = string_GetADMunserenunsere	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPunserenunsere	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILunserenunsere	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBeineseiner		
+	text = {		
+		localisation_key = string_GetADMeineseiner	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPeineseiner	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILeineseiner	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBEinesEiner		
+	text = {		
+		localisation_key = string_GetADMEinesEiner	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPEinesEiner	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILEinesEiner	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+###Indefinitpronomen
+#Bsp: "...kein Mann...", "...keine Frau..."
+defined_text = {			
+	name = GetEvBkeinkeine		
+	text = {		
+		localisation_key = string_GetADMkeinkeine	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPkeinkeine	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILkeinkeine	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBKeinKeine		
+	text = {		
+		localisation_key = string_GetADMKeinKeine	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPKeinKeine	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILKeinKeine	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBirgendeinirgendeine		
+	text = {		
+		localisation_key = string_GetADMirgendeinirgendeine	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPirgendeinirgendeine	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILirgendeinirgendeine	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBIrgendeinIrgendeine		
+	text = {		
+		localisation_key = string_GetADMIrgendeinIrgendeine	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPIrgendeinIrgendeine	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILIrgendeinIrgendeine	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+defined_text = {			
+	name = GetEvBkeinemkeiner		
+	text = {		
+		localisation_key = string_GetADMkeinemkeiner	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPkeinemkeiner	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILkeinemkeiner	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBKeinemKeiner		
+	text = {		
+		localisation_key = string_GetADMKeinemKeiner	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPKeinemKeiner	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILKeinemKeiner	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+###Demonstrativpronomen
+#Bsp: dieser König, diese Königin
+defined_text = {			
+	name = GetEvBdieserdiese		
+	text = {		
+		localisation_key = string_GetADMdieserdiese	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPdieserdiese	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILdieserdiese	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBDieserDiese		
+	text = {		
+		localisation_key = string_GetADMDieserDiese	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPDieserDiese	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILDieserDiese	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+###Personalpronomen
+#Bsp: "Obwohl ihm vorgeworfen wird...", "Obwohl ihr vorgeworfen wird..."
+defined_text = {			
+	name = GetEvBihmihr		
+	text = {		
+		localisation_key = string_GetADMihmihr	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPihmihr	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILihmihr	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBIhmIhr		
+	text = {		
+		localisation_key = string_GetADMIhmIhr	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPIhmIhr	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILIhmIhr	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBihnsie		
+	text = {		
+		localisation_key = string_GetADMihnsie	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPihnsie	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILihnsie	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+###Relativpronomen
+#Bsp: "Wir sollten dem König...", "Wir sollten der Königin..."
+defined_text = {			
+	name = GetEvBdemder		
+	text = {		
+		localisation_key = string_GetADMdemder	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPdemder	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILdemder	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBDemDer		
+	text = {		
+		localisation_key = string_GetADMDemDer	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPDemDer	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILDemDer	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+###Endungen
+#Bsp: König-->Königs
+defined_text = {			
+	name = GetEvBsMale		
+	text = {		
+		localisation_key = string_GetADMsMale	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPsMale	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILsMale	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBeFemale		
+	text = {		
+		localisation_key = string_GetADMeFemale	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPeFemale	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILeFemale	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBnMale		
+	text = {		
+		localisation_key = string_GetADMnMale	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPnMale	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILnMale	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBrMale		
+	text = {		
+		localisation_key = string_GetADMrMale	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPrMale	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILrMale	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+
+
+defined_text = {			
+	name = GetEvBinFemale		
+	text = {		
+		localisation_key = string_GetADMinFemale	
+		trigger = {	
+			has_country_flag = advisor_events_adm
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetDIPinFemale	
+		trigger = {	
+			has_country_flag = advisor_events_dip
+		}	
+	}		
+	text = {		
+		localisation_key = string_GetMILinFemale	
+		trigger = {	
+			has_country_flag = advisor_events_mil
+		}	
+	}		
+}			
+

@@ -1,0 +1,25 @@
+#Galich
+
+owner = MOS
+controller = MOS
+capital = "Galich"
+culture = russian
+religion = orthodox
+trade_goods = salt
+hre = no
+base_tax = 4
+base_production = 5 #Huge Salt Mine
+base_manpower = 2
+is_city = yes
+add_core = MOS
+discovered_by = eastern
+discovered_by = western
+discovered_by = GOL
+discovered_by = nomad_group
+
+
+1445.10.1 = { unrest = 5 } # Shemyaka opposition
+1450.1.1 = { discovered_by = SIB unrest = 0 } # fortified against Kazan tatars
+1503.4.1 = {	owner = RUS controller = RUS add_core = RUS remove_core = MOS }
+1598.1.7 = { unrest = 5 base_manpower = 3 } # "Time of troubles", peasantry brought into serfdom
+1613.3.3 = { unrest = 0 } # Order returned, Romanov dynasty

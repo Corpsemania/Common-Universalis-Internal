@@ -1,0 +1,27 @@
+#4362 - West March (Dumfriesshire+Kircudbrightshire)
+
+owner = SCO
+controller = SCO
+culture = scottish
+religion = catholic
+hre = no
+base_tax = 3
+base_production = 3
+trade_goods = wool
+base_manpower = 2
+capital = "Dumfries"
+fort_15th = yes
+is_city = yes
+add_core = SCO
+discovered_by = western
+discovered_by = muslim
+discovered_by = ottoman
+discovered_by = eastern
+
+1560.8.1 = { religion = reformed }
+1651.4.1 = { controller = ENG }
+1652.4.21 = { controller = SCO } # Union of Scotland and the Commonwealth
+1707.5.12 = {	owner = GBR
+	controller = GBR
+	add_core = GBR
+}

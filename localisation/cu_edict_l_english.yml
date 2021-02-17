@@ -1,7 +1,7 @@
 ﻿l_english:
  urban.50.mc: "Move your capital to [Root.GetName]"
  urban.50.mcn: "§RMove your capital to [Root.GetName](Unavailable)§!"
- urban.50.mcnt: "§RPrerequisites of this edict are not fulfilled:§!\n([This.Owner.GetName])\n  Has §R200§! £adm£\nProvince is in state\nProvince is your state core."
+ urban.50.mcnt: "§RPrerequisites of this edict are not fulfilled:§!\n([This.Owner.GetName])\n  Has §R200§! £adm£\n  Has §R0§! £stability£\nProvince is in state\nProvince is your state core.\n§RIf your country is not a part of the HRE, you cannot move your capital to a HRE province.§!"
  urban.50.b1: "Chop Down Forest"
  urban.50.b1n: "§RChop Down Forest(Unavailable)§!"
  urban.50.b1nt: "§RPrerequisites of this edict are not fulfilled:§!\n([This.Owner.GetName])\n  Has §R15§! £adm£\n  Has §R75§!$COST|Y$¤\n  Administrative Technology is at least §Y9§!\nDevelopment is at least §Y9§!"
@@ -92,7 +92,7 @@
  urban.50.c6: "Start Cultural Assimilation"
  urban.50.c6t: "Starting to change province culture to our primary culture, the time needed for assimilation is affected by province development, buildings, literacy difference, religious tolerance and other factors."
  urban.50.c6n: "§RStart Cultural Assimilation(Unavailable)§!"
- urban.50.c6nt: "§RPrerequisites of this edict are not fulfilled:§!\nProvince is your core\nAdministrative Integrity is at least §G90%§!.\n([This.Owner.GetName])\n  Has §R50§! £dip£\n  Has §R10§! Prestige"
+ urban.50.c6nt: "§RPrerequisites of this edict are not fulfilled:§!\nProvince is your core\nAdministrative Integrity is at least §G90%§!.\nYears of Seperatism is less than §R1§!\n([This.Owner.GetName])\n  Has §R50§! £dip£\n  Has §R10§! Prestige"
  urban.50.c5: "Benign Neglect"
  urban.50.c5t: "Base cost is §R40§! £adm£, will be modifiered by your power cost and country size.\nYearly Administrative Integrity Growth: §G+0.5%§!"
  urban.50.c5n: "§RBenign Neglect(Unavailable)§!"

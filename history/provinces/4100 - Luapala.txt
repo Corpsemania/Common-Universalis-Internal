@@ -1,0 +1,13 @@
+owner = KZB
+controller = KZB
+add_core = KZB
+culture = luba
+religion = shamanism #Fetishism
+capital = "Kazembe Luapula"
+trade_goods = copper
+hre = no
+base_tax = 3
+base_production = 2
+base_manpower = 3
+is_city = yes
+discovered_by = central_african

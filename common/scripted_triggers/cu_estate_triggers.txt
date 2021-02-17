@@ -10,3 +10,25 @@ can_unrest_trigger = {
 	NOT = { stability = 1 }
 	NOT = { absolutism = 70 }
 }
+
+cu_estate_preload_native = {
+	OR = {
+		government = native
+		AND = {
+			capital_scope = {
+				OR = {
+					continent = new_world
+					continent = north_america
+					continent = south_america
+				}
+			}
+			OR = {
+				technology_group = north_american
+				technology_group = south_american
+				technology_group = andean
+				technology_group = mesoamerican
+			}
+			is_playing_custom_nation = no
+		}
+	}
+}

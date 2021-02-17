@@ -290,7 +290,7 @@ country_event = {
 	option = {
 		name = nahuatl_events.8.a #Great!
 		add_doom = -5
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -908,7 +908,7 @@ country_event = {
 			}
 			add_doom = -10
 			add_prestige = 10
-			add_stability_or_adm_power = yes
+			cu_change_stability_point_p50 = yes
 		}
 		every_subject_country = {
 			add_opinion = {
@@ -953,7 +953,7 @@ country_event = {
 				tag = AZT #Popularized by the Aztecs
 			}
 		}
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 

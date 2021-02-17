@@ -9,15 +9,15 @@ revolutionary_colors = { 5  13  0 }
 preferred_religion = protestant
 
 historical_idea_groups = {
-	innovativeness_ideas #ADM
 	naval_ideas #DIP
 	quality_ideas #MIL
+	innovativeness_ideas #ADM
 	exploration_ideas #DIP
 	plutocracy_ideas #MIL
 	economic_ideas #ADM
-	expansion_ideas #DIP
 	constitution_ideas #ADM
-	defensive_ideas #MIL
+	expansion_ideas #DIP
+	offensive_ideas #MIL
 	maritime_ideas #DIP
 	influence_ideas #ADM
 	culture_ideas #DIP

@@ -1,0 +1,27 @@
+military_hegemon = {
+	allow = {
+		is_great_power = yes
+		army_size = 400
+		
+		NOT = { any_other_great_power = { army_size = root } }
+		NOT = { has_country_modifier = lost_hegemony }
+	}
+	
+	base = {
+		war_exhaustion = -0.02
+		province_warscore_cost = -0.025
+	}
+	
+	# At max 100% tickup.
+	scale = {
+		movement_speed = 0.075
+		global_unrest = -1
+		land_morale = 0.075
+		global_spy_defence = 0.10
+	}
+	
+	max = {
+		diplomatic_reputation = 1
+	}
+	
+}

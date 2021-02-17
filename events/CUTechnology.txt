@@ -162,364 +162,364 @@ country_event = {
 	
 	is_triggered_only = yes
 	immediate = {
-	      hidden_effect = {
-		        set_variable = { which = cu_power value = 200 } 
-				cu_calc_power_cost = yes
-		  }
+		hidden_effect = {
+			set_variable = { which = cu_power value = 200 } 
+			cu_calc_power_cost_country = yes
+		}
 	}
 	option = {
-	       name = "tech.4.help"
-		   trigger = {
-		        has_global_flag = test_version #Not complete yet
-		   }
-		   clr_country_flag = cabinet_panel_open
-		   clr_country_flag = cu_tech_panel_open
-		   ai_chance = {
-		        factor = 0
-		   }
+		name = "tech.4.help"
+		trigger = {
+			has_global_flag = test_version #Not complete yet
+		}
+		clr_country_flag = cabinet_panel_open
+		clr_country_flag = cu_tech_panel_open
+		ai_chance = {
+			factor = 0
+		}
 	}
 	option = { #Invest in Administrative Technology
-	       name = "tech.4.investa"
-	       trigger = {
-		        OR = {
-			         NOT = { has_country_flag = cu_invest_in_adm_tech_timer }
-				     had_country_flag = {
-				       flag = cu_invest_in_adm_tech_timer
-					   days = 1825
-				     }
-			    }
-				years_of_income = 0.2
-			    adm_power = 200
-		   }  
-		   add_years_of_income = -0.2
-		   clr_country_flag = cu_invest_in_adm_tech_timer
-		   set_country_flag = cu_invest_in_adm_tech_timer
-		   hidden_effect = { 
-				set_variable = { which = cu_power value = 200 } 
-		   }
-		   cu_calc_power_cost = yes
-		   cu_subtract_adm_power = yes
-		   cu_get_3year_adm = yes
-		   custom_tooltip = tech.4.investat
-		   clr_country_flag = cabinet_panel_open
-		   clr_country_flag = cu_tech_panel_open
-		   ai_chance = {
-		        factor = 0
-		   }
+		name = "tech.4.investa"
+		trigger = {
+			OR = {
+				NOT = { has_country_flag = cu_invest_in_adm_tech_timer }
+				had_country_flag = {
+					flag = cu_invest_in_adm_tech_timer
+					days = 1825
+				}
+			}
+			years_of_income = 0.2
+			adm_power = 200
+		}  
+		add_years_of_income = -0.2
+		clr_country_flag = cu_invest_in_adm_tech_timer
+		set_country_flag = cu_invest_in_adm_tech_timer
+		hidden_effect = { 
+			set_variable = { which = cu_power value = 200 } 
+		}
+		cu_calc_power_cost_country = yes
+		cu_subtract_adm_power = yes
+		cu_get_3year_adm = yes
+		custom_tooltip = tech.4.investat
+		clr_country_flag = cabinet_panel_open
+		clr_country_flag = cu_tech_panel_open
+		ai_chance = {
+			factor = 0
+		}
 	}
 	option = { #Invest in Administrative Technology(Requirements not fullfilled)
-	       name = "tech.4.investan"
-	       trigger = {
-		      NOT = {
-			   AND = {
-		        OR = {
-			         NOT = { has_country_flag = cu_invest_in_adm_tech_timer }
-				     had_country_flag = {
-				       flag = cu_invest_in_adm_tech_timer
-					   days = 1825
-				     }
-			    }
-				years_of_income = 0.2
-			    adm_power = 200
-			  }
-			 }
-		   }  
-		   custom_tooltip = tech.4.investant
-		   clr_country_flag = cabinet_panel_open
-		   clr_country_flag = cu_tech_panel_open
-		   ai_chance = {
-		        factor = 0
-		   }
+		name = "tech.4.investan"
+		trigger = {
+			NOT = {
+				AND = {
+					OR = {
+						NOT = { has_country_flag = cu_invest_in_adm_tech_timer }
+						had_country_flag = {
+							flag = cu_invest_in_adm_tech_timer
+							days = 1825
+						}
+					}
+					years_of_income = 0.2
+					adm_power = 200
+				}
+			}
+		}  
+		custom_tooltip = tech.4.investant
+		clr_country_flag = cabinet_panel_open
+		clr_country_flag = cu_tech_panel_open
+		ai_chance = {
+			factor = 0
+		}
 	}
 	option = { #Invest in Diplomatic Technology
 	       name = "tech.4.investd"
-	       trigger = {
-		        OR = {
-			         NOT = { has_country_flag = cu_invest_in_dip_tech_timer }
-				     had_country_flag = {
-				       flag = cu_invest_in_dip_tech_timer
-					   days = 1825
-				     }
-			    }
-				years_of_income = 0.2
-			    dip_power = 200
-		   }  
-		   add_years_of_income = -0.2
-		   clr_country_flag = cu_invest_in_dip_tech_timer
-		   set_country_flag = cu_invest_in_dip_tech_timer
-		   hidden_effect = { 
+			trigger = {
+					OR = {
+						NOT = { has_country_flag = cu_invest_in_dip_tech_timer }
+						had_country_flag = {
+						flag = cu_invest_in_dip_tech_timer
+						days = 1825
+						}
+					}
+					years_of_income = 0.2
+					dip_power = 200
+			}  
+			add_years_of_income = -0.2
+			clr_country_flag = cu_invest_in_dip_tech_timer
+			set_country_flag = cu_invest_in_dip_tech_timer
+			hidden_effect = { 
 				set_variable = { which = cu_power value = 200 } 
-		   }
-			cu_calc_power_cost = yes
+			}
+			cu_calc_power_cost_country = yes
 			cu_subtract_dip_power = yes
-		   cu_get_3year_dip = yes
-		   custom_tooltip = tech.4.investdt
-		   clr_country_flag = cabinet_panel_open
-		   clr_country_flag = cu_tech_panel_open
-		   ai_chance = {
-		        factor = 0
-		   }
+			cu_get_3year_dip = yes
+			custom_tooltip = tech.4.investdt
+			clr_country_flag = cabinet_panel_open
+			clr_country_flag = cu_tech_panel_open
+			ai_chance = {
+				factor = 0
+			}
 	}
 	option = { #Invest in Diplomatic Technology(Requirements not fullfilled)
-	       name = "tech.4.investdn"
-	       trigger = {
-		      NOT = {
-			   AND = {
-		        OR = {
-			         NOT = { has_country_flag = cu_invest_in_dip_tech_timer }
-				     had_country_flag = {
-				       flag = cu_invest_in_dip_tech_timer
-					   days = 1825
-				     }
-			    }
-				years_of_income = 0.2
-			    dip_power = 200
-			  }
-			 }
-		   }
-		   custom_tooltip = tech.4.investdnt
-		   clr_country_flag = cabinet_panel_open
-		   clr_country_flag = cu_tech_panel_open
-		   ai_chance = {
-		        factor = 0
-		   }
+		name = "tech.4.investdn"
+		trigger = {
+			NOT = {
+				AND = {
+					OR = {
+						NOT = { has_country_flag = cu_invest_in_dip_tech_timer }
+						had_country_flag = {
+							flag = cu_invest_in_dip_tech_timer
+							days = 1825
+						}
+					}
+					years_of_income = 0.2
+					dip_power = 200
+				}
+			}
+		}
+		custom_tooltip = tech.4.investdnt
+		clr_country_flag = cabinet_panel_open
+		clr_country_flag = cu_tech_panel_open
+		ai_chance = {
+			factor = 0
+		}
 	}
 	option = { #Invest in Military Technology
-	       name = "tech.4.investm"
-	       trigger = {
-		        OR = {
-			         NOT = { has_country_flag = cu_invest_in_mil_tech_timer }
-				     had_country_flag = {
-				       flag = cu_invest_in_mil_tech_timer
-					   days = 1825
-				     }
-			    }
+		name = "tech.4.investm"
+		trigger = {
+				OR = {
+					NOT = { has_country_flag = cu_invest_in_mil_tech_timer }
+					had_country_flag = {
+					flag = cu_invest_in_mil_tech_timer
+					days = 1825
+					}
+				}
 				years_of_income = 0.2
-			    mil_power = 200
-		   }  
-		   add_years_of_income = -0.2
-		   clr_country_flag = cu_invest_in_mil_tech_timer
-		   set_country_flag = cu_invest_in_mil_tech_timer
-		   hidden_effect = { 
+				mil_power = 200
+		}  
+		add_years_of_income = -0.2
+		clr_country_flag = cu_invest_in_mil_tech_timer
+		set_country_flag = cu_invest_in_mil_tech_timer
+		hidden_effect = { 
 				set_variable = { which = cu_power value = 200 } 
-		   }
-			cu_calc_power_cost = yes
-			cu_subtract_mil_power = yes
-		   cu_get_3year_mil = yes
-		   custom_tooltip = tech.4.investmt
-		   clr_country_flag = cabinet_panel_open
-		   clr_country_flag = cu_tech_panel_open
-		   ai_chance = {
-		        factor = 0
-		   }
+		}
+		cu_calc_power_cost_country = yes
+		cu_subtract_mil_power = yes
+		cu_get_3year_mil = yes
+		custom_tooltip = tech.4.investmt
+		clr_country_flag = cabinet_panel_open
+		clr_country_flag = cu_tech_panel_open
+		ai_chance = {
+				factor = 0
+		}
 	}
 	option = { #Invest in Military Technology(Requirements not fullfilled)
-	       name = "tech.4.investmn"
-	       trigger = {
-		      NOT = {
-			   AND = {
-		        OR = {
-			         NOT = { has_country_flag = cu_invest_in_mil_tech_timer }
-				     had_country_flag = {
-				       flag = cu_invest_in_mil_tech_timer
-					   days = 1825
-				     }
-			    }
-				years_of_income = 0.2
-			    mil_power = 200
-			  }
-			 }
-		   }
-		   custom_tooltip = tech.4.investmnt
-		   clr_country_flag = cabinet_panel_open
-		   clr_country_flag = cu_tech_panel_open
-		   ai_chance = {
-		        factor = 0
-		   }
+		name = "tech.4.investmn"
+		trigger = {
+			NOT = {
+				AND = {
+					OR = {
+						NOT = { has_country_flag = cu_invest_in_mil_tech_timer }
+						had_country_flag = {
+						flag = cu_invest_in_mil_tech_timer
+						days = 1825
+						}
+					}
+					years_of_income = 0.2
+					mil_power = 200
+				}
+			}
+		}
+		custom_tooltip = tech.4.investmnt
+		clr_country_flag = cabinet_panel_open
+		clr_country_flag = cu_tech_panel_open
+		ai_chance = {
+			factor = 0
+		}
 	}
 	option = { #Focus on Administrative Technology
-	       name = "tech.4.atfocus"
-	       trigger = {
-		      NOT = {
-			       has_country_modifier = cu_adm_tech_focus 
-			  }
-			  adm_power = 100 
-			  OR = {
-			        NOT = { has_country_flag = cu_tech_focus_set }
-					had_country_flag = {
-					        flag = cu_tech_focus_set
-							days = 7300
-					}
-			  }
-		   }
-		   custom_tooltip = tech.4.tfocust
-		   clr_country_flag = cu_tech_focus_set
-		   set_country_flag = cu_tech_focus_set
-		   add_adm_power = -100
-		   if = {
-		         limit = { has_country_modifier = cu_dip_tech_focus }
-				 remove_country_modifier = cu_dip_tech_focus
-		   }
-		   if = {
-		         limit = { has_country_modifier = cu_mil_tech_focus }
-				 remove_country_modifier = cu_mil_tech_focus      
-		   }
-		   add_country_modifier = {
-		         name = cu_adm_tech_focus
-				 duration = -1
-		   }
-		   clr_country_flag = cabinet_panel_open
-		   clr_country_flag = cu_tech_panel_open
-		   ai_chance = {
-		        factor = 0
-		   }
+		name = "tech.4.atfocus"
+		trigger = {
+			NOT = {
+				has_country_modifier = cu_adm_tech_focus 
+			}
+			adm_power = 100 
+			OR = {
+				NOT = { has_country_flag = cu_tech_focus_set }
+				had_country_flag = {
+					flag = cu_tech_focus_set
+					days = 7300
+				}
+			}
+		}
+		custom_tooltip = tech.4.tfocust
+		clr_country_flag = cu_tech_focus_set
+		set_country_flag = cu_tech_focus_set
+		add_adm_power = -100
+		if = {
+			limit = { has_country_modifier = cu_dip_tech_focus }
+			remove_country_modifier = cu_dip_tech_focus
+		}
+		if = {
+			limit = { has_country_modifier = cu_mil_tech_focus }
+			remove_country_modifier = cu_mil_tech_focus      
+		}
+		add_country_modifier = {
+			name = cu_adm_tech_focus
+			duration = -1
+		}
+		clr_country_flag = cabinet_panel_open
+		clr_country_flag = cu_tech_panel_open
+		ai_chance = {
+			factor = 0
+		}
 	}
 	option = { #Focus on Diplomatic Technology
-	       name = "tech.4.dtfocus"
-	       trigger = {
-		      NOT = {
-			       has_country_modifier = cu_dip_tech_focus 
-			  }
-			  dip_power = 100 
-			  OR = {
-			        NOT = { has_country_flag = cu_tech_focus_set }
-					had_country_flag = {
-					        flag = cu_tech_focus_set
-							days = 7300
-					}
-			  }
-		   }
-		   custom_tooltip = tech.4.tfocust
-		   clr_country_flag = cu_tech_focus_set
-		   set_country_flag = cu_tech_focus_set
-		   add_dip_power = -100
-		   if = {
-		         limit = { has_country_modifier = cu_adm_tech_focus }
-				 remove_country_modifier = cu_adm_tech_focus
-		   }
-		   if = {
-		         limit = { has_country_modifier = cu_mil_tech_focus }
-				 remove_country_modifier = cu_mil_tech_focus      
-		   }
-		   add_country_modifier = {
-		         name = cu_dip_tech_focus
-				 duration = -1
-		   }
-		   clr_country_flag = cabinet_panel_open
-		   clr_country_flag = cu_tech_panel_open
-		   ai_chance = {
-		        factor = 0
-		   }
+		name = "tech.4.dtfocus"
+		trigger = {
+			NOT = {
+				has_country_modifier = cu_dip_tech_focus 
+			}
+			dip_power = 100 
+			OR = {
+				NOT = { has_country_flag = cu_tech_focus_set }
+				had_country_flag = {
+					flag = cu_tech_focus_set
+					days = 7300
+				}
+			}
+		}
+		custom_tooltip = tech.4.tfocust
+		clr_country_flag = cu_tech_focus_set
+		set_country_flag = cu_tech_focus_set
+		add_dip_power = -100
+		if = {
+			limit = { has_country_modifier = cu_adm_tech_focus }
+			remove_country_modifier = cu_adm_tech_focus
+		}
+		if = {
+			limit = { has_country_modifier = cu_mil_tech_focus }
+			remove_country_modifier = cu_mil_tech_focus      
+		}
+		add_country_modifier = {
+			name = cu_dip_tech_focus
+			duration = -1
+		}
+		clr_country_flag = cabinet_panel_open
+		clr_country_flag = cu_tech_panel_open
+		ai_chance = {
+			factor = 0
+		}
 	}
 	option = { #Focus on Military Technology
-	       name = "tech.4.mtfocus"
-	       trigger = {
-		      NOT = {
-			       has_country_modifier = cu_mil_tech_focus 
-			  }
-			  mil_power = 100 
-			  OR = {
-			        NOT = { has_country_flag = cu_tech_focus_set }
-					had_country_flag = {
-					        flag = cu_tech_focus_set
-							days = 7300
-					}
-			  }
-		   }
-		   custom_tooltip = tech.4.tfocust
-		   clr_country_flag = cu_tech_focus_set
-		   set_country_flag = cu_tech_focus_set
-		   add_mil_power = -100
-		   if = {
-		         limit = { has_country_modifier = cu_adm_tech_focus }
-				 remove_country_modifier = cu_adm_tech_focus
-		   }
-		   if = {
-		         limit = { has_country_modifier = cu_dip_tech_focus }
-				 remove_country_modifier = cu_dip_tech_focus      
-		   }
-		   add_country_modifier = {
-		         name = cu_mil_tech_focus
-				 duration = -1
-		   }
-		   clr_country_flag = cabinet_panel_open
-		   clr_country_flag = cu_tech_panel_open
-		   ai_chance = {
-		        factor = 0
-		   }
+		name = "tech.4.mtfocus"
+		trigger = {
+			NOT = {
+				has_country_modifier = cu_mil_tech_focus 
+			}
+			mil_power = 100 
+			OR = {
+				NOT = { has_country_flag = cu_tech_focus_set }
+				had_country_flag = {
+					flag = cu_tech_focus_set
+					days = 7300
+				}
+			}
+		}
+		custom_tooltip = tech.4.tfocust
+		clr_country_flag = cu_tech_focus_set
+		set_country_flag = cu_tech_focus_set
+		add_mil_power = -100
+		if = {
+			limit = { has_country_modifier = cu_adm_tech_focus }
+			remove_country_modifier = cu_adm_tech_focus
+		}
+		if = {
+			limit = { has_country_modifier = cu_dip_tech_focus }
+			remove_country_modifier = cu_dip_tech_focus      
+		}
+		add_country_modifier = {
+			name = cu_mil_tech_focus
+			duration = -1
+		}
+		clr_country_flag = cabinet_panel_open
+		clr_country_flag = cu_tech_panel_open
+		ai_chance = {
+			factor = 0
+		}
 	}
 	option = { #Remove Focus
-	       name = "tech.4.rtfocus"
-	       trigger = {
-		      OR = {
-			       has_country_modifier = cu_adm_tech_focus 
-			       has_country_modifier = cu_dip_tech_focus 
-				   has_country_modifier = cu_mil_tech_focus 
-			  }
-			  OR = {
-			        NOT = { has_country_flag = cu_tech_focus_set }
-					had_country_flag = {
-					        flag = cu_tech_focus_set
-							days = 7300
-					}
-			  }
-		   }
-		   custom_tooltip = tech.4.tfocust
-		   clr_country_flag = cu_tech_focus_set
-		   set_country_flag = cu_tech_focus_set
-		   if = {
-		         limit = { has_country_modifier = cu_adm_tech_focus }
-				 remove_country_modifier = cu_adm_tech_focus
-		   }
-		   if = {
-		         limit = { has_country_modifier = cu_dip_tech_focus }
-				 remove_country_modifier = cu_dip_tech_focus      
-		   }
-		   if = {
-		         limit = { has_country_modifier = cu_mil_tech_focus }
-				 remove_country_modifier = cu_mil_tech_focus      
-		   }
-		   clr_country_flag = cabinet_panel_open
-		   clr_country_flag = cu_tech_panel_open
-		   ai_chance = {
-		        factor = 0
-		   }
+		name = "tech.4.rtfocus"
+		trigger = {
+			OR = {
+				has_country_modifier = cu_adm_tech_focus 
+				has_country_modifier = cu_dip_tech_focus 
+				has_country_modifier = cu_mil_tech_focus 
+			}
+			OR = {
+				NOT = { has_country_flag = cu_tech_focus_set }
+				had_country_flag = {
+					flag = cu_tech_focus_set
+					days = 7300
+				}
+			}
+		}
+		custom_tooltip = tech.4.tfocust
+		clr_country_flag = cu_tech_focus_set
+		set_country_flag = cu_tech_focus_set
+		if = {
+			limit = { has_country_modifier = cu_adm_tech_focus }
+			remove_country_modifier = cu_adm_tech_focus
+		}
+		if = {
+			limit = { has_country_modifier = cu_dip_tech_focus }
+			remove_country_modifier = cu_dip_tech_focus      
+		}
+		if = {
+			limit = { has_country_modifier = cu_mil_tech_focus }
+			remove_country_modifier = cu_mil_tech_focus      
+		}
+		clr_country_flag = cabinet_panel_open
+		clr_country_flag = cu_tech_panel_open
+		ai_chance = {
+			factor = 0
+		}
 	}
 	option = { #Remove Focus
-	       name = "tech.4.ntfocus"
-		   trigger = {
-			        has_country_flag = cu_tech_focus_set
-					NOT = {
-					    had_country_flag = {
-					        flag = cu_tech_focus_set
-							days = 7300
-					    }
-					}
-			  }
-		   custom_tooltip = tech.4.ntfocust
-	       clr_country_flag = cabinet_panel_open
-		   clr_country_flag = cu_tech_panel_open	   
+		name = "tech.4.ntfocus"
+		trigger = {
+			has_country_flag = cu_tech_focus_set
+			NOT = {
+				had_country_flag = {
+					flag = cu_tech_focus_set
+					days = 7300
+				}
+			}
+		}
+		custom_tooltip = tech.4.ntfocust
+		clr_country_flag = cabinet_panel_open
+		clr_country_flag = cu_tech_panel_open	   
 	}
 	option = {
-	       name = "cu.return" #Country Census
-	       trigger = {
-		        has_country_flag = cabinet_panel_open
-		   }
-		   hidden_effect = {
-		        clr_country_flag = cu_tech_panel_open
-		        country_event = { id = cabinet.0 }
-		   }
-		   ai_chance = {
-		        factor = 0
-		   }
+		name = "cu.return" #Country Census
+		trigger = {
+			has_country_flag = cabinet_panel_open
+		}
+		hidden_effect = {
+			clr_country_flag = cu_tech_panel_open
+			country_event = { id = cabinet.0 }
+		}
+		ai_chance = {
+			factor = 0
+		}
 	}
 	
 	option = {
-	       name = "cu.exit"
-		   clr_country_flag = cabinet_panel_open
-		   clr_country_flag = cu_tech_panel_open
-		   ai_chance = {
-		        factor = 100
-		   }
+		name = "cu.exit"
+		clr_country_flag = cabinet_panel_open
+		clr_country_flag = cu_tech_panel_open
+		ai_chance = {
+			factor = 100
+		}
 	}	
 }

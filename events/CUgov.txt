@@ -29,39 +29,6 @@ country_event = {
 }
 
 country_event = {
-	id = govstart.251
-	title = "govstart_titl"
-	desc = "govstart_desc"
-	picture = COLONIZATION_eventPicture
-	#fire_only_once = yes
-	hidden = yes
-	trigger = {
-		ai = yes
-		check_variable = { which = go value = 120 }  
-		OR = {
-			NOT = {
-				has_country_flag = refresh_gc_complete
-			}
-			had_country_flag = {
-				flag = refresh_gc_complete
-				days = 3650
-			}
-		}
-	}
-	mean_time_to_happen = {
-		days = 1
-	}
-	immediate = {
-		country_event = { id = cugovernment.1 days = 1 } #Government Capacity Calculation
-	}
-	option = {
-		name = "govstart.a"
-		country_event = { id = cugovernment.1 days = 35 } #Government Capacity Calculation
-		set_country_flag = refresh_gc_complete
-	}
-}
-
-country_event = {
 	id = govstart.252 #Cam Uni
 	title = "govstart_titl"
 	desc = "govstart_desc"
@@ -113,9 +80,9 @@ province_event = {
 	is_triggered_only = yes
 	hidden = yes
 	
-	
 	option = {
 		name = "govstart.a"
+		cu_calc_province_absolute_dist = yes
 		if = {
 		    limit = { 
 			    OR = { #Reclaimed lost territory, transferred province due to forming/releasing new nation, integrated vassal etc. starts with max integrity
@@ -124,7 +91,6 @@ province_event = {
 					has_province_flag = cu_colonial_transfer
 				}
 			}
-			clr_province_flag = cu_colonial_transfer
 			cu_calc_base_cultural_acceptance = yes
 			set_variable = { which = p_ca which = p_cab }
 			if = { #Colony set to best condition when transfered to colonial nation
@@ -133,6 +99,7 @@ province_event = {
 				set_variable = { which = p_ca value = 100 }
 				cu_check_cultural_acceptance = yes
 			}
+			clr_province_flag = cu_colonial_transfer
 		}
 		else_if = {
 		        limit = { is_colony = yes } #Colonial province starts with 70% of max integrity
@@ -207,8 +174,6 @@ province_event = {
 						continent = new_world
 				}
 				NOT = { culture = owner }
-				owner = { mil_power = 0 }
-
 			}
 			set_province_flag = cu_wait_slaughter
 			add_core = owner
@@ -963,19 +928,19 @@ country_event = {
             OR = {
 				estate_influence = {
 					estate = estate_church
-					influence = 90
+					influence = 30
 				}
 				estate_influence = {
 					estate = estate_nobles
-					influence = 90
+					influence = 30
 				}
 				estate_influence = {
 					estate = estate_burghers
-					influence = 90
+					influence = 30
 				}
 				estate_influence = {
 					estate = estate_cossacks
-					influence = 90
+					influence = 30
 				}
 			}
         }
@@ -1004,7 +969,7 @@ country_event = {
 			}
 			adm_tech = 20
 		}
-		#NOT = { absolutism = 40 }
+		NOT = { OR = { militarised_society = 5 absolutism = 20 } }
 		cu_ai_reform_trigger = yes
 		NOT = { has_reform = self_governance }
 		NOT = { has_reform = bureaucratic }
@@ -1016,17 +981,13 @@ country_event = {
 		name = "govstart.a"
 		add_government_reform = self_governance
 		ai_chance = {
-			factor = 15
-			modifier = {
-				factor = 0
-				absolutism = 35
-			}
+			factor = 10
 		}
 	}
 	option = {
 		name = "govstart.b"
 		ai_chance = {
-			factor = 85
+			factor = 90
 		}
 	}
 }
@@ -1056,15 +1017,21 @@ country_event = {
 	}
 	trigger = {
 		NOT = { government = tribal }
-		NOT = { average_unrest = 1 }
-		all_owned_province = {			
-			OR = {
-				cu_is_terr_trigger = yes
-				NOT = { local_autonomy = 50 }
-			}
+		OR = {
+			militarised_society = 20
+			absolutism = 40
 		}
-		has_any_disaster = no
-		adm_tech = 18
+		OR = {
+			has_reform = mandate_system
+			has_reform = cu_feudalism_reform
+		}
+		OR = {
+			AND = {
+				adm_tech = 18
+				full_idea_group = administrative_ideas
+			}
+			adm_tech = 20
+		}
 		cu_ai_reform_trigger = yes
 		NOT = { has_reform = daimyo }
 		NOT = { has_reform = indep_daimyo }

@@ -1,0 +1,47 @@
+# 2016 - Bungi = Red River Country
+
+owner = ASI
+controller = ASI
+add_core = ASI
+is_city = yes
+culture = nakota
+religion = totemism
+capital = "Bungi"
+trade_goods = fur
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+native_size = 5
+native_ferocity = 2
+native_hostileness = 6
+
+
+
+discovered_by = north_american
+
+
+1710.1.1 = {
+	owner = SIO
+	controller = SIO
+	add_core = SIO
+	remove_core = ASI
+	culture = dakota 
+} 
+1732.1.1 = { discovered_by = FRA } # La Vérendrye
+1808.1.1 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+	capital = "Grandes Fourches"
+	culture = english
+	religion = protestant
+} #French fur traders from Canada establish trading posts (part of Hudson Bay territory at the time, Hudson Bay watershed)
+1818.10.20 = {
+	owner = USA
+	controller = USA
+	add_core = USA
+	remove_core = GBR
+	culture = american
+	religion = protestant
+} #ceded in the treaty of 1818, not renamed Grand Forks until 1870

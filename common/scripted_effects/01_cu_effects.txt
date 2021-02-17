@@ -253,7 +253,7 @@ cu_check_ruler_ra_mil = {
 	if = { #Calculate Nomad Ruler GC
 		        limit = { 
                           OR = {
-						         government = tribe
+						         government = tribal
 								 has_reform =  steppe_horde
 								 has_reform =  steppe_empire
 								 primitives = yes
@@ -458,482 +458,298 @@ refresh_province_data = {
 
 
 cu_province_initialization = {
-
-            set_variable = { which = cu_var1 value = 0 } #Generic Variable 1
-			set_variable = { which = cu_var2 value = 0 } #Generic Variable 2
-			set_variable = { which = cu_var3 value = 0 } #Generic Variable 3
-			set_variable = { which = literacy value = 0 } #Literacy
-			set_variable = { which = pop_prog value = 0 } #Population Growth Progress
-			set_variable = { which = merc_prog value = 0 } #Commerce Growth Progress
-			set_variable = { which = indu_prog value = 0 } #Production Growth Progress
-			set_variable = { which = b_ac value = 0 } #Base Agriculture Capacity
-			set_variable = { which = b_uc value = 0 } #Base Urbanization Capacity
-			set_variable = { which = p_ca value = 0 } #Cultural Acceptance
-			set_variable = { which = p_cad value = 0 } #Dynamic Cultural Acceptance
-			set_variable = { which = p_nationalism value = 0 } #Nationalism
-			set_variable = { which = p_nationalism_g value = 0 } #Nationalism Yearly Growth
-			set_variable = { which = p_as value = 0 }
-			set_variable = { which = p_asc value = 10 }
-			#Initialize Art Values
-		    set_variable = { which = cu_art_slot value = 0 }
-		    set_variable = { which = cu_art_power value = 0 }
-			set_variable = { which = cu_art_power_wonder value = 0 }
-			set_variable = { which = art_power_c value = 0 }
-		    set_variable = { which = cu_art_piece value = 0 }
-			set_variable = { which = cu_art_piece0 value = 0 }
-			set_variable = { which = cu_art_piece1 value = 0 }
-			set_variable = { which = cu_art_piece2 value = 0 }
-			set_variable = { which = cu_theatre value = 0 }
-			set_variable = { which = cu_salon value = 0 }
-			set_variable = { which = cu_museum_level value = 1 } #1 Means this number is properly initialized, no museum actually.
-			set_variable = { which = art_level value = 0 }
-			set_variable = { which = ep_dev value = 0 }
-				
-			if = {
-			      limit = { is_empty = no }
-				  set_variable = { which = literacy value = 1 } #Initial Literacy
-				  if = {
-				       limit = {  
-					          NOT = { development = 4 }
-							  base_manpower = 2
-					   }
-					   add_base_manpower = 1
-				  }
-			}
-			else = {
-				  if = {
-				       limit = { base_tax = 5 }
-					   add_base_tax = -1
-				  }
-				  if = {
-				       limit = { base_tax = 4 }
-					   add_base_tax = -1
-				  }
-				  if = {
-				       limit = { base_tax = 3 }
-					   add_base_tax = -1
-				  }
-				  if = {
-				       limit = { base_tax = 2 }
-					   add_base_tax = -1
-				  }
-				  if = {
-				       limit = { base_production = 5 }
-					   add_base_production = -1
-				  }
-				  if = {
-				       limit = { base_production = 4 }
-					   add_base_production = -1
-				  }
-				  if = {
-				       limit = { base_production = 3 }
-					   add_base_production = -1
-				  }
-				  if = {
-				       limit = { base_production = 2 }
-					   add_base_production = -1
-				  }
-				  if = {
-				       limit = { base_manpower = 5 }
-					   add_base_manpower = -1
-				  }
-				  if = {
-				       limit = { base_manpower = 4 }
-					   add_base_manpower = -1
-				  }
-				  if = {
-				       limit = { base_manpower = 3 }
-					   add_base_manpower = -1
-				  }
-				  if = {
-				       limit = { 
-					        OR = {
-							    continent = north_america
-								continent = south_america
-							}
-					   }
-					   if = {
-					         limit = { base_tax = 3 }
-							 add_base_tax = -1
-					   }
-					   if = {
-					         limit = { base_tax = 2 }
-							 add_base_tax = -1
-					   }
-					   if = {
-					         limit = { base_production = 3 }
-							 add_base_production = -1
-					   }
-					   if = {
-					         limit = { base_production = 2 }
-							 add_base_production = -1
-					   }
-					   if = {
-				             limit = { base_manpower = 3 }
-					         add_base_manpower = -1
-				       }
-				       if = {
-				             limit = { base_manpower = 2 }
-					         add_base_manpower = -1
-				       }
-				  }
-			}
-			
-			#Turkish Egypt
-			if = {
-				limit = {
-					AND = {
-						is_core = TUR
-						owned_by = TUR
-						culture = al_misr_arabic
-						}
+	set_variable = { which = cu_var1 value = 0 } #Generic Variable 1
+	set_variable = { which = cu_var2 value = 0 } #Generic Variable 2
+	set_variable = { which = cu_var3 value = 0 } #Generic Variable 3
+	set_variable = { which = literacy value = 0 } #Literacy
+	set_variable = { which = pop_prog value = 0 } #Population Growth Progress
+	set_variable = { which = merc_prog value = 0 } #Commerce Growth Progress
+	set_variable = { which = indu_prog value = 0 } #Production Growth Progress
+	set_variable = { which = b_ac value = 0 } #Base Agriculture Capacity
+	set_variable = { which = b_uc value = 0 } #Base Urbanization Capacity
+	set_variable = { which = p_ca value = 0 } #Cultural Acceptance
+	set_variable = { which = p_cad value = 0 } #Dynamic Cultural Acceptance
+	set_variable = { which = p_nationalism value = 0 } #Nationalism
+	set_variable = { which = p_nationalism_g value = 0 } #Nationalism Yearly Growth
+	set_variable = { which = p_as value = 0 }
+	set_variable = { which = p_asc value = 10 }
+	#Initialize Art Values
+	set_variable = { which = cu_art_slot value = 0 }
+	set_variable = { which = cu_art_power value = 0 }
+	set_variable = { which = cu_art_power_wonder value = 0 }
+	set_variable = { which = art_power_c value = 0 }
+	set_variable = { which = cu_art_piece value = 0 }
+	set_variable = { which = cu_art_piece0 value = 0 }
+	set_variable = { which = cu_art_piece1 value = 0 }
+	set_variable = { which = cu_art_piece2 value = 0 }
+	set_variable = { which = cu_theatre value = 0 }
+	set_variable = { which = cu_salon value = 0 }
+	set_variable = { which = cu_museum_level value = 1 } #1 Means this number is properly initialized, no museum actually.
+	set_variable = { which = art_level value = 0 }
+	set_variable = { which = ep_dev value = 0 }
+	
+	#Turkish Egypt
+	if = {
+		limit = {
+			AND = {
+				is_core = TUR
+				owned_by = TUR
+				culture = al_misr_arabic
 				}
+		}
+		add_local_autonomy = 20
+		add_province_modifier = {
+				name = mamluks_corruption
+				duration = -1
+		}
+		if = {
+				limit = { is_year = 1600 }
 				add_local_autonomy = 20
-				add_province_modifier = {
-						name = mamluks_corruption
-						duration = -1
-				}
-				if = {
-						limit = { is_year = 1600 }
-						add_local_autonomy = 20
-				}
-			}
-			
-			#Jiangnan
-			if = {
-				limit = {
-					OR = {
-						area = jiangsu_area 
-						area = south_jiangsu_area 
-						area = anhui_area 
-						area = south_anhui_area
+		}
+	}
+	if = {
+		limit = { is_empty = no }
+		set_variable = { which = literacy value = 1 } #Initial Literacy
+		if = {
+			limit = {
+				owner = {
+					NOT = { has_institution = fedualism }
+					capital_scope = {
+						OR = {
+							continent = oceania
+							continent = south_america
+							continent = north_america
+							continent = new_world
+						}
 					}
 				}
-				add_base_tax = 1
-				add_base_production = 1
-				add_base_manpower = 2
 			}
-
-						
-			#1444 Start
-                if = {
-                       limit = { has_global_flag = start_1444 }
-                       
-					        if = {
-							  limit = { is_empty = no }
-							  if = {
-							        limit = { culture_group = dutch_g }
-									change_variable = { which = literacy value = 3 }
-							  }
-							  else_if = {
-							        limit = { culture_group = germanic }
-									change_variable = { which = literacy value = 2 }
-							  }
-							  else_if = {
-							        limit = { culture_group = scandinavian }
-									change_variable = { which = literacy value = 2 }
-							  }
-							  else_if = {
-							        limit = { culture_group = british }
-									change_variable = { which = literacy value = 2 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = gaelic								 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = gallo_italic
-									}
-									change_variable = { which = literacy value = 3.5 }
-									add_base_manpower = -1
-									if = {
-									        limit = { base_production = 8 }
-										    add_base_production = -1
-									}
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = southern_french
-									}
-									change_variable = { which = literacy value = 1.5 }
-							  }
-							  else_if = {
-							        limit = { 
-									        culture_group = latin 											 
-									}
-									change_variable = { which = literacy value = 2 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = iberian 										 
-									}
-									change_variable = { which = literacy value = 2 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = french										 
-									}
-									change_variable = { which = literacy value = 2 }
-							  }							  
-							  else_if = {
-							        limit = { 
-									         culture_group = south_slavic										 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									culture_group = caucasian										 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = hayani										 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = romanan									 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }							  
-							  else_if = {
-							        limit = { 
-									         culture_group = basque_g							 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = west_slavic										 
-									}
-									change_variable = { which = literacy value = 2 }
-							  }							  
-							  else_if = {
-							        limit = { 
-									         culture_group = east_slavic								 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = baltic							 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = byzantine						 
-									}
-									change_variable = { which = literacy value = 2.5 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = west_turk_g			 
-											NOT = { culture = turkmeni }														  
-									}
-									change_variable = { which = literacy value = 1.5 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture = greek						 
-									}
-									change_variable = { which = literacy value = 1.4 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = turko_semitic						 
-									}
-									change_variable = { which = literacy value = 2 }
-							  }							  
-							  else_if = {
-							        limit = { 
-									         culture_group = iranian					 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = east_asian					 
-									}
-									change_variable = { which = literacy value = 2 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = korean_g
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture = vietnamese					 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = japanese_g					 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = hindusthani				 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = western_aryan			 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = dravidian		 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = eastern_aryan 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = cushitic
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = mande
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  set_province_flag = literacy_init
-						}
-						set_variable = { which = lit_g value = 0 } #Literacy Growth
-							  if = {
-							        limit = { base_tax = 13 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_tax = 10 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_tax = 8 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_tax = 5 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_tax = 3 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 12 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 9 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 7 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 5 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 2 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { 
-									        NOT = { base_tax = 1 }
-									        NOT = { base_production = 1 }
-											base_manpower = 2
-											NOT = { base_manpower = 4 }
-											
-											  
-									}
-									add_base_manpower = -1
-									if = {
-									    limit = { base_manpower = 2 }
-										add_base_manpower = -1
-									}
-									
-							  }
-							  
-							  
-							  if = {
-							        limit = { 
-									          NOT = { continent = europe }
-									          base_tax = 7										  
-									}
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { 
-									          NOT = { continent = europe }
-									          base_production = 6											  
-									}
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { 
-									          OR = {
-													 province_has_center_of_trade_of_level = 1
-                                                     province_has_center_of_trade_of_level = 2
-													 province_has_center_of_trade_of_level = 3
-                                              }											  
-									}
-									add_base_tax = 1
-									add_base_manpower = -1
-							  }
-							  if = {
-							        limit = { 
-									          OR = { 
-											          continent = north_america
-													  continent = south_america
-											  }
-									          base_tax = 2	
-                                              base_production = 2											  
-									}
-									add_base_tax = -1
-									add_base_production = -1
-									add_base_manpower = 2
-							  }
-							  
-							  
-                       
-                 }
+			change_variable = { which = literacy value = -0.5 }
+		}
+	}
+	#1444 Start
+    if = {
+		limit = { has_global_flag = start_1444 }
+		if = {
+			limit = { is_empty = no }
+			if = {
+				limit = { culture_group = dutch_g }
+				change_variable = { which = literacy value = 3 }
+			}
+			else_if = {
+				limit = { cu_germanic_group = yes }
+				change_variable = { which = literacy value = 2 }
+			}
+			else_if = {
+				limit = { culture_group = scandinavian }
+				change_variable = { which = literacy value = 2 }
+			}
+			else_if = {
+				limit = { culture_group = british }
+				change_variable = { which = literacy value = 2 }
+			}
+			else_if = {
+				limit = { 
+							cu_gaelic_group = yes								 
+				}
+				change_variable = { which = literacy value = 1 }
+			}
+			else_if = {
+				limit = { 
+							culture_group = gallo_italic
+				}
+				change_variable = { which = literacy value = 3.2 }
+				add_base_manpower = -1
+				if = {
+						limit = { base_production = 8 }
+						add_base_production = -1
+				}
+			}
+			else_if = {
+				limit = { 
+							culture_group = southern_french
+				}
+				change_variable = { which = literacy value = 1.5 }
+			}
+			else_if = {
+				limit = { 
+						culture_group = latin 											 
+				}
+				change_variable = { which = literacy value = 2.5 }
+				if = {
+					limit = { culture = tuscan }
+					change_variable = { which = literacy value = 0.7 }
+				}
+			}
+			else_if = {
+				limit = { 
+							culture_group = iberian 										 
+				}
+				change_variable = { which = literacy value = 2 }
+			}
+			else_if = {
+				limit = { 
+							culture_group = french										 
+				}
+				change_variable = { which = literacy value = 2 }
+			}		
+			else_if = {
+			limit = { 
+						culture_group = arpitan_g										 
+			}
+			change_variable = { which = literacy value = 1 }
+			}						  
+			else_if = {
+				limit = { 
+							cu_south_slavic_group = yes #Only use for making old codes stable										 
+				}
+				change_variable = { which = literacy value = 1 }
+			}
+			else_if = {
+				limit = { 
+				culture_group = caucasian										 
+				}
+				change_variable = { which = literacy value = 1 }
+			}
+			else_if = {
+				limit = { 
+							culture_group = hayani										 
+				}
+				change_variable = { which = literacy value = 1 }
+			}
+			else_if = {
+				limit = { 
+							culture_group = romanan									 
+				}
+				change_variable = { which = literacy value = 1 }
+			}							  
+			else_if = {
+				limit = { 
+							culture_group = basque_g							 
+				}
+				change_variable = { which = literacy value = 1 }
+			}
+			else_if = {
+				limit = { 
+							culture_group = west_slavic										 
+				}
+				change_variable = { which = literacy value = 2 }
+			}		
+			else_if = {
+			limit = { 
+						culture_group = cechitian										 
+			}
+			change_variable = { which = literacy value = 2 }
+			}		
+			else_if = {
+			limit = { 
+						culture_group = sorbian_g									 
+			}
+			change_variable = { which = literacy value = 2 }
+			}				  
+			else_if = {
+				limit = { 
+							culture_group = east_slavic								 
+				}
+				change_variable = { which = literacy value = 1 }
+			}
+			else_if = {
+				limit = { 
+							cu_baltic_group = yes							 
+				}
+				change_variable = { which = literacy value = 1 }
+			}
+			else_if = {
+				limit = { 
+							culture_group = byzantine						 
+				}
+				change_variable = { which = literacy value = 2 }
+				if = {
+					limit = { 
+								culture = greek						 
+					}
+					change_variable = { which = literacy value = 0.2 }
+				}
+			}
+			else_if = {
+				limit = { 
+							culture_group = west_turk_g			 
+						NOT = { culture = turkmeni }														  
+				}
+				change_variable = { which = literacy value = 1.5 }
+			}
+			else_if = {
+				limit = { 
+							culture_group = turko_semitic						 
+				}
+				change_variable = { which = literacy value = 2 }
+			}							  
+			else_if = {
+				limit = { 
+							cu_iranian_group = yes					 
+				}
+				change_variable = { which = literacy value = 1 }
+			}
+			else_if = {
+				limit = { 
+							culture_group = east_asian					 
+				}
+				change_variable = { which = literacy value = 2 }
+			}
+			else_if = {
+				limit = { 
+					cu_minor_chinese_group = yes				 
+				}
+				change_variable = { which = literacy value = 1 }
+			}
+			else_if = {
+				limit = { 
+							culture_group = korean_g
+				}
+				change_variable = { which = literacy value = 1 }
+			}
+			else_if = {
+				limit = { 
+							culture = vietnamese					 
+				}
+				change_variable = { which = literacy value = 1 }
+			}
+			else_if = {
+				limit = { 
+							culture_group = japanese_g					 
+				}
+				change_variable = { which = literacy value = 1 }
+			}
+			else_if = {
+				limit = { 
+					cu_india_culture = yes				 
+				}
+				change_variable = { which = literacy value = 1 }
+			}
+			else_if = {
+				limit = { 
+							cu_cushitic_group = yes
+				}
+				change_variable = { which = literacy value = 1 }
+			}
+			else_if = {
+				limit = { 
+							culture_group = mande
+				}
+				change_variable = { which = literacy value = 1 }
+			}
+			else_if = {
+				limit = { 
+						culture_group = gothic
+				}
+				change_variable = { which = literacy value = 1 }
+			}
+			set_province_flag = literacy_init
+		}
+		set_variable = { which = lit_g value = 0 } #Literacy Growth
+	}
             #1500 Start
-                if = {
+            	if = {
                        limit = { has_global_flag = start_1500 }
                        
                             set_variable = { which = literacy value = 1 } #Literacy
@@ -944,7 +760,7 @@ cu_province_initialization = {
 									change_variable = { which = literacy value = 4 }
 							  }
 							  else_if = {
-							        limit = { culture_group = germanic }
+							        limit = { cu_germanic_group = yes }
 									change_variable = { which = literacy value = 3 }
 							  }
 							  else_if = {
@@ -957,7 +773,7 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = gaelic								 
+									         cu_gaelic_group = yes								 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
@@ -965,7 +781,7 @@ cu_province_initialization = {
 							        limit = { 
 									         culture_group = gallo_italic
 									}
-									change_variable = { which = literacy value = 4.5 }
+									change_variable = { which = literacy value = 4.2 }
 							  }
 							  else_if = {
 							        limit = { 
@@ -977,7 +793,11 @@ cu_province_initialization = {
 							        limit = { 
 									         culture_group = latin 									 
 									}
-									change_variable = { which = literacy value = 3 }
+									change_variable = { which = literacy value = 3.5 }
+									if = {
+										limit = { culture = tuscan }
+										change_variable = { which = literacy value = 0.7 }
+									}
 							  }
 							  else_if = {
 							        limit = { 
@@ -992,6 +812,12 @@ cu_province_initialization = {
 									change_variable = { which = literacy value = 3 }
 							  }
 							  else_if = {
+								limit = { 
+										 culture_group = arpitan_g										 
+								}
+								change_variable = { which = literacy value = 2 }
+						  		}
+							  else_if = {
 							        limit = { 
 									         culture_group = finno_ugric									 
 									}
@@ -999,7 +825,7 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = south_slavic										 
+									         cu_south_slavic_group = yes #Only use for making old codes stable										 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
@@ -1021,7 +847,19 @@ cu_province_initialization = {
 									         culture_group = west_slavic										 
 									}
 									change_variable = { which = literacy value = 3 }
-							  }							  
+							  }			
+							  else_if = {
+								limit = { 
+										 culture_group = cechitian										 
+								}
+								change_variable = { which = literacy value = 3 }
+							  }		
+							  else_if = {
+								limit = { 
+										 culture_group = sorbian_g									 
+								}
+								change_variable = { which = literacy value = 3 }
+						 	  }						  
 							  else_if = {
 							        limit = { 
 									         culture_group = east_slavic								 
@@ -1030,7 +868,7 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = baltic							 
+									         cu_baltic_group = yes							 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
@@ -1060,7 +898,7 @@ cu_province_initialization = {
 							  }							  
 							  else_if = {
 							        limit = { 
-									         culture_group = iranian					 
+									         cu_iranian_group = yes					 
 									}
 									change_variable = { which = literacy value = 1.5 }
 							  }
@@ -1069,6 +907,12 @@ cu_province_initialization = {
 									         culture_group = east_asian					 
 									}
 									change_variable = { which = literacy value = 2.5 }
+							  }
+							  else_if = {
+								limit = { 
+									cu_minor_chinese_group = yes				 
+								}
+								change_variable = { which = literacy value = 1 }
 							  }
 							  else_if = {
 							        limit = { 
@@ -1084,157 +928,27 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = hindusthani				 
+										cu_india_culture = yes			 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = western_aryan			 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = dravidian		 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = central_indic 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
+							  
 							  else_if = {
 							        limit = { 
 									         culture_group = mande
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
+							  else_if = {
+								limit = { 
+										culture_group = gothic
+								}
+								change_variable = { which = literacy value = 1 }
+							 }
 							  set_province_flag = literacy_init
 						}
 						set_variable = { which = lit_g value = 0 } #Literacy Growth
-							  if = {
-							        limit = { base_tax = 11 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_tax = 9 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_tax = 5 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_tax = 2 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 10 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 7 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 4 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 2 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  
-							  
-							  if = {
-							        limit = { 
-									          NOT = { continent = europe }
-									          base_tax = 7										  
-									}
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { 
-									          NOT = { continent = europe }
-									          base_production = 6											  
-									}
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { 
-									          OR = {
-                                                     province_has_center_of_trade_of_level = 1
-                                                     province_has_center_of_trade_of_level = 2
-													 province_has_center_of_trade_of_level = 3
-                                              }											  
-									}
-									add_base_tax = 1
-									add_base_manpower = -1
-							  }
-							  if = {
-							        limit = { 
-									          OR = { 
-											          continent = north_america
-													  continent = south_america
-											  }
-									          base_tax = 2	
-                                              base_production = 2											  
-									}
-									add_base_tax = -1
-									add_base_production = -1
-									add_base_manpower = 2
-							  }
-                              if = { 
-                                     limit = { 
-                                               OR = {
-                                                       has_terrain = farmlands
-                                                       has_terrain = grasslands
-                                               }
-                                     }
-                                     if = { 
-                                            limit = {
-                                                       development = 18
-                                            }
-                                            add_base_manpower = 1
-                                     }
-                              }
-                              if = { 
-                                            limit = {
-                                                       development = 15
-                                                       OR = {
-																province_has_center_of_trade_of_level = 1
-																province_has_center_of_trade_of_level = 2
-																province_has_center_of_trade_of_level = 3
-                                                                has_province_modifier = river_estuary_modifier
-		                                       }
-                                            }
-                                            add_building = marketplace
-                              }
-							   if = { 
-                                            limit = {
-                                                       base_manpower = 10
-													   cu_not_terr_trigger = yes
-													   OR = {
-													         has_owner_culture = yes
-															 has_owner_accepted_culture = yes
-													   }
-                                            }
-                                            add_building = barracks
-                              }
-                       
+						
                  } 
 
                  #1550 Start
@@ -1249,7 +963,7 @@ cu_province_initialization = {
 									change_variable = { which = literacy value = 6 }
 							  }
 							  else_if = {
-							        limit = { culture_group = germanic }
+							        limit = { cu_germanic_group = yes }
 									change_variable = { which = literacy value = 6 }
 							  }
 							  else_if = {
@@ -1262,7 +976,7 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = gaelic								 
+									         cu_gaelic_group = yes								 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
@@ -1283,6 +997,10 @@ cu_province_initialization = {
 									         culture_group = latin 										 
 									}
 									change_variable = { which = literacy value = 4 }
+									if = {
+										limit = { culture = tuscan }
+										change_variable = { which = literacy value = 1 }
+									}
 							  }
 							  else_if = {
 							        limit = { 
@@ -1297,6 +1015,12 @@ cu_province_initialization = {
 									change_variable = { which = literacy value = 4.5 }
 							  }
 							  else_if = {
+								limit = { 
+										 culture_group = arpitan_g										 
+								}
+								change_variable = { which = literacy value = 2.5 }
+						  		}
+							  else_if = {
 							        limit = { 
 									         culture_group = finno_ugric									 
 									}
@@ -1304,7 +1028,7 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = south_slavic										 
+									         cu_south_slavic_group = yes #Only use for making old codes stable										 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
@@ -1326,7 +1050,19 @@ cu_province_initialization = {
 									         culture_group = west_slavic										 
 									}
 									change_variable = { which = literacy value = 2 }
-							  }							 
+							  }						
+							  else_if = {
+								limit = { 
+										 culture_group = cechitian										 
+								}
+								change_variable = { which = literacy value = 2 }
+							  }		
+							  else_if = {
+								limit = { 
+										 culture_group = sorbian_g									 
+								}
+								change_variable = { which = literacy value = 2 }
+						 	  }			 
 							  else_if = {
 							        limit = { 
 									         culture_group = east_slavic								 
@@ -1335,7 +1071,7 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = baltic							 
+									         cu_baltic_group = yes							 
 									}
 									change_variable = { which = literacy value = 2.5 }
 							  }
@@ -1365,7 +1101,7 @@ cu_province_initialization = {
 							  }							  
 							  else_if = {
 							        limit = { 
-									         culture_group = iranian					 
+									         cu_iranian_group = yes					 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
@@ -1374,6 +1110,12 @@ cu_province_initialization = {
 									         culture_group = east_asian					 
 									}
 									change_variable = { which = literacy value = 3 }
+							  }
+							  else_if = {
+								limit = { 
+									cu_minor_chinese_group = yes				 
+								}
+								change_variable = { which = literacy value = 1.5 }
 							  }
 							  else_if = {
 							        limit = { 
@@ -1389,25 +1131,7 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = hindusthani				 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = western_aryan			 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = dravidian		 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = central_indic 
+									    cu_india_culture = yes		 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
@@ -1417,144 +1141,15 @@ cu_province_initialization = {
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
+							  else_if = {
+								limit = { 
+										culture_group = gothic
+								}
+								change_variable = { which = literacy value = 1 }
+							 }
 							  set_province_flag = literacy_init
 						}
 						set_variable = { which = lit_g value = 0 } #Literacy Growth
-							  if = {
-							        limit = { base_tax = 12 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_tax = 9 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_tax = 5 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_tax = 2 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 10 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 8 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 5 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 2 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  
-							  
-							  if = {
-							        limit = { 
-									          NOT = { continent = europe }
-									          base_tax = 7										  
-									}
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { 
-									          NOT = { continent = europe }
-									          base_production = 6											  
-									}
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { 
-									          OR = {
-                                                     province_has_center_of_trade_of_level = 1
-                                                     province_has_center_of_trade_of_level = 2
-													 province_has_center_of_trade_of_level = 3
-                                              }											  
-									}
-									add_base_tax = 1
-									add_base_manpower = -1
-							  }
-							  if = {
-							        limit = { 
-									          OR = { 
-											          continent = north_america
-													  continent = south_america
-											  }
-									          base_tax = 2	
-                                              base_production = 2											  
-									}
-									add_base_tax = -1
-									add_base_production = -1
-									add_base_manpower = 2
-							  }
-                              if = { 
-                                     limit = { 
-                                               OR = {
-                                                       has_terrain = farmlands
-                                                       has_terrain = grasslands
-                                               }
-                                     }
-                                     if = { 
-                                            limit = {
-                                                       development = 14
-                                            }
-                                            add_base_manpower = 1
-                                     }
-                              }
-                              if = { 
-                                     limit = { 
-                                               OR = {
-                                                       has_terrain = hills
-                                                       has_terrain = woods
-                                                       has_terrain = forest
-                                               }
-                                     }
-                                     if = { 
-                                            limit = {
-                                                       development = 13
-                                            }
-                                            add_base_manpower = 1
-                                     }
-                              }
-                              if = { 
-                                            limit = {
-                                                       development = 12
-                                                       OR = {
-															province_has_center_of_trade_of_level = 1
-															province_has_center_of_trade_of_level = 2
-															province_has_center_of_trade_of_level = 3
-                                                            has_province_modifier = river_estuary_modifier
-		                                       }
-                                            }
-                                            add_building = marketplace
-                              }
-							  if = { 
-                                            limit = {
-                                                       base_manpower = 9
-													   cu_not_terr_trigger = yes
-													   OR = {
-													         has_owner_culture = yes
-															 has_owner_accepted_culture = yes
-													   }
-                                            }
-                                            add_building = barracks
-                              }
-                       
                  } 
 
                  #1600 Start
@@ -1569,7 +1164,7 @@ cu_province_initialization = {
 									change_variable = { which = literacy value = 9 }
 							  }
 							  else_if = {
-							        limit = { culture_group = germanic }
+							        limit = { cu_germanic_group = yes }
 									change_variable = { which = literacy value = 8 }
 							  }
 							  else_if = {
@@ -1582,7 +1177,7 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = gaelic								 
+									         cu_gaelic_group = yes								 
 									}
 									change_variable = { which = literacy value = 5 }
 							  }
@@ -1603,6 +1198,10 @@ cu_province_initialization = {
 									         culture_group = latin 											 
 									}
 									change_variable = { which = literacy value = 6 }
+									if = {
+										limit = { culture = tuscan }
+										change_variable = { which = literacy value = 1 }
+									}
 							  }
 							  else_if = {
 							        limit = { 
@@ -1617,6 +1216,12 @@ cu_province_initialization = {
 									change_variable = { which = literacy value = 8 }
 							  }
 							  else_if = {
+								limit = { 
+										 culture_group = arpitan_g										 
+								}
+								change_variable = { which = literacy value = 6.5 }
+						  		}
+							  else_if = {
 							        limit = { 
 									         culture_group = finno_ugric									 
 									}
@@ -1624,7 +1229,7 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = south_slavic										 
+									         cu_south_slavic_group = yes #Only use for making old codes stable										 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
@@ -1648,6 +1253,18 @@ cu_province_initialization = {
 									change_variable = { which = literacy value = 7 }
 							  }							  
 							  else_if = {
+								limit = { 
+										 culture_group = cechitian										 
+								}
+								change_variable = { which = literacy value = 7 }
+							  }		
+							  else_if = {
+								limit = { 
+										 culture_group = sorbian_g									 
+								}
+								change_variable = { which = literacy value = 7 }
+						 	  }		
+							  else_if = {
 							        limit = { 
 									         culture_group = east_slavic								 
 									}
@@ -1655,7 +1272,7 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = baltic							 
+									         cu_baltic_group = yes							 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
@@ -1685,7 +1302,7 @@ cu_province_initialization = {
 							  }							  
 							  else_if = {
 							        limit = { 
-									         culture_group = iranian					 
+									         cu_iranian_group = yes					 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
@@ -1694,6 +1311,12 @@ cu_province_initialization = {
 									         culture_group = east_asian					 
 									}
 									change_variable = { which = literacy value = 4 }
+							  }
+							  else_if = {
+								limit = { 
+									cu_minor_chinese_group = yes				 
+								}
+								change_variable = { which = literacy value = 2 }
 							  }
 							  else_if = {
 							        limit = { 
@@ -1709,25 +1332,7 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = hindusthani				 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = western_aryan			 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = dravidian		 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = central_indic 
+										cu_india_culture = yes        				 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
@@ -1737,163 +1342,16 @@ cu_province_initialization = {
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
+							  else_if = {
+								limit = { 
+										culture_group = gothic
+								}
+								change_variable = { which = literacy value = 2 }
+							 }
 							  set_province_flag = literacy_init
 						}
 						set_variable = { which = lit_g value = 0 } #Literacy Growth
-							  if = {
-							        limit = { base_tax = 12 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_tax = 10 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_tax = 5 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_tax = 2 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 11 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 9 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 5 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 2 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  
-							  
-							  if = {
-							        limit = { 
-									          NOT = { continent = europe }
-									          base_tax = 7										  
-									}
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { 
-									          NOT = { continent = europe }
-									          base_production = 7											  
-									}
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { 
-									          OR = {
-                                                     province_has_center_of_trade_of_level = 1
-                                                     province_has_center_of_trade_of_level = 2
-													 province_has_center_of_trade_of_level = 3
-                                              }											  
-									}
-									add_base_tax = 1
-									add_base_manpower = -1
-							  }
-                              if = { 
-                                     limit = { 
-                                               OR = {
-                                                       has_terrain = farmlands
-                                                       has_terrain = grasslands
-                                               }
-                                     }
-                                     if = { 
-                                            limit = {
-                                                       development = 12
-                                                       NOT = { development = 18 }
-                                            }
-                                            random_list = {
-			                                    33 = { add_base_tax = 1 }
-			                                    33 = { add_base_production = 1 }
-                                                            33 = { add_base_manpower = 1 }
-		                            }
-                                     }
-                                     if = { 
-                                            limit = {
-                                                       development = 18
-                                            }
-                                            add_base_manpower = 1
-                                            random_list = {
-			                                    60 = { add_base_tax = 1 }
-			                                    40 = { add_base_production = 1 }
-		                            }
-                                     }
-                              }
-                              if = { 
-                                     limit = { 
-                                               OR = {
-                                                       has_terrain = hills
-                                                       has_terrain = woods
-                                                       has_terrain = forest
-                                               }
-                                     }
-                                     if = { 
-                                            limit = {
-                                                       development = 12
-                                            }
-                                            add_base_manpower = 1
-                                     }
-                              }
-                              if = { 
-                                            limit = {
-                                                       development = 9
-                                                       OR = {
-															province_has_center_of_trade_of_level = 1
-															province_has_center_of_trade_of_level = 2
-															province_has_center_of_trade_of_level = 3
-                                                            has_province_modifier = river_estuary_modifier
-		                                       }
-                                            }
-                                            add_building = marketplace
-                              }
-                              if = { 
-                                            limit = {
-                                                       OR = {
-                                                               development = 15
-                                                               is_capital = yes
-                                                       }
-                                                       is_overseas = no
-													   owner = {
-													            OR = {
-																       technology_group = western
-																       technology_group = eastern
-																	   technology_group = ottoman
-																}
-													   }
-                                            }
-                                            add_building = courthouse
-                              }
-							  if = { 
-                                            limit = {
-                                                       base_manpower = 8
-													   cu_not_terr_trigger = yes
-													   OR = {
-													         has_owner_culture = yes
-															 has_owner_accepted_culture = yes
-													   }
-                                            }
-                                            add_building = barracks
-                              }
-                       
+						
                  } 
 
                  #1650 Start
@@ -1908,7 +1366,7 @@ cu_province_initialization = {
 									change_variable = { which = literacy value = 14 }
 							  }
 							  else_if = {
-							        limit = { culture_group = germanic }
+							        limit = { cu_germanic_group = yes }
 									change_variable = { which = literacy value = 10 }
 							  }
 							  else_if = {
@@ -1921,7 +1379,7 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = gaelic								 
+									         cu_gaelic_group = yes								 
 									}
 									change_variable = { which = literacy value = 7 }
 							  }
@@ -1942,6 +1400,10 @@ cu_province_initialization = {
 									         culture_group = latin 											 
 									}
 									change_variable = { which = literacy value = 7 }
+									if = {
+										limit = { culture = tuscan }
+										change_variable = { which = literacy value = 1.5 }
+									}
 							  }
 							  else_if = {
 							        limit = { 
@@ -1956,6 +1418,12 @@ cu_province_initialization = {
 									change_variable = { which = literacy value = 16 }
 							  }
 							  else_if = {
+								limit = { 
+										 culture_group = arpitan_g										 
+								}
+								change_variable = { which = literacy value = 11 }
+						  		}
+							  else_if = {
 							        limit = { 
 									         culture_group = finno_ugric									 
 									}
@@ -1963,7 +1431,7 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = south_slavic										 
+									         cu_south_slavic_group = yes #Only use for making old codes stable										 
 									}
 									change_variable = { which = literacy value = 6 }
 							  }
@@ -1987,6 +1455,18 @@ cu_province_initialization = {
 									change_variable = { which = literacy value = 9 }
 							  }							  
 							  else_if = {
+								limit = { 
+										 culture_group = cechitian										 
+								}
+								change_variable = { which = literacy value = 9 }
+							  }		
+							  else_if = {
+								limit = { 
+										 culture_group = sorbian_g									 
+								}
+								change_variable = { which = literacy value = 9 }
+						 	  }		
+							  else_if = {
 							        limit = { 
 									         culture_group = east_slavic								 
 									}
@@ -1994,7 +1474,7 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = baltic							 
+									         cu_baltic_group = yes							 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
@@ -2024,7 +1504,7 @@ cu_province_initialization = {
 							  }							  
 							  else_if = {
 							        limit = { 
-									         culture_group = iranian					 
+									         cu_iranian_group = yes					 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
@@ -2033,6 +1513,12 @@ cu_province_initialization = {
 									         culture_group = east_asian					 
 									}
 									change_variable = { which = literacy value = 4 }
+							  }
+							  else_if = {
+								limit = { 
+									cu_minor_chinese_group = yes				 
+								}
+								change_variable = { which = literacy value = 2 }
 							  }
 							  else_if = {
 							        limit = { 
@@ -2048,25 +1534,7 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = hindusthani				 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = western_aryan			 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = dravidian		 
-									}
-									change_variable = { which = literacy value = 1 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = central_indic 
+									    cu_india_culture = yes			 
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
@@ -2076,179 +1544,16 @@ cu_province_initialization = {
 									}
 									change_variable = { which = literacy value = 1 }
 							  }
+							  else_if = {
+								limit = { 
+										culture_group = gothic
+								}
+								change_variable = { which = literacy value = 2 }
+							 }
 							  set_province_flag = literacy_init
 						}
 						set_variable = { which = lit_g value = 0 } #Literacy Growth
-							  if = {
-							        limit = { base_tax = 13 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_tax = 10 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_tax = 5 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_tax = 2 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 12 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 9 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 5 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 2 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  
-							  
-							  if = {
-							        limit = { 
-									          NOT = { continent = europe }
-									          base_tax = 7										  
-									}
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { 
-									          NOT = { continent = europe }
-									          base_production = 7											  
-									}
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { 
-									          OR = {
-                                                     province_has_center_of_trade_of_level = 1
-                                                     province_has_center_of_trade_of_level = 2
-													 province_has_center_of_trade_of_level = 3
-                                              }											  
-									}
-									add_base_tax = 1
-									add_base_manpower = -1
-							  }
-							  
-                              if = { 
-                                     limit = { 
-                                               OR = {
-                                                       has_terrain = farmlands
-                                                       has_terrain = grasslands
-                                               }
-                                     }
-                                     if = { 
-                                            limit = {
-                                                       development = 9
-                                                       NOT = { development = 15 }
-                                            }
-                                            add_base_manpower = 1
-                                     }
-                                     if = { 
-                                            limit = {
-                                                       development = 15
-                                            }
-                                            add_base_manpower = 1
-                                            random_list = {
-			                                    55 = { add_base_tax = 1 }
-			                                    45 = { add_base_production = 1 }
-		                            }
-                                     }
-                              }
-                              if = { 
-                                     limit = { 
-                                               OR = {
-                                                       has_terrain = hills
-                                                       has_terrain = woods
-                                                       has_terrain = forest
-                                               }
-                                     }
-                                     if = { 
-                                            limit = {
-                                                       development = 9
-                                                       NOT = { development = 15 }
-                                            }
-                                            add_base_manpower = 1
-                                     }
-                                     if = { 
-                                            limit = {
-                                                       development = 15
-                                            }
-                                            add_base_manpower = 1
-                                            random_list = {
-			                                    55 = { add_base_tax = 1 }
-			                                    45 = { add_base_production = 1 }
-		                            }
-                                     }
-                              }
-                              if = { 
-                                            limit = {
-                                                       development = 7
-                                                       OR = {
-															province_has_center_of_trade_of_level = 1
-															province_has_center_of_trade_of_level = 2
-															province_has_center_of_trade_of_level = 3
-                                                            has_province_modifier = river_estuary_modifier
-		                                       }
-                                            }
-                                            add_building = marketplace
-                              }
-                              if = { 
-                                            limit = {
-                                                       OR = {
-                                                               development = 15
-                                                               is_capital = yes
-                                                       }
-                                                       is_overseas = no
-													   owner = {
-													            OR = {
-																       technology_group = western
-																       technology_group = eastern
-																	   technology_group = ottoman
-																}
-													   }
-                                            }
-                                            add_building = courthouse
-                              }
-                              if = { 
-                                            limit = {
-                                                       base_production = 8
-                                                       cu_not_terr_trigger = yes
-                                                       has_port = yes
-                                            }
-                                            add_building = shipyard
-                              }
-							  if = { 
-                                            limit = {
-                                                       base_manpower = 7
-													   cu_not_terr_trigger = yes
-													   OR = {
-													         has_owner_culture = yes
-															 has_owner_accepted_culture = yes
-													   }
-                                            }
-                                            add_building = barracks
-                              }
-                       
+				
                  } 
 
                  #1700 Start
@@ -2263,7 +1568,7 @@ cu_province_initialization = {
 									change_variable = { which = literacy value = 18 }
 							  }
 							  else_if = {
-							        limit = { culture_group = germanic }
+							        limit = { cu_germanic_group = yes }
 									change_variable = { which = literacy value = 18 }
 							  }
 							  else_if = {
@@ -2288,9 +1593,13 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = gaelic								 
+									         cu_gaelic_group = yes								 
 									}
 									change_variable = { which = literacy value = 10 }
+									if = {
+										limit = { culture = tuscan }
+										change_variable = { which = literacy value = 2 }
+									}
 							  }
 							  else_if = {
 							        limit = { 
@@ -2311,6 +1620,12 @@ cu_province_initialization = {
 									change_variable = { which = literacy value = 20 }
 							  }
 							  else_if = {
+								limit = { 
+										 culture_group = arpitan_g										 
+								}
+								change_variable = { which = literacy value = 14 }
+						  		}
+							  else_if = {
 							        limit = { 
 									         culture_group = finno_ugric									 
 									}
@@ -2318,7 +1633,7 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = south_slavic										 
+									         cu_south_slavic_group = yes #Only use for making old codes stable										 
 									}
 									change_variable = { which = literacy value = 6 }
 							  }
@@ -2342,6 +1657,18 @@ cu_province_initialization = {
 									change_variable = { which = literacy value = 12 }
 							  }							  
 							  else_if = {
+								limit = { 
+										 culture_group = cechitian										 
+								}
+								change_variable = { which = literacy value = 12 }
+							  }		
+							  else_if = {
+								limit = { 
+										 culture_group = sorbian_g									 
+								}
+								change_variable = { which = literacy value = 12 }
+						 	  }		
+							  else_if = {
 							        limit = { 
 									         culture_group = east_slavic								 
 									}
@@ -2349,7 +1676,7 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = baltic							 
+									         cu_baltic_group = yes							 
 									}
 									change_variable = { which = literacy value = 6 }
 							  }
@@ -2379,7 +1706,7 @@ cu_province_initialization = {
 							  }							  
 							  else_if = {
 							        limit = { 
-									         culture_group = iranian					 
+									         cu_iranian_group = yes					 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
@@ -2388,6 +1715,12 @@ cu_province_initialization = {
 									         culture_group = east_asian					 
 									}
 									change_variable = { which = literacy value = 5 }
+							  }
+							  else_if = {
+								limit = { 
+									cu_minor_chinese_group = yes				 
+								}
+								change_variable = { which = literacy value = 3 }
 							  }
 							  else_if = {
 							        limit = { 
@@ -2403,25 +1736,7 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = hindusthani				 
-									}
-									change_variable = { which = literacy value = 2 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = western_aryan			 
-									}
-									change_variable = { which = literacy value = 2 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = dravidian		 
-									}
-									change_variable = { which = literacy value = 2 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = central_indic 
+										cu_india_culture = yes				 
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
@@ -2431,195 +1746,16 @@ cu_province_initialization = {
 									}
 									change_variable = { which = literacy value = 2 }
 							  }
+							  else_if = {
+								limit = { 
+										culture_group = gothic
+								}
+								change_variable = { which = literacy value = 2 }
+							 }
 							  set_province_flag = literacy_init
 						}
 						set_variable = { which = lit_g value = 0 } #Literacy Growth
-							  if = {
-							        limit = { base_tax = 14 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_tax = 11 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_tax = 6 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_tax = 2 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 13 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 10 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 6 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 2 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  
-							  
-							  if = {
-							        limit = { 
-									          NOT = { continent = europe }
-									          base_tax = 7										  
-									}
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { 
-									          NOT = { continent = europe }
-									          base_production = 7											  
-									}
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { 
-									          OR = {
-                                                     province_has_center_of_trade_of_level = 1
-                                                     province_has_center_of_trade_of_level = 2
-													 province_has_center_of_trade_of_level = 3
-                                              }											  
-									}
-									add_base_tax = 1
-									add_base_manpower = -1
-							  }
-							  
-                              if = { 
-                                     limit = { 
-                                               OR = {
-                                                       has_terrain = farmlands
-                                                       has_terrain = grasslands
-                                               }
-                                     }
-                                     if = { 
-                                            limit = {
-                                                       development = 7
-                                                       NOT = { development = 12 }
-                                            }
-                                            add_base_manpower = 1
-                                     }
-                                     if = { 
-                                            limit = {
-                                                       development = 12
-                                                       NOT = { development = 18 }
-                                            }
-                                            add_base_manpower = 1
-                                            random_list = {
-			                                    50 = { add_base_tax = 1 }
-			                                    50 = { add_base_production = 1 }
-		                            }
-                                     }
-                                     if = { 
-                                            limit = {
-                                                       development = 18
-                                            }
-                                            add_base_manpower = 1
-                                            random_list = {
-			                                    33 = { add_base_tax = 1 }
-			                                    33 = { add_base_production = 1 }
-                                                            33 = { add_base_manpower = 1 }
-		                            }
-                                            random_list = {
-			                                    50 = { add_base_tax = 1 }
-			                                    50 = { add_base_production = 1 }
-		                            }
-                                     }
-                              }
-                              if = { 
-                                     limit = { 
-                                               OR = {
-                                                       has_terrain = hills
-                                                       has_terrain = woods
-                                                       has_terrain = forest
-                                               }
-                                     }
-                                     if = { 
-                                            limit = {
-                                                       development = 7
-                                                       NOT = { development = 12 }
-                                            }
-                                            add_base_manpower = 1
-                                     }
-                                     if = { 
-                                            limit = {
-                                                       development = 12
-                                            }
-                                            add_base_manpower = 1
-                                            random_list = {
-			                                    50 = { add_base_tax = 1 }
-			                                    50 = { add_base_production = 1 }
-		                            }
-                                     }
-                              }
-                              if = { 
-                                            limit = {
-                                                       development = 6
-                                                       OR = {
-															province_has_center_of_trade_of_level = 1
-															province_has_center_of_trade_of_level = 2
-															province_has_center_of_trade_of_level = 3
-                                                            has_province_modifier = river_estuary_modifier
-		                                       }
-                                            }
-                                            add_building = marketplace
-                              }
-                              if = { 
-                                            limit = {
-                                                       OR = {
-                                                               development = 15
-                                                               is_capital = yes
-                                                       }
-                                                       is_overseas = no
-													   owner = {
-													            OR = {
-																       technology_group = western
-																       technology_group = eastern
-																	   technology_group = ottoman
-																}
-													   }
-                                            }
-                                            add_building = courthouse
-                              }
-                              if = { 
-                                            limit = {
-                                                       base_production = 8
-                                                       cu_not_terr_trigger = yes
-                                                       has_port = yes
-                                            }
-                                            add_building = shipyard
-                              }
-							  if = { 
-                                            limit = {
-                                                       base_manpower = 6
-													   cu_not_terr_trigger = yes
-													   OR = {
-													         has_owner_culture = yes
-															 has_owner_accepted_culture = yes
-													   }
-                                            }
-                                            add_building = barracks
-                              }
-                       
+						
                  } 
 
                  #1750 Start
@@ -2634,7 +1770,7 @@ cu_province_initialization = {
 									change_variable = { which = literacy value = 24 }
 							  }
 							  else_if = {
-							        limit = { culture_group = germanic }
+							        limit = { cu_germanic_group = yes }
 									change_variable = { which = literacy value = 27 }
 							  }
 							  else_if = {
@@ -2647,7 +1783,7 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = gaelic								 
+									         cu_gaelic_group = yes								 
 									}
 									change_variable = { which = literacy value = 11 }
 							  }
@@ -2668,6 +1804,10 @@ cu_province_initialization = {
 									         culture_group = latin 									 
 									}
 									change_variable = { which = literacy value = 12 }
+									if = {
+										limit = { culture = tuscan }
+										change_variable = { which = literacy value = 2 }
+									}
 							  }
 							  else_if = {
 							        limit = { 
@@ -2682,6 +1822,12 @@ cu_province_initialization = {
 									change_variable = { which = literacy value = 24 }
 							  }
 							  else_if = {
+								limit = { 
+										 culture_group = arpitan_g										 
+								}
+								change_variable = { which = literacy value = 18 }
+						  		}
+							  else_if = {
 							        limit = { 
 									         culture_group = finno_ugric									 
 									}
@@ -2689,7 +1835,7 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = south_slavic										 
+									         cu_south_slavic_group = yes #Only use for making old codes stable										 
 									}
 									change_variable = { which = literacy value = 8 }
 							  }
@@ -2713,6 +1859,18 @@ cu_province_initialization = {
 									change_variable = { which = literacy value = 14 }
 							  }							  
 							  else_if = {
+								limit = { 
+										 culture_group = cechitian										 
+								}
+								change_variable = { which = literacy value = 14 }
+							  }		
+							  else_if = {
+								limit = { 
+										 culture_group = sorbian_g									 
+								}
+								change_variable = { which = literacy value = 14 }
+						 	  }		
+							  else_if = {
 							        limit = { 
 									         culture_group = east_slavic								 
 									}
@@ -2720,7 +1878,7 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = baltic							 
+									         cu_baltic_group = yes							 
 									}
 									change_variable = { which = literacy value = 9 }
 							  }
@@ -2750,7 +1908,7 @@ cu_province_initialization = {
 							  }							  
 							  else_if = {
 							        limit = { 
-									         culture_group = iranian					 
+									         cu_iranian_group = yes					 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
@@ -2759,6 +1917,12 @@ cu_province_initialization = {
 									         culture_group = east_asian					 
 									}
 									change_variable = { which = literacy value = 4 }
+							  }
+							  else_if = {
+								limit = { 
+									cu_minor_chinese_group = yes				 
+								}
+								change_variable = { which = literacy value = 2 }
 							  }
 							  else_if = {
 							        limit = { 
@@ -2774,25 +1938,7 @@ cu_province_initialization = {
 							  }
 							  else_if = {
 							        limit = { 
-									         culture_group = hindusthani				 
-									}
-									change_variable = { which = literacy value = 3 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = western_aryan			 
-									}
-									change_variable = { which = literacy value = 3 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = dravidian		 
-									}
-									change_variable = { which = literacy value = 3 }
-							  }
-							  else_if = {
-							        limit = { 
-									         culture_group = central_indic 
+										cu_india_culture = yes			 
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
@@ -2802,390 +1948,16 @@ cu_province_initialization = {
 									}
 									change_variable = { which = literacy value = 3 }
 							  }
+							  else_if = {
+								limit = { 
+										culture_group = gothic
+								}
+								change_variable = { which = literacy value = 2 }
+							 }
 							  set_province_flag = literacy_init
 						}
 						set_variable = { which = lit_g value = 0 } #Literacy Growth
-							  if = {
-							        limit = { base_tax = 13 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_tax = 11 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_tax = 6 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_tax = 2 }
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 13 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 11 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 6 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { base_production = 2 }
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-							  
-							  
-							  if = {
-							        limit = { 
-									          NOT = { continent = europe }
-									          base_tax = 8										  
-									}
-									add_base_tax = -1
-									add_base_manpower = 1
-							  }
-							  if = {
-							        limit = { 
-									          NOT = { continent = europe }
-									          base_production = 7											  
-									}
-									add_base_production = -1
-									add_base_manpower = 1
-							  }
-                              if = { 
-                                     limit = { 
-                                               OR = {
-                                                       has_terrain = farmlands
-                                                       has_terrain = grasslands
-                                               }
-                                     }
-                                     if = { 
-                                            limit = {
-                                                       development = 6
-                                                       NOT = { development = 10 }
-                                            }
-                                            add_base_manpower = 1
-                                     }
-                                     if = { 
-                                            limit = {
-                                                       development = 10
-                                                       NOT = { development = 16 }
-                                            }
-                                            add_base_manpower = 1
-                                            random_list = {
-			                                    50 = { add_base_tax = 1 }
-			                                    50 = { add_base_production = 1 }
-		                            }
-                                     }
-                                     if = { 
-                                            limit = {
-                                                       development = 16
-                                            }
-                                            add_base_manpower = 1
-                                            random_list = {
-			                                    33 = { add_base_tax = 1 }
-			                                    33 = { add_base_production = 1 }
-                                                            33 = { add_base_manpower = 1 }
-		                            }
-                                            random_list = {
-			                                    50 = { add_base_tax = 1 }
-			                                    50 = { add_base_production = 1 }
-		                            }
-                                     }
-                              }
-                              if = { 
-                                     limit = { 
-                                               OR = {
-                                                       has_terrain = hills
-                                                       has_terrain = woods
-                                                       has_terrain = forest
-                                               }
-                                     }
-                                     if = { 
-                                            limit = {
-                                                       development = 6
-                                                       NOT = { development = 11 }
-                                            }
-                                            add_base_manpower = 1
-                                     }
-                                     if = { 
-                                            limit = {
-                                                       development = 11
-                                                       NOT = { development = 15 }
-                                            }
-                                            add_base_manpower = 1
-                                            random_list = {
-			                                    50 = { add_base_tax = 1 }
-			                                    50 = { add_base_production = 1 }
-		                            }
-                                     }
-                                     if = { 
-                                            limit = {
-                                                       development = 15
-                                            }
-                                            add_base_manpower = 1
-                                            random_list = {
-			                                    33 = { add_base_tax = 1 }
-			                                    33 = { add_base_production = 1 }
-                                                            33 = { add_base_manpower = 1 }
-		                            }
-                                            random_list = {
-			                                    50 = { add_base_tax = 1 }
-			                                    50 = { add_base_production = 1 }
-		                            }
-                                     }
-                              }
-                              if = { 
-                                            limit = {
-                                                       development = 6
-                                                       OR = {
-															province_has_center_of_trade_of_level = 1
-															province_has_center_of_trade_of_level = 2
-															province_has_center_of_trade_of_level = 3
-                                                            has_province_modifier = river_estuary_modifier
-		                                       }
-                                            }
-                                            add_building = marketplace
-                              }
-                              if = { 
-                                            limit = {
-                                                       OR = {
-                                                               development = 15
-                                                               is_capital = yes
-                                                       }
-                                                       is_overseas = no
-													   owner = {
-													            OR = {
-																       technology_group = western
-																       technology_group = eastern
-																	   technology_group = ottoman
-																}
-													   }
-                                            }
-                                            add_building = courthouse
-                              }
-                              if = { 
-                                            limit = {
-                                                       base_manpower = 6
-													   cu_not_terr_trigger = yes
-													   OR = {
-													         has_owner_culture = yes
-															 has_owner_accepted_culture = yes
-													   }
-                                            }
-                                            add_building = barracks
-                              }
-                              if = { 
-                                            limit = {
-                                                       base_production = 8
-                                                       cu_not_terr_trigger = yes
-                                                       has_port = yes
-                                            }
-                                            add_building = shipyard
-                              }
-                       }
-					   #Agriculture is increased by 50%
-					   if = {
-				             limit = { 
-							          base_manpower = 20 
-							 }
-					         add_base_manpower = 10
-							 change_variable = { which = b_ac value = 19 }
-				       }
-					   if = {
-				             limit = { 
-							           base_manpower = 18 
-									   NOT = { base_manpower = 20 }
-							}
-					         add_base_manpower = 9
-							 change_variable = { which = b_ac value = 17 }
-				       }
-					   if = {
-				             limit = { 
-							           base_manpower = 16 
-									   NOT = { base_manpower = 18 }
-							}
-					         add_base_manpower = 8
-							 change_variable = { which = b_ac value = 15 }
-				       }
-					   if = {
-				             limit = { 
-							           base_manpower = 14 
-									   NOT = { base_manpower = 16 }
-							}
-					         add_base_manpower = 7
-							 change_variable = { which = b_ac value = 13 }
-				       }
-					   if = {
-				             limit = { 
-							           base_manpower = 12 
-									   NOT = { base_manpower = 14 }
-							}
-					         add_base_manpower = 6
-							 change_variable = { which = b_ac value = 11 }
-				       }
-					   if = {
-				             limit = { 
-							           base_manpower = 10 
-									   NOT = { base_manpower = 12 }
-							}
-					         add_base_manpower = 5
-							 change_variable = { which = b_ac value = 9 }
-				       }
-					   if = {
-				             limit = { 
-							           base_manpower = 8 
-									   NOT = { base_manpower = 10 }
-							}
-					         add_base_manpower = 4
-							 change_variable = { which = b_ac value = 7 }
-				       }
-					   if = {
-				             limit = { 
-							           base_manpower = 6 
-									   NOT = { base_manpower = 8 }
-							}
-					         add_base_manpower = 3
-							 change_variable = { which = b_ac value = 5 }
-				       }
-					   if = {
-				             limit = { 
-							           base_manpower = 4
-									   NOT = { base_manpower = 6 }
-							}
-					         add_base_manpower = 2
-							 change_variable = { which = b_ac value = 3 }
-				       }
-					   if = {
-				             limit = { 
-							           base_manpower = 2 
-									   NOT = { base_manpower = 4 }
-							}
-					         add_base_manpower = 1
-							 change_variable = { which = b_ac value = 2 }
-				       }
-					   if = {
-				             limit = { 
-									   NOT = { base_manpower = 2 }
-							}
-							 change_variable = { which = b_ac value = 1 }
-				       }
-					   if = {
-				             limit = { 
-							           base_tax = 10
-							}
-							 change_variable = { which = b_uc value = 6 }
-				       }
-					   if = {
-				             limit = { 
-							           base_tax = 8 
-									   NOT = { base_tax = 10 }
-							}
-							 change_variable = { which = b_uc value = 5 }
-				       }
-					   if = {
-				             limit = { 
-							           base_tax = 6 
-									   NOT = { base_tax = 8 }
-							}
-							 change_variable = { which = b_uc value = 4 }
-				       }
-					   if = {
-				             limit = { 
-									   base_tax = 4 
-									   NOT = { base_tax = 6 }
-							}
-							 change_variable = { which = b_uc value = 3 }
-				       }
-					   if = {
-				             limit = { 
-									   base_tax = 3 
-									   NOT = { base_tax = 4 }
-							}
-							 change_variable = { which = b_uc value = 2 }
-				       }
-					   if = {
-				             limit = { 
-									   base_tax = 2 
-									   NOT = { base_tax = 3 }
-							}
-							 change_variable = { which = b_uc value = 1 }
-				       }
-					   if = {
-				             limit = { 
-							           base_production = 10
-							}
-							 change_variable = { which = b_uc value = 5 }
-				       }
-					   if = {
-				             limit = { 
-							           base_production = 8 
-									   NOT = { base_production = 10 }
-							}
-							 change_variable = { which = b_uc value = 4 }
-				       }
-					   if = {
-				             limit = { 
-							           base_production = 6 
-									   NOT = { base_production = 8 }
-							}
-							 change_variable = { which = b_uc value = 3 }
-				       }
-					   if = {
-				             limit = { 
-									   base_production = 4 
-									   NOT = { base_production = 6 }
-							}
-							 change_variable = { which = b_uc value = 2 }
-				       }
-					   if = {
-				             limit = { 
-									   base_production = 2 
-									   NOT = { base_production = 4 }
-							}
-							 change_variable = { which = b_uc value = 1 }
-				       }
-					   if = {
-				             limit = { 
-									   province_id = 151
-							}
-							 change_variable = { which = b_uc value = 10 }
-				       }
-					   if = {
-							        limit = { 
-									          owner = { is_nomad = yes }
-                                              has_terrain = steppe
-                                              base_manpower = 3											  
-									}
-									add_base_manpower = -1
-									change_variable = { which = b_ac value = -1 }
-									if = {
-									        limit = { base_manpower = 5 }
-											add_base_manpower = -1
-											change_variable = { which = b_ac value = -1 }
-									}
-									if = {
-									        limit = { base_manpower = 7 }
-											add_base_manpower = -1
-											change_variable = { which = b_ac value = -1 }
-									}
-									if = {
-									        limit = { base_manpower = 9 }
-											add_base_manpower = -1
-											change_variable = { which = b_ac value = -1 }
-									}
-					    }
+				 }
 			            if = {
 					       limit = { 
 						             cu_not_terr_trigger = yes									 
@@ -3195,566 +1967,1500 @@ cu_province_initialization = {
 					              change_variable = { which =  num_pp value = 1 }
 								  change_variable = { which = sum_literacy which = literacy }
 					       }
-					    }
+						}
+						if = {
+							limit = {
+								NOT = { has_province_flag = cu_neednt_dev_initialize }
+							}
+							cu_province_dev_initialization = yes
+						}
+						cu_province_capacity_initialization = yes
 						cu_reset_cultural_acceptance = yes #Initialize Cultural Acceptance
 }
 
-cu_add_scaled_adm_power_n70 = {
-         if = {
-			 limit = { owner = { innovativeness_ideas = 6 } }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = tiny_state }
-				   }
-				   owner = { add_adm_power = -56 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = small_state }
-				   }
-				   owner = { add_adm_power = -48 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = medium_state }
-				   }
-				   owner = { add_adm_power = -40 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = large_state }
-				   }
-				   owner = { add_adm_power = -32 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = huge_state  }
-				   }
-				   owner = { add_adm_power = -24 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = continental_state  }
-				   }
-				   owner = { add_adm_power = -20 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = world_state  }
-				   }
-				   owner = { add_adm_power = -16 }
-			 }
-			}
-			else = {
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = tiny_state }
-				   }
-				   owner = { add_adm_power = -70 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = small_state }
-				   }
-				   owner = { add_adm_power = -60 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = medium_state }
-				   }
-				   owner = { add_adm_power = -50 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = large_state }
-				   }
-				   owner = { add_adm_power = -40 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = huge_state  }
-				   }
-				   owner = { add_adm_power = -30 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = continental_state  }
-				   }
-				   owner = { add_adm_power = -25 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = world_state  }
-				   }
-				   owner = { add_adm_power = -20 }
-			 }
-			}
-
+cu_province_capacity_initialization = {
+	if = {
+		limit = { 
+			base_manpower = 20 
+		}
+		change_variable = { which = b_ac value = 19 }
+	}
+	if = {
+		limit = { 
+			base_manpower = 18 
+			NOT = { base_manpower = 20 }
+		}
+		change_variable = { which = b_ac value = 17 }
+	}
+	if = {
+		limit = { 
+			base_manpower = 16 
+			NOT = { base_manpower = 18 }
+		}
+		change_variable = { which = b_ac value = 15 }
+	}
+	if = {
+		limit = { 
+			base_manpower = 14 
+			NOT = { base_manpower = 16 }
+		}
+		change_variable = { which = b_ac value = 13 }
+	}
+	if = {
+		limit = { 
+			base_manpower = 12 
+			NOT = { base_manpower = 14 }
+		}
+		change_variable = { which = b_ac value = 11 }
+	}
+	if = {
+		limit = { 
+			base_manpower = 10 
+			NOT = { base_manpower = 12 }
+		}
+		change_variable = { which = b_ac value = 9 }
+	}
+	if = {
+		limit = { 
+			base_manpower = 8 
+			NOT = { base_manpower = 10 }
+		}
+		change_variable = { which = b_ac value = 7 }
+	}
+	if = {
+		limit = { 
+			base_manpower = 6 
+			NOT = { base_manpower = 8 }
+		}
+		change_variable = { which = b_ac value = 5 }
+	}
+	if = {
+		limit = { 
+			base_manpower = 4
+			NOT = { base_manpower = 6 }
+		}
+		change_variable = { which = b_ac value = 3 }
+	}
+	if = {
+		limit = { 
+			base_manpower = 2 
+			NOT = { base_manpower = 4 }
+		}
+		change_variable = { which = b_ac value = 2 }
+	}
+	if = {
+		limit = { 
+			NOT = { base_manpower = 2 }
+		}
+		change_variable = { which = b_ac value = 1 }
+	}
+	if = {
+		limit = { 
+			base_tax = 10
+		}
+		change_variable = { which = b_uc value = 6 }
+	}
+	if = {
+		limit = { 
+			base_tax = 8 
+			NOT = { base_tax = 10 }
+		}
+		change_variable = { which = b_uc value = 5 }
+	}
+	if = {
+		limit = { 
+			base_tax = 6 
+			NOT = { base_tax = 8 }
+		}
+		change_variable = { which = b_uc value = 4 }
+	}
+	if = {
+		limit = { 
+			base_tax = 4 
+			NOT = { base_tax = 6 }
+		}
+		change_variable = { which = b_uc value = 3 }
+	}
+	if = {
+		limit = { 
+			base_tax = 3 
+			NOT = { base_tax = 4 }
+		}
+		change_variable = { which = b_uc value = 2 }
+	}
+	if = {
+		limit = { 
+			base_tax = 2 
+			NOT = { base_tax = 3 }
+		}
+		change_variable = { which = b_uc value = 1 }
+	}
+	if = {
+		limit = { 
+			base_production = 10
+		}
+		change_variable = { which = b_uc value = 5 }
+	}
+	if = {
+		limit = { 
+			base_production = 8 
+			NOT = { base_production = 10 }
+		}
+		change_variable = { which = b_uc value = 4 }
+	}
+	if = {
+		limit = { 
+			base_production = 6 
+			NOT = { base_production = 8 }
+		}
+		change_variable = { which = b_uc value = 3 }
+	}
+	if = {
+		limit = { 
+			base_production = 4 
+			NOT = { base_production = 6 }
+		}
+		change_variable = { which = b_uc value = 2 }
+	}
+	if = {
+		limit = { 
+			base_production = 2 
+			NOT = { base_production = 4 }
+		}
+		change_variable = { which = b_uc value = 1 }
+	}
+	if = {
+		limit = { 
+			province_id = 151
+		}
+		change_variable = { which = b_uc value = 10 }
+	}
+  	if = {
+		limit = { 
+			owner = { is_nomad = yes }
+			has_terrain = steppe
+			base_manpower = 3											  
+		}
+		change_variable = { which = b_ac value = -1 }
+		if = {
+			limit = { base_manpower = 5 }
+			change_variable = { which = b_ac value = -1 }
+		}
+		if = {
+			limit = { base_manpower = 7 }
+			change_variable = { which = b_ac value = -1 }
+		}
+		if = {
+			limit = { base_manpower = 9 }
+			change_variable = { which = b_ac value = -1 }
+		}
+   	}
 }
 
-cu_add_scaled_adm_power_n80 = {
-         if = {
-			 limit = { owner = { innovativeness_ideas = 6 } }
+cu_province_dev_initialization = {
+				if = {
+						limit = { is_empty = no }
+						if = {
+							limit = {  
+									NOT = { development = 4 }
+									base_manpower = 2
+							}
+							add_base_manpower = 1
+						}
+				}
+				else = {
+						if = {
+							limit = { base_tax = 5 }
+							add_base_tax = -1
+						}
+						if = {
+							limit = { base_tax = 4 }
+							add_base_tax = -1
+						}
+						if = {
+							limit = { base_tax = 3 }
+							add_base_tax = -1
+						}
+						if = {
+							limit = { base_tax = 2 }
+							add_base_tax = -1
+						}
+						if = {
+							limit = { base_production = 5 }
+							add_base_production = -1
+						}
+						if = {
+							limit = { base_production = 4 }
+							add_base_production = -1
+						}
+						if = {
+							limit = { base_production = 3 }
+							add_base_production = -1
+						}
+						if = {
+							limit = { base_production = 2 }
+							add_base_production = -1
+						}
+						if = {
+							limit = { base_manpower = 5 }
+							add_base_manpower = -1
+						}
+						if = {
+							limit = { base_manpower = 4 }
+							add_base_manpower = -1
+						}
+						if = {
+							limit = { base_manpower = 3 }
+							add_base_manpower = -1
+						}
+						if = {
+							limit = { 
+								OR = {
+									continent = north_america
+									continent = south_america
+								}
+							}
+							if = {
+								limit = { base_tax = 3 }
+								add_base_tax = -1
+							}
+							if = {
+								limit = { base_tax = 2 }
+								add_base_tax = -1
+							}
+							if = {
+								limit = { base_production = 3 }
+								add_base_production = -1
+							}
+							if = {
+								limit = { base_production = 2 }
+								add_base_production = -1
+							}
+							if = {
+								limit = { base_manpower = 3 }
+								add_base_manpower = -1
+							}
+							if = {
+								limit = { base_manpower = 2 }
+								add_base_manpower = -1
+							}
+						}
+				}
+				#1444 Start
+                if = {
+					limit = { has_global_flag = start_1444 }
+						   if = {
+								 limit = { base_tax = 13 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_tax = 10 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_tax = 8 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_tax = 5 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_tax = 3 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 12 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 9 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 7 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 5 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 2 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { 
+										 NOT = { base_tax = 1 }
+										 NOT = { base_production = 1 }
+										 base_manpower = 2
+										 NOT = { base_manpower = 4 }
+										 
+										   
+								 }
+								 add_base_manpower = -1
+								 if = {
+									 limit = { base_manpower = 2 }
+									 add_base_manpower = -1
+								 }
+								 
+						   }
+						   
+						   
+						   if = {
+								 limit = { 
+										   NOT = { continent = europe }
+										   base_tax = 7										  
+								 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { 
+										   NOT = { continent = europe }
+										   base_production = 6											  
+								 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { 
+										   OR = {
+												  province_has_center_of_trade_of_level = 1
+												  province_has_center_of_trade_of_level = 2
+												  province_has_center_of_trade_of_level = 3
+										   }											  
+								 }
+								 add_base_tax = 1
+								 add_base_manpower = -1
+						   }
+						   if = {
+								 limit = { 
+										   OR = { 
+												   continent = north_america
+												   continent = south_america
+										   }
+										   base_tax = 2	
+										   base_production = 2											  
+								 }
+								 add_base_tax = -1
+								 add_base_production = -1
+								 add_base_manpower = 2
+						   }
+					
+			  }
+		 #1500 Start
 			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = tiny_state }
-				   }
-				   owner = { add_adm_power = -64 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = small_state }
-				   }
-				   owner = { add_adm_power = -56 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = medium_state }
-				   }
-				   owner = { add_adm_power = -48 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = large_state }
-				   }
-				   owner = { add_adm_power = -40 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = huge_state  }
-				   }
-				   owner = { add_adm_power = -32 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = continental_state  }
-				   }
-				   owner = { add_adm_power = -24 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = world_state  }
-				   }
-				   owner = { add_adm_power = -20 }
-			 }
-			}
-			else = {
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = tiny_state }
-				   }
-				   owner = { add_adm_power = -80 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = small_state }
-				   }
-				   owner = { add_adm_power = -70 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = medium_state }
-				   }
-				   owner = { add_adm_power = -60 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = large_state }
-				   }
-				   owner = { add_adm_power = -50 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = huge_state  }
-				   }
-				   owner = { add_adm_power = -40 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = continental_state  }
-				   }
-				   owner = { add_adm_power = -30 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = world_state  }
-				   }
-				   owner = { add_adm_power = -25 }
-			 }
-			}
+					limit = { has_global_flag = start_1500 }
+						   if = {
+								 limit = { base_tax = 11 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_tax = 9 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_tax = 5 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_tax = 2 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 10 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 7 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 4 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 2 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   
+						   
+						   if = {
+								 limit = { 
+										   NOT = { continent = europe }
+										   base_tax = 7										  
+								 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { 
+										   NOT = { continent = europe }
+										   base_production = 6											  
+								 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { 
+										   OR = {
+												  province_has_center_of_trade_of_level = 1
+												  province_has_center_of_trade_of_level = 2
+												  province_has_center_of_trade_of_level = 3
+										   }											  
+								 }
+								 add_base_tax = 1
+								 add_base_manpower = -1
+						   }
+						   if = {
+								 limit = { 
+										   OR = { 
+												   continent = north_america
+												   continent = south_america
+										   }
+										   base_tax = 2	
+										   base_production = 2											  
+								 }
+								 add_base_tax = -1
+								 add_base_production = -1
+								 add_base_manpower = 2
+						   }
+						   if = { 
+								  limit = { 
+											OR = {
+													has_terrain = farmlands
+													has_terrain = grasslands
+											}
+								  }
+								  if = { 
+										 limit = {
+													development = 18
+										 }
+										 add_base_manpower = 1
+								  }
+						   }
+						   if = { 
+										 limit = {
+													development = 15
+													OR = {
+															 province_has_center_of_trade_of_level = 1
+															 province_has_center_of_trade_of_level = 2
+															 province_has_center_of_trade_of_level = 3
+															 has_province_modifier = river_estuary_modifier
+											}
+										 }
+										 add_building = marketplace
+						   }
+							if = { 
+										 limit = {
+													base_manpower = 10
+													cu_not_terr_trigger = yes
+													OR = {
+														  has_owner_culture = yes
+														  has_owner_accepted_culture = yes
+													}
+										 }
+										 add_building = barracks
+						   }
+					
+			  } 
 
+			  #1550 Start
+			  if = {
+					limit = { has_global_flag = start_1550 }
+						   if = {
+								 limit = { base_tax = 12 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_tax = 9 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_tax = 5 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_tax = 2 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 10 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 8 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 5 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 2 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   
+						   
+						   if = {
+								 limit = { 
+										   NOT = { continent = europe }
+										   base_tax = 7										  
+								 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { 
+										   NOT = { continent = europe }
+										   base_production = 6											  
+								 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { 
+										   OR = {
+												  province_has_center_of_trade_of_level = 1
+												  province_has_center_of_trade_of_level = 2
+												  province_has_center_of_trade_of_level = 3
+										   }											  
+								 }
+								 add_base_tax = 1
+								 add_base_manpower = -1
+						   }
+						   if = {
+								 limit = { 
+										   OR = { 
+												   continent = north_america
+												   continent = south_america
+										   }
+										   base_tax = 2	
+										   base_production = 2											  
+								 }
+								 add_base_tax = -1
+								 add_base_production = -1
+								 add_base_manpower = 2
+						   }
+						   if = { 
+								  limit = { 
+											OR = {
+													has_terrain = farmlands
+													has_terrain = grasslands
+											}
+								  }
+								  if = { 
+										 limit = {
+													development = 14
+										 }
+										 add_base_manpower = 1
+								  }
+						   }
+						   if = { 
+								  limit = { 
+											OR = {
+													has_terrain = hills
+													has_terrain = woods
+													has_terrain = forest
+											}
+								  }
+								  if = { 
+										 limit = {
+													development = 13
+										 }
+										 add_base_manpower = 1
+								  }
+						   }
+						   if = { 
+										 limit = {
+													development = 12
+													OR = {
+														 province_has_center_of_trade_of_level = 1
+														 province_has_center_of_trade_of_level = 2
+														 province_has_center_of_trade_of_level = 3
+														 has_province_modifier = river_estuary_modifier
+											}
+										 }
+										 add_building = marketplace
+						   }
+						   if = { 
+										 limit = {
+													base_manpower = 9
+													cu_not_terr_trigger = yes
+													OR = {
+														  has_owner_culture = yes
+														  has_owner_accepted_culture = yes
+													}
+										 }
+										 add_building = barracks
+						   }
+					
+			  } 
+
+			  #1600 Start
+			  if = {
+					limit = { has_global_flag = start_1600 }
+						   if = {
+								 limit = { base_tax = 12 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_tax = 10 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_tax = 5 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_tax = 2 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 11 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 9 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 5 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 2 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   
+						   
+						   if = {
+								 limit = { 
+										   NOT = { continent = europe }
+										   base_tax = 7										  
+								 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { 
+										   NOT = { continent = europe }
+										   base_production = 7											  
+								 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { 
+										   OR = {
+												  province_has_center_of_trade_of_level = 1
+												  province_has_center_of_trade_of_level = 2
+												  province_has_center_of_trade_of_level = 3
+										   }											  
+								 }
+								 add_base_tax = 1
+								 add_base_manpower = -1
+						   }
+						   if = { 
+								  limit = { 
+											OR = {
+													has_terrain = farmlands
+													has_terrain = grasslands
+											}
+								  }
+								  if = { 
+										 limit = {
+													development = 12
+													NOT = { development = 18 }
+										 }
+										 random_list = {
+											 33 = { add_base_tax = 1 }
+											 33 = { add_base_production = 1 }
+														 33 = { add_base_manpower = 1 }
+								 }
+								  }
+								  if = { 
+										 limit = {
+													development = 18
+										 }
+										 add_base_manpower = 1
+										 random_list = {
+											 60 = { add_base_tax = 1 }
+											 40 = { add_base_production = 1 }
+								 }
+								  }
+						   }
+						   if = { 
+								  limit = { 
+											OR = {
+													has_terrain = hills
+													has_terrain = woods
+													has_terrain = forest
+											}
+								  }
+								  if = { 
+										 limit = {
+													development = 12
+										 }
+										 add_base_manpower = 1
+								  }
+						   }
+						   if = { 
+										 limit = {
+													development = 9
+													OR = {
+														 province_has_center_of_trade_of_level = 1
+														 province_has_center_of_trade_of_level = 2
+														 province_has_center_of_trade_of_level = 3
+														 has_province_modifier = river_estuary_modifier
+											}
+										 }
+										 add_building = marketplace
+						   }
+						   if = { 
+										 limit = {
+													OR = {
+															development = 15
+															is_capital = yes
+													}
+													is_overseas = no
+													owner = {
+															 OR = {
+																	technology_group = western
+																	technology_group = eastern
+																	technology_group = ottoman
+															 }
+													}
+										 }
+										 add_building = courthouse
+						   }
+						   if = { 
+										 limit = {
+													base_manpower = 8
+													cu_not_terr_trigger = yes
+													OR = {
+														  has_owner_culture = yes
+														  has_owner_accepted_culture = yes
+													}
+										 }
+										 add_building = barracks
+						   }
+					
+			  } 
+
+			  #1650 Start
+			  if = {
+					limit = { has_global_flag = start_1650 }
+						   if = {
+								 limit = { base_tax = 13 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_tax = 10 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_tax = 5 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_tax = 2 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 12 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 9 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 5 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 2 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   
+						   
+						   if = {
+								 limit = { 
+										   NOT = { continent = europe }
+										   base_tax = 7										  
+								 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { 
+										   NOT = { continent = europe }
+										   base_production = 7											  
+								 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { 
+										   OR = {
+												  province_has_center_of_trade_of_level = 1
+												  province_has_center_of_trade_of_level = 2
+												  province_has_center_of_trade_of_level = 3
+										   }											  
+								 }
+								 add_base_tax = 1
+								 add_base_manpower = -1
+						   }
+						   
+						   if = { 
+								  limit = { 
+											OR = {
+													has_terrain = farmlands
+													has_terrain = grasslands
+											}
+								  }
+								  if = { 
+										 limit = {
+													development = 9
+													NOT = { development = 15 }
+										 }
+										 add_base_manpower = 1
+								  }
+								  if = { 
+										 limit = {
+													development = 15
+										 }
+										 add_base_manpower = 1
+										 random_list = {
+											 55 = { add_base_tax = 1 }
+											 45 = { add_base_production = 1 }
+								 }
+								  }
+						   }
+						   if = { 
+								  limit = { 
+											OR = {
+													has_terrain = hills
+													has_terrain = woods
+													has_terrain = forest
+											}
+								  }
+								  if = { 
+										 limit = {
+													development = 9
+													NOT = { development = 15 }
+										 }
+										 add_base_manpower = 1
+								  }
+								  if = { 
+										 limit = {
+													development = 15
+										 }
+										 add_base_manpower = 1
+										 random_list = {
+											 55 = { add_base_tax = 1 }
+											 45 = { add_base_production = 1 }
+								 }
+								  }
+						   }
+						   if = { 
+										 limit = {
+													development = 7
+													OR = {
+														 province_has_center_of_trade_of_level = 1
+														 province_has_center_of_trade_of_level = 2
+														 province_has_center_of_trade_of_level = 3
+														 has_province_modifier = river_estuary_modifier
+											}
+										 }
+										 add_building = marketplace
+						   }
+						   if = { 
+										 limit = {
+													OR = {
+															development = 15
+															is_capital = yes
+													}
+													is_overseas = no
+													owner = {
+															 OR = {
+																	technology_group = western
+																	technology_group = eastern
+																	technology_group = ottoman
+															 }
+													}
+										 }
+										 add_building = courthouse
+						   }
+						   if = { 
+										 limit = {
+													base_production = 8
+													cu_not_terr_trigger = yes
+													has_port = yes
+										 }
+										 add_building = shipyard
+						   }
+						   if = { 
+										 limit = {
+													base_manpower = 7
+													cu_not_terr_trigger = yes
+													OR = {
+														  has_owner_culture = yes
+														  has_owner_accepted_culture = yes
+													}
+										 }
+										 add_building = barracks
+						   }
+					
+			  } 
+
+			  #1700 Start
+			  if = {
+					limit = { has_global_flag = start_1700 }
+						   if = {
+								 limit = { base_tax = 14 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_tax = 11 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_tax = 6 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_tax = 2 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 13 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 10 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 6 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 2 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   
+						   
+						   if = {
+								 limit = { 
+										   NOT = { continent = europe }
+										   base_tax = 7										  
+								 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { 
+										   NOT = { continent = europe }
+										   base_production = 7											  
+								 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { 
+										   OR = {
+												  province_has_center_of_trade_of_level = 1
+												  province_has_center_of_trade_of_level = 2
+												  province_has_center_of_trade_of_level = 3
+										   }											  
+								 }
+								 add_base_tax = 1
+								 add_base_manpower = -1
+						   }
+						   
+						   if = { 
+								  limit = { 
+											OR = {
+													has_terrain = farmlands
+													has_terrain = grasslands
+											}
+								  }
+								  if = { 
+										 limit = {
+													development = 7
+													NOT = { development = 12 }
+										 }
+										 add_base_manpower = 1
+								  }
+								  if = { 
+										 limit = {
+													development = 12
+													NOT = { development = 18 }
+										 }
+										 add_base_manpower = 1
+										 random_list = {
+											 50 = { add_base_tax = 1 }
+											 50 = { add_base_production = 1 }
+								 }
+								  }
+								  if = { 
+										 limit = {
+													development = 18
+										 }
+										 add_base_manpower = 1
+										 random_list = {
+											 33 = { add_base_tax = 1 }
+											 33 = { add_base_production = 1 }
+														 33 = { add_base_manpower = 1 }
+								 }
+										 random_list = {
+											 50 = { add_base_tax = 1 }
+											 50 = { add_base_production = 1 }
+								 }
+								  }
+						   }
+						   if = { 
+								  limit = { 
+											OR = {
+													has_terrain = hills
+													has_terrain = woods
+													has_terrain = forest
+											}
+								  }
+								  if = { 
+										 limit = {
+													development = 7
+													NOT = { development = 12 }
+										 }
+										 add_base_manpower = 1
+								  }
+								  if = { 
+										 limit = {
+													development = 12
+										 }
+										 add_base_manpower = 1
+										 random_list = {
+											 50 = { add_base_tax = 1 }
+											 50 = { add_base_production = 1 }
+								 }
+								  }
+						   }
+						   if = { 
+										 limit = {
+													development = 6
+													OR = {
+														 province_has_center_of_trade_of_level = 1
+														 province_has_center_of_trade_of_level = 2
+														 province_has_center_of_trade_of_level = 3
+														 has_province_modifier = river_estuary_modifier
+											}
+										 }
+										 add_building = marketplace
+						   }
+						   if = { 
+										 limit = {
+													OR = {
+															development = 15
+															is_capital = yes
+													}
+													is_overseas = no
+													owner = {
+															 OR = {
+																	technology_group = western
+																	technology_group = eastern
+																	technology_group = ottoman
+															 }
+													}
+										 }
+										 add_building = courthouse
+						   }
+						   if = { 
+										 limit = {
+													base_production = 8
+													cu_not_terr_trigger = yes
+													has_port = yes
+										 }
+										 add_building = shipyard
+						   }
+						   if = { 
+										 limit = {
+													base_manpower = 6
+													cu_not_terr_trigger = yes
+													OR = {
+														  has_owner_culture = yes
+														  has_owner_accepted_culture = yes
+													}
+										 }
+										 add_building = barracks
+						   }
+					
+			  } 
+
+			  #1750 Start
+			  if = {
+					limit = { has_global_flag = start_1750 }
+						   if = {
+								 limit = { base_tax = 13 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_tax = 11 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_tax = 6 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_tax = 2 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 13 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 11 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 6 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { base_production = 2 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   
+						   
+						   if = {
+								 limit = { 
+										   NOT = { continent = europe }
+										   base_tax = 8										  
+								 }
+								 add_base_tax = -1
+								 add_base_manpower = 1
+						   }
+						   if = {
+								 limit = { 
+										   NOT = { continent = europe }
+										   base_production = 7											  
+								 }
+								 add_base_production = -1
+								 add_base_manpower = 1
+						   }
+						   if = { 
+								  limit = { 
+											OR = {
+													has_terrain = farmlands
+													has_terrain = grasslands
+											}
+								  }
+								  if = { 
+										 limit = {
+													development = 6
+													NOT = { development = 10 }
+										 }
+										 add_base_manpower = 1
+								  }
+								  if = { 
+										 limit = {
+													development = 10
+													NOT = { development = 16 }
+										 }
+										 add_base_manpower = 1
+										 random_list = {
+											 50 = { add_base_tax = 1 }
+											 50 = { add_base_production = 1 }
+								 }
+								  }
+								  if = { 
+										 limit = {
+													development = 16
+										 }
+										 add_base_manpower = 1
+										 random_list = {
+											 33 = { add_base_tax = 1 }
+											 33 = { add_base_production = 1 }
+														 33 = { add_base_manpower = 1 }
+								 }
+										 random_list = {
+											 50 = { add_base_tax = 1 }
+											 50 = { add_base_production = 1 }
+								 }
+								  }
+						   }
+						   if = { 
+								  limit = { 
+											OR = {
+													has_terrain = hills
+													has_terrain = woods
+													has_terrain = forest
+											}
+								  }
+								  if = { 
+										 limit = {
+													development = 6
+													NOT = { development = 11 }
+										 }
+										 add_base_manpower = 1
+								  }
+								  if = { 
+										 limit = {
+													development = 11
+													NOT = { development = 15 }
+										 }
+										 add_base_manpower = 1
+										 random_list = {
+											 50 = { add_base_tax = 1 }
+											 50 = { add_base_production = 1 }
+								 }
+								  }
+								  if = { 
+										 limit = {
+													development = 15
+										 }
+										 add_base_manpower = 1
+										 random_list = {
+											 33 = { add_base_tax = 1 }
+											 33 = { add_base_production = 1 }
+														 33 = { add_base_manpower = 1 }
+								 }
+										 random_list = {
+											 50 = { add_base_tax = 1 }
+											 50 = { add_base_production = 1 }
+								 }
+								  }
+						   }
+						   if = { 
+										 limit = {
+													development = 6
+													OR = {
+														 province_has_center_of_trade_of_level = 1
+														 province_has_center_of_trade_of_level = 2
+														 province_has_center_of_trade_of_level = 3
+														 has_province_modifier = river_estuary_modifier
+											}
+										 }
+										 add_building = marketplace
+						   }
+						   if = { 
+										 limit = {
+													OR = {
+															development = 15
+															is_capital = yes
+													}
+													is_overseas = no
+													owner = {
+															 OR = {
+																	technology_group = western
+																	technology_group = eastern
+																	technology_group = ottoman
+															 }
+													}
+										 }
+										 add_building = courthouse
+						   }
+						   if = { 
+										 limit = {
+													base_manpower = 6
+													cu_not_terr_trigger = yes
+													OR = {
+														  has_owner_culture = yes
+														  has_owner_accepted_culture = yes
+													}
+										 }
+										 add_building = barracks
+						   }
+						   if = { 
+										 limit = {
+													base_production = 8
+													cu_not_terr_trigger = yes
+													has_port = yes
+										 }
+										 add_building = shipyard
+						   }
+					}
+					#Agriculture is increased by 50%
+					if = {
+						  limit = { 
+								   base_manpower = 20 
+						  }
+						  add_base_manpower = 10
+					}
+					if = {
+						  limit = { 
+									base_manpower = 18 
+									NOT = { base_manpower = 20 }
+						 }
+						  add_base_manpower = 9
+					}
+					if = {
+						  limit = { 
+									base_manpower = 16 
+									NOT = { base_manpower = 18 }
+						 }
+						  add_base_manpower = 8
+					}
+					if = {
+						  limit = { 
+									base_manpower = 14 
+									NOT = { base_manpower = 16 }
+						 }
+						  add_base_manpower = 7
+					}
+					if = {
+						  limit = { 
+									base_manpower = 12 
+									NOT = { base_manpower = 14 }
+						 }
+						  add_base_manpower = 6
+					}
+					if = {
+						  limit = { 
+									base_manpower = 10 
+									NOT = { base_manpower = 12 }
+						 }
+						  add_base_manpower = 5
+					}
+					if = {
+						  limit = { 
+									base_manpower = 8 
+									NOT = { base_manpower = 10 }
+						 }
+						  add_base_manpower = 4
+					}
+					if = {
+						  limit = { 
+									base_manpower = 6 
+									NOT = { base_manpower = 8 }
+						 }
+						  add_base_manpower = 3
+					}
+					if = {
+						  limit = { 
+									base_manpower = 4
+									NOT = { base_manpower = 6 }
+						 }
+						  add_base_manpower = 2
+					}
+					if = {
+						  limit = { 
+									base_manpower = 2 
+									NOT = { base_manpower = 4 }
+						 }
+						  add_base_manpower = 1
+					}
+					if = {
+								 limit = { 
+										   owner = { is_nomad = yes }
+										   has_terrain = steppe
+										   base_manpower = 3											  
+								 }
+								 add_base_manpower = -1
+								 if = {
+										 limit = { base_manpower = 5 }
+										 add_base_manpower = -1
+								 }
+								 if = {
+										 limit = { base_manpower = 7 }
+										 add_base_manpower = -1
+								 }
+								 if = {
+										 limit = { base_manpower = 9 }
+										 add_base_manpower = -1
+								 }
+					 }
 }
 
-cu_add_scaled_dip_power_n70 = {
-         if = {
-			 limit = { owner = { innovativeness_ideas = 6 } }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = tiny_state }
-				   }
-				   owner = { add_dip_power = -56 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = small_state }
-				   }
-				   owner = { add_dip_power = -48 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = medium_state }
-				   }
-				   owner = { add_dip_power = -40 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = large_state }
-				   }
-				   owner = { add_dip_power = -32 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = huge_state  }
-				   }
-				   owner = { add_dip_power = -24 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = continental_state  }
-				   }
-				   owner = { add_dip_power = -20 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = world_state  }
-				   }
-				   owner = { add_dip_power = -16 }
-			 }
-			}
-			else = {
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = tiny_state }
-				   }
-				   owner = { add_dip_power = -70 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = small_state }
-				   }
-				   owner = { add_dip_power = -60 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = medium_state }
-				   }
-				   owner = { add_dip_power = -50 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = large_state }
-				   }
-				   owner = { add_dip_power = -40 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = huge_state  }
-				   }
-				   owner = { add_dip_power = -30 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = continental_state  }
-				   }
-				   owner = { add_dip_power = -25 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = world_state  }
-				   }
-				   owner = { add_dip_power = -20 }
-			 }
-			}
-
-}
-
-cu_add_scaled_dip_power_n80 = {
-         if = {
-			 limit = { owner = { innovativeness_ideas = 6 } }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = tiny_state }
-				   }
-				   owner = { add_dip_power = -64 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = small_state }
-				   }
-				   owner = { add_dip_power = -56 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = medium_state }
-				   }
-				   owner = { add_dip_power = -48 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = large_state }
-				   }
-				   owner = { add_dip_power = -40 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = huge_state  }
-				   }
-				   owner = { add_dip_power = -32 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = continental_state  }
-				   }
-				   owner = { add_dip_power = -24 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = world_state  }
-				   }
-				   owner = { add_dip_power = -20 }
-			 }
-			}
-			else = {
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = tiny_state }
-				   }
-				   owner = { add_dip_power = -80 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = small_state }
-				   }
-				   owner = { add_dip_power = -70 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = medium_state }
-				   }
-				   owner = { add_dip_power = -60 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = large_state }
-				   }
-				   owner = { add_dip_power = -50 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = huge_state  }
-				   }
-				   owner = { add_dip_power = -40 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = continental_state  }
-				   }
-				   owner = { add_dip_power = -30 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = world_state  }
-				   }
-				   owner = { add_dip_power = -25 }
-			 }
-			}
-
-}
-
-cu_add_scaled_mil_power_n70 = {
-         if = {
-			 limit = { owner = { innovativeness_ideas = 6 } }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = tiny_state }
-				   }
-				   owner = { add_mil_power = -56 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = small_state }
-				   }
-				   owner = { add_mil_power = -48 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = medium_state }
-				   }
-				   owner = { add_mil_power = -40 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = large_state }
-				   }
-				   owner = { add_mil_power = -32 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = huge_state  }
-				   }
-				   owner = { add_mil_power = -24 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = continental_state  }
-				   }
-				   owner = { add_mil_power = -20 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = world_state  }
-				   }
-				   owner = { add_mil_power = -16 }
-			 }
-			}
-			else = {
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = tiny_state }
-				   }
-				   owner = { add_mil_power = -70 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = small_state }
-				   }
-				   owner = { add_mil_power = -60 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = medium_state }
-				   }
-				   owner = { add_mil_power = -50 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = large_state }
-				   }
-				   owner = { add_mil_power = -40 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = huge_state  }
-				   }
-				   owner = { add_mil_power = -30 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = continental_state  }
-				   }
-				   owner = { add_mil_power = -25 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = world_state  }
-				   }
-				   owner = { add_mil_power = -20 }
-			 }
-			}
-
-}
-
-cu_add_scaled_mil_power_n80 = {
-         if = {
-			 limit = { owner = { innovativeness_ideas = 6 } }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = tiny_state }
-				   }
-				   owner = { add_mil_power = -64 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = small_state }
-				   }
-				   owner = { add_mil_power = -56 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = medium_state }
-				   }
-				   owner = { add_mil_power = -48 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = large_state }
-				   }
-				   owner = { add_mil_power = -40 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = huge_state  }
-				   }
-				   owner = { add_mil_power = -32 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = continental_state  }
-				   }
-				   owner = { add_mil_power = -24 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = world_state  }
-				   }
-				   owner = { add_mil_power = -20 }
-			 }
-			}
-			else = {
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = tiny_state }
-				   }
-				   owner = { add_mil_power = -80 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = small_state }
-				   }
-				   owner = { add_mil_power = -70 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = medium_state }
-				   }
-				   owner = { add_mil_power = -60 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = large_state }
-				   }
-				   owner = { add_mil_power = -50 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = huge_state  }
-				   }
-				   owner = { add_mil_power = -40 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = continental_state  }
-				   }
-				   owner = { add_mil_power = -30 }
-			 }
-			 if = {
-			       limit = { 
-				         owner = { has_country_modifier = world_state  }
-				   }
-				   owner = { add_mil_power = -25 }
-			 }
-			}
-
+#cu_add_loan_cash - Change cash(equal loan) by cu_var1 times
+cu_add_loan_cash = {
+	#Calc loan size
+	set_variable = { which = cu_var2 value = 0 }
+	set_variable = { which = cu_var3 value = 0 }
+	export_to_variable = {
+		which = cu_var2
+		value = total_development
+	}
+	export_to_variable = {
+		which = cu_var3
+		value = trigger_value:trade_efficiency #A bit higher than the actual trade efficiency provided by dip tech
+	}
+	change_variable = { which = cu_var3 value = 1 }
+	if = { 
+		limit = {
+			check_variable = { which = cu_var3 value = 1.6 }#not higher than the max trade efficiency provided by dip tech
+		}
+		set_variable = { which = cu_var3 value = 1.6 }
+	}
+	multiply_variable = { which = cu_var2 which = cu_var3 }
+	multiply_variable = { which = cu_var1 which = cu_var2 }
+	set_variable = { which = cu_cash which = cu_var1 }
+	cu_change_cash = yes
+	set_variable = { which = cu_var1 value = 0 }
+	set_variable = { which = cu_var2 value = 0 }
+	set_variable = { which = cu_var3 value = 0 }
 }
 
 #cu_change_cash[cu_cash] - Change cash by cu_cash(-9999 - 9999)
@@ -3915,7 +3621,184 @@ cu_subtract_prestige = {
 	}
 }
 
-#cu_calc_power_cost[cu_power](cost) - Clac DIP/ADM/MIL power to cost
+#cu_change_adm_power - Change ADM power by cu_power, not affected by power cost modifiers.
+cu_change_adm_power = {
+	if = {
+		limit = { check_variable = { which = cu_power value = 1 } }
+		custom_tooltip = cu_change_adm_power_pt
+		hidden_effect = {
+			while = {
+				limit = { check_variable = { which = cu_power value = 100 }  }
+				add_adm_power = 100
+				subtract_variable = { which = cu_power value = 100 }	
+			}
+			while = {
+				limit = { check_variable = { which = cu_power value = 10 }  }
+				add_adm_power = 10
+				subtract_variable = { which = cu_power value = 10 }	
+			}
+			while = {
+				limit = { check_variable = { which = cu_power value = 5 }  }
+				add_adm_power = 5
+				subtract_variable = { which = cu_power value = 5 }	
+			}
+			while = {
+				limit = { check_variable = { which = cu_power value = 0.5 }  }
+				add_adm_power = 1
+				subtract_variable = { which = cu_power value = 1 }	
+			}
+			set_variable = { which = cu_power value = 0 }
+		}
+	}
+	else_if = {
+	    limit = { NOT = { check_variable = { which = cu_power value = -0.99 } } }
+		multiply_variable = { which = cu_power value = -1 }
+		custom_tooltip = cu_change_adm_power_nt
+		hidden_effect = {
+			while = {
+				limit = { check_variable = { which = cu_power value = 100 }  }
+				add_adm_power = -100
+				subtract_variable = { which = cu_power value = 100 }	
+			}
+			while = {
+				limit = { check_variable = { which = cu_power value = 10 }  }
+				add_adm_power = -10
+				subtract_variable = { which = cu_power value = 10 }	
+			}
+			while = {
+				limit = { check_variable = { which = cu_power value = 5 }  }
+				add_adm_power = -5
+				subtract_variable = { which = cu_power value = 5 }	
+			}
+			while = {
+				limit = { check_variable = { which = cu_power value = 0.5 }  }
+				add_adm_power = -1
+				subtract_variable = { which = cu_power value = 1 }	
+			}
+			set_variable = { which = cu_power value = 0 }
+		}
+	}
+}
+
+#cu_change_dip_power - Change DIP power by cu_power, not affected by power cost modifiers.
+cu_change_dip_power = {
+	if = {
+		limit = { check_variable = { which = cu_power value = 1 } }
+		custom_tooltip = cu_change_dip_power_pt
+		hidden_effect = {
+			while = {
+				limit = { check_variable = { which = cu_power value = 100 }  }
+				add_dip_power = 100
+				subtract_variable = { which = cu_power value = 100 }	
+			}
+			while = {
+				limit = { check_variable = { which = cu_power value = 10 }  }
+				add_dip_power = 10
+				subtract_variable = { which = cu_power value = 10 }	
+			}
+			while = {
+				limit = { check_variable = { which = cu_power value = 5 }  }
+				add_dip_power = 5
+				subtract_variable = { which = cu_power value = 5 }	
+			}
+			while = {
+				limit = { check_variable = { which = cu_power value = 0.5 }  }
+				add_dip_power = 1
+				subtract_variable = { which = cu_power value = 1 }	
+			}
+			set_variable = { which = cu_power value = 0 }
+		}
+	}
+	else_if = {
+	    limit = { NOT = { check_variable = { which = cu_power value = -0.99 } } }
+		multiply_variable = { which = cu_power value = -1 }
+		custom_tooltip = cu_change_dip_power_nt
+		hidden_effect = {
+			while = {
+				limit = { check_variable = { which = cu_power value = 100 }  }
+				add_dip_power = -100
+				subtract_variable = { which = cu_power value = 100 }	
+			}
+			while = {
+				limit = { check_variable = { which = cu_power value = 10 }  }
+				add_dip_power = -10
+				subtract_variable = { which = cu_power value = 10 }	
+			}
+			while = {
+				limit = { check_variable = { which = cu_power value = 5 }  }
+				add_dip_power = -5
+				subtract_variable = { which = cu_power value = 5 }	
+			}
+			while = {
+				limit = { check_variable = { which = cu_power value = 0.5 }  }
+				add_dip_power = -1
+				subtract_variable = { which = cu_power value = 1 }	
+			}
+			set_variable = { which = cu_power value = 0 }
+		}
+	}
+}
+
+#cu_change_mil_power - Change MIL power by cu_power, not affected by power cost modifiers.
+cu_change_mil_power = {
+	if = {
+		limit = { check_variable = { which = cu_power value = 1 } }
+		custom_tooltip = cu_change_mil_power_pt
+		hidden_effect = {
+			while = {
+				limit = { check_variable = { which = cu_power value = 100 }  }
+				add_mil_power = 100
+				subtract_variable = { which = cu_power value = 100 }	
+			}
+			while = {
+				limit = { check_variable = { which = cu_power value = 10 }  }
+				add_mil_power = 10
+				subtract_variable = { which = cu_power value = 10 }	
+			}
+			while = {
+				limit = { check_variable = { which = cu_power value = 5 }  }
+				add_mil_power = 5
+				subtract_variable = { which = cu_power value = 5 }	
+			}
+			while = {
+				limit = { check_variable = { which = cu_power value = 0.5 }  }
+				add_mil_power = 1
+				subtract_variable = { which = cu_power value = 1 }	
+			}
+			set_variable = { which = cu_power value = 0 }
+		}
+	}
+	else_if = {
+	    limit = { NOT = { check_variable = { which = cu_power value = -0.99 } } }
+		multiply_variable = { which = cu_power value = -1 }
+		custom_tooltip = cu_change_mil_power_nt
+		hidden_effect = {
+			while = {
+				limit = { check_variable = { which = cu_power value = 100 }  }
+				add_mil_power = -100
+				subtract_variable = { which = cu_power value = 100 }	
+			}
+			while = {
+				limit = { check_variable = { which = cu_power value = 10 }  }
+				add_mil_power = -10
+				subtract_variable = { which = cu_power value = 10 }	
+			}
+			while = {
+				limit = { check_variable = { which = cu_power value = 5 }  }
+				add_mil_power = -5
+				subtract_variable = { which = cu_power value = 5 }	
+			}
+			while = {
+				limit = { check_variable = { which = cu_power value = 0.5 }  }
+				add_mil_power = -1
+				subtract_variable = { which = cu_power value = 1 }	
+			}
+			set_variable = { which = cu_power value = 0 }
+		}
+	}
+}
+
+#cu_calc_power_cost[cu_power](cost) - Calc DIP/ADM/MIL power to cost
 #cu_subtract_[dip/adm/mil]_power - Change DIP/ADM/MIL power 
 
 cu_subtract_adm_power = {
@@ -4157,7 +4040,12 @@ cu_calc_power_cost = {
 		change_variable = { which = cu_var1 value = 1 }
 		cu_calc_government_power_cost_modifier = yes
 		cu_calc_distance_power_cost_modifier = yes
-		if = { limit = { innovativeness_ideas = 6 } subtract_variable = { which = cu_var1 value = 0.2 } }
+		set_variable = { which = cu_var3 value = 0 }
+		export_to_variable = {
+			which = cu_var3
+			value = modifier:expand_administration_cost
+		}
+		change_variable = { which = cu_var1 which = cu_var3 }
 		multiply_variable = { which = cu_power which = cu_var1 }
 	}
 }
@@ -4237,9 +4125,99 @@ cu_calc_power_cost_country = {
 			value = modifier:all_power_cost
 		}
 		change_variable = { which = cu_var1 value = 1 }
-		if = { limit = { innovativeness_ideas = 6 } subtract_variable = { which = cu_var1 value = 0.2 } }
+		set_variable = { which = cu_var3 value = 0 }
+		export_to_variable = {
+			which = cu_var3
+			value = modifier:expand_administration_cost
+		}
+		change_variable = { which = cu_var1 which = cu_var3 }
 		multiply_variable = { which = cu_power which = cu_var1 }
 	}
+}
+
+#Not hidden, in case of multiple hidden_effect
+cu_calc_power_cost_uh_country = {
+	#multiply_variable = { which = cu_power value = -1 }
+	#discount for bigger state
+	if = {
+		limit = {
+			NOT = { has_country_modifier = tiny_state }
+		}
+		
+		if = {
+			limit = { check_variable = { which = cu_power value = 10 } }
+			#modifiered by amont of cost
+			if = {
+				limit = { check_variable = { which = cu_power value = 70 } }
+				set_variable = { which = cu_var3 value = 10 }
+			}
+			else_if = { 
+				limit = { check_variable = { which = cu_power value = 65 } }
+				set_variable = { which = cu_var3 value = 9 }
+			}
+			else_if = { 
+				limit = { check_variable = { which = cu_power value = 60 } }
+				set_variable = { which = cu_var3 value = 8 }
+			}
+			else_if = { 
+				limit = { check_variable = { which = cu_power value = 50 } }
+				set_variable = { which = cu_var3 value = 7 }
+			}
+			else_if = { 
+				limit = { check_variable = { which = cu_power value = 45 } }
+				set_variable = { which = cu_var3 value = 6 }
+			}
+			else_if = { 
+				limit = { check_variable = { which = cu_power value = 40 } }
+				set_variable = { which = cu_var3 value = 5 }
+			}
+			else_if = { 
+				limit = { check_variable = { which = cu_power value = 30 } }
+				set_variable = { which = cu_var3 value = 4 }
+			}
+			else_if = { 
+				limit = { check_variable = { which = cu_power value = 20 } }
+				set_variable = { which = cu_var3 value = 3 }
+			}
+			else = {
+				set_variable = { which = cu_var3 value = 1 }
+			}
+			#modifiered by the num of cites of this nation
+			if = {
+				limit = { has_country_modifier = large_state }
+				multiply_variable = { which = cu_var3 value = 2 }
+			}
+			else_if = {
+				limit = { has_country_modifier = huge_state }
+				multiply_variable = { which = cu_var3 value = 3 }
+			}
+			else_if = {
+				limit = { has_country_modifier = continental_state }
+				multiply_variable = { which = cu_var3 value = 4 }
+			}
+			else_if = {
+				limit = { has_country_modifier = world_state }
+				multiply_variable = { which = cu_var3 value = 5 }
+			}
+			subtract_variable = { which = cu_power which = cu_var3 }
+		}
+	}
+	
+	#power cost modifier
+	set_variable = { which = cu_var1 value = 0 }
+	export_to_variable = {
+		which = cu_var1
+		value = modifier:all_power_cost
+	}
+	change_variable = { which = cu_var1 value = 1 }
+	
+	set_variable = { which = cu_var3 value = 0 }
+		export_to_variable = {
+			which = cu_var3
+			value = modifier:expand_administration_cost
+		}
+		change_variable = { which = cu_var1 which = cu_var3 }
+	multiply_variable = { which = cu_power which = cu_var1 }
 }
 
 #Not hidden, in case of multiple hidden_effect
@@ -4320,7 +4298,12 @@ cu_calc_power_cost_uh = {
 		
 		cu_calc_government_power_cost_modifier = yes
 		cu_calc_distance_power_cost_modifier = yes
-		if = { limit = { innovativeness_ideas = 6 } subtract_variable = { which = cu_var1 value = 0.2 } }
+		set_variable = { which = cu_var3 value = 0 }
+		export_to_variable = {
+			which = cu_var3
+			value = modifier:expand_administration_cost
+		}
+		change_variable = { which = cu_var1 which = cu_var3 }
 		multiply_variable = { which = cu_power which = cu_var1 }
 }
 
@@ -4335,7 +4318,12 @@ cu_calc_power_cost_culture = {
 		change_variable = { which = cu_var1 value = 1 }
 		cu_calc_government_power_cost_modifier = yes
 		cu_calc_distance_power_cost_modifier = yes
-		if = { limit = { innovativeness_ideas = 6 } subtract_variable = { which = cu_var1 value = 0.2 } }
+		set_variable = { which = cu_var3 value = 0 }
+		export_to_variable = {
+			which = cu_var3
+			value = modifier:expand_administration_cost
+		}
+		change_variable = { which = cu_var1 which = cu_var3 }
 		multiply_variable = { which = cu_power which = cu_var1 }
 	}
 }
@@ -4371,46 +4359,47 @@ cu_calc_government_power_cost_modifier = {
 	divide_variable = { which = epimg value = 100 }
 	change_variable = { which = cu_var1 which = epimg }
 	if = {
-		limit = { ROOT = { has_estate = estate_burghers } }
+		limit = { ROOT = { has_province_flag = has_estate_burghers } }
 		if = { limit = { estate_loyalty = {	estate = estate_burghers	loyalty = 60	} } change_variable = { which = cu_var1 value = -0.05 } }
 		if = { limit = { NOT = { estate_loyalty = {	estate = estate_burghers	loyalty = 40	} } } change_variable = { which = cu_var1 value = 0.1 } }
 	}
 	if = {
-		limit = { ROOT = { has_estate = estate_nobles } }
+		limit = { ROOT = { has_province_flag = has_estate_nobles } }
 		if = { limit = { estate_loyalty = {	estate = estate_burghers	loyalty = 60	} } change_variable = { which = cu_var1 value = -0.05 } }
 		if = { limit = { NOT = { estate_loyalty = {	estate = estate_burghers	loyalty = 40	} } } change_variable = { which = cu_var1 value = 0.1 } }
 	}
 	else_if = {
-		limit = { ROOT = { has_estate = estate_qinwang } }
+		limit = { ROOT = { has_province_flag = has_estate_qinwang } }
 		if = { limit = { estate_loyalty = {	estate = estate_burghers	loyalty = 60	} } change_variable = { which = cu_var1 value = -0.05 } }
 		if = { limit = { NOT = { estate_loyalty = {	estate = estate_burghers	loyalty = 40	} } } change_variable = { which = cu_var1 value = 0.1 } }
 	}
 	if = {
-		limit = { ROOT = { has_estate = estate_church } }
+		limit = { ROOT = { has_province_flag = has_estate_church } }
 		if = { limit = { estate_loyalty = {	estate = estate_burghers	loyalty = 60	} } change_variable = { which = cu_var1 value = -0.05 } }
 		if = { limit = { NOT = { estate_loyalty = {	estate = estate_burghers	loyalty = 40	} } } change_variable = { which = cu_var1 value = 0.1 } }
 	}
 	else_if = {
-		limit = { ROOT = { has_estate = estate_shizu } }
+		limit = { ROOT = { has_province_flag = has_estate_shizu } }
 		if = { limit = { estate_loyalty = {	estate = estate_burghers	loyalty = 60	} } change_variable = { which = cu_var1 value = -0.05 } }
 		if = { limit = { NOT = { estate_loyalty = {	estate = estate_burghers	loyalty = 40	} } } change_variable = { which = cu_var1 value = 0.1 } }
 	}
 	if = {
-		limit = { ROOT = { has_estate = estate_nomadic_tribes } }
+		limit = { ROOT = { has_province_flag = has_estate_nomadic_tribes } }
 		if = { limit = { estate_loyalty = {	estate = estate_nomadic_tribes	loyalty = 60	} } change_variable = { which = cu_var1 value = -0.05 } }
 		if = { limit = { NOT = { estate_loyalty = {	estate = estate_nomadic_tribes	loyalty = 40	} } } change_variable = { which = cu_var1 value = 0.1 } }
 	}
 	else_if = {
-		limit = { ROOT = { has_estate = estate_cossacks } }
+		limit = { ROOT = { has_province_flag = has_estate_cossacks } }
 		if = { limit = { estate_loyalty = {	estate = estate_cossacks	loyalty = 60	} } change_variable = { which = cu_var1 value = -0.05 } }
 		if = { limit = { NOT = { estate_loyalty = {	estate = estate_cossacks	loyalty = 40	} } } change_variable = { which = cu_var1 value = 0.1 } }
 	}
 	if = {
-		ROOT = {
+		
 			limit = {
-				unrest = 0.1
+				ROOT = {
+					unrest = 0.1
+				}
 			}
-		}
 		set_variable = { which = cu_var2 value = 0 }
 		export_to_variable = {
 			which = cu_var2
@@ -4423,67 +4412,15 @@ cu_calc_government_power_cost_modifier = {
 }
 
 cu_calc_distance_power_cost_modifier = {
-	if = { 
-		limit = { 
-			ROOT = { 
-				OR = {
-					has_province_modifier = connect_to_capital_far_6
-					has_province_modifier = connect_to_capital_far_7
-					has_province_modifier = connect_to_capital_far_8
-					has_province_modifier = connect_to_capital_far_9
-					has_province_modifier = connect_to_capital_far_10
-				}
-			}	
-		} 
-		change_variable = { which = cu_var1 value = 0.075 } 
-	}
-	else_if = { 
-		limit = { 
-			ROOT = { 
-				OR = {
-					has_province_modifier = connect_to_capital_far_11 
-					has_province_modifier = connect_to_capital_far_12
-					has_province_modifier = connect_to_capital_far_13
-					has_province_modifier = connect_to_capital_far_14
-					has_province_modifier = connect_to_capital_far_15
-				}
-			}	
-		} 
-		change_variable = { which = cu_var1 value = 0.15 } 
-	}
-	else_if = { 
-		limit = { 
-			ROOT = { 
-				OR = {
-					has_province_modifier = connect_to_capital_far_16
-					has_province_modifier = connect_to_capital_far_17
-					has_province_modifier = connect_to_capital_far_18
-					has_province_modifier = connect_to_capital_far_19
-					has_province_modifier = connect_to_capital_far_20
-				}
-			}	
-		} 
-		change_variable = { which = cu_var1 value = 0.225 } 
-	}
-	else_if = { 
-		limit = { 
-			ROOT = { 
-				OR = {
-					has_province_modifier = connect_to_capital_far_21 
-					has_province_modifier = connect_to_capital_far_22
-					has_province_modifier = connect_to_capital_far_23
-					has_province_modifier = connect_to_capital_far_24
-					has_province_modifier = connect_to_capital_far_25
-				}
-			}	
-		} 
-		change_variable = { which = cu_var1 value = 0.3 } 
-	}
-	if = {	limit = { ROOT = { has_building = road_1 } } change_variable = { which = cu_var1 value = -0.05 } }
-	else_if = {	limit = { ROOT = { has_building = road_2 } } change_variable = { which = cu_var1 value = -0.10 } }
-	else_if = {	limit = { ROOT = { has_building = road_3 } } change_variable = { which = cu_var1 value = -0.15 } }
-	if = { limit = { ROOT = { has_province_modifier = connect_to_capital } } change_variable = { which = cu_var1 value = -0.10 } }
-	else_if = { limit = { ROOT = { has_province_modifier = connect_to_capital_oversea } } change_variable = { which = cu_var1 value = -0.075 } }
+	set_variable = { which = p_dist_tc which = ROOT }
+	set_variable = { which = cu_var3 value = 0.05 }
+	if = {	limit = { ROOT = { has_building = road_1 } } change_variable = { which = cu_var3 value = -0.005 } }
+	else_if = {	limit = { ROOT = { has_building = road_2 } } change_variable = { which = cu_var3 value = -0.01 } }
+	else_if = {	limit = { ROOT = { has_building = road_3 } } change_variable = { which = cu_var3 value = -0.02 } }
+	if = { limit = { ROOT = { has_province_modifier = connect_to_capital } } change_variable = { which = cu_var3 value = -0.02 } }
+	else_if = { limit = { ROOT = { has_province_modifier = connect_to_capital_oversea } } change_variable = { which = cu_var3 value = -0.01 } }
+	multiply_variable = { which = cu_var3 which = p_dist_tc }
+	change_variable = { which = cu_var1 which = cu_var3 }
 }
 
 cu_get_year = { 

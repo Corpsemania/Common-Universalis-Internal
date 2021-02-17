@@ -21,13 +21,13 @@ hin_slot_1 = {
 		provinces_to_highlight = {
 			region = west_india_region
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			west_india_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -47,13 +47,13 @@ hin_slot_1 = {
 		provinces_to_highlight = {
 			region = khorasan_region
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			khorasan_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -72,13 +72,13 @@ hin_slot_1 = {
 		provinces_to_highlight = {
 			region = persia_region
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			persia_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -113,13 +113,13 @@ hin_slot_2 = {
 		provinces_to_highlight = {
 			region = hindusthan_region
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			hindusthan_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -303,13 +303,13 @@ hin_slot_3 = {
 		provinces_to_highlight = {
 			region = deccan_region
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			deccan_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -324,14 +324,14 @@ hin_slot_3 = {
 		provinces_to_highlight = {
 			superregion = india_superregion
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			stability = 2
 			india_superregion = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -380,13 +380,13 @@ hin_slot_4 = {
 		provinces_to_highlight = {
 			region = coromandel_region
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			coromandel_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -408,13 +408,13 @@ hin_slot_4 = {
 		provinces_to_highlight = {
 			region = indo_china_region
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			indo_china_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -446,13 +446,13 @@ hin_slot_5 = {
 		provinces_to_highlight = {
 			region = bengal_region
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			bengal_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -480,13 +480,13 @@ hin_slot_5 = {
 		provinces_to_highlight = {
 			region = burma_region
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			burma_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -510,13 +510,13 @@ hin_slot_5 = {
 		provinces_to_highlight = {
 			region = malaya_region
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			malaya_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {

@@ -1,5 +1,7 @@
 namespace = ming_crisis
 
+#Reuse
+
 # Mandate Questioned
 country_event = {
 	id = ming_crisis.1
@@ -107,8 +109,8 @@ country_event = {
 	desc = "ming_crisis.3.d"
 	picture = ANGRY_MOB_eventPicture
 	
-	is_triggered_only = yes
 	fire_only_once = yes
+	is_triggered_only = yes
 	major = yes
 	
 	trigger = {
@@ -182,8 +184,7 @@ country_event = {
 					}
 				}
 				change_government = monarchy
-				add_government_reform = autocracy_reform
-				adopt_reform_progress = ROOT
+				add_government_reform = celestial_empire_2
 			}
 			set_variable = { which = cu_var1 value = -100 }
 		}
@@ -196,6 +197,8 @@ country_event = {
 		}
 		cu_change_stability_point = yes
 		add_mandate = -10
+		add_meritocracy = -15
+
 		CSH = {
 			define_ruler = {
 				name = "Zicheng"

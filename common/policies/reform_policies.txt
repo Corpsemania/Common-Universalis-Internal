@@ -17,7 +17,7 @@ subdue_the_warlord = {
 	}
 
 
-	global_autonomy = -0.02
+	global_autonomy = -0.03
 	fort_maintenance_modifier = 0.15
 
 	ai_will_do = {
@@ -142,7 +142,7 @@ standardized_weapons = {
 
 
 	global_regiment_cost = -0.10
-	advisor_cost = 0.07
+	state_governing_cost = 0.07
 
 	ai_will_do = {
 		factor = 1		
@@ -331,7 +331,7 @@ organized_fishery = {
 
 
 	global_trade_goods_size_modifier = 0.1
-	advisor_cost = 0.10
+	state_governing_cost = 0.10
 
 	ai_will_do = {
 		factor = 1	

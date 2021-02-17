@@ -28,7 +28,7 @@ free_oarsmen =
 {
 	country_modifier = {
 		own_coast_naval_combat_bonus = 1.0
-		galley_power = 0.1
+		galley_power = 0.125
 		naval_attrition = 0.2
 	}
 	
@@ -39,9 +39,9 @@ free_oarsmen =
 merchant_navy =
 {
 	country_modifier = {
-		global_ship_trade_power = 0.1
-		trade_range_modifier = 0.2
-		ship_durability = -0.05
+		global_ship_trade_power = 0.125
+		disengagement_chance = 0.05
+		ship_durability = -0.10
 	}
 	
 	button_gfx = 3

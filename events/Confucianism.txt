@@ -494,7 +494,7 @@ country_event = {
 		add_harmonization_progress = -3
 		remove_advisor_by_category = ADM
 		add_mandate_effect = yes
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	option = {
 		name = "confucian_events.13.b" #We have much to learn from the [harmonization_province.Religion.GetName] people.

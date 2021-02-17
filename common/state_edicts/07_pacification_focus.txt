@@ -8,8 +8,8 @@ edict_pacification_focus = { #Nominal State
 	}
 	
 	modifier = {
-	    local_unrest = -8
-		land_forcelimit = -3
+	    local_unrest = -4
+		land_forcelimit = -1.5
 	}
 	
 	color = {  72 118 255  }

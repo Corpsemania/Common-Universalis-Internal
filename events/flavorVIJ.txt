@@ -767,7 +767,7 @@ country_event = {
 	
 	option = {
 		name = "flavor_vij.16.a" #Ok
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		clr_country_flag = chellappa_local
 		remove_province_modifier = tamil_grandee
 	}

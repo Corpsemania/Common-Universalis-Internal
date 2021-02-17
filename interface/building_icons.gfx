@@ -1668,6 +1668,42 @@ spriteTypes = {
 		texturefile = "gfx//interface//buildings//manufactory_furnace.dds"
 		loadType = "INGAME"
 	}
+	
+	spriteType = {
+		name = "GFX_soldier_households"
+		texturefile = "gfx//interface//buildings//latin_constable.tga"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_ramparts"
+		texturefile = "gfx//interface//buildings//latin_march.tga"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_impressment_offices"
+		texturefile = "gfx//interface//buildings//latin_college.tga"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_state_house"
+		texturefile = "gfx//interface//buildings//latin_royal_palace.tga"
+		loadType = "INGAME"
+	}
+	
+	spriteType = {
+		name = "GFX_coastal_defence"
+		texturefile = "gfx/interface/buildings/coastal_defence.dds"
+		loadType = "INGAME"
+	}
+	
+	spriteType = {
+		name = "GFX_naval_battery"
+		texturefile = "gfx/interface/buildings/naval_battery.dds"
+		loadType = "INGAME"
+	}
 
 	spriteType = {
 		name = "GFX_plantations"
@@ -1933,6 +1969,96 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_c_terrain"
 		texturefile = "gfx//interface//buildings//c_terrain.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_b_tax_1"
+		texturefile = "gfx//interface//buildings//b_tax_1.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_b_tax_2"
+		texturefile = "gfx//interface//buildings//b_tax_2.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_b_tax_3"
+		texturefile = "gfx//interface//buildings//b_tax_3.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_b_tax_4"
+		texturefile = "gfx//interface//buildings//b_tax_4.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_b_tax_5"
+		texturefile = "gfx//interface//buildings//b_tax_5.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_b_goods_1"
+		texturefile = "gfx//interface//buildings//b_goods_1.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_b_goods_2"
+		texturefile = "gfx//interface//buildings//b_goods_2.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_b_goods_3"
+		texturefile = "gfx//interface//buildings//b_goods_3.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_b_goods_4"
+		texturefile = "gfx//interface//buildings//b_goods_4.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_b_goods_5"
+		texturefile = "gfx//interface//buildings//b_goods_5.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_b_tribal_conscription"
+		texturefile = "gfx//interface//buildings//b_tribal_conscription.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_b_feudal_conscription"
+		texturefile = "gfx//interface//buildings//b_feudal_conscription.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_b_military_household"
+		texturefile = "gfx//interface//buildings//b_military_household.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_b_mercenary_conscription"
+		texturefile = "gfx//interface//buildings//b_mercenary_conscription.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_b_volunteer_training"
+		texturefile = "gfx//interface//buildings//b_volunteer_training.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_b_standing_army"
+		texturefile = "gfx//interface//buildings//b_standing_army.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_b_limited_conscription"
+		texturefile = "gfx//interface//buildings//b_limited_conscription.dds"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_b_extensive_conscription"
+		texturefile = "gfx//interface//buildings//b_extensive_conscription.dds"
 		loadType = "INGAME"
 	}
 	

@@ -1,0 +1,19 @@
+#2738 - Waitaha
+
+latent_trade_goods = {
+	coal
+}
+
+culture = polynesian
+religion = animism
+hre = no
+trade_goods = unknown
+base_manpower = 2
+base_tax = 3 
+base_production = 3
+capital = "Waitaha"
+native_size = 10
+native_ferocity = 4
+native_hostileness = 9
+
+1642.1.1 = { discovered_by = NED } # Abel Tasman

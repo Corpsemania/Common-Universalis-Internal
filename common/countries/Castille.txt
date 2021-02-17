@@ -7,8 +7,8 @@ color = { 193  171  8 }
 revolutionary_colors = { 5  8  5 }
 
 historical_idea_groups = {
-	exploration_ideas #DIP
 	religious_ideas #ADM
+	exploration_ideas #DIP
 	offensive_ideas	#MIL
 	quality_ideas #MIL
 	expansion_ideas #DIP

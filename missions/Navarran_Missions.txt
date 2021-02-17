@@ -71,7 +71,7 @@ nav_missions_1 = {
 			}
 		}
 		effect = {
-			create_explorer = 50
+			create_explorer = { tradition = 50 }
 			add_country_modifier = {
 				name = "basque_exploration"
 				duration = 7300
@@ -120,7 +120,7 @@ nav_missions_1_b = {
 		provinces_to_highlight = {
 			province_id = 2573
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 				is_city = yes
 			}
 			has_discovered = ROOT
@@ -128,7 +128,7 @@ nav_missions_1_b = {
 		position = 4
 		trigger = {
 			2573 = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 				is_city = yes
 			}
 		}
@@ -169,7 +169,7 @@ nav_missions_1_b = {
 						area = cote_nord_area
 					}
 					NOT = {
-						country_or_non_sovereign_subject_holds = ROOT
+						cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 					}
 				}
 				AND = {
@@ -185,15 +185,15 @@ nav_missions_1_b = {
 			}
 			newfoundland_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			labrador_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			cote_nord_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -273,13 +273,13 @@ nav_missions_2 = {
 		provinces_to_highlight = {
 			area = pyrenees_area
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			pyrenees_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -335,21 +335,21 @@ nav_missions_2 = {
 				area = ile_de_france_area
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			poitou_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			loire_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			ile_de_france_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}		
 		}
 		effect = {
@@ -376,14 +376,14 @@ nav_missions_5 = {
 		provinces_to_highlight = {
 			area = aragon_area
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		position = 3
 		trigger = {
 			aragon_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -402,13 +402,13 @@ nav_missions_5 = {
 		provinces_to_highlight = {
 			region = iberia_region
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			iberia_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {

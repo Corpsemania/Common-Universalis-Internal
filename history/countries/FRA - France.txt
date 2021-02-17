@@ -56,8 +56,8 @@ historical_rival = HAB
 		death_date = 1461.7.22
 		claim = 95
 		adm = 5
-		dip = 6
-		mil = 3
+		dip = 4
+		mil = 5
 	}
 }
 
@@ -69,8 +69,8 @@ historical_rival = HAB
 		dynasty = "de Valois"
 		birth_date = 1403.2.22
 		adm = 5
-		dip = 6
-		mil = 3
+		dip = 4
+		mil = 5
 	}
 	queen = {
         country_of_origin = PRO
@@ -93,7 +93,7 @@ historical_rival = HAB
 		birth_date = 1423.7.3
 		death_date = 1483.8.30
 		claim = 95
-		adm = 5
+		adm = 3
 		dip = 5
 		mil = 2
 	}
@@ -104,7 +104,7 @@ historical_rival = HAB
 	add_queen_personality = zealot_personality
 }
 
-#1425.1.1 = { leader = {	name = "Arthur de Richemont"	type = general	fire = 3	shock = 3	manuever = 4	siege = 1	death_date = 1457.9.23 } }
+1425.1.1 = { leader = {	name = "Arthur de Richemont"	type = general	fire = 3	shock = 3	manuever = 4	siege = 1	death_date = 1457.9.23 } }
 
 1427.1.1 = { leader = {	name = "Jean de Dunois"		type = general	fire = 4	shock = 3	manuever = 3	siege = 1	death_date = 1468.11.24 } }
 
@@ -112,7 +112,7 @@ historical_rival = HAB
 
 1429.4.29 = { leader = { name = "Jeanne d'Arc"		type = general	fire = 3	shock = 6	manuever = 4	siege = 0	female = yes	death_date = 1430.5.23 } }
 
-#1435.1.1 = { leader = { name = "Jean de Xaintrailles" 	type = general	fire = 3	shock = 3	manuever = 4	siege = 1	death_date = 1461.10.7 } }
+1435.1.1 = { leader = { name = "Jean de Xaintrailles" 	type = general	fire = 3	shock = 3	manuever = 4	siege = 1	death_date = 1461.10.7 } }
 
 1439.1.1 = {
 	leader = {
@@ -128,6 +128,13 @@ historical_rival = HAB
 	}
 }
 
+1444.1.1 = {
+	add_country_modifier = {
+		name = thriving_arms_industry
+		duration = 9125
+	}
+}
+
 1455.1.1 = { add_army_professionalism = 0.1 }
 
 1461.7.22 = {
@@ -135,7 +142,7 @@ historical_rival = HAB
 		name = "Louis XI"
 		dynasty = "de Valois"
 		birth_date = 1423.7.3
-		adm = 5
+		adm = 3
 		dip = 5
 		mil = 2
 	}

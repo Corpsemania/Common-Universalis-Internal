@@ -6,10 +6,36 @@ vassal = {
 	end_date = 1526.8.29
 }
 
+vassal = {
+	first = BOH
+	second = GLG
+	start_date = 1444.1.1
+	end_date = 1526.8.29
+}
+vassal = {
+	first = BOH
+	second = OPL
+	start_date = 1444.1.1
+	end_date = 1526.8.29
+}
+
 # Habsburg - Silesia
 vassal = {
 	first = HAB
 	second = SIL
+	start_date = 1526.8.30
+	end_date = 1675.11.21
+}
+
+vassal = {
+	first = HAB
+	second = GLG
+	start_date = 1526.8.30
+	end_date = 1675.11.21
+}
+vassal = {
+	first = HAB
+	second = OPL
 	start_date = 1526.8.30
 	end_date = 1675.11.21
 }
@@ -115,6 +141,14 @@ union = {
 	second = BOH
 	start_date = 1619.8.27
 	end_date = 1620.8.11
+}
+
+# Croatia-Hungary, post-Ladislaus of Naples' attempt to take the Croatian and Hungarian crowns
+union = {
+	first = HUN
+	second = CRO
+	start_date = 1409.1.1
+	end_date = 1526.8.30
 }
 
 # Brandenburg-Ansbach (Albrecht Achilles)

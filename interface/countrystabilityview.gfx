@@ -4,10 +4,38 @@ spriteTypes = {
 		name = "GFX_disaster_icon"
 		texturefile = "gfx/interface/disaster_icon.dds"
 	}
+	
+	spriteType = {
+		name = "GFX_disaster_pol_struggle_for_royal_power_disaster"
+		texturefile = "gfx//interface//disasters//pol_struggle_for_royal_power_disaster.dds"
+		noOfFrames = 3
+		loadType = "INGAME"
+	}
 
 	spriteType = {
 		name = "GFX_disaster_ming_crisis"
 		texturefile = "gfx//interface//disasters//ming_crisis.dds"
+		noOfFrames = 3
+		loadType = "INGAME"
+	}
+	
+	spriteType = {
+		name = "GFX_disaster_dutch_revolt_disaster"
+		texturefile = "gfx//interface//disasters//dutch_revolt_disaster.dds"
+		noOfFrames = 3
+		loadType = "INGAME"
+	}
+	
+	spriteType = {
+		name = "GFX_disaster_ambrosian_republic_disaster"
+		texturefile = "gfx//interface//disasters//ambrosian_republic_disaster.dds"
+		noOfFrames = 3
+		loadType = "INGAME"
+	}
+	
+	spriteType = {
+		name = "GFX_disaster_bonfire_of_the_vanities_disaster"
+		texturefile = "gfx//interface//disasters//bonfire_of_the_vanities_disaster.dds"
 		noOfFrames = 3
 		loadType = "INGAME"
 	}
@@ -311,7 +339,7 @@ spriteTypes = {
 
 	spriteType = {
 		name = "GFX_possible_rebels_entry_bg"
-		texturefile = "gfx/interface/possible_rebels_entry_bg.dds"
+		texturefile = "gfx/interface/possible_rebels_entry_bg_488.dds"
 	}
 
 	spriteType = {
@@ -326,7 +354,7 @@ spriteTypes = {
 
 	spriteType = {
 		name = "GFX_rebels_entry_bg"
-		texturefile = "gfx//interface//rebels_entry_bg.dds"
+		texturefile = "gfx//interface//rebels_entry_bg_488.dds"
 		loadType = "INGAME"
 		transparencecheck = yes
 	}
@@ -378,6 +406,17 @@ spriteTypes = {
 		loadType = "INGAME"
 	}
 	
+	spriteType = {
+		name = "GFX_government_boost_states"
+		texturefile = "gfx/interface/boost_states_button/boost_states_icon.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_government_veto_current_heir"
+		texturefile = "gfx//interface//veto_current_heir_button.dds"
+		loadType = "INGAME"
+	}
 
 	
 	
@@ -534,5 +573,31 @@ spriteTypes = {
 		name = "GFX_icon_states"
 		texturefile = "gfx/interface/icon_states.dds"
 	}		
+	
+	spriteType = {
+		name = "GFX_icon_national_unrest"
+		texturefile = "gfx//interface//ideas_EU4//global_unrest.dds"
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_disaster_estate_qinwang_disaster"
+		texturefile = "gfx//interface//disasters//estate_rajput_disaster.dds"
+		noOfFrames = 3
+		loadType = "INGAME"
+	}
+
+	spriteType = {
+		name = "GFX_disaster_estate_shishen_disaster"
+		texturefile = "gfx//interface//disasters//estate_church_disaster.dds"
+		noOfFrames = 3
+		loadType = "INGAME"
+	}	
+
+	spriteType = {
+		name = "GFX_governing_capacity"
+		texturefile = "gfx//interface//ideas_EU4//governing_capacity.dds"
+		loadType = "INGAME"
+	}
 	
 }

@@ -233,7 +233,7 @@ country_event = {
 	option = {
 		name = flavor_eth.6.b	
 		ai_chance = { factor = 10 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	
 }
@@ -260,7 +260,7 @@ country_event = {
 	option = { #This is how it always has been
 		name = flavor_eth.7.a 
 		ai_chance = { factor = 50 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		set_country_flag = eth_itinerant_capital_flag
 	}
 	
@@ -324,7 +324,7 @@ country_event = {
 	option = {
 		name = flavor_eth.8.b #Let us not break with tried traditions
 		ai_chance = { factor = 10 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -406,7 +406,7 @@ country_event = {
 	option = {
 		name = flavor_eth.10.b #Let us not break with tried traditions
 		ai_chance = { factor = 10 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -732,7 +732,7 @@ country_event = {
 	option = {
 		name = flavor_eth.19.b #We must safeguard the privileges of the Monasteries.
 		ai_chance = { factor = 50 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		every_owned_province = {
 			limit = {
 				has_province_flag = eth_strong_monastaries
@@ -772,7 +772,7 @@ country_event = {
 	option = {
 		name = flavor_eth.20.a #We cannot break with our Patriarch
 		ai_chance = { factor = 90 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	option = {
 		name = flavor_eth.20.b #Our Church should be free of foreign influence.
@@ -1047,7 +1047,7 @@ country_event = {
 	option = {
 		name = flavor_eth.26.a #We are fortunate that our ancestors had such foresight.
 		ai_chance = { factor = 90 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		define_heir = {
 			claim = 100
 			dynasty = ROOT

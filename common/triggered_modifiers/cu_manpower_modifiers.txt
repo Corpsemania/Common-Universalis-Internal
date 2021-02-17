@@ -1,34 +1,34 @@
 cu_patriotism_1 = {
 	potential = {
-		   full_idea_group = defensive_ideas
-		   
+		full_idea_group = defensive_ideas
+		is_at_war = yes
     }
 	trigger = {
-	       NOT = { war_score = -1 } 
-		   war_score = -5
+		NOT = { war_score = -1 } 
+		war_score = -5
 	}
 	war_exhaustion = -0.01
 }
 
 cu_patriotism_2 = {
 	potential = {
-		   full_idea_group = defensive_ideas
-		   
+		full_idea_group = defensive_ideas
+		is_at_war = yes
     }
 	trigger = {
-	       NOT = { war_score = -5 } 
-		   war_score = -10
+	    NOT = { war_score = -5 } 
+		war_score = -10
 	}
 	war_exhaustion = -0.03
 }
 
 cu_patriotism_3 = {
 	potential = {
-		   full_idea_group = defensive_ideas
-		   
+		full_idea_group = defensive_ideas
+		is_at_war = yes 
     }
 	trigger = {
-	       NOT = { war_score = -10 } 
+	    NOT = { war_score = -10 } 
 	}
 	war_exhaustion = -0.05
 }
@@ -88,10 +88,7 @@ cu_manpower_recovery_2 = {
 
 cu_manpower_recovery_3 = {
 	potential = {
-	       OR = {
-				  has_reform = standing_army
-				   manpower_percentage = 0.3
-		   }
+	       manpower_percentage = 0.3
 		   NOT = { manpower_percentage = 0.4 }
 		  
 		   OR = {
@@ -131,11 +128,7 @@ cu_manpower_recovery_4 = {
 cu_manpower_recovery_5 = {
 	potential = {
 		   NOT = { manpower_percentage = 0.6 }
-		   OR = {
-		          has_reform = tribal_conscription
-				  has_reform = military_household
-				  manpower_percentage = 0.5
-		    }
+			manpower_percentage = 0.5
 		   OR = {
 				  has_reform = tribal_conscription
 				  has_reform = military_household
@@ -156,10 +149,7 @@ cu_manpower_recovery_5 = {
 cu_manpower_recovery_6 = {
 	potential = {
 	       NOT = { manpower_percentage = 0.7 }
-		   OR = {
-		          has_reform = volunteer_training
-				  manpower_percentage = 0.6
-		    }
+			manpower_percentage = 0.6
 		   OR = {
 		          has_reform = volunteer_training
 				  has_reform = tribal_conscription

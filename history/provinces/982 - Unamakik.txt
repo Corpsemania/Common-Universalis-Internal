@@ -1,0 +1,44 @@
+#982 - Unamakik
+
+latent_trade_goods = {
+	coal
+}
+
+culture = mikmaq
+religion = totemism
+capital = "Unamakik"
+trade_goods = unknown
+hre = no
+base_tax = 1
+base_production = 1
+base_manpower = 1
+native_size = 5
+native_ferocity = 1
+native_hostileness = 1
+discovered_by = north_american
+
+1497.6.24 = { discovered_by = ENG } # John Cabot
+
+1629.1.1 = {
+	owner = FRA
+	controller = FRA
+	add_core = FRA
+	is_city = yes
+	culture = cosmopolitan_french
+	religion = catholic
+	trade_goods = naval_supplies
+} # Founding of Fort Ste-Anne
+1707.5.12 = { discovered_by = GBR } 
+1719.1.1 = { capital = "Louisbourg" }
+1720.1.1 = { fort_18th = yes }
+1745.6.16 = { controller = GBR } # The French forces capitulated
+1748.10.18 = { controller = FRA } # Treaty of Aix-la-Chapelle
+1758.7.26 = { controller = GBR } # The French surrender
+1763.2.10 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+	remove_core = FRA
+	culture = english
+	religion = protestant
+} # Treaty of Paris, ceded to Britain

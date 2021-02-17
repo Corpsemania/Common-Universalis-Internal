@@ -190,7 +190,7 @@ invite_to_celestial_empire = {
 						   who = PREV
 				   }
 				   export_to_variable = {
-				           which = co_dev
+				           which = cs_dev
 						   value = total_development
 				   }
 				   set_variable = { which = cr_dev value = 3 }
@@ -232,6 +232,21 @@ designate_dominion = {
 				}
 	    }
 		overlord_of = FROM
+		OR = {
+			ai = no
+			AND = {
+				ai = yes
+				FROM = {
+					capital_scope = {
+						OR = {
+							continent = new_world
+							continent = north_america
+							continent = south_america
+						}
+					}
+				}
+			}
+		}
 	}
 	is_allowed = {
 	    dip_tech = 15
@@ -265,6 +280,7 @@ designate_dominion = {
 		always = yes
 	}
 }
+
 cu_steal_money = {
 	category = covert
 	
@@ -354,6 +370,7 @@ cu_sabotage_enemy_supply = {
 		always = yes
 	}
 }
+
 cu_steal_art_piece = {
 	category = covert
 	
@@ -447,6 +464,16 @@ cu_ask_for_tribute = {
 		FROM = { is_subject = no }
 		FROM = { is_emperor = no }
 		NOT = { any_country = { is_subject_of = FROM } }
+		NOT = {
+			FROM = { 
+				OR = {
+					has_reform = zhuhou
+					has_reform = chinese_revolter
+					has_reform = celestial_empire
+					has_reform = celestial_empire_2
+				}
+			}
+		}
 	}
 	on_accept = {
 		create_subject = {

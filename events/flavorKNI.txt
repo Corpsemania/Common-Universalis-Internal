@@ -251,7 +251,7 @@ country_event = {
 	option = {		# Give Malta to the Knights of St:John
 		name = "flavor_spa.EVTOPTA3156"
 		ai_chance = { factor = 50 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		126 = {
 			remove_core = ROOT
 			cede_province = KNI

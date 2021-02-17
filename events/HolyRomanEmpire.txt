@@ -436,7 +436,7 @@ country_event = {
 			any_country = {
 				overlord_of = ROOT
 				is_part_of_hre = yes
-				culture_group = germanic
+				cu_germanic_group = yes
 			}
 		}
 	}
@@ -793,7 +793,7 @@ country_event = {
 		name = "hre_event.6.a" #Ok.
 		every_province = { 
 			limit = { 
-				culture_group = germanic 
+				cu_germanic_group = yes 
 				OR = {
 					owned_by = ROOT
 					owner = { is_subject_of = ROOT }

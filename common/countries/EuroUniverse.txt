@@ -172,7 +172,7 @@ leader_names = {
 
 ship_names = {
     l'Actif l'Actionnaire l'Aigle l'Alcide l'Alexandre l'Ambitieux l'Amphion l'Ardente l'Arrogant l'Artésien l'Assur?l'Astrée
-	"la Belle Poule" "le Bourbon" "le Brillant" "le Bien Aim? "la Bizarre" "la Bretagne" "la Borée" "la Bourgogne" "le Brave" 
+	"la Belle Poule" "le Bourbon" "le Brillant" "le Bien Aim" "la Bizarre" "la Bretagne" "la Borée" "la Bourgogne" "le Brave" 
 	"le Caton" "le Conquérant" "le Content" "la Couronne" 
 	"le Dauphin Royal" "le Destin" "le Diadème" "le Duc de Bourgogne" 
 	"l'Eveill"l'Emérillon"

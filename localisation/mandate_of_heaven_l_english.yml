@@ -49,7 +49,7 @@
  HARMONY_LOSS_FROM_CONV:0 "This decreases our Harmony by §R$VAL$§!."
  HARMONY_FROM_HARMONIZING:0 "Harmonizing $RELIGION$: $VAL$"
  MISSIONARY_HARMONY_LOSS_DESC:1 "Converting this province will decrease Harmony by §R$VAL$§!\n(§R$LOSS_PER_DEV$§! per Development)."
- MODIFIER_YEARLY_HARMONY:0 "Yearly Harmony Increase"
+ MODIFIER_YEARLY_HARMONY:0 "Yearly Land Annexiation Decress"
  low_harmony:0 "Low Harmony"
  high_harmony:0 "High Harmony"
  overlord_daimyo_at_peace:0 "Daimyos at peace"

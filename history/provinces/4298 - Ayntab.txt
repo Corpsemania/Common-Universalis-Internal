@@ -2,7 +2,7 @@
 
 owner = DUL
 controller = DUL
-culture = turkish
+culture = al_suryah_arabic
 religion = sunni
 capital = "Ayntab"
 trade_goods = wool

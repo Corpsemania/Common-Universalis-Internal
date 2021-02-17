@@ -114,6 +114,12 @@ cu_calc_adm_tech_cost = {
 	multiply_variable = { which = adm_resp value = 10 }
 	set_variable = { which = at_asy which = adm_tc }
 	subtract_variable = { which = at_asy which = resa }
+	if = { # same effect as what game does, but without the report in the error log
+		limit = {
+			is_variable_equal = { which = p_resa value = 0 }
+		}
+		set_variable = { which = p_resa value = 0.001 }
+	}
 	divide_variable = { which = at_asy which = p_resa }
 	
 	
@@ -225,6 +231,12 @@ cu_calc_dip_tech_cost = {
 	multiply_variable = { which = dip_resp value = 10 }
 	set_variable = { which = dt_asy which = dip_tc }
 	subtract_variable = { which = dt_asy which = resd }
+	if = { # same effect as what game does, but without the report in the error log
+		limit = {
+			is_variable_equal = { which = p_resd value = 0 }
+		}
+		set_variable = { which = p_resd value = 0.001 }
+	}
 	divide_variable = { which = dt_asy which = p_resd }
 	
 	
@@ -332,6 +344,12 @@ cu_calc_mil_tech_cost = {
 	multiply_variable = { which = mil_resp value = 10 }
 	set_variable = { which = mt_asy which = mil_tc }
 	subtract_variable = { which = mt_asy which = resm }
+	if = { # same effect as what game does, but without the report in the error log
+		limit = {
+			is_variable_equal = { which = p_resm value = 0 }
+		}
+		set_variable = { which = p_resm value = 0.001 }
+	}
 	divide_variable = { which = mt_asy which = p_resm }
 						
 	

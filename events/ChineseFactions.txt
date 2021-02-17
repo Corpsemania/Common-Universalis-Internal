@@ -212,7 +212,7 @@ country_event = {
 		name = "china_events.3.a"
 		add_meritocracy = -5
 		boost_eunuchs_effect = yes
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	
 	option = {
@@ -246,7 +246,7 @@ country_event = {
 	
 	option = {
 		name = "china_events.4.a"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_meritocracy = -10
 		reduce_eunuchs_effect = yes
 	}
@@ -542,7 +542,7 @@ country_event = {
 	
 	option = {
 		name = "china_events.11.a"
-		add_meritocracy_large_effect = yes
+		add_meritocracy = 10
 		boost_bureaucrats_large_effect = yes
 		if = {
 			limit = { NOT = { has_dlc = "Mandate of Heaven" } }
@@ -668,9 +668,7 @@ country_event = {
 	option = {
 		name = "china_events.13.a"
 		boost_temples_effect = yes
-		event_target:levy_province = {
-			add_base_manpower = 1
-		}
+		add_manpower = 2
 	}
 	
 	option = {
@@ -684,11 +682,6 @@ country_event = {
 					limit = { NOT = { prosperity = 100 } }
 					add_prosperity = 50
 				}
-				add_base_manpower = 1
-			}
-			if = {
-				limit = { NOT = { has_dlc = "Mandate of Heaven" } }
-				add_base_manpower = 1
 			}
 		}
 	}
@@ -898,7 +891,7 @@ country_event = {
 		}
 		if = {
 			limit = { NOT = { has_dlc = "Mandate of Heaven" } }
-			add_stability_or_adm_power = yes
+			cu_change_stability_point_p50 = yes
 		}
 	}
 	
@@ -938,7 +931,7 @@ country_event = {
 	
 	option = {
 		name = "china_events.17.a"
-		add_meritocracy_effect = yes
+		add_meritocracy = 5
 		boost_bureaucrats_effect = yes
 	}
 	
@@ -1590,7 +1583,7 @@ country_event = {
 			limit = {
 				NOT = { has_dlc = "Mandate of Heaven" }
 			}
-			add_stability_or_adm_power = yes
+			cu_change_stability_point_p50 = yes
 			add_legitimacy = 5
 		}
 	}
@@ -1631,7 +1624,7 @@ country_event = {
 	}
 	option = {
 		name = "china_events.29.b"
-		add_meritocracy_effect = yes
+		add_meritocracy = 5
 		boost_bureaucrats_effect = yes
 		if = {
 			limit = {
@@ -1674,7 +1667,7 @@ country_event = {
 		name = "china_events.30.a"
 		custom_tooltip = china_events.30.a.tt
 		add_meritocracy = 5
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	
 	option = {
@@ -1709,13 +1702,13 @@ country_event = {
 		add_dip_power = -75
 		add_mil_power = -75
 		add_years_of_income = -0.5
-		add_meritocracy_effect = yes
+		add_meritocracy = 5
 		add_mandate_large_effect = yes
 	}
 	
 	option = {
 		name = "china_events.31.b"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	
 	option = {
@@ -1770,7 +1763,7 @@ country_event = {
 		add_meritocracy = -5
 		if = {
 			limit = { NOT = { has_dlc = "Mandate of Heaven" } }
-			add_stability_or_adm_power = yes
+			cu_change_stability_point_p50 = yes
 			add_legitimacy = 5
 		}
 	}
@@ -1974,7 +1967,7 @@ country_event = {
 	
 	option = {
 		name = "china_events.36.a"
-		add_meritocracy_effect = yes
+		add_meritocracy = 5
 		boost_bureaucrats_effect = yes
 		add_adm_power = 10
 	}
@@ -2161,7 +2154,7 @@ country_event = {
 		boost_eunuchs_effect = yes
 		add_mil_power = -50
 		add_legitimacy = 5
-		add_meritocracy_effect = yes
+		add_meritocracy = 5
 	}
 }
 
@@ -3224,7 +3217,7 @@ country_event = {
 	
 	option = {
 		name = "china_events.60.b" #Rescind them!
-		add_meritocracy = 50
+		add_meritocracy = 5
 		if = {
 			limit = {
 				NOT = { has_dlc = "Mandate of Heaven" }

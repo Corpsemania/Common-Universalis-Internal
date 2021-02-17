@@ -1,0 +1,7 @@
+#Country Name: Please see filename.
+
+graphical_culture = easterngfx
+
+color = { 25  0  140 }
+
+historical_score = 0

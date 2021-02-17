@@ -161,7 +161,7 @@ andalusia_slot_1_missions = {
 		}
 		
 		effect = {
-				add_dip_power = 100
+			add_dip_power = 100
 		}
 	}
 	
@@ -362,7 +362,7 @@ granada_slot_2_missions = {
 					add_permanent_claim = ROOT
 				}
 			}
-			4547 = {
+			8529 = {
 				if = {
 					limit = {
 						NOT = {
@@ -409,7 +409,7 @@ granada_slot_2_missions = {
 		provinces_to_highlight = {
 			OR = {
 				province_id = 221
-				province_id = 4547
+				province_id = 8529
 				area = valencia_area
 			}
 			NOT = {
@@ -422,7 +422,7 @@ granada_slot_2_missions = {
 				owned_by = ROOT
 				is_core = ROOT
 			}
-			4547 = {
+			8529 = {
 				owned_by = ROOT
 				is_core = ROOT
 			}
@@ -440,7 +440,7 @@ granada_slot_2_missions = {
 					duration = 7300
 				}
 			}
-			4547 = {
+			8529 = {
 				add_province_modifier = {
 					name = gra_rebuilding_mosques
 					duration = 7300
@@ -620,15 +620,6 @@ adu_slot_2_missions = {
 				}
 				add_permanent_claim = ROOT
 			}
-			asturias_area = {
-				limit = {
-					NOT = {
-						owned_by = ROOT
-						is_core = ROOT
-					}
-				}
-				add_permanent_claim = ROOT
-			}
 			leon_area = {
 				limit = {
 					NOT = {
@@ -668,7 +659,6 @@ adu_slot_2_missions = {
 		provinces_to_highlight = {
 			OR = {
 				area = asturias_area
-				area = asturias_area
 				area = leon_area
 				area = basque_country
 				area = catalonia_area
@@ -681,11 +671,6 @@ adu_slot_2_missions = {
 		}
 		
 		trigger = {
-			asturias_area = {
-				type = all
-				owned_by = ROOT
-				is_core = ROOT
-			}
 			asturias_area = {
 				type = all
 				owned_by = ROOT
@@ -1102,7 +1087,7 @@ andalusia_slot_3_missions_b = {
 		
 		provinces_to_highlight = {
 			colonial_region = colonial_the_carribean
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 			has_discovered = ROOT
 		}
 		
@@ -1356,21 +1341,21 @@ andalusia_slot_4_missions = {
 				area = marrekesh_area
 				area = western_morocco_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 		
 		trigger = {
 			northern_morocco_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			marrekesh_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			western_morocco_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		
@@ -1428,7 +1413,7 @@ andalusia_slot_4_missions_b = {
 		
 		provinces_to_highlight = {
 			colonial_region = colonial_brazil
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 			has_discovered = ROOT
 		}
 		

@@ -94,7 +94,7 @@ wargoal_hyw = {
 		
 		peace_options = {
 		   po_demand_provinces
-		   po_form_personal_union = yes
+		   po_form_personal_union
 	    }
 		prov_desc = ALL_CORES	
 	}

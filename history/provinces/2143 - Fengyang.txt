@@ -3,16 +3,17 @@
 owner = MNG
 controller = MNG
 add_core = MNG
-culture = zhongyuan
+culture = jianghuai
 religion = confucianism
 capital = "Fengyang"
 trade_goods = silk
 hre = no
-base_tax = 3 
+base_tax = 1 
 
-base_production = 3
-base_manpower = 2
+base_production = 2
+base_manpower = 4
 is_city = yes
+set_province_flag = cu_neednt_dev_initialize
 discovered_by = chinese
 discovered_by = indian
 discovered_by = nomad_group

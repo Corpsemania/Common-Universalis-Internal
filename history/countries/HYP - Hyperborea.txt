@@ -1,0 +1,6 @@
+government = monarchy
+add_government_reform = hyperborean_government
+technology_group = eastern
+primary_culture = russian
+religion = slavic_pagan_reformed
+capital = 1955

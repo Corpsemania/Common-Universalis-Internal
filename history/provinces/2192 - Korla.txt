@@ -3,7 +3,7 @@
 owner = KAS
 controller = KAS
 add_core = KAS
-culture = yughur
+culture = uzbehk
 religion = vajrayana
 capital = "Korla"
 trade_goods = grain

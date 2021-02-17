@@ -109,7 +109,7 @@ country_decisions = {
 			}
 			add_prestige = 25
 			if = {
-				limit = { government = tribal }
+				limit = { government = native }
 				add_government_reform = becomes_monarchy_reform
 				add_government_reform = court_despotism
 			}

@@ -16,7 +16,15 @@ guiTypes = {
 		iconType =
 		{
 			name ="domesticpanel_bg"
-			spriteType = "GFX_country_ideas_view_bg"
+			if_resolution = {
+				max_height = 867
+				spriteType = "GFX_country_ideas_view_bg"
+			}
+			if_resolution = {
+				min_height = 868
+				spriteType = "GFX_country_ideas_view_bg_huge"
+			}
+			
 			position = {  x= -7 y = -10 }
 			Orientation = "UPPER_LEFT"
 
@@ -167,7 +175,14 @@ guiTypes = {
 			name = "ideagroups_listbox_left"
 			backGround = ""
 			position = { x=17 y=243 }
-			size = { x=250 y=500 }
+			if_resolution = {
+				max_height = 867
+				size = { x=250 y=330 }
+			}
+			if_resolution = {
+				min_height = 868
+				size = { x=250 y=500 }
+			}
 			Orientation = "UPPER_LEFT"
 			horizontal = 0
 			spacing = 1
@@ -179,7 +194,14 @@ guiTypes = {
 			name = "ideagroups_listbox_right"
 			backGround = ""
 			position = { x=281 y=243 }
-			size = { x=250 y=500 }
+			if_resolution = {
+				max_height = 867
+				size = { x=250 y=330 }
+			}
+			if_resolution = {
+				min_height = 868
+				size = { x=250 y=500 }
+			}
 			Orientation = "UPPER_LEFT"
 			horizontal = 0
 			spacing = 1

@@ -3,7 +3,7 @@
 owner = TEU
 controller = TEU
 capital = "Königsberg"
-culture = prussian
+culture = low_prussian
 religion = catholic
 trade_goods = gems #Amber
 hre = no

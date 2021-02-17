@@ -36,7 +36,7 @@ cu_planting_tea = {
 
 cu_new_plantation = {
        trade_goods_size_modifier = -0.15
-	   local_development_cost = -0.05
+	   local_development_cost = -0.10
 }
 
 cu_dig_for_minerals = {
@@ -44,7 +44,7 @@ cu_dig_for_minerals = {
 }
 
 gold_mine_discovered = {
-      local_development_cost = -0.1
+      local_development_cost = -0.15
 }
 
 copper_mine_discovered = {

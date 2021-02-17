@@ -1,0 +1,28 @@
+#1105 - Vestbygden
+
+culture = inuit
+religion = animism
+capital = "Vestbygden"
+trade_goods = unknown
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+native_size = 5
+native_ferocity = 2
+native_hostileness = 9
+
+
+
+
+1720.1.1 = { discovered_by = DAN }
+
+1721.1.1 = {
+	owner = DAN
+	controller = DAN
+	add_core = DAN
+	culture = danish
+	trade_goods = fur
+	religion = protestant
+	is_city = yes
+}

@@ -111,13 +111,28 @@ country_decisions = {
 				  mil_tech = 3
 			}
 			NOT = { has_country_flag = cu_making_battle_plan }
+			OR = {
+				AND = {
+					OR = {
+						NOT = { has_country_flag = ai_made_plan_cu }
+						had_country_flag = {
+							flag = ai_made_plan_cu #AI checks plan once per year.
+							days = 365
+						}
+					}
+					ai = yes
+				}
+				ai = no
+			}
 		}
 		allow = {
 			
 		}
 		effect = {
-			country_event = { id = ideagroups.4930 }
+			country_event = { id = ideagroups.5000 }
 			set_country_flag = cu_making_battle_plan
+			clr_country_flag = ai_made_plan_cu 
+			set_country_flag = ai_made_plan_cu 
 		}
 		ai_will_do = {
 			factor = 1

@@ -1,0 +1,4 @@
+ai_navy_oversized = {
+	global_ship_recruit_speed = 10
+	naval_maintenance_modifier = -0.25
+}

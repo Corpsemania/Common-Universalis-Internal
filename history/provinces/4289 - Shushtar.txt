@@ -2,10 +2,10 @@
 
 owner = MSY
 controller = MSY
-culture = persian
+culture = luri
 religion = shiite
 capital = "Shushtar"
-trade_goods = livestock
+trade_goods = silk
 hre = no
 base_tax = 2 
 base_production = 2

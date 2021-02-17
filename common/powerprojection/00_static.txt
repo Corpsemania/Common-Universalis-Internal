@@ -77,6 +77,15 @@ current_age_power_projection = {
 	max = 28
 }
 
+is_hegemon = {
+	power = 15
+}
+
+allied_to_hegemon = {
+	power = -10
+	min = -20
+}
+
 ##################################
 # DYNAMIC, ADDED AND THEN DECAYED
 ##################################
@@ -157,6 +166,25 @@ rival_lost_province = {
 	power = 0.5			# multiplied with basetax
 	yearly_decay = 1
 	max = 100
+}
+
+spread_revolution_to_enemy = {
+	power = 0.1			# multiplied by development
+	yearly_decay = 1
+	max = 50
+}
+
+spread_revolution_to_us = {
+	power = -0.1			# multiplied by development
+	yearly_decay = 1
+	min = -50
+}
+
+#Use this one when adding power projection when via add_power_projection, unless you have a specific reason to use another
+mission_rewards_power_projection = {
+	max = 100
+	power = 1
+	yearly_decay = 1
 }
 
 ##################################

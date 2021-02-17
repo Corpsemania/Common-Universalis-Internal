@@ -1,0 +1,39 @@
+#4118 - Earldom of Desmond
+
+owner = DMS
+controller = DMS
+culture = irish
+religion = catholic
+hre = no
+base_tax = 2
+base_production = 3
+trade_goods = copper
+base_manpower = 1
+capital = "Cork"
+is_city = yes
+add_core = DMS
+discovered_by = western
+discovered_by = muslim
+discovered_by = ottoman
+discovered_by = eastern
+extra_cost = 8
+center_of_trade = 1
+
+1583.1.1 = { owner = ENG controller = ENG add_core = ENG }
+1642.1.1 = { revolt = { type = nationalist_rebels size = 1 } controller = REB }
+1642.6.7 = {
+	revolt = {}
+	owner = IRE
+	controller = IRE
+	add_core = IRE
+} # Confederation of Kilkenny
+1650.4.10 = { controller = ENG } # Battle of Macroom
+1652.4.1 = { owner = ENG } # End of the Irish Confederates
+1689.3.12 = { revolt = { type = nationalist_rebels size = 0 } controller = REB } # James II Lands in Ireland
+1690.9.15 = { revolt = {} controller = ENG }
+1707.5.12 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+	remove_core = ENG
+}

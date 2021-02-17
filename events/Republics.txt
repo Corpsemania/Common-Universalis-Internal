@@ -275,7 +275,7 @@ country_event = {
 	
 	option = {
 		name = republics.7.a
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_republican_tradition = -10
 	}
 
@@ -1560,7 +1560,7 @@ country_event = {
 			}
 		}
 		add_years_of_income = -0.10
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 

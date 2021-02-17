@@ -104,7 +104,7 @@ country_event = {
 	option = { 
 		name = flavor_son.3.a
 		add_prestige = 25
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_legitimacy = 25
 		hidden_effect = {
    		 set_variable = { which = cu_var1 value = 2 }

@@ -1,0 +1,45 @@
+#Ösel and Dagö, incl. Sonnenburg and Arensburg.
+
+owner = LIV
+controller = LIV
+add_core = LIV
+add_core = EST
+culture = estonian
+religion = catholic
+hre = no
+base_tax = 1 
+base_production = 1
+trade_goods = grain
+base_manpower = 1
+capital = "Arensburg"
+is_city = yes
+
+
+
+discovered_by = western
+discovered_by = eastern
+
+
+1542.1.1 = { religion = protestant} # Unknown date
+1559.1.1 = {
+	owner = DAN
+	controller = DAN
+	add_core = DAN
+	remove_core = LIV
+} # Danish purchase
+1568.7.25 = { controller = SWE } # Nordic Seven-year War
+1570.12.13 = { controller = DAN } # The Peace of Stettin
+1645.8.13 = {
+	owner = SWE
+	controller = SWE
+	add_core = SWE
+	remove_core = DAN
+	estate = estate_nobles
+} # The Peace of Brömsebro
+1710.9.20 = { controller = RUS }
+1721.8.30 = {
+	owner = RUS
+	add_core = RUS 
+	remove_core = SWE
+} # The Peace of Nystad
+

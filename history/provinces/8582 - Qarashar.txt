@@ -3,7 +3,7 @@
 owner = CHG
 controller = CHG
 add_core = CHG
-culture = yughur
+culture = uzbehk
 religion = vajrayana
 capital = "Qarashar"
 trade_goods = wool

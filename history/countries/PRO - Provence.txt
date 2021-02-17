@@ -77,6 +77,11 @@ capital = 201 # Aix-en-Provence
 		dip = 2
 		mil = 2
 	}
+	add_ruler_modifier = {
+		name = rene_alive_cu
+		duration = -1
+		hidden = yes
+	}
 }
 
 1435.2.2 = { add_accepted_culture = sicilian }

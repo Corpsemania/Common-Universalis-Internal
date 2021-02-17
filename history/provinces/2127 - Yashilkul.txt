@@ -3,7 +3,7 @@
 owner = KAS
 controller = KAS
 add_core = KAS
-culture = tajiki
+culture = sarikol
 religion = shiite
 capital = "Yashilkul"
 trade_goods = livestock

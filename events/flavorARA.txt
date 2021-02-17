@@ -149,7 +149,7 @@ country_event = {
 	}
 	option = {
 		name = "flavor_ara.EVTOPTB4"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_innovativeness_small_effect = yes
 		hidden_effect = {
    		 set_variable = { which = cu_var1 value = 2  }

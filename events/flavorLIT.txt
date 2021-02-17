@@ -708,7 +708,7 @@ country_event = {
 	
 	option = {
 		name = "flavor_lit.EVTOPTA11"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_years_of_income = -0.5
 		every_owned_province = {
 			limit = {

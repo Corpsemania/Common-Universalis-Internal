@@ -177,3 +177,6 @@
  announce_sea_trade_ban_title: "Bans Maritime Trade"
  announce_sea_trade_ban_desc: "The bans on maritime trade is a necessary policy to reduce wokou activity and assert our authority in our tributary sphere."
  announce_sea_trade_ban_tooltip: "§GFrequency of Wokou Activity will be reduced by 66%.§!\n§RThe people of our coastal provinces my join wokou, increasing wokou strength and frequency to attack."
+ lost_mandate_cu: "§RLost Mandate!§!"
+ lack_of_chinese_land: "Lack Of Chinese Land"
+ lack_of_chinese_land_desc: "Although we are still the nominal Chinese emperor, the Chinese land under our rule is too small, and we are gradually losing control of the empire. And our people have begun to question the mandate of our ruler."

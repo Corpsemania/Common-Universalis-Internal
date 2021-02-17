@@ -2,7 +2,7 @@
 
 owner = PSA
 controller = PSA
-culture = sumatran
+culture = acehnese
 religion = sunni
 capital = "Lamuri"
 trade_goods = spices

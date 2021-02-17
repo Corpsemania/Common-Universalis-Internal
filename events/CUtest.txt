@@ -1,0 +1,63 @@
+namespace = cutest
+province_event = {
+	id = cutest.00
+	title = "cutest_titl"
+	desc = "cutest_desc"
+	picture = COLONIZATION_eventPicture
+	#fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = "govstart.a"
+		cu_calc_province_absolute_dist = yes
+	}
+}
+province_event = {
+	id = cutest.01
+	title = "cutest_titl"
+	desc = "cutest_desc"
+	picture = COLONIZATION_eventPicture
+	#fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = "govstart.a"
+		932= {
+			 #set_variable = { which = x_coor value = 1629 } set_variable = { which = y_coor value = 1768 } 
+			 log = "[This.x_coor.GetValue] [This.y_coor.GetValue]"
+		}
+		985= {
+			#set_variable = { which = x_coor value = 1629 } set_variable = { which = y_coor value = 1768 } 
+			log = " [This.x_coor.GetValue] [This.y_coor.GetValue]"
+	   	}
+	}
+}
+country_event = {
+	id = cutest.02
+	title = "cutest_titl"
+	desc = "cutest_desc"
+	picture = COLONIZATION_eventPicture
+	#fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = "govstart.a"
+		every_province = {
+			cu_province_initialization = yes
+		}
+	}
+}
+country_event = {
+	id = cutest.03
+	title = "cutest_titl"
+	desc = "cutest_desc"
+	picture = COLONIZATION_eventPicture
+	#fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = "govstart.a"
+		every_province = {
+			cancel_construction = yes
+		}
+		every_country = {
+			remove_country_modifier = ai_navy_oversized
+		}
+	}
+}

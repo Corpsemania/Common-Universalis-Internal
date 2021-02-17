@@ -3,7 +3,7 @@
 owner = KAS
 controller = KAS
 add_core = KAS
-culture = uyghur
+culture = uzbehk
 religion = sunni
 capital = "Yarkant"
 trade_goods = wool

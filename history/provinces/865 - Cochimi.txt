@@ -1,0 +1,35 @@
+#865 - Cochimi
+
+culture = piman
+religion = animism 
+capital = "Cochimi" 
+trade_goods = unknown 
+hre = no 
+base_tax = 1 
+base_production = 1 
+base_manpower = 1 
+native_size = 5 
+native_ferocity = 1 
+native_hostileness = 3 
+
+
+
+discovered_by = north_american
+
+1540.5.9 = { discovered_by = SPA } # Hernando de Alarcon
+1578.1.1 = { discovered_by = ENG } # Drake 
+
+1750.1.1 = {
+	owner = SPA
+	controller = SPA
+	add_core = SPA
+	is_city = yes
+	culture = castillian
+	religion = catholic
+	trade_goods = fish
+} # First real settlements
+1810.9.16 = {
+	owner = MEX
+	add_core = MEX
+	controller = SPA
+} # Mexican War of Independence

@@ -147,7 +147,7 @@ country_event = {
 	option = {
 		name = flavor_cab.2.b #They'll have to find their own place to live.
 		ai_chance = { factor = 5 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 

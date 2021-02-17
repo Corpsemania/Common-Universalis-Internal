@@ -1,0 +1,22 @@
+#2448 - Fezzan
+
+owner = FZA
+controller = FZA 
+culture = tunisian
+religion = sunni
+capital = "Murzuk"
+trade_goods = ivory
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+is_city = yes
+add_core = FZA
+
+
+
+discovered_by = western
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = ottoman
+

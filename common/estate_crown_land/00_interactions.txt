@@ -1,0 +1,150 @@
+interaction = {
+    key = summon_the_diet
+    random_seed = random
+	cooldown_months = 0
+
+    trigger = {
+		OR = {
+			has_estate = estate_qinwang
+			has_estate = estate_nobles
+		}
+    }
+
+    effect = {
+       if = {
+		limit = {
+			AND = {
+		    OR = {
+				has_reform = celestial_empire
+				has_reform = celestial_empire_2
+				has_reform = celestial_empire_3 
+			}
+		    has_dlc = "Mandate of Heaven"
+			NOT = { 
+				AND = {
+					has_country_flag = revoke_shishen
+					has_reform = court_despotism
+				}
+			}
+		    NOT = { has_country_flag = no_more_celestial }
+			}
+			NOT = { 
+				AND = {
+					has_country_flag = revoke_all_estates
+					has_reform = parliament_reform
+				}	
+			}
+		}
+		country_event = { id = cuestate.1012 }
+	   }
+		else = {
+			country_event = { id = cuestate.101 }
+		}
+    }
+	ai_will_do = {
+		factor = 0 # AI won't do agendas
+	}
+}
+
+interaction = {
+    key = summon_the_diet_2
+    random_seed = random
+	cooldown_months = 0
+
+    trigger = {
+		OR = {
+			has_estate = estate_church
+			has_estate = estate_shizu
+		}
+    }
+
+    effect = {
+       	if = {
+			limit = {
+				AND = {
+				OR = {
+					has_reform = celestial_empire
+					has_reform = celestial_empire_2
+					has_reform = celestial_empire_3 
+				}
+				has_dlc = "Mandate of Heaven"
+				NOT = { 
+					AND = {
+						has_country_flag = revoke_shishen
+						has_reform = court_despotism
+					}
+				}
+				NOT = { has_country_flag = no_more_celestial }
+				}
+				NOT = { 
+					AND = {
+						has_country_flag = revoke_all_estates
+						has_reform = parliament_reform
+					}	
+				}
+				NOT = { has_reform = revolutionary_republic_reform }
+			}
+			country_event = { id = cuestate.1032 }
+	   	}
+		else = {
+			country_event = { id = cuestate.103 }
+		}
+    }
+	ai_will_do = {
+		factor = 0 # AI won't do agendas
+	}
+}
+
+interaction = {
+    key = summon_the_diet_3
+    random_seed = random
+	cooldown_months = 0
+
+    trigger = {
+		has_estate = estate_burghers
+    }
+
+    effect = {
+       country_event = { id = cuestate.102 }
+    }
+	ai_will_do = {
+		factor = 0 # AI won't do agendas
+	}
+}
+
+interaction = {
+    key = summon_the_diet_4
+    random_seed = random
+	cooldown_months = 0
+
+    trigger = {
+		OR = {
+			is_nomad = yes
+			government = native
+		}
+    }
+
+    effect = {
+       country_event = { id = cuestate.104 }
+    }
+	ai_will_do = {
+		factor = 0 # AI won't do agendas
+	}
+}
+
+interaction = {
+    key = summon_the_diet_5
+    random_seed = random
+	cooldown_months = 0
+
+    trigger = {
+		
+    }
+
+    effect = {
+       country_event = { id = cuestate.1000 }
+    }
+	ai_will_do = {
+		factor = 0 # AI won't do agendas
+	}
+}

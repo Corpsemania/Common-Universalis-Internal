@@ -1,0 +1,28 @@
+#2308 - Urfa
+
+owner = AKK
+controller = AKK
+culture = kurdish
+religion = sunni
+capital = "Urfa"
+trade_goods = wool
+hre = no
+base_tax = 3 
+base_production = 3
+base_manpower = 2
+is_city = yes
+add_core = IRQ
+add_core = AKK
+discovered_by = east_african
+discovered_by = muslim
+discovered_by = ottoman
+discovered_by = western
+discovered_by = eastern
+discovered_by = nomad_group
+discovered_by = indian
+
+1507.1.1 = { owner = PER controller = PER add_core = PER remove_core = AKK } # The Safavids took over
+1516.8.24 = { owner = TUR controller = TUR add_core = TUR } # Part of the Ottoman Empire
+1549.12.1 = { remove_core = PER } # Part of the Ottoman empire
+1771.1.1 = { unrest = 4 } # Ali Bey gained control of Syria, reconstituting the Mamluk state
+1772.1.1 = { unrest = 0 }

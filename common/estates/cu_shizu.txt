@@ -1,0 +1,172 @@
+estate_shizu = {
+	icon = 1
+	
+	
+	
+	
+	# If true, country will get estate
+	trigger = {	
+		AND = {
+		    OR = {
+				has_reform = celestial_empire
+				has_reform = celestial_empire_2
+				has_reform = celestial_empire_3 
+			}
+		    has_dlc = "Mandate of Heaven"
+			NOT = { 
+				AND = {
+					has_country_flag = revoke_shishen
+					has_reform = court_despotism
+				}
+			}
+		    NOT = { has_country_flag = no_more_celestial }
+	    }
+		NOT = { 
+			AND = {
+				has_country_flag = revoke_all_estates
+				has_reform = parliament_reform
+			}
+		}
+		NOT = { has_reform = revolutionary_republic_reform }
+	}
+	
+	
+	# Estate cancels out the following multiplicative local autonomy effects:
+
+	country_modifier_happy = {
+		meritocracy = 0.5
+		yearly_corruption = 0.05
+		yearly_absolutism = 0.2
+		max_absolutism = -5
+	}
+	country_modifier_neutral = {
+		meritocracy = 0.25
+		yearly_corruption = 0.1
+		max_absolutism = -10
+	}	
+	country_modifier_angry = {
+		meritocracy = -0.75
+		yearly_corruption = 0.15
+		yearly_absolutism = -0.4
+		max_absolutism = -10
+	}
+	
+	
+	# Influence modifiers
+	base_influence = 0
+	influence_modifier = {
+		desc = calc_estate
+		trigger = {
+			has_country_flag = useless_estates
+		}	
+		influence = -100
+	}
+	influence_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER
+		trigger = {
+			OR = {
+				has_disaster = estate_nobility_disaster
+				has_disaster = estate_burghers_disaster
+			}
+		}
+		influence = -40
+	}
+	#influence_modifier = {
+		#desc = EST_VAL_CELESTIAL_EMPIRE
+		#trigger = {
+			#has_reform = celestial_empire
+		#}		
+		#influence = 10
+	#}
+	
+	# Loyalty modifiers
+	loyalty_modifier = {
+		desc = EST_VAL_PIOUS
+		trigger = {
+			religion_group = muslim
+			piety = 0.5
+			NOT = { piety = 0.75 }
+		}
+		loyalty = 5
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_VERY_PIOUS
+		trigger = {
+			religion_group = muslim
+			piety = 0.75
+		}
+		loyalty = 10
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_NOT_PIOUS
+		trigger = {
+			religion_group = muslim
+			NOT = { piety = -0.5 }
+			piety = -0.75
+		}
+		loyalty = -5
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_VERY_UNPIOUS
+		trigger = {
+			religion_group = muslim
+			NOT = { piety = -0.75 }
+		}
+		loyalty = -10
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_PROTESTANT
+		trigger = {
+			religion = protestant
+		}
+		loyalty = 10
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_PAPAL_CONTROLLER
+		trigger = {
+			is_papal_controller = yes
+		}
+		loyalty = 10
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_STATUTE_IN_RESTRAINTS
+		trigger = {
+			has_country_modifier = the_statue_in_restraint_of_appeals
+		}
+		loyalty = 5
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_FEUDAL_THEOCRACY
+		trigger = {
+			has_reform = feudal_theocracy
+		}
+		loyalty = 5
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_SHEIKH_UL_ISLAM
+		trigger = {
+			has_country_modifier = the_sheikh_ul_islam
+		}
+		loyalty = 5
+	}
+	loyalty_modifier = {
+		desc = EST_VAL_OTHER_ESTATE_IN_POWER_LOY
+		trigger = {
+			OR = {
+				has_disaster = estate_nobility_disaster
+				has_disaster = estate_burghers_disaster
+			}
+		}
+		loyalty = -20
+	}
+	
+	
+	privileges = {
+		gentrys_landholding
+	}
+	
+	agendas = {
+	}
+	influence_from_dev_modifier = 2.0
+	color = { 100 125 150 }
+}

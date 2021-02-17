@@ -1,0 +1,42 @@
+# 71 - Ansbach
+
+owner = ANS
+controller = ANS
+add_core = ANS
+culture = franconian
+religion = catholic
+hre = yes
+trade_goods = salt
+capital = "Hall"
+is_city = yes
+base_manpower = 1
+base_tax = 3
+base_production = 3
+
+
+
+discovered_by = eastern
+discovered_by = western
+discovered_by = muslim
+discovered_by = ottoman
+
+
+1522.1.1 = { religion = protestant }
+1525.1.1 = { unrest = 6 }
+1526.1.1 = { unrest = 0 }
+1791.12.2 = {
+	owner = PRU
+	controller = PRU
+	add_core = PRU
+} # Ansbach is sold to Prussia
+1805.12.15 = {	owner = FRA
+	controller = FRA
+	add_core = FRA
+	remove_core = PRU
+} # Treaty of Schönbrunn
+1806.1.1 = {	owner = BAV
+	controller = BAV
+	add_core = BAV
+	remove_core = FRA
+} # Ceded to Bavaria
+1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved

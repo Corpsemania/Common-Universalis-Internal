@@ -326,8 +326,7 @@ country_event = {
 							 inherit = BYZ
 		        			 change_tag = BYZ
 							 set_capital = 151   
-							 hidden_effect = { cu_calc_country_absolute_dist = yes }							 
-							 country_event = { id = ideagroups.1 }
+							 hidden_effect = { cu_calc_country_absolute_dist = yes }
                              set_government_rank = 3
 							 add_treasury = -100
 				         }
@@ -915,7 +914,7 @@ country_event = {
 				stability = 3
 			}
 		}
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -1292,7 +1291,7 @@ country_event = {
 		name = "flavor_tur.EVTOPTB3375"
 		ai_chance = { factor = 25 }
 		add_piety = -0.10
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 
 	}
 }
@@ -2414,6 +2413,10 @@ country_event = {
 	picture = COURT_eventPicture
 	
 	is_triggered_only = yes
+
+	trigger = {
+		has_global_flag = test_version
+	}
 	
 	option = {		#We are the successor of rome!
 		name = "flavor_tur.109.a"
@@ -2437,6 +2440,7 @@ country_event = {
 	}
 	option = {		#We are the successor of arabian empire and gravedigger of rome!
 		name = "flavor_tur.109.b"
+		trigger = { religion_group = muslim }
 		set_government_rank = 3
 		add_country_modifier = {
 			name = tur_arabian_path

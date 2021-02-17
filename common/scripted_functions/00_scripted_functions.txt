@@ -49,6 +49,24 @@ can_release_colonial_nation = {
 }
 
 can_claim_defender_of_faith = {
+	condition = {
+		tooltip = "CAN_AI_CLAIM_DEFENDER_OF_FAITH"
+		potential = {
+			ai = yes
+		}
+		allow = {
+			is_at_war = no
+			treasury = 1000
+			OR = {
+				total_development = 1000
+				is_great_power = yes
+			}
+			OR = {
+				NOT = { tag = RUS }
+				total_development = 1200
+			}
+		}
+	}
 }
 
 can_change_national_focus = {
@@ -85,9 +103,6 @@ can_remove_province_from_hre = {
 }
 
 can_increase_autonomy = {
-}
-
-can_decrease_autonomy = {
 	condition = {
 		potential = {
 			always = yes
@@ -96,20 +111,15 @@ can_decrease_autonomy = {
 			owner = { ai = no }
 		}
 	}
+}
+
+can_decrease_autonomy = {
 	condition = {
-		tooltip = "CEL_NEEDED_REFORM_LAND"
 		potential = {
-			FROM = {
-				OR = {
-					has_reform =  celestial_empire
-                    has_reform =  celestial_empire_2
-				}
-			}
+			always = yes
 		}
 		allow = {
-			FROM = {
-				NOT = { has_country_modifier = gentrys_landholding }
-			}
+			always = no
 		}
 	}
 }
@@ -259,7 +269,7 @@ can_garrison_sorties = {
 
 can_seize_colony = {
 	condition = {
-		tooltip = "CEL_NEEDED_REFORM_TRADE"
+		tooltip = "CEL_NEEDED_REFORM_SEA_TRADE"
 		potential = {
 			FROM = {
 				OR = {
@@ -281,7 +291,7 @@ can_burn_colony = {
 
 can_colonize_province = {
 	condition = {
-		tooltip = "CEL_NEEDED_REFORM_TRADE"
+		tooltip = "CEL_NEEDED_REFORM_SEA_TRADE"
 		potential = {
 			FROM = {
 				OR = {
@@ -300,7 +310,7 @@ can_colonize_province = {
 
 can_colonize_province_siberian_frontier = {
 	condition = {
-		tooltip = "CEL_NEEDED_REFORM_TRADE"
+		tooltip = "CEL_NEEDED_REFORM_SEA_TRADE"
 		potential = {
 			FROM = {
 				OR = {
@@ -341,6 +351,19 @@ can_expel_minority_from = {
 		}
 	}
 }
+#hardcoded: has a colonial parent or is in the same colonial region as the capital
+can_have_colonial_nations = {
+	condition = {
+		potential = {
+			FROM = {
+				has_country_flag = no_colonial_nations
+			}
+		}
+		allow = {
+			always = no
+		}
+	}
+}
 
 ### Special functions
 
@@ -354,6 +377,17 @@ is_possible_hre_province = {
 		allow = {
 			cu_hlr_land_trigger = yes
 			owner = { NOT = { tag = GER } }
+		}
+	}
+}
+
+will_demand_annexation = {
+	condition = {
+		potential = {
+			is_elector = yes
+		}
+		allow = {
+			NOT = { hre_reform_passed = landfriede }
 		}
 	}
 }

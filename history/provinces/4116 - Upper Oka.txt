@@ -1,0 +1,26 @@
+#Upper Oka Basin
+
+owner = OKA #Controlled by various small Principalities shifting allegience between Muscovy and Lithuania
+controller = OKA 
+culture = ryazanian
+religion = orthodox
+hre = no
+base_tax = 3
+base_production = 3
+trade_goods = grain 
+base_manpower = 3
+capital = "Odayev"
+is_city = yes
+add_core = OKA
+discovered_by = western
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = ottoman
+discovered_by = nomad_group
+
+1494.1.1 = { owner = MOS controller = MOS add_core = MOS remove_core = OKA } # Treaty of the Annunciation
+1503.4.1 = { owner = RUS controller = RUS add_core = RUS remove_core = MOS }
+1598.1.1 = { unrest = 5 } # "Time of troubles"
+1613.1.1 = { unrest = 0 } # Order returned, Romanov dynasty
+1794.3.24 = { unrest = 5 } # Kosciuszko uprising, minimize the Russian influence
+1794.11.16 = { unrest = 0 }

@@ -96,7 +96,7 @@ country_event = {
 		
 		add_country_modifier = {
 			name = vasa_centralization_reforms
-			duration = -1
+			duration = 7300
 		}		
 
 	}
@@ -136,7 +136,7 @@ country_event = {
 	option = {		# Have Engelbrekt murdered
 		name = "flavor_swe.EVTOPTA3217"
 		ai_chance = { factor = 20 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_liberty_desire = -10
 	}
 	option = {		# Stand by the union
@@ -198,7 +198,7 @@ country_event = {
 	}
 	option = {		# Honor the agreement
 		name = "flavor_swe.EVTOPTB3218"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		DAN = {
 			add_opinion = {
 				who = ROOT
@@ -434,7 +434,7 @@ country_event = {
 	option = {		# We are not interested
 		name = "flavor_swe.EVTOPTB3227"
 		ai_chance = { factor = 10 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -622,7 +622,7 @@ country_event = {
 		ai_chance = { factor = 50 }
 		add_country_modifier = {
 			name = swedish_mercantile_reforms
-			duration = -1
+			duration = 7300
 		}
 	}
 	option = {		# Free Trade Policy
@@ -630,7 +630,7 @@ country_event = {
 		ai_chance = { factor = 25 }
 		add_country_modifier = {
 			name = swedish_free_trade_policy
-			duration = -1
+			duration = 7300
 		}
 	}
 	option = {		# Colonial Policy
@@ -638,7 +638,7 @@ country_event = {
 		ai_chance = { factor = 25 }
 		add_country_modifier = {
 			name = swedish_colonial_reforms
-			duration = -1
+			duration = 7300
 		}
 	}
 }
@@ -672,7 +672,7 @@ country_event = {
 		add_absolutism = 15
 		add_country_modifier = {
 			name = the_absolutism
-			duration = -1
+			duration = 7300
 		}
 	}
 	option = {		# The King must heed the Council
@@ -735,7 +735,7 @@ country_event = {
 
 	option = {		# Ok
 		name = "flavor_swe.EVTOPTA3235"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_country_modifier = {
 			name = swedish_court_of_appeals
 			duration = -1
@@ -769,7 +769,7 @@ country_event = {
 	option = {		# Grant the aristocracy new privileges
 		name = "flavor_swe.EVTOPTA3236"
 		ai_chance = { factor = 75 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_ruler_modifier = {
 			name = aristocratic_privileges
 			duration = -1
@@ -823,7 +823,7 @@ country_event = {
 	option = {		# Align with the Lords
 		name = "flavor_swe.EVTOPTC3237"
 		ai_chance = { factor = 20 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -899,7 +899,7 @@ country_event = {
 	option = {		# Abdicate
 		name = "flavor_swe.EVTOPTA3239"
 		ai_chance = { factor = 75 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		kill_ruler = yes
 	}
 	option = {		# Stay and convert
@@ -1065,7 +1065,7 @@ country_event = {
 		add_army_professionalism = 0.05
 		add_country_modifier = {
 			name = the_great_army_reorganization
-			duration = -1
+			duration = 7300
 		}
 	}
 	option = {		# Maintain present system
@@ -1108,7 +1108,7 @@ country_event = {
 	option = {		# The present policy is perfect
 		name = "flavor_swe.EVTOPTB3247"
 		ai_chance = { factor = 25 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -1191,7 +1191,7 @@ country_event = {
 	option = {		# Negotiate with the Traitors
 		name = "flavor_swe.EVTOPTA3259"
 		ai_chance = { factor = 75 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		every_owned_province = {
 			limit = {
 				NOT = { is_core = FIN }
@@ -1250,7 +1250,7 @@ country_event = {
 	}
 	option = {		# Let him rule
 		name = "flavor_swe.EVTOPTB3260"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -1297,7 +1297,7 @@ country_event = {
 	option = {		# Go on as before
 		name = "flavor_swe.EVTOPTB3261"
 		ai_chance = { factor = 10 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_legitimacy = 10
 	}
 }
@@ -1333,7 +1333,7 @@ country_event = {
 	option = {		# Refuse the Act
 		name = "flavor_swe.EVTOPTB3263"
 		ai_chance = { factor = 10 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -1361,13 +1361,13 @@ country_event = {
 		name = "flavor_swe.EVTOPTA3264"
 		add_country_modifier = {
 			name = the_great_agricultural_reform
-			duration = -1
+			duration = 7300
 		}
 	}
 	option = {		# Carry on as before
 		name = "flavor_swe.EVTOPTB3264"
 		ai_chance = { factor = 10 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -1879,7 +1879,7 @@ country_event = {
 	option = {		# Confirm Current Constitution
 		name = "flavor_swe.EVTOPTA3256"
 		ai_chance = { factor = 50 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	option = {		# Agree to more Royal Power
 		name = "flavor_swe.EVTOPTB3256"
@@ -2041,7 +2041,7 @@ country_event = {
 	}
 	option = {		# No more tyrants!
 		name = "flavor_swe.EVTOPTB3262"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		remove_country_modifier = age_of_fredom
 	}
 }

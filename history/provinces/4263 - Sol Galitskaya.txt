@@ -1,0 +1,21 @@
+#4263 - Sol Galitskaya
+
+owner = MOS
+controller = MOS
+culture = russian 
+religion = orthodox
+hre = no
+base_tax = 1
+base_production = 1
+trade_goods = grain
+base_manpower = 1
+capital = "Sol Galitskaya"
+is_city = yes
+add_core = MOS
+discovered_by = eastern
+discovered_by = western
+discovered_by = nomad_group
+
+1503.4.1 = { owner = RUS controller = RUS add_core = RUS remove_core = MOS }
+1598.1.7 = { unrest = 5 } # "Time of troubles"
+1612.3.1 = { unrest = 0 } # Pozharsky army moves through

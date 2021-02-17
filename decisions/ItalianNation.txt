@@ -238,16 +238,20 @@ country_decisions = {
 				}
                         
 			}
+			OR = {
+				has_reform = education_policy_burghers
+				has_reform = education_policy_public
+			}
 			adm_power = 500
 			dip_power = 500
 			treasury = 1000
 			prestige = 50
 		}
 		effect = {
-			add_adm_power = -500
-			add_dip_power = -500
+			add_adm_power = -400
+			add_dip_power = -400
 			add_treasury = -100
-			add_prestige = -50
+			add_prestige = -25
 			set_country_flag = unify_italian_culture
 			if = {
 				limit = { culture_group = latin }

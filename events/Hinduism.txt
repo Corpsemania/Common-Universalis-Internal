@@ -1660,7 +1660,7 @@ country_event = {
 
 	option = {
 		name = "hindu_events.39.a"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -2000,7 +2000,7 @@ country_event = {
 	# Praise the Sun! \[T]/
 	option = {
 		name = "hindu_events.47.a"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -2010,14 +2010,13 @@ country_event = {
 	title = "hindu_events.48.t"
 	desc = "hindu_events.48.d"
 	picture = NEW_HEIR_eventPicture
-	
+
 	trigger = {
 		has_personal_deity = surya
 		has_regency = no
 		government = monarchy
 		has_heir = no
 		has_government_attribute = heir
-		NOT = { has_global_flag = child_of_surya_done }
 	}
 
 	mean_time_to_happen = {
@@ -2031,9 +2030,8 @@ country_event = {
 			ADM = 4
 			DIP = 4
 			MIL = 4
-			claim = 20			
+			claim = 20
 		}
-		set_global_flag = child_of_surya_done
 		add_prestige = 10
 	}
 
@@ -2099,6 +2097,6 @@ country_event = {
 	option = {
 		name = "hindu_events.50.a"
 		custom_tooltip = "hindu_events.50.a.tt"
-		cu_change_stability_point_n75 = yes
+		add_stability = -1
 	}
 }

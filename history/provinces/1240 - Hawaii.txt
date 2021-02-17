@@ -1,0 +1,21 @@
+#1240 - Hawaii
+
+culture = polynesian
+religion = animism
+capital = "Honolulu"
+trade_goods = unknown
+hre = no
+base_tax = 3 
+base_production = 3
+base_manpower = 1
+native_size = 50
+native_ferocity = 2
+native_hostileness = 9
+
+
+
+
+1555.1.1 = { discovered_by = SPA }
+1795.1.1 = { capital = "Wakiki" }
+1803.1.1 = { capital = "Honolulu" }
+1812.1.1 = { capital = "Kailua-Kona" }

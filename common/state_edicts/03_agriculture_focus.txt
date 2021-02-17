@@ -9,7 +9,7 @@ edict_agriculture_focus = {
 	
 	modifier = {
 		local_manpower_modifier = -0.5
-		local_development_cost = -0.05
+		local_development_cost = -0.10
 	}
 	
 	color = { 244 164 96 }

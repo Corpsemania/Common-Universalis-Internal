@@ -85,6 +85,7 @@ country_decisions = {
 			set_country_flag = tennou
 			add_government_reform = ord_reform
 			set_government_rank = 3
+			cu_change_stability_point_n75 = yes
 			add_legitimacy = 100
 			add_adm_power = 100
 			add_dip_power = 100

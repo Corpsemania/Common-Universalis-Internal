@@ -26,7 +26,7 @@ country_decisions = {
 			NOT = { tag = ZOR }
 			NOT = { religion_group = zoroastrian }						 
 			OR = {
-				culture_group = iranian
+				cu_iranian_group = yes
 				primary_culture = azerbaijani
 				tag = AKK
 			}

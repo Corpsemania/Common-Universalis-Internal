@@ -1,0 +1,26 @@
+#Lolland-Falster
+
+add_core = DAN
+owner = DAN
+controller = DAN
+culture = danish
+religion = catholic
+hre = no
+base_tax = 3
+base_production = 3
+trade_goods = fish
+base_manpower = 2
+capital = "Nykobing"
+is_city = yes
+
+
+
+discovered_by = eastern
+discovered_by = western
+discovered_by = muslim
+discovered_by = ottoman
+
+
+1536.1.1 = { religion = protestant }
+1658.1.31 = { controller = SWE } # Karl X Gustavs First Danish War-Captured by Karl X Gustav
+1658.2.26 = { controller = DAN } # The Peace of Roskilde

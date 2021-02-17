@@ -1,0 +1,16 @@
+# - Mtetwa
+
+culture = nguni
+religion = shamanism #Fetishism
+capital = "Mtetwa"
+native_size = 50
+trade_goods = unknown
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+native_ferocity = 4
+native_hostileness = 9 
+
+1497.12.25 = { discovered_by = POR } #Vasco Da Gama
+1816.1.1 = { capital = "Bulawayo" } # Zulu Kingdom

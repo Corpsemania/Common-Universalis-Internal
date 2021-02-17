@@ -10,10 +10,11 @@ religion = confucianism
 capital = "Ruzhou"
 trade_goods = grain
 hre = no
-base_tax = 4 
-base_production = 4
-base_manpower = 3
+base_tax = 1 
+base_production = 1
+base_manpower = 4
 is_city = yes
+set_province_flag = cu_neednt_dev_initialize
 add_core = LNG
 
 discovered_by = chinese

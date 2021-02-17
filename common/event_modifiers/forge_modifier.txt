@@ -17,7 +17,6 @@ longs = {
 	technology_cost = -0.25
 	idea_cost = -0.5
 	administrative_efficiency = 1 
-	max_states = 1024
 	global_autonomy = -0.10
 	core_creation = -1
 	religious_unity = 1

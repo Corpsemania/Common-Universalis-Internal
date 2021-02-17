@@ -1,0 +1,601 @@
+namespace = custart
+
+#Refresh Garrison Level
+country_event = {
+	id = custart.05
+	title = "cugarrison.1.t"
+	desc = "cugarrison.1.d"
+	picture = LAND_MILITARY_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	trigger = {
+        has_global_flag = test_version
+	    OR = {
+				    NOT = { has_country_flag = reset_garrison_timer }
+					AND = {
+				       had_country_flag = {
+					                   flag = reset_garrison_timer
+					                   days = 30 
+					   }
+					   ai = no
+					}
+					AND = {
+				       had_country_flag = {
+					                   flag = reset_garrison_timer
+					                   days = 365 
+					   }
+					   ai = yes
+					}
+		}
+	}
+	
+	mean_time_to_happen = {
+	        months = 1
+	}
+	
+	option = {
+	            name = "cugarrison.1.a"
+				clr_country_flag = reset_garrison_timer
+				set_country_flag = reset_garrison_timer
+				
+				every_owned_province = {
+				            limit = { is_colony = no }
+				            owner = { set_variable = { which = cugl value = 0 } } #Garrison Level
+							owner = { set_variable = { which = cubl value = 0 } } #Base Garrison Level
+							owner = { set_variable = { which = cugm value = 1 } } #Garrison Level Modifier
+							#Position
+							if = {
+							       limit = {  
+								           has_port = yes
+										   is_overseas = yes
+								   }
+								   owner = { change_variable = { which = cubl value = 2 } }
+							}
+							if = {
+							       limit = {  
+								           has_owner_culture = no
+										   has_owner_accepted_culture = no
+										   NOT = { owner = { culture_group = PREV } }
+								   }
+								   owner = { change_variable = { which = cugm value = 0.66 } }
+							}
+							if = {
+							       limit = {  
+								           has_owner_culture = no
+										   has_owner_accepted_culture = yes
+										   NOT = { owner = { culture_group = PREV } }
+								   }
+								   owner = { change_variable = { which = cugm value = 0.33 } }
+							}
+							if = {
+							       limit = {  
+								           has_owner_culture = no
+										   owner = { culture_group = PREV }
+                                           OR = {
+								                 has_owner_accepted_culture = yes
+								                 owner = { government_rank = 3 }
+									       }										   
+								   }
+								   owner = { change_variable = { which = cugm value = 0.15 } }
+							}
+							if = {
+							       limit = {  
+								           has_owner_culture = no
+										   owner = { culture_group = PREV }
+                                           NOT = {
+								                 has_owner_accepted_culture = yes
+									       }
+                                           NOT = {
+								                 owner = { government_rank = 3 }
+									       }										   
+								   }
+								   owner = { change_variable = { which = cugm value = 0.33 } }
+							}
+					if = {
+					        limit = {
+						            development = 3
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 4
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 5
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 6
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 7
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 8
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 9
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 10
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 11
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 12
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 13
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 14
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 15
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 16
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 17
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 18
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 19
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 20
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 21
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 22
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 23
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 24
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 25
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 26
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 27
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 28
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 29
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 30
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 31
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 32
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 33
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 34
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 35
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 36
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 37
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 38
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 39
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					} 
+					if = {
+					        limit = {
+						            development = 40
+						    } 
+					         owner = { change_variable = { which = cubl value = 0.2 } } 
+					}
+					
+					#Border Province
+					if = {
+					
+					        limit = {
+							        any_neighbor_province = {
+									       development = 1
+										   NOT = { owned_by = PREV }
+									}
+							}
+							owner = { change_variable = { which = cubl value = 2 } }
+					}
+					
+					#State Province
+					if = {
+		
+					        limit = {
+							        cu_not_terr_trigger = yes
+							}
+							owner = { change_variable = { which = cugm value = 0.25 } }
+					}
+					
+					if = {
+		
+					        limit = {
+							        owner = { has_country_modifier = european_feudal_army }
+							}
+							owner = { change_variable = { which = cubl value = 1 } }
+							owner = { change_variable = { which = cugm value = 0.2 } }
+					}
+					
+					if = {
+					        limit = {
+							        owner = { has_country_modifier = weisuo_system }
+							}
+							owner = { change_variable = { which = cubl value = 1 } }
+							owner = { change_variable = { which = cugm value = 0.4 } }
+					}
+					
+					owner = { multiply_variable = { which = cubl which = cugm } }
+					owner = { change_variable = { which = cugl which = cubl } }
+					if = {
+					     limit = { has_building = fort_15th }
+						 owner = { change_variable = { which = cugl value = -2 } }
+					}
+					if = {
+					     limit = { has_building = fort_16th }
+						 owner = { change_variable = { which = cugl value = -4 } }
+					}
+					if = {
+					     limit = { has_building = fort_17th }
+						 owner = { change_variable = { which = cugl value = -6 } }
+					}
+					if = {
+					     limit = { has_building = fort_18th }
+						 owner = { change_variable = { which = cugl value = -8 } }
+					}
+					
+					remove_province_modifier = garrison_1
+					remove_province_modifier = garrison_2
+					remove_province_modifier = garrison_3
+					remove_province_modifier = garrison_4
+					remove_province_modifier = garrison_5
+					remove_province_modifier = garrison_6
+					remove_province_modifier = garrison_7
+					remove_province_modifier = garrison_8
+					remove_province_modifier = garrison_9
+					remove_province_modifier = garrison_10
+					remove_province_modifier = garrison_11
+					remove_province_modifier = garrison_12
+					remove_province_modifier = garrison_13
+					remove_province_modifier = garrison_14
+					remove_province_modifier = garrison_15
+					remove_province_modifier = garrison_16
+					remove_province_modifier = garrison_17
+					remove_province_modifier = garrison_18
+					remove_province_modifier = garrison_19
+					remove_province_modifier = garrison_20
+					if = {
+					      limit = { 
+						            owner = { check_variable = { which = cugl value = 1 } } 
+									NOT = { owner = { check_variable = { which = cugl value = 2 } } }
+						  }
+						  add_province_modifier = {
+						            name = garrison_1
+									duration = -1
+						  }
+					}
+					if = {
+					      limit = { 
+						            owner = { check_variable = { which = cugl value = 2 } } 
+									NOT = { owner = { check_variable = { which = cugl value = 3 } } }
+						  }
+						  add_province_modifier = {
+						            name = garrison_2
+									duration = -1
+						  }
+					}
+					if = {
+					      limit = { 
+						            owner = { check_variable = { which = cugl value = 3 } } 
+									NOT = { owner = { check_variable = { which = cugl value = 4 } } }
+						  }
+						  add_province_modifier = {
+						            name = garrison_3
+									duration = -1
+						  }
+					}
+					if = {
+					      limit = { 
+						            owner = { check_variable = { which = cugl value = 4 } } 
+									NOT = { owner = { check_variable = { which = cugl value = 5 } } }
+						  }
+						  add_province_modifier = {
+						            name = garrison_4
+									duration = -1
+						  }
+					}
+					if = {
+					      limit = { 
+						            owner = { check_variable = { which = cugl value = 5 } } 
+									NOT = { owner = { check_variable = { which = cugl value = 6 } } }
+						  }
+						  add_province_modifier = {
+						            name = garrison_5
+									duration = -1
+						  }
+					}
+					if = {
+					      limit = { 
+						            owner = { check_variable = { which = cugl value = 6 } } 
+									NOT = { owner = { check_variable = { which = cugl value = 7 } } }
+						  }
+						  add_province_modifier = {
+						            name = garrison_6
+									duration = -1
+						  }
+					}
+					if = {
+					      limit = { 
+						            owner = { check_variable = { which = cugl value = 7 } } 
+									NOT = { owner = { check_variable = { which = cugl value = 8 } } }
+						  }
+						  add_province_modifier = {
+						            name = garrison_7
+									duration = -1
+						  }
+					}
+					if = {
+					      limit = { 
+						            owner = { check_variable = { which = cugl value = 8 } } 
+									NOT = { owner = { check_variable = { which = cugl value = 9 } } }
+						  }
+						  add_province_modifier = {
+						            name = garrison_8
+									duration = -1
+						  }
+					}
+					if = {
+					      limit = { 
+						            owner = { check_variable = { which = cugl value = 9 } } 
+									NOT = { owner = { check_variable = { which = cugl value = 10 } } }
+						  }
+						  add_province_modifier = {
+						            name = garrison_9
+									duration = -1
+						  }
+					}
+					if = {
+					      limit = { 
+						            owner = { check_variable = { which = cugl value = 10 } } 
+									NOT = { owner = { check_variable = { which = cugl value = 11 } } }
+						  }
+						  add_province_modifier = {
+						            name = garrison_10
+									duration = -1
+						  }
+					}
+					if = {
+					      limit = { 
+						            owner = { check_variable = { which = cugl value = 11 } } 
+									NOT = { owner = { check_variable = { which = cugl value = 12 } } }
+						  }
+						  add_province_modifier = {
+						            name = garrison_11
+									duration = -1
+						  }
+					}
+					if = {
+					      limit = { 
+						            owner = { check_variable = { which = cugl value = 12 } } 
+									NOT = { owner = { check_variable = { which = cugl value = 13 } } }
+						  }
+						  add_province_modifier = {
+						            name = garrison_12
+									duration = -1
+						  }
+					}
+					if = {
+					      limit = { 
+						            owner = { check_variable = { which = cugl value = 13 } } 
+									NOT = { owner = { check_variable = { which = cugl value = 14 } } }
+						  }
+						  add_province_modifier = {
+						            name = garrison_13
+									duration = -1
+						  }
+					}
+					if = {
+					      limit = { 
+						            owner = { check_variable = { which = cugl value = 14 } } 
+									NOT = { owner = { check_variable = { which = cugl value = 15 } } }
+						  }
+						  add_province_modifier = {
+						            name = garrison_14
+									duration = -1
+						  }
+					}
+					if = {
+					      limit = { 
+						            owner = { check_variable = { which = cugl value = 15 } } 
+									NOT = { owner = { check_variable = { which = cugl value = 16 } } }
+						  }
+						  add_province_modifier = {
+						            name = garrison_15
+									duration = -1
+						  }
+					}
+					if = {
+					      limit = { 
+						            owner = { check_variable = { which = cugl value = 16 } } 
+									NOT = { owner = { check_variable = { which = cugl value = 17 } } }
+						  }
+						  add_province_modifier = {
+						            name = garrison_16
+									duration = -1
+						  }
+					}
+					if = {
+					      limit = { 
+						            owner = { check_variable = { which = cugl value = 17 } } 
+									NOT = { owner = { check_variable = { which = cugl value = 18 } } }
+						  }
+						  add_province_modifier = {
+						            name = garrison_17
+									duration = -1
+						  }
+					}
+					if = {
+					      limit = { 
+						            owner = { check_variable = { which = cugl value = 18 } } 
+									NOT = { owner = { check_variable = { which = cugl value = 19 } } }
+						  }
+						  add_province_modifier = {
+						            name = garrison_18
+									duration = -1
+						  }
+					}
+					if = {
+					      limit = { 
+						            owner = { check_variable = { which = cugl value = 19 } } 
+									NOT = { owner = { check_variable = { which = cugl value = 20 } } }
+						  }
+						  add_province_modifier = {
+						            name = garrison_19
+									duration = -1
+						  }
+					}
+					if = {
+					      limit = { 
+						            owner = { check_variable = { which = cugl value = 20 } } 
+						  }
+						  add_province_modifier = {
+						            name = garrison_20
+									duration = -1
+						  }
+					}
+				}
+	}
+}

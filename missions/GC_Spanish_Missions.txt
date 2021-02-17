@@ -26,7 +26,7 @@ gc_spain_1 = {
 
 		provinces_to_highlight = {
 			province_id = 4565
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 
 		trigger = {
@@ -128,7 +128,7 @@ gc_spain_1_b = {
 
 		provinces_to_highlight = {
 			colonial_region = colonial_the_carribean
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 			has_discovered = ROOT
 		}
 
@@ -161,13 +161,13 @@ gc_spain_1_b = {
 				area = cuba_area
 				area = east_cuba_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 			has_discovered = ROOT
 		}
 
 		trigger = {
 			484 = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 				OR = {
 					has_building = workshop
 					has_building = counting_house
@@ -220,7 +220,7 @@ gc_spain_1_b = {
 
 		provinces_to_highlight = {
 			region = central_america_region
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 			has_discovered = ROOT
 		}
 
@@ -231,7 +231,7 @@ gc_spain_1_b = {
 					type = all
 					OR = {
 						is_empty = yes
-						country_or_non_sovereign_subject_holds = ROOT
+						cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 					}
 				}
 			}
@@ -248,13 +248,13 @@ gc_spain_1_b = {
 
 		provinces_to_highlight = {
 			colonial_region = colonial_california
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 			has_discovered = ROOT
 		}
 
 		trigger = {
 			2021 = {
-				country_or_non_sovereign_subject_holds = ROOT				
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }				
 			}
 			custom_trigger_tooltip = {
 				tooltip = miss_colonize_california
@@ -310,12 +310,12 @@ gc_spain_2 = {
 
 		provinces_to_highlight = {
 			province_id = 210
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 
 		trigger = {
 			210 = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -412,7 +412,7 @@ gc_spain_2_b = {
 					OR = {
 						area = hispaniola_area						
 					}
-					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 
 				}
 				province_id = 490
@@ -422,7 +422,7 @@ gc_spain_2_b = {
 
 		trigger = {
 			490 = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 				OR = {
 					has_building = temple
 					has_building = cathedral
@@ -494,22 +494,22 @@ gc_spain_2_b = {
 				area = eastern_mexico_area
 				area = mexico_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 			has_discovered = ROOT
 		}
 
 		trigger = {
 			mexico_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			eastern_mexico_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			mexico_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 
@@ -532,14 +532,14 @@ gc_spain_2_b = {
 
 		provinces_to_highlight = {
 			region = mexico_region
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 			has_discovered = ROOT
 		}
 
 		trigger = {			
 			mexico_region = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -586,7 +586,7 @@ gc_spain_2_b = {
 				area = west_florida_area
 			}
 			OR = {
-				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 				NOT = { fort_level = 3 }
 			}
 			has_discovered = ROOT
@@ -824,7 +824,7 @@ gc_spain_3_b = {
 
 		provinces_to_highlight = {
 			colonial_region = colonial_colombia
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 			has_discovered = yes
 		}
 
@@ -1007,32 +1007,32 @@ gc_spain_3_b = {
 				province_id = 794
 				province_id = 2837
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 			has_discovered = ROOT
 		}
 
 		trigger = {
 			upper_peru = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			potosi_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			antisuyu_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			kuntisuyu_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			794 = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			2837 = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 
@@ -1056,7 +1056,7 @@ gc_spain_3_b = {
 			OR = {
 				AND = {
 					province_id = 795
-					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 				}
 				province_id = 809
 				AND = {
@@ -1072,7 +1072,7 @@ gc_spain_3_b = {
 
 		trigger = {
 			809 = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			if = {
 				limit = {
@@ -1100,7 +1100,7 @@ gc_spain_3_b = {
 				is_strongest_trade_power = ROOT
 			}
 			795 = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -1155,7 +1155,7 @@ gc_spain_3_b = {
 		provinces_to_highlight = {
 			province_id = 216
 			OR = {
-				NOT = { country_or_non_sovereign_subject_holds = ROOT }
+				NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 				NOT = { has_building = university }
 			}
 		}
@@ -1235,15 +1235,15 @@ gc_spain_4 = {
 		trigger = {
 			valencia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			catalonia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			aragon_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 
@@ -1343,26 +1343,26 @@ gc_spain_4 = {
 			else = {
 				sicily_area = {
 					limit = {
-						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 					}
 					add_permanent_claim = NAP
 				}
 				calabria_area = {
 					limit = {
-						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 					}
 					add_permanent_claim = NAP
 				}
 				apulia_area = {
 					limit = {
-						NOT = { country_or_non_sovereign_subject_holds = ROOT }
+						NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 					}
 					add_permanent_claim = NAP
 				}
 				2983 = {
 					if = {
 						limit = {
-							NOT = { country_or_non_sovereign_subject_holds = ROOT }
+							NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 						}
 						add_permanent_claim = NAP
 					}
@@ -1370,7 +1370,7 @@ gc_spain_4 = {
 				121 = {
 					if = {
 						limit = {
-							NOT = { country_or_non_sovereign_subject_holds = ROOT }
+							NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 						}
 						add_permanent_claim = NAP
 					}
@@ -1378,7 +1378,7 @@ gc_spain_4 = {
 				120 = {
 					if = {
 						limit = {
-							NOT = { country_or_non_sovereign_subject_holds = ROOT }
+							NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 						}
 						add_permanent_claim = NAP
 					}
@@ -1400,30 +1400,30 @@ gc_spain_4 = {
 				province_id = 121
 				province_id = 120
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 
 		trigger = {
 			sicily_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			calabria_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			apulia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			2983 = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			121 = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			120 = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 
@@ -1471,17 +1471,17 @@ gc_spain_4 = {
 				area = tuscany_area
 				area = lombardy_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 
 		trigger = {
 			tuscany_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			lombardy_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -1632,33 +1632,33 @@ gc_spain_4_b = {
 				area = west_midlands_area
 				area = yorkshire_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 
 		trigger = {
 			wessex_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			home_counties_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			east_anglia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			east_midlands_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			west_midlands_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			yorkshire_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -1729,7 +1729,7 @@ gc_spain_4_c = {
 
 		provinces_to_highlight = {
 			colonial_region = colonial_la_plata
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 			has_discovered = yes
 		}
 
@@ -1783,7 +1783,7 @@ gc_spain_4_d = {
 			OR = {
 				AND = {
 					region = guinea_region
-					NOT = { country_or_non_sovereign_subject_holds = ROOT }
+					NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 				}
 				province_id = 1466
 			}
@@ -1873,7 +1873,7 @@ gc_spain_4_d = {
 				area = luzon_area
 				area = luzon_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 			has_discovered = ROOT
 		}
 
@@ -1884,23 +1884,23 @@ gc_spain_4_d = {
 			}
 			luzon_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			mindanao_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			mindanao_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			great_moluccas_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			great_moluccas_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -2014,18 +2014,18 @@ gc_spain_5_b = {
 				area = flanders_area
 				area = wallonia_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 
 		trigger = {
 			flanders_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 				religion = ROOT
 			}
 			wallonia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 				religion = ROOT
 			}
 		}
@@ -2103,21 +2103,21 @@ gc_spain_5_b = {
 				area = austria_proper_area
 				area = tirol_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 
 		trigger = {
 			inner_austria_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			austria_proper_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			tirol_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -2185,13 +2185,13 @@ gc_spain_5_c = {
 
 		provinces_to_highlight = {
 			colonial_region = colonial_colombia
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 
 		trigger = {			
 			colonial_colombia = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {

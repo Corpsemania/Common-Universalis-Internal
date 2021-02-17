@@ -311,7 +311,7 @@ merchant_regulation = {
 		full_idea_group = maritime_ideas
 	}
 
-	advisor_cost = 0.05
+	state_governing_cost = 0.05
     trade_steering = 0.10
 
 	ai_will_do = {
@@ -374,7 +374,7 @@ noble_loyalty_act = {
 	}
 
     cavalry_cost = -0.10
-	global_autonomy = 0.02
+	global_autonomy = 0.03
 
 	ai_will_do = {
 		factor = 1
@@ -773,7 +773,7 @@ the_tolerance_act = {
 	}
 
     global_missionary_strength = -0.01
-	culture_conversion_cost = -0.1
+	mercantilism_cost = -0.1
 
 	ai_will_do = {
 		factor = 1
@@ -1060,7 +1060,7 @@ colonial_administration_act = {
 	}
 	
 	global_colonial_growth = 10
-	advisor_cost = 0.05
+	state_governing_cost = 0.05
 	
 	ai_will_do = {
 		factor = 1
@@ -1375,7 +1375,7 @@ sea_lord = {
 		full_idea_group = naval_ideas
 	}	
 	
-	max_states = 5
+	governing_capacity = 5
 	sailor_maintenance_modifer = -0.1
 	
 	ai_will_do = {
@@ -1432,7 +1432,7 @@ enlightened_aristocracy = {
 		full_idea_group = aristocracy_ideas
 	}	
 	
-	global_autonomy = 0.01
+	global_autonomy = 0.02
 	num_accepted_cultures = 1
 	
 	ai_will_do = {
@@ -1623,7 +1623,7 @@ cultural_recognition_act = {
 	}	
 	
 	num_accepted_cultures = 2
-        culture_conversion_cost = 0.15
+        mercantilism_cost = 0.15
 	
 	ai_will_do = {
 		factor = 1

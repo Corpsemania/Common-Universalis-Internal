@@ -1692,7 +1692,7 @@ country_event = {
 				religion = protestant
 			}
 		}
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_devotion = 10
 	}
 	option = {
@@ -1705,7 +1705,7 @@ country_event = {
 				}
 			}
 		}
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_devotion = 10
 	}
 }

@@ -1,0 +1,2260 @@
+namespace = urban
+
+#Province Urbanization Calculation
+province_event = {
+      id = urban.98
+	  title = "EVT_HIDDEN"
+	  desc = "EVT_HIDDEN"
+	  picture = CITY_DEVELOPMENT_eventPicture
+	  hidden = yes
+	  is_triggered_only = yes
+	  option = {
+	        name = "urban.98.a"
+			        clr_province_flag = ai_province_edict
+					clr_province_flag = lit_calc
+			        set_variable = { which = p_dev value = 0 } #Province Development
+	                set_variable = { which = food_sup value = 0 } #Food Supply
+					set_variable = { which = food_m value = 1 } #Food Supply Modifier
+					set_variable = { which = food_con value = 0 } #Food Consumption
+					set_variable = { which = food_sur value = 0 } #Food Surplus
+					set_variable = { which = food_im value = 0 } #Food Impact Modifier
+					set_variable = { which = pop_growth value = 0 } #Population Growth Speed(pop_growth = food_sur / food_sup + food_sur / 40 )
+					set_variable = { which = pop_gm value = 1 } #Population Growth Modifier
+					set_variable = { which = ac value = 0 } #Agriculture Capacity
+					set_variable = { which = fin_ac value = 0 } #Final Agriculture Capacity
+					set_variable = { which = o_ac value = 0 } #Occupied Agriculture Capacity
+					set_variable = { which = r_ac value = 0 } #Remained Agriculture Capacity
+					set_variable = { which = ac_m value = 1 } #Agriculture Capacity
+			        set_variable = { which = uc value = 0 } #Urbanization Capacity
+					set_variable = { which = uc_m value = 1 } #Urbanization Capacity Modifier
+					set_variable = { which = fin_uc value = 0 } #Final UC
+					set_variable = { which = o_uc value = 0 } #Occupied UC
+					set_variable = { which = r_uc value = 0 } #Remained UC
+					set_variable = { which = merc_c value = 0 } #Commerce UC
+					set_variable = { which = merc_m value = 1 } #Commerce UC Modifier
+					set_variable = { which = merc_g value = 1 } #Commerce Growth
+					set_variable = { which = merc_gm value = 1 } #Commerce Growth Modifier
+					set_variable = { which = indu_c value = 0 } #Industry UC
+					set_variable = { which = indu_m value = 1 } #Industry UC Modifier
+					set_variable = { which = indu_g value = 1 } #Industry Growth
+					set_variable = { which = indu_gm value = 1 } #Industry Growth Modifier
+					set_variable = { which = lit_index value = 0 } #Literacy Index
+					set_variable = { which = ucdev_m value = 1 } #Province Development Time Modifier
+					set_variable = { which = gdev_m value = 1 } #Countrywide Development Time Modifier
+					
+					set_variable = { which = pop_cost value = 100 } #Population Growth Cost
+					set_variable = { which = merc_cost value = 100 } #Commerce Growth Cost
+					set_variable = { which = indu_cost value = 100 } #Production Growth Cost
+					
+					
+					#Calculate Food
+					export_to_variable = {
+					        which = food_sup
+							value = base_manpower
+					}
+					multiply_variable = { which = food_sup value = 4 }
+					export_to_variable = {
+					        which = food_con
+							value = development
+					}
+					change_variable = { which = p_dev which = food_con	}
+					export_to_variable = {
+					        which = ucdev_m
+							value = modifier:local_development_cost
+					}
+					export_to_variable = {
+					        which = cu_var1
+							value = modifier:development_cost
+							who = owner
+					}
+					subtract_variable = { which = pop_gm which = cu_var1 } #Population Growth Modifier
+					export_to_variable = {
+					        which = cu_var1
+							value = modifier:trade_company_investment_cost
+							who = owner
+					}
+					subtract_variable = { which = merc_gm which = cu_var1 } #Population Growth Modifier
+					subtract_variable = { which = indu_gm which = cu_var1 } #Population Growth Modifier
+					if = {
+					      limit = { owner = { adm_tech = 27 } }
+						  subtract_variable = { which = gdev_m value = 0.15 }
+					}
+					else_if = {
+					      limit = { owner = { adm_tech = 23 } }
+						  subtract_variable = { which = gdev_m value = 0.1 }
+					}
+					else_if = {
+					      limit = { owner = { adm_tech = 17 } }
+						  subtract_variable = { which = gdev_m value = 0.05 }
+					}
+					#change_variable = { which = ucdev_m value = 1 }
+					#change_variable = { which = ucdev_m which = gdev_m }
+					if = {
+					    limit = { 
+						           owner = { expansion_ideas = 2 } 
+						           NOT = { development = 15 }		   
+						}
+						change_variable = { which = ucdev_m value = -0.10 }
+					}
+					
+					if = {
+					    limit = { 
+						           owner = { 
+										agrarian_ideas = 7 
+										is_at_war = no
+									} 
+						}
+						change_variable = { which = pop_gm value = 0.05 }
+					}
+					#Institutions
+					
+					if = {
+					    limit = { 
+						    industrial_revolution = 100
+						}
+						change_variable = { which = pop_gm value = 0.75 }
+					}
+					
+					#Base AC
+					change_variable = { which = ac which = b_ac }
+					
+					#Terrain and Climate
+					if = {
+					        limit = {
+						            has_terrain = farmlands
+						    } 
+					        change_variable = { which = ac value = 11 }
+							#change_variable = { which = ucdev_m value = -0.05 }
+					}
+					else_if = {
+					        limit = {
+						            has_terrain = grasslands
+						    } 
+					        change_variable = { which = ac value = 7 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = ac value = 4 }
+								  #change_variable = { which = ucdev_m value = -0.1 }
+							}
+					}
+					else_if = {
+					        limit = {
+						            has_terrain = woods
+						    } 
+					        change_variable = { which = ac value = 6 }
+							#change_variable = { which = ucdev_m value = 0.15 }
+							if = { 
+							        limit = { has_province_modifier = ti_woods_done }
+							        change_variable = { which = ac value = 4 }
+									#change_variable = { which = ucdev_m value = -0.10 }
+							}
+					}
+					
+					else_if = {
+					        limit = {
+						            has_terrain = forest
+						    } 
+					        change_variable = { which = ac value = 5 }
+							#change_variable = { which = ucdev_m value = 0.15 }
+							if = { 
+							        limit = { has_province_modifier = ti_forest_done }
+							        change_variable = { which = ac value = 4 }
+									#change_variable = { which = ucdev_m value = -0.10 }
+							}
+					}
+					else_if = {
+					        limit = {
+						            has_terrain = hills
+						    } 
+					        change_variable = { which = ac value = 6 }
+							#change_variable = { which = ucdev_m value = 0.15 }
+							if = { 
+							      limit = { has_province_modifier = ti_terrace_done }
+							      change_variable = { which = ac value = 4 }
+								  #change_variable = { which = ucdev_m value = -0.1 }
+							}
+					}
+					else_if = {
+					        limit = {
+						            has_terrain = coastline
+						    } 
+					        change_variable = { which = ac value = 5 }
+							#change_variable = { which = ucdev_m value = 0.2 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = ac value = 4 }
+								  #change_variable = { which = ucdev_m value = -0.1 }
+							}
+					}
+					else_if = {
+					        limit = {
+						            has_terrain = drylands
+						    } 
+					        change_variable = { which = ac value = 4 }
+							#change_variable = { which = ucdev_m value = 0.15 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = ac value = 6 }
+								  #change_variable = { which = ucdev_m value = -0.1 }
+							}
+					}
+					else_if = {
+					        limit = {
+						            has_terrain = highlands
+						    } 
+					        change_variable = { which = ac value = 5 }
+							#change_variable = { which = ucdev_m value = 0.15 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = ac value = 5 }
+								  #change_variable = { which = ucdev_m value = -0.1 }
+							}
+					}
+					else_if = {
+					        limit = {
+						            has_terrain = savannah
+						    } 
+					        change_variable = { which = ac value = 4 }
+							#change_variable = { which = ucdev_m value = 0.10 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = ac value = 4 }
+								  #change_variable = { which = ucdev_m value = -0.1 }
+							}
+					}
+					else_if = {
+					        limit = {
+						            has_terrain = jungle
+						    } 
+					        change_variable = { which = ac value = 3 }
+							#change_variable = { which = ucdev_m value = 0.25 }
+							if = { 
+							      limit = { has_province_modifier = ti_jungle_done }
+							      change_variable = { which = ac value = 5 }
+								  #change_variable = { which = ucdev_m value = -0.15 }
+							}
+					}
+					
+					else_if = {
+					        limit = {
+						            has_terrain = desert
+						    } 
+					        change_variable = { which = ac value = 3 }
+							#change_variable = { which = ucdev_m value = 0.3 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = ac value = 4 }
+								  #change_variable = { which = ucdev_m value = -0.1 }
+							}
+					}
+					
+					else_if = {
+					        limit = {
+						            has_terrain = coastal_desert
+						    } 
+					        change_variable = { which = ac value = 4 }
+							#change_variable = { which = ucdev_m value = 0.25 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = ac value = 4 }
+								  #change_variable = { which = ucdev_m value = -0.1 }
+							}
+					}
+					
+					else_if = {
+					        limit = {
+						            has_terrain = steppe
+						    } 
+					        change_variable = { which = ac value = 4 }
+							#change_variable = { which = ucdev_m value = 0.2 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = ac value = 4 }
+								  #change_variable = { which = ucdev_m value = -0.1 }
+							}
+					}
+					
+					
+					
+					else_if = {
+					        limit = {
+						            has_terrain = mountain
+						    } 
+					        change_variable = { which = ac value = 4 }
+							#change_variable = { which = ucdev_m value = 0.3 }
+							if = { 
+							      limit = { has_province_modifier = ti_terrace_done }
+							      change_variable = { which = ac value = 4 }
+								  #change_variable = { which = ucdev_m value = -0.1 }
+							}
+					}
+					
+					else_if = {
+					        limit = {
+						            has_terrain = glacier
+						    } 
+					        change_variable = { which = ac value = 1 }
+							#change_variable = { which = ucdev_m value = 0.5 }
+					}
+					
+					else_if = {
+					        limit = {
+						            has_terrain = impassable_mountains
+						    } 
+					        change_variable = { which = ac value = 1 }
+							#change_variable = { which = ucdev_m value = 10 }
+					}
+					
+					
+					
+					else_if = {
+					        limit = {
+						            has_terrain = marsh
+						    } 
+					        change_variable = { which = ac value = 5 }
+							#change_variable = { which = ucdev_m value = 0.25 }
+							if = { 
+							        limit = { 
+									          OR = {
+											        has_province_modifier = ti_marsh_done
+       												has_province_modifier = holland_polders	  
+											  }
+									}
+							        change_variable = { which = ac value = 6 }
+									#change_variable = { which = ucdev_m value = -0.2 }
+							}
+					}
+					#Goods
+					if = {
+					        limit = {
+						            trade_goods = grain
+						    } 
+					        change_variable = { which = ac value = 3 }
+							change_variable = { which = ac_m value = 0.1 }
+					}
+					
+					else_if = {
+					        limit = {
+						            trade_goods = fish
+						    } 
+					        change_variable = { which = ac value = 3 }
+							change_variable = { which = ac_m value = 0.1 }
+					}
+					
+					else_if = {
+					        limit = {
+						            trade_goods = salt
+						    } 
+					        change_variable = { which = ac value = 1 }
+							change_variable = { which = ac_m value = 0.1 }
+					}
+					
+					
+					
+					#Climate
+					if = {
+					        limit = {
+							       has_climate = arctic
+							}
+					        change_variable = { which = ac_m value = -0.3 }
+							#change_variable = { which = ucdev_m value = 0.3 }
+					}
+					else_if = {
+					        limit = {
+							       has_climate = tropical
+							}
+					        change_variable = { which = ac_m value = -0.3 }
+							#change_variable = { which = ucdev_m value = 0.2 }
+					}
+					if = {
+					        limit = {
+							       has_winter = severe_winter
+							}
+					        change_variable = { which = ac_m value = -0.3 }
+					}
+					else_if = {
+					        limit = {
+							       has_winter = normal_winter
+							}
+					        change_variable = { which = ac_m value = -0.15 }
+					}
+					if = {
+					        limit = {
+							       has_climate = arid
+							}
+					        change_variable = { which = ac_m value = -0.15 }
+							#change_variable = { which = ucdev_m value = 0.15 }
+					}
+					if = {
+					        limit = {
+							       owner = { has_country_modifier = ice_age }
+							}
+					        change_variable = { which = ac_m value = -0.2 }
+							change_variable = { which = food_m value = -0.2 }
+					}
+					if = {
+					        limit = {
+							       new_world_i = 100
+							}
+					        change_variable = { which = ac_m value = 0.2 }
+							change_variable = { which = food_m value = 0.1 }
+					}
+					if = {
+					        limit = {
+							       OR = {
+										 region = scandinavia_region
+										 region = russia_region
+										 region = ural_region
+										 region = mongolia_region
+										 region = central_asia_region
+										 region = manchuria_region
+										 region = korea_region
+										 region = north_china_region
+										 region = la_plata_region
+										 region = oceanea_region
+										 region = california_region
+										}
+							}
+					        change_variable = { which = food_m value = -0.1 }
+							
+					}
+					if = {
+					        limit = {
+							       has_province_modifier = famine_l
+							}
+					        change_variable = { which = food_m value = -0.4 }
+							
+					}
+					
+					else_if = {
+					        limit = {
+							       has_province_modifier = famine_m
+							}
+					        change_variable = { which = food_m value = -0.6 }
+							
+					}
+					
+					else_if = {
+					        limit = {
+							       has_province_modifier = famine_h
+							}
+					        change_variable = { which = food_m value = -0.8 }
+							
+					}
+					
+					if = {
+					        limit = {
+							      has_global_flag = ice_age_grain_price
+							}
+							change_variable = { which = food_m value = -0.1 }
+					}
+					
+					#Terrain and Climate End
+					
+					#Agriculture Buildings
+					
+					if = {
+					        limit = {
+							       has_building = mill
+							}
+					        change_variable = { which = food_m value = 0.1 }
+					        change_variable = { which = ac_m value = 0.1 }
+							
+					}
+					else_if = {
+					        limit = {
+							       has_building = farm_estate
+							}
+							change_variable = { which = food_m value = 0.2 }
+					        change_variable = { which = ac_m value = 0.2 }
+							
+					}
+					#Agriculture Buildings End
+					
+					#Edict
+					if = {
+					      limit = { has_state_edict = edict_agriculture_focus }
+						  change_variable = { which = pop_growth value = 1 }
+						  change_variable = { which = pop_gm value = 0.15 }
+					}
+					
+					#Technology
+					set_variable = { which = pop_tm value = 0 }
+					export_to_variable = {
+					      which = pop_tm
+						  value = adm_tech
+						  who = owner
+					}
+					multiply_variable = { which = pop_tm value = 0.01 }
+					change_variable = { which = ac_m which = pop_tm }
+					subtract_variable = { which = pop_tm value = -0.1 }
+					change_variable = { which = pop_gm which = pop_tm }
+					
+					multiply_variable = { which = food_sup which = food_m }
+					change_variable = { which = food_sur which = food_sup }
+					subtract_variable = { which = food_sur which = food_con }
+					if = {
+					     limit = { has_province_modifier = import_food }
+						 if = {
+						        limit = { 
+                                     NOT = { check_variable = { which = food_sur value = 4 } }
+									 any_neighbor_province = {
+									        owned_by = ROOT
+											has_province_modifier = export_food
+									 }
+								}
+								change_variable = { which = food_sup value = 4 }
+						        change_variable = { which = food_sur value = 4 }
+								else = {
+							          remove_province_modifier = import_food
+									  random_neighbor_province = {
+									         limit = {
+											      owned_by = ROOT
+												  has_province_modifier = export_food
+											 }
+											 remove_province_modifier = export_food
+									  }
+							   }
+						 }
+					}
+					if = {
+					     limit = { has_province_modifier = export_food }
+						 if = {
+						       limit = { 
+							              check_variable = { which = food_sur value = 5 } 
+										  any_neighbor_province = {
+									          owned_by = ROOT
+											  has_province_modifier = import_food
+									      }
+							   }
+							   change_variable = { which = food_con value = 5 }
+						       change_variable = { which = food_sur value = -5 }
+							   else = {
+							          remove_province_modifier = export_food
+									  random_neighbor_province = {
+									         limit = {
+											      owned_by = ROOT
+												  has_province_modifier = import_food
+											 }
+											 remove_province_modifier = import_food
+									  }
+							   }
+						 }
+						 
+					}
+					if = { #In case of bug
+					     limit = { NOT = { check_variable = { which = food_con value = 1 } } }
+						 set_variable = { which = food_con value = 1 }
+					}
+					#if = { #In case of bug
+					     #limit = { NOT = { check_variable = { which = ucdev_m value = 0.1 } } }
+						 #set_variable = { which = ucdev_m  value = 0.1 }
+					#}
+					
+					#Calculate Food Impact
+					change_variable = { which = food_im which = food_sur }
+					divide_variable = { which = food_im which = food_con }
+					divide_variable = { which = food_im value = 4 }
+					if = { #Positive Growth
+					      limit = { 
+						       check_variable = { which = food_im value = 0 }
+						  }
+					      change_variable = { which = food_im value = 1 }	  
+					}
+					else = { #Starvation
+						       subtract_variable = { which = food_im value = 1 }
+					}
+					change_variable = { which = pop_growth which = food_im }
+					multiply_variable = { which = pop_growth value = 1.5 }
+					
+					if = { #New World Bonus
+					     limit = { 
+						         OR = { 
+                                      continent = north_america
+									  continent = south_america
+									  AND = {
+									        NOT = { development = 3 }
+											is_colony = no
+									  }
+								 } 
+								 OR = {
+								        new_world_i = 100
+										owner = { dip_tech = 6 }
+										NOT = { development = 3 }
+								 }
+								 NOT = { development = 10 }
+						 }
+						 change_variable = { which = pop_growth value = 1 }
+						 change_variable = { which = merc_gm value = 0.1 }
+						 change_variable = { which = indu_gm value = 0.15 }
+						 if = {
+						        limit = { has_state_edict = edict_resettlement_focus }
+								change_variable = { which = pop_growth value = 1 }
+								change_variable = { which = merc_gm value = 0.1 }
+								change_variable = { which = indu_gm value = 0.15 }
+						 }
+						 if = {
+						        limit = {
+								      NOT = { development = 4 }
+								}
+								change_variable = { which = pop_growth value = 8 }
+								if = {
+									limit = { has_state_edict = edict_resettlement_focus }
+									change_variable = { which = pop_growth value = 8 }
+								}
+						 }
+						 else_if = {
+						        limit = {
+								      NOT = { development = 6 }
+								}
+								change_variable = { which = pop_growth value = 4 }
+								if = {
+									limit = { has_state_edict = edict_resettlement_focus }
+									change_variable = { which = pop_growth value = 4 }
+								}
+						 }
+						 if = {
+						        limit = {
+								      NOT = { base_production = 3 }
+								}
+								change_variable = { which = indu_g value = 3 }
+								if = {
+									limit = { has_state_edict = edict_resettlement_focus }
+									change_variable = { which = indu_g value = 3 }
+								}
+						 }
+						 if = {
+						        limit = {
+								      NOT = { base_tax = 3 }
+								}
+								change_variable = { which = merc_g value = 3 }
+								if = {
+									limit = { has_state_edict = edict_resettlement_focus }
+									change_variable = { which = merc_g value = 3 }
+								}
+						 }
+						 
+					}
+					
+					#divide_variable = { which = pop_growth which = ucdev_m }
+					multiply_variable = { which = ucdev_m value = -1 }
+					change_variable = { which = ucdev_m value = 1 }
+					multiply_variable = { which = pop_growth which = ucdev_m }
+					
+					
+					#Food Calculation Complete
+					
+					
+					
+					#Calculate Agriculture Capacity and Urbanization Capacity
+					export_to_variable = {
+					    which = o_ac
+						value = base_manpower
+					}
+					change_variable = { which = uc which = o_ac }
+					change_variable = { which = uc which = b_uc }
+					#multiply_variable = { which = uc value = 1.1 }
+			
+					
+					
+					#Buildings
+					
+					if = {
+					        limit = {
+					            has_building = road_1		        
+							}
+					        change_variable = { which = uc_m value = 0.2 }
+							if = {
+								limit = { owner = { economic_ideas = 5 } }
+								change_variable = { which = uc_m value = 0.04 }
+							}
+					}
+					else_if = {
+					        limit = {
+					            has_building = road_2		        
+							}
+					        change_variable = { which = uc_m value = 0.4 }
+							if = {
+								limit = { owner = { economic_ideas = 5 } }
+								change_variable = { which = uc_m value = 0.08 }
+							}
+					}
+					else_if = {
+					        limit = {
+					            has_building = road_3		        
+							}
+					        change_variable = { which = uc_m value = 0.7 }
+							if = {
+								limit = { owner = { economic_ideas = 5 } }
+								change_variable = { which = uc_m value = 0.14 }
+							}
+					}
+					
+					
+					#Ideas
+					if = {
+					        limit = {
+					            owner = { agrarian_ideas = 1 }		        
+							}
+					        change_variable = { which = ac_m value = 0.05 }
+					}
+					
+					#Literacy Index ( LI = Lit * 0.006 + 0.6 )
+					
+					change_variable = { which = lit_index which = literacy }
+					change_variable = { which = lit_index value = 100 }
+					multiply_variable = { which = lit_index value = 0.006 }
+					multiply_variable = { which = uc_m which = lit_index }
+					
+					
+					
+					#Apply UC Modifier
+					change_variable = { which = fin_uc which = uc }
+					multiply_variable = { which = fin_uc which = uc_m }
+					
+					
+					
+					#Apply AC Modifier
+					if = { #Never lower than 10% AC
+					     limit = { NOT = { check_variable = { which = ac_m value = 0.1 } } }
+						 set_variable = { which = ac_m value = 0.1 }
+					}
+					change_variable = { which = fin_ac which = ac }
+					multiply_variable = { which = fin_ac which = ac_m }
+					change_variable = { which = r_ac which = fin_ac }
+					subtract_variable = { which = r_ac which = o_ac }
+					
+					multiply_variable = { which = pop_growth which = fin_ac }
+					divide_variable = { which = pop_growth value = 13 }
+					if = {
+						limit = { check_variable = { which = pop_growth value = 0 } }
+						multiply_variable = { which = pop_growth which = pop_gm }
+					}
+					#UC Occupied By Commerce
+					export_to_variable = {
+					    which = merc_c
+						value = base_tax
+					}
+					owner = { set_variable = { which = temp_mv value = 1 } }
+					owner = {
+					        export_to_variable = {
+					               which = temp_mv
+						           value = base_tax
+								   who = PREV
+					        }
+					}
+					owner = { set_variable = { which = merc_vm value = 1 } }
+					if = {
+					        limit = {
+							        has_building = marketplace
+							}
+							owner = { change_variable = { which = merc_vm value = 0.20 } }
+							change_variable = { which = merc_g value = 2 }
+							change_variable = { which = merc_gm value = 0.1 }
+					}
+					
+					else_if = {
+					        limit = {
+							        has_building = trade_depot
+							}
+							owner = { change_variable = { which = merc_vm value = 0.40 } }
+							change_variable = { which = merc_g value = 3 }
+							change_variable = { which = merc_gm value = 0.2 }
+					}
+					
+					else_if = {
+					        limit = {
+							        has_building = stock_exchange
+							}
+							owner = { change_variable = { which = merc_vm value = 0.70 } }
+							change_variable = { which = merc_g value = 4 }
+							change_variable = { which = merc_gm value = 0.3 }
+					}
+					
+					if = {
+					        limit = {
+							        has_building = dock
+							}
+					        change_variable = { which = merc_m value = -0.03 }
+							owner = { change_variable = { which = merc_vm value = 0.10 } }
+							change_variable = { which = merc_g value = 0.5 }
+					}
+					
+					else_if = {
+					        limit = {
+							        has_building = drydock
+							}
+					        change_variable = { which = merc_m value = -0.05 }
+							owner = { change_variable = { which = merc_vm value = 0.20 } }
+							change_variable = { which = merc_g value = 1 }
+					}
+					if = {
+					       limit = { province_has_center_of_trade_of_level = 2 }
+						   owner = { change_variable = { which = merc_vm value = 0.20 } }
+					}
+					else_if = {
+					       limit = { province_has_center_of_trade_of_level = 3 }
+						   owner = { change_variable = { which = merc_vm value = 0.40 } }
+					}
+					
+					owner = { multiply_variable = { which = temp_mv which = merc_vm } }
+					owner = { change_variable = { which = merc_vg which = temp_mv } }
+					
+					set_variable = { which = merc_tm value = 0 }
+					export_to_variable = {
+					      which = merc_tm
+						  value = dip_tech
+						  who = owner
+					}
+					multiply_variable = { which = merc_tm value = 0.01 }
+					change_variable = { which = merc_m which = merc_tm }
+					subtract_variable = { which = merc_tm value = 0.15 }
+					change_variable = { which = merc_gm which = merc_tm }
+					
+					
+					#UC Occupied By Production
+					export_to_variable = {
+					    which = indu_c
+						value = base_production
+					}
+					
+					owner = { set_variable = { which = temp_iv value = 1 } }
+					owner = {
+					        export_to_variable = {
+					               which = temp_iv
+						           value = base_production
+								   who = PREV
+					        }
+					}
+					owner = { set_variable = { which = indu_vm value = 1 } }
+					
+					if = {
+					        limit = {
+							        has_building = workshop
+							}
+							owner = { change_variable = { which = indu_vm value = 0.2 } }
+							change_variable = { which = indu_g value = 2 }
+							change_variable = { which = indu_gm value = 0.1 }
+					}
+					
+					else_if = {
+					        limit = {
+							        has_building = counting_house
+							}
+							owner = { change_variable = { which = indu_vm value = 0.4 } }
+							change_variable = { which = indu_g value = 3 }
+							change_variable = { which = indu_gm value = 0.2 }
+					}
+					
+					else_if = {
+					        limit = {
+							        has_building = weapons
+							}
+							owner = { change_variable = { which = indu_vm value = 0.7 } }
+							change_variable = { which = indu_g value = 4 }
+							change_variable = { which = indu_gm value = 0.3 }
+					}
+					
+					if = {
+					        limit = {
+							        has_building = shipyard
+							}
+					        change_variable = { which = indu_m value = -0.03 }
+							owner = { change_variable = { which = indu_vm value = 0.10 } }
+							change_variable = { which = indu_g value = 0.5 }
+					}
+					
+					else_if = {
+					        limit = {
+							        has_building = grand_shipyard
+							}
+					        change_variable = { which = indu_m value = -0.05 }
+							owner = { change_variable = { which = indu_vm value = 0.20 } }
+							change_variable = { which = indu_g value = 1 }
+					}
+					
+					if = {
+					        limit = {
+						            trade_goods = coal
+						    } 
+							change_variable = { which = indu_gm value = 0.10 }
+					}
+					if = {
+					        limit = { has_province_flag = cu_foster_industry_mod }
+							change_variable = { which = indu_gm value = 0.15 }
+					}
+					
+					owner = { multiply_variable = { which = temp_iv which = indu_vm } }
+					owner = { change_variable = { which = indu_vg which = temp_iv } }
+					
+					set_variable = { which = indu_tm value = 0 }
+					export_to_variable = {
+					      which = indu_tm
+						  value = adm_tech
+						  who = owner
+					}
+					multiply_variable = { which = indu_tm value = 0.01 }
+					change_variable = { which = indu_m which = indu_tm }
+					subtract_variable = { which = indu_tm value = 0.15 }
+					change_variable = { which = indu_gm which = indu_tm } 
+					
+					if = {
+					      limit = {  
+						         NOT = { check_variable = { which = indu_m value = 0.1 } }
+						  }
+							set_variable = { which = indu_m value = 0.1 }
+					}
+					if = {
+					      limit = {  
+						         NOT = { check_variable = { which = fin_uc value = 1 } }
+						  }
+							set_variable = { which = fin_uc value = 1 }
+					}
+					
+					if = {
+					        limit = {
+							      has_state_edict = edict_commercial_focus
+							}
+							change_variable = { which = merc_g value = 3 }
+							change_variable = { which = merc_gm value = 0.3 }
+					}
+					if = {
+					        limit = {
+							      has_state_edict = edict_industrial_focus
+							}
+							change_variable = { which = indu_g value = 3 }
+							change_variable = { which = indu_gm value = 0.3 }
+					}
+					if = {
+					      limit = {  
+						         owner = { has_country_modifier = artisan_regulation }
+						  }
+							change_variable = { which = indu_gm value = -0.3 }
+					}
+					if = {
+					      limit = {  
+						         owner = { has_country_modifier = trade_limitation }
+						  }
+							change_variable = { which = merc_gm value = -0.3 }
+					}
+					if = {
+						  limit = {
+								owner = { economic_ideas = 5 }
+						  }
+						  change_variable = { which = merc_gm value = 0.1 }
+						  change_variable = { which = indu_gm value = 0.1 }
+					}
+					if = {
+					      limit = {  
+						         NOT = { check_variable = { which = merc_gm value = 0.1 } }
+						  }
+							set_variable = { which = merc_gm value = 0.1 }
+					}
+					if = {
+					      limit = {  
+						         NOT = { check_variable = { which = indu_gm value = 0.1 } }
+						  }
+							set_variable = { which = indu_gm value = 0.1 }
+					}
+					
+					#Literacy Index = 0.06 + Literacy/500 
+					set_variable = { which = lit_index value = 0 }
+					change_variable = { which = lit_index which = literacy } #Literacy
+					change_variable = { which = lit_index value = 30 } #Literacy
+					divide_variable = { which = lit_index value = 500 }
+					
+					#Institutions buff
+					
+					if = {
+					    limit = { 
+						    manufactories = 100
+						}
+						change_variable = { which = indu_gm value = 0.1 }
+					}
+					
+					if = {
+					    limit = { 
+						    industrial_revolution = 100
+						}
+						change_variable = { which = indu_gm value = 0.5 }
+						change_variable = { which = merc_gm value = 0.25 }
+					}
+					
+					#Fixed UC
+					if = {
+					        limit = {
+							        OR = {
+									        has_building = plantations
+									        has_building = tradecompany
+									}
+							}
+					        change_variable = { which = fin_uc value = -3 }
+					}
+					
+					#Apply Occupied Urbanization Capacity
+					multiply_variable = { which = merc_c which = merc_m }
+					#multiply_variable = { which = merc_c which = ucdev_m }
+					
+					
+					multiply_variable = { which = indu_c which = indu_m }
+					#multiply_variable = { which = indu_c which = ucdev_m }
+					
+					change_variable = { which = o_uc which = merc_c }
+					change_variable = { which = o_uc which = indu_c }
+					change_variable = { which = r_uc which = fin_uc }
+					subtract_variable = { which = r_uc which = o_uc }
+					
+					#Calculate Commerce Growth Speed( Commerce Growth = ( 5 + Base Commerce Capacity * 0.4 + Remained UC + X ) * Literacy Index * Commerce Growth Modifier * Development Time Modifier)
+					change_variable = { which = merc_g which = merc_c }
+					multiply_variable = { which = merc_g value = 0.4 }
+					change_variable = { which = merc_g which = r_uc }
+					change_variable = { which = merc_g value = 5 }
+					multiply_variable = { which = merc_g which = lit_index }
+					if = {
+						limit = { check_variable = { which = merc_g value = 0 } }
+						multiply_variable = { which = merc_g which = merc_gm }
+						multiply_variable = { which = merc_g which = food_im }
+						multiply_variable = { which = merc_g which = ucdev_m }
+					}
+					
+					#Calculate Industry Growth Speed
+					change_variable = { which = indu_g which = indu_c }
+					multiply_variable = { which = indu_g value = 0.4 }
+					change_variable = { which = indu_g which = r_uc }
+					change_variable = { which = indu_g value = 4 }
+					multiply_variable = { which = indu_g which = lit_index }
+					if = {
+						limit = { check_variable = { which = indu_g value = 0 } }
+						multiply_variable = { which = indu_g which = indu_gm }
+						multiply_variable = { which = indu_g which = food_im }
+						multiply_variable = { which = indu_g which = ucdev_m }
+					}
+					
+					
+					#Inflation Impact on Urbanization 
+					set_variable = { which = inflation_index which = owner }
+					divide_variable = { which = inflation_index value = 200 }
+					change_variable = { which = inflation_index value = 0.5 }
+					if = {
+					    limit = { check_variable = { which = inflation_index value = 1 } }
+						divide_variable = { which = merc_g which = inflation_index }
+						set_variable = { which = inflation_recip value = -1 }
+					    divide_variable = { which = inflation_recip which = inflation_index }
+						change_variable = { which = inflation_recip value = 2 }
+						multiply_variable = { which = indu_g which = inflation_recip }
+						else = {
+						     multiply_variable = { which = indu_g which = inflation_index }
+						     set_variable = { which = inflation_recip value = -1 }
+					         multiply_variable = { which = inflation_recip which = inflation_index }
+						     change_variable = { which = inflation_recip value = 2 }
+						     multiply_variable = { which = merc_g which = inflation_recip }
+						}
+					}
+					
+					if = {
+						limit = { owner = { ai = yes } } #AI's urbanization is calculated per 5 years to improve 
+						if = { limit = { NOT = { base_manpower = 10 } } change_variable = { which = pop_growth value = 5 } }
+						else = {
+							random_list = { #Choose path
+								20 = { change_variable = { which = pop_growth value = 5 } }
+								40 = { change_variable = { which = merc_g value = 5 } }
+								40 = { change_variable = { which = indu_g value = 5 } }
+							}
+						}
+						multiply_variable = { which = pop_growth value = 5 } 
+						multiply_variable = { which = merc_g value = 5 } 
+						multiply_variable = { which = indu_g value = 5 }
+					}
+					
+					if = { #Not enough Agriculture Capacity, Agriculture Growth stops
+					     limit = { 
+						           NOT = { check_variable = { which = r_ac value = 0 } } 
+								   check_variable = { which = pop_growth value = 0 }
+						 }
+						 set_variable = { which = pop_growth value = 0 }
+					}
+					
+					if = { #Not enough Urbanization Capacity, Commerce/Industry Growth stops
+					     limit = { NOT = { check_variable = { which = r_uc value = 1 } } }
+						 set_variable = { which = merc_g value = 0 }
+						 set_variable = { which = indu_g value = 0 }
+					}
+					
+					#Calculate Growth
+				
+					change_variable = { which = pop_prog which = pop_growth }
+					if = {
+					       limit = { check_variable = { which = pop_prog which = pop_cost } }
+					       subtract_variable = { which = pop_prog which = pop_cost }
+						   if = {
+						          limit = { check_variable = { which = r_ac value = 0.001 } }
+								  #province_event = { id = pop.98 } #Population Growth
+								  cu_add_base_manpower_1 = yes
+								  else = {
+								          random_list = {
+										        50 = { province_event = { id = pop.01 } }
+												50 = { 
+												}
+										  }
+								  }
+						   }
+					}
+					if = {
+					       limit = { check_variable = { which = pop_prog which = pop_cost } }
+					       subtract_variable = { which = pop_prog which = pop_cost }
+						   if = {
+						          limit = { check_variable = { which = r_ac value = 0.001 } }
+								  province_event = { id = pop.98 } #Population Growth
+								  else = {
+								          random_list = {
+										        50 = { province_event = { id = pop.01 } }
+												50 = { 
+												}
+										  }
+								  }
+						   }
+					}
+					if = { #Starvation
+					       limit = { 
+						               NOT = { check_variable = { which = pop_prog value = 0 } } 
+                                       base_manpower = 2									   
+							}
+					       change_variable = { which = pop_prog which = pop_cost }
+						   add_permanent_province_modifier = {
+														        name = cu_starvation
+																duration = 1825
+														}
+						   if = {
+						          limit = { 
+								             NOT = { has_province_modifier = recent_emmigration } 
+							                 base_tax = 2
+                                             base_production = 2
+								  }
+								  random_list = {
+								          70 = { cu_do_starvation = yes }
+								          30 = { province_event = { id =  pop.01 } } #Emmigration
+								  }
+								  set_province_flag = starvation_temp
+						   }
+						   else_if = {
+						          limit = { 
+								             has_province_modifier = recent_emmigration  
+								   }
+								   cu_do_starvation = yes
+						   }
+						   
+					}
+					
+					
+					change_variable = { which = merc_prog which = merc_g }
+					if = {
+					       limit = { check_variable = { which = merc_prog which = merc_cost } }
+					       subtract_variable = { which = merc_prog which = merc_cost }
+						   province_event = { id = urban.01 }
+					}
+					if = {
+					       limit = { check_variable = { which = merc_prog which = merc_cost } }
+					       subtract_variable = { which = merc_prog which = merc_cost }
+						   province_event = { id = urban.01 }
+					}
+					change_variable = { which = indu_prog which = indu_g }
+					if = {
+					       limit = { check_variable = { which = indu_prog which = indu_cost } }
+					       subtract_variable = { which = indu_prog which = indu_cost }
+						   province_event = { id = urban.11 }
+					}
+					if = {
+					       limit = { check_variable = { which = indu_prog which = indu_cost } }
+					       subtract_variable = { which = indu_prog which = indu_cost }
+						   province_event = { id = urban.11 }
+					}
+					
+					if = {
+					     limit = { owner = { ai = yes } } #Show growth per year
+						 divide_variable = { which = pop_growth value = 5 } 
+					     divide_variable = { which = merc_g value = 5 } 
+					     divide_variable = { which = indu_g value = 5 }
+					}
+					
+					clr_province_flag = ai_province_edict #Allows ai to enact province edicts in this province again
+								
+					
+			 }
+}
+
+#Province Census(Display)
+province_event = {
+      id = urban.88
+	  title = "urban.98.t"
+	  desc = "urban.98.d"
+	  picture = CITY_DEVELOPMENT_eventPicture
+	  hidden = yes
+	  is_triggered_only = yes
+	  option = {
+	        name = "urban.98.a"
+			        set_variable = { which = p_dev value = 0 } #Province Development
+	                set_variable = { which = food_sup value = 0 } #Food Supply
+					set_variable = { which = food_m value = 1 } #Food Supply Modifier
+					set_variable = { which = food_im value = 0 }
+					set_variable = { which = food_con value = 0 } #Food Consumption
+					set_variable = { which = food_sur value = 0 } #Food Surplus
+					set_variable = { which = pop_growth value = 0 } #Population Growth Speed(pop_growth = food_sur / food_sup + food_sur / 40 )
+					set_variable = { which = pop_gm value = 1 } #Population Growth Modifier
+					set_variable = { which = ac value = 0 } #Agriculture Capacity
+					set_variable = { which = fin_ac value = 0 } #Final Agriculture Capacity
+					set_variable = { which = o_ac value = 0 } #Occupied Agriculture Capacity
+					set_variable = { which = r_ac value = 0 } #Remained Agriculture Capacity
+					set_variable = { which = ac_m value = 1 } #Agriculture Capacity
+			        set_variable = { which = uc value = 0 } #Urbanization Capacity
+					set_variable = { which = uc_m value = 1 } #Urbanization Capacity Modifier
+					set_variable = { which = fin_uc value = 0 } #Final UC
+					set_variable = { which = o_uc value = 0 } #Occupied UC
+					set_variable = { which = r_uc value = 0 } #Remained UC
+					set_variable = { which = merc_c value = 0 } #Commerce UC
+					set_variable = { which = merc_m value = 1 } #Commerce UC Modifier
+					set_variable = { which = merc_g value = 1 } #Commerce Growth
+					set_variable = { which = merc_gm value = 1 } #Commerce Growth Modifier
+					set_variable = { which = indu_c value = 0 } #Industry UC
+					set_variable = { which = indu_m value = 1 } #Industry UC Modifier
+					set_variable = { which = indu_g value = 1 } #Industry Growth
+					set_variable = { which = indu_gm value = 1 } #Industry Growth Modifier
+					set_variable = { which = lit_index value = 0 } #Literacy Index
+					set_variable = { which = ucdev_m value = 1 } #Province Development Time Modifier
+					set_variable = { which = gdev_m value = 1 } #Countrywide Development Time Modifier
+					
+					set_variable = { which = pop_cost value = 100 } #Population Growth Cost
+					set_variable = { which = merc_cost value = 100 } #Commerce Growth Cost
+					set_variable = { which = indu_cost value = 100 } #Production Growth Cost
+					
+					
+					#Calculate Food
+					export_to_variable = {
+					        which = food_sup
+							value = base_manpower
+					}
+					multiply_variable = { which = food_sup value = 4 }
+					export_to_variable = {
+					        which = food_con
+							value = development
+					}
+					change_variable = { which = p_dev which = food_con	}
+					export_to_variable = {
+					        which = ucdev_m
+							value = modifier:local_development_cost
+					}
+					export_to_variable = {
+					        which = cu_var1
+							value = modifier:development_cost
+							who = owner
+					}
+					subtract_variable = { which = pop_gm which = cu_var1 } #Population Growth Modifier
+					export_to_variable = {
+					        which = cu_var1
+							value = modifier:trade_company_investment_cost
+							who = owner
+					}
+					subtract_variable = { which = merc_gm which = cu_var1 } #Population Growth Modifier
+					subtract_variable = { which = indu_gm which = cu_var1 } #Population Growth Modifier
+					if = {
+					      limit = { owner = { adm_tech = 17 } }
+						  subtract_variable = { which = gdev_m value = 0.05 }
+					}
+					if = {
+					      limit = { owner = { adm_tech = 23 } }
+						  subtract_variable = { which = gdev_m value = 0.05 }
+					}
+					if = {
+					      limit = { owner = { adm_tech = 27 } }
+						  subtract_variable = { which = gdev_m value = 0.05 }
+					}
+					#change_variable = { which = ucdev_m value = 1 }
+					#change_variable = { which = ucdev_m which = gdev_m }
+					if = {
+					    limit = { 
+						           owner = { expansion_ideas = 2 } 
+						           NOT = { development = 15 }		   
+						}
+						change_variable = { which = ucdev_m value = -0.10 }
+					}
+					
+					if = {
+					    limit = { 
+						           owner = { 
+										agrarian_ideas = 7 
+										is_at_war = no
+									} 
+						}
+						change_variable = { which = pop_gm value = 0.05 }
+					}
+					
+					#Institutions
+					
+					if = {
+					    limit = { 
+						    industrial_revolution = 100
+						}
+						change_variable = { which = pop_gm value = 0.75 }
+					}
+					
+					#Base AC
+					change_variable = { which = ac which = b_ac }
+					
+					#Terrain and Climate
+					if = {
+					        limit = {
+						            has_terrain = farmlands
+						    } 
+					        change_variable = { which = ac value = 10 }
+							change_variable = { which = ucdev_m value = -0.05 }
+					}
+					if = {
+					        limit = {
+						            has_terrain = grasslands
+						    } 
+					        change_variable = { which = ac value = 7 }
+					}
+					if = {
+					        limit = {
+						            has_terrain = coastline
+						    } 
+					        change_variable = { which = ac value = 5 }
+							change_variable = { which = ucdev_m value = 0.2 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = ac value = 6 }
+								  change_variable = { which = ucdev_m value = -0.1 }
+							}
+					}
+					if = {
+					        limit = {
+						            has_terrain = drylands
+						    } 
+					        change_variable = { which = ac value = 4 }
+							change_variable = { which = ucdev_m value = 0.15 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = ac value = 6 }
+								  change_variable = { which = ucdev_m value = -0.1 }
+							}
+					}
+					if = {
+					        limit = {
+						            has_terrain = highlands
+						    } 
+					        change_variable = { which = ac value = 5 }
+							change_variable = { which = ucdev_m value = 0.15 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = ac value = 5 }
+								  change_variable = { which = ucdev_m value = -0.1 }
+							}
+					}
+					if = {
+					        limit = {
+						            has_terrain = savannah
+						    } 
+					        change_variable = { which = ac value = 4 }
+							change_variable = { which = ucdev_m value = 0.10 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = ac value = 6 }
+								  change_variable = { which = ucdev_m value = -0.1 }
+							}
+					}
+					if = {
+					        limit = {
+						            has_terrain = jungle
+						    } 
+					        change_variable = { which = ac value = 3 }
+							change_variable = { which = ucdev_m value = 0.25 }
+							if = { 
+							      limit = { has_province_modifier = ti_jungle_done }
+							      change_variable = { which = ac value = 7 }
+								  change_variable = { which = ucdev_m value = -0.15 }
+							}
+					}
+					
+					if = {
+					        limit = {
+						            has_terrain = desert
+						    } 
+					        change_variable = { which = ac value = 3 }
+							change_variable = { which = ucdev_m value = 0.3 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = ac value = 7 }
+								  change_variable = { which = ucdev_m value = -0.1 }
+							}
+					}
+					
+					if = {
+					        limit = {
+						            has_terrain = coastal_desert
+						    } 
+					        change_variable = { which = ac value = 4 }
+							change_variable = { which = ucdev_m value = 0.25 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = ac value = 6 }
+								  change_variable = { which = ucdev_m value = -0.1 }
+							}
+					}
+					
+					if = {
+					        limit = {
+						            has_terrain = steppe
+						    } 
+					        change_variable = { which = ac value = 3 }
+							change_variable = { which = ucdev_m value = 0.2 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = ac value = 7 }
+								  change_variable = { which = ucdev_m value = -0.1 }
+							}
+					}
+					
+					if = {
+					        limit = {
+						            has_terrain = hills
+						    } 
+					        change_variable = { which = ac value = 6 }
+							change_variable = { which = ucdev_m value = 0.15 }
+							if = { 
+							      limit = { has_province_modifier = ti_terrace_done }
+							      change_variable = { which = ac value = 4 }
+								  change_variable = { which = ucdev_m value = -0.1 }
+							}
+					}
+					
+					if = {
+					        limit = {
+						            has_terrain = mountain
+						    } 
+					        change_variable = { which = ac value = 4 }
+							change_variable = { which = ucdev_m value = 0.3 }
+							if = { 
+							      limit = { has_province_modifier = ti_terrace_done }
+							      change_variable = { which = ac value = 6 }
+								  change_variable = { which = ucdev_m value = -0.1 }
+							}
+					}
+					
+					if = {
+					        limit = {
+						            has_terrain = glacier
+						    } 
+					        change_variable = { which = ac value = 1 }
+							change_variable = { which = ucdev_m value = 0.5 }
+					}
+					
+					if = {
+					        limit = {
+						            has_terrain = impassable_mountains
+						    } 
+					        change_variable = { which = ac value = 1 }
+							change_variable = { which = ucdev_m value = 10 }
+					}
+					
+					if = {
+					        limit = {
+						            has_terrain = woods
+						    } 
+					        change_variable = { which = ac value = 6 }
+							change_variable = { which = ucdev_m value = 0.15 }
+							if = { 
+							        limit = { has_province_modifier = ti_woods_done }
+							        change_variable = { which = ac value = 4 }
+									change_variable = { which = ucdev_m value = -0.10 }
+							}
+					}
+					
+					if = {
+					        limit = {
+						            has_terrain = forest
+						    } 
+					        change_variable = { which = ac value = 5 }
+							change_variable = { which = ucdev_m value = 0.15 }
+							if = { 
+							        limit = { has_province_modifier = ti_forest_done }
+							        change_variable = { which = ac value = 5 }
+									change_variable = { which = ucdev_m value = -0.10 }
+							}
+					}
+					
+					if = {
+					        limit = {
+						            has_terrain = marsh
+						    } 
+					        change_variable = { which = ac value = 5 }
+							change_variable = { which = ucdev_m value = 0.25 }
+							if = { 
+							        limit = { 
+									          OR = {
+											        has_province_modifier = ti_marsh_done
+       												has_province_modifier = holland_polders	  
+											  }
+									}
+							        change_variable = { which = ac value = 5 }
+									change_variable = { which = ucdev_m value = -0.2 }
+							}
+					}
+					#Goods
+					if = {
+					        limit = {
+						            trade_goods = grain
+						    } 
+					        change_variable = { which = ac value = 3 }
+							change_variable = { which = ac_m value = 0.1 }
+					}
+					
+					else_if = {
+					        limit = {
+						            trade_goods = fish
+						    } 
+					        change_variable = { which = ac value = 3 }
+							change_variable = { which = ac_m value = 0.1 }
+					}
+					
+					else_if = {
+					        limit = {
+						            trade_goods = salt
+						    } 
+					        change_variable = { which = ac value = 1 }
+							change_variable = { which = ac_m value = 0.1 }
+					}
+					
+					#Climate
+					if = {
+					        limit = {
+							       has_climate = arctic
+							}
+					        change_variable = { which = ac_m value = -0.3 }
+							change_variable = { which = ucdev_m value = 0.3 }
+					}
+					else_if = {
+					        limit = {
+							       has_climate = tropical
+							}
+					        change_variable = { which = ac_m value = -0.3 }
+							change_variable = { which = ucdev_m value = 0.2 }
+					}
+					if = {
+					        limit = {
+							       has_winter = severe_winter
+							}
+					        change_variable = { which = ac_m value = -0.3 }
+					}
+					else_if = {
+					        limit = {
+							       has_winter = normal_winter
+							}
+					        change_variable = { which = ac_m value = -0.15 }
+					}
+					if = {
+					        limit = {
+							       has_climate = arid
+							}
+					        change_variable = { which = ac_m value = -0.15 }
+							change_variable = { which = ucdev_m value = 0.15 }
+					}
+					if = {
+					        limit = {
+							       owner = { has_country_modifier = ice_age }
+							}
+					        change_variable = { which = ac_m value = -0.2 }
+							change_variable = { which = food_m value = -0.2 }
+					}
+					if = {
+					        limit = {
+							       new_world_i = 100
+							}
+					        change_variable = { which = ac_m value = 0.2 }
+							change_variable = { which = food_m value = 0.1 }
+					}
+					
+					if = {
+					        limit = {
+							       has_province_modifier = famine_l
+							}
+					        change_variable = { which = food_m value = -0.2 }
+							
+					}
+					
+					else_if = {
+					        limit = {
+							       has_province_modifier = famine_m
+							}
+					        change_variable = { which = food_m value = -0.4 }
+							
+					}
+					
+					else_if = {
+					        limit = {
+							       has_province_modifier = famine_h
+							}
+					        change_variable = { which = food_m value = -0.6 }
+							
+					}
+					
+					if = {
+					        limit = {
+							      has_global_flag = ice_age_grain_price
+							}
+							change_variable = { which = food_m value = -0.1 }
+					}
+					
+					#Terrain and Climate End
+					
+					#Agriculture Buildings
+					
+					if = {
+					        limit = {
+							       has_building = mill
+							}
+					        change_variable = { which = food_m value = 0.1 }
+					        change_variable = { which = ac_m value = 0.1 }
+							
+					}
+					if = {
+					        limit = {
+							       has_building = farm_estate
+							}
+							change_variable = { which = food_m value = 0.2 }
+					        change_variable = { which = ac_m value = 0.2 }
+							
+					}
+					#Agriculture Buildings End
+					
+					#Edict
+					if = {
+					      limit = { has_state_edict = edict_agriculture_focus }
+						  change_variable = { which = pop_growth value = 1 }
+						  change_variable = { which = pop_gm value = 0.15 }
+						  
+					}
+					
+					#Technology
+					set_variable = { which = pop_tm value = 0 }
+					export_to_variable = {
+					      which = pop_tm
+						  value = adm_tech
+						  who = owner
+					}
+					multiply_variable = { which = pop_tm value = 0.01 }
+					change_variable = { which = ac_m which = pop_tm }
+					subtract_variable = { which = pop_tm value = -0.1 }
+					change_variable = { which = pop_gm which = pop_tm }
+					
+					multiply_variable = { which = food_sup which = food_m }
+					change_variable = { which = food_sur which = food_sup }
+					subtract_variable = { which = food_sur which = food_con }
+					if = {
+					     limit = { has_province_modifier = import_food }
+						 if = {
+						        limit = { 
+                                     NOT = { check_variable = { which = food_sur value = 4 } }
+									 any_neighbor_province = {
+									        owned_by = ROOT
+											has_province_modifier = export_food
+									 }
+								}
+								change_variable = { which = food_sup value = 4 }
+						        change_variable = { which = food_sur value = 4 }
+								else = {
+							          remove_province_modifier = import_food
+									  random_neighbor_province = {
+									         limit = {
+											      owned_by = ROOT
+												  has_province_modifier = export_food
+											 }
+											 remove_province_modifier = export_food
+									  }
+							   }
+						 }
+					}
+					if = {
+					     limit = { has_province_modifier = export_food }
+						 if = {
+						       limit = { 
+							              check_variable = { which = food_sur value = 5 } 
+										  any_neighbor_province = {
+									          owned_by = ROOT
+											  has_province_modifier = import_food
+									      }
+							   }
+							   change_variable = { which = food_con value = 5 }
+						       change_variable = { which = food_sur value = -5 }
+							   else = {
+							          remove_province_modifier = export_food
+									  random_neighbor_province = {
+									         limit = {
+											      owned_by = ROOT
+												  has_province_modifier = import_food
+											 }
+											 remove_province_modifier = import_food
+									  }
+							   }
+						 }
+						 
+					}
+					if = { #In case of bug
+					     limit = { NOT = { check_variable = { which = food_con value = 1 } } }
+						 set_variable = { which = food_con value = 1 }
+					}
+					#if = { #In case of bug
+					     #limit = { NOT = { check_variable = { which = ucdev_m value = 0.1 } } }
+						 #set_variable = { which = ucdev_m  value = 0.1 }
+					#}
+					#Calculate Food Impact
+					change_variable = { which = food_im which = food_sur }
+					divide_variable = { which = food_im which = food_con }
+					divide_variable = { which = food_im value = 4 }
+					if = { #Positive Growth
+					      limit = { 
+						       check_variable = { which = food_im value = 0 }
+						  }
+					      change_variable = { which = food_im value = 1 }
+						  
+					}
+					else = { #Starvation
+						  subtract_variable = { which = food_im value = 1 }
+					}
+					change_variable = { which = pop_growth which = food_im }
+					multiply_variable = { which = pop_growth value = 1.5 }
+					
+					
+					if = { #New World Bonus
+					     limit = { 
+						         OR = { 
+                                      continent = north_america
+									  continent = south_america
+								 } 
+								 OR = {
+								        new_world_i = 100
+										owner = { dip_tech = 6 }
+								 }
+								 NOT = { development = 10 }
+						 }
+						 change_variable = { which = pop_growth value = 1 }
+						 change_variable = { which = merc_gm value = 0.1 }
+						 change_variable = { which = indu_gm value = 0.15 }
+						 if = {
+						        limit = {
+								      NOT = { development = 4 }
+								}
+								change_variable = { which = pop_growth value = 8 }
+						 }
+						 else_if = {
+						        limit = {
+								      NOT = { development = 6 }
+								}
+								change_variable = { which = pop_growth value = 4 }
+						 }
+						 if = {
+						        limit = {
+								      NOT = { base_production = 3 }
+								}
+								change_variable = { which = indu_g value = 3 }
+						 }
+					}
+					multiply_variable = { which = ucdev_m value = -1 }
+					change_variable = { which = ucdev_m value = 1 }
+					multiply_variable = { which = pop_growth which = ucdev_m }
+					
+					#Food Calculation Complete
+					
+					
+					
+					#Calculate Agriculture Capacity and Urbanization Capacity
+					export_to_variable = {
+					    which = o_ac
+						value = base_manpower
+					}
+					change_variable = { which = uc which = o_ac }
+					change_variable = { which = uc which = b_uc }
+					#multiply_variable = { which = uc value = 1.1 }
+			
+					
+					
+					#Buildings
+					
+					if = {
+					        limit = {
+					            has_building = road_1		        
+							}
+					        change_variable = { which = uc_m value = 0.2 }
+							if = {
+								limit = { owner = { economic_ideas = 5 } }
+								change_variable = { which = uc_m value = 0.04 }
+							}
+					}
+					else_if = {
+					        limit = {
+					            has_building = road_2		        
+							}
+					        change_variable = { which = uc_m value = 0.4 }
+							if = {
+								limit = { owner = { economic_ideas = 5 } }
+								change_variable = { which = uc_m value = 0.08 }
+							}
+					}
+					else_if = {
+					        limit = {
+					            has_building = road_3		        
+							}
+					        change_variable = { which = uc_m value = 0.7 }
+							if = {
+								limit = { owner = { economic_ideas = 5 } }
+								change_variable = { which = uc_m value = 0.14 }
+							}
+					}
+					
+					#Ideas
+					if = {
+					        limit = {
+					            owner = { agrarian_ideas = 1 }		        
+							}
+					        change_variable = { which = ac_m value = 0.05 }
+					}
+					
+					#Literacy Index ( LI = Lit *0.006 + 0.6 )
+					
+					change_variable = { which = lit_index which = literacy }
+					change_variable = { which = lit_index value = 100 }
+					multiply_variable = { which = lit_index value = 0.006 }
+					multiply_variable = { which = uc_m which = lit_index }
+					
+					
+					#Apply UC Modifier
+					change_variable = { which = fin_uc which = uc }
+					multiply_variable = { which = fin_uc which = uc_m }
+					
+					
+					#Apply AC Modifier
+					if = { #Never lower than 10% AC
+					     limit = { NOT = { check_variable = { which = ac_m value = 0.1 } } }
+						 set_variable = { which = ac_m value = 0.1 }
+					}
+					change_variable = { which = fin_ac which = ac }
+					multiply_variable = { which = fin_ac which = ac_m }
+					change_variable = { which = r_ac which = fin_ac }
+					subtract_variable = { which = r_ac which = o_ac }
+					
+					multiply_variable = { which = pop_growth which = fin_ac }
+					divide_variable = { which = pop_growth value = 13 }
+					if = {
+						limit = { check_variable = { which = pop_growth value = 0 } }
+						multiply_variable = { which = pop_growth which = pop_gm }
+					}
+					#UC Occupied By Commerce
+					export_to_variable = {
+					    which = merc_c
+						value = base_tax
+					}
+					
+					if = {
+					        limit = {
+							        has_building = marketplace
+							}
+							change_variable = { which = merc_g value = 2 }
+							change_variable = { which = merc_gm value = 0.1 }
+					}
+					
+					if = {
+					        limit = {
+							        has_building = trade_depot
+							}
+							change_variable = { which = merc_g value = 3 }
+							change_variable = { which = merc_gm value = 0.2 }
+					}
+					
+					if = {
+					        limit = {
+							        has_building = stock_exchange
+							}
+							change_variable = { which = merc_g value = 4 }
+							change_variable = { which = merc_gm value = 0.3 }
+					}
+					
+					if = {
+					        limit = {
+							        has_building = dock
+							}
+					        change_variable = { which = merc_m value = -0.03 }
+							change_variable = { which = merc_g value = 0.5 }
+					}
+					
+					else_if = {
+					        limit = {
+							        has_building = drydock
+							}
+					        change_variable = { which = merc_m value = -0.05 }
+							change_variable = { which = merc_g value = 1 }
+					}
+							
+					
+					set_variable = { which = merc_tm value = 0 }
+					export_to_variable = {
+					      which = merc_tm
+						  value = dip_tech
+						  who = owner
+					}
+					multiply_variable = { which = merc_tm value = 0.01 }
+					change_variable = { which = merc_m which = merc_tm }
+					subtract_variable = { which = merc_tm value = 0.15 }
+					change_variable = { which = merc_gm which = merc_tm }
+					
+					
+					
+					if = {
+					      limit = {  
+						         NOT = { check_variable = { which = merc_m value = 0.1 } }
+						  }
+						  set_variable = { which = merc_m value = 0.1 }
+					}
+					
+					
+					
+					#UC Occupied By Production
+					export_to_variable = {
+					    which = indu_c
+						value = base_production
+					}
+					
+					if = {
+					        limit = {
+							        has_building = workshop
+							}
+							change_variable = { which = indu_g value = 1 }
+							change_variable = { which = indu_gm value = 0.1 }
+					}
+					
+					else_if = {
+					        limit = {
+							        has_building = counting_house
+							}
+							change_variable = { which = indu_g value = 2 }
+							change_variable = { which = indu_gm value = 0.2 }
+					}
+					
+					else_if = {
+					        limit = {
+							        has_building = weapons
+							}
+							change_variable = { which = indu_g value = 3 }
+							change_variable = { which = indu_gm value = 0.3 }
+					}
+					if = {
+					        limit = {
+							        has_building = shipyard
+							}
+					        change_variable = { which = indu_m value = -0.03 }
+							owner = { change_variable = { which = indu_vm value = 0.10 } }
+							change_variable = { which = indu_g value = 0.5 }
+					}
+					
+					if = {
+					        limit = {
+							        has_building = grand_shipyard
+							}
+					        change_variable = { which = indu_m value = -0.05 }
+							owner = { change_variable = { which = indu_vm value = 0.20 } }
+							change_variable = { which = indu_g value = 1 }
+					}
+					if = {
+					        limit = {
+						            trade_goods = coal
+						    } 
+							change_variable = { which = indu_gm value = 0.10 }
+					}
+					if = {
+					        limit = { has_province_flag = cu_foster_industry_mod }
+							change_variable = { which = indu_gm value = 0.15 }
+					}
+					set_variable = { which = indu_tm value = 0 }
+					export_to_variable = {
+					      which = indu_tm
+						  value = adm_tech
+						  who = owner
+					}
+					multiply_variable = { which = indu_tm value = 0.01 }
+					change_variable = { which = indu_m which = indu_tm }
+					subtract_variable = { which = indu_tm value = 0.15 }
+					change_variable = { which = indu_gm which = indu_tm }
+					
+					if = {
+					      limit = {  
+						         NOT = { check_variable = { which = indu_m value = 0.1 } }
+						  }
+							set_variable = { which = indu_m value = 0.1 }
+					}
+					if = {
+					      limit = {  
+						         NOT = { check_variable = { which = fin_uc value = 1 } }
+						  }
+							set_variable = { which = fin_uc value = 1 }
+					}
+					
+					if = {
+					        limit = {
+							      has_state_edict = edict_commercial_focus
+							}
+							change_variable = { which = merc_g value = 3 }
+							change_variable = { which = merc_gm value = 0.3 }
+					}
+					if = {
+					        limit = {
+							      has_state_edict = edict_industrial_focus
+							}
+							change_variable = { which = indu_g value = 3 }
+							change_variable = { which = indu_gm value = 0.3 }
+					}
+					if = {
+					      limit = {  
+						         owner = { has_country_modifier = artisan_regulation }
+						  }
+							change_variable = { which = indu_gm value = -0.3 }
+					}
+					if = {
+					      limit = {  
+						         owner = { has_country_modifier = trade_limitation }
+						  }
+							change_variable = { which = merc_gm value = -0.3 }
+					}
+					if = {
+					      limit = {  
+						         NOT = { check_variable = { which = merc_gm value = 0.1 } }
+						  }
+							set_variable = { which = merc_gm value = 0.1 }
+					}
+					if = {
+					      limit = {  
+						         NOT = { check_variable = { which = indu_gm value = 0.1 } }
+						  }
+							set_variable = { which = indu_gm value = 0.1 }
+					}
+					
+					
+					
+					#Literacy Index = 0.06 + Literacy/500 
+					set_variable = { which = lit_index value = 0 }
+					change_variable = { which = lit_index which = literacy } #Literacy
+					change_variable = { which = lit_index value = 30 } #Literacy
+					divide_variable = { which = lit_index value = 500 }
+					
+					#Institutions buff
+					
+					if = {
+					    limit = { 
+						    manufactories = 100
+						}
+						change_variable = { which = indu_gm value = 0.05 }
+					}
+					
+					if = {
+					    limit = { 
+						    industrial_revolution = 100
+						}
+						change_variable = { which = indu_gm value = 0.5 }
+						change_variable = { which = merc_gm value = 0.25 }
+					}
+					
+					#Fixed UC
+					if = {
+					        limit = {
+							        OR = {
+									        has_building = plantations
+									        has_building = tradecompany
+									}
+							}
+					        change_variable = { which = fin_uc value = -3 }
+					}
+					
+					#Apply Occupied Urbanization Capacity
+					multiply_variable = { which = merc_c which = merc_m }
+					#multiply_variable = { which = merc_c which = ucdev_m }
+					
+					
+					multiply_variable = { which = indu_c which = indu_m }
+					#multiply_variable = { which = indu_c which = ucdev_m }
+					
+					change_variable = { which = o_uc which = merc_c }
+					change_variable = { which = o_uc which = indu_c }
+					change_variable = { which = r_uc which = fin_uc }
+					subtract_variable = { which = r_uc which = o_uc }
+					
+					
+					#Calculate Commerce Growth Speed( Commerce Growth = ( 5 + Base Commerce Capacity * 0.4 + Remained UC + X ) * Literacy Index * Commerce Growth Modifier * Development Time Modifier)
+					change_variable = { which = merc_g which = merc_c }
+					multiply_variable = { which = merc_g value = 0.4 }
+					change_variable = { which = merc_g which = r_uc }
+					change_variable = { which = merc_g value = 5 }
+					multiply_variable = { which = merc_g which = lit_index }
+					if = {
+						limit = { check_variable = { which = merc_g value = 0 } }
+						multiply_variable = { which = merc_g which = merc_gm }
+						multiply_variable = { which = merc_g which = food_im }
+						multiply_variable = { which = merc_g which = ucdev_m }
+					}
+					
+					#Calculate Industry Growth Speed
+					change_variable = { which = indu_g which = indu_c }
+					multiply_variable = { which = indu_g value = 0.4 }
+					change_variable = { which = indu_g which = r_uc }
+					change_variable = { which = indu_g value = 4 }
+					multiply_variable = { which = indu_g which = lit_index }
+					if = {
+						limit = { check_variable = { which = indu_g value = 0 } }
+						multiply_variable = { which = indu_g which = indu_gm }
+						multiply_variable = { which = indu_g which = food_im }
+						multiply_variable = { which = indu_g which = ucdev_m }
+					}
+					
+					#Inflation Impact on Urbanization
+					set_variable = { which = inflation_index which = owner }
+					divide_variable = { which = inflation_index value = 100 }
+					if = {
+					    limit = { check_variable = { which = inflation_index value = 1 } }
+						divide_variable = { which = merc_g which = inflation_index }
+						set_variable = { which = inflation_recip value = -1 }
+					    divide_variable = { which = inflation_recip which = inflation_index }
+						change_variable = { which = inflation_recip value = 2 }
+						multiply_variable = { which = indu_g which = inflation_recip }
+						else = {
+						     multiply_variable = { which = indu_g which = inflation_index }
+						     set_variable = { which = inflation_recip value = -1 }
+					         multiply_variable = { which = inflation_recip which = inflation_index }
+						     change_variable = { which = inflation_recip value = 2 }
+						     multiply_variable = { which = merc_g which = inflation_recip }
+						}
+					}
+					
+					if = { #Not enough Agriculture Capacity, Agriculture Growth stops
+					     limit = { 
+						           NOT = { check_variable = { which = r_ac value = 0 } } 
+								   check_variable = { which = pop_growth value = 0 }
+						 }
+						 set_variable = { which = pop_growth value = 0 }
+					}
+					
+					if = { #Not enough Urbanization Capacity, Commerce/Industry Growth stops
+					     limit = { NOT = { check_variable = { which = r_uc value = 1 } } }
+						 set_variable = { which = merc_g value = 0 }
+						 set_variable = { which = indu_g value = 0 }
+					}
+					
+					set_variable = { which = ucdev_dm which = ucdev_m } #Displayed Modifier
+					multiply_variable = { which = ucdev_dm value = 100 }
+			 }
+}
+
+
+
+#Province Calculation(Countrywide)
+country_event = {
+      id = urban.99
+	  title = "EVT_HIDDEN"
+	  desc = "EVT_HIDDEN"
+	  picture = CITY_DEVELOPMENT_eventPicture
+	  hidden = yes
+	  is_triggered_only = yes
+	  
+	  option = {
+	         name = "EVT_HIDDEN"
+			 #clr_country_flag = uc_calculation
+			 #set_country_flag = uc_calculation
+			 set_variable = { which = temp_mv value = 0 }
+			 set_variable = { which = temp_iv value = 0 }
+		     set_variable = { which = merc_vg value = 10 }
+			 set_variable = { which = indu_vg value = 10 }
+			 every_owned_province = {
+			        limit = { 
+					          is_city = yes 
+					          OR = {
+							         base_manpower = 2
+									 cu_not_terr_trigger = yes
+									 NOT = { has_global_flag = cu_five_years_pulse } #The first calculation is included
+							  }		  
+					}
+					hidden_effect = {
+                              add_local_autonomy = 0.01  #Allows autonomy to increase normally in province with minimum autonomy. 					
+					          province_event = { id = urban.98 } 
+					}
+			 }
+			 
+			 country_event = { id = urban.89 }
+		   
+		
+	  }
+	  
+
+}
+
+#City Census(Calculate Inflation)
+country_event = {
+      id = urban.89
+	  title = "EVT_HIDDEN"
+	  desc = "EVT_HIDDEN"
+	  picture = CITY_DEVELOPMENT_eventPicture
+	  hidden = yes
+	  is_triggered_only = yes
+	  option = {
+              name = "EVT_HIDDEN"	
+              if = {
+					limit = { 
+							NOT = { check_variable = { which = indu_vg value = 1 } } 
+					}
+					set_variable = { which = indu_vg value = 1 }
+			}
+		   set_variable = { which = inflation_index which = merc_vg }
+		   multiply_variable = { which = inflation_index value = 100 }
+		   divide_variable = { which = inflation_index which = indu_vg }
+           set_variable = { which = merc_vgm which = merc_vg } #Used for additional merchants		   
+	  }
+}
+
+
+
+###Commerce Development(Hidden)
+province_event = {
+    id = urban.01
+	title = "urban.0.t"
+	desc = "urban.0.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+
+	option = {
+		name = "urban.0.a" #Great.
+		cu_reduce_base_manpower_1 = yes
+		cu_add_base_tax_1 = yes
+                #add_permanent_province_modifier = {
+                        #name = recent_merc_growth
+                        #duration = 180
+                #}
+		#hidden_effect = { province_event = { id = urban.98 } }
+	}
+}
+
+
+
+###Production Development(Hidden)
+province_event = {
+    id = urban.11
+	title = "urban.1.t"
+	desc = "urban.1.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+
+	option = {
+		name = "urban.0.a" #Great.
+		cu_reduce_base_manpower_1 = yes
+		cu_add_base_production_1 = yes
+                #add_permanent_province_modifier = {
+                        #name = recent_prod_growth
+                        #duration = 120
+                #}
+		#hidden_effect = { province_event = { id = urban.98 } }
+	}
+}

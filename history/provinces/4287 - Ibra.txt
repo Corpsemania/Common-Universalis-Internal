@@ -1,0 +1,45 @@
+#4287 - Ibra
+
+owner = OMA
+controller = OMA
+culture = omani_culture
+religion = ibadi
+capital = "Ibra"
+trade_goods = grain
+hre = no
+base_tax = 2
+base_production = 2
+base_manpower = 2
+is_city = yes
+add_core = OMA
+discovered_by = muslim
+discovered_by = ottoman
+discovered_by = indian
+discovered_by = nomad_group
+discovered_by = east_african
+
+1480.1.1 = { discovered_by = TUR }
+1488.1.1 = { discovered_by = POR } # Pêro da Covilhã
+1507.6.1 = {
+	owner = POR
+	controller = POR
+	add_core = POR
+	capital = "Sur"
+}# Captured by the Portuguese
+1624.1.1 = {
+	owner = OMA
+	controller = OMA
+	remove_core = POR
+}# Rule restored
+1679.1.1 = { unrest = 5 } # Internal unrest upon Imam's death
+1741.1.1 = {
+	owner = PER
+	controller = PER	
+	add_core = PER
+}# Invaded by Persia
+1749.6.10 = {
+	owner = OMA
+	controller = OMA
+	remove_core = PER
+	unrest = 0
+}

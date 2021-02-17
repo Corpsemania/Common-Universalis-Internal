@@ -38,19 +38,19 @@ country_decisions = {
 			149 = {	
 				add_base_tax = -1
 				add_base_production = -1
+				add_base_manpower = -4
+			}
+			random_owned_province = {
+				limit = { culture = turkish }
+				add_base_manpower = -1
+			}
+			random_owned_province = {
+				limit = { culture = turkish }
+				add_base_manpower = -1
+			}
+			random_owned_province = {
+				limit = { culture = turkish }
 				add_base_manpower = -2
-			}
-			random_owned_province = {
-				limit = { culture = turkish }
-				add_base_manpower = -1
-			}
-			random_owned_province = {
-				limit = { culture = turkish }
-				add_base_manpower = -1
-			}
-			random_owned_province = {
-				limit = { culture = turkish }
-				add_base_manpower = -1
 			}
 			if = {
 				limit = {
@@ -59,7 +59,7 @@ country_decisions = {
 				151 = {
 				    add_base_tax = 2
 					add_base_production = 2
-					add_base_manpower = 8
+					add_base_manpower = 12
 					hidden_effect = { 
 							change_variable = { which = literacy value = -1 } 
 							set_variable = { which = p_ca value = 100 } 
@@ -68,7 +68,7 @@ country_decisions = {
 				}
 				set_global_flag = constantinople_restored
 			}
-			#set_government_rank = 3 #Gained From Event
+			set_government_rank = 3
 			hidden_effect = {
 			     set_variable = { which = cu_var1 value = 50 }
 				 cu_change_cultural_legacy = yes

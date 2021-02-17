@@ -13,8 +13,7 @@ country_decisions = {
 					any_owned_province = {
 						 OR = {
 							  has_building = temple
-							  has_building = temple
-							  has_estate = estate_church
+							  has_building = cathedral
 						 }
 					}		
 		}
@@ -33,11 +32,11 @@ country_decisions = {
 			}	
 			modifier = {
 			       factor = 0
-				   has_country_modifier = education_policy_public
+				   has_reform = education_policy_public
 			}
 			modifier = {
 			       factor = 0
-				   has_country_modifier = education_policy_burghers
+				   has_reform = education_policy_burghers
 			}			
 		}
 		ai_importance = 400
@@ -49,8 +48,8 @@ country_decisions = {
 		potential = {
 			ai = yes
 			NOT = { government = tribal }
-            NOT = { has_country_modifier = education_policy_burghers }
-			has_country_modifier = education_policy_church
+            NOT = { has_reform = education_policy_burghers }
+			has_reform = education_policy_church
 		}
 		allow = {
 			adm_tech = 15
@@ -63,8 +62,8 @@ country_decisions = {
 		ai_will_do = {
 			factor = 1
 			modifier = {
-			       factor = 0
-				   NOT = { years_of_income = 1 }
+				factor = 0
+				NOT = { monthly_income = 20 }
 			}
 			modifier = {
 			       factor = 0
@@ -91,7 +90,7 @@ country_decisions = {
 			}			
 			modifier = {
 			       factor = 0
-				   has_country_modifier = education_policy_public
+				   has_reform = education_policy_public
 			}
 		}
 		ai_importance = 400
@@ -103,8 +102,8 @@ country_decisions = {
 		potential = {
 			ai = yes
 			NOT = { government = tribal }
-		    NOT = { has_country_modifier = education_policy_public }
-			has_country_modifier = education_policy_burghers
+		    NOT = { has_reform = education_policy_public }
+			has_reform = education_policy_burghers
 		}
 		allow = {
 			adm_tech = 19
@@ -117,38 +116,14 @@ country_decisions = {
 		ai_will_do = {
 			factor = 1
 			modifier = {
-			       factor = 0
-				   NOT = { years_of_income = 2 }
+				factor = 0
+				NOT = { monthly_income = 100 }
+				
 			}
 			modifier = {
-			       factor = 0
-				   NOT = { check_variable = { which = go value = 100 }  } #Need Enough GC
-			}
-			modifier = {
-			       factor = 0
-				   NOT = { check_variable = { which = ave_literacy value = 10 } }
-				   NOT = { tag = BRA } #Make some historical nations more likely to use this
-				   NOT = { tag = BUR }
-				   NOT = { tag = PRU }
-				   NOT = { tag = GER }
-				   NOT = { tag = SWE }
-				   NOT = { tag = NED }
-				   NOT = { tag = JAP }
-			}
-			modifier = {
-			       factor = 0
-				   AND = {
-				     NOT = { treasury = 500 } #Can't afford a public school and has no university
-				     NOT = { 
-				       any_owned_province = {
-				                 OR = {
-								         has_building = university 
-										 has_building = public_school
-								  }
-				       } 
-				     }
-				   }
-			}
+				factor = 0
+				government = tribal
+			}	
 		}
 		ai_importance = 400
 	}

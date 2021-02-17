@@ -8,7 +8,8 @@ country_event = {
 	desc = cuestate.1000.d
 	picture = BURGHER_ESTATE_eventPicture
 	
-	trigger = {
+	is_triggered_only = yes
+    trigger= {
 	    has_global_flag = test_version
 		has_dlc = "The Cossacks"
 		has_estate = estate_burghers
@@ -434,7 +435,8 @@ country_event = {
 	}
 	option = {#refuse
 		name = cuestate.1000.b
-		trigger = { NOT = { has_country_flag = defeated_by_estate } }
+		is_triggered_only = yes
+    trigger= { NOT = { has_country_flag = defeated_by_estate } }
 		custom_tooltip = add_estate_mil_5_emilb
 		hidden_effect = {
 			change_variable = { which = emib value = 10 }
@@ -505,7 +507,8 @@ country_event = {
 	}
 	option = {#gugugu
 		name = cuestate.1000.c
-		trigger = {
+		is_triggered_only = yes
+    trigger= {
 			NOT = { check_variable = { which = emib value = 90 } }
 			NOT = { has_country_flag = defeated_by_estate }
 		}
@@ -526,7 +529,8 @@ country_event = {
 	desc = cuestate.1001.d
 	picture = CHURCH_ESTATE_1_eventPicture
 	
-	trigger = {
+	is_triggered_only = yes
+    trigger= {
 	    has_global_flag = test_version
 		OR = {
 			NOT = { has_country_flag = chu_ask_reform }
@@ -720,7 +724,8 @@ country_event = {
 	}
 	option = {#refuse
 		name = cuestate.1000.b
-		trigger = { NOT = { has_country_flag = defeated_by_estate } }
+		is_triggered_only = yes
+    trigger= { NOT = { has_country_flag = defeated_by_estate } }
 		custom_tooltip = add_estate_mil_5_emilc
 		hidden_effect = {
 			change_variable = { which = emic value = 5 }
@@ -801,7 +806,8 @@ country_event = {
 	}
 	option = {#gugugu
 		name = cuestate.1000.c
-		trigger = {
+		is_triggered_only = yes
+    trigger= {
 			NOT = { has_country_flag = defeated_by_estate }
 			NOT = { check_variable = { which = emic value = 90 } }
 		}
@@ -820,20 +826,23 @@ country_event = {
 	id = cuestate.1002
 	title = cuestate.1000.t
 	desc = {
-		trigger = {
+		is_triggered_only = yes
+    trigger= {
 			has_estate = estate_nobles
 		}
 		desc = cuestate.1002.d1
 	} 
 	desc = {
-		trigger = {
+		is_triggered_only = yes
+    trigger= {
 			has_estate = estate_qinwang
 		}
 		desc = cuestate.1002.d2
 	} 
 	picture = NOBLE_ESTATE_eventPicture
 	
-	trigger = {
+	is_triggered_only = yes
+    trigger= {
 	    has_global_flag = test_version
 		OR = {
 			NOT = { has_country_flag = nob_ask_reform }
@@ -1048,7 +1057,8 @@ country_event = {
 	}
 	option = {#refuse
 		name = cuestate.1000.b
-		trigger = { NOT = { has_country_flag = defeated_by_estate } }
+		is_triggered_only = yes
+    trigger= { NOT = { has_country_flag = defeated_by_estate } }
 		custom_tooltip = add_estate_mil_5_emiln
 		hidden_effect = {
 			change_variable = { which = emin value = 5 }
@@ -1131,7 +1141,8 @@ country_event = {
 	}
 	option = {#gugugu
 		name = cuestate.1000.c
-		trigger = {
+		is_triggered_only = yes
+    trigger= {
 			NOT = { check_variable = { which = emin value = 90 } }
 			NOT = { has_country_flag = defeated_by_estate }
 		}
@@ -1150,16 +1161,19 @@ country_event = {
 	id = cuestate.1003
 	title = cuestate.1000.t
 	desc = {
-		trigger = { has_estate = estate_cossacks }
+		is_triggered_only = yes
+    trigger= { has_estate = estate_cossacks }
 		desc = cuestate.1003.d1
 	}
 	desc = {
-		trigger = { has_estate = estate_nomadic_tribes }
+		is_triggered_only = yes
+    trigger= { has_estate = estate_nomadic_tribes }
 		desc = cuestate.1003.d2
 	}
 	picture = COSSACK_ESTATE_eventPicture
 	
-	trigger = {
+	is_triggered_only = yes
+    trigger= {
 	    has_global_flag = test_version
 		OR = {
 			NOT = { has_country_flag = els_ask_reform }
@@ -1333,7 +1347,8 @@ country_event = {
 	}
 	option = {#refuse
 		name = cuestate.1000.b
-		trigger = { NOT = { has_country_flag = defeated_by_estate } }
+		is_triggered_only = yes
+    trigger= { NOT = { has_country_flag = defeated_by_estate } }
 		custom_tooltip = add_estate_mil_5_emile
 		hidden_effect = {
 			change_variable = { which = emie value = 5 }
@@ -1416,7 +1431,8 @@ country_event = {
 	}
 	option = {#gugugu
 		name = cuestate.1000.c
-		trigger = {
+		is_triggered_only = yes
+    trigger= {
 			NOT = { has_country_flag = defeated_by_estate }
 			NOT = { check_variable = { which = emie value = 90 } }
 		}

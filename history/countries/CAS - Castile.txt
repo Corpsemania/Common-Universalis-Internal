@@ -79,7 +79,7 @@ add_army_professionalism = 0.1
 		death_date = 1474.12.11
 		claim = 95
 		adm = 0
-		dip = 0
+		dip = 1
 		mil = 0
 	}
 	clear_scripted_personalities = yes
@@ -111,7 +111,7 @@ add_army_professionalism = 0.1
 		dynasty = "de Trastámara"
 		birth_date = 1425.1.5
 		adm = 0
-		dip = 0
+		dip = 1
 		mil = 0
 	}
 	queen = {

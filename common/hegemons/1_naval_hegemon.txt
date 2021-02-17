@@ -1,0 +1,26 @@
+naval_hegemon = {
+	allow = {
+		is_great_power = yes
+		num_of_heavy_ship = 125
+		NOT = { any_other_great_power = { num_of_heavy_ship = root } }
+		NOT = { has_country_modifier = lost_hegemony }
+	}
+	
+	base = {
+		war_exhaustion = -0.02
+		global_naval_engagement_modifier = 0.05
+	}
+	
+	# At max 100% tickup.
+	scale = {
+		global_sailors_modifier = 0.5
+		global_unrest = -1
+		naval_morale = 0.10
+		global_spy_defence = 0.10
+	}
+	
+	max = {
+		diplomatic_reputation = 1
+	}
+	
+}

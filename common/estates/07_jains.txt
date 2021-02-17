@@ -1,20 +1,16 @@
 estate_jains = {
 	icon = 11
-	
-	color = { 65 115 240 }
 
-	# Is estate kept in control of province on conquest?
-	keep_on_conquest = no
-	
 	# If true, country will get estate
 	
 	trigger = {	
-		NOT = { has_dlc = "Dharma" }
+		always = no
+		has_dlc = "Dharma"
 		technology_group = indian
 		NOT = { has_government_attribute = is_merchant_republic }
 		NOT = { has_reform = trading_city }
-		NOT = { has_reform = revolutionary_republic_reform }
-		NOT = { government = native }
+		NOT = { is_revolutionary_republic_trigger = yes }
+		NOT = {  cu_estate_preload_native = yes }
 		NOT = { has_reform = siberian_tribe }
 		NOT = { has_reform = veche_republic }
 		NOT = { has_reform = cossacks_reform }
@@ -22,28 +18,8 @@ estate_jains = {
 		is_nomad = no
 		is_colonial_nation = no
 		NOT = { has_reform = celestial_empire }
+		NOT = { has_reform = revolutionary_empire_reform }
 	}
-	
-	# If true, province can be granted to estate
-	province_trigger = {
-		OR = {
-			religion_group = dharmic
-			religion = buddhism
-			religion = vajrayana
-			religion = mahayana
-		}
-	}
-
-	# Is used to weigh importance compared to other estates
-	start_territory_weight = 10
-	
-	# Min autonomy in estate provinces
-	min_autonomy = 20
-	
-	# Estate cancels out the following multiplicative local autonomy effects:
-	autonomy_does_not_affect = local_production_efficiency
-	autonomy_does_not_affect = province_trade_power_modifier
-	autonomy_does_not_affect = local_tax_modifier
 
 	# These scale with loyalty & power
 	country_modifier_happy = {
@@ -55,26 +31,54 @@ estate_jains = {
 	}	
 	country_modifier_angry = {
 		interest = 1
+		global_unrest = 2
 	}
-	
-	# These do not scale, but only applied in provinces owned by the estate
-	province_modifier_happy = {	
-		local_state_maintenance_modifier = -0.25
-		local_tax_modifier = 0.33
-		local_manpower_modifier = -0.33
-		local_missionary_strength = -1	
+	land_ownership_modifier = {
+		jains_loyalty_modifier = 0.2
 	}
-	province_modifier_neutral = {
-		local_state_maintenance_modifier = -0.25
-		local_manpower_modifier = -0.33
-		local_missionary_strength = -1	
-	}	
-	province_modifier_angry = {
-		local_unrest = 5
-		local_manpower_modifier = -0.50
-		local_missionary_strength = -1	
+
+	province_independence_weight = {
+		factor = 1
+		modifier = {
+			factor = 0.1
+			NOT = { development = 5 }
+		}
+		modifier = {
+			factor = 0.1
+			NOT = { religion_group = dharmic }
+			NOT = { religion = buddhism }
+			NOT = { religion = vajrayana }
+			NOT = { religion = mahayana }
+		}
+		modifier = {
+			factor = 0.5
+			OR = {
+				NOT = { development = 10 }
+				NOT = { province_trade_power = 5 }
+			}
+		}
+		modifier = {
+			factor = 2
+			development = 20
+		}
+		modifier = {
+			factor = 0.5
+			is_territorial_core = owner
+		}
+		modifier = {
+			factor = 1.5
+			province_trade_power = 10
+		}
+		modifier = {
+			factor = 1.5
+			province_trade_power = 20
+		}
+		modifier = {
+			factor = 1.5
+			has_province_modifier = paryushana
+		}
 	}
-	
+
 	# Influence modifiers
 	base_influence = 5
 	influence_modifier = {
@@ -84,6 +88,8 @@ estate_jains = {
 				has_disaster = estate_nobility_disaster
 				has_disaster = estate_church_disaster
 				has_disaster = estate_burghers_disaster
+				has_disaster = estate_brahmins_disaster
+				has_disaster = estate_vaisyas_disaster
 			}
 		}
 		influence = -40
@@ -96,394 +102,54 @@ estate_jains = {
 				has_disaster = estate_nobility_disaster
 				has_disaster = estate_church_disaster
 				has_disaster = estate_burghers_disaster
+				has_disaster = estate_brahmins_disaster
+				has_disaster = estate_vaisyas_disaster
 			}
 		}
 		loyalty = -20
 	}
+
+	privileges = {
+		estate_jains_land_rights
+		estate_jains_diplomacy
+		estate_jains_clerical_class
+		estate_jains_indebted_to_jains
+		estate_jains_conscientious_objection
+		estate_jains_control_over_monetary_policy
+		estate_jains_exclusive_trade_rights
+		estate_jains_private_trade_fleets
+		estate_jains_monopoly_of_textiles
+		estate_jains_monopoly_of_dyes
+		estate_jains_monopoly_of_glass
+		estate_jains_monopoly_of_paper
+	}
 	
-	# For province assignment
-	ai_grant_province = {
-		factor = 3		
-		modifier = {
-			factor = 4
-			local_autonomy = 25
-		}
-		modifier = {
-			factor = 0.25
-			NOT = { local_autonomy = 25 }
-		}
-		modifier = {
-			factor = 2
-			base_tax = 4
-			NOT = { base_manpower = 4 }
-		}
-		modifier = {
-			factor = 2
-			base_tax = 5
-			NOT = { base_manpower = 4 }
-		}
-		modifier = {
-			factor = 2
-			base_tax = 6
-			NOT = { base_manpower = 4 }
-		}
-		modifier = {
-			factor = 0.1
-			owner = {
-				num_of_owned_provinces_with = {
-					value = 1
-					has_estate = estate_jains
-				}
-			}
-		}
-		modifier = {
-			factor = 0.1
-			owner = {
-				num_of_owned_provinces_with = {
-					value = 2
-					has_estate = estate_jains
-				}
-			}
-		}
-		modifier = {
-			factor = 0.1
-			owner = {
-				num_of_owned_provinces_with = {
-					value = 3
-					has_estate = estate_jains
-				}
-			}
-		}
-		modifier = {
-			factor = 0
-			owner = {
-				num_of_owned_provinces_with = {
-					value = 4
-					has_estate = estate_jains
-				}
-			}
-		}
-	}	
-	
-	# Does the AI want to give any extra territory beyond the minimum?
-	ai_territory_modifier = {
-		trigger = {
-			always = yes
-		}	
-		value = 100	# Code has a sanity check against pushing influence too high
+	agendas = {
+		estate_jains_build_trade_building_in_y
+		estate_jains_build_port_building_in_y
+		estate_jains_build_production_building_in_y
+		estate_jains_build_manufactory_in_y
+		estate_jains_build_university_in_y
+		estate_jains_pay_off_loans
+		estate_jains_restore_republican_tradition
+		estate_jains_restore_currency
+		estate_jains_recovery_from_hyperinflation
+		estate_jains_increase_trade_power_in_X
+		estate_jains_access_sea
+		estate_jains_build_a_fleet
+		estate_jains_bigger_fleet_than_rival
+		estate_jains_improve_dip_rep
+		estate_jains_get_cash
+		estate_jains_develop_x
+		estate_jains_reduce_corruption
+		estate_jains_stop_converting_province_x
+		estate_jains_three_privileges
+		estate_jains_protect_against_piracy
+		estate_jains_hire_advisor
+		estate_jains_fire_advisor
 	}
 
-	#Interactions
+	color = { 65 115 240 }
 	
-	interaction = {
-		name = "PROCURE_LOANS"
-		icon = 35
-		
-		years_between_use = 5
-		
-		trigger = {
-			is_bankrupt = no
-			estate_influence = {
-				estate = estate_jains
-				influence = 15
-			}
-		}
-		
-		effect = {
-			if = {
-				limit = {
-					NOT = {
-						estate_influence = {
-							estate = estate_jains
-							influence = 50
-						}
-					}
-				}
-				add_loan = {
-					interest_modifier = -0.5
-					fixed_interest = yes
-					duration = 60
-				}
-			}
-			if = {
-				limit = {
-					estate_influence = {
-						estate = estate_jains
-						influence = 50
-					}
-				}
-				add_loan = {
-					interest_modifier = -1
-					fixed_interest = yes
-					duration = 60
-				}
-			}
-			add_estate_influence_modifier = {
-				estate = estate_jains
-				desc = EST_VAL_JAIN_LOANS
-				influence = 10
-				duration = 3650
-			}
-		}
-		ai_will_do = {
-		}
-	}
-	
-	interaction = {
-		name = "INVESTIGATE_CORRUPTION"
-		icon = 39
-		
-		years_between_use = 30
-		
-		trigger = {
-			corruption = 2
-			estate_loyalty = {
-				estate = estate_jains
-				loyalty = 40
-			}
-			estate_influence = {
-				estate = estate_jains
-				influence = 60
-			}
-		}
-		effect = {
-			add_corruption = -2
-			add_estate_influence_modifier = {
-				estate = estate_jains
-				desc = EST_VAL_JAIN_CORRUPTION
-				influence = 10
-				duration = 3650
-			}
-		}
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	
-	interaction = {
-		name = "BUILD_JAIN_TEMPLE"
-		icon = 38
-		
-		years_between_use = 20
-		
-		trigger = {
-			estate_influence = {
-				estate = estate_jains
-				influence = 40
-			}
-			custom_trigger_tooltip = {
-				tooltip = tooltip_own_jain_province
-				any_owned_province = {
-					has_estate = estate_jains
-					NOT = { has_province_modifier = jain_temples_built }
-				}
-			}
-		}
-		effect = {
-			if = {
-				limit = {
-					has_dlc = "Common Sense"
-					NOT = {
-						any_owned_province = {
-							has_estate = estate_jains
-						}
-					}
-				}
-				custom_tooltip = jain_temples_tooltip
-			}
-			if = {
-				limit = {
-					NOT = { has_dlc = "Common Sense" }
-					NOT = {
-						any_owned_province = {
-							has_estate = estate_jains
-						}
-					}
-				}
-				custom_tooltip = jain_temples_tooltip_2
-			}
-			add_estate_influence_modifier = {
-				estate = estate_jains
-				desc = EST_VAL_JAINS_JAIN_TEMPLES
-				influence = 15
-				duration = 7300
-			}
-			random_owned_province = {
-				limit = {
-					has_estate = estate_jains
-					NOT = { has_province_modifier = jain_temples_built }
-				}
-				add_base_tax = 1
-				add_province_modifier = {
-					name = "jain_temples_built"
-					duration = 3650
-				}
-				
-			}
-		}
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	
-	interaction = {
-		name = "PATRONIZE_JAIN_FAMILIES"
-		icon = 36
-		
-		years_between_use = 20
-		
-		trigger = {
-			always = yes
-		}
-		
-		effect = {
-			add_prestige = -5
-			add_estate_loyalty = {
-				estate = estate_jains
-				loyalty = 15
-			}
-			add_estate_influence_modifier = {
-				estate = estate_jains
-				desc = EST_VAL_JAINS_PATRONIZED
-				influence = 10
-				duration = 7300
-			}
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				estate_influence = {
-					estate = estate_jains
-					influence = 60
-				}				
-			}
-			modifier = {
-				factor = 0
-				estate_loyalty = {
-					estate = estate_jains
-					loyalty = 30
-				}				
-			}			
-		}
-	}
-	
-	interaction = {
-		name = "COMMISSION_JAIN_SCRIPTURES"
-		icon = 37
-		
-		years_between_use = 20
-		
-		potential = {
-			NOT = { has_disaster = estate_burghers_disaster }
-			NOT = { has_disaster = estate_church_disaster }
-			NOT = { has_disaster = estate_nobility_disaster }
-		}
-		
-		trigger = {
-			estate_influence = {
-				estate = estate_jains
-				influence = 30
-			}
-		}
-		
-		effect = {
-			add_years_of_income = -0.25
-			add_estate_loyalty = {
-				estate = estate_jains
-				loyalty = 15
-			}
-		}
-		
-		ai_will_do = {
-			factor = 1
-			modifier = {
-				factor = 0
-				estate_influence = {
-					estate = estate_jains
-					influence = 70
-				}
-			}
-			modifier = {
-				factor = 0
-				estate_loyalty = {
-					estate = estate_jains
-					loyalty = 30
-				}				
-			}
-		}
-	}
-	
-	interaction = {
-		name = "DEMAND_SUPPORT_JAINS"
-		icon = 3
-		
-		years_between_use = 20
-		
-		potential = {
-			NOT = { has_estate = estate_burghers }
-			NOT = { has_estate = estate_vaisyas }
-			NOT = { has_disaster = estate_church_disaster }
-			NOT = { has_disaster = estate_nobility_disaster }
-		}
-		
-		trigger = {	
-			estate_loyalty = {
-				estate = estate_jains
-				loyalty = 30
-			}	
-			estate_influence = {
-				estate = estate_jains
-				influence = 25
-			}			
-		}
-		
-		effect = {
-			if = {
-				limit = {
-					NOT = {
-						estate_influence = {
-							estate = estate_jains
-							influence = 50
-						}	
-					}
-				}
-				add_dip_power = 50
-			}
-			else_if = {
-				limit = {
-					NOT = {
-						estate_influence = {
-							estate = estate_jains
-							influence = 75
-						}	
-					}
-				}
-				add_dip_power = 100
-			}
-			else_if = {
-				limit = {
-					NOT = {
-						estate_influence = {
-							estate = estate_jains
-							influence = 100
-						}	
-					}
-				}
-				add_dip_power = 150
-			}
-			else = {
-				add_dip_power = 200
-			}				
-			add_estate_loyalty = {
-				estate = estate_jains
-				loyalty = -20
-			}
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
+	influence_from_dev_modifier = 1.0
 }

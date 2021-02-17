@@ -2,7 +2,7 @@
 
 owner = CRO
 controller = CRO
-culture = croatian
+culture = chakavian
 religion = catholic
 capital = "Rijeka"
 trade_goods = cloth

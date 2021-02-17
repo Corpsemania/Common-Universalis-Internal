@@ -47,10 +47,18 @@ colonial_alaska = {
 	}
 	# Generic
 	names = {
+		trigger = {
+			any_owned_province = {
+				OR = {
+					area = alaska_area
+					area = east_alaska_area
+				}
+			}
+		}
 		name = "COLONIAL_ALASKA_Alaska"
 	}
 	names = {
-		name = "COLONIAL_REGION_New_Root_GetName"
+		name = "COLONIAL_CALIFORNIA_Cascadia"
 	}
 	names = {
 		name = "COLONIAL_ALASKA_Aleutia"
@@ -209,7 +217,7 @@ colonial_canada = {
 		trigger = {
 			tag = SCO
 		}
-		name = "COLONIAL_CANADA_Nouvelle_Écosse"
+		name = "COLONIAL_CANADA_Nouvelle_Ecosse"
 	}
 	names = {
 		trigger = {
@@ -639,6 +647,12 @@ colonial_california = {
 			culture_group = british
 		}
 		name = "COLONIAL_CALIFORNIA_New_Albion"
+	}
+	names = {
+		trigger = {
+			tag = MNG
+		}
+		name = "COLONIAL_CALIFORNIA_Qingqiu"
 	}
 	# Generic
 	names = {
@@ -1142,6 +1156,12 @@ colonial_brazil = {
 	# Specific
 	names = {
 		trigger = {
+			tag = FRA
+		}
+		name = "COLONIAL_BRAZIL_France_Antarctique"
+	}
+	names = {
+		trigger = {
 			tag = POR
 		}
 		name = "COLONIAL_BRAZIL_Root_Culture_GetName_Brazil"
@@ -1276,75 +1296,3 @@ colonial_australia = {
 																 
 	#}
 #}
-
-colonial_placeholder_1 = {
-	color = { 211 108 45 }
-}
-colonial_placeholder_2 = {
-	color = { 152 148 183 }
-}
-
-colonial_placeholder_3 = {
-	color = { 247 158 146 }
-}
-
-colonial_placeholder_4 = {
-	color = { 20 107 142 }
-}
-
-colonial_placeholder_5 = {
-	color = { 228 168 201 }
-}
-
-colonial_placeholder_6 = {
-	color = { 13 81 174 }
-}
-
-colonial_placeholder_7 = {
-	color = { 64 54 203 }
-}
-
-colonial_placeholder_8 = {
-	color = { 171 41 160 }
-}
-
-colonial_placeholder_9 = {
-	color = { 113 23 68 }
-}
-
-colonial_placeholder_10 = {
-	color = { 95 125 183 }
-}
-
-# Used for RNW, added to support bigger tiles
-colonial_placeholder_11 = {
-	color = { 50 150 45 }
-}
-
-colonial_placeholder_12 = {
-	color = { 200 190 20 }
-}
-
-colonial_placeholder_13 = {
-	color = { 20 220 90 }
-}
-
-colonial_placeholder_14 = {
-	color = { 100 50 50 }
-}
-
-colonial_placeholder_15 = {
-	color = { 200 50 50 }
-}
-
-colonial_placeholder_16 = {
-	color = { 30 30 60 }
-}
-
-colonial_placeholder_17 = {
-	color = { 90 70 100 }
-}
-
-colonial_placeholder_18 = {
-	color = { 90 140 30 }
-}

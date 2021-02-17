@@ -11,7 +11,7 @@ cu_government_size_10 = {
 		check_variable = { which = etig value = 100 }    
 	}
 	yearly_corruption = 0.05
-	advisor_cost = 0.10
+	state_governing_cost = 0.10
 	advisor_pool = 2
 }
 cu_government_size_9 = {
@@ -26,7 +26,7 @@ cu_government_size_9 = {
 		check_variable = { which = etig value = 80 }    
 	}
 	yearly_corruption = 0.045
-	advisor_cost = 0.09
+	state_governing_cost = 0.09
 	advisor_pool = 2
 }
 cu_government_size_8 = {
@@ -41,7 +41,7 @@ cu_government_size_8 = {
 		check_variable = { which = etig value = 70 }    
 	}
 	yearly_corruption = 0.04
-	advisor_cost = 0.08
+	state_governing_cost = 0.08
 	advisor_pool = 2
 }
 cu_government_size_7 = {
@@ -56,7 +56,7 @@ cu_government_size_7 = {
 		check_variable = { which = etig value = 70 }    
 	}
 	yearly_corruption = 0.035
-	advisor_cost = 0.07
+	state_governing_cost = 0.07
 	advisor_pool = 1
 }
 cu_government_size_6 = {
@@ -71,7 +71,7 @@ cu_government_size_6 = {
 		check_variable = { which = etig value = 60 }    
 	}
 	yearly_corruption = 0.03
-	advisor_cost = 0.06
+	state_governing_cost = 0.06
 	advisor_pool = 1
 }
 cu_government_size_5 = {
@@ -86,7 +86,7 @@ cu_government_size_5 = {
 		check_variable = { which = etig value = 50 }    
 	}
 	yearly_corruption = 0.025
-	advisor_cost = 0.05
+	state_governing_cost = 0.05
 	advisor_pool = 1
 }
 cu_government_size_4 = {
@@ -101,7 +101,7 @@ cu_government_size_4 = {
 		check_variable = { which = etig value = 40 }    
 	}
 	yearly_corruption = 0.02
-	advisor_cost = 0.04
+	state_governing_cost = 0.04
 	advisor_pool = 1
 }
 cu_government_size_3 = {
@@ -116,7 +116,7 @@ cu_government_size_3 = {
 		check_variable = { which = etig value = 30 }    
 	}
 	yearly_corruption = 0.015
-	advisor_cost = 0.03
+	state_governing_cost = 0.03
 }
 cu_government_size_2 = {
 	potential = {
@@ -130,7 +130,7 @@ cu_government_size_2 = {
 		check_variable = { which = etig value = 20 }    
 	}
 	yearly_corruption = 0.010
-	advisor_cost = 0.02
+	state_governing_cost = 0.02
 }
 cu_government_size_1 = {
 	potential = {
@@ -143,7 +143,7 @@ cu_government_size_1 = {
 		check_variable = { which = etig value = 10 }    
 	}
     yearly_corruption = 0.005
-	advisor_cost = 0.01
+	state_governing_cost = 0.01
 }
 cu_government_size_0 = {
 	potential = {
@@ -157,7 +157,7 @@ cu_government_size_0 = {
 			check_variable = { which = etig value = 10 }
 		}
 	}
-	advisor_cost = -0.01
+	state_governing_cost = -0.01
 }
 
 

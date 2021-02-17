@@ -1,0 +1,22 @@
+#972 - Nootka
+
+latent_trade_goods = {
+	coal
+}
+
+culture = aleutian
+religion = totemism
+capital = "Nootka"
+trade_goods = unknown
+hre = no
+base_tax = 1
+base_production = 1
+base_manpower = 1
+native_size = 5
+native_ferocity = 1
+native_hostileness = 6
+discovered_by = north_american
+
+1543.1.1 = { discovered_by = SPA }
+1778.1.1 = { discovered_by = GBR }
+

@@ -1,0 +1,59 @@
+#1007 - Ojibwa
+
+culture = anishinabe
+religion = totemism
+capital = "Ojibwa"
+trade_goods = unknown
+hre = no
+base_tax = 1
+base_production = 1
+base_manpower = 1
+native_size = 15
+native_ferocity = 2
+native_hostileness = 7
+
+
+
+discovered_by = north_american
+
+1609.1.1 = { discovered_by = FRA }
+1611.1.1 = { discovered_by = ENG }
+
+1660.1.1 = {
+ 	owner = OJI
+	controller = OJI
+	add_core = OJI
+	is_city = yes	
+} #Fleeing from the Beaver Wars
+
+
+
+1664.1.1 = { discovered_by = ENG }
+1707.5.12 = { discovered_by = GBR }
+
+1710.1.1 = { 
+	owner = ---
+	controller = ---
+	remove_core = OJI
+	is_city = no
+} #Fleeing westward
+1717.1.1 = {
+	owner = FRA
+	controller = FRA
+	add_core = FRA
+	culture = cosmopolitan_french
+	religion = catholic
+	capital = "Fort Kaministiquia"
+	is_city = yes
+}
+1763.2.10 = {
+	discovered_by = GBR
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+	remove_core = FRA
+	is_city = yes
+	culture = english
+	religion = protestant
+	trade_goods = fur
+} # Treaty of Paris

@@ -91,7 +91,6 @@ monarch_names = {
 	"Elizabeth #0" = -10
 	"Jane #0" = -10
 	"Margaret #0" = -1
-	"Mary #0" = -1
 }
 
 leader_names = {

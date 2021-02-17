@@ -1055,7 +1055,7 @@ province_event = {
 	option = {
 		name = "west_african.22.a"
 		owner = {
-			add_stability_or_adm_power = yes
+			cu_change_stability_point_p50 = yes
 			every_owned_province = {
 				limit = { culture = ROOT }
 				add_local_autonomy = 15

@@ -65,7 +65,7 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name = "reform_upgrades_available"
-			position = { x=2 y=265 }
+			position = { x=-2 y=7999 }
 			format = left
 			textureFile = ""
 			font = "vic_18"
@@ -75,10 +75,23 @@ guiTypes = {
 			maxHeight = 32
 			Orientation = "UPPER_LEFT"
 		}
+		
+		guiButtonType = {
+			name = "expand_administration_button"
+			position = { x=462 y=7999 }
+			quadTextureSprite ="GFX_government_boost_states"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+			buttonFont = "vic_18"
+			Orientation = "UPPER_LEFT"
+			clicksound = click
+			text = ""
+		}
 
 		instantTextBoxType = {
 			name = "reform_upgrades_next"
-			position = { x=194 y=265 }
+			position = { x=194 y=7999 }
 			format = right
 			textureFile = ""
 			font = "vic_18"
@@ -92,7 +105,7 @@ guiTypes = {
 		iconType = {
 			name ="reform_progress"
 			spriteType = "reform_progress"
-			position = { x=12 y=288 }
+			position = { x=12 y=7999 }
 			Orientation = "UPPER_LEFT"
 
 		}
@@ -100,13 +113,13 @@ guiTypes = {
 		iconType = {
 			name ="reform_progress_overlay"
 			spriteType = "GFX_reform_progress_frame"
-			position = { x=-2 y=285 }
+			position = { x=-2 y=7999 }
 			Orientation = "UPPER_LEFT"
 		}
 
 		instantTextBoxType = {
 			name = "reform_progress_label"
-			position = { x=-2 y=291 }
+			position = { x=-2 y=7999 }
 			textureFile = ""
 			font = "vic_18"
 			borderSize = {x = 0 y = 0}

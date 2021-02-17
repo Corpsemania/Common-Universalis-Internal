@@ -1,0 +1,21 @@
+edict_centralization_focus = {
+	potential = {
+		always = yes		#we support "potential" if modders want to have lots and just show some.
+	}
+	
+	allow = {
+		NOT = { has_estate_privilege = gentrys_landholding }
+	}
+	
+	modifier = {
+	    local_autonomy = -0.08
+		local_unrest = 5
+	}
+	
+	color = { 75 55 5  }
+	
+	ai_will_do = {
+		factor = 0
+		#They use events do this thing
+	}
+}

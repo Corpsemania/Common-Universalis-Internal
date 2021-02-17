@@ -133,41 +133,22 @@ country_decisions = {
 	}
 
     #Revoke Gentry's Landholding
-	revoke_gentrys_landholding = {
+	
+	show_land_information = {
 		major = yes
 		potential = {
-			NOT = { has_country_modifier = revoke_gentrys_previledge }
-			has_country_modifier = gentrys_landholding
-			NOT = { check_variable = { which = land_reform_acceptance value = 6 } }
-			NOT = { has_reform = celestial_empire_3 }
+			has_estate_privilege = gentrys_landholding 
+			NOT = { has_country_flag = check_now }
+			has_country_flag = cu_gentrys_landholding_on
 		}
 		allow = {
-			stability = 1
-			absolutism = 30
-			OR = {
-				advisor = treasurer_1
-				advisor = artist_1
-				adm = 4
-			}
-            adm_power = 150
-			NOT = { estate_influence = { estate = estate_shizu	influence = 50	} } 
-			meritocracy = 75
+			stability = 0
 		}
 		effect = {
-            set_country_flag = revoke_gl
-			add_estate_loyalty = {
-				estate = estate_shizu
-				loyalty = -20
-			}
-			add_meritocracy = -15
-			cu_change_stability_point_n75 = yes
-            add_adm_power = -150
-			custom_tooltip = celestial_land_reform_tt
-            hidden_effect = { change_variable = { which = land_reform_acceptance value = 1 } }		
-			add_ruler_modifier = {
-				name = revoke_gentrys_previledge
-				duration = -1
-			}						
+            set_country_flag = check_now		
+			country_event = {
+				id = cuestate.200
+			}			
 		}
 		ai_will_do = {
 			factor = 0
@@ -600,16 +581,15 @@ country_decisions = {
 						      tooltip = tooltip_ave_literacy_10
 							  check_variable = { which = ave_literacy value = 10 }
 						}     						
-						 NOT = { has_country_modifier = gentrys_landholding }
-        NOT = { has_ruler_modifier = revoke_gentrys_previledge }                              
-        NOT = { has_country_modifier = artisan_regulation }
-        NOT = { has_ruler_modifier = revoke_artisan_regulation }
-        NOT = { has_country_modifier = weisuo_system }
-        NOT = { has_ruler_modifier = revoke_weisuo_system }
-        NOT = { has_country_modifier = trade_limitation }
-        NOT = { has_ruler_modifier = revoke_trade_limitation }
-        NOT = { has_country_modifier = foreign_ignorance }
-        NOT = { has_ruler_modifier = revoke_foreign_ignorance }
+						NOT = { has_estate_privilege = gentrys_landholding }                              
+						NOT = { has_country_modifier = artisan_regulation }
+						NOT = { has_ruler_modifier = revoke_artisan_regulation }
+						NOT = { has_country_modifier = weisuo_system }
+						NOT = { has_ruler_modifier = revoke_weisuo_system }
+						NOT = { has_country_modifier = trade_limitation }
+						NOT = { has_ruler_modifier = revoke_trade_limitation }
+						NOT = { has_country_modifier = foreign_ignorance }
+						NOT = { has_ruler_modifier = revoke_foreign_ignorance }
 		}
 		effect = {
                         cu_change_stability_point_n75 = yes
@@ -677,7 +657,7 @@ country_decisions = {
 					tooltip = tooltip_ave_literacy_10
 					check_variable = { which = ave_literacy value = 10 }
 			}
-			NOT = { has_country_modifier = gentrys_landholding }
+			NOT = { has_estate_privilege = gentrys_landholding }    
         	NOT = { has_country_modifier = artisan_regulation }
         	NOT = { has_country_modifier = weisuo_system }
         	NOT = { has_country_modifier = trade_limitation }
@@ -737,6 +717,14 @@ country_decisions = {
                                   NOT = { reverse_has_opinion = { who = ROOT value = 80 } }
                 }
 			}
+			modifier = {
+				factor = 0.5
+				government = tribal
+			}
+			modifier = {
+				factor = 0.1
+				government = republic
+			}
 		}			
 	}
 
@@ -786,7 +774,7 @@ country_decisions = {
 						        NOT = { has_country_flag = call_tribute }
 						        had_country_flag = {
 								        flag = call_tribute
-										days = 5475
+										days = 7300
 								}
 						}
 		}
@@ -1193,6 +1181,9 @@ country_decisions = {
 					limit = {
 						adm_power = 20
 						dip_power = 20
+						any_owned_province = {
+							has_province_modifier = tusi_administration
+						}
 					}
 					random_owned_province = {
 						limit = { has_province_modifier = tusi_administration }
@@ -1306,7 +1297,6 @@ country_decisions = {
 		potential = {
                 NOT = { has_country_modifier = sea_trade_banned }
 				is_emperor_of_china = yes
-				1 = { check_variable = { which = wokou_strength value = 0.1 } }
 		}
 		allow = {
                 dip_power = 100
@@ -1322,17 +1312,21 @@ country_decisions = {
 		ai_will_do = {
 			factor = 1
 			modifier = {
-			         factor = 0
-					 check_variable = { which = wokou_strength value = 20 }
-					 NOT = {
-						AND = {
-							tag = QNG
-							OR = {
-								has_global_flag = cu_realistic_handicap_set
-								has_global_flag = cu_x_handicap_set
-							}
+			    factor = 0
+				check_variable = { which = wokou_strength value = 20 }
+				NOT = {
+					AND = {
+						tag = QNG
+						OR = {
+							has_global_flag = cu_realistic_handicap_set
+							has_global_flag = cu_x_handicap_set
 						}
-					 }
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = { 1 = { check_variable = { which = wokou_strength value = 0.1 } } }
 			}
 		}			
 	}

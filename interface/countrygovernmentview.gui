@@ -71,6 +71,20 @@ guiTypes = {
 			spriteType = "GFX_revolution_target"
 			position = { x= 483  y = 72 }
 		}
+		
+		iconType =
+		{
+			name ="claim_revolution_icon"
+			spriteType = "GFX_claim_revolution_target"
+			position = { x= 483  y = 72 }
+		}
+
+		guiButtonType =
+		{
+			name ="claim_revolution_button"
+			quadTextureSprite = "GFX_claim_revolution_target"
+			position = { x= 483  y = 72 }
+		}
 
 		guiButtonType =
 		{
@@ -228,6 +242,79 @@ guiTypes = {
 			maxHeight = 32
 			format = right
 		}
+		
+		iconType =
+		{
+			name ="revolutionary_zeal_icon"
+			spriteType = "GFX_icon_revolutionary_zeal"
+			position = { x= 288 y = 152 }
+			Orientation = "UPPER_LEFT"
+			scale = 0.6
+
+		}
+		instantTextBoxType = {
+			name = "revolutionary_zeal_value"
+			position = { x = 320 y = 160 }
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			maxWidth = 42
+			maxHeight = 32
+			format = right
+		}
+		iconType =
+		{
+			name ="max_revolutionary_zeal_icon"
+			spriteType = "GFX_icon_max_revolutionary_zeal"
+			position = { x= 288 y = 184 }
+			Orientation = "UPPER_LEFT"
+			scale = 0.6
+		}
+		instantTextBoxType = {
+			name = "max_revolutionary_zeal_value"
+			position = { x = 320 y = 192 }
+			font = "vic_18"
+			borderSize = {x = 4 y = 4}
+			maxWidth = 42
+			maxHeight = 32
+			format = right
+		}
+
+		guiButtonType = {
+			name ="revolution_spread_button"
+			quadTextureSprite = "GFX_government_revolution_icon"
+			position = { x= 4260 y = 2550 }
+			Orientation = "UPPER_LEFT"
+			scale = 0.6
+		}
+
+		iconType = {
+			name ="revolution_spread_icon"
+			spriteType = "GFX_government_revolution_icon_medium"
+			position = { x= 4260 y = 2550 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name ="revolution_spread_bad_bar"
+			spriteType = "GFX_government_revolution_bad_bar"
+			position = { x = 4150 y = 3160 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name ="revolution_spread_good_bar"
+			spriteType = "GFX_government_revolution_good_bar"
+			position = { x = 4150 y = 3160 }
+			Orientation = "UPPER_LEFT"
+		}
+
+		iconType = {
+			name ="revolution_spread_frame"
+			spriteType = "GFX_government_revolution_bar_frame"
+			position = { x = 4020 y = 3130 }
+			Orientation = "UPPER_LEFT"
+			allwaystransparent = yes
+		}
 
 
 		instantTextBoxType = {
@@ -285,7 +372,7 @@ guiTypes = {
 			iconType =
 			{
 				name ="statists"
-				spriteType = "GFX_republic_icon"
+				spriteType = "GFX_statists"
 				position = { x= 43 y = -24 }
 				frame = 1
 			}
@@ -293,7 +380,7 @@ guiTypes = {
 			iconType =
 			{
 				name ="monarchists"
-				spriteType = "GFX_monarchism_icon"
+				spriteType = "GFX_monarchists"
 				position = { x= 254 y = -29 }
 				frame = 1
 			}
@@ -322,8 +409,8 @@ guiTypes = {
 		windowType = {
 			name = "prussian_monarchy"
 			backGround =""
-			position = { x=18 y=273 }
-			size = { x=280 y=50 }
+			position = { x=-6 y=275 }
+			size = { x=280 y=10 }
 			moveable = 0
 			dontRender = ""
 			horizontalBorder = ""
@@ -333,7 +420,7 @@ guiTypes = {
 			{
 				name ="prussian_progress"
 				spriteType = "GFX_prussian_progressbar"
-				position = { x= 48 y = 9 }
+				position = { x= 30 y = 11 }
 				Orientation = "UPPER_LEFT"
 			}
 
@@ -341,18 +428,18 @@ guiTypes = {
 			{
 				name ="prussian_progress_frame"
 				spriteType = "GFX_prussian_bar_frame"
-				position = { x= 30 y = -47 }
+				position = { x= 12 y = 2 }
 				Orientation = "UPPER_LEFT"
 			}
 
 			instantTextBoxType = {
 				name = "prussian_change"
-				position = { x= 163 y =  12 }
+				position = { x= 145 y =  14 }
 				font = "vic_18"
 				borderSize = {x = 0 y = 0}
 				text = ""
 				maxWidth = 50
-				maxHeight = 24
+				maxHeight = 50
 				Orientation = "UPPER_LEFT"
 				format = centre
 			}
@@ -361,7 +448,7 @@ guiTypes = {
 			{
 				name ="prussia_boost"
 				quadTextureSprite= "GFX_militarization_increase_button"
-				position = { x= -10 y = -15 }
+				position = { x= -1000 y = -15 }
 #				buttonText = "PRUS_BOOST_TXT"
 #				buttonFont = "vic_18"
 			}
@@ -725,7 +812,7 @@ guiTypes = {
 
 		instantTextBoxType = {
 			name = "modifiers_title"
-			position = { x = 384 y = 120 }
+			position = { x = 390 y = 120 }
 			textureFile = ""
 			font = "vic_18"
 			borderSize = {x = 4 y = 4}
@@ -758,14 +845,6 @@ guiTypes = {
 		OverlappingElementsBoxType = {
 			name = "modifiers_box_3"
 			position = { x = 380 y = 221 }
-			size = { x = 162 y = 32 }
-			Orientation = "UPPER_LEFT"
-			format = left
-			spacing = 0
-		}
-		OverlappingElementsBoxType = {
-			name = "modifiers_box_4"
-			position = { x = 380 y = 252 }
 			size = { x = 162 y = 32 }
 			Orientation = "UPPER_LEFT"
 			format = left
@@ -1185,13 +1264,13 @@ guiTypes = {
 		iconType = {
 			name ="feudal_theocracy_bg"
 			spriteType = "GFX_feudal_theocracy_bg"
-			position = { x = 6 y = 0 }
+			position = { x = 6 y = 1000 }
 			Orientation = "UPPER_LEFT"
 		}
 
 		guiButtonType = {
 			name = "seize_clerical_holdings_button"
-			position = { x = 41 y = 0 }
+			position = { x = 116 y = -20 }
 			quadTextureSprite ="GFX_seize_clerical_holdings_button"
 			tooltip = ""
 			tooltipText =""
@@ -1203,7 +1282,7 @@ guiTypes = {
 		}
 		guiButtonType = {
 			name = "invite_minorities_button"
-			position = { x = 133 y = 0 }
+			position = { x = 133 y = 1000 }
 			quadTextureSprite ="GFX_invite_minorities_button"
 			tooltip = ""
 			tooltipText =""
@@ -1215,7 +1294,7 @@ guiTypes = {
 		}
 		guiButtonType = {
 			name = "sanction_holy_war_button"
-			position = { x = 225 y = 0 }
+			position = { x = 225 y = 1000 }
 			quadTextureSprite ="GFX_sanction_holy_war_button"
 			tooltip = ""
 			tooltipText =""
@@ -1302,7 +1381,7 @@ guiTypes = {
 	windowType = {
 		name = "iqta_mechanic"
 		backGround =""
-		position = { x = 0 y = 0 }
+		position = { x = -32 y = -42 }
 		size = { x = 300 y = 100 }
 		moveable = 0
 		dontRender = ""
@@ -1312,13 +1391,13 @@ guiTypes = {
 		iconType = {
 			name ="iqta_bg"
 			spriteType = "GFX_iqta_bg"
-			position = { x = 14 y = 0 }
+			position = { x = -18 y = -600 }
 			Orientation = "UPPER_LEFT"
 		}
 
 		guiButtonType = {
 			name = "efficient_tax_farming_button"
-			position = { x = 47 y = 4 }
+			position = { x = 16 y = -42 }
 			quadTextureSprite ="GFX_efficient_tax_farming_button"
 			tooltip = ""
 			tooltipText =""
@@ -1330,7 +1409,7 @@ guiTypes = {
 		}
 		guiButtonType = {
 			name = "land_acquisition_button"
-			position = { x = 134 y = 4 }
+			position = { x = 102 y = -42 }
 			quadTextureSprite ="GFX_land_acquisition_button"
 			tooltip = ""
 			tooltipText =""
@@ -1342,7 +1421,7 @@ guiTypes = {
 		}
 		guiButtonType = {
 			name = "lenient_taxation_button"
-			position = { x = 221 y = 4 }
+			position = { x = 189 y = -42 }
 			quadTextureSprite ="GFX_lenient_taxation_button"
 			tooltip = ""
 			tooltipText =""

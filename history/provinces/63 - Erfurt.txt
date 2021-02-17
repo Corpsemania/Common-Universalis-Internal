@@ -19,7 +19,7 @@ discovered_by = western
 discovered_by = muslim
 discovered_by = ottoman
 fort_15th = yes
-university = yes
+#university = yes
 
 1445.9.10 = { owner = THU controller = THU }
 1531.1.1 = { religion = protestant }

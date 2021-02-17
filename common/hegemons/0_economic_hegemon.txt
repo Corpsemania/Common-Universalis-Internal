@@ -1,0 +1,26 @@
+economic_hegemon = {
+	allow = {
+		is_great_power = yes
+		monthly_income = 800
+		NOT = { any_other_great_power = { monthly_income = root } }
+		NOT = { has_country_modifier = lost_hegemony }
+	}
+	
+	base = {
+		war_exhaustion = -0.02
+		development_cost = -0.05
+	}
+	
+	# At max 100% tickup.
+	scale = {
+		global_trade_goods_size_modifier = 0.05
+		global_trade_power = 0.15
+		global_unrest = -1
+		global_spy_defence = 0.10
+	}
+	
+	max = {
+		diplomatic_reputation = 1
+	}
+	
+}

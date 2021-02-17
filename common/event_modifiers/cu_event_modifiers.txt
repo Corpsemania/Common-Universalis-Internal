@@ -1,0 +1,1025 @@
+cu_country_initialized = { }
+
+cu_ai_building_pause = { }
+
+mamluks_corruption = {
+	local_autonomy = 0.03
+	local_governing_cost = -0.10
+	#icon = 7
+}
+
+construct_taj_mahal = {
+	global_tax_modifier = -0.10
+        production_efficiency = -0.10
+        global_manpower_modifier = -0.10
+	#icon = 7
+}
+
+taj_mahal_halt = {
+	prestige = -0.5
+	#icon = 7
+}
+
+
+hire_colonist = {
+	colonists = 1
+        global_colonial_growth = -10
+        colonist_placement_chance = -0.05
+        #Also gives -25% Population Growth in overseas provinces and colonial subjects.
+	#icon = 7
+}
+
+reduce_colonist = {
+	colonists = -1
+        global_colonial_growth = 20
+        colonist_placement_chance = 0.10
+        #Also gives +25% Population Growth in overseas provinces and colonial subjects.
+	#icon = 7
+}
+
+taj_mahal_global = {
+	legitimacy = 1
+        global_unrest = -5
+        land_morale = 0.2
+        global_tax_modifier = 0.2
+        production_efficiency = 0.2
+        trade_efficiency = 0.2
+        global_trade_goods_size_modifier = 0.2
+        global_manpower_modifier = 0.2
+        all_power_cost = -0.1
+        global_autonomy = -0.10
+	#icon = 7
+}
+
+the_great_wall = {
+	fort_level = 1
+	local_defensiveness = 0.33
+	global_tax_income = -12
+}
+
+building_babylon_tower = {
+     global_tax_modifier = -0.5
+	 production_efficiency = -0.5
+	 trade_efficiency = -0.5
+     global_manpower_modifier = -0.5
+	 diplomatic_upkeep = -5
+	 global_unrest = 5
+	 global_autonomy = 0.5
+	 reduced_liberty_desire = -50
+}
+
+building_babylon_tower_prov = {
+     local_tax_modifier = -1
+	 local_production_efficiency = -1
+	 local_manpower_modifier = -1
+	 local_development_cost = 1
+	 local_unrest = 20
+}
+
+babylon_tower_modifier = {
+	administrative_efficiency = 0.5
+	years_of_nationalism = -25
+	all_power_cost= -0.5
+	harmonization_speed = 0.5
+	global_missionary_strength = 0.125
+}
+
+babylon_tower_country = {
+	global_unrest = -5
+	land_morale = 0.25
+	global_tax_modifier = 0.25
+	production_efficiency = 0.25
+	trade_efficiency = 0.25
+	global_trade_goods_size_modifier = 0.25
+	global_manpower_modifier = 0.5
+	global_autonomy = -0.5
+}
+
+the_beggar = {
+	global_ship_cost = -0.15
+        global_regiment_cost = -0.15
+        mercenary_cost = -0.15
+        war_exhaustion = -0.15
+	#icon = 7
+}
+
+place_in_the_sun = {
+        improve_relation_modifier = -0.1
+        ae_impact = 0.10
+        fabricate_claims_cost = -0.1
+	colonist_placement_chance = 0.1
+        #icon = 7
+}
+
+horde_raising_army = {
+        prestige = 0.5
+        #icon = 7
+}
+
+horde_plundering = {
+        prestige = -0.5
+        #icon = 7
+}
+
+horde_plundering = {
+        prestige = -0.5
+        #icon = 7
+}
+
+
+
+
+macau_bonus = {
+        local_development_cost = -0.15
+        province_trade_power_value = 8
+        picture = "province_trade_power_value"
+}
+
+#Little Ice Age( 1580 - 1680 ) 
+ice_age = {
+        global_institution_spread = -0.10
+        global_tax_modifier = -0.10
+        development_cost = 0.10
+        production_efficiency = -0.10
+        global_trade_goods_size_modifier = -0.10
+        global_manpower_modifier = -0.10
+        global_colonial_growth = 15
+        land_attrition = 0.20
+        range = 0.25
+        manpower_recovery_speed = -0.1
+        state_governing_cost = -0.10
+        #icon = 3
+}
+
+famine_l = {
+        local_tax_modifier = -0.10
+        local_production_efficiency = -0.10
+        local_manpower_modifier = -0.10
+	local_unrest = 2
+        local_development_cost = 0.25
+        province_trade_power_value = -3
+	#icon = 7
+}
+
+famine_m = {
+        local_tax_modifier = -0.20
+        local_production_efficiency = -0.20
+        local_manpower_modifier = -0.20
+	local_unrest = 5
+        local_development_cost = 0.45
+        province_trade_power_value = -6
+	#icon = 7
+}
+
+famine_h = {
+        local_tax_modifier = -0.30
+        local_production_efficiency = -0.30
+        local_manpower_modifier = -0.30
+	local_unrest = 8
+        local_development_cost = 0.65
+        province_trade_power_value = -10
+	#icon = 7
+}
+
+
+
+revoke_artisan_regulation = {
+	global_unrest = 4
+	meritocracy = -0.8
+	stability_cost_modifier = 0.1
+}
+
+revoke_weisuo_system = {
+	land_forcelimit_modifier = -0.25
+	meritocracy = -0.8
+	stability_cost_modifier = 0.1
+}
+
+revoke_trade_limitation = {
+	global_own_trade_power = -0.66
+	meritocracy = -0.8
+	stability_cost_modifier = 0.1
+}
+
+revoke_foreign_ignorance = {
+	global_unrest = 3
+	stability_cost_modifier = 0.3
+	meritocracy = -1.2
+}
+
+center_of_trade_modifier_2 = {
+	province_trade_power_value = 10
+        naval_forcelimit = 2
+	picture = "province_trade_power_value"
+}
+
+chinese_influence = {
+        technology_cost = -0.05
+}
+
+start_of_circle = {
+	stability_cost_modifier = -0.10
+	global_unrest = -2
+	global_autonomy = -0.05
+}
+
+purchase_adm = {
+	adm_tech_cost_modifier = 0.01
+}
+
+purchase_dip = {
+	dip_tech_cost_modifier = 0.01
+}
+
+purchase_mil = {
+	mil_tech_cost_modifier = 0.01
+}
+
+recent_growth = {
+        province_trade_power_value = 0.01
+        picture = "development_cost"
+}
+
+recent_merc_growth = {
+    province_trade_power_value = 0.01
+}
+
+recent_prod_growth = {
+    province_trade_power_value = 0.01
+}
+
+collect_special_tax = {
+        global_unrest = 1
+		yearly_corruption = 0.05
+        legitimacy = -1
+		meritocracy = -0.3
+        horde_unity = -0.5
+	#icon = 7
+}
+
+noble_gain_power = {
+        legitimacy = -1
+        horde_unity = -0.75
+        global_autonomy = 0.03
+	#icon = 7
+}
+
+great_war_prophecy = {
+        land_morale = 0.15
+        infantry_power = 0.1
+        global_manpower_modifier = 0.15
+        war_exhaustion = -0.05
+	#icon = 7
+}
+
+good_war_prophecy = {
+        land_morale = 0.10
+        infantry_power = 0.10
+        global_manpower_modifier = 0.1
+	#icon = 7
+}
+
+bad_war_prophecy = {
+        land_morale = -0.1
+        infantry_power = -0.1
+        global_manpower_modifier = -0.1
+        war_exhaustion = 0.03
+	#icon = 7
+}
+
+dead_war_prophecy = {
+        land_morale = -0.1
+        infantry_power = -0.1
+        global_manpower_modifier = -0.1
+        war_exhaustion = 0.03
+	#icon = 7
+}
+
+god_pleased = {
+        global_tax_modifier = 0.10
+        development_cost = -0.10
+        production_efficiency = 0.10
+        global_manpower_modifier = 0.10
+        stability_cost_modifier = -0.15
+        #icon = 3
+}
+
+
+god_outraged = {
+        global_tax_modifier = -0.10
+        development_cost = 0.10
+        production_efficiency = -0.10
+        global_manpower_modifier = -0.10
+        stability_cost_modifier = 0.2
+        #icon = 3
+}
+
+ti_forest = {
+        local_manpower_modifier = -0.2
+	#icon = 7
+}
+
+ti_forest_done = {
+        local_development_cost = -0.15
+        supply_limit_modifier = 0.15
+        local_friendly_movement_speed = 0.2
+		local_hostile_movement_speed = 0.2
+		allowed_num_of_buildings = 1
+	#icon = 7
+}
+
+ti_jungle = {
+        local_manpower_modifier = -0.25
+	#icon = 7
+}
+
+ti_jungle_done = {
+        local_development_cost = -0.2
+        supply_limit_modifier = 0.2
+        local_friendly_movement_speed = 0.25
+		local_hostile_movement_speed = 0.25
+		allowed_num_of_buildings = 1
+	#icon = 7
+}
+
+ti_woods = {
+        local_manpower_modifier = -0.2
+	#icon = 7
+}
+
+ti_woods_done = {
+        local_development_cost = -0.15
+        supply_limit_modifier = 0.15
+        local_friendly_movement_speed = 0.20
+		local_hostile_movement_speed = 0.2
+		allowed_num_of_buildings = 1
+	#icon = 7
+}
+
+ti_marsh = {
+        local_manpower_modifier = -0.25
+	#icon = 7
+}
+
+ti_marsh_done = {
+        local_development_cost = -0.45
+        supply_limit_modifier = 0.20
+        local_friendly_movement_speed = 0.30
+		local_hostile_movement_speed = 0.3
+		allowed_num_of_buildings = 1
+	#icon = 7
+}
+
+ti_irragation = {
+        local_manpower_modifier = -0.15
+	#icon = 7
+}
+
+ti_irragation_done = {
+        local_development_cost = -0.15
+        supply_limit_modifier = 0.1
+        local_friendly_movement_speed = 0.1
+		local_hostile_movement_speed = 0.1
+		allowed_num_of_buildings = 1
+	#icon = 7
+}
+
+ti_terrace = {
+        local_manpower_modifier = -0.20
+	#icon = 7
+}
+
+ti_terrace_done = {
+        local_development_cost = -0.2
+        supply_limit_modifier = 0.15
+        local_friendly_movement_speed = 0.1
+		local_hostile_movement_speed = 0.1
+		allowed_num_of_buildings = 1
+}
+
+ti_military_cultivation = {
+    local_manpower_modifier = -0.1
+	province_trade_power_modifier = 0.01
+}
+
+ti_mc_done = {
+    local_development_cost = -0.2
+    supply_limit_modifier = 0.1
+}
+
+faster_development = {
+        development_cost = -0.05
+}
+
+high_american_tech_booster = {
+        technology_cost = -1.5
+        idea_cost = -0.8
+}
+
+archduke = {
+        diplomatic_upkeep = 1
+        ae_impact = 0.1
+}
+
+state_in_mobilization = {
+	development_cost = 0.1
+	war_exhaustion_cost = 0.33
+	global_regiment_cost = -0.33
+}
+
+province_mobilization = {
+	local_development_cost = 0.25
+	regiment_recruit_speed = -0.50
+	garrison_growth = 0.25
+}
+
+cu_demobilization_country = {
+	war_exhaustion_cost = -0.10
+}
+
+slave_plantation = {
+        trade_goods_size_modifier = 0.25
+        local_unrest = 2
+} 
+
+suppress_nationalism_1 = {
+        local_unrest = -5
+}
+
+suppress_nationalism_2 = {
+        local_unrest = -10
+}
+
+suppress_nationalism_3 = {
+        local_unrest = -15
+}
+
+recently_razed = {
+        local_unrest = -20
+		local_development_cost = 0.45
+		local_tax_modifier = -0.9
+		local_production_efficiency = -0.9
+		local_manpower_modifier = -0.9
+		trade_goods_size = -0.9
+		province_trade_power_modifier = -0.9
+		local_monthly_devastation = 0.4
+}
+
+recently_looted = {
+        local_unrest = 5
+		local_development_cost = 0.15
+		local_tax_modifier = -0.33
+		local_production_efficiency = -0.33
+		local_manpower_modifier = -0.33
+		trade_goods_size = -0.33
+		province_trade_power_modifier = -0.33
+		local_monthly_devastation = 0.2
+}
+
+burgundian_army_reform = {
+		discipline = 0.05
+        siege_ability = 0.10
+		defensiveness = 0.10
+}
+
+burgundian_navy_reform = {
+        ship_durability = 0.05
+		heavy_ship_power = 0.10
+		light_ship_power = 0.10
+}
+
+indian_caste_system = {
+	local_production_efficiency = 0.1
+	local_unrest = -2
+	local_development_cost = 0.15
+	local_core_creation = -0.10
+}
+
+russian_education_reform = {
+	local_manpower_modifier = -0.15
+	local_development_cost = -0.15
+}
+
+russian_western_door = {
+	local_development_cost = -0.15
+	local_build_cost = -0.1
+	ship_recruit_speed = -0.2
+	local_institution_spread = 0.2
+	province_trade_power_modifier = 0.2
+	embracement_cost = -0.1
+}
+
+versailles_court = {
+	yearly_absolutism = 0.40
+	prestige = 0.5
+}
+
+reorganizing_government = {
+	global_unrest = 2
+	country_admin_power = -2
+	country_diplomatic_power = -2
+	country_military_power = -2
+	possible_policy = -1
+	governing_capacity = -5
+	yearly_corruption = -1
+}
+
+preparing_military_coup = {
+	global_manpower_modifier = -0.1
+	land_forcelimit_modifier = -0.10
+}
+
+keju_xiangshi = {
+    local_unrest = -2
+}
+
+keju_postponed = {
+    local_unrest = 1
+}
+
+keju_huishi = {
+   advisor_cost = -0.10
+   adm_tech_cost_modifier = -0.1
+}
+
+local_adm_expert = {
+      local_autonomy = -0.05
+	  local_tax_modifier = 0.1
+	  local_production_efficiency = 0.1
+	  local_manpower_modifier = 0.1
+      local_development_cost = -0.15
+	  local_build_cost = -0.1
+	  local_institution_spread = 0.1
+}
+
+cu_expert_diplomat = {
+     diplomats = 1
+	 improve_relation_modifier = 0.2
+}
+
+cu_strengthen_government_m = {
+	legitimacy = 2
+	republican_tradition = 1
+	horde_unity = 2
+	yearly_absolutism = 1.6
+}
+
+province_refresher = {
+    local_tax_modifier = 0.0001
+	local_production_efficiency = 0.0001
+	local_manpower_modifier = 0.0001
+	province_trade_power_value = 0.0001
+	trade_goods_size_modifier = 0.0001
+	supply_limit_modifier = 0.0001
+	
+}
+
+cu_starvation = {
+    local_unrest = 10
+	local_development_cost = 0.66
+}
+
+local_corruption_ignored = {
+    local_tax_modifier = -0.2
+	local_production_efficiency = -0.2
+	trade_goods_size_modifier = -0.2
+	local_development_cost = 0.15
+}
+
+local_corruption_rooted = {
+    local_unrest = -4
+    local_tax_modifier = 0.1
+	local_production_efficiency = 0.1
+	trade_goods_size_modifier = 0.1
+}
+
+inspection_tour = {
+   state_governing_cost = 0.05
+}
+
+inspection_tour_local = {
+   local_autonomy = -0.05
+}
+
+french_army_reform_1 = {
+      discipline = 0.05
+	  global_regiment_cost = 0.1
+}
+
+french_army_reform_2 = {
+      fire_damage = 0.05
+	  global_manpower_modifier = 0.1
+}
+
+french_army_reform_3 = {
+      global_manpower_modifier = 0.15
+	  global_regiment_cost = -0.05
+}
+
+
+
+cu_dissents_against_constitution = {
+     state_governing_cost = 0.1
+}
+
+cu_dissents_against_compromise = {
+     production_efficiency = -0.1
+}
+
+quantity_ideas_5_mod = {
+	  supply_limit_modifier = 0.15
+}
+
+cu_fort_government = {
+      local_unrest = -0.25
+      local_autonomy = -0.05
+}
+
+stability_effort_modifier = {
+      state_maintenance_modifier = 0.25
+	  state_governing_cost = 0.1
+}
+
+cu_colonial_influx = {
+      local_development_cost = -0.15
+	  trade_goods_size = 0.1
+	  #Local Literacy Growth:+0.01
+	  #Local DCA Growth:+0.002
+}
+
+cu_bind_with_estate = {
+    stability_cost_modifier = -0.075
+}
+
+cu_parliament_debate_failed = {
+      state_governing_cost = 0.1
+}
+
+cu_national_ceremony = {
+      prestige = 2.5
+	  war_exhaustion = -0.05
+	  stability_cost_modifier = -0.1
+	  legitimacy = 1
+	  land_morale = 0.1
+	  naval_morale = 0.1
+	  republican_tradition = 0.3
+	  devotion = 1
+	  horde_unity = 1
+	  meritocracy = 0.5
+}
+
+horde_war_effort_modifier = {
+      global_regiment_cost = -0.2
+	  regiment_recruit_speed = -0.2
+	  land_forcelimit_modifier = 0.25
+	  
+}
+
+cu_recent_conquest = {
+      local_unrest = -10
+}
+
+cu_province_hightlight = {
+     
+}
+cu_culture_understanding = {
+    local_institution_spread = 0.1
+    #+5%GC
+    #+30%Art Power	
+    #+60%Masterpiece
+}
+cu_minor_culture_understanding = {
+    mercantilism_cost = -0.1   
+    #+10%Art Power	
+    #+20%Masterpiece
+}
+cu_national_spy_defence = {
+    diplomats = -1
+	global_spy_defence = 0.3
+}
+recent_foreign_spy = {    
+}
+zor_building_capital = {
+      local_tax_modifier = -0.25
+	  local_development_cost = -0.10
+}
+zor_new_capital = {
+      legitimacy = 1
+	  local_production_efficiency = 0.1
+	  local_development_cost = -0.10
+}
+zor_new_capital_1 = {
+      legitimacy = 1
+	  local_production_efficiency = 0.1
+	  local_development_cost = -0.15
+}
+cu_lower_estate_influence = {
+	local_unrest = 3
+	stability_cost_modifier = 0.005
+}
+cu_estate_influence_high = {
+    local_production_efficiency = -0.1
+	local_autonomy = 0.05
+	local_development_cost = 0.10
+	local_unrest = -3
+	local_build_cost = 0.075
+	local_manpower_modifier = -0.2
+	local_tax_modifier = -0.1
+	local_build_time = 0.075
+	local_state_maintenance_modifier = -0.1
+}
+cu_government_influence_high = {
+    local_production_efficiency = 0.1
+	local_autonomy = -0.03
+	local_development_cost = -0.10
+	local_unrest = 5
+	local_build_cost = -0.1
+	local_manpower_modifier = 0.2
+	local_tax_modifier = 0.1
+	local_build_time = -0.1
+	local_state_maintenance_modifier = 0.1
+}
+new_estate_rise_n = {
+	local_unrest = -1
+}
+new_estate_rise_b = {
+	local_unrest = -1
+}
+new_estate_rise_c = {
+	local_unrest = -1
+}
+new_estate_rise_e = {
+	local_unrest = -1
+}
+claimed_center_of_trade = {
+	province_trade_power_modifier = 0.50
+}
+cu_sabotage_supply = {
+	land_morale = -0.05
+	recover_army_morale_speed = -0.015
+	reinforce_speed = -0.2
+	movement_speed = -0.05
+	land_attrition = 0.2
+}
+meiji_renovation = {
+	development_cost = -0.05
+	global_institution_spread = 0.1
+	global_autonomy = -0.05
+	technology_cost = -0.05
+	idea_cost = -0.05
+	global_unrest = 5
+	stability_cost_modifier = 0.25
+}
+recover_from_civil_war_1 = {
+	global_autonomy = -0.05
+	global_manpower_modifier = -0.1
+	global_tax_modifier = -0.1
+	global_trade_goods_size_modifier = -0.05
+	global_unrest = -1
+	development_cost = 0.05
+	production_efficiency = -0.05
+	prestige = 0.5
+	stability_cost_modifier = -0.1
+	administrative_efficiency = -0.05
+	yearly_corruption = -0.01
+}
+recover_from_civil_war_2 = {
+	global_autonomy = 0.05
+	global_manpower_modifier = -0.1
+	global_tax_modifier = -0.1
+	global_trade_goods_size_modifier = -0.05
+	global_unrest = -1
+	development_cost = 0.05
+	production_efficiency = -0.05
+	prestige = -0.5
+	stability_cost_modifier = -0.1
+	administrative_efficiency = -0.05
+	yearly_corruption = 0.01
+}	
+
+BENGALI_INDIGO_PRODUCTION = {
+	trade_goods_size_modifier = 0.125
+}
+
+HOLLENDER_BEATER = {
+	trade_goods_size_modifier = 0.25
+}
+
+LEAD_CRYSTAL = {
+	trade_goods_size_modifier = 0.325
+}
+
+IMPROVED_COAL_MINING = {
+	trade_goods_size_modifier = 0.15
+}							 
+
+rules_the_waves = {
+	naval_morale = 0.1
+	navy_tradition_decay = -0.01
+	naval_forcelimit_modifier = 0.15
+    global_sailors_modifier = 0.05
+	sailors_recovery_speed = 0.05
+}
+
+calc_estate = {
+	#max_absolutism = 25
+}
+
+rebel_force_autonomy = {
+    local_autonomy = 0.05
+}
+
+cu_acknowledge_rule = {
+	local_core_creation = -0.33
+	local_autonomy = -0.005
+}
+
+
+cu_paper_money_introduced = {
+    global_tax_modifier = 0.1
+	production_efficiency = 0.1
+	trade_efficiency = 0.1
+    inflation_reduction = -0.08
+}
+
+mourning_of_monarch = {
+	stability_cost_modifier = 0.25
+}
+
+korea_in_trouble = {
+	global_institution_spread = -0.10
+	idea_cost = 0.10
+	global_unrest = 1
+	global_manpower_modifier = -0.10
+	land_maintenance_modifier = 0.10
+	naval_maintenance_modifier = 0.10
+	administrative_efficiency = -0.10
+	global_tax_modifier = -0.10
+	stability_cost_modifier = 0.20
+	state_maintenance_modifier = 0.10
+	global_autonomy = 0.03
+	yearly_corruption = 0.05
+}
+
+mikado_in_power = {
+	global_unrest = 2.5
+	global_autonomy = -0.025
+	yearly_absolutism = 2
+}
+
+theodosian_walls = {
+	garrison_growth = 0.10
+	local_defensiveness = 0.25
+	fort_level = 1
+}
+
+cu_civilian_integration = {
+	local_autonomy = -0.20
+	local_state_maintenance_modifier = 1
+}
+
+cu_diplomatic_integration = {
+	local_unrest = -15
+}
+
+cu_military_integration = {
+	local_unrest = -5
+	land_forcelimit = -1
+	min_local_autonomy = 100
+}
+
+cu_local_autonomy_administration = {
+	local_autonomy = 0.2
+	land_forcelimit = -1
+	local_missionary_strength = -0.1
+}
+
+cu_stability_effort = {
+	advisor_cost = 0.25
+	country_admin_power = -1
+	stability_cost_modifier = -0.2
+}
+
+cu_province_highlight = {
+}
+
+the_great_conqueror = {
+	land_morale = 0.1
+	discipline = 0.05
+	prestige = 1
+	core_creation = -0.1
+}
+
+cu_martial_law = {
+    global_unrest = -5
+	global_tax_modifier = -1
+	production_efficiency = -1
+	trade_efficiency = -1
+	global_trade_goods_size_modifier = -1
+	global_trade_power = -1
+	yearly_corruption = 2
+	state_maintenance_modifier = 1
+	manpower_recovery_speed = -1
+	build_time = 1
+}
+
+russian_krepost_modifier = {
+	local_governing_cost = -0.10
+	land_forcelimit = 0.1
+	#local Administrative Integrity Cap: +10%
+	local_development_cost = 0.25
+}
+
+cu_cultural_golden_age = {
+	stability_cost_modifier = -0.10
+	global_unrest = -1
+	yearly_absolutism = 0.4
+	reform_progress_growth = 0.20
+	governing_capacity = 5
+	prestige = 1
+	harmonization_speed = 0.1
+}
+
+seven_grievance_mod = {
+	land_morale = 0.15
+	shock_damage = 0.1
+}
+
+tusi_administration = {
+	local_unrest = -4
+	local_autonomy = 0.05
+	local_state_maintenance_modifier = -0.2
+	min_local_autonomy = 40
+	local_governing_cost = -0.1
+}
+
+sea_trade_banned = {
+	embargo_efficiency = 0.25
+	global_ship_trade_power = -0.5
+	global_sailors_modifier = -0.5
+	navy_tradition_decay = 0.02
+	#Wokou Strength will grow in coastal provinces
+}
+
+wokou_invade_coastal = {
+	local_development_cost = 0.10
+	province_trade_power_modifier = -0.1
+}
+
+wokou_invade_countryside = {
+	local_unrest = 2
+	local_development_cost = 0.20
+	trade_goods_size_modifier = -0.2
+	province_trade_power_modifier = -0.2
+}
+
+wokou_invade_city = {
+	local_unrest = 5
+	local_development_cost = 0.4
+	local_tax_modifier = -0.2
+	local_production_efficiency = -0.2
+	trade_goods_size_modifier = -0.4
+	province_trade_power_modifier = -0.4
+}
+
+wokou_left = {
+	local_unrest = -3
+	local_manpower_modifier = -0.2
+}
+
+chinese_wokou_left = {
+	local_sailors_modifier = -0.2
+	province_trade_power_modifier = -0.2
+}
+
+tur_roman_path = {
+	administrative_efficiency = 0.05
+	ae_impact = 0.1
+	#Greek Culture Administrative Integrity: +10%
+}
+
+tur_arabian_path = {
+	tolerance_own = 1
+	tolerance_heathen = -1
+}
+
+tur_turkish_path = {
+	cavalry_power = 0.1
+	province_warscore_cost = -0.1
+}
+
+french_lingua_franca_prov = {
+	local_unrest = -2
+	#Max Administrative Integrity +10%
+	#Province convert to French group when integrity reaches 70%
+}
+
+recent_power_conversion = {
+	all_power_cost = 0.01
+}
+
+local_saint_m = {
+	global_unrest = -2
+}
+
+rene_alive_cu = { }

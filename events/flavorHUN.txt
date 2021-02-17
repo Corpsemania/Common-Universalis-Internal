@@ -31,7 +31,7 @@ country_event = {
 	}
 	
 	option = {
-		ai_chance = { factor = 50 }
+		ai_chance = { factor = 100 }
 		name = flavor_hun.1.a
 		define_ruler = {
 			name = "János"
@@ -73,8 +73,8 @@ country_event = {
 	}
 	option = {
 		name = flavor_hun.1.b
-		ai_chance = { factor = 50 }
-		add_stability_or_adm_power = yes
+		ai_chance = { factor = 0 }
+		cu_change_stability_point_p50 = yes
 		define_heir = {
 			name = "Ladislaus Postumus"
 			dynasty = "von Habsburg"
@@ -123,7 +123,7 @@ country_event = {
 	}
 	
 	option = {
-		ai_chance = { factor = 75 }
+		ai_chance = { factor = 100 }
 		name = flavor_hun.2.a
 		remove_historical_friend = HAB
 		HAB = { remove_historical_friend = HUN }
@@ -159,8 +159,8 @@ country_event = {
 	}
 	option = {
 		name = flavor_hun.2.b	
-		ai_chance = { factor = 25 }
-		add_stability_or_adm_power = yes
+		ai_chance = { factor = 0 }
+		cu_change_stability_point_p50 = yes
 		HAB = {
 			create_union = HUN
 			hidden_effect = {
@@ -176,13 +176,7 @@ country_event = {
 			NOT = { dynasty = HAB }
 		}
 		ai_chance = {
-			factor = 25
-			modifier = {
-				factor = 10
-				heir_adm = 5
-				heir_mil = 5
-				heir_dip = 5
-			}
+			factor = 0
 		}
 		remove_historical_friend = HAB
 		HAB = { remove_historical_friend = HUN }
@@ -2237,7 +2231,7 @@ country_event = {
 		ai_chance = {
 			factor = 5
 		}
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		random_owned_province = {
 			limit = { is_in_capital_area = yes }
 			spawn_rebels = {

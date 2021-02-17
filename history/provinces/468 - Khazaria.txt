@@ -1,0 +1,27 @@
+#468 - Khazaria
+
+owner = GOL
+controller = GOL 
+culture = khazak
+religion = sunni
+capital = "Cherny Yar"
+trade_goods = livestock
+hre = no
+base_tax = 2 
+base_production = 2
+base_manpower = 1
+is_city = yes
+add_core = GOL
+add_core = AST
+discovered_by = muslim
+discovered_by = ottoman
+discovered_by = eastern
+discovered_by = western
+discovered_by = nomad_group
+
+
+1459.1.1 = { 	owner = AST controller = AST add_core = AST remove_core = GOL } # Independence of Astrakhan
+1556.6.2 = { owner = RUS controller = RUS add_core = RUS remove_core = AST } # Russians acquire Volga after fall of Astrakhan
+1600.1.1 = { culture = russian religion = orthodox }
+1670.3.1 = { revolt = { type = anti_tax_rebels size = 2 name = "Stepan Razin" } controller = REB unrest = 6 } # Razin rebellion
+1671.4.14 = { revolt = { } controller = RUS unrest = 0 } # Razin captured

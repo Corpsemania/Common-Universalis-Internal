@@ -70,7 +70,7 @@ country_event = {
 	option = {
 		name = flavor_tupi.1.b #We must have faith in the foreigners policing themselves.
 		ai_chance = { factor = 5 }
-		add_stability_or_adm_power = yes #Everything is fine, nothing for you to worry about.
+		cu_change_stability_point_p50 = yes #Everything is fine, nothing for you to worry about.
 	}
 }
 
@@ -123,7 +123,7 @@ country_event = {
 	option = {
 		name = flavor_tupi.2.b #We will fend for ourselves.
 		ai_chance = { factor = 5 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		random_known_country = {
 			limit = { has_country_flag = tamoyo_confederation_leader }
 			country_event = { id = flavor_tupi.4 }
@@ -243,7 +243,7 @@ country_event = {
 	option = {
 		name = flavor_tupi.6.b #They are only trying to make us weak!
 		ai_chance = { factor = 50 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -556,7 +556,7 @@ country_event = {
 	option = {
 		name = flavor_tupi.13.b #This would be too great an honour.
 		ai_chance = { factor = 5 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_country_modifier = {
 			name = "tupi_caramuru_trade"
 			duration = 7300
@@ -650,7 +650,7 @@ country_event = {
 	option = {
 		name = flavor_tupi.15.b #Stay with the gods of our ancestors
 		add_legitimacy = 10
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 

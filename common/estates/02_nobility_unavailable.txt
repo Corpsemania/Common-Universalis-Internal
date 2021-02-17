@@ -1,0 +1,41 @@
+estate_nobles_unavailable =
+{
+	icon = 2
+	
+	
+	
+	
+
+	
+	# If true, country will get estate
+	trigger = {		
+		NOT = { has_estate = estate_nobles }
+		NOT = { has_estate = estate_qinwang }
+	}
+	
+	
+	country_modifier_happy = { 
+	}
+	country_modifier_neutral = { 
+	}	
+	country_modifier_angry = { 
+	}	
+	
+	
+	# Influence modifiers
+	base_influence = 0 
+	
+	
+	# Loyalty modifiers
+	
+	
+	#Alternative naming of estates
+	
+	privileges = {
+	}
+	
+	agendas = {
+	}
+	influence_from_dev_modifier = 0
+	color = { 200 150 0 }
+}

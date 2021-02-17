@@ -458,12 +458,12 @@ country_event = {
 	option = {
 		name = inti_events.12.b #A sacrifice of Llamas, to easy their burdens
 		add_adm_power = -75
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	option = {
 		name = inti_events.12.c #A sacrifce of fine Cloth
 		add_dip_power = -75
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -612,7 +612,7 @@ country_event = {
 	
 	option = {
 		name = inti_events.15.a #Ok.
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_prestige = 5
 	}
 }
@@ -1216,7 +1216,7 @@ country_event = {
 		name = inti_events.30.a #
 		if = {
 			limit = { NOT = { stability = 3 } }
-			add_stability_or_adm_power = yes
+			cu_change_stability_point_p50 = yes
 		}
 		if = {
 			limit = { war_exhaustion = 1 }
@@ -1239,7 +1239,7 @@ country_event = {
 		name = inti_events.31.a #
 		if = {
 			limit = { NOT = { stability = 3 } }
-			add_stability_or_adm_power = yes
+			cu_change_stability_point_p50 = yes
 		}
 		if = {
 			limit = { war_exhaustion = 1 }
@@ -1313,7 +1313,7 @@ country_event = {
 	option = {
 		name = inti_events.33.a #Revert the decision to expand the Guard
 		remove_country_modifier = inti_royal_guard
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	option = {
 		name = inti_events.33.b #Give it a generation or two.
@@ -1348,7 +1348,7 @@ country_event = {
 	option = {
 		name = inti_events.34.a #Revert the decision to expand the Guard
 		remove_country_modifier = inti_royal_guard
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		set_ruler_flag = litter_attacked
 	}
 	option = {

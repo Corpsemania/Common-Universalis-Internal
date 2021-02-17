@@ -20,3 +20,21 @@ ise_grand_shrine = {
 	legitimacy = 0.5
 }
 
+cu_tower_controller = {
+	potential = {
+
+	}
+	trigger = {
+		controller = {
+			OR = {
+				tag = ENG
+				primary_culture = english
+			}
+		}
+		236 = {
+			is_capital = yes
+		}
+	}
+	legitimacy = 0.5
+	administrative_efficiency = 0.01
+}

@@ -2,6 +2,7 @@
 estate_nomadic_tribes_disaster = {
 	potential = {
 		has_estate = estate_nomadic_tribes
+		ai = no
 	}
 
 

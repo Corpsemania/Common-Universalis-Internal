@@ -1,0 +1,53 @@
+namespace = dutch_revolt
+
+# on disaster end event
+country_event = {
+	id = dutch_revolt.1
+	title = "dutch_revolt.1.t"
+	desc = {
+		trigger = {
+			NOT = { exists = NED }
+		}
+		desc = "dutch_revolt.1.d" # everything went pretty well
+	}
+	desc = {
+		trigger = {
+			exists = NED
+		}
+		desc = "dutch_revolt.1.d2" # oh no the dutch are revolting
+	}
+	picture = ANGRY_MOB_eventPicture
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = had_dutch_revolt
+			every_owned_province = {
+				limit = {
+					has_province_modifier = dutch_revolt_modifier
+				}
+				remove_province_modifier = dutch_revolt_modifier
+			}
+		}
+	}
+	
+	option = {
+		name = dutch_revolt.1.a
+		trigger = {
+			exists = NED
+		}
+	}
+	option = {
+		name = dutch_revolt.1.b
+		trigger = {
+			NOT = { exists = NED }
+		}
+		low_countries_region = {
+			limit = {
+				owned_by = ROOT
+			}
+			add_local_autonomy = -25
+		}
+	}
+}

@@ -978,7 +978,7 @@ country_event = {
 	
 	option = {	
 		name = flavor_daimyo.16.b #Law and order must rule, let us execute these ronin.
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_country_modifier = {
 			name = "chushingura_popular_bandits"
 			duration = 3650
@@ -1131,7 +1131,7 @@ country_event = {
 	
 	option = {	
 		name = flavor_daimyo.20.b #Crush him.
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		random_owned_province = {
 			limit = {
 				is_in_capital_area = yes

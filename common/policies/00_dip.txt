@@ -219,7 +219,7 @@ the_dissolution_act = {
 	}
 	
 	global_tax_modifier = 0.10
-	global_autonomy = 0.02
+	global_autonomy = 0.03
 
 	ai_will_do = {
 		factor = 1
@@ -505,7 +505,7 @@ diplomatic_cooperation_act = {
 
 
 	diplomatic_upkeep = 1
-	yearly_corruption = 0.1
+	yearly_corruption = 0.05
 
 
 	ai_will_do = {
@@ -534,7 +534,7 @@ the_banking_system = {
 	}
 
 	interest = -1
-	advisor_cost = 0.06
+	state_governing_cost = 0.06
 
 
 	ai_will_do = {
@@ -1232,7 +1232,7 @@ cultural_unity = {
 	}	
 
 	global_unrest = 1.5
-	culture_conversion_cost = -0.10
+	mercantilism_cost = -0.10
 	
 	ai_will_do = {
 		factor = 0.6

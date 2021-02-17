@@ -705,7 +705,7 @@ cu_check_chu_reform = {
 				change_variable = { which = cu_var3 value = 3 }
 		}
 		if = {
-		       limit = { NOT = { has_country_modifier = gentrys_landholding } }
+		       limit = { NOT = { has_estate_privilege = gentrys_landholding } }
 			   change_variable = { which = cu_var3 value = 5 }
 		}
 		if = {

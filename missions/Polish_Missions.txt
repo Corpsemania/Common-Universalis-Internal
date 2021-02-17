@@ -18,14 +18,14 @@ polish_missions_main_slot = {
 		provinces_to_highlight = {
 			area = west_prussia_area
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			OR = {
 				west_prussia_area = {
 					type = all
-					country_or_non_sovereign_subject_holds = ROOT	
+					cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 				}
 				AND = {
 					custom_trigger_tooltip = {
@@ -152,13 +152,13 @@ polish_missions_main_slot = {
 		provinces_to_highlight = {
 			area = east_prussia_area
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			east_prussia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT	
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }	
 			}
 		}
 		effect = {
@@ -268,17 +268,17 @@ plc_missions_1 = {
 				area = gotaland_area
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			ostra_svealand_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			gotaland_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -310,9 +310,12 @@ polish_missions_branch_slot = {
 		provinces_to_highlight = {
 			OR = {
 				AND = {
-					area = bulgaria_area
+					OR = {
+						area = bulgaria_area
+						area = east_bulgaria_area
+					}
 					NOT = {
-						country_or_non_sovereign_subject_holds = ROOT
+						cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 					}
 				}
 				AND = {
@@ -327,7 +330,11 @@ polish_missions_branch_slot = {
 		trigger = {
 			bulgaria_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
+			}
+			east_bulgaria_area = {
+				type = all
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			carpathia_region = {
 				type = all
@@ -462,7 +469,7 @@ polish_missions_slot_3 = {
 				area = pripyat_area
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
@@ -539,20 +546,20 @@ polish_missions_slot_3 = {
 				area = transdanubia_area
 				area = alfold_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 		trigger = {
 			slovakia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			transdanubia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			alfold_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -571,13 +578,13 @@ polish_missions_slot_3 = {
 		provinces_to_highlight = {
 			area = silesia_area
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
 			silesia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -628,16 +635,16 @@ polish_missions_slot_3 = {
 				area = bohemia_area
 				area = erzgebirge_area
 			}
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 		}
 		trigger = {
 			bohemia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			erzgebirge_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {

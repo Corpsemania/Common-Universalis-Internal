@@ -2,81 +2,81 @@ namespace = company
 
 #Manage Trading Company
 country_event = {
-        id = company.0
+    id = company.0
 	title = "company.0.t"
 	desc = "company.0.d"
 	picture = TRADECOMPANY_eventPicture
 	
 	is_triggered_only = yes
 
-        option = {   #Found a new company
-                     name = "company.0.a" 
-                     ai_chance = {
-		  	      factor = 33
-		     }
-                     country_event = { id = company.10 }
-        }
-        option = {   #Manage existing company
-                     name = "company.0.b" 
-                     trigger = {
-                                   OR = {
-                                             has_country_flag = india_private_company
-											 has_country_flag = india_official_company
-                                             has_country_flag = indonesia_private_company
-											 has_country_flag = indonesia_official_company
-                                             has_country_flag = china_private_company
-											 has_country_flag = china_official_company
-                                             has_country_flag = japan_korea_private_company
-											 has_country_flag = japan_korea_official_company
-                                             has_country_flag = persia_private_company
-											 has_country_flag = persia_official_company
-                                             has_country_flag = south_africa_private_company
-											 has_country_flag = south_africa_official_company
-                                             has_country_flag = east_africa_private_company
-											 has_country_flag = east_africa_official_company
-                                             has_country_flag = west_africa_private_company
-                                             has_country_flag = west_africa_official_company
-                                   } 
-                     }
-                     ai_chance = {
-		  	      factor = 33
-		     }
-                     country_event = { id = company.4 }
-        }
-		option = {   #Hide Trading Company events
-                     name = "company.0.c" 
-					 trigger = {
-					     NOT = { has_country_flag = hide_tc_event }
-						 ai = no
-					 }
-                     ai_chance = {
-		  	      factor = 0
-		     }
-             set_country_flag = hide_tc_event
-        }
-		option = {   #Show Trading Company events
-                     name = "company.0.d1" 
-					 trigger = {
-					     has_country_flag = hide_tc_event
-						 ai = no
-					 }
-                     ai_chance = {
-		  	      factor = 0
-		     }
-             clr_country_flag = hide_tc_event
-        }
-        option = {   #Exit
-                     ai_chance = {
-		  	      factor = 33
-		     }
-                     name = "company.exit" 
-        }
+	option = {   #Found a new company
+		name = "company.0.a" 
+		ai_chance = {
+			factor = 33
+		}
+		country_event = { id = company.10 }
+	}
+	option = {   #Manage existing company
+		name = "company.0.b" 
+		trigger = {
+			OR = {
+				has_country_flag = india_private_company
+				has_country_flag = india_official_company
+				has_country_flag = indonesia_private_company
+				has_country_flag = indonesia_official_company
+				has_country_flag = china_private_company
+				has_country_flag = china_official_company
+				has_country_flag = japan_korea_private_company
+				has_country_flag = japan_korea_official_company
+				has_country_flag = persia_private_company
+				has_country_flag = persia_official_company
+				has_country_flag = south_africa_private_company
+				has_country_flag = south_africa_official_company
+				has_country_flag = east_africa_private_company
+				has_country_flag = east_africa_official_company
+				has_country_flag = west_africa_private_company
+				has_country_flag = west_africa_official_company
+			} 
+		}
+		ai_chance = {
+			factor = 33
+		}
+		country_event = { id = company.4 }
+	}
+	option = {   #Hide Trading Company events
+		name = "company.0.c" 
+		trigger = {
+			NOT = { has_country_flag = hide_tc_event }
+			ai = no
+		}
+		ai_chance = {
+			factor = 0
+		}
+		set_country_flag = hide_tc_event
+	}
+	option = {   #Show Trading Company events
+		name = "company.0.d1" 
+		trigger = {
+			has_country_flag = hide_tc_event
+			ai = no
+		}
+		ai_chance = {
+			factor = 0
+		}
+			clr_country_flag = hide_tc_event
+	}
+	option = {   #Exit
+		ai_chance = {
+			factor = 33
+		}
+		name = "company.exit" 
+	}
 
 }
 
 #Found Trading Company
 country_event = {
-        id = company.10
+    id = company.10
 	title = "company.1.t"
 	desc = "company.1.d"
 	picture = TRADECOMPANY_eventPicture
@@ -11264,78 +11264,79 @@ province_event = {
 	hidden = yes
 	
 	trigger = {
-				OR = {
-					AND = {
-						owner = {
-							capital_scope = {
-								continent = asia
-							}
-						}
+		OR = {
+			AND = {
+				owner = {
+					capital_scope = {
 						continent = asia
 					}
-					AND = {
-						owner = {
-							capital_scope = {
-								continent = africa
-							}
-						}
+				}
+				continent = asia
+			}
+			AND = {
+				owner = {
+					capital_scope = {
 						continent = africa
 					}
 				}
-				
-				
-				AND = {
-						OR = {
-							has_province_flag = east_africa_company_local
-							has_province_flag = india_company_local
-	                        has_province_flag = indochina_company_local
-	                        has_province_flag = indonesia_company_local
-	                        has_province_flag = china_company_local
-	                        has_province_flag = japan_korea_company_local
-	                        has_province_flag = persia_company_local
-	                        has_province_flag = west_africa_company_local
-	                        has_province_flag = south_africa_company_local
-	                        has_province_flag = east_africa_company_local
-						}        
-						OR = {  #Additional check in case of conquered provinces
-							has_province_modifier = trade_company_off_1
-							has_province_modifier = trade_company_off_2
-							has_province_modifier = trade_company_off_3
-							has_province_modifier = trade_company_off_4
-							has_province_modifier = trade_company_pri_1
-							has_province_modifier = trade_company_pri_2
-							has_province_modifier = trade_company_pri_3
-							has_province_modifier = trade_company_pri_4
-						}
-				}
+				continent = africa
+			}
+		}
+		owner = {
+			ai = yes
+		}
+		AND = {
+			OR = {
+				has_province_flag = east_africa_company_local
+				has_province_flag = india_company_local
+				has_province_flag = indochina_company_local
+				has_province_flag = indonesia_company_local
+				has_province_flag = china_company_local
+				has_province_flag = japan_korea_company_local
+				has_province_flag = persia_company_local
+				has_province_flag = west_africa_company_local
+				has_province_flag = south_africa_company_local
+				has_province_flag = east_africa_company_local
+			}        
+			OR = {  #Additional check in case of conquered provinces
+				has_province_modifier = trade_company_off_1
+				has_province_modifier = trade_company_off_2
+				has_province_modifier = trade_company_off_3
+				has_province_modifier = trade_company_off_4
+				has_province_modifier = trade_company_pri_1
+				has_province_modifier = trade_company_pri_2
+				has_province_modifier = trade_company_pri_3
+				has_province_modifier = trade_company_pri_4
+			}
+		}
 	}
 	mean_time_to_happen = {
-			months = 1
+		months = 120
 	}
 	immediate = {
-			clr_province_flag = east_africa_company_local
-			clr_province_flag = india_company_local
-	        clr_province_flag = indochina_company_local
-	        clr_province_flag = indonesia_company_local
-	        clr_province_flag = china_company_local
-	        clr_province_flag = japan_korea_company_local
-	        clr_province_flag = persia_company_local
-	        clr_province_flag = west_africa_company_local
-	        clr_province_flag = south_africa_company_local
-	        clr_province_flag = east_africa_company_local 
-			remove_province_modifier = trade_company_off_1
-			remove_province_modifier = trade_company_off_2
-			remove_province_modifier = trade_company_off_3
-			remove_province_modifier = trade_company_off_4
-			remove_province_modifier = trade_company_pri_1
-			remove_province_modifier = trade_company_pri_2
-			remove_province_modifier = trade_company_pri_3
-			remove_province_modifier = trade_company_pri_4
+		clr_province_flag = east_africa_company_local
+		clr_province_flag = india_company_local
+		clr_province_flag = indochina_company_local
+		clr_province_flag = indonesia_company_local
+		clr_province_flag = china_company_local
+		clr_province_flag = japan_korea_company_local
+		clr_province_flag = persia_company_local
+		clr_province_flag = west_africa_company_local
+		clr_province_flag = south_africa_company_local
+		clr_province_flag = east_africa_company_local 
+		remove_province_modifier = trade_company_off_1
+		remove_province_modifier = trade_company_off_2
+		remove_province_modifier = trade_company_off_3
+		remove_province_modifier = trade_company_off_4
+		remove_province_modifier = trade_company_pri_1
+		remove_province_modifier = trade_company_pri_2
+		remove_province_modifier = trade_company_pri_3
+		remove_province_modifier = trade_company_pri_4
 	}
 
     option = { #Dust to dust.
-            name = "company.5.a"
-    }
+		name = "company.5.a"
+	}
 }
 
 #If official trading company and private trading company appear in the same province, remove the private one.

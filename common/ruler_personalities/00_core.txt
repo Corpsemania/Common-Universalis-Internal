@@ -386,7 +386,7 @@ well_connected_personality = {
 	
 	other_ai_help_us_multiplier = 2
 	
-	advisor_cost = -0.05
+	advisor_cost = -0.125
 	nation_designer_cost = 2
 } #1 better event
 
@@ -919,7 +919,7 @@ lawgiver_personality = {
 	
 	custom_ai_explanation = "AI_RULER_PICK_IDEA_GROUPS"
 	
-	global_autonomy = -0.02
+	global_autonomy = -0.03
 	nation_designer_cost = 5
 } #2 easier events
 

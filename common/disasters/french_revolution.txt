@@ -76,15 +76,8 @@ french_revolution = {
 				government = monarchy
 			}
 			AND = {
-				has_reform =  revolutionary_republic_reform
-				stability = 3
-				NOT = { num_of_rebel_controlled_provinces = 1 }
-			}
-			AND = {
-				has_reform =  revolutionary_republic_reform
 				is_revolution_target = yes
 				NOT = { num_of_rebel_controlled_provinces = 1 }
-				has_ruler_flag = bonaparte_flag
 			}
 		}
 	}

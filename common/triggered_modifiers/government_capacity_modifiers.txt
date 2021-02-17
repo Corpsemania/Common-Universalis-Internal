@@ -7,11 +7,11 @@ gc_bonus_50 = {
 		    NOT = { check_variable = { which = go value = 50 } }
 		    check_variable = { which = go value = 0 }          
 	    }
-		 global_autonomy = -0.021
+		 #global_autonomy = -0.021
 		 yearly_corruption = -0.07
 		 stability_cost_modifier = -0.07
          colonist_placement_chance = 0.05
-	     yearly_absolutism = 0.1
+	     monthly_militarized_society = 0.2
 		 reduced_liberty_desire = 7
 		 state_maintenance_modifier = -0.14
 }
@@ -24,11 +24,11 @@ gc_bonus_60 = {
 		    NOT = { check_variable = { which = go value = 60 } }
 		    check_variable = { which = go value = 50 }          
 	    }
-		 global_autonomy = -0.018
+		 #global_autonomy = -0.018
 		 yearly_corruption = -0.06
 		 stability_cost_modifier = -0.06
          colonist_placement_chance = 0.04
-		 yearly_absolutism = 0.08
+		 monthly_militarized_society = 0.16
 		 reduced_liberty_desire = 6
 		 state_maintenance_modifier = -0.12
 }
@@ -41,11 +41,11 @@ gc_bonus_70 = {
 		    NOT = { check_variable = { which = go value = 70 } }
 		    check_variable = { which = go value = 60 }          
 	    }
-		 global_autonomy = -0.015
+		 #global_autonomy = -0.015
 		 yearly_corruption = -0.05
 		 stability_cost_modifier = -0.05
 		 colonist_placement_chance = 0.03
-		 yearly_absolutism = 0.06
+		 monthly_militarized_society = 0.12
 		 reduced_liberty_desire = 5
 		 state_maintenance_modifier = -0.10
 }
@@ -58,11 +58,11 @@ gc_bonus_80 = {
 		    NOT = { check_variable = { which = go value = 80 } }
 		    check_variable = { which = go value = 70 }          
 	    }
-		 global_autonomy = -0.012
+		 #global_autonomy = -0.012
 		 yearly_corruption = -0.04
 		 stability_cost_modifier = -0.04
 		 colonist_placement_chance = 0.02
-		 yearly_absolutism = 0.04
+		 monthly_militarized_society = 0.08
 		 reduced_liberty_desire = 4
 		 state_maintenance_modifier = -0.08
 }
@@ -75,11 +75,11 @@ gc_bonus_90 = {
 		    NOT = { check_variable = { which = go value = 90 } }
 		    check_variable = { which = go value = 80 }          
 	    }
-		 global_autonomy = -0.009
+		 #global_autonomy = -0.009
 		 yearly_corruption = -0.03
 		 stability_cost_modifier = -0.03
 		 colonist_placement_chance = 0.01
-		 yearly_absolutism = 0.02
+		 monthly_militarized_society = 0.04
 		 reduced_liberty_desire = 3
 		 state_maintenance_modifier = -0.06
 }
@@ -92,11 +92,11 @@ gc_bonus_95 = {
 		    NOT = { check_variable = { which = go value = 95 } }
 		    check_variable = { which = go value = 90 }          
 	    }
-		 global_autonomy = -0.006
+		 #global_autonomy = -0.006
 		 yearly_corruption = -0.02
 		 stability_cost_modifier = -0.02
 		 colonist_placement_chance = 0.005
-		 yearly_absolutism = 0.01
+		 monthly_militarized_society = 0.02
 		 reduced_liberty_desire = 2
 		 state_maintenance_modifier = -0.04
 }
@@ -109,11 +109,11 @@ gc_bonus_100 = {
 		    NOT = { check_variable = { which = go value = 100 } }
 		    check_variable = { which = go value = 95 }          
 	    }
-		 global_autonomy = -0.003
+		 #global_autonomy = -0.003
 		 yearly_corruption = -0.01
 		 stability_cost_modifier = -0.01
 		 global_unrest = -0.2
-		 yearly_absolutism = -0.005
+		 monthly_militarized_society = -0.01
 		 reduced_liberty_desire = 1
 		 state_maintenance_modifier = -0.02
 }
@@ -126,14 +126,14 @@ gc_penalty_105 = {
 		    NOT = { check_variable = { which = go value = 105 } }
 		    check_variable = { which = go value = 100 }          
 	    }
-		 global_autonomy = 0.005
+		 #global_autonomy = 0.005
 		 core_creation = 0.01
 		 yearly_corruption = 0.02
 		 stability_cost_modifier = 0.02
 		 global_unrest = 0.1
 		 global_missionary_strength = -0.001
          colonist_placement_chance = -0.005
-		 yearly_absolutism = -0.01
+		 monthly_militarized_society = -0.02
 		 reduced_liberty_desire = -1
 		 state_maintenance_modifier = 0.02
 }
@@ -146,14 +146,14 @@ gc_penalty_110 = {
 		    NOT = { check_variable = { which = go value = 110 } }
 		    check_variable = { which = go value = 105 }          
 	    }
-		 global_autonomy = 0.01
+		 #global_autonomy = 0.01
 		 core_creation = 0.02
 		 yearly_corruption = 0.04
 		 stability_cost_modifier = 0.04
 		 global_unrest = 0.2
 		 global_missionary_strength = -0.001
 		 colonist_placement_chance = -0.01
-		 yearly_absolutism = -0.02
+		 monthly_militarized_society = -0.04
 		 reduced_liberty_desire = -2
 		 state_maintenance_modifier = 0.04
 }
@@ -166,14 +166,14 @@ gc_penalty_115 = {
 		    NOT = { check_variable = { which = go value = 115 } }
 		    check_variable = { which = go value = 110 }          
 	    }
-		 global_autonomy = 0.015
+		 #global_autonomy = 0.015
 		 core_creation = 0.03
 		 yearly_corruption = 0.06
 		 stability_cost_modifier = 0.06
 		 global_unrest = 0.35
 		 global_missionary_strength = -0.002
 		 colonist_placement_chance = -0.015
-		 yearly_absolutism = -0.03
+		 monthly_militarized_society = -0.06
 		 reduced_liberty_desire = -3
 		 state_maintenance_modifier = 0.06
 }
@@ -186,14 +186,14 @@ gc_penalty_120 = {
 		    NOT = { check_variable = { which = go value = 120 } }
 		    check_variable = { which = go value = 115 }          
 	    }
-		 global_autonomy = 0.02
+		 #global_autonomy = 0.02
 		 core_creation = 0.04
 		 yearly_corruption = 0.08
 		 stability_cost_modifier = 0.08
 		 global_unrest = 0.5
 		 global_missionary_strength = -0.002
          colonist_placement_chance = -0.02
-		 yearly_absolutism = -0.04
+		 monthly_militarized_society = -0.08
 		 reduced_liberty_desire = -4
 		 state_maintenance_modifier = 0.08
 }
@@ -206,14 +206,14 @@ gc_penalty_125 = {
 		    NOT = { check_variable = { which = go value = 125 } }
 		    check_variable = { which = go value = 120 }          
 	    }
-		 global_autonomy = 0.025
+		 #global_autonomy = 0.025
 		 core_creation = 0.05
 		 yearly_corruption = 0.1
 		 stability_cost_modifier = 0.010
 		 global_unrest = 0.7
 		 global_missionary_strength = -0.003
 		 colonist_placement_chance = -0.025
-		 yearly_absolutism = -0.05
+		 monthly_militarized_society = -0.10
 		 reduced_liberty_desire = -5
 		 state_maintenance_modifier = 0.10
 }
@@ -226,14 +226,14 @@ gc_penalty_130 = {
 		    NOT = { check_variable = { which = go value = 130 } }
 		    check_variable = { which = go value = 125 }          
 	    }
-		 global_autonomy = 0.03
+		 #global_autonomy = 0.03
 		 core_creation = 0.06
 		 yearly_corruption = 0.12
 		 stability_cost_modifier = 0.12
 		 global_unrest = 0.9
 		 global_missionary_strength = -0.003
 		 colonist_placement_chance = -0.03
-		 yearly_absolutism = -0.06
+		 monthly_militarized_society = -0.12
 		 reduced_liberty_desire = -6
 		 state_maintenance_modifier = 0.12
 }
@@ -246,14 +246,14 @@ gc_penalty_135 = {
 		    NOT = { check_variable = { which = go value = 135 } }
 		    check_variable = { which = go value = 130 }          
 	    }
-		 global_autonomy = 0.035
+		 #global_autonomy = 0.035
 		 core_creation = 0.07
 		 yearly_corruption = 0.14
 		 stability_cost_modifier = 0.14
 		 global_unrest = 1.1
 		 global_missionary_strength = -0.004
 		 colonist_placement_chance = -0.035
-		 yearly_absolutism = -0.07
+		 monthly_militarized_society = -0.14
 		 reduced_liberty_desire = -7
 		 state_maintenance_modifier = 0.14
 }
@@ -266,14 +266,14 @@ gc_penalty_140 = {
 		    NOT = { check_variable = { which = go value = 140 } }
 		    check_variable = { which = go value = 135 }          
 	    }
-		 global_autonomy = 0.04
+		 #global_autonomy = 0.04
 		 core_creation = 0.08
 		 yearly_corruption = 0.16
 		 stability_cost_modifier = 0.16
 		 global_unrest = 1.3
 		 global_missionary_strength = -0.004
 		 colonist_placement_chance = -0.04
-		 yearly_absolutism = -0.08
+		 monthly_militarized_society = -0.16
 		 reduced_liberty_desire = -8
 		 state_maintenance_modifier = 0.16
 }
@@ -286,14 +286,14 @@ gc_penalty_145 = {
 		    NOT = { check_variable = { which = go value = 145 } }
 		    check_variable = { which = go value = 140 }          
 	    }
-		 global_autonomy = 0.045
+		 #global_autonomy = 0.045
 		 core_creation = 0.09
 		 yearly_corruption = 0.18
 		 stability_cost_modifier = 0.18
 		 global_unrest = 1.5
 		 global_missionary_strength = -0.005
 		 colonist_placement_chance = -0.045
-		 yearly_absolutism = -0.09
+		 monthly_militarized_society = -0.18
 		 reduced_liberty_desire = -9
 		 state_maintenance_modifier = 0.18
 }
@@ -306,14 +306,14 @@ gc_penalty_150 = {
 		    NOT = { check_variable = { which = go value = 150 } }
 		    check_variable = { which = go value = 145 }          
 	    }
-		 global_autonomy = 0.05
+		 #global_autonomy = 0.05
 		 core_creation = 0.1
 		 yearly_corruption = 0.2
 		 stability_cost_modifier = 0.20
 		 global_unrest = 1.7
 		 global_missionary_strength = -0.005
 		 colonist_placement_chance = -0.05
-		 yearly_absolutism = -0.1
+		 monthly_militarized_society = -0.20
 		 reduced_liberty_desire = -10
 		 state_maintenance_modifier = 0.20
 }
@@ -326,14 +326,14 @@ gc_penalty_160 = {
 		    NOT = { check_variable = { which = go value = 160 } }
 		    check_variable = { which = go value = 150 }          
 	    }
-		 global_autonomy = 0.058
+		 #global_autonomy = 0.058
 		 core_creation = 0.12
 		 yearly_corruption = 0.24
 		 stability_cost_modifier = 0.24
 		 global_unrest = 1.9
 		 global_missionary_strength = -0.006
 		 colonist_placement_chance = -0.06
-		 yearly_absolutism = -0.12
+		 monthly_militarized_society = -0.24
 		 reduced_liberty_desire = -12
 		 state_maintenance_modifier = 0.24
 }
@@ -346,14 +346,14 @@ gc_penalty_170 = {
 		    NOT = { check_variable = { which = go value = 170 } }
 		    check_variable = { which = go value = 160 }          
 	    }
-		 global_autonomy = 0.066
+		 #global_autonomy = 0.066
 		 core_creation = 0.14
 		 yearly_corruption = 0.28
 		 stability_cost_modifier = 0.28
 		 global_unrest = 2.1
 		 global_missionary_strength = -0.007
 		 colonist_placement_chance = -0.07
-		 yearly_absolutism = -0.14
+		 monthly_militarized_society = -0.28
 		 reduced_liberty_desire = -14
 		 state_maintenance_modifier = 0.28
 }
@@ -366,14 +366,14 @@ gc_penalty_180 = {
 		    NOT = { check_variable = { which = go value = 180 } }
 		    check_variable = { which = go value = 170 } 
 		}
-		 global_autonomy = 0.074
+		 #global_autonomy = 0.074
 		 core_creation = 0.16
 		 yearly_corruption = 0.32
 		 stability_cost_modifier = 0.32
 		 global_unrest = 2.3
 		 global_missionary_strength = -0.008
 		 colonist_placement_chance = -0.08
-		 yearly_absolutism = -0.16
+		 monthly_militarized_society = -0.32
 		 reduced_liberty_desire = -16
 		 state_maintenance_modifier = 0.32
 }
@@ -386,14 +386,14 @@ gc_penalty_190 = {
 		    NOT = { check_variable = { which = go value = 190 } }
 		    check_variable = { which = go value = 180 } 
 		}
-		 global_autonomy = 0.082
+		 #global_autonomy = 0.082
 		 core_creation = 0.18
 		 yearly_corruption = 0.36
 		 stability_cost_modifier = 0.36
 		 global_unrest = 2.5
 		 global_missionary_strength = -0.009
 		 colonist_placement_chance = -0.09
-		 yearly_absolutism = -0.18
+		 monthly_militarized_society = -0.36
 		 reduced_liberty_desire = -18
 		 state_maintenance_modifier = 0.36
 }
@@ -406,14 +406,14 @@ gc_penalty_200 = {
 		    NOT = { check_variable = { which = go value = 200 } }
 		    check_variable = { which = go value = 190 } 
 		}
-		 global_autonomy = 0.09
+		 #global_autonomy = 0.09
 		 core_creation = 0.2
 		 yearly_corruption = 0.4
 		 stability_cost_modifier = 0.40
 		 global_unrest = 2.7
 		 global_missionary_strength = -0.01
 		 colonist_placement_chance = -0.10
-		 yearly_absolutism = -0.2
+		 monthly_militarized_society = -0.4
 		 reduced_liberty_desire = -20
 		 state_maintenance_modifier = 0.40
 }
@@ -426,14 +426,14 @@ gc_penalty_225 = {
 		    NOT = { check_variable = { which = go value = 225 } }
 		    check_variable = { which = go value = 200 } 
 		}
-		 global_autonomy = 0.105
+		 #global_autonomy = 0.105
 		 core_creation = 0.25
 		 yearly_corruption = 0.5
 		 stability_cost_modifier = 0.5
 		 global_unrest = 3
 		 global_missionary_strength = -0.011
 		 colonist_placement_chance = -0.125
-		 yearly_absolutism = -0.25
+		 monthly_militarized_society = -0.5
 		 reduced_liberty_desire = -25
 		 state_maintenance_modifier = 0.50
 }
@@ -446,14 +446,14 @@ gc_penalty_250 = {
 		    NOT = { check_variable = { which = go value = 250 } }
 		    check_variable = { which = go value = 225 } 
 		}
-		 global_autonomy = 0.12
+		 #global_autonomy = 0.12
 		 core_creation = 0.3
 		 yearly_corruption = 0.6
 		 stability_cost_modifier = 0.6
 		 global_unrest = 3.3
 		 global_missionary_strength = -0.012
 		 colonist_placement_chance = -0.15
-		 yearly_absolutism = -0.3
+		 monthly_militarized_society = -0.6
 		 reduced_liberty_desire = -30
 		 state_maintenance_modifier = 0.60
 }
@@ -466,14 +466,14 @@ gc_penalty_275 = {
 		    NOT = { check_variable = { which = go value = 275 } }
 		    check_variable = { which = go value = 250 } 
 		}
-		 global_autonomy = 0.135
+		 #global_autonomy = 0.135
 		 core_creation = 0.35
 		 yearly_corruption = 0.7
 		 stability_cost_modifier = 0.7
 		 global_unrest = 3.6
 		 global_missionary_strength = -0.013
 		 colonist_placement_chance = -0.175
-		 yearly_absolutism = -0.35
+		 monthly_militarized_society = -0.7
 		 reduced_liberty_desire = -35
 		 state_maintenance_modifier = 0.70
 }
@@ -486,14 +486,14 @@ gc_penalty_300 = {
 		    NOT = { check_variable = { which = go value = 300 } }
 		    check_variable = { which = go value = 275 } 
 		}
-		 global_autonomy = 0.15
+		 #global_autonomy = 0.15
 		 core_creation = 0.4
 		 yearly_corruption = 0.8
 		 stability_cost_modifier = 0.8
 		 global_unrest = 3.9
 		 global_missionary_strength = -0.014
 		 colonist_placement_chance = -0.20
-		 yearly_absolutism = -0.4
+		 monthly_militarized_society = -0.8
 		 reduced_liberty_desire = -40
 		 state_maintenance_modifier = 0.80
 }
@@ -506,14 +506,14 @@ gc_penalty_333 = {
 		    NOT = { check_variable = { which = go value = 333 } }
 		    check_variable = { which = go value = 300 } 
 		}
-		 global_autonomy = 0.175
+		 #global_autonomy = 0.175
 		 core_creation = 0.45
 		 yearly_corruption = 0.9
 		 stability_cost_modifier = 0.9
 		 global_unrest = 4.2
 		 global_missionary_strength = -0.015
 		 colonist_placement_chance = -0.233
-		 yearly_absolutism = -0.45
+		 monthly_militarized_society = -0.9
 		 reduced_liberty_desire = -45
 		 state_maintenance_modifier = 0.90
 }
@@ -526,14 +526,14 @@ gc_penalty_366 = {
 		    NOT = { check_variable = { which = go value = 366 } }
 		    check_variable = { which = go value = 333 } 
 		}
-		 global_autonomy = 0.19
+		 #global_autonomy = 0.19
 		 core_creation = 0.5
 		 yearly_corruption = 1
 		 stability_cost_modifier = 1
 		 global_unrest = 4.5
 		 global_missionary_strength = -0.016
 		 colonist_placement_chance = -0.266
-		 yearly_absolutism = -0.5
+		 monthly_militarized_society = -1
 		 reduced_liberty_desire = -50
 		 state_maintenance_modifier = 1
 }
@@ -546,14 +546,14 @@ gc_penalty_400 = {
 		    NOT = { check_variable = { which = go value = 400 } }
 		    check_variable = { which = go value = 366 } 
 		}
-		 global_autonomy = 0.205
+		 #global_autonomy = 0.205
 		 core_creation = 0.55
 		 yearly_corruption = 1.1
 		 stability_cost_modifier = 1.1
 		 global_unrest = 4.8
 		 global_missionary_strength = -0.017
 		 colonist_placement_chance = -0.30
-		 yearly_absolutism = -0.55
+		 monthly_militarized_society = -1.1
 		 reduced_liberty_desire = -55
 		 state_maintenance_modifier = 1.10
 }
@@ -566,14 +566,14 @@ gc_penalty_450 = {
 		    NOT = { check_variable = { which = go value = 450 } }
 		    check_variable = { which = go value = 400 } 
 		}
-		 global_autonomy = 0.22
+		 #global_autonomy = 0.22
 		 core_creation = 0.6
 		 yearly_corruption = 1.2
 		 stability_cost_modifier = 1.2
 		 global_unrest = 5.2
 		 global_missionary_strength = -0.018
 		 colonist_placement_chance = -0.35
-		 yearly_absolutism = -0.6
+		 monthly_militarized_society = -1.2
 		 reduced_liberty_desire = -60
 		 state_maintenance_modifier = 1.20
 }
@@ -586,14 +586,14 @@ gc_penalty_500 = {
 		    NOT = { check_variable = { which = go value = 500 } }
 		    check_variable = { which = go value = 450 } 
 		}
-		 global_autonomy = 0.245
+		 #global_autonomy = 0.245
 		 core_creation = 0.65
 		 yearly_corruption = 1.3
 		 stability_cost_modifier = 1.3
 		 global_unrest = 5.6
 		 global_missionary_strength = -0.019
 		 colonist_placement_chance = -0.40
-		 yearly_absolutism = -0.65
+		 monthly_militarized_society = -1.3
 		 reduced_liberty_desire = -65
 		 state_maintenance_modifier = 1.30
 }
@@ -604,14 +604,14 @@ gc_penalty_max = { #>500,can anyone survive this?
 	    trigger = {
 		    check_variable = { which = go value = 500 } 
 		}
-		 global_autonomy = 0.27
+		 #global_autonomy = 0.27
 		 core_creation = 0.7
 		 yearly_corruption = 1.4
 		 stability_cost_modifier = 1.4
 		 global_unrest = 6
 		 global_missionary_strength = -0.02
 		 colonist_placement_chance = -0.50
-		 yearly_absolutism = -0.7
+		 monthly_militarized_society = -1.4
 		 reduced_liberty_desire = -70
 		 state_maintenance_modifier = 1.40
 }

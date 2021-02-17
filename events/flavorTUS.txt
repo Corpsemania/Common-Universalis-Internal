@@ -150,7 +150,7 @@ country_event = {
 			}
 		}
 		add_legitimacy = 10
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		remove_country_modifier = emperor_condemns_tuscany
 	}
 }
@@ -329,7 +329,7 @@ country_event = {
 
 	option = {
 		name = flavor_tus.6.b
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_adm_power = 50
 		add_legitimacy = 10
 	}
@@ -690,7 +690,7 @@ country_event = {
 	#God cares for his flock!
 	option = {
 		name = flavor_tus.13.a
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 

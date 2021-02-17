@@ -100,7 +100,7 @@ country_event = {
 	
 	option = {
 		name = flavor_cua.3.a
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		random_known_country = {
 			limit = {
 				knows_country = ROOT

@@ -21,7 +21,7 @@ country_decisions = {
 			adm_tech = 10
 			num_of_cities = 15	
 			NOT = { government = theocracy }		  
-			culture_group = germanic
+			cu_germanic_group = yes
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no
@@ -54,8 +54,17 @@ country_decisions = {
 		}
 		allow = {
 			OR = {
-				adm_tech = 23
-				government_rank = 3
+				dip_tech = 23
+				AND = {
+					OR = {
+						government_rank = 3
+						AND = {
+							government_rank = 2
+							total_development = 750
+						}
+					}
+					adm_tech = 18
+				}
 			}
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
@@ -72,7 +81,7 @@ country_decisions = {
 			      	OR = {
 			      		is_great_power = no
 					    AND = {
-			             	NOT = { culture_group = germanic }
+			             	NOT = { cu_germanic_group = yes }
 			             	NOT = { tag = BOH }
 			            }
 		      		}
@@ -118,7 +127,7 @@ country_decisions = {
 						}
 					}
 					every_owned_province = { 
-						limit = { culture_group = germanic }
+						limit = { cu_germanic_group = yes }
 						cede_province = GER
 						add_core = GER
 						set_in_empire = no
@@ -126,7 +135,7 @@ country_decisions = {
 				}
 				every_country = {
 					limit = { 
-						culture_group = germanic  
+						cu_germanic_group = yes  
 						is_subject = no
 						is_emperor = no
 						ai = yes
@@ -135,7 +144,7 @@ country_decisions = {
 				}               
 				every_province = {
 					limit = {
-						culture_group = germanic
+						cu_germanic_group = yes
 						NOT = { owned_by = ROOT }
 						continent = europe
 					}
@@ -176,7 +185,7 @@ country_decisions = {
 			num_of_cities = 15
 			adm_tech = 10
 			NOT = { government = theocracy }		  
-			culture_group = germanic
+			cu_germanic_group = yes
 			is_colonial_nation = no
 			OR = {
 				is_former_colonial_nation = no
@@ -209,8 +218,17 @@ country_decisions = {
 		}
 		allow = {
 			OR = {
-				adm_tech = 23
-				government_rank = 3
+				dip_tech = 23
+				AND = {
+					OR = {
+						government_rank = 3
+						AND = {
+							government_rank = 2
+							total_development = 750
+						}
+					}
+					adm_tech = 18
+				}
 			}
 			is_free_or_tributary_trigger = yes
 			is_nomad = no
@@ -227,7 +245,7 @@ country_decisions = {
 			      	OR = {
 			      		is_great_power = no
 					    AND = {
-			             	NOT = { culture_group = germanic }
+			             	NOT = { cu_germanic_group = yes }
 			             	NOT = { tag = BOH }
 			            }
 		      		}
@@ -273,7 +291,7 @@ country_decisions = {
 						}
 					}	
 					every_owned_province = { 
-						limit = { culture_group = germanic }
+						limit = { cu_germanic_group = yes }
 						cede_province = GER
 						add_core = GER
 						set_in_empire = no
@@ -281,7 +299,7 @@ country_decisions = {
 				}
       			every_country = {
             		limit = { 
-						culture_group = germanic  
+						cu_germanic_group = yes  
 						is_subject = no
 						is_emperor = no
 						ai = yes
@@ -290,7 +308,7 @@ country_decisions = {
                 }               
 				every_province = {
 					limit = {
-						culture_group = germanic
+						cu_germanic_group = yes
 						NOT = { owned_by = ROOT }
 						continent = europe
 					}

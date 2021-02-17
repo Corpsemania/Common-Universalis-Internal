@@ -1,0 +1,34 @@
+# 1876 - Frankfurt
+capital = "Frankfurt"
+culture = hessian
+religion = catholic
+trade_goods = paper
+owner = FRN
+base_tax = 7
+base_production = 7
+base_manpower = 4
+is_city = yes
+fort_15th = yes
+add_core = FRN
+controller = FRN
+hre = yes
+discovered_by = eastern
+discovered_by = western
+discovered_by = muslim
+discovered_by = ottoman
+extra_cost = 16
+center_of_trade = 2
+
+1550.1.1 = {
+	add_permanent_province_modifier = {
+		name = "birthplace_of_printing_press"
+		duration = -1
+	}
+}
+1556.4.19 = { religion = protestant }
+1685.1.1 = { base_tax = 10 
+base_production = 10} # Stock Exchange established in Frankfurt
+1792.10.1 = { controller = FRA } # Occupied by French troops
+1792.12.3 = { controller = FRN } # Prussian troops take control
+1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+1810.1.1 = { fort_15th = no fort_18th = yes }

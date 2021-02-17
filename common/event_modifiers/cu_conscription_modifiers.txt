@@ -20,7 +20,7 @@ mercenary_conscription = {
 	discipline = -0.025
 	mercenary_cost = -0.2
 	merc_maintenance_modifier = -0.2
-	possible_mercenaries = 0.25
+	merc_maintenance_modifier = 0.25
 	free_leader_pool = -20
 	drill_gain_modifier = -0.2
 }
@@ -56,7 +56,7 @@ volunteer_training = {
 	land_forcelimit_modifier = 0.05
 	global_regiment_cost = 0.10
 	global_regiment_recruit_speed = 0.1
-	possible_mercenaries = 0.2
+	merc_maintenance_modifier = 0.2
 	free_leader_pool = -10
 	yearly_army_professionalism = 0.005
 	drill_gain_modifier = -0.1

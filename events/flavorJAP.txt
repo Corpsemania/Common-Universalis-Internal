@@ -652,7 +652,7 @@ country_event = {
 	
 	option = {
 		name = "flavor_jap.EVTOPTA8" # Do nothing
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	option = {
 		name = "flavor_jap.EVTOPTB8" # Help the foreign shipwreckers
@@ -1639,7 +1639,7 @@ country_event = {
 	
 	option = {
 		name = "flavor_jap.EVTOPTA24" # Start the era of Genroku!
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_country_modifier = { 
 			name = jap_genroku
 			duration = 7300

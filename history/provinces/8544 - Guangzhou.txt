@@ -8,10 +8,11 @@ religion = confucianism
 capital = "Guangzhou"
 trade_goods = grain
 hre = no
-base_tax = 2 
-base_production = 2
-base_manpower = 1
+base_tax = 1 
+base_production = 1
+base_manpower = 3
 is_city = yes
+set_province_flag = cu_neednt_dev_initialize
 
 
 discovered_by = chinese

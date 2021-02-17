@@ -10,10 +10,10 @@ historical_score = 5300
 
 historical_idea_groups = {
 	religious_ideas #ADM
-	aristocracy_ideas #MIL
+	offensive_ideas	#MIL
 	trade_ideas #DIP
 	expansion_ideas #DIP
-	offensive_ideas	#MIL
+	aristocracy_ideas #MIL
 	agrarian_ideas #ADM
 	innovativeness_ideas #ADM	
 	militarist_ideas #MIL

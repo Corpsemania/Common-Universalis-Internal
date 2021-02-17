@@ -431,7 +431,7 @@ country_decisions = {
 			change_tag = ICE
 			set_country_flag = formed_iceland
 			if = {
-				limit = { NOT = { primary_culture = norwegian } }
+				limit = { NOT = { primary_culture = islensk } }
 				change_primary_culture = CAPITAL
 			}
 			every_owned_province = {

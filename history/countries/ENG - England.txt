@@ -9,24 +9,42 @@ religion = catholic
 capital = 236 # London
 national_focus = DIP
 
-#1422.8.31 = { #Succession
-
 1429.11.6 = { #Coronation
 	monarch = {
 		name = "Henry VI"
 		dynasty = "Lancaster"
 		birth_date = 1421.12.6
-		adm = 0
-		dip = 0
+		adm = 1
+		dip = 1
 		mil = 0
 	}
 	clear_scripted_personalities = yes
 	add_ruler_personality = infertile_personality
+	add_ruler_personality = craven_personality
+	leader = { name = "Duke of Bedford"	type = general	fire = 4	shock = 4	manuever = 4	siege = 1	death_date = 1435.9.14 }
 }
 
-#1434.1.1 = { leader = {	name = "Richard Neville"	type = general	fire = 3	shock = 3	manuever = 3	siege = 0	death_date = 1460.12.31 } }
+1435.1.1 = { leader = {	name = "Richard Plantagenet"	type = general	fire = 2	shock = 4	manuever = 3	siege = 0	death_date = 1460.12.30 } }
 
-1435.1.1 = { leader = {	name = "Richard Plantagenet"	type = general	fire = 4	shock = 4	manuever = 2	siege = 0	death_date = 1460.12.30 } }
+1436.1.1 = {
+	add_war_exhaustion = 2 #Lose Paris
+}
+
+1436.2.1 = {
+	leader = {	name = "John Talbot"	type = general	fire = 3	shock = 4	manuever = 3	siege = 1	death_date = 1453.7.17 }
+}
+
+1443.1.1 = {
+	leader = {	name = "John Neville"		type = general	fire = 2	shock = 2	manuever = 2	siege = 0	death_date = 1471.4.14 }
+}
+
+1444.1.1 = {
+	add_war_exhaustion = 3 #Call for peace
+}
+
+1448.1.1 = {
+	add_war_exhaustion = -5 # Truce in Tours
+}
 
 1445.4.23 = {
 	queen = {

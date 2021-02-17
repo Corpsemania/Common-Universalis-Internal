@@ -1,0 +1,44 @@
+#280 - Kiev
+
+owner = LIT
+controller = LIT  
+culture = kievan
+religion = orthodox
+hre = no
+base_tax = 4
+base_production = 4
+trade_goods = grain 
+base_manpower = 2
+capital = "Kiev"
+is_city = yes
+add_core = KIE
+add_core = LIT
+discovered_by = western
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = ottoman
+discovered_by = nomad_group
+extra_cost = 16
+center_of_trade = 2
+
+1550.1.1 = { fort_15th = yes }
+1569.7.1 = {
+	owner = PLC
+	controller = PLC
+	add_core = PLC
+}# Union of Lublin
+1595.1.1 = { unrest = 4 } # Union of Brest, religious struggles
+1596.1.1 = { unrest = 0 } 
+1648.1.1 = {	revolt = { type = nationalist_rebels size = 0 }
+	controller = REB
+	add_core = ZAZ
+}# Chmielnicki uprising, civil war
+1654.1.1 = { revolt = {} controller = PLC remove_core = ZAZ }
+1667.1.30 = {
+	owner = RUS
+	controller = RUS
+	add_core = RUS
+	remove_core = PLC
+}# Treaty of Andrusovo
+1768.1.1 = { unrest = 8 } # Kolivshchyna rebellion, peasant uprising
+1769.1.1 = { unrest = 0 } # Suppressed by Polish and Russian troops

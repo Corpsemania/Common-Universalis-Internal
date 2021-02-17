@@ -1,0 +1,30 @@
+#978 - Alaska
+
+culture = aleutian
+religion = totemism
+capital = "Alaska"
+trade_goods = unknown
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+native_size = 5
+native_ferocity = 1 
+native_hostileness = 6 
+
+
+
+discovered_by = north_american
+
+1741.1.1 = { discovered_by = RUS } # Vitus Bering
+1778.1.1 = { discovered_by = GBR } # James Cook
+
+1786.1.1 = {
+	owner = RUS
+	controller = RUS
+	add_core = RUS
+	is_city = yes
+	culture = russian
+	religion = orthodox
+	trade_goods = fur
+} # Russian settlement founded by Grigori Shelekho

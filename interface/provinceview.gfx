@@ -521,12 +521,22 @@ spriteTypes = {
 		texturefile = "gfx/interface/patriarch_icon.dds"
 		noOfFrames = 2
 	}	
+	
+	spriteType = {
+		name = "GFX_patriarch_icon_solo"
+		texturefile = "gfx/interface/patriarch_icon_solo.dds"
+	}
 
 	spriteType = {
 		name = "GFX_pasha_icon"
 		texturefile = "gfx/interface/pasha_icon.dds"
 		noOfFrames = 2
 	}	
+	
+	spriteType = {
+		name = "GFX_pasha_icon_solo"
+		texturefile = "gfx/interface/pasha_icon_solo.dds"
+	}
 	
 	spriteType = {
 		name = "GFX_amount_of_banners"
@@ -540,12 +550,17 @@ spriteTypes = {
 
 	spriteType = {
 		name = "GFX_sort_state_development"
-		texturefile = "gfx/interface/sort_state_development.dds"
+		texturefile = "gfx/interface/macro_states_sort/sort_development.dds"
 	}
 
 	spriteType = {
 		name = "GFX_sort_state_fort"
 		texturefile = "gfx/interface/sort_state_fort.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_pick_edict"
+		texturefile = "gfx/interface/pick_edict.dds"
 	}
 
 	spriteType = {
@@ -1306,5 +1321,17 @@ spriteTypes = {
 		name = "GFX_settlement_growth_button"
 		#texturefile = "gfx/interface/settlement_growth_button.dds"
 		texturefile = "gfx/interface/development_button_tax.dds"
+	}
+	spriteType = {
+		name = "GFX_center_of_revolution"
+		texturefile = "gfx/interface/revolution/birthplace_of_revolution.dds"
+	}
+	spriteType = {
+		name = "GFX_revolution_spread"
+		texturefile = "gfx/interface/revolution/revolution_spread_32x32.dds"
+	}
+	spriteType = {
+		name = "GFX_revolution_spreading"
+		texturefile = "gfx/interface/revolution/spread_of_revolution_63x63.dds"
 	}
 }

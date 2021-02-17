@@ -1168,7 +1168,7 @@ country_event = {
 	}
 	option = {
 		name = tengri_events.19.c #Turn them away
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -2201,7 +2201,7 @@ country_event = {
 			}
 			change_to_secondary_religion = yes
 		}
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	option = {
 		name = tengri_events.44.b #Invite him to court.
@@ -2541,7 +2541,7 @@ country_event = {
 	option = {
 		name = tengri_events.52.b #The Gods will bless this peace
 		trigger = { is_at_war = no }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 

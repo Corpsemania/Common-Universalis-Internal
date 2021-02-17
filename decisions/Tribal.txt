@@ -34,7 +34,7 @@ steppe_horde_reform = {
             NOT = {
                     estate_influence = {
 				    estate = estate_nomadic_tribes
-				    influence = 50
+				    influence = 75
 			        }
             }
             NOT = { check_variable = { which = go value = 120 } }

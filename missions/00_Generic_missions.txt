@@ -32,9 +32,6 @@ military_missions = { #Series name is displayed over the slot?
 		trigger = { grown_by_development = 50 }
 		effect = {
 			capital_scope = {
-				add_base_tax = 1
-				add_base_production = 1
-				add_base_manpower = 1
 				area = {
 					limit = { owned_by = ROOT }
 					add_province_modifier = {

@@ -3,15 +3,16 @@
 owner = MNG
 controller = MNG
 add_core = MNG
-culture = hakka
+culture = gan
 religion = confucianism
 capital = "Nan'an"
 trade_goods = tea
 hre = no
-base_tax = 4 
-base_production = 4
-base_manpower = 2
+base_tax = 1 
+base_production = 1
+base_manpower = 4
 is_city = yes
+set_province_flag = cu_neednt_dev_initialize
 add_core = NNG
 
 discovered_by = chinese

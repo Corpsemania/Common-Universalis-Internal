@@ -1,0 +1,38 @@
+#1008 - Winnipeg
+
+culture = nakota
+religion = totemism
+capital = "Manitoba"
+trade_goods = unknown
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+native_size = 5
+native_ferocity = 2
+native_hostileness = 6
+discovered_by = north_american
+extra_cost = 8
+center_of_trade = 1
+
+1664.1.1 = { discovered_by = ENG }
+1732.1.1 = { discovered_by = FRA } # Pierre Gaultier de Varennes
+1734.1.1 = {
+	owner = FRA
+	controller = FRA
+	add_core = FRA
+	culture = cosmopolitan_french
+	religion = catholic
+	capital = "Fort Maurepas"
+	is_city = yes
+	trade_goods = fur
+}
+1763.2.10 = {
+	discovered_by = GBR
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+	remove_core = FRA
+	culture = english
+	religion = protestant
+}# Treaty of Paris

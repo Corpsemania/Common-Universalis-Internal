@@ -1,0 +1,52 @@
+#971 - Abnaki
+
+add_core = ABE
+owner = ABE
+controller = ABE
+culture = abenaki
+religion = totemism
+capital = "Abnaki"
+trade_goods = naval_supplies
+hre = no
+base_tax = 1 
+base_production = 2
+base_manpower = 2
+is_city = yes
+native_size = 15
+native_ferocity = 3
+native_hostileness = 8
+
+
+
+discovered_by = north_american
+
+1604.1.1 = { discovered_by = FRA } # Samuel de Champlain
+1605.1.1 = { discovered_by = ENG } # George Waymouth
+1707.5.12 = { discovered_by = GBR } 
+
+1727.1.1 = {
+	owner = ---
+	controller = ---
+	remove_core = ABE
+	is_city = no 
+} #Decline of the New England Abenakis in the wake of Father Rale's War
+1763.2.10 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+	culture = english
+	religion = protestant
+	is_city = yes
+} #Control established after Treaty of Utrecht
+1764.7.1 = {
+	culture = american
+	unrest = 6
+} # Growing unrest
+1769.1.1 = { capital = "Condeskeag" }
+1776.7.4 = {
+	owner = USA
+	controller = USA
+	add_core = USA
+} # Declaration of independence
+1782.11.1 = { remove_core = GBR unrest = 0 } # Preliminary articles of peace, the British recognized American independence
+1791.1.1 = { capital = "Bangor" }

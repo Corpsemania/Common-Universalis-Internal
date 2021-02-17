@@ -1152,13 +1152,13 @@ korea_economic_social_political_path_1 = {
 
 		provinces_to_highlight = {
 			region = korea_region
-			NOT = { development = 6 }
+			NOT = { base_manpower = 3 }
 		}
 		
 		trigger = {
 			korea_region = {
 				type = all
-				development = 6
+				base_manpower = 3
 			}
 		}
 		
@@ -1230,14 +1230,13 @@ korea_economic_social_political_path_1 = {
 		
 		trigger = {
 			is_subject = no
-			
+			NOT = { corruption = 10 }
 			korea_region = {
 				type = all
 				owned_by = root
 				is_core = root
 				culture = korean
 				development = 8
-				has_manufactory_trigger = yes
 			}
 			OR = {
 				army_size = 100
@@ -1279,7 +1278,7 @@ korea_economic_social_political_path_2 = {
 		trigger = {
 			capital_scope = {
 				culture = korean
-				development = 30
+				development = 25
 			}
 		}
 		

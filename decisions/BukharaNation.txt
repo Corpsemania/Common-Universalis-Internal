@@ -10,7 +10,7 @@ country_decisions = {
 				is_playing_custom_nation = no
 			}
 			OR = {
-			      culture_group = south_turkic
+			      cu_south_turkic_group = yes
             primary_culture  = kirgiz
             tag = SHY
             }

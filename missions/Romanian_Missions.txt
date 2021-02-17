@@ -69,6 +69,13 @@ romanian_missions_1 = {
 				}
 				add_permanent_claim = ROOT
 			}
+			east_bulgaria_area = {
+				limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
 		}
 	}
 	rmn_impale_the_sultan = {
@@ -149,11 +156,14 @@ romanian_missions_1 = {
 		provinces_to_highlight = {
 			OR = {
 				AND = {
-					area = bulgaria_area
-					area = macedonia_area
-					area = thrace_area
+					OR = {
+						area = bulgaria_area
+						area = east_bulgaria_area
+						area = macedonia_area
+						area = thrace_area
+					}
 					NOT = {
-						country_or_non_sovereign_subject_holds = ROOT
+						cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 					}
 				}
 				AND = {
@@ -165,15 +175,19 @@ romanian_missions_1 = {
 		trigger = {
 			macedonia_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			thrace_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			bulgaria_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
+			}
+			east_bulgaria_area = {
+				type = all
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			balkan_region = {
 				type = all
@@ -211,7 +225,7 @@ romanian_missions_1 = {
 				owned_by = BYZ
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
@@ -220,11 +234,11 @@ romanian_missions_1 = {
 			}
 			northern_greece_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 			morea_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		effect = {
@@ -261,7 +275,7 @@ romanian_missions_5 = {
 				area = moldavia_area
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {
@@ -342,7 +356,7 @@ romanian_missions_5 = {
 				area = southern_transylvania_area
 			}
 			NOT = {
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		trigger = {

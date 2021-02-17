@@ -3,15 +3,16 @@
 owner = MNG
 controller = MNG
 add_core = MNG
-culture = hakka
+culture = gan
 religion = confucianism
 capital = "Waichow"
 trade_goods = spices
 hre = no
-base_tax = 7
-base_production = 7
-base_manpower = 3
+base_tax = 1
+base_production = 1
+base_manpower = 2
 is_city = yes
+set_province_flag = cu_neednt_dev_initialize
 add_core = YUE
 
 

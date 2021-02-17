@@ -1,0 +1,28 @@
+# - Ghadames
+
+owner = GHD
+controller = GHD 
+culture = tunisian
+religion = sunni
+capital = "Ghadames"
+trade_goods = spices #Dates
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+is_city = yes
+add_core = GHD
+
+
+
+discovered_by = western
+discovered_by = eastern
+discovered_by = muslim
+discovered_by = ottoman
+
+
+1830.1.1 = {
+	owner = TUN
+	controller = TUN
+	add_core = TUN
+}

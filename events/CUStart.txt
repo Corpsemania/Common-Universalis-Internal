@@ -1,0 +1,106 @@
+#Game Start
+namespace = custart
+#Initialize New Countries
+country_event = {
+	id = custart.42
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = ADVISOR_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+    trigger = {
+	     NOT = { has_country_modifier = cu_country_initialized }
+	}
+	
+	mean_time_to_happen = {
+	    months = 1
+	}
+
+    option = {  #Initialize
+	    name = "EVT_HIDDEN"
+		#Copied from on_action
+		set_variable = { which = cu_chrismas_gift_timer value = 0 }
+		set_variable = { which = literacy value = 0 } #Literacy
+		set_variable = { which = num_pp value = 0 } #Province of Accepted Cultures
+		set_variable = { which = ave_literacy value = 1 } #Average Literacy
+		set_variable = { which = sum_literacy value = 0 } #Total Literacy(For calculation only)
+		set_variable = { which = num_of_tc value = 0 } #Num of Trading Companies
+		set_variable = { which = inflation_index value = 100 } #Inflation Ratio
+		set_variable = { which = cu_ra_w value = 0 } #Ruler Military Achievement
+		set_variable = { which = cu_ra_ws value = 0 } #Ruler Military Achievement(Sum)
+		set_variable = { which = cu_ra_wsd value = 0 } #Ruler Military Achievement(Display)
+		set_variable = { which = ruler_gc value = 0 }
+		set_variable = { which = cabinet_cash value = 0 }
+		set_variable = { which = cabinet_adm value = 0 }
+		set_variable = { which = cabinet_dip value = 0 }
+		set_variable = { which = cabinet_mil value = 0 }
+		set_variable = { which = emin value = 0 }
+		set_variable = { which = emie value = 0 }
+		set_variable = { which = emib value = 0 }
+		set_variable = { which = emic value = 0 }
+		set_variable = { which = basetax value = 4.9 }
+		set_variable = { which = baseefficiency value = 1.2 }
+		#Cultural Power
+		set_variable = { which = art_power_c value = 0 } #Country Art Power
+		set_variable = { which = art_legacy value = 0 } #Historical Art Power
+		set_variable = { which = art_piece_on_sale value = 0 } #Art Piece in the market
+		#Set Cabinet Parameters To Default
+		set_variable = { which = cabinet_p_province value = -1 }
+		set_variable = { which = cabinet_p_province_d value = 0 }
+		set_variable = { which = cabinet_p_province_bn value = 0 }
+		set_variable = { which = cabinet_p_province_ba value = 0 }
+		set_variable = { which = cabinet_p_province_bg value = 0 }
+		set_variable = { which = cabinet_p_province_bp value = 0 }
+		set_variable = { which = cabinet_p_province_bt value = 0 }
+		set_variable = { which = cabinet_p_province_bl value = 0 }
+		#Technology
+		set_variable = { which = resa value = 0 }
+		set_variable = { which = resd value = 0 }
+		set_variable = { which = resm value = 0 }
+		#End
+		add_country_modifier = {
+			name = cu_country_initialized
+			duration = -1
+			hidden = yes
+		}
+		#############
+		cu_correct_year = yes
+		country_event = { id = urban.971 } #Average Literacy
+		country_event = { id = urban.97 } #Literacy
+		country_event = { id = urban.99 } #Urbanization
+		country_event = { id = cugovernment.1 }	#Government Capacity
+		if = {
+			  limit = { ai = no }
+			  set_country_flag = cu_human_yearly_pulse
+		}
+		#country_event = { id = custart.05 }   #Local Garrison
+		set_variable = { which = land_reform_acceptance value = 0 } #Celestial Empire	
+		set_variable = { which = prodution_reform_acceptance value = 0 } #Celestial Empire
+		set_variable = { which = army_reform_acceptance value = 0 } #Celestial Empire	
+		set_variable = { which = trade_reform_acceptance value = 0 } #Celestial Empire
+		set_variable = { which = diplo_reform_acceptance value = 0 } #Celestial Empire	
+		if = { limit = {  is_colonial_nation = yes } country_event = { id = govstart.255 } }
+		else_if = { limit = { is_subject = yes } country_event = { id = govstart.257 } }
+		else = { country_event = { id = govstart.256 } }
+		cu_calc_country_absolute_dist = yes
+		cu_calc_total_stability_growth = yes
+		#Set initial absolutism
+		add_absolutism = 10
+    }
+}
+
+country_event = {
+	id = custart.1848
+	title = "EVT_WEL_TITL"
+	desc = "EVT_WEL_DESC"
+	picture = ADVISOR_eventPicture
+	is_triggered_only = yes
+	
+	mean_time_to_happen = {
+	    months = 1
+	}
+
+	option = {
+		name = "EVT_WEL_OPTI"
+	}
+}

@@ -1,0 +1,55 @@
+#4281 - Dhamar
+
+owner = ADE #Tahirids
+controller = ADE #Tahirids
+culture = yemeni_culture
+religion = shiite
+capital = "Dhamar"
+trade_goods = livestock
+hre = no
+base_tax = 4 
+base_production = 4
+base_manpower = 3
+is_city = yes
+add_core = RAS
+add_core = ADE #Tahirids
+add_core = YEM
+discovered_by = muslim
+discovered_by = ottoman
+discovered_by = indian
+discovered_by = nomad_group
+discovered_by = east_african
+
+1454.1.1 = { #End of the Rasulids
+	owner = YEM #Tahirids
+	controller = YEM
+	add_core = YEM
+	remove_core = ADE
+}
+1515.1.1 = { discovered_by = POR }
+1516.1.1 = {
+	owner = MAM #Conquered by the Mamluks and Ottomans together in attempt to control the red sea and Indian ocea.
+	controller = MAM
+	add_core = MAM
+}
+#De facto controlled by Ottoman Officers.
+1521.1.1 = { #After the fall of Egypt these lands are held by autonomous Ottoman Officers
+	#owner = ADE #Ottoman Officers
+	#controller = ADE #Ottoman Officers
+	#add_core = ADE #Ottoman Officers
+} # 
+1538.1.1 = { #Formally annexed by the Ottomans.
+	owner = TUR
+	controller = TUR
+	add_core = TUR
+} # Part of the Ottoman empire
+1567.1.1 = { unrest = 4 } # Revolt against the Ottomans
+1570.1.1 = { unrest = 0 }
+1597.9.1 = { unrest = 5 } # Revolt against the Ottomans
+1602.1.1 = { unrest = 0 }
+1629.5.1 = {
+	owner = RAS
+	controller = RAS
+	add_core = RAS
+	remove_core = TUR
+}

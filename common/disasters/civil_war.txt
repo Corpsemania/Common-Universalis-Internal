@@ -23,9 +23,9 @@ civil_war = {
 				has_dlc = "Mandate of Heaven"
 			}
 			NOT = { meritocracy = 50 }
-			else = {
-				NOT = { legitimacy_or_horde_unity = 50 }
-			}
+		}
+		else = {
+			NOT = { legitimacy_or_horde_unity = 50 }
 		}
 	}
 	
@@ -43,9 +43,9 @@ civil_war = {
 					
 				}
 				meritocracy = 60
-				else = {
-					legitimacy_or_horde_unity = 75
-				}
+			}
+			else = {
+				legitimacy_or_horde_unity = 75
 			}
 			has_regency = yes
 		}

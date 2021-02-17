@@ -2,7 +2,7 @@ name = "Hundred Years War"
 war_goal = {
 	type = wargoal_hyw
 	casus_belli = cb_hyw
-	province = 173 # Labourd
+	province = 183 # Paris
 }
 
 
@@ -13,12 +13,12 @@ war_goal = {
 	add_defender = ENG
 	add_attacker = PRO
 	add_attacker = LOR
-        add_attacker = ORL
-        add_attacker = FOI
-        add_attacker = BOU
-        add_attacker = AUV
-        add_attacker = AMG
-        add_attacker = ALE
+	add_attacker = ORL
+	add_attacker = FOI
+	add_attacker = BOU
+	add_attacker = AUV
+	add_attacker = AMG
+	add_attacker = ALE
 }
 
 1450.4.15 = {
@@ -71,10 +71,10 @@ war_goal = {
 	rem_attacker = FRA
 	rem_defender = ENG
 	rem_attacker = PRO
-        rem_attacker = ORL
-        rem_attacker = FOI
-        rem_attacker = BOU
-        rem_attacker = AUV
-        rem_attacker = AMG
-        rem_attacker = ALE
+	rem_attacker = ORL
+	rem_attacker = FOI
+	rem_attacker = BOU
+	rem_attacker = AUV
+	rem_attacker = AMG
+	rem_attacker = ALE
 }

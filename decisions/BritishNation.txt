@@ -303,7 +303,7 @@ country_decisions = {
 					FRA = {	junior_union_with = ENG	}
 					FRA = {	vassal_of = ENG	}
 			}
-                        NOT = { is_year = 1550 }
+            NOT = { is_year = 1575 }
 			OR = {
 			    ai = no
 			    FRA = { NOT = { num_of_cities = 40 } } #Keep this number the same as in allow
@@ -350,7 +350,7 @@ country_decisions = {
 				limit = {
 					NOT = { owned_by = ROOT }
                                         NOT = { is_core = BUR }
-                                        NOT = { is_core = BRG }
+                                        NOT = { is_core = BGD }
 				}
 				add_permanent_claim = DUA
 			}

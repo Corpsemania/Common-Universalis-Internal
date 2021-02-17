@@ -1,0 +1,40 @@
+#1010 - Manitoba
+
+culture = cree
+religion = totemism
+capital = "Manitoba"
+trade_goods = unknown
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+native_size = 5
+native_ferocity = 2
+native_hostileness = 6
+
+
+
+discovered_by = north_american
+
+1664.1.1 = { discovered_by = ENG }
+1732.1.1 = { discovered_by = FRA } # Pierre Gaultier de Varennes
+
+1741.1.1 = {
+	owner = FRA
+	controller = FRA
+	add_core = FRA
+	culture = cosmopolitan_french
+	religion = catholic
+	capital = "Fort Dauphin"
+	is_city = yes
+}
+1763.2.10 = {
+	discovered_by = GBR
+	owner = GBR
+	controller = GBR
+	remove_core = FRA
+	add_core = GBR
+	culture = english
+	religion = protestant
+	trade_goods = fur
+} # Treaty of Paris

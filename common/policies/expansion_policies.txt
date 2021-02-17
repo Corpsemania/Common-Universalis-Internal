@@ -91,7 +91,7 @@ black_chamber_act = {
 		full_idea_group = expansion_ideas
 	}
 	
-	global_autonomy = 0.02
+	global_autonomy = 0.03
 	global_spy_defence = 0.25
  
 
@@ -182,7 +182,7 @@ local_noble_privilege = {
 		full_idea_group = expansion_ideas
 	}	
 	
-	global_autonomy = 0.02
+	global_autonomy = 0.03
 	liberty_desire_from_subject_development = -0.05
 	
 	ai_will_do = {
@@ -228,7 +228,7 @@ adaptive_administration = {
 		full_idea_group = innovativeness_ideas
 	}		
 
-	yearly_corruption = 0.1
+	yearly_corruption = 0.05
 	administrative_efficiency = 0.05
 
 	ai_will_do = {
@@ -262,7 +262,7 @@ viceroy_rotation = {
 		full_idea_group = expansion_ideas
 	}
 
-    advisor_cost = 0.06
+    state_governing_cost = 0.06
 	global_trade_goods_size_modifier = 0.1
 
 	ai_will_do = {
@@ -380,7 +380,7 @@ taxation_with_representation = {
 	}
 }
 
-to_worlds_end = {
+to_worlds_end_2 = {
 	monarch_power = DIP
 	potential = {
 		has_idea_group = trandition_ideas
@@ -405,30 +405,5 @@ to_worlds_end = {
 			factor = 0
 			has_heir = no
 		}
-	}
-}
-
-co_prosperity_sphere = {
-	monarch_power = DIP
-	potential = {
-		has_idea_group = expansion_ideas
-		has_idea_group = reform_ideas
-		OR = {
-			full_idea_group = expansion_ideas
-			full_idea_group = reform_ideas
-		}
-	}
-	
-	allow = {
-		full_idea_group = expansion_ideas
-		full_idea_group = reform_ideas
-	}
-
-
-	core_creation = -0.1
-	years_of_nationalism = 4
-
-	ai_will_do = {
-		factor = 1	
 	}
 }

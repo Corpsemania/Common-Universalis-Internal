@@ -1,0 +1,36 @@
+# No previous file for Maliseet
+
+culture = abenaki
+religion = totemism
+capital = "Maliseet"
+trade_goods = unknown
+hre = no
+base_tax = 1
+base_production = 1
+base_manpower = 1
+native_size = 5
+native_ferocity = 1
+native_hostileness = 2
+
+
+
+discovered_by = north_american
+
+1535.1.1 = { discovered_by = FRA } # Jacques Cartier
+1629.1.1 = { discovered_by = ENG }
+
+1672.1.1 = {
+	owner = FRA
+	controller = FRA
+	add_core = FRA
+	culture = cosmopolitan_french
+	religion = catholic
+	trade_goods = fish
+	is_city = yes
+} # First seigneuries of the Bas-Saint-Laurent region
+1763.2.10 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+	remove_core = FRA
+} # Treaty of Paris - ceded to Britain, France gave up its claim

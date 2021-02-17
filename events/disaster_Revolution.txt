@@ -145,7 +145,7 @@ country_event = {
 		name = "EVTOPTB3013"			# Keep the masses in chains
 		ai_chance = { factor = 70 }
 		random_owned_province = { revolutionary_rebels = 1 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		if = {
 			limit = {
 				has_disaster = revolution
@@ -496,7 +496,7 @@ country_event = {
                dismantle_empire_of_china = yes
 						}		
 		}
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_government_reform = becomes_republic_reform
 		add_government_reform = revolutionary_republic_reform
 		kill_ruler = yes		
@@ -605,7 +605,7 @@ country_event = {
 		disband_rebels = revolutionary_rebels
 		add_mercantilism = 5
 		country_event = { id = revolution.20 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		if = {
 		limit = { is_emperor_of_china = yes }
 		set_country_flag = no_more_celestial
@@ -742,7 +742,7 @@ country_event = {
 		add_government_reform = becomes_republic_reform
 		add_government_reform = revolutionary_republic_reform
 		kill_ruler = yes
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 

@@ -61,7 +61,7 @@ ara_conquest = {
 		trigger = {
 			mecca_area = {
 				type = all
-				country_or_non_sovereign_subject_holds = ROOT
+				cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT }
 			}
 		}
 		

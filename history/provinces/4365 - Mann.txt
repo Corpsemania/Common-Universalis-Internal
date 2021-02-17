@@ -1,0 +1,28 @@
+#4365 - Mann
+
+owner = ENG
+controller = ENG
+culture = highland_scottish
+religion = catholic
+hre = no
+base_tax = 1 
+base_production = 1
+trade_goods = fish
+base_manpower = 1
+capital = "Castletown"
+is_city = yes
+add_core = ENG
+add_core = KOI
+add_core = SCO
+discovered_by = western
+discovered_by = muslim
+discovered_by = ottoman
+discovered_by = eastern
+
+
+1585.1.1 = { religion = protestant }
+1707.5.12 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+}

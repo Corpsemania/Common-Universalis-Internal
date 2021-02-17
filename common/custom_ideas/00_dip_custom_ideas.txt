@@ -15,7 +15,7 @@ dip_idea_modifiers = {
 		}
 	}	
 	custom_idea_culture_conversion_cost = {
-		culture_conversion_cost = -0.05
+		mercantilism_cost = -0.05
 		level_cost_1 = 5
 		level_cost_2 = 30
 		level_cost_3 = 90

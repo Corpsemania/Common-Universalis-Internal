@@ -79,11 +79,12 @@ technology = {
 	
 
 	#Monarchies
-        production_efficiency	=	0.05
+    production_efficiency	=	0.05
 	despotic_monarchy = yes	
 	feudal_monarchy = yes
 	oligarchic_republic = yes
-        #max_states = 1
+	allowed_idea_groups = 1
+    #max_states = 1
 }
 
 # The 30 big techs from here on
@@ -100,7 +101,7 @@ technology = {
 technology = {
 	# Tech 4
 	year = 2453
-	allowed_idea_groups = 3
+	allowed_idea_groups = 2
 }
 
 technology = {
@@ -125,7 +126,7 @@ technology = {
 	year = 2492
 	
 	#Noble Republic
-	#allowed_idea_groups = 2	
+	allowed_idea_groups = 3
 	#noble_republic = yes
         #max_states = 2           
 }
@@ -170,7 +171,8 @@ technology = { #Early Modern Administration
 	# Tech 12
 	year = 2557	
 	
-    #max_states = 2           
+    #max_states = 2     
+    allowed_idea_groups	= 5      
 }
 
 technology = { #Improved Drainage
@@ -178,7 +180,6 @@ technology = { #Improved Drainage
 	year = 2570
 	
 	#Improved Drainage
-    allowed_idea_groups	= 5
 	farm_estate = yes
     development_efficiency = 0.05
 }
@@ -196,7 +197,7 @@ technology = { #Education
 	# Tech 15
 	year = 2596
 	
-    allowed_idea_groups	= 6 
+    
 	public_school = yes
 }
 
@@ -205,6 +206,7 @@ technology = { #Representation
 	year = 2609
 		
 	#max_states = 2
+	allowed_idea_groups	= 6 
 }
 
 technology = { #Metallurgy
@@ -221,7 +223,7 @@ technology = { #National Sovereignty
 	
     town_hall = yes
     #max_states = 3   
-    allowed_idea_groups	= 7        
+        
 }
 
 technology = { #Public Education
@@ -229,7 +231,7 @@ technology = { #Public Education
 	year = 2648	
 	
 	#Public School
-	administrative_efficiency = 0.05
+	allowed_idea_groups	= 7    
     #Unlocks "Public Education" education policy	
 }
 
@@ -238,7 +240,7 @@ technology = { #Absolute Rulership
 	year = 2661
 	
     #max_states = 3           
-	
+	administrative_efficiency = 0.05
 }
 
 technology = { #Land Clearance
@@ -247,14 +249,14 @@ technology = { #Land Clearance
 	
 	#Land Clearance
     development_efficiency = 0.05
-	allowed_idea_groups = 8
+	
 }
 
 technology = {
 	# Tech 22
 	year = 2687
 	
-	
+	allowed_idea_groups = 8
 }
 
 technology = { #Measuring the World
@@ -319,7 +321,7 @@ technology = { #Advanced Production
 	
 	#Improved Draft Animals
 	production_efficiency 	=	0.05
-        development_efficiency = 0.05
+    development_efficiency = 0.05
 }
 
 technology = { #Revolutionary Ideals
@@ -336,5 +338,22 @@ technology = { #Four Field Rotation
 	
 	#Four field rotation
 	production_efficiency 	=	0.05
-        development_efficiency = 0.05
+    development_efficiency = 0.05
+}
+
+technology = { #Public welfare
+	# Tech 33
+	year = 2850
+	
+	
+	development_efficiency = 0.10
+}
+
+technology = { # Industrial capitalism
+	# Tech 34
+	year = 2865
+	
+	
+	production_efficiency 	=	0.10
+    
 }

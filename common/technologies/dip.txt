@@ -58,7 +58,7 @@ technology = {
 	year = 2440
 
 	naval_morale			=	0.1
-	naval_maintenance		= 	0.1
+	naval_maintenance		= 	0.15
 	range					= 	100
 	trade_efficiency 		= 	0.1
 	global_colonial_growth	= 	10
@@ -448,5 +448,23 @@ technology = {
 	trade_efficiency 		= 	0.05
 	trade_range				=	20
         naval_maintenance		= 	0.10
+	global_colonial_growth  = 	20
+}
+
+technology = {
+	# Tech 33
+	year = 2850
+	
+	#Individualism and Government Intervention
+	trade_efficiency 		= 	0.10
+}
+
+technology = { #World hegemony
+	# Tech 34
+	year = 2865
+	
+	
+	trade_range				=	20
+    naval_maintenance		= 	0.10
 	global_colonial_growth  = 	20
 }

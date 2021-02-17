@@ -20,111 +20,201 @@
 
 #GENERAL TRIGGERS
 has_mil_advisor = {
-	OR = {
-		advisor = army_organiser
-		advisor = army_reformer
-		advisor = commandant
-		advisor = grand_captain
-		advisor = recruitmaster
-		advisor = fortification_expert
-		advisor = quartermaster
+	custom_trigger_tooltip = {
+		tooltip = has_mil_advisor_tooltip
+		OR = {
+			advisor = army_organiser
+			advisor = army_reformer
+			advisor = commandant
+			advisor = grand_captain
+			advisor = recruitmaster
+			advisor = fortification_expert
+			advisor = quartermaster
+			advisor = army_organiser_1
+			advisor = army_reformer_1
+			advisor = commandant_1
+			advisor = grand_captain_1
+			advisor = recruitmaster_1
+			advisor = fortification_expert_1
+			advisor = quartermaster_1
+		}
 	}
 }
 
 has_mil_advisor_2 = {
-	OR = {
-		army_organiser = 2
-		army_reformer = 2
-		commandant = 2
-		grand_captain = 2
-		recruitmaster = 2
-		fortification_expert = 2
-		quartermaster = 2
+	custom_trigger_tooltip = {
+		tooltip = has_mil_advisor_2_tooltip
+		OR = {
+			army_reformer = 2
+			army_organiser = 2
+			commandant = 2
+			quartermaster = 2
+			recruitmaster = 2
+			fortification_expert = 2
+			grand_captain = 2
+			army_reformer_1 = 2
+			army_organiser_1 = 2
+			commandant_1 = 2
+			quartermaster_1 = 2
+			recruitmaster_1 = 2
+			fortification_expert_1 = 2
+			grand_captain_1 = 2
+		}
 	}
 }
 
 has_mil_advisor_3 = {
-	OR = {
-		army_organiser = 3
-		army_reformer = 3
-		commandant = 3
-		grand_captain = 3
-		recruitmaster = 3
-		fortification_expert = 3
-		quartermaster = 3
+	custom_trigger_tooltip = {
+		tooltip = has_mil_advisor_3_tooltip
+		OR = {
+			army_reformer = 3
+			army_organiser = 3
+			commandant = 3
+			quartermaster = 3
+			recruitmaster = 3
+			fortification_expert = 3
+			grand_captain = 3
+			army_reformer_1 = 3
+			army_organiser_1 = 3
+			commandant_1 = 3
+			quartermaster_1 = 3
+			recruitmaster_1 = 3
+			fortification_expert_1 = 3
+			grand_captain_1 = 3
+		}
 	}
 }
 
 has_adm_advisor = {
-	OR = {
-		advisor = treasurer
-		advisor = philosopher
-		advisor = artist
- 		advisor = theologian
-		advisor = master_of_mint
-		advisor = inquisitor
-		advisor = natural_scientist
+	custom_trigger_tooltip = {
+		tooltip = has_adm_advisor_tooltip
+		OR = {
+			advisor = treasurer
+			advisor = philosopher
+			advisor = artist
+			advisor = theologian
+			advisor = master_of_mint
+			advisor = inquisitor
+			advisor = natural_scientist
+			advisor = treasurer_1
+			advisor = philosopher_1
+			advisor = artist_1
+			advisor = theologian_1
+			advisor = master_of_mint_1
+			advisor = inquisitor_1
+			advisor = natural_scientist_1
+		}
 	}
 }
 
 has_adm_advisor_2 = {
-	OR = {
-		treasurer = 2
-		philosopher = 2
-		artist = 2
- 		theologian = 2
-		master_of_mint = 2
-		inquisitor = 2
-		natural_scientist = 2
+	custom_trigger_tooltip = {
+		tooltip = has_adm_advisor_2_tooltip
+		OR = {
+			philosopher = 2
+			natural_scientist = 2
+			artist = 2
+			treasurer = 2
+			theologian = 2
+			master_of_mint = 2
+			inquisitor = 2
+			philosopher_1 = 2
+			natural_scientist_1 = 2
+			artist_1 = 2
+			treasurer_1 = 2
+			theologian_1 = 2
+			master_of_mint_1 = 2
+			inquisitor_1 = 2
+	 	}
 	}
 }
 
 has_adm_advisor_3 = {
-	OR = {
-		treasurer = 3
-		philosopher = 3
-		artist = 3
- 		theologian = 3
-		master_of_mint = 3
-		inquisitor = 3
-		natural_scientist = 3
+	custom_trigger_tooltip = {
+		tooltip = has_adm_advisor_3_tooltip
+		OR = {
+			philosopher = 3
+			natural_scientist = 3
+			artist = 3
+			treasurer = 3
+			theologian = 3
+			master_of_mint = 3
+			inquisitor = 3
+			philosopher_1 = 3
+			natural_scientist_1 = 3
+			artist_1 = 3
+			treasurer_1 = 3
+			theologian_1 = 3
+			master_of_mint_1 = 3
+			inquisitor_1 = 3
+		}
 	}
 }
 
 
 has_dip_advisor = {
-	OR = {
-		advisor = statesman
-		advisor = diplomat
-		advisor = naval_reformer
-		advisor = trader
-		advisor = colonial_governor
-		advisor = navigator
-		advisor = spymaster
+	custom_trigger_tooltip = {
+		tooltip = has_dip_advisor_tooltip
+		OR = {
+			advisor = statesman
+			advisor = diplomat
+			advisor = naval_reformer
+			advisor = trader
+			advisor = colonial_governor
+			advisor = navigator
+			advisor = spymaster
+			advisor = statesman_1
+			advisor = diplomat_1
+			advisor = naval_reformer_1
+			advisor = trader_1
+			advisor = colonial_governor_1
+			advisor = navigator_1
+			advisor = spymaster_1
+		}
 	}
 }
 
 has_dip_advisor_2 = {
-	OR = {
-		statesman = 2
-		diplomat = 2
-		naval_reformer = 2
-		trader = 2
-		colonial_governor = 2
-		navigator = 2
-		spymaster = 2
+	custom_trigger_tooltip = {
+		tooltip = has_dip_advisor_2_tooltip
+		OR = {
+			naval_reformer = 2
+			statesman = 2
+			trader = 2
+			spymaster = 2
+			colonial_governor = 2
+			diplomat = 2
+			navigator = 2
+			naval_reformer_1 = 2
+			statesman_1 = 2
+			trader_1 = 2
+			spymaster_1 = 2
+			colonial_governor_1 = 2
+			diplomat_1 = 2
+			navigator_1 = 2
+	 	}	
 	}
 }
 
 has_dip_advisor_3 = {
-	OR = {
-		statesman = 3
-		diplomat = 3
-		naval_reformer = 3
-		trader = 3
-		colonial_governor = 3
-		navigator = 3
-		spymaster = 3
+	custom_trigger_tooltip = {
+		tooltip = has_dip_advisor_3_tooltip
+		OR = {
+			naval_reformer = 3
+			statesman = 3
+			trader = 3
+			spymaster = 3
+			colonial_governor = 3
+			diplomat = 3
+			navigator = 3
+			naval_reformer_1 = 3
+			statesman_1 = 3
+			trader_1 = 3
+			spymaster_1 = 3
+			colonial_governor_1 = 3
+			diplomat_1 = 3
+			navigator_1 = 3
+	 	}
 	}
 }
 
@@ -476,54 +566,82 @@ industrialized_province_trigger = { #Province Scope
 }
 
 was_never_end_game_tag_trigger = {	#Country Scope
-	NOT = { tag = MUG }
-	NOT = { tag = TUR }
-	NOT = { tag = BYZ }
-	NOT = { tag = ROM }
-	NOT = { tag = HLR }
-	NOT = { tag = RUM }
-	NOT = { tag = QNG }
-	NOT = { tag = RUS }
-	NOT = { tag = PLC }
-	NOT = { tag = JAP }
-	NOT = { tag = YUA }
-	NOT = { tag = HIN }
-	NOT = { tag = BHA }
-	NOT = { tag = ARB }
-	NOT = { tag = PAP }
-	NOT = { tag = SPA }
-	NOT = { tag = GBR }
-	NOT = { tag = ITA }
-	NOT = { tag = GER }
-	NOT = { tag = MNG }
-	NOT = { tag = MGE }
-	NOT = { tag = SYN }
-	NOT = { tag = ADU }
-	NOT = { tag = EUU }
-	NOT = { tag = HBR }
-	NOT = { tag = ZOR }
-	NOT = { tag = FRA }
-	NOT = { tag = ETH }
-	NOT = { tag = SCA }
-	NOT = { tag = UKR }
-	NOT = { tag = GLH }
-	NOT = { tag = ILK }
-	NOT = { tag = PER }
-	NOT = { tag = USA }
-	NOT = { tag = TNG }
-	NOT = { tag = CHN }
-	NOT = { tag = SNG }
-	NOT = { tag = CHF }
-	NOT = { tag = DUA }
-	NOT = { tag = ISR }
-	NOT = { tag = EUU }
-	NOT = { tag = KHT }
-	NOT = { tag = JNG }
-	NOT = { tag = ROC }
-	NOT = { tag = TIB }
+	OR = {
+		NOT = { end_game_tags_blocked = yes }
+		AND = {
+	    NOT = { tag = MUG }
+		NOT = { tag = TUR }
+		NOT = { tag = BYZ }
+		NOT = { tag = ROM }
+		NOT = { tag = HLR }
+		NOT = { tag = RUM }
+		NOT = { tag = QNG }
+		NOT = { tag = RUS }
+		NOT = { tag = PLC }
+		NOT = { tag = JAP }
+		NOT = { tag = YUA }
+		NOT = { tag = HIN }
+		NOT = { tag = BHA }
+		NOT = { tag = ARB }
+		NOT = { tag = PAP }
+		NOT = { tag = SPA }
+		NOT = { tag = GBR }
+		NOT = { tag = ITA }
+		NOT = { tag = GER }
+		NOT = { tag = MNG }
+		NOT = { tag = MGE }
+		NOT = { tag = SYN }
+		NOT = { tag = ADU }
+		NOT = { tag = LOT }
+		NOT = { tag = EUU }
+		NOT = { tag = HBR }
+		NOT = { tag = ZOR }
+		NOT = { tag = FRA }
+		NOT = { tag = ETH }
+		NOT = { tag = SCA }
+		NOT = { tag = UKR }
+		NOT = { tag = GLH }
+		NOT = { tag = ILK }
+		NOT = { tag = PER }
+		NOT = { tag = USA }
+		NOT = { tag = TNG }
+		NOT = { tag = CHN }
+		NOT = { tag = SNG }
+		NOT = { tag = CHF }
+		NOT = { tag = DUA }
+		NOT = { tag = ISR }
+		NOT = { tag = EUU }
+		NOT = { tag = KHT }
+		NOT = { tag = JNG }
+		NOT = { tag = ROC }
+		NOT = { tag = TIB }
+		}
+	}
 }
 
-
+was_never_german_regional_tag_trigger = {	#Country Scope
+	NOT = { was_tag = BRA }
+	NOT = { was_tag = PRU }
+	NOT = { was_tag = POM }
+	NOT = { was_tag = SAX }
+	NOT = { was_tag = BAV }
+	NOT = { was_tag = HAB }
+	NOT = { was_tag = SWA }
+	NOT = { was_tag = FKN }
+	NOT = { was_tag = WES }
+	NOT = { was_tag = HAN }
+	
+	NOT = { tag = BRA }
+	NOT = { tag = PRU }
+	NOT = { tag = POM }
+	NOT = { tag = SAX }
+	NOT = { tag = BAV }
+	NOT = { tag = HAB }
+	NOT = { tag = SWA }
+	NOT = { tag = FKN }
+	NOT = { tag = WES }
+	NOT = { tag = HAN }
+}
 
 
 has_dharma_elephants_trigger = {
@@ -538,7 +656,7 @@ has_dharma_elephants_trigger = {
 			culture_group = western_aryan
 			culture_group = dravidian
 			culture_group = central_indic
-			culture_group = southeastasian_group
+			cu_burman_group = yes
 			culture_group = burman
 			primary_culture = cham
 			primary_culture = sumatran
@@ -547,6 +665,35 @@ has_dharma_elephants_trigger = {
 			tag = CDL #Dali
 	}
 }
+
+has_manufactory_no_custom_tooltip_trigger = { #Province Scope
+	if = {
+		limit = {
+			NOT = {
+				trade_goods = coal
+			}
+		}
+		OR = {
+			has_building = counting_house
+			has_building = weapons
+			has_building = workshop
+		}
+	}
+	else_if = {
+		limit = {
+			trade_goods = coal
+		}
+		has_building = furnace
+	}
+}
+
+has_no_manufactory_trigger = { #Province Scope
+	NOT = { has_building = weapons }
+	NOT = { has_building = furnace }
+	NOT = { has_building = workshop }
+	NOT = { has_building = counting_house }
+}
+
 
 
 has_holy_order_trigger = {
@@ -564,6 +711,8 @@ has_holy_order_trigger = {
 }
 
 same_govt_as_root_trigger = {
+	custom_trigger_tooltip = {
+	tooltip = same_govt_as_root_tt
 	OR = {
 		AND = {
 			government = theocracy
@@ -602,16 +751,374 @@ same_govt_as_root_trigger = {
 			}
 		}
 	}
+	}
 }
 
 has_manufactory_trigger = { #Province Scope
 	custom_trigger_tooltip = {
 		tooltip = has_manufactory_trigger_tooltip
 		OR = {
-						has_building = workshop
-						has_building = counting_house
-						has_building = weapons
-						
-					}
+			has_building = workshop
+			has_building = counting_house
+			has_building = weapons
+		}
 	}
 }
+
+has_been_insulted_by_root = {
+	custom_trigger_tooltip = {
+		tooltip = has_been_insulted_by_root
+		OR = {
+			has_opinion_modifier = {
+				who = ROOT
+				modifier = insulted
+			}
+			has_opinion_modifier = {
+				who = ROOT
+				modifier = scornfully_insulted
+			}
+		}
+	}
+}
+# Building triggers
+
+has_tax_building_trigger = {
+	OR = {
+		has_building = temple
+		has_building = cathedral
+	}
+}
+
+has_trade_building_trigger = {
+	OR = {
+		has_building = marketplace
+		has_building = trade_depot
+		has_building = stock_exchange
+	}
+}
+
+has_production_building_trigger = {
+	OR = {
+		has_building = workshop
+		has_building = counting_house
+	}
+}
+
+has_manpower_building_trigger = {
+	OR = {
+		has_building = barracks
+		has_building = training_fields
+	}
+}
+
+has_shipyard_building_trigger = {
+	OR = {
+		has_building = shipyard
+		has_building = grand_shipyard
+	}
+}
+
+has_dock_building_trigger = {
+	OR = {
+		has_building = dock
+		has_building = drydock
+	}
+}
+
+has_forcelimit_building_trigger = {
+	OR = {
+		has_building = regimental_camp
+		has_building = conscription_center
+	}
+}
+
+has_courthouse_building_trigger = {
+	OR = {	
+		has_building = courthouse
+		has_building = town_hall
+	}
+}
+
+
+valid_for_personal_unions_trigger = {
+	is_subject = no
+	government = monarchy
+	religion_group = christian
+}
+
+is_shadow_kingdom_eligible_trigger = {
+	is_emperor = no
+	is_part_of_hre = yes
+	OR = {
+		capital_scope = { region = italy_region }
+		AND = {
+			culture_group = latin
+			any_owned_province = {
+				region = italy_region
+			}
+		}
+	}
+}
+
+will_leave_for_shadow_kingdom_trigger = {
+	NOT = {
+		OR = {
+			has_country_flag = reined_in_for_shadow_kingdom
+			emperor = {
+				alliance_with = PREV
+			}
+			has_opinion = {
+				who = emperor
+				value = 150
+			}
+			is_subject_of = emperor
+			has_reform = free_city
+		}
+	}
+}
+
+
+is_germanic_but_not_swamp = {
+	cu_germanic_group = yes
+	NOT = { primary_culture = dutch }
+	NOT = { primary_culture = flemish }
+	NOT = { primary_culture = frisian }
+}
+
+is_germanic_but_not_mountains = {
+	cu_germanic_group = yes
+	NOT = { primary_culture = swiss }
+	NOT = { primary_culture = austrian }
+}
+
+#province scope; checks it is highest or joint highest supply limit in the area owned by you (useful for spawning rebels)
+highest_supply_limit_in_area = {
+	NOT = {
+		area_for_scope_province = { 
+			NOT = { province_id = prev }
+			owned_by = root
+			supply_limit = prev 
+			NOT = { prev = { supply_limit = prev } }
+		}
+	}
+}
+
+# Has current fort level
+province_has_current_tech_fort_trigger = {
+	custom_trigger_tooltip = {
+		tooltip = province_has_current_tech_fort_trigger_tt
+		if = {
+			limit = {
+				owner = {
+					NOT = { mil_tech = 14 }
+				}
+			}
+			has_building = fort_15th
+		}
+		else_if = {
+			limit = {
+				owner = {
+					AND = {
+						mil_tech = 14
+						NOT = { mil_tech = 19 }
+					}
+				}
+			}
+			has_building = fort_16th
+		}
+		else_if = {
+			limit = {
+				owner = {
+					AND = {
+						mil_tech = 19
+						NOT = { mil_tech = 24 }
+					}
+				}
+			}
+			has_building = fort_17th
+		}
+		else_if = {
+			limit = {
+				owner = {
+					mil_tech = 24
+				}
+			}
+			has_building = fort_18th
+		}
+	}
+}
+
+
+
+check_reducing_estate_revolt_size_trigger = {
+	if = {
+		limit = {
+			NOT = { num_of_cities = 8 }
+		}
+		NOT = {
+			num_of_owned_provinces_with = {
+				value = 2
+				has_province_flag = $FLAG$
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = { num_of_cities = 12 }
+		}
+		NOT = {
+			num_of_owned_provinces_with = {
+				value = 3
+				has_province_flag = $FLAG$
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = { num_of_cities = 18 }
+		}
+		NOT = {
+			num_of_owned_provinces_with = {
+				value = 4
+				has_province_flag = $FLAG$
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = { num_of_cities = 28 }
+		}
+		NOT = {
+			num_of_owned_provinces_with = {
+				value = 5
+				has_province_flag = $FLAG$
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = { num_of_cities = 40 }
+		}
+		NOT = {
+			num_of_owned_provinces_with = {
+				value = 6
+				has_province_flag = $FLAG$
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = { num_of_cities = 50 }
+		}
+		NOT = {
+			num_of_owned_provinces_with = {
+				value = 7
+				has_province_flag = $FLAG$
+			}
+		}
+	}
+	else = {
+		NOT = {
+			num_of_owned_provinces_with = {
+				value = 8
+				has_province_flag = $FLAG$
+			}
+		}
+	}
+}
+
+check_reducing_estate_revolt_size_more_trigger = {
+	if = {
+		limit = {
+			NOT = { num_of_cities = 10 }
+		}
+		NOT = {
+			num_of_owned_provinces_with = {
+				value = 2
+				has_province_flag = $FLAG$
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = { num_of_cities = 16 }
+		}
+		NOT = {
+			num_of_owned_provinces_with = {
+				value = 3
+				has_province_flag = $FLAG$
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = { num_of_cities = 24 }
+		}
+		NOT = {
+			num_of_owned_provinces_with = {
+				value = 4
+				has_province_flag = $FLAG$
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			NOT = { num_of_cities = 36 }
+		}
+		NOT = {
+			num_of_owned_provinces_with = {
+				value = 5
+				has_province_flag = $FLAG$
+			}
+		}
+	}
+	else = {
+		NOT = {
+			num_of_owned_provinces_with = {
+				value = 6
+				has_province_flag = $FLAG$
+			}
+		}
+	}
+}
+
+is_revolutionary_republic_trigger = {
+	OR = {
+		has_reform = revolutionary_republic_reform
+		has_reform = junior_revolutionary_republic_reform
+	}
+}
+
+revolution_event_can_happen_trigger = {
+	OR = {
+		revolution_target_exists = no
+		has_dlc = "Emperor"
+	}
+	OR = {
+		capital_scope = { 
+#			continent = europe 
+			controlled_by = REB
+		}
+		has_country_modifier = just_lost_to_revolutionary_rebels
+		has_country_flag = revolution_disaster_immediate_revolution
+	}
+	num_of_cities = 10
+	is_revolutionary = no
+}
+#country scope, used in election events to check whether generated rulers may be female
+republic_with_female_rulers_trigger = {
+	OR = {
+		has_active_policy = mandatory_service
+		has_country_modifier = sister_suffragettes
+		has_country_modifier = mary_inheritance_reforms
+	}
+}
+
+is_absolutism_active = {
+	OR = {
+		current_age = age_of_absolutism
+		current_age = age_of_revolutions
+	}
+}
+
+

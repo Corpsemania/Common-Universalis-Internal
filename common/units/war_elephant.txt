@@ -3,7 +3,7 @@
 type = cavalry
 unit_type = chinese
 trigger = { 
-	culture_group = mon_khmer
+	cu_mon_khmer_group = yes
 }
 maneuver = 2
 offensive_morale = 2

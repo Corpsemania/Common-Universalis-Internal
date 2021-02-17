@@ -166,7 +166,7 @@ country_event = {
 	}
 	option = {
 		name = "flavor_mng.EVTOPTB5" #Close China to the outside world
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_country_modifier = {
 			name = mng_closed_china
 			duration = -1
@@ -209,7 +209,7 @@ country_event = {
 	}
 	option = {
 		name = "flavor_mng.EVTOPTB6" #No, such reforms would be too costly
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -276,7 +276,7 @@ country_event = {
 	}
 	option = {
 		name = "flavor_mng.EVTOPTB7"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -656,7 +656,7 @@ country_event = {
 	
 	option = {
 		name = "flavor_mng.EVTOPTA15" #Reject the overtures of these rude western barbarians!
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	option = {
 		name = "flavor_mng.EVTOPTB15" #We are interested in their ideas
@@ -891,7 +891,7 @@ country_event = {
 	}
 	option = {
 		name = "flavor_mng.18.b" #Go back to Macau!
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_prestige = 15
 	}
 }
@@ -963,7 +963,7 @@ country_event = {
 	
 	option = {
 		name = "flavor_mng.20.b" #Don't allow it
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_prestige = 15
 	}
 }
@@ -1069,7 +1069,7 @@ country_event = {
 		name = "flavor_mng.23.b" #Allow them to stay.
 		ai_chance = { factor = 25 }
 		add_dip_power = 25
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -1212,7 +1212,7 @@ country_event = {
 	}
 	option = {
 		name = "flavor_mng.25.b" #No.
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -1236,7 +1236,7 @@ country_event = {
 	
 	option = {
 		name = "flavor_mng.26.a" #
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	option = {
 		name = "flavor_mng.26.b" #
@@ -1445,9 +1445,9 @@ province_event = {
 			}
 		}
 		owner = {
-			add_manpower = -4
-			add_treasury = -80
-			add_mil_power = -30
+			add_manpower = -3
+			add_treasury = -100
+			add_mil_power = -40
 			add_army_tradition = 3
 			add_prestige = 2
 		}
@@ -1493,7 +1493,7 @@ province_event = {
 		}
 		owner = {
 			add_manpower = -1
-			add_treasury = -40
+			add_treasury = -50
 			add_army_tradition = 1
 		}
 		

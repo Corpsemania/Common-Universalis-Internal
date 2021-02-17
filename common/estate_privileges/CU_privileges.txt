@@ -1,0 +1,81 @@
+estate_qinwang_benefits = {
+	icon = privilege_give_money
+	loyalty = 0.05
+ 	is_valid = { always = yes }	
+ 	can_select = { always = yes }
+ 	can_revoke = { 
+		OR = {
+			absolutism = 80
+			militarised_society = 40
+		}
+		meritocracy = 80
+		stability = 1
+	} 	
+	on_revoked = { 
+		add_meritocracy = -15
+		add_estate_loyalty = {
+			estate = estate_qinwang
+			loyalty = -10
+		}
+		cu_change_stability_point_n75 = yes
+	}
+	modifier = {
+		state_maintenance_modifier = 0.275
+		meritocracy = 0.20
+	}
+	modifier_by_land_ownership = { 
+		state_maintenance_modifier = 1
+		qinwang_influence_modifier = -0.5
+		government_influence_modifier = 0.5
+	} 	
+	ai_will_do = {					#If above ESTATE_PRIVILEGE_GRANT_THRESHOLD define, AI will try to apply. If below #ESTATE_PRIVILEGE_REVOKE_THRESHOLD, AI will try to revoke.
+        factor = 1000
+    }
+}
+
+gentrys_landholding = {
+	icon = privilege_grant_autonomy
+	is_valid = { 
+		OR = { 
+			has_reform =  celestial_empire
+			has_reform =  celestial_empire_2
+		}
+	}
+	can_select = { always = yes }
+ 	can_revoke = { 
+		always = no
+	} 
+	modifier_by_land_ownership = { 	
+		global_tax_modifier = -0.75
+		global_trade_goods_size_modifier = -0.25
+		global_autonomy = 0.10
+		meritocracy = -1.25
+		global_unrest = 7.5
+		state_governing_cost = -0.25
+	} 
+	ai_will_do = {					#If above ESTATE_PRIVILEGE_GRANT_THRESHOLD define, AI will try to apply. If below #ESTATE_PRIVILEGE_REVOKE_THRESHOLD, AI will try to revoke.
+        factor = 0
+    }
+}
+
+tribal_land = {
+	icon = privilege_supply_arms
+	is_valid = { 
+		always = yes
+	}
+	can_select = { always = yes }
+ 	can_revoke = { 
+		always = no
+	} 
+	modifier_by_land_ownership = { 	
+		global_autonomy = 0.08
+		max_absolutism = -25
+		yearly_absolutism = -0.4
+		monthly_militarized_society = -0.2
+		global_manpower_modifier = 0.5
+		land_forcelimit_modifier = 0.25
+	} 
+	ai_will_do = {					#If above ESTATE_PRIVILEGE_GRANT_THRESHOLD define, AI will try to apply. If below #ESTATE_PRIVILEGE_REVOKE_THRESHOLD, AI will try to revoke.
+        factor = 0
+    }
+}

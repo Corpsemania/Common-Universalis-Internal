@@ -35,11 +35,11 @@ country_decisions = {
 		}
 	}
 	
-	auto_integration = {
+	auto_integration = {		
 		potential = {
+			normal_or_historical_nations = yes
 			ai = no	
 			NOT = { has_country_flag = cu_core_event_auto }
-			has_global_flag = test_version
 		}
 		allow = {			         
 		}
@@ -51,11 +51,11 @@ country_decisions = {
 		}
 	}
 	
-	c_auto_integration = {
+	c_auto_integration = {		
 		potential = {
+			normal_or_historical_nations = yes
 			ai = no	
 			has_country_flag = cu_core_event_auto 
-			has_global_flag = test_version
 		}
 		allow = {			         
 		}
@@ -63,7 +63,7 @@ country_decisions = {
 			clr_country_flag = cu_core_event_auto			
 		}
 		ai_will_do = {
-			factor = 0			
+			factor = 100			
 		}
 	}
 }			

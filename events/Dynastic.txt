@@ -1282,7 +1282,7 @@ country_event = {
 			limit = {
 				stability = 3
 			}
-			add_stability_or_adm_power = yes
+			cu_change_stability_point_p50 = yes
 		}
 		if = {
 			limit = {
@@ -1316,7 +1316,7 @@ country_event = {
 		name = "EVTOPTA9477"
 		random_list = {
 			10 = {
-				add_stability_or_adm_power = yes
+				cu_change_stability_point_p50 = yes
 			}
 			10 = {
 				kill_ruler = yes
@@ -1669,7 +1669,7 @@ country_event = {
 		name = "EVTOPTA9488"
 		kill_ruler = yes
 		add_war_exhaustion = -4
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	
 	option = {

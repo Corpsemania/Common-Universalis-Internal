@@ -8,11 +8,12 @@ religion = confucianism
 capital = "Daming"
 trade_goods = paper
 hre = no
-base_tax = 4 
+base_tax = 7 
 
-base_production = 4
-base_manpower = 3
+base_production = 7
+base_manpower = 22
 is_city = yes
+set_province_flag = cu_neednt_dev_initialize
 add_core = YAN
 discovered_by = chinese
 discovered_by = indian

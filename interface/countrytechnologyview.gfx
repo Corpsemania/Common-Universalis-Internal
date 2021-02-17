@@ -231,7 +231,7 @@ spriteTypes = {
 	}
 	spriteType = {
 		name = "GFX_icon_institution_industrial_revolution"
-		texturefile = "gfx//interface//institutions//industrialization.dds"
+		texturefile = "gfx//interface//institutions//institutions_industrialization.dds"
 		loadType = "INGAME"
 		transparencecheck = yes
 	}	
@@ -283,15 +283,15 @@ spriteTypes = {
 	}
 	
 	spriteType = {
-		name = "GFX_institution_tab_enlightenment"
-		texturefile = "gfx/interface/institutions//institution_tab_enlightenment.dds"
+		name = "GFX_institution_tab_industrial_revolution"
+		texturefile = "gfx/interface/institutions//institution_tab_industrialization.dds"
 		noOfFrames = 2
 		transparencecheck = yes
 	}
 	
 	spriteType = {
-		name = "GFX_institution_tab_industrial_revolution"
-		texturefile = "gfx/interface/institutions//institution_tab_industrialization.dds"
+		name = "GFX_institution_tab_enlightenment"
+		texturefile = "gfx/interface/institutions//institution_tab_enlightenment.dds"
 		noOfFrames = 2
 		transparencecheck = yes
 	}

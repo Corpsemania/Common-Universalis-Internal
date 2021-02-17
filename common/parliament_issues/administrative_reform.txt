@@ -14,7 +14,7 @@ administrative_reform = {
 	}
 	
 	modifier = {
-		state_maintenance_modifier = -0.25
+		state_maintenance_modifier = -0.20
 	}
 	
 	chance = {

@@ -249,7 +249,7 @@ country_event = {
 	}
 	option = {
 		name = "flavor_brapru.EVTOPTB3530"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	option = {
 		name = "flavor_brapru.EVTOPTC3530"
@@ -737,7 +737,7 @@ country_event = {
 	option = {
 		name = "flavor_brapru.20.b" #
 		ai_chance = { factor = 0 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -938,7 +938,7 @@ country_event = {
 			limit = {
 				NOT = { senior_union_with = ANS }
 			}
-			add_stability_or_adm_power = yes
+			cu_change_stability_point_p50 = yes
 			add_prestige = 10
 			every_known_country = {
 				limit = {
@@ -1214,7 +1214,7 @@ country_event = {
 		ai_chance = {
 			factor = 10
 		}
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -1330,7 +1330,7 @@ country_event = {
 	option = {
 		name = "flavor_brapru.31.b" #
 		ai_chance = { factor = 0 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -1512,7 +1512,7 @@ country_event = {
 		}
 		custom_tooltip = flavor_brapru.33.c.tt
 		add_years_of_income = -0.25
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -1692,7 +1692,7 @@ country_event = {
 		ai_chance = { factor = 0 }
 		custom_tooltip = flavor_brapru.36.b.tt
 		add_years_of_income = 1
-		add_stability_or_adm_power = yes #Keeping the Status Quo
+		cu_change_stability_point_p50 = yes #Keeping the Status Quo
 	}
 }
 

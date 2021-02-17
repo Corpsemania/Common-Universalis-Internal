@@ -1,0 +1,30 @@
+# No previous file for Madawaska
+
+culture = abenaki
+religion = totemism
+capital = "Madawaska"
+trade_goods = unknown
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+native_size = 5
+native_ferocity = 1
+native_hostileness = 2
+
+
+
+discovered_by = north_american
+
+1609.1.1 = { discovered_by = FRA } # Samuel de Champlain
+1629.1.1 = { discovered_by = ENG }
+
+1650.1.1 = {
+	owner = ABE
+	controller = ABE
+	add_core = ABE
+	is_city = yes
+	trade_goods = fur 
+} #Extent of the Abenaki/Wabanaki c. the Beaver Wars
+##Still disputed between USA and Britain at game end. In reality was held by Brayons, Acadian settlers, but here represented by Abenaki tag)
+1707.5.12 = { discovered_by = GBR }

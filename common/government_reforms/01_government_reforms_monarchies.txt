@@ -9,6 +9,7 @@ monarchy_mechanic = {
 		min_autonomy = 10
 		yearly_absolutism = 0.1
 		yearly_corruption = 0.05
+		nobles_influence_modifier = 0.05
 	}
 }
 
@@ -33,10 +34,16 @@ feudalism_reform = {
 	}
 	modifiers = {
 		min_autonomy = 20
-    max_states = 3
+    governing_capacity = 150
     state_maintenance_modifier = -0.1
 		vassal_income = 0.15
-	  yearly_absolutism = -0.10
+	  yearly_absolutism = -0.20
+	  nobles_influence_modifier = 0.05
+		maratha_exclusive_influence_modifier = 0.05
+		rajput_exclusive_influence_modifier = 0.05
+	}
+	ai = {
+		factor = 0.5 #generic
 	}
 }
 
@@ -59,10 +66,13 @@ autocracy_reform = {
 	}
 	modifiers = {
 		min_autonomy = 20
-    max_states = 3
+    governing_capacity = 150
     global_unrest = 1
 		unjustified_demands = -0.1
 		yearly_absolutism = 0.5
+	}
+	ai = {
+		factor = 0.5 #generic
 	}
 }
 
@@ -93,11 +103,47 @@ plutocratic_reform = {
 	nation_designer_cost = 10
 	modifiers = {
 	  min_autonomy = 20
-    max_states = 3
+    governing_capacity = 150
     state_maintenance_modifier = -0.1
 		merchants = 1
 		yearly_absolutism = -0.20
+		nobles_influence_modifier = -0.05
+		burghers_influence_modifier = 0.05
+		vaisyas_influence_modifier = 0.05
 	}	
+	ai = {
+		factor = 0.75 #generic
+	}
+}
+
+austrian_archduchy_reform = {
+	icon = "austrian_archduchy_reform"
+	allow_normal_conversion = yes
+	legacy_equivalent = austrian_archduchy
+	valid_for_nation_designer = yes
+	potential = {
+		OR = {
+			tag = HAB
+			was_tag = HAB
+			has_reform = austrian_archduchy_reform
+			have_had_reform = austrian_archduchy_reform
+		}
+		NOT = {
+			OR = {
+				has_reform = no_election
+				has_reform = noble_election
+				has_reform = burghers_election
+				has_reform = universal_suffrage
+			}
+		}
+	}
+	nation_designer_cost = 0
+	modifiers = {
+		liberty_desire_from_subject_development = -0.33
+		nobles_influence_modifier = 0.05
+		maratha_exclusive_influence_modifier = 0.05
+		rajput_exclusive_influence_modifier = 0.05
+	}
 }
 
 grand_duchy_reform = {
@@ -120,10 +166,10 @@ grand_duchy_reform = {
 	nation_designer_cost = 10
 	modifiers = {
 	  min_autonomy = 20
-		max_states = 5
+		governing_capacity = 250
 		state_maintenance_modifier = -0.1
 			vassal_income = 0.15
-			yearly_absolutism = -0.10
+			yearly_absolutism = -0.20
 	}
 	custom_attributes = {
 		locked_government_type = yes		
@@ -157,9 +203,9 @@ indian_sultanate_reform = {
 	modifiers = {
 		tolerance_heathen = 1
 		min_autonomy = 20
-    max_states = 5
-    global_autonomy = 0.01	
-		yearly_absolutism = -0.10    
+    governing_capacity = 250
+    global_autonomy = 0.02	
+		yearly_absolutism = -0.20    
 	}
 
 	conditional = {
@@ -269,216 +315,6 @@ indep_daimyo = {
 	}
 }
 
-celestial_empire = {
-	icon = "celestial_empire"
-	allow_normal_conversion = no
-	potential = {
-		has_reform = celestial_empire
-	}
-	legacy_equivalent = celestial_empire_legacy
-	maintain_dynasty = yes
-	allow_force_tributary = yes
-	valid_for_nation_designer = no
-	nation_designer_cost = 10
-	lock_level_when_selected = yes
-	nation_designer_trigger = {
-		culture_group = east_asian
-		technology_group = chinese
-		capital_scope = {
-			OR = {
-				region = north_china_region
-				region = xinan_region
-				region = south_china_region
-			}
-		}
-	}
-	factions = {
-		temples
-		enuchs
-		bureaucrats
-	}
-	modifiers = {	
-        heir_chance = 0.25
-		advisor_cost = 0.05
-		min_autonomy = 10
-	}
-	effect = {
-		custom_tooltip = celestial_empire_mandate_mechanism
-	}
-
-	fixed_rank = 3	
-	ai = {
-		factor = 1000 # should always be picked if available
-	}
-
-	custom_attributes = {
-		locked_government_type = yes
-	}
-
-	conditional = {
-		allow = { has_dlc = "Mandate of Heaven" }
-		has_meritocracy = yes		
-	}
-}
-
-celestial_empire_2 = {
-	icon = "celestial_empire"
-	allow_normal_conversion = no
-	potential = {
-		has_reform = celestial_empire_2
-	}
-	legacy_equivalent = celestial_empire_legacy
-	maintain_dynasty = yes
-	allow_force_tributary = yes
-	valid_for_nation_designer = no
-	nation_designer_cost = 10
-	lock_level_when_selected = yes
-	nation_designer_trigger = {
-		culture_group = east_asian
-		technology_group = chinese
-		capital_scope = {
-			OR = {
-				region = north_china_region
-				region = xinan_region
-				region = south_china_region
-			}
-		}
-	}
-	factions = {
-		temples
-		enuchs
-		bureaucrats
-	}
-	modifiers = {		
-        heir_chance = 0.25
-		min_autonomy = 5
-		global_autonomy = -0.01
-	}
-	effect = {
-		custom_tooltip = celestial_empire_mandate_mechanism
-	}
-	
-	fixed_rank = 3	
-	ai = {
-		factor = 1000 # should always be picked if available
-	}
-
-	custom_attributes = {
-		locked_government_type = yes
-	}
-
-	conditional = {
-		allow = { has_dlc = "Mandate of Heaven" }
-		has_meritocracy = yes		
-	}
-}
-
-celestial_empire_3 = {
-	icon = "celestial_empire"
-	allow_normal_conversion = no
-	potential = {
-		has_reform = celestial_empire_3
-	}
-	legacy_equivalent = celestial_empire_legacy
-	maintain_dynasty = yes
-	allow_force_tributary = yes
-	valid_for_nation_designer = no
-	nation_designer_cost = 10
-	lock_level_when_selected = yes
-	nation_designer_trigger = {
-		culture_group = east_asian
-		technology_group = chinese
-		capital_scope = {
-			OR = {
-				region = north_china_region
-				region = xinan_region
-				region = south_china_region
-			}
-		}
-	}
-	modifiers = {		
-           meritocracy = 0.5
-		   stability_cost_modifier = -0.10
-		   global_autonomy = -0.03
-	}
-	effect = {
-		custom_tooltip = celestial_empire_mandate_mechanism
-	}
-	
-	fixed_rank = 3	
-	
-	ai = {
-		factor = 1000 # should always be picked if available
-	}
-
-	custom_attributes = {
-		locked_government_type = yes
-	}
-
-	conditional = {
-		allow = { has_dlc = "Mandate of Heaven" }
-		has_meritocracy = yes		
-	}
-}
-
-zhuhou = {
-	icon = "asian_scripture"
-	allow_normal_conversion = no
-	legacy_equivalent = despotic_monarchy
-	potential = {	
-                 has_reform = zhuhou	
-	}
-	nation_designer_trigger = {
-		culture_group = east_asian
-		technology_group = chinese
-		capital_scope = {
-			OR = {
-				region = north_china_region
-				region = xinan_region
-				region = south_china_region
-			}
-		}
-	}
-	lock_level_when_selected = yes
-	fixed_rank = 2
-	valid_for_nation_designer = no
-	nation_designer_cost = 10
-	modifiers = {		
-           state_maintenance_modifier = -0.15  
-           land_forcelimit_modifier = 0.15
-           global_manpower_modifier = 0.15		   
-	}
-	custom_attributes = {
-		locked_government_type = yes		
-	}
-}
-
-chinese_revolter = {
-	icon = "asian_scripture"
-	allow_normal_conversion = no
-	legacy_equivalent = despotic_monarchy
-	potential = {	
-                has_reform = chinese_revolter	
-	}
-	lock_level_when_selected = yes
-	nation_designer_trigger = {
-		culture_group = east_asian
-		technology_group = chinese
-		capital_scope = {
-			OR = {
-				region = north_china_region
-				region = xinan_region
-				region = south_china_region
-			}
-		}
-	}
-	fixed_rank = 1
-	valid_for_nation_designer = no
-	nation_designer_cost = 10
-	custom_attributes = {
-		locked_government_type = yes		
-	}
-}
 
 
 
@@ -505,11 +341,11 @@ iqta = {
 	queen = no
 	modifiers = {
 		min_autonomy = 20
-    max_states = 5
+    governing_capacity = 250
     vassal_income = 0.33
 		global_tax_modifier = 0.05
-		global_autonomy = 0.01	
-		yearly_absolutism = -0.10
+		global_autonomy = 0.02	
+		yearly_absolutism = -0.20
 	}
 
 	conditional = {
@@ -545,7 +381,7 @@ english_monarchy = {
 	legacy_equivalent = english_monarchy_legacy	
 	modifiers = {
 		min_autonomy = 15
-    max_states = 4
+    governing_capacity = 200
     legitimacy = 0.5
 		global_unrest = -1
 		yearly_absolutism = -0.25	
@@ -557,7 +393,8 @@ english_monarchy = {
 		has_parliament = yes
 	}
 	custom_attributes = {
-		locked_government_type = yes		
+		locked_government_type = yes	
+		blocked_call_diet = yes		
 	}
 }
 
@@ -583,10 +420,10 @@ administrative_monarchy = {
 	legacy_equivalent = english_monarchy_legacy	
 	modifiers = {
 		min_autonomy = 15
-    max_states = 4
+    governing_capacity = 200
     production_efficiency = 0.05
 		global_tax_modifier = 0.05	
-		global_autonomy = -0.01
+		global_autonomy = -0.02
 		state_maintenance_modifier = 0.15
 	}
 	custom_attributes = {
@@ -618,8 +455,8 @@ absolute_monarchy = {
 	legacy_equivalent = english_monarchy_legacy	
 	modifiers = {
 		min_autonomy = 5
-    max_states = 6
-    yearly_absolutism = 0.25
+    governing_capacity = 300
+    yearly_absolutism = 0.5
 		global_unrest = 1
 		global_autonomy = -0.04
 		state_maintenance_modifier = 0.3
@@ -651,9 +488,9 @@ confederate_monarchy = {
 	legacy_equivalent = english_monarchy_legacy	
 	modifiers = {
 		min_autonomy = 25
-        max_states = 50
+        governing_capacity = 2500
 		num_accepted_cultures = 3
-		culture_conversion_cost = -0.15
+		mercantilism_cost = -0.15
 		yearly_absolutism = -0.50
 		state_maintenance_modifier = -0.15
 	}	
@@ -683,11 +520,11 @@ enlightened_despotism = {
 	}
 	legacy_equivalent = english_monarchy_legacy	
 	modifiers = {		
-    max_states = 5
+    governing_capacity = 250
     num_accepted_cultures = 1
     years_of_nationalism = -3
 		global_autonomy = -0.03
-    yearly_absolutism = 0.15
+    yearly_absolutism = 0.30
 		state_maintenance_modifier = 0.3
 	}	
 	custom_attributes = {
@@ -717,11 +554,11 @@ constitutional_monarchy = {
 	legacy_equivalent = english_monarchy_legacy	
 	modifiers = {
 		min_autonomy = 10
-    max_states = 6
+    governing_capacity = 300
     num_accepted_cultures = 1
 		legitimacy = 1
     yearly_absolutism = -0.25
-		global_autonomy = -0.01
+		global_autonomy = -0.02
 		state_maintenance_modifier = 0.3
 	}
 
@@ -731,50 +568,6 @@ constitutional_monarchy = {
 	}
 	custom_attributes = {
 		locked_government_type = yes		
-	}
-}
-
-ottoman_government = {
-	lock_level_when_selected = yes
-	allow_normal_conversion = no
-	icon = "ottoman_government"
-	potential = {
-		religion_group = muslim
-		OR = {
-			AND = {
-				tag = TUR
-				NOT = { map_setup = map_setup_random }
-			}
-			AND = {
-				tag = RUM
-				NOT = { map_setup = map_setup_random }
-			}
-			AND = {
-				is_playing_custom_nation = yes
-				have_had_reform = ottoman_government
-			}
-		}
-	}
-	valid_for_nation_designer = yes
-	nation_designer_cost = 20
-	nation_designer_trigger = {
-		religion_group = muslim
-	}
-	legacy_equivalent = ottoman_government_legacy
-	maintain_dynasty = yes
-	custom_attributes = {
-		locked_government_type = yes
-	}
-	modifiers = {		
-		stability_cost_modifier = 0.15
-		heir_chance = 0.25
-        war_exhaustion = -0.02
-	}
-
-	
-	conditional = {
-		allow = { has_dlc = "Rights of Man" }
-		has_harem = yes
 	}
 }
 
@@ -796,7 +589,7 @@ prussian_monarchy = {
 	legacy_equivalent = prussian_monarchy_legacy
 
 	modifiers = {
-		max_states = 5
+		governing_capacity = 250
     min_autonomy = 10
     yearly_army_professionalism = 0.005
 		global_autonomy = -0.03
@@ -806,6 +599,39 @@ prussian_monarchy = {
 	}	
 	custom_attributes = {
 		locked_government_type = yes		
+	}
+}
+
+austrian_dual_monarchy = {
+	icon = "austrian_dual_monarchy_reform"
+	allow_normal_conversion = yes
+	legacy_equivalent = austrian_archduchy
+	potential = { #added via script
+		has_dlc = "Emperor"
+		OR = {
+			has_reform = austrian_dual_monarchy
+			have_had_reform = austrian_dual_monarchy
+		}
+		NOT = {
+			OR = {
+				has_reform = no_election
+				has_reform = noble_election
+				has_reform = burghers_election
+				has_reform = universal_suffrage
+			}
+		}
+	}
+	valid_for_nation_designer = yes
+	nation_designer_cost = 100
+	nation_designer_trigger = {
+		has_dlc = "Emperor"
+	}
+
+	modifiers = {
+		num_accepted_cultures = 2
+		global_unrest = -2
+		monarch_diplomatic_power = 2
+		promote_culture_cost = -0.33
 	}
 }
 
@@ -831,7 +657,7 @@ principality = {
 		religion = orthodox
 	}
 	modifiers = {
-		max_states = 6
+		governing_capacity = 300
     min_autonomy = 20
     global_unrest = -1
 		global_tax_modifier = 0.1
@@ -865,13 +691,12 @@ tsardom = {
 	}
 
 	modifiers = {
-		max_states = 10
+		governing_capacity = 500
     min_autonomy = 10
     global_unrest = -1
 		yearly_absolutism = 0.1
 		global_autonomy = -0.03
 		state_maintenance_modifier = 0.1
-		yearly_absolutism = 0.10
 	}
 
 	conditional = {
@@ -919,7 +744,7 @@ mamluk_government = {
 		religion_group = muslim
 	}
 	modifiers = {		
-           yearly_absolutism = -0.10
+           yearly_absolutism = -0.20
            yearly_corruption = 0.05
            num_accepted_cultures = 1		   
 	}
@@ -955,11 +780,11 @@ feudal_theocracy = {
 	valid_for_nation_designer = yes
 	nation_designer_cost = 60
 	modifiers = {
-		max_states = 4
+		governing_capacity = 200
 	  min_autonomy = 20
 	  global_missionary_strength = 0.01
 		tolerance_own = 1
-		global_autonomy = 0.01
+		global_autonomy = 0.02
 	}
 
 	custom_attributes = {
@@ -971,21 +796,6 @@ feudal_theocracy = {
 		government_abilities = {
 			feudal_theocracy_mechanic
 		}
-	}
-}
-
-revolutionary_empire_reform = {
-	lock_level_when_selected = yes
-	icon = "rioting_burning_2"
-	allow_normal_conversion = no
-	potential = {
-		has_reform = revolutionary_empire_reform
-	}
-	legacy_equivalent = revolutionary_empire
-	valid_for_new_country = no
-	fixed_rank = 3
-	custom_attributes = {
-		locked_government_type = yes
 	}
 }
 
@@ -1017,7 +827,7 @@ mandala_reform = {
 	legacy_equivalent = despotic_monarchy
 	modifiers = {
 	  min_autonomy = 20
-    max_states = 3
+    governing_capacity = 150
     state_maintenance_modifier = -0.1		
 		vassal_forcelimit_bonus = 1		
 	}
@@ -1030,6 +840,7 @@ nayankara_reform = {
 	icon = "nayankara_system"
 	allow_normal_conversion = no
 	potential = {
+		has_dlc = "Dharma"
 		NOT = {
 			OR = {
 				has_reform = no_election
@@ -1059,7 +870,7 @@ nayankara_reform = {
 	}
 	modifiers = {
 	  min_autonomy = 20
-    max_states = 3
+    governing_capacity = 150
     state_maintenance_modifier = -0.1	
 		global_manpower_modifier = 0.15
 	}
@@ -1072,6 +883,7 @@ misl_confederacy_reform = {
 	allow_normal_conversion = no
 	icon = "misl_confederacy"
 	potential = {
+		has_dlc = "Dharma"
 		NOT = {
 			OR = {
 				has_reform = no_election
@@ -1089,7 +901,7 @@ misl_confederacy_reform = {
 	legacy_equivalent = feudal_monarchy
 	modifiers = {
 		min_autonomy = 20
-    max_states = 3
+    governing_capacity = 150
     state_maintenance_modifier = -0.1
 		land_maintenance_modifier = -0.1
 	}
@@ -1102,6 +914,7 @@ rajput_kingdom = {
 	icon = "rajput_kingdom"
 	allow_normal_conversion = no
 	potential = {
+		has_dlc = "Dharma"
 		NOT = {
 			OR = {
 				has_reform = no_election
@@ -1124,7 +937,7 @@ rajput_kingdom = {
 	legacy_equivalent = feudal_monarchy
 	modifiers = {
 	  min_autonomy = 20
-    max_states = 3
+    governing_capacity = 150
     state_maintenance_modifier = -0.1
 		army_tradition = 0.5
 	}
@@ -1145,7 +958,7 @@ mughal_government = {
 	legacy_equivalent = feudal_monarchy
 
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
 	}	
 }
 
@@ -1155,9 +968,17 @@ enforce_privileges_reform = {
 	allow_normal_conversion = no
 	potential = {
 		NOT = { adm_tech = 1  }
+		is_revolutionary = no
 	}	
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
+	}
+	ai = {
+		factor = 1
+		modifier = {
+			factor = 2
+			NOT = { max_manpower = 12 }
+		}
 	}
 }
 
@@ -1166,9 +987,20 @@ quash_noble_power_reform = {
 	allow_normal_conversion = no	
 	potential = {
 		NOT = { adm_tech = 1  }
+		is_revolutionary = no
 	}
 	modifiers = {		
-		max_states = 1
+		global_tax_modifier = 0.1
+		nobles_influence_modifier = -0.1
+		maratha_exclusive_influence_modifier = -0.1
+		rajput_exclusive_influence_modifier = -0.1
+	}
+	ai = {
+		factor = 1
+		modifier = {
+			factor = 1.5
+			is_in_deficit = yes
+		}
 	}
 }
 
@@ -1182,7 +1014,20 @@ enforce_trader_privileges_reform = {
 		has_reform = plutocratic_reform
 	}
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
+	}
+	ai = {
+		factor = 2
+		modifier = {
+			factor = 1.5
+			trade_income_percentage = 0.35
+		}
+		modifier = {
+			factor = 0.5
+			NOT = {
+				trade_income_percentage = 0.25
+			}
+		}
 	}
 }
 
@@ -1191,9 +1036,13 @@ bengali_reform = {
 	allow_normal_conversion = no	
 	potential = {
 		NOT = { adm_tech = 1  }
+		has_dlc = "Dharma"
 	}
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
+	}
+	ai = {
+		factor = 5
 	}
 }
 
@@ -1202,9 +1051,13 @@ sufi_syncretism_reform = {
 	allow_normal_conversion = no	
 	potential = {
 		NOT = { adm_tech = 1  }
+		has_dlc = "Dharma"
 	}
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
+	}
+	ai = {
+		factor = 3
 	}
 }
 
@@ -1213,9 +1066,13 @@ poligar_reform = {
 	allow_normal_conversion = no	
 	potential = {
 		NOT = { adm_tech = 1  }
+		has_dlc = "Dharma"
 	}
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
+	}
+	ai = {
+		factor = 3
 	}
 }
 
@@ -1224,9 +1081,13 @@ khalsa_reform = {
 	allow_normal_conversion = no	
 	potential = {
 		NOT = { adm_tech = 1  }
+		has_dlc = "Dharma"
 	}
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
+	}
+	ai = {
+		factor = 5
 	}
 }
 
@@ -1235,9 +1096,69 @@ deccani_society_reform = {
 	allow_normal_conversion = no	
 	potential = {
 		NOT = { adm_tech = 1  }
+		has_dlc = "Dharma"
+		is_revolutionary = no
 	}
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
+	}
+	ai = {
+		factor = 3
+	}
+}
+
+black_army_reform = {
+	icon = "black_army_reform"
+	allow_normal_conversion = yes
+	potential = {
+		tag = HUN
+		has_country_flag = black_army_reform_flag
+		is_revolutionary = no
+		NOT = { adm_tech = 1  }
+	}
+	modifiers = {
+		merc_maintenance_modifier = -0.15
+		mercenary_discipline = 0.025
+		nobles_loyalty_modifier = -0.1
+	}
+	ai = {
+		factor = 3
+	}
+}
+
+legion_of_honor_reform = {
+	icon = "legion_of_honor_reform"
+	allow_normal_conversion = yes
+	potential = {
+		is_revolutionary = yes
+		NOT = { adm_tech = 1  }
+	}
+	modifiers = {
+		leader_cost = -0.1
+		nobles_loyalty_modifier = 0.1
+		maratha_exclusive_loyalty_modifier = 0.1
+		rajput_exclusive_loyalty_modifier = 0.1
+	}
+	ai = {
+		factor = 2.5
+	}
+}
+
+imperial_nobility_reform = {
+	icon = "imperial_nobility_reform"
+	allow_normal_conversion = yes
+	potential = {
+		is_revolutionary = yes
+		NOT = { adm_tech = 1  }
+	}
+	modifiers = {
+		state_governing_cost = -0.1
+		nobles_influence_modifier = -0.2
+		maratha_exclusive_influence_modifier = -0.2
+		rajput_exclusive_influence_modifier = -0.2
+	}
+	ai = {
+		factor = 2.5
 	}
 }
 
@@ -1248,9 +1169,10 @@ centralize_reform = {
 	allow_normal_conversion = no
 	potential = {
 		NOT = { adm_tech = 1  }
+		is_revolutionary = no
 	}
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
 	}
 }
 
@@ -1259,9 +1181,22 @@ decentralize_reform = {
 	allow_normal_conversion = no
 	potential = {
 		NOT = { adm_tech = 1  }
+		is_revolutionary = no
 	}
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
+	}
+	ai = {
+		factor = 1
+		modifier = {
+			factor = 0.25
+			NOT = {
+				any_owned_province = {
+					has_owner_accepted_culture = no
+					has_owner_culture = no
+				}
+			}
+		}
 	}
 }
 
@@ -1270,9 +1205,13 @@ sidhi_recruitment = {
 	allow_normal_conversion = no
 	potential = {
 		NOT = { adm_tech = 1  }
+		is_revolutionary = no
 	}
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
+	}
+	ai = {
+		factor = 2
 	}
 }
 
@@ -1281,9 +1220,10 @@ mansabdari_reform = {
 	allow_normal_conversion = no
 	potential = {
 		NOT = { adm_tech = 1  }
+		has_dlc = "Dharma"
 	}
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
 	}
 }
 
@@ -1296,7 +1236,7 @@ clergy_in_administration_reform = {
 		NOT = { adm_tech = 1  }
 	}
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
 	}
 }
 
@@ -1307,7 +1247,7 @@ of_noble_bearing_reform = {
 		NOT = { adm_tech = 1  }
 	}
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
 	}
 }
 
@@ -1318,7 +1258,7 @@ meritocratic_focus_reform = {
 		NOT = { adm_tech = 1  }
 	}
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
 	}
 }
 
@@ -1329,7 +1269,7 @@ dakhni_culture_reform = {
 		NOT = { adm_tech = 1  }
 	}
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
 	}
 }
 
@@ -1340,7 +1280,7 @@ zabt_reform = {
 		NOT = { adm_tech = 1  }
 	}
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
 	}
 }
 
@@ -1355,7 +1295,7 @@ royal_decree_reform = {
 		NOT = { adm_tech = 1  }
 	}
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
 	}
 }
 
@@ -1366,7 +1306,7 @@ aristocratic_court_reform = {
 		NOT = { adm_tech = 1  }
 	}
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
 	}
 }
 
@@ -1382,7 +1322,7 @@ states_general_reform = {
 	}
 
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
 	}
 
 	ai = {
@@ -1422,7 +1362,70 @@ general_estates_reform = {
 		NOT = { adm_tech = 1  }
 	}
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
+	}
+}
+
+legislative_sejm = {
+	icon = "legislative_sejm_reform"
+	allow_normal_conversion = yes
+	
+	potential = {
+		has_reform = elective_monarchy
+		has_dlc = "Res Publica"
+		NOT = { adm_tech = 1  }
+	}
+	
+	trigger = {
+		has_reform = elective_monarchy
+	}
+	
+	modifiers = {
+		local_heir_adm = 1
+		local_heir_dip = 1
+		local_heir_mil = 1
+	}
+	
+	ai = {
+		factor = 1
+	}
+}
+
+integrated_sejmiks = {
+	icon = "integrated_sejmiks_reform"
+	allow_normal_conversion = yes
+	
+	potential = {
+		has_reform = elective_monarchy
+		has_dlc = "Res Publica"
+		NOT = { adm_tech = 1  }
+	}
+	
+	trigger = {
+		has_reform = elective_monarchy
+	}
+	
+	modifiers = {
+		years_of_nationalism = -5
+	}
+	
+	ai = {
+		factor = 1
+	}
+}
+
+imperial_decree_reform = {
+	icon = "king"
+	allow_normal_conversion = yes
+	potential = {
+		is_revolutionary = yes
+		NOT = { adm_tech = 1  }
+	}
+	modifiers = {
+		max_revolutionary_zeal = 20
+	}
+	ai = {
+		factor = 2.5
 	}
 }
 
@@ -1435,7 +1438,7 @@ letat_cest_moi_reform = {
 		NOT = { adm_tech = 1  }
 	}
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
 	}
 }
 
@@ -1446,9 +1449,26 @@ regional_representation_reform = {
 		NOT = { adm_tech = 1  }
 	}
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
 	}
 }
+
+consulate_reform = {
+	icon = "revolutionary_republic"
+	allow_normal_conversion = yes
+	potential = {
+		is_revolutionary = yes
+		NOT = { adm_tech = 1  }
+	}
+	modifiers = {
+		global_autonomy = -0.05
+		governing_capacity = 150
+	}
+	ai = {
+		factor = 2.5
+	}
+}
+
 
 #separation_of_power
 
@@ -1459,7 +1479,7 @@ political_absolutism_reform = {
 		NOT = { adm_tech = 1  }
 	}
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
 	}
 }
 
@@ -1470,7 +1490,7 @@ legislative_houses_reform = {
 		NOT = { adm_tech = 1  }
 	}
 	modifiers = {		
-		max_states = 1
+		governing_capacity = 50
 	}
 }
 
@@ -1510,6 +1530,72 @@ install_theocratic_government_reform = {
 		set_country_flag = populists_in_government
 		lose_reforms = 6
 		change_government = theocracy
+	}
+	ai = {
+		factor = 0
+	}
+}
+
+emperor_of_the_revolution_reform = {
+	icon = "emperor_of_the_revolution_reform"
+	allow_normal_conversion = yes
+	potential = {
+		is_revolutionary = yes
+		NOT = { adm_tech = 1  }
+	}
+	modifiers = {
+		yearly_revolutionary_zeal = 1.5
+	}
+	ai = {
+		factor = 2.5
+	}
+}
+
+enlightened_monarchy_reform = {
+	icon = "enlightened_monarchy_reform"
+	allow_normal_conversion = yes
+	potential = {
+		is_revolutionary = yes
+		NOT = { adm_tech = 1  }
+	}
+	modifiers = {
+		global_unrest = -2
+		num_accepted_cultures = 2
+	}
+	ai = {
+		factor = 2.5
+	}
+}
+
+become_rev_republic_reform = {
+	icon = "become_rev_republic_reform"
+	allow_normal_conversion = yes
+
+	potential = { 
+		is_revolutionary = yes
+		NOT = { adm_tech = 1  }
+	}
+	
+	trigger = {
+		has_reform = revolutionary_empire_reform
+	}
+
+	modifiers = {
+	}
+	effect = {
+		if = {
+			limit = { has_government_attribute = states_general_mechanic }
+			set_country_flag = had_states_general_mechanic
+		}
+		set_country_flag = populists_in_government
+		lose_reforms = 3
+		change_government = republic
+		add_government_reform = revolutionary_republic_reform
+		if = {
+			limit = { has_country_flag = had_states_general_mechanic }
+			country_event = { id = dutch_republic.33 }
+			clr_country_flag = had_states_general_mechanic
+		}
 	}
 	ai = {
 		factor = 0

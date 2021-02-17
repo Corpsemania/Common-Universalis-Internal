@@ -2,7 +2,7 @@
 
 owner = KAR
 controller = KAR
-culture = turkish
+culture = armenian
 religion = sunni
 capital = "Mersin"
 trade_goods = naval_supplies

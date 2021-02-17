@@ -23,65 +23,87 @@ country_event = {
 	option = {#Yuan road, pay tax is good()
 		name = "empire_of_china_in_name.1.a"
 		add_country_modifier = { name = yuan_system_in_china duration = -1 }
-		every_owned_province = {
-			limit = {
-				NOT = { has_province_modifier = yuan_tax_farming }
-				culture_group = east_asian
-				OR = {
-					region = south_china_region
-					region = xinan_region
-					region = north_china_region
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = yuan_tax_farming }
+					culture_group = east_asian
+					OR = {
+						region = south_china_region
+						region = xinan_region
+						region = north_china_region
+					}
 				}
+				add_province_modifier = { name = yuan_tax_farming duration = 3650 }
+				add_local_autonomy = 10
 			}
-			add_province_modifier = { name = yuan_tax_farming duration = 3650 }
 		}
-		custom_tooltip = {
-			tooltip = empire_of_china_in_name.1.t1
-		}
+		custom_tooltip = empire_of_china_in_name.1.t1		
 	}
 	
 	option = {#Embrace Chineseization
 		name = "empire_of_china_in_name.1.b"
 		trigger = {
+			capital_scope = { culture_group = east_asian }
 			OR = {
-				culture_group = japanese_g
-				culture_group = tungusic
-				culture = korean
-				culture_group = tibet_g
-				culture = vietnamese
-				culture = khmer
-				culture = mon
-				culture_group = altaic
-				culture_group = malay
-				culture_group = southeastasian_group
-				culture_group = south_turkic                                       
-				culture_group = tartar 
-				culture_group = burman
+				has_country_flag = settled_steppe_horde
+				religion_group = pagan
+				AND = {
+					religion = confucianism
+					has_country_flag = cu_used_to_pagan
+				}
+				OR = {
+					OR = {
+						has_country_flag = can_use_qing_policy
+						NOT = { has_country_flag = reacted_to_confucianism_event }
+					}
+					OR = {
+						religion = confucianism
+						religion = shinto
+						religion = mahayana
+					}
+					OR = {
+						culture_group = japanese_g
+						culture_group = tungusic
+						primary_culture = korean
+						culture_group = tibet_g
+						primary_culture = vietnamese
+						primary_culture = khmer
+						primary_culture = mon
+						culture_group = altaic
+						cu_malay_group = yes
+						cu_southeastasian_group_group = yes
+						cu_south_turkic_group = yes                                     
+						culture_group = tartar 
+						cu_burman_group = yes
+					}
+				}	
 			}
 		}
 		add_country_modifier = { name = beiwei_system_in_china duration = -1 }
 		hidden_effect = {
-			set_variable = { which = cu_var1 value = -100 }
+			set_variable = { which = cu_var1 value = -200 }
 		}
 		cu_change_stability_point = yes
-		add_mandate = 10
+		add_meritocracy = 10
 		every_owned_province = {
 			limit = {
 				culture_group = owner
-				NOT = { has_province_modifier = cu_cultural_assimilation }
+				NOT = { has_province_flag = province_can_chineseization }
 				is_capital = no
 			}
-			add_province_modifier = { name = cu_cultural_assimilation duration = -1 }
-		}
-        change_primary_culture = china_conqueror
-		set_ruler_culture = china_conqueror  
-		set_heir_culture = china_conqueror
+			set_province_flag = province_can_chineseization
+		}	
 		capital_scope = {
-			change_culture = china_conqueror
+			save_event_target_as = chineseization_target	
 		}
-		custom_tooltip = {
-			tooltip = empire_of_china_in_name.1.t2
-		}
+        change_primary_culture = event_target:chineseization_target
+		set_ruler_culture = event_target:chineseization_target  
+		set_heir_culture = event_target:chineseization_target
+		hidden_effect = {
+            every_owned_province = { cu_reset_cultural_acceptance = yes }
+        }	
+		custom_tooltip = empire_of_china_in_name.1.t2		
 	}
 	
 	option = {#Qing road, only for non-tribe
@@ -96,31 +118,101 @@ country_event = {
 				religion = shinto
 				religion = mahayana
 			}
+			OR = {
+				culture_group = japanese_g
+				culture_group = tungusic
+				primary_culture = korean
+				culture_group = tibet_g
+				primary_culture = vietnamese
+				primary_culture = khmer
+				primary_culture = mon
+				culture_group = altaic
+				cu_malay_group = yes
+				cu_southeastasian_group_group = yes
+				cu_south_turkic_group = yes                                     
+				culture_group = tartar 
+				cu_burman_group = yes
+			}
 		}
 		add_country_modifier = { name = qing_system_in_china duration = -1 }
 		hidden_effect = {
 			set_variable = { which = cu_var1 value = -100 }
 		}
 		cu_change_stability_point = yes
-		add_mandate = -20
-		every_owned_province = {
-			limit = {
-				NOT = { has_province_modifier = pigtail_or_death }
-				culture_group = east_asian
-				OR = {
-					region = south_china_region
-					region = xinan_region
-					region = north_china_region
+		add_meritocracy = -20
+		hidden_effect = {
+			every_owned_province = {
+				limit = {
+					NOT = { has_province_modifier = pigtail_or_death }
+					culture_group = east_asian
+					OR = {
+						region = south_china_region
+						region = xinan_region
+						region = north_china_region
+					}
 				}
+				add_province_modifier = { name = pigtail_or_death duration = 3650 }
+				add_local_autonomy = -20
 			}
-			add_province_modifier = { name = pigtail_or_death duration = 3650 }
 		}
-		custom_tooltip = {
-			tooltip = empire_of_china_in_name.1.t3
-		}
+		custom_tooltip = empire_of_china_in_name.1.t3
 	}
 }
 
+province_event = {
+	id = empire_of_china_in_name.01
+	title = "empire_of_china_in_name.1.t"
+	desc = "empire_of_china_in_name.1.d"
+	picture = IMPERIAL_SEAL_eventPicture
+
+	hidden = yes
+	trigger = {
+		culture_group = east_asian
+		OR = {
+			region = south_china_region
+			region = xinan_region
+			region = north_china_region
+		}
+		NOT = { 
+			OR = {
+				has_province_modifier = yuan_tax_farming
+				has_province_modifier = pigtail_or_death
+			}
+		}
+		owner = {
+			OR = {
+				has_country_modifier = yuan_system_in_china
+				has_country_modifier = qing_system_in_china
+			}
+			NOT = { has_country_flag = had_empire_of_china_culture_disaster } 
+		}
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+
+	immediate = {
+		if = {
+			limit = { 
+				owner = { has_country_modifier = yuan_system_in_china }
+			}		
+			add_province_modifier = { name = yuan_tax_farming duration = 3650 }	
+			add_local_autonomy = 10	
+		}
+		if = {
+			limit = { 
+				owner = { has_country_modifier = qing_system_in_china }
+			}		
+			add_province_modifier = { name = pigtail_or_death duration = 3650 }
+			add_local_autonomy = -20	
+		}
+	}
+	
+	option = {		
+		name = "empire_of_china_in_name.1.a"
+	}
+}
 
 #End of Disaster
 country_event = {
@@ -137,7 +229,20 @@ country_event = {
 		name = "empire_of_china_in_name.2.a"
 		if = {
 			limit = { has_country_modifier = beiwei_system_in_china }
-			remove_country_modifier = beiwei_system_in_china
+			every_owned_province = {
+				limit = {
+					has_province_flag = province_can_chineseization
+					religion = confucianism				
+				}
+				change_culture = ROOT
+				clr_province_flag = province_can_chineseization
+			}
+			hidden_effect = {
+				every_owned_province = { 
+					cu_reset_cultural_acceptance = yes 
+					clr_province_flag = province_can_chineseization
+				}				
+			}					
 		}
 		if = {
 			limit = { has_country_modifier = qing_system_in_china }
@@ -167,7 +272,7 @@ country_event = {
 					set_heir_culture = manchu_han
 				}
 				else_if = {
-					limit = { culture = korean }
+					limit = { primary_culture = korean }
 					change_primary_culture = korean_conqueror
 					set_ruler_culture = korean_conqueror
 					set_heir_culture = korean_conqueror
@@ -185,19 +290,19 @@ country_event = {
 					set_heir_culture = mongolian_conqueror
 				}
 				else_if = {
-					limit = { culture_group = malay }
+					limit = { cu_malay_group = yes }
 					change_primary_culture = malay_conqueror
 		            set_ruler_culture = malay_conqueror
 		            set_heir_culture = malay_conqueror	
 				}	   
 				else_if = {
-					limit = { culture_group = southeastasian_group }
+					limit = { cu_southeastasian_group_group = yes }
 					change_primary_culture = thai_conqueror
 					set_ruler_culture = thai_conqueror
 					set_heir_culture = thai_conqueror
 				}
 				else_if = {
-					limit = { culture = vietnamese }
+					limit = { primary_culture = vietnamese }
 					every_owned_province = {
 						limit = { 
 							culture = ROOT
@@ -209,7 +314,7 @@ country_event = {
 					set_heir_culture = vietese_conqueror
 				}
 				else_if = {
-					limit = { culture = khmer }
+					limit = { primary_culture = khmer }
 					every_owned_province = {
 						limit = { 
 							culture = ROOT
@@ -223,7 +328,7 @@ country_event = {
 				else_if = {
 					limit = { 
 						OR = {
-							culture_group = south_turkic                                       
+							cu_south_turkic_group = yes                                     
 							culture_group = tartar                                       
 						}
 					}
@@ -240,14 +345,14 @@ country_event = {
 				else_if = {
 					limit = { 
 						OR = {
-							culture_group = burman                                       
-							culture = mon
+							cu_burman_group = yes                                       
+							primary_culture = mon
 						}
 					}
 					every_owned_province = {
 						limit = { 
 							OR = {
-								culture_group = burman                                       
+								cu_burman_group = yes                                       
 								culture = mon
 							}
 						}
@@ -257,8 +362,17 @@ country_event = {
 		            set_ruler_culture = burmese_conqueror
 		            set_heir_culture = burmese_conqueror 
 				}
+			remove_country_modifier = qing_system_in_china 
+			set_country_flag = cu_qing_system_in_china
+			hidden_effect = {
+				capital_scope = { change_culture = ROOT }
+				every_owned_province = { 
+					cu_reset_cultural_acceptance = yes 
+				}
+			}
+			custom_tooltip = empire_of_china_in_name.1.t4
 		}
-		
+		set_country_flag = had_empire_of_china_culture_disaster	
 	}
 }
 
@@ -279,14 +393,14 @@ province_event = {
 			culture = khmer
 			culture = mon
 			culture_group = altaic
-			culture_group = malay
-			culture_group = southeastasian_group
-			culture_group = south_turkic                                       
+			cu_malay_group = yes
+			cu_southeastasian_group_group = yes
+			cu_south_turkic_group = yes                                     
 			culture_group = tartar 
-			culture_group = burman
+			cu_burman_group = yes
 		}
 		owner = { 
-			has_country_modifier = qing_system_in_china 
+			has_country_flag = cu_qing_system_in_china
 			NOT = { has_disaster = empire_of_china_in_name }
 		}		
 		has_province_flag = province_can_chineseization		
@@ -328,11 +442,11 @@ province_event = {
             change_culture = mongolian_conqueror
         }
 		else_if = {
-			limit = { culture_group = malay }
+			limit = { cu_malay_group = yes }
             change_culture = malay_conqueror
         }	   
         else_if = {
-			limit = { culture_group = southeastasian_group }
+			limit = { cu_southeastasian_group_group = yes }
             change_culture = thai_conqueror
         }
         else_if = {
@@ -346,7 +460,7 @@ province_event = {
         else_if = {
 			limit = { 
 				OR = {
-					culture_group = south_turkic                                       
+					cu_south_turkic_group = yes                                     
 					culture_group = tartar                                       
 				}
 			}
@@ -355,7 +469,7 @@ province_event = {
 		else_if = {
 			limit = { 
 				OR = {
-					culture_group = burman                                       
+					cu_burman_group = yes                                       
 					culture = mon                                       
 				}
 			}

@@ -10,7 +10,7 @@ hre = no
 base_tax = 11
 base_production = 11
 trade_goods = paper
-base_manpower = 8
+base_manpower = 4
 add_core = FRA
 
 

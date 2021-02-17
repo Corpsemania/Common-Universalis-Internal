@@ -132,7 +132,7 @@ cu_automatic_assimilation = {
 			###Cultural Assimilation - copied from province edict
 			if = {
 				limit = {
-					NOT = { has_province_modifier = cu_cultural_assimilation }
+					NOT = { has_province_modifier = cu_cultural_assimilation_booster }
 					check_variable = { which = p_ca value = 90 }
 					has_owner_culture = no
 					is_core = owner
@@ -163,7 +163,7 @@ cu_automatic_assimilation = {
 					}
 				}
 				add_province_modifier = {
-			       name = cu_cultural_assimilation
+			       name = cu_cultural_assimilation_booster
 				   duration = -1
 				}
 				hidden_effect = {

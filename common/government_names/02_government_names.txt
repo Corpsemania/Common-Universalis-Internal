@@ -30,7 +30,7 @@ gov_yijun = {
 	}
 	
 	trigger = {
-		has_reform =  
+		has_reform = chinese_revolter
 	}
 }
 

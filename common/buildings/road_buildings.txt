@@ -2,14 +2,14 @@ road_1 = {
 	cost = 120
 	time = 24
 	modifier = {
-		local_development_cost = -0.1
+		local_development_cost = -0.15
         province_trade_power_value = 2
 		allowed_num_of_buildings = 2
 		local_friendly_movement_speed = 0.15
 		local_hostile_movement_speed = 0.1
         supply_limit_modifier = 0.2
 		local_state_maintenance_modifier = -0.05
-		global_tax_income = -1
+		global_tax_income = -1.8
 	}
 	on_built = {
 	     #custom_tooltip = cu_building_bca_5
@@ -40,7 +40,7 @@ road_1 = {
 		 }
     }
 	ai_will_do = {
-		factor = 5
+		factor = 400
 		modifier = {
 			factor = 1.5
 			any_neighbor_province = {
@@ -78,7 +78,7 @@ road_1 = {
 		modifier = {
 			factor = 0.25
 			owner = { 
-			     government = tribe
+			     government = tribal
 			}
 		}
 		modifier = {
@@ -108,7 +108,7 @@ road_1 = {
 road_2 = {
 	cost = 300
 	time = 36
-	trigger = {
+	build_trigger = {
                 OR = {
 		            has_terrain = farmlands
 					has_terrain = grasslands
@@ -126,15 +126,15 @@ road_2 = {
 	}
     make_obsolete = road_1
 	modifier = {
-		local_development_cost = -0.2
+		local_development_cost = -0.33
         province_trade_power_value = 3.5
 		allowed_num_of_buildings = 3
 		local_friendly_movement_speed = 0.3
 		local_hostile_movement_speed = 0.2
         supply_limit_modifier = 0.35
-		local_autonomy = -0.02
+		local_autonomy = -0.03
 		local_state_maintenance_modifier = -0.125
-		global_tax_income = -4
+		global_tax_income = -4.5
 	}
 	on_built = {
 	     #custom_tooltip = cu_building_bca_7
@@ -164,7 +164,7 @@ road_2 = {
 		 }
     }
 	ai_will_do = {
-		factor = 18
+		factor = 800
 		modifier = {
 			factor = 1.5
 			any_neighbor_province = {
@@ -198,7 +198,7 @@ road_2 = {
 		modifier = {
 			factor = 0.25
 			owner = { 
-			     government = tribe
+			     government = tribal
 			}
 		}
 		modifier = {
@@ -222,7 +222,7 @@ road_2 = {
 road_3 = {
 	cost = 800
 	time = 60
-	trigger = {
+	build_trigger = {
 		OR = {
 			has_terrain = farmlands
 			has_terrain = grasslands
@@ -251,13 +251,13 @@ road_3 = {
 	}
         make_obsolete = road_2
 	modifier = {
-		local_development_cost = -0.3
+		local_development_cost = -0.5
         province_trade_power_value = 5
 		allowed_num_of_buildings = 4
 		local_friendly_movement_speed = 0.8
 		local_hostile_movement_speed = 0.4
         supply_limit_modifier = 0.5
-		local_autonomy = -0.05
+		local_autonomy = -0.06
 		local_state_maintenance_modifier = -0.25
 		global_tax_income = -12
 	}
@@ -282,7 +282,7 @@ road_3 = {
 		 }
 	}
 	ai_will_do = {
-		factor = 40
+		factor = 1000
 		modifier = {
 			factor = 1.5
 			any_neighbor_province = {
@@ -316,7 +316,7 @@ road_3 = {
 		modifier = {
 			factor = 0.25
 			owner = { 
-			     government = tribe
+			     government = tribal
 			}
 		}
 		modifier = {

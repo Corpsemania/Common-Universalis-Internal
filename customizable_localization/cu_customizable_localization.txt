@@ -2341,3 +2341,183 @@ defined_text = {
 		}
 	}
 }
+
+defined_text = {
+    name = GetLandPolicies
+	random = no
+
+    text = {
+        localisation_key = now_no_active_policy
+        trigger = {
+            NOT = { 
+				OR = {
+					has_country_modifier = revoke_gentrys_previledge
+					has_country_modifier = measuring_land
+					has_country_modifier = land_tax_reform
+				} 
+			}
+        }
+    }
+    text = {
+        localisation_key = now_revoking_priviledge
+        trigger = {
+            has_country_modifier = revoke_gentrys_previledge
+        }
+	}
+	text = {
+        localisation_key = now_reforming_land_tax
+        trigger = {
+            has_country_modifier = land_tax_reform
+        }
+	}
+	text = {
+        localisation_key = now_measuring_land
+        trigger = {
+            has_country_modifier = measuring_land
+        }
+    }
+}
+
+defined_text = {
+	name = StateADMT
+	random = no
+	
+	text = {
+		localisation_key = state.104.tcouncil
+		trigger = {
+			has_reform = noble_council
+		}
+	}
+	text = {
+		localisation_key = state.104.tclergy
+		trigger = {
+			has_reform = clergy_reform
+		}
+	}
+	text = {
+		localisation_key = state.104.tparliament
+		trigger = {
+			has_reform = parliament_reform
+		}
+	}
+}
+
+defined_text = {
+	name = StateADMD
+	random = no
+	
+	text = {
+		localisation_key = state.104.dcouncil
+		trigger = {
+			has_reform = noble_council
+		}
+	}
+	text = {
+		localisation_key = state.104.dclergy
+		trigger = {
+			has_reform = clergy_reform
+		}
+	}
+	text = {
+		localisation_key = state.104.dparliament
+		trigger = {
+			has_reform = parliament_reform
+		}
+	}
+}
+
+defined_text = {
+	name = StateDIPT
+	random = no
+	
+	text = {
+		localisation_key = state.105.tcouncil
+		trigger = {
+			has_reform = noble_council
+		}
+	}
+	text = {
+		localisation_key = state.105.tclergy
+		trigger = {
+			has_reform = clergy_reform
+		}
+	}
+	text = {
+		localisation_key = state.105.tparliament
+		trigger = {
+			has_reform = parliament_reform
+		}
+	}
+}
+
+defined_text = {
+	name = StateDIPD
+	random = no
+	
+	text = {
+		localisation_key = state.105.dcouncil
+		trigger = {
+			has_reform = noble_council
+		}
+	}
+	text = {
+		localisation_key = state.105.dclergy
+		trigger = {
+			has_reform = clergy_reform
+		}
+	}
+	text = {
+		localisation_key = state.105.dparliament
+		trigger = {
+			has_reform = parliament_reform
+		}
+	}
+}
+
+defined_text = {
+	name = StateMILT
+	random = no
+	
+	text = {
+		localisation_key = state.106.tcouncil
+		trigger = {
+			has_reform = noble_council
+		}
+	}
+	text = {
+		localisation_key = state.106.tclergy
+		trigger = {
+			has_reform = clergy_reform
+		}
+	}
+	text = {
+		localisation_key = state.106.tparliament
+		trigger = {
+			has_reform = parliament_reform
+		}
+	}
+}
+
+defined_text = {
+	name = StateMILD
+	random = no
+	
+	text = {
+		localisation_key = state.106.dcouncil
+		trigger = {
+			has_reform = noble_council
+		}
+	}
+	text = {
+		localisation_key = state.106.dclergy
+		trigger = {
+			has_reform = clergy_reform
+		}
+	}
+	text = {
+		localisation_key = state.106.dparliament
+		trigger = {
+			has_reform = parliament_reform
+		}
+	}
+}

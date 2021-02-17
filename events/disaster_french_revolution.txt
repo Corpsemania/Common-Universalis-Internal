@@ -102,7 +102,7 @@ country_event = {
 	option = {		# A Revolution has struck us!
 		name = "flavor_fra.EVTOPTA3779"
 		disband_rebels = revolutionary_rebels
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_government_reform = becomes_republic_reform
 		add_government_reform = revolutionary_republic_reform
 		set_revolution_target = ROOT
@@ -228,7 +228,7 @@ country_event = {
 	
 	option = {		# 361 votes for and 360 against execution
 		name = "flavor_fra.EVTOPTA3146"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		set_country_flag = fra_monarch_executed
 		every_neighbor_country = {
 			limit = {
@@ -461,7 +461,7 @@ country_event = {
 	}
 	option = {		# The revolution must continue!
 		name = "flavor_fra.EVTOPTB101"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -1155,7 +1155,7 @@ country_event = {
 		trigger = {
 			NOT = { has_reform =  revolutionary_republic_reform }
 		}
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_legitimacy = 20
 	}
 	option = {		# Long Live the Republic!
@@ -1164,7 +1164,7 @@ country_event = {
 			has_reform =  revolutionary_republic_reform
 			NOT = { has_ruler_flag = bonaparte_flag }
 		}
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	option = {		# Long Live the Republic!
 		name = "french_revolution.18.c"

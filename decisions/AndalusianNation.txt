@@ -54,7 +54,8 @@ country_decisions = {
 				province_id = 226	# Gibraltar
 				province_id = 1748	# Jaen
 				province_id = 1749	# Cadiz
-				province_id = 222	# Almeria				
+				province_id = 222	# Almeria	
+				province_id = 8525
 				AND = {
 					OR = {
 						province_id = 229
@@ -65,7 +66,6 @@ country_decisions = {
 				AND = {
 					OR = {
 						province_id = 1750
-						province_id = 4549
 					}
 					ROOT = { NOT = { owns_core_province = 230 } }
 					ROOT = { NOT = { owns_core_province = 229 } }
@@ -90,16 +90,14 @@ country_decisions = {
 			owns_core_province = 226			# Gibraltar
 			owns_core_province = 1748			# Jaen
 			owns_core_province = 1749			# Cadiz
-			owns_core_province = 222			# Almeria			
+			owns_core_province = 222			# Almeria
+			owns_core_province = 8525		
 			OR = {
 				AND = {
 					owns_core_province = 230			# Algarve
 					owns_core_province = 229			# Alentejo
 				}
-				AND = {
-					owns_core_province = 1750			# Alicante
-					owns_core_province = 4549
-				}
+				owns_core_province = 1750			# Alicante
 			}
 		}
 		effect = {

@@ -1,0 +1,31 @@
+# No previous file for Atikamekw
+
+culture = cree
+religion = totemism
+capital = "Atikamekw"
+trade_goods = unknown
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+native_size = 5
+native_ferocity = 1
+native_hostileness = 2
+
+
+
+discovered_by = north_american
+
+1609.1.1 = { discovered_by = FRA } # Samuel de Champlain
+1611.1.1 = { discovered_by = ENG } # Henry Hudson
+1707.5.12 = { discovered_by = GBR }
+
+1820.1.1 = {
+	owner = GBR
+	controller = GBR
+	add_core = GBR
+	is_city = yes
+	trade_goods = fur 
+	culture = cosmopolitan_french
+	religion = catholic
+} #French fur traders from Quebec, Wemotaci

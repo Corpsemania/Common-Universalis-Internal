@@ -5,7 +5,8 @@ technology_group = chinese
 religion = confucianism
 primary_culture = jianghuai
 capital = 1816	# Beijing
-
+set_estate_privilege = estate_qinwang_benefits
+set_estate_privilege = gentrys_landholding
 1368.1.1 = {
 	monarch = {
 		name = "Yuanzhang" # Hongwu Emperor
@@ -104,10 +105,10 @@ capital = 1816	# Beijing
 	}
 }
 
-1427.11.29 = {
+1427.11.29 = { #To fix the age bug
 	heir = {
-		name = "Qizhen" #Zhengtong Emperor
-		monarch_name = "Qizhen"
+		name = "Qizhen " #Zhengtong Emperor
+		monarch_name = "Qizhen "
 		dynasty = "Zhu"
 		birth_date = 1427.11.29
 		death_date = 1464.2.23
@@ -120,8 +121,23 @@ capital = 1816	# Beijing
 
 1435.1.31 = {
 	monarch = {
+		name = "Regency Council" #Yangs Cabinet And Queen Zhang
+		adm = 4
+		dip = 2
+		mil = 0 
+		regent = yes 
+	}
+	clear_scripted_personalities = yes
+	add_ruler_personality = industrious_personality
+}
+
+1443.1.1 = {
+	remove_heir = yes
+	monarch = {
 		name = "Qizhen" #Zhengtong Emperor
 		dynasty = "Zhu"
+		birth_date = 1427.11.29
+		death_date = 1464.2.23
 		adm = 2
 		dip = 2
 		mil = 1

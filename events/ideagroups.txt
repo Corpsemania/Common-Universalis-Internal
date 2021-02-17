@@ -2008,7 +2008,7 @@ country_event = {
 	option = {
 		name = "EVTOPTA6158"
 		add_piety = 0.05
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 
 		if = {
 			limit = {
@@ -2192,7 +2192,7 @@ country_event = {
 	option = {
 		name = "EVTOPTA6332"
 		add_piety = 0.05
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }	
 
@@ -2249,7 +2249,7 @@ country_event = {
 	option = {
 		name = ideagroups.411.a
 		add_piety = 0.15
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		if = {
 			limit = {
 				has_dlc = "The Cossacks"
@@ -2397,7 +2397,7 @@ country_event = {
 	option = {
 		name = ideagroups.415.a
 		add_piety = 0.05
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		if = {
 			limit = {
 				corruption = 0.01
@@ -5370,7 +5370,7 @@ country_event = {
 	
 	option = {
 		name = "EVTOPTB811A"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -7030,7 +7030,7 @@ country_event = {
 
 	option = {
 		name = ideagroups.1607.a
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -9228,7 +9228,7 @@ country_event = {
 
 #Start
 country_event = {
-    id = ideagroups.4930
+    id = ideagroups.4921
 	title = "EVT_HIDDEN"
 	desc = "EVT_HIDDEN"
 	picture = SPY_eventPicture
@@ -9576,7 +9576,7 @@ country_event = {
 }
 
 country_event = {
-    id = ideagroups.4930
+    id = ideagroups.5000
 	title = "ideagroups.4930.t"
 	desc = "ideagroups.4930.d"
 	picture = BATTLE_eventPicture
@@ -9585,10 +9585,10 @@ country_event = {
 		hidden_effect = {
 		    if = {
 			     limit = { quantity_ideas = 7 }
-				 set_variable = { which = cu_power value = 75 }
+				 set_variable = { which = cu_power value = 50 }
 			}
 			else = {
-			     set_variable = { which = cu_power value = 150 }
+			     set_variable = { which = cu_power value = 100 }
 			}
 			
 		}
@@ -9611,46 +9611,46 @@ country_event = {
 				hidden_effect = { country_event = { id = ideagroups.4931 days = 30 } } 
 				add_country_modifier = {
 				         name = ai_battle_plan_timer
-						 duration = 1095
+						 duration = 730
 				}
 		}
 		else_if = {
 			    limit = {
 				        AND = {
-						      quantity_ideas = 3
+						      quantity_ideas = 4
 							  has_country_modifier = cu_bp_ec_flag
 						}
 				}
 				remove_country_modifier = cu_bp_ec_flag
-				hidden_effect = { country_event = { id = ideagroups.4931 days = 182 } } 
-		        custom_tooltip = cu_bp_po_tt275
+				hidden_effect = { country_event = { id = ideagroups.4931 days = 60 } } 
+		        custom_tooltip = cu_bp_po_tt60
 		}
 		else_if = {
 			     limit = {
-				       quantity_ideas = 3
+				       quantity_ideas = 4
 				 }
-				 hidden_effect = { country_event = { id = ideagroups.4931 days = 365 } } 
-		        custom_tooltip = cu_bp_po_tt550
+				 hidden_effect = { country_event = { id = ideagroups.4931 days = 120 } } 
+		        custom_tooltip = cu_bp_po_tt120
 		}
 		else_if = {
 			      limit = {
 				        has_country_modifier = cu_bp_ec_flag
 				  }
 				  remove_country_modifier = cu_bp_ec_flag
-				  hidden_effect = { country_event = { id = ideagroups.4931 days = 275 } } 
-		          custom_tooltip = cu_bp_po_tt365
+				  hidden_effect = { country_event = { id = ideagroups.4931 days = 90 } } 
+		          custom_tooltip = cu_bp_po_tt90
 		}
 		else = {
-				   hidden_effect = { country_event = { id = ideagroups.4931 days = 550 } } 
-		           custom_tooltip = cu_bp_po_tt730
+				   hidden_effect = { country_event = { id = ideagroups.4931 days = 180 } } 
+		           custom_tooltip = cu_bp_po_tt180
 		}
 		hidden_effect = { 
 			if = {
 			     limit = { quantity_ideas = 7 }
-			     set_variable = { which = cu_power value = 75 }
+			     set_variable = { which = cu_power value = 50 }
 			}
 			else = {
-			     set_variable = { which = cu_power value = 150 }
+			     set_variable = { which = cu_power value = 100 }
 			}
 			cu_calc_power_cost = yes
 			cu_subtract_mil_power = yes
@@ -9697,40 +9697,40 @@ country_event = {
 		else_if = {
 			    limit = {
 				        AND = {
-						      quantity_ideas = 3
+						      quantity_ideas = 4
 							  has_country_modifier = cu_bp_ec_flag
 						}
 				}
 				remove_country_modifier = cu_bp_ec_flag
-				hidden_effect = { country_event = { id = ideagroups.4932 days = 412 } } 
-		        custom_tooltip = cu_bp_ut_tt412
+				hidden_effect = { country_event = { id = ideagroups.4932 days = 135 } } 
+		        custom_tooltip = cu_bp_ut_tt135
 		}
 		else_if = {
 			     limit = {
-				       quantity_ideas = 3
+				       quantity_ideas = 4
 				 }
-				 hidden_effect = { country_event = { id = ideagroups.4932 days = 825 } } 
-		         custom_tooltip = cu_bp_ut_tt825
+				 hidden_effect = { country_event = { id = ideagroups.4932 days = 270 } } 
+		         custom_tooltip = cu_bp_ut_tt270
 		}
 		else_if = {
 			      limit = {
 				        has_country_modifier = cu_bp_ec_flag
 				  }
 				  remove_country_modifier = cu_bp_ec_flag
-				  hidden_effect = { country_event = { id = ideagroups.4932 days = 550 } } 
-		          custom_tooltip = cu_bp_ut_tt550
+				  hidden_effect = { country_event = { id = ideagroups.4932 days = 180 } } 
+		          custom_tooltip = cu_bp_ut_tt180
 		}
 		else = {
-				   hidden_effect = { country_event = { id = ideagroups.4932 days = 1095 } } 
-		           custom_tooltip = cu_bp_ut_tt1095
+				   hidden_effect = { country_event = { id = ideagroups.4932 days = 360 } } 
+		           custom_tooltip = cu_bp_ut_tt360
 		}
 		hidden_effect = { 
 			if = {
 			     limit = { quantity_ideas = 7 }
-			     set_variable = { which = cu_power value = 75 }
+			     set_variable = { which = cu_power value = 50 }
 			}
 			else = {
-			     set_variable = { which = cu_power value = 150 }
+			     set_variable = { which = cu_power value = 100 }
 			}
 			cu_calc_power_cost = yes
 			cu_subtract_mil_power = yes
@@ -9776,40 +9776,40 @@ country_event = {
 		else_if = {
 			    limit = {
 				        AND = {
-						      quantity_ideas = 3
+						      quantity_ideas = 7
 							  has_country_modifier = cu_bp_ec_flag
 						}
 				}
 				remove_country_modifier = cu_bp_ec_flag
-				hidden_effect = { country_event = { id = ideagroups.4933 days = 136 } } 
-		        custom_tooltip = cu_bp_fd_tt136
+				hidden_effect = { country_event = { id = ideagroups.4933 days = 135 } } 
+		        custom_tooltip = cu_bp_fd_tt135
 		}
 		else_if = {
 			     limit = {
-				       quantity_ideas = 3
+				       quantity_ideas = 7
 				 }
-				 hidden_effect = { country_event = { id = ideagroups.4933 days = 273 } } 
-		         custom_tooltip = cu_bp_fd_tt273
+				 hidden_effect = { country_event = { id = ideagroups.4933 days = 270 } } 
+		         custom_tooltip = cu_bp_fd_tt270
 		}
 		else_if = {
 			      limit = {
 				        has_country_modifier = cu_bp_ec_flag
 				  }
 				  remove_country_modifier = cu_bp_ec_flag
-				  hidden_effect = { country_event = { id = ideagroups.4933 days = 182 } } 
-		          custom_tooltip = cu_bp_fd_tt182
+				  hidden_effect = { country_event = { id = ideagroups.4933 days = 180 } } 
+		          custom_tooltip = cu_bp_fd_tt180
 		}
 		else = {
-				   hidden_effect = { country_event = { id = ideagroups.4933 days = 365 } } 
-		           custom_tooltip = cu_bp_fd_tt365
+				   hidden_effect = { country_event = { id = ideagroups.4933 days = 360 } } 
+		           custom_tooltip = cu_bp_fd_tt360
 		}
 		hidden_effect = { 
 			if = {
 			     limit = { quantity_ideas = 7 }
-			     set_variable = { which = cu_power value = 75 }
+			     set_variable = { which = cu_power value = 50 }
 			}
 			else = {
-			     set_variable = { which = cu_power value = 150 }
+			     set_variable = { which = cu_power value = 100 }
 			}
 			cu_calc_power_cost = yes
 			cu_subtract_mil_power = yes
@@ -9872,40 +9872,40 @@ country_event = {
 		else_if = {
 			    limit = {
 				        AND = {
-						      quantity_ideas = 3
+						      quantity_ideas = 7
 							  has_country_modifier = cu_bp_ec_flag
 						}
 				}
 				remove_country_modifier = cu_bp_ec_flag
-				hidden_effect = { country_event = { id = ideagroups.4934 days = 45 } } 
-		        custom_tooltip = cu_bp_ed_tt45
+				hidden_effect = { country_event = { id = ideagroups.4934 days = 60 } } 
+		        custom_tooltip = cu_bp_ed_tt60
 		}
 		else_if = {
 			     limit = {
-				       quantity_ideas = 3
+				       quantity_ideas = 7
 				 }
-				 hidden_effect = { country_event = { id = ideagroups.4934 days = 90 } } 
-		         custom_tooltip = cu_bp_ed_tt90
+				 hidden_effect = { country_event = { id = ideagroups.4934 days = 120 } } 
+		         custom_tooltip = cu_bp_ed_tt120
 		}
 		else_if = {
 			      limit = {
 				        has_country_modifier = cu_bp_ec_flag
 				  }
 				  remove_country_modifier = cu_bp_ec_flag
-				  hidden_effect = { country_event = { id = ideagroups.4934 days = 60 } } 
-		          custom_tooltip = cu_bp_ed_tt60
+				  hidden_effect = { country_event = { id = ideagroups.4934 days = 90 } } 
+		          custom_tooltip = cu_bp_ed_tt90
 		}
 		else = {
-				   hidden_effect = { country_event = { id = ideagroups.4934 days = 120 } } 
-		           custom_tooltip = cu_bp_ed_tt120
+				   hidden_effect = { country_event = { id = ideagroups.4934 days = 180 } } 
+		           custom_tooltip = cu_bp_ed_tt180
 		}
 		hidden_effect = { 
 			if = {
 			     limit = { quantity_ideas = 7 }
-			     set_variable = { which = cu_power value = 75 }
+			     set_variable = { which = cu_power value = 50 }
 			}
 			else = {
-			     set_variable = { which = cu_power value = 150 }
+			     set_variable = { which = cu_power value = 100 }
 			}
 			cu_calc_power_cost = yes
 			cu_subtract_mil_power = yes
@@ -9952,7 +9952,7 @@ country_event = {
 		}
 		else_if = {
 			     limit = {
-				       quantity_ideas = 3
+				       quantity_ideas = 7
 				 }
 				 hidden_effect = { country_event = { id = ideagroups.4935 days = 120 } } 
 		         custom_tooltip = cu_bp_ec_tt120
@@ -9964,10 +9964,10 @@ country_event = {
 		hidden_effect = { 
 			if = {
 			     limit = { quantity_ideas = 7 }
-			     set_variable = { which = cu_power value = 75 }
+			     set_variable = { which = cu_power value = 50 }
 			}
 			else = {
-			     set_variable = { which = cu_power value = 150 }
+			     set_variable = { which = cu_power value = 100 }
 			}
 			cu_calc_power_cost = yes
 			cu_subtract_mil_power = yes
@@ -10040,6 +10040,7 @@ country_event = {
 		       name = cu_bp_go_m
 			   duration = 120
 		}
+		
 	}
 }
 
@@ -10076,7 +10077,7 @@ country_event = {
 		}
 		add_country_modifier = {
 		       name = cu_bp_ut_m
-			   duration = 240
+			   duration = 360
 		}
 	}
 }
@@ -10115,9 +10116,9 @@ country_event = {
 		}
 		add_country_modifier = {
 		       name = cu_bp_fd_m
-			   duration = 300
+			   duration = 730
 		}
-		add_war_exhaustion = 1.5
+		add_war_exhaustion = 2
 	}
 }
 
@@ -10154,11 +10155,11 @@ country_event = {
 		}
 		add_country_modifier = {
 		       name = cu_bp_ed_m
-			   duration = 365
+			   duration = 360
 		}
 		add_country_modifier = {
 		       name = cu_bp_ed_m1
-			   duration = 547
+			   duration = 540
 		}
 	}
 }
@@ -10200,7 +10201,7 @@ country_event = {
 		}
 		add_country_modifier = {
 		       name = cu_bp_ec_flag
-			   duration = 545
+			   duration = 540
 		}
 		custom_tooltip = ideagroups.4935.at
 	}
@@ -10249,7 +10250,7 @@ country_event = {
 		}
 		custom_tooltip = ideagroups.4936.at
 		set_country_flag = heavyship_mod_f
-		add_treasury = -200
+		add_treasury = -160
 		if = {
 			limit = { NOT = { naval_ideas = 3 } }
 			add_navy_tradition = -40
@@ -10262,7 +10263,7 @@ country_event = {
 			factor = 33
 			modifier = {
 				factor = 0
-				NOT = { treasury = 200 }
+				NOT = { treasury = 160 }
 			}
 			modifier = {
 				factor = 0
@@ -10277,7 +10278,7 @@ country_event = {
 	option = {
         name = "ideagroups.4936.b"	
 		trigger = {
-			#treasury = 200
+			#treasury = 160
 			OR = {
 				navy_tradition = 40
 				naval_ideas = 3
@@ -10285,7 +10286,7 @@ country_event = {
 		}
 		custom_tooltip = ideagroups.4936.bt
 		set_country_flag = heavyship_mod_h
-		add_treasury = -200
+		add_treasury = -160
 		if = {
 			limit = { NOT = { naval_ideas = 3 } }
 			add_navy_tradition = -40
@@ -10298,7 +10299,7 @@ country_event = {
 			factor = 33
 			modifier = {
 				factor = 0
-				NOT = { treasury = 200 }
+				NOT = { treasury = 160 }
 			}
 			modifier = {
 				factor = 0
@@ -10312,7 +10313,7 @@ country_event = {
 	option = {
         name = "ideagroups.4936.c"	
 		trigger = {
-			#treasury = 200
+			#treasury = 160
 			OR = {
 				navy_tradition = 40
 				naval_ideas = 3
@@ -10320,7 +10321,7 @@ country_event = {
 		}
 		custom_tooltip = ideagroups.4936.ct
 		set_country_flag = heavyship_mod_s
-		add_treasury = -200
+		add_treasury = -160
 		if = {
 			limit = { NOT = { naval_ideas = 3 } }
 			add_navy_tradition = -40
@@ -10333,7 +10334,7 @@ country_event = {
 			factor = 33
 			modifier = {
 				factor = 0
-				NOT = { treasury = 200 }
+				NOT = { treasury = 160 }
 			}
 			modifier = {
 				factor = 0
@@ -10347,7 +10348,7 @@ country_event = {
 	option = {
         name = "ideagroups.4936.d1"	
 		trigger = {
-			#treasury = 200
+			#treasury = 160
 			OR = {
 				navy_tradition = 40
 				naval_ideas = 3
@@ -11032,6 +11033,379 @@ country_event = {
 		add_prestige = -5
 		ai_chance = {
 			factor = 1
+		}
+	}
+}
+
+#Military Reform of Quality Idea
+country_event = {
+    id = ideagroups.4946
+	title = "ideagroups.4946.t"
+	desc = "ideagroups.4946.d"
+	picture = MILITARY_CAMP_eventPicture
+	trigger = {
+		quality_ideas = 7
+		mil_power = 100
+		OR = {
+		      AND = {
+			        army_professionalism = 1
+					NOT = { check_variable = { which = quality_army_reform_level value = 5 } }
+			  }
+			  AND = {
+			        army_professionalism = 0.8
+					NOT = { check_variable = { which = quality_army_reform_level value = 4 } }
+			  }
+			  AND = {
+			        army_professionalism = 0.6
+					NOT = { check_variable = { which = quality_army_reform_level value = 3 } }
+			  }
+			  AND = {
+			        army_professionalism = 0.4
+					NOT = { check_variable = { which = quality_army_reform_level value = 2 } }
+			  }
+			  AND = {
+			        army_professionalism = 0.2
+					OR = {
+					     NOT = { check_variable = { which = quality_army_reform_level value = 1 } }
+						 NOT = { has_country_flag = quality_army_reform_start }
+				    }
+			  }
+		}
+	}
+	mean_time_to_happen = {
+		months = 3
+	}
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { NOT = { has_country_flag = quality_army_reform_start } }
+				set_country_flag = quality_army_reform_start
+				set_variable = { which = quality_army_reform_level value = 0 }
+			}
+		}
+	}
+	option = { #Reform Discipline
+        name = "ideagroups.4946.a"
+		hidden_effect = {
+		    change_variable = { which = quality_army_reform_level value = 1 }
+		}
+		add_mil_power = -100
+		if = {
+		     limit = { 
+					NOT = { has_country_flag = quality_inf_reform_1 } 
+					NOT = { has_country_flag = quality_inf_reform_2 } 
+					NOT = { has_country_flag = quality_inf_reform_3 } 
+			 }
+			 set_country_flag = quality_inf_reform_1
+			 add_country_modifier = {
+			        name = quality_inf_reform_1_mod_dis
+					duration = -1
+			 }
+			 hidden_effect = { remove_country_modifier = quality_inf_reform_1_mod_dis }
+		}
+		else_if = {
+		     limit = { has_country_flag = quality_inf_reform_1 }
+			 clr_country_flag = quality_inf_reform_1
+			 set_country_flag = quality_inf_reform_2
+			 remove_country_modifier = quality_inf_reform_1_mod_dis
+			 add_country_modifier = {
+			        name = quality_inf_reform_2_mod_dis
+					duration = -1
+			 }
+			 hidden_effect = { remove_country_modifier = quality_inf_reform_2_mod_dis }
+		}
+		else_if = {
+		     limit = { has_country_flag = quality_inf_reform_2 }
+			 clr_country_flag = quality_inf_reform_2
+			 set_country_flag = quality_inf_reform_3
+			 remove_country_modifier = quality_inf_reform_2_mod_dis
+			 add_country_modifier = {
+			        name = quality_inf_reform_3_mod_dis
+					duration = -1
+			 }
+			 hidden_effect = { remove_country_modifier = quality_inf_reform_3_mod_dis }
+		}
+		ai_chance = {
+			factor = 33
+		}
+	}
+	option = { #Reform Weapons
+        name = "ideagroups.4946.b"
+		hidden_effect = {
+		    change_variable = { which = quality_army_reform_level value = 1 }
+		}
+		add_mil_power = -100
+		if = {
+		     limit = { 
+					NOT = { has_country_flag = quality_cav_reform_1 } 
+					NOT = { has_country_flag = quality_cav_reform_2 } 
+					NOT = { has_country_flag = quality_cav_reform_3 } 
+			 }
+			 set_country_flag = quality_cav_reform_1
+			 add_country_modifier = {
+			        name = quality_cav_reform_1_mod_dis
+					duration = -1
+			 }
+			 hidden_effect = { remove_country_modifier = quality_cav_reform_1_mod_dis }
+		}
+		else_if = {
+		     limit = { has_country_flag = quality_cav_reform_1 }
+			 clr_country_flag = quality_cav_reform_1
+			 set_country_flag = quality_cav_reform_2
+			 remove_country_modifier = quality_cav_reform_1_mod_dis
+			 add_country_modifier = {
+			        name = quality_cav_reform_2_mod_dis
+					duration = -1
+			 }
+			 hidden_effect = { remove_country_modifier = quality_cav_reform_2_mod_dis }
+		}
+		else_if = {
+		     limit = { has_country_flag = quality_cav_reform_2 }
+			 clr_country_flag = quality_cav_reform_2
+			 set_country_flag = quality_cav_reform_3
+			 remove_country_modifier = quality_cav_reform_2_mod_dis
+			 add_country_modifier = {
+			        name = quality_cav_reform_3_mod_dis
+					duration = -1
+			 }
+			 hidden_effect = { remove_country_modifier = quality_cav_reform_3_mod_dis }
+		}
+		ai_chance = {
+			factor = 33
+		}
+	}
+	option = { #Reform Engineering
+        name = "ideagroups.4946.c"
+		hidden_effect = {
+		    change_variable = { which = quality_army_reform_level value = 1 }
+		}
+		add_mil_power = -100
+		if = {
+		     limit = { 
+					NOT = { has_country_flag = quality_art_reform_1 } 
+					NOT = { has_country_flag = quality_art_reform_2 } 
+					NOT = { has_country_flag = quality_art_reform_3 } 
+			 }
+			 set_country_flag = quality_art_reform_1
+			 add_country_modifier = {
+			        name = quality_art_reform_1_mod_dis
+					duration = -1
+			 }
+			 hidden_effect = { remove_country_modifier = quality_art_reform_1_mod_dis }
+		}
+		else_if = {
+		     limit = { has_country_flag = quality_art_reform_1 }
+			 clr_country_flag = quality_art_reform_1
+			 set_country_flag = quality_art_reform_2
+			 remove_country_modifier = quality_art_reform_1_mod_dis
+			 add_country_modifier = {
+			        name = quality_art_reform_2_mod_dis
+					duration = -1
+			 }
+			 hidden_effect = { remove_country_modifier = quality_art_reform_2_mod_dis }
+		}
+		else_if = {
+		     limit = { has_country_flag = quality_art_reform_2 }
+			 clr_country_flag = quality_art_reform_2
+			 set_country_flag = quality_art_reform_3
+			 remove_country_modifier = quality_art_reform_2_mod_dis
+			 add_country_modifier = {
+			        name = quality_art_reform_3_mod_dis
+					duration = -1
+			 }
+			 hidden_effect = { remove_country_modifier = quality_art_reform_3_mod_dis }
+		}
+		ai_chance = {
+			factor = 33
+		}
+	}
+	option = { #No thanks
+	    hidden_effect = {
+		    change_variable = { which = quality_army_reform_level value = 1 }
+		}
+	    name = "ideagroups.4946.d1"
+		add_army_tradition = 20
+		add_mil_power = 100
+		ai_chance = {
+			factor = 1
+		}
+	}
+}
+
+
+
+#New World Revenue
+country_event = {
+    id = ideagroups.4947
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = IMPORTANT_STATUE_eventPicture
+	is_triggered_only = yes
+	hidden = yes
+	option = {
+		name = "EVT_HIDDEN"
+		set_variable = { which = new_world_col_dev value = 0  }
+		every_subject_country = {
+			  limit = {
+					capital_scope = {
+						OR = {
+							continent = north_america
+							continent = south_america
+							continent = new_world
+						}
+					}
+			  }
+			  export_to_variable = {
+					which = cu_var1
+					value = total_development
+			  }
+			  PREV = { set_variable = { which = cu_var1 which = PREV  } }
+			  PREV = { change_variable = { which = new_world_col_dev which = cu_var1 } }
+		}
+		every_owned_province = {
+			limit = {
+			     capital_scope = {
+						OR = {
+							continent = north_america
+							continent = south_america
+							continent = new_world
+						}
+				 }
+			}
+			export_to_variable = {
+					which = cu_var1
+					value = development
+			}
+			PREV = { set_variable = { which = cu_var1 which = PREV  } }
+			PREV = { change_variable = { which = new_world_col_dev which = cu_var1 } }
+		}
+		if = {
+			limit = { check_variable = { which = new_world_col_dev value = 10 } }
+			set_variable = { which = new_world_col_money which = new_world_col_dev }
+			divide_variable = { which = new_world_col_money value = 3 }
+			if = {
+				limit = { check_variable = { which = new_world_col_dev value = 1000 } }
+				set_variable = { which = new_world_col_dip value = 100 }
+			}
+			else_if = {
+			    limit = { check_variable = { which = new_world_col_dev value = 500 } }
+				set_variable = { which = new_world_col_dip value = 75 }
+			}
+			else_if = {
+			    limit = { check_variable = { which = new_world_col_dev value = 200 } }
+				set_variable = { which = new_world_col_dip value = 50 }
+			}
+			else_if = {
+			    limit = { check_variable = { which = new_world_col_dev value = 50 } }
+				set_variable = { which = new_world_col_dip value = 25 }
+			}
+			set_variable = { which = new_world_col_dev1 which = new_world_col_dev }
+			divide_variable = { which = new_world_col_dev1 value = 200 }
+			if = {
+				   limit = { check_variable = { which = new_world_col_dev1 value = 5 } }
+				   set_variable = { which = new_world_col_dev1 value = 5 }
+			}
+			if = {
+					limit = { exploration_ideas = 5 }
+					multiply_variable = { which = new_world_col_money value = 2 }
+					multiply_variable = { which = new_world_col_dip value = 2 }
+					multiply_variable = { which = new_world_col_dev1 value = 2 }
+			}
+			
+			country_event = { id = ideagroups.4948 }
+		}
+	}
+}
+
+#Calculate New World Colony Revenue
+country_event = {
+    id = ideagroups.4948
+	title = "ideagroups.4948.t"
+	desc = "ideagroups.4948.d"
+	picture = COLONIZATION_eventPicture
+	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			set_variable = { which = cu_cash which = new_world_col_money }
+			set_variable = { which = cu_power which = new_world_col_dip }
+			set_variable = { which = cu_var1 which = new_world_col_dev1 }
+			while = {
+				 limit = { check_variable = { which = cu_var1 value = 1 } }
+				 subtract_variable = { which = cu_var1 value = 1 }
+				 random_owned_province = {
+						limit = {
+							is_territory = no
+							NOT = {
+								OR = {
+									continent = north_america
+									continent = south_america
+									continent = new_world
+								}
+							}
+							NOT = { has_province_flag = new_world_col_dev_impf }
+						}
+						set_province_flag = new_world_col_dev_impf
+						cu_random_number = yes
+						if = {
+								limit = { 
+								       check_variable = { which = cu_rd value = 85 } 
+									   check_variable = { which = r_uc value = 1 }
+							    }
+								set_province_flag = new_world_col_dev_impc
+						}
+						else_if = {
+								limit = { 
+								       check_variable = { which = cu_rd value = 70 } 
+									   check_variable = { which = r_uc value = 1 }
+							    }
+								set_province_flag = new_world_col_dev_impp
+						}
+						else_if = {
+								limit = { 
+								       check_variable = { which = cu_rd value = 40 }
+                                       check_variable = { which = r_ac value = 1 }									   
+								}
+								set_province_flag = new_world_col_dev_impa
+						}
+						else = {
+						        set_province_flag = new_world_col_dev_impac
+						}
+				 }
+			}
+		}
+	}
+	option = {
+		name = "ideagroups.4948.a"
+		hidden_effect = { #Prevent changes to cu_cash before click
+			set_variable = { which = cu_cash which = new_world_col_money }
+			set_variable = { which = cu_power which = new_world_col_dip }
+		}
+		cu_change_cash = yes
+		cu_change_dip_power = yes
+		every_owned_province = {
+			  limit = { has_province_flag = new_world_col_dev_impf }
+			  clr_province_flag = new_world_col_dev_impf
+			  if = {
+					limit = { has_province_flag = new_world_col_dev_impc }
+					clr_province_flag = new_world_col_dev_impc
+					add_base_tax = 1
+			  }
+			  else_if = {
+					limit = { has_province_flag = new_world_col_dev_impp }
+					clr_province_flag = new_world_col_dev_impp
+					add_base_production = 1
+			  }
+			  else_if = {
+					limit = { has_province_flag = new_world_col_dev_impa }
+					clr_province_flag = new_world_col_dev_impa
+					add_base_manpower = 1
+			  }
+			  else_if = {
+					limit = { has_province_flag = new_world_col_dev_impac }
+					clr_province_flag = new_world_col_dev_impac
+					hidden_effect = { change_variable = { which = b_ac value = 1 } }
+					custom_tooltip = b_ac_1_tt
+			  }
 		}
 	}
 }

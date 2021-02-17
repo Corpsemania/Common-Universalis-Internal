@@ -10,8 +10,9 @@ trade_goods = iron
 hre = no
 base_tax = 7 
 base_production = 7
-base_manpower = 4
+base_manpower = 16
 is_city = yes
+set_province_flag = cu_neednt_dev_initialize
 add_core = JIN
 
 discovered_by = chinese

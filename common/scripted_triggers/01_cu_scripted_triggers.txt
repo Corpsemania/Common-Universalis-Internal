@@ -296,7 +296,7 @@ cu_hlr_land_trigger = {
 		province_id = 181
 		area = lorraine_area
 		AND = {
-			culture_group = germanic
+			cu_germanic_group = yes
 			check_variable = { which = p_ca value = 60 }
 		}
 	}
@@ -472,6 +472,10 @@ cu_in_hybrid_group = {
 			culture_group = french
 			owner = { culture_group = southern_french }
 		}
+		AND = {
+			cu_germanic_group = yes
+			owner = { cu_germanic_group = yes }
+		}
 	}
 }
 
@@ -480,4 +484,187 @@ cu_in_same_group = {
 				owner = { culture_group = ROOT } 	
 				cu_in_hybrid_group = yes
 		}
+}
+
+cu_south_slavic_group = { #Only use for making old codes stable
+	OR = {
+		culture_group = church_slavic
+		culture_group = south_slavic
+	}
+}
+
+cu_gaelic_group = { #Only use for making old codes stable
+	OR = {
+		culture_group = brythonic
+		culture_group = gaelic
+	}
+}
+
+cu_baltic_group = { #Only use for making old codes stable
+	OR = {
+		culture_group = baltic
+		culture_group = finnish_g
+	}
+}
+
+cu_malay_group = { #Only use for making old codes stable
+	OR = {
+		culture_group = taiwanic
+		culture_group = phillipines
+		culture_group = chamic
+		culture_group = javanese_g
+		culture_group = northern_bornean
+		culture_group = sulawesi_g 
+		culture_group = east_malay 
+		culture_group = malay
+		culture_group = barito
+	}
+}
+
+cu_iranian_group = { #Only use for making old codes stable
+	OR = {
+		culture_group = north_iranian
+		culture_group = east_iranian
+		culture_group = iranian
+	}
+}
+
+cu_burman_group = { #Only use for making old codes stable
+	OR = {
+		culture_group = kuki_chin
+		culture_group = ngwic
+		culture_group = karenic
+		culture_group = bai_g
+		culture_group = burman
+	}
+}
+
+cu_southeastasian_group_group = { #Only use for making old codes stable
+	OR = {
+		culture_group = southeastasian_group
+		culture_group = zhuang_group
+	}
+}
+
+cu_cushitic_group = { #Only use for making old codes stable
+	OR = {
+		culture_group = highland_cushitic
+		culture_group = lowland_cushitic 
+		culture_group = beja_cushitic 
+		culture_group = cushitic 
+	}
+}
+
+cu_mon_khmer_group = { #Only use for making old codes stable
+	OR = {
+		culture_group = mon_khmer
+		culture_group = vietic
+		culture_group = monic
+	}
+}
+
+cu_south_turkic_group = { #Only use for making old codes stable
+	OR = {
+		culture = uzbehk
+		culture = uyghur
+		culture = yughur
+	}
+}
+
+cu_germanic_group = {
+	OR = {
+		culture_group = germanic
+		culture_group = low_german
+	}
+}
+
+cu_minor_chinese_group = {
+	OR = {
+		culture_group = tujiazu_g
+		culture_group = hmongic
+		culture_group = mienic
+	}
+}
+
+cu_india_culture = {
+	OR = {
+		culture_group = eastern_aryan
+		culture_group = hindusthani
+		culture_group = western_aryan
+		culture_group = dravidian
+		culture_group = kannada_dravidan
+		culture_group = telugu_dravidan
+		culture_group = gondi_kui
+		culture_group = odia
+		culture_group = bihari_aryan 
+		culture_group = northern_aryan
+		culture_group = dardic 
+		culture_group = rajasthani
+		culture_group = malwi
+		culture_group = sindhi_aryan
+		culture_group = marathi_aryan
+		culture_group = simhalese
+		culture_group = bodo_koch
+	}
+}
+
+cu_native_trigger = {
+	OR = {
+		government = native
+		AND = {
+			capital_scope = {
+				OR = {
+					continent = new_world
+					continent = north_america
+					continent = south_america
+				}
+			}
+			OR = {
+				technology_group = north_american
+				technology_group = south_american
+				technology_group = andean
+				technology_group = mesoamerican
+			}
+			NOT = { check_variable = { which = ave_literacy value = 1 } }
+		}
+	}
+}
+
+cu_ai_buff_trigger = {
+	OR = {
+		NOT = { 
+			any_known_country = {
+				OR = {
+					junior_union_with = ROOT
+					senior_union_with = ROOT
+					vassal_of = ROOT
+					overlord_of = ROOT
+				}
+				ai = no
+			}
+		}
+		is_subject_of_type = tributary_state
+		is_subject_of_type = protectorate
+	}
+	ai = yes
+}
+
+cu_hold_by_country_or_non_sovereign_subject_trigger = {
+    custom_trigger_tooltip = {
+        tooltip = cu_hold_by_country_or_non_sovereign_subject_tooltip
+        owner = {
+            OR = {
+                tag = $target$
+                AND = {
+                    is_subject_of = $target$
+                    NOT = { 
+                        OR = {
+                            is_subject_of_type = tributary_state
+                            is_subject_of_type = protectorate
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

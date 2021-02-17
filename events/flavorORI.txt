@@ -41,7 +41,7 @@ country_event = {
 	option = {
 		name = flavor_ori.1.b 
 		ai_chance = { factor = 10 }
-		add_stability_or_adm_power = yes #From keeping the status quo and supporting other deities.
+		cu_change_stability_point_p50 = yes #From keeping the status quo and supporting other deities.
 	}
 	
 }

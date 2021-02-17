@@ -1,0 +1,25 @@
+# No previous file for Kesagami
+
+add_core = WCR
+owner = WCR
+controller = WCR
+is_city = yes
+culture = cree
+religion = totemism
+capital = "Kesagami"
+trade_goods = fur
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+native_size = 5
+native_ferocity = 1
+native_hostileness = 2
+
+
+
+discovered_by = north_american
+
+1609.1.1 = { discovered_by = FRA } # Samuel de Champlain
+1664.1.1 = { discovered_by = ENG }
+1707.5.12 = { discovered_by = GBR }

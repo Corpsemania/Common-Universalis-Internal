@@ -1,0 +1,1885 @@
+namespace = core
+
+###Integration of newly conquered province
+province_event = {
+	id = core.1
+	title = "core.1.t"
+	desc = "core.1.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	
+	trigger = {
+		owner = {
+			NOT = { has_country_flag = cu_core_event_auto }
+			NOT = { has_country_flag = cu_core_event_fired }
+			NOT = { has_country_flag = cabinet_auto_integration }
+		}
+	    has_province_flag = cu_newly_conquered_province
+		NOT = { has_province_modifier = cu_local_autonomy_administration }
+		is_core = owner 
+		OR = {
+		    owner = { adm_power = 10 }
+		    owner = { dip_power = 10 }
+			owner = { mil_power = 10 }
+		}
+		NOT = {
+			OR = {
+				has_province_modifier = cu_diplomatic_integration
+				has_province_modifier = cu_military_integration
+				has_province_modifier = cu_civilian_integration
+			}
+		}
+	}
+	
+	after = {
+		owner = {
+			clr_country_flag = cu_core_event_fired
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 2
+	}
+
+    immediate = {
+	    hidden_effect = {
+		    owner = {
+			    set_country_flag = cu_core_event_fired 
+				export_to_variable = {
+					which = cu_power_pac
+					value = development
+					who = ROOT
+				}
+				multiply_variable = { which = cu_power_pac value = 7 }
+				if = {
+					limit = { check_variable = { which = cu_power_pac value = 300 } }
+					set_variable = { which = cu_power_pac which = 300 }
+				}
+				cu_calc_power_cost_pac = yes
+			}
+		    add_province_modifier = {
+			    name = cu_local_autonomy_administration
+				duration = -1
+			}
+		}
+	}
+	option = {
+		name = "core.1.a" #Set up civilian administration
+		trigger = {
+		    owner = {
+				OR = {
+					AND = {
+					    adm_power = 1
+						NOT = { check_variable = { which = cu_power_pac value = 100 } }
+					}
+					AND = {
+					    adm_power = 100
+						NOT = { check_variable = { which = cu_power_pac value = 200 } }
+					}
+					AND = {
+					    adm_power = 200
+					}
+				}
+			}
+		}
+		hidden_effect = {
+		    clr_province_flag = cu_newly_conquered_province
+			remove_province_modifier = cu_local_autonomy_administration
+		}
+		owner = { cu_subtract_adm_power_pac = yes }
+		add_province_modifier = {
+		    name = cu_civilian_integration
+			duration = 3650
+		}
+		custom_tooltip = core.1.at
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 20 }
+			cu_add_cultural_acceptance = yes
+		}
+		custom_tooltip = cu_add_cultural_acceptance_20tt
+		ai_chance = {
+		    factor = 30
+			modifier = {
+			    factor = 0.5
+			    owner = { check_variable = { which = go value = 101 } }
+			}
+			modifier = {
+			    factor = 0.1
+			    owner = { check_variable = { which = go value = 130 } }
+			}
+			modifier = {
+			    factor = 0.25
+			    government = tribal
+				is_nomad = no
+			}
+			modifier = {
+			    factor = 0.1
+				is_nomad = yes
+			}
+		}
+	}
+	option = {
+		name = "core.1.e" #Corporate with local nobles
+		trigger = {
+		    owner = {
+				OR = {
+					AND = {
+					    dip_power = 1
+						NOT = { check_variable = { which = cu_power_pac value = 100 } }
+					}
+					AND = {
+					    dip_power = 100
+						NOT = { check_variable = { which = cu_power_pac value = 200 } }
+					}
+					AND = {
+					    dip_power = 200
+					}
+				}
+			}
+		}
+		hidden_effect = {
+		    clr_province_flag = cu_newly_conquered_province
+			remove_province_modifier = cu_local_autonomy_administration
+		}
+		owner = { cu_subtract_dip_power_pac = yes }
+		add_local_autonomy = 10
+		add_nationalism = -2
+		add_province_modifier = {
+		    name = cu_diplomatic_integration
+			duration = 3650
+		}
+		custom_tooltip = core.1.et
+		ai_chance = {
+		    factor = 30
+			modifier = {
+			    factor = 0.5
+			    owner = { check_variable = { which = go value = 101 } }
+			}
+			modifier = {
+			    factor = 0.1
+			    owner = { check_variable = { which = go value = 130 } }
+			}
+			modifier = {
+			    factor = 0.5
+			    government = tribal
+				is_nomad = no
+			}
+			modifier = {
+			    factor = 0.5
+				is_nomad = yes
+			}
+		}
+	}
+	option = {
+		name = "core.1.b" #Set up military administration
+		trigger = {
+		    owner = {
+				OR = {
+					AND = {
+					    mil_power = 1
+						NOT = { check_variable = { which = cu_power_pac value = 100 } }
+					}
+					AND = {
+					    mil_power = 100
+						NOT = { check_variable = { which = cu_power_pac value = 200 } }
+					}
+					AND = {
+					    mil_power = 200
+					}
+				}
+				manpower_percentage = 0.1
+			}
+		}
+		hidden_effect = {
+		    clr_province_flag = cu_newly_conquered_province
+			remove_province_modifier = cu_local_autonomy_administration
+		}
+		owner = { add_manpower = -1 }
+		owner = { cu_subtract_mil_power_pac = yes }
+		add_province_modifier = {
+		    name = cu_military_integration
+			duration = 3650
+		}
+		custom_tooltip = core.1.bt
+		ai_chance = {
+		    factor = 30
+			modifier = {
+			    factor = 0.5
+			    owner = { check_variable = { which = go value = 101 } }
+			}
+			modifier = {
+			    factor = 0.1
+			    owner = { check_variable = { which = go value = 130 } }
+			}
+			modifier = {
+			    factor = 2
+			    government = tribal
+				is_nomad = no
+			}
+			modifier = {
+			    factor = 3
+				is_nomad = yes
+			}
+		}
+	}
+	option = {
+		name = "core.1.c" #Leave it to locals
+		add_province_modifier = {
+		    name = cu_local_autonomy_administration
+			duration = -1
+		}
+		custom_tooltip = core.1.ct
+		ai_chance = {
+		    factor = 0
+		}
+	}
+	option = {
+		name = "core.1.d1" #We shall decide later
+		hidden_effect = { remove_province_modifier = cu_local_autonomy_administration }
+		add_province_modifier = {
+		    name = cu_local_autonomy_administration
+			duration = 365
+		}
+		custom_tooltip = core.1.dt
+		ai_chance = {
+		    factor = 10
+		}
+	}
+}
+
+###Supress Nationalism
+province_event = {
+    id = core.2
+	title = "core.2.t"
+	desc = "core.2.d"
+	picture = BAD_WITH_MONARCH_eventPicture
+	immediate = {
+		hidden_effect = {
+			owner = {
+				export_to_variable = {
+					which = cu_power
+					value = development
+					who = ROOT
+				}
+				if = {
+					limit = { check_variable = { which = cu_power value = 41 } }
+					set_variable = { which = cu_power which = 40 }
+				}
+				multiply_variable = { which = cu_power value = 2 }
+				cu_calc_power_cost_pac = yes
+			}
+		}
+	}
+	is_triggered_only = yes
+
+	option = {
+		hidden_effect = {
+			owner = {
+				export_to_variable = {
+					which = cu_power
+					value = development
+					who = ROOT
+				}
+				if = {
+					limit = { check_variable = { which = cu_power value = 41 } }
+					set_variable = { which = cu_power which = 40 }
+				}
+				multiply_variable = { which = cu_power value = 2 }
+				cu_calc_power_cost_pac = yes
+			}
+		}
+		name = "core.2.a" #Do it.
+		if = {
+			limit = { has_province_modifier = suppress_nationalism_2 }
+			remove_province_modifier = suppress_nationalism_2
+			add_province_modifier = {
+				name = suppress_nationalism_3
+				duration = 7300
+			}
+		}
+		else_if = {
+			limit = { has_province_modifier = suppress_nationalism_1 }
+			remove_province_modifier = suppress_nationalism_1
+			add_province_modifier = {
+				name = suppress_nationalism_2
+				duration = 7300
+			}
+		}
+		else = {
+			limit = {
+				NOT = { has_province_modifier = suppress_nationalism_1 }
+				NOT = { has_province_modifier = suppress_nationalism_2 }
+				NOT = { has_province_modifier = suppress_nationalism_3 }
+			}
+			add_province_modifier = {
+				name = suppress_nationalism_1
+				duration = 7300
+			}
+		}
+		owner = { cu_subtract_mil_power = yes }
+		hidden_effect = {
+			set_variable = { which = cu_var1 value = 2 }
+			cu_add_cultural_acceptance = yes
+		}
+		custom_tooltip = cu_add_cultural_acceptance_2tt
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				OR = {
+					AND = { 
+						has_construction = core
+						NOT = { unrest = 1 }
+					}
+					NOT = { owner = { mil_power = 150 } }
+				}
+			}
+			modifier = {
+				factor = 0.1
+				OR = {
+					has_construction = core
+					NOT = { unrest = 1 }
+					NOT = { owner = { mil_power = 300 } }
+				}
+			}
+		} 
+	}
+
+	option = {
+		name = "core.2.b" #Don't bother them.
+		clr_province_flag = supress_nationalism_denied
+		set_province_flag = supress_nationalism_denied
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				unrest = 1
+				owner = { mil_power = 10 }
+			}
+		}
+	}
+}
+
+
+###Supress Heathens
+province_event = {
+    id = core.3
+	title = "core.3.t"
+	desc = "core.3.d"
+	picture = RELIGIOUS_TURMOIL_eventPicture
+	
+	trigger = {
+        is_colony = no
+		cu_pac_trigger = yes
+		NOT = { religion = secondary }
+		NOT = { owner = { religion_group = ROOT } }
+		OR = { 
+			owner = { NOT = { religious_unity = 0.75 } }
+			full_idea_group = religious_ideas
+		}
+		OR = {
+			owner = { 
+				adm_power = 50  
+				mil_power = 50 
+			}
+			AND = {
+				owner = { 
+					adm_power = 25  
+					mil_power = 25
+				}
+				NOT = { development = 6 }
+			}
+		}
+	}
+
+	mean_time_to_happen = {
+		months = 180
+                modifier = {
+                      factor = 0.75
+                      OR = {
+                            has_owner_culture = yes
+			    has_owner_accepted_culture = yes
+                            owner = { culture_group = ROOT }
+                      }
+                }
+                modifier = {
+                      factor = 1.25
+                      development = 20
+                }
+                modifier = {
+                      factor = 1.25
+                      development = 30
+                }
+                modifier = {
+                      factor = 1.25
+                      development = 40
+                }
+                modifier = {
+                      factor = 0.9
+                      owner = { has_country_modifier = large_state }
+                }
+                modifier = {
+                      factor = 0.85
+                      owner = { has_country_modifier = huge_state }
+                }
+                modifier = {
+                      factor = 0.80
+                      owner = { has_country_modifier = continental_state }
+                }
+                modifier = {
+                      factor = 0.75
+                      owner = { has_country_modifier = world_state }
+                }
+                modifier = {
+                      factor = 0.85
+                      is_claim = owner
+                }
+	}
+
+	option = {
+		name = "core.3.a" #Force Conversion
+		add_nationalism = -10
+		add_unrest = 10
+		if = {
+			limit = { development = 6 }
+			owner = { 
+				add_adm_power = -50
+				add_mil_power = -50 
+			}
+		}
+		else = {
+			owner = { 
+				add_adm_power = -25
+				add_mil_power = -25
+			}
+		}
+		change_religion = owner
+		ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				NOT = { 
+					owner = { mil_power = 50 } 
+				}
+			}
+		} 
+	}
+
+    option = {
+		name = "core.3.b" #Don't bother them.
+		add_unrest = -2
+        ai_chance = {
+			factor = 1
+			modifier = {
+				factor = 0
+				AND = { 
+					owner = { mil_power = 50 } 
+					owner = { adm_power = 50 } 
+				}
+			}
+        }
+	}
+}
+
+###France Gains Vassal Cores After Releasing Them.
+province_event = {
+    id = core.4
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = RELIGIOUS_TURMOIL_eventPicture
+	hidden = yes
+	trigger = {
+        region = france_region
+		NOT = { is_core = FRA }
+        NOT = { has_province_flag = france_core_added }
+        owner = {
+            culture_group = french
+            is_subject = no
+            OR = {
+				tag = FOI
+				tag = ORL
+				tag = AMG
+				tag = AUV
+				tag = BOU
+				tag = ALE
+            }
+        }
+	}
+
+	mean_time_to_happen = {
+	    days = 1
+	}
+
+	option = {
+	    name = "core.4.a"
+		add_territorial_core = FRA
+        set_province_flag = france_core_added  #Only happens once.
+	}
+}
+
+
+###Change Province Culture - Choose a way
+province_event = {
+    id = core.5
+	title = "core.5.t"
+	desc = "core.5.d"
+	picture = RELIGIOUS_TURMOIL_eventPicture
+	
+	is_triggered_only = yes
+
+	option = {
+		name = "core.5.a" #Education
+		trigger = {
+		    NOT = { has_province_modifier = cu_cultural_education }
+			NOT = { has_province_flag = cu_cultural_education_timer }
+			OR = {
+				has_building = university
+				has_building = public_school
+				has_province_modifier = cu_church_school
+			}
+			owner = {
+                OR = {
+					AND = {
+						adm_power = 60   
+						has_country_modifier = tiny_state
+					}
+					AND = {
+						adm_power = 50   
+						has_country_modifier = small_state
+					}
+					AND = {
+						adm_power = 45  
+						has_country_modifier = medium_state
+					}
+					AND = {
+						adm_power = 40
+						has_country_modifier = large_state
+					}
+					AND = {
+						adm_power = 35
+						has_country_modifier = huge_state	
+					}
+					AND = {
+						adm_power = 30
+						has_country_modifier = continental_state
+					}
+					AND = {
+						adm_power = 25
+						has_country_modifier = world_state
+					}
+			    }
+			}
+			OR = {
+				AND = {
+					NOT = { development = 5 }
+					owner = { treasury = 20 }
+				}
+				AND = {
+					development = 5
+					NOT = { development = 10 }
+					owner = { treasury = 30 }
+				}
+				AND = {
+					development = 10
+					NOT = { development = 15 }
+					owner = { treasury = 40 }
+				}
+				AND = {
+					development = 15
+					NOT = { development = 20 }
+					owner = { treasury = 50 }
+				}
+				AND = {
+					development = 20
+					NOT = { development = 25 }
+					owner = { treasury = 60 }
+				}
+				AND = {
+					development = 25
+					NOT = { development = 30 }
+					owner = { treasury = 70 }
+				}
+				AND = {
+					development = 30
+					NOT = { development = 35 }
+					owner = { treasury = 80 }
+				}
+				AND = {
+					development = 35
+					NOT = { development = 40 }
+					owner = { treasury = 90 }
+				}
+				AND = {
+					development = 40
+					owner = { treasury = 100 }
+				}
+			}
+		}
+		owner = {
+			if = {
+				limit = { has_country_modifier = tiny_state }
+				add_adm_power = -60
+			}
+			if = {
+				limit = { has_country_modifier = small_state }
+				add_adm_power = -50
+			}
+			if = {
+				limit = { has_country_modifier = medium_state }
+				add_adm_power = -45
+			}	
+			if = {
+				limit = { has_country_modifier = large_state }
+				add_adm_power = -40
+			}
+			if = {
+				limit = { has_country_modifier = huge_state }
+				add_adm_power = -35
+			}
+			if = {
+				limit = { has_country_modifier = continental_state }
+				add_adm_power = -30
+			}
+			if = {
+				limit = { has_country_modifier = world_state }
+				add_adm_power = -25
+			}
+		}
+		if = {
+			limit = { NOT = { development = 5 } }
+			owner = { add_treasury = -20 }
+		}
+		else_if = {
+			limit = { NOT = { development = 10 } }
+			owner = { add_treasury = -30 }
+		}
+		else_if = {
+			limit = { NOT = { development = 15 } }
+			owner = { add_treasury = -40 }
+		}
+		else_if = {
+			limit = { NOT = { development = 20 } }
+			owner = { add_treasury = -50 }
+		}
+		else_if = {
+			limit = { NOT = { development = 25 } }
+			owner = { add_treasury = -60 }
+		}
+		else_if = {
+			limit = { NOT = { development = 30 } }
+			owner = { add_treasury = -70 }
+		}
+		else_if = {
+			       limit = { 
+				         NOT = { development = 35 }
+						 development = 30
+				   }
+				   owner = { add_treasury = -80 }
+		}
+		if = {
+			       limit = { 
+				         NOT = { development = 40 }
+						 development = 35
+				   }
+				   owner = { add_treasury = -90 }
+		}
+		if = {
+			       limit = { 
+						 development = 40
+				   }
+				   owner = { add_treasury = -100 }
+		}
+        custom_tooltip = core.5.at
+        add_province_modifier = {
+		     name = cu_cultural_education
+			 duration = -1
+		}		
+		clr_province_flag = cu_cultural_education_timer
+		set_province_flag = cu_cultural_education_timer
+		
+		ai_chance = {
+		        factor = 50
+		}
+	}
+
+    option = {
+		name = "core.5.b" #Forced Immigration
+		trigger = {
+		    NOT = { has_province_modifier = cu_cultural_immigration }
+			NOT = { has_province_flag = cu_cultural_immigration_timer }
+			owner = {
+			      treasury = 80
+			      any_owned_province = {
+				        has_owner_culture = yes
+						OR = {
+						      continent = ROOT
+							  AND = {
+							       has_port = yes
+								   ROOT = { has_port = yes }
+							  }
+						}
+				        base_tax = 5
+						base_production = 5
+						base_manpower = 5
+						NOT = { has_province_modifier = forced_emmigration }
+						NOT = { local_autonomy = 20 }
+				  }
+			}
+			owner = {
+                OR = {
+                        AND = {
+								dip_power = 60   
+                                has_country_modifier = tiny_state
+					    }
+						AND = {
+								dip_power = 50   
+                                has_country_modifier = small_state
+					    }
+						AND = {
+								dip_power = 45  
+                                has_country_modifier = medium_state
+					    }
+				        AND = {
+								dip_power = 40
+                                has_country_modifier = large_state
+					    }
+						AND = {
+								dip_power = 35
+                                has_country_modifier = huge_state	
+					    }
+						AND = {
+								dip_power = 30
+                                has_country_modifier = continental_state
+					    }
+						AND = {
+								dip_power = 25
+                                has_country_modifier = world_state
+					    }
+				}
+			}       
+		}
+		hidden_effect = {
+		         set_variable = { which = cu_tax_inc value = 0 }
+				 set_variable = { which = cu_pro_inc value = 0 }
+				 set_variable = { which = cu_pro_inc value = 0 }
+		}
+		owner = {
+		         add_treasury = -80
+				 if = {
+				        limit = { has_country_modifier = tiny_state }
+						add_dip_power = -60
+				 }
+		         if = {
+				        limit = { has_country_modifier = small_state }
+						add_dip_power = -50
+				 }
+				 if = {
+				        limit = { has_country_modifier = medium_state }
+						add_dip_power = -45
+				 }
+				 if = {
+				        limit = { has_country_modifier = large_state }
+						add_dip_power = -40
+				 }
+				 if = {
+				        limit = { has_country_modifier = huge_state }
+						add_dip_power = -35
+				 }
+		         if = {
+				        limit = { has_country_modifier = continental_state }
+						add_dip_power = -30
+				 }
+				 if = {
+				        limit = { has_country_modifier = world_state }
+						add_dip_power = -25
+				 }
+				 
+				 random_owned_province = {
+				       limit = {
+					           has_owner_culture = yes
+						   OR = {
+						      continent = ROOT
+							  AND = {
+							       has_port = yes
+								   ROOT = { has_port = yes }
+							  }
+						  }
+				          base_tax = 5
+						  base_production = 5
+						  base_manpower = 5
+						  NOT = { has_province_modifier = forced_emmigration }
+					   }
+					   random_list = {
+					         25 = { 
+							        cu_reduce_base_tax_1 = yes 
+							        hidden_effect = {
+									        ROOT = { change_variable = { which = cu_tax_inc value = 1 } }		
+									}
+							 }
+							 25 = { 
+							        cu_reduce_base_production_1 = yes 
+									hidden_effect = {
+									        ROOT = { change_variable = { which = cu_pro_inc value = 1 } }
+									}
+							}
+							 50 = { 
+							        cu_reduce_base_manpower_1 = yes 
+									hidden_effect = {
+									       ROOT = { change_variable = { which = cu_pro_inc value = 1 } }
+									}
+							 }
+					   }
+					   hidden_effect = {
+					   add_province_modifier = {
+					         name = forced_emmigration
+							 duration = 3650
+					   }
+				 }
+			}
+		}
+		custom_tooltip = core.5.bt
+		ai_chance = {
+		        factor = 20
+		}
+	}
+	
+	option = {
+		name = "core.5.c" #Expel
+		trigger = {
+		      NOT = { has_province_modifier = cu_cultural_expelling }
+	          NOT = { has_province_flag = cu_cultural_expelling_timer }
+			  base_tax = 2
+			  base_production = 2
+			  base_manpower = 2
+			  development = 5
+			  check_variable = { which = culture_app value = 0.5 }
+			  owner = {
+			        OR = {
+                        AND = {
+								mil_power = 60   
+                                has_country_modifier = tiny_state
+					    }
+						AND = {
+								mil_power = 50   
+                                has_country_modifier = small_state
+					    }
+						AND = {
+								mil_power = 45  
+                                has_country_modifier = medium_state
+					    }
+				        AND = {
+								mil_power = 40
+                                has_country_modifier = large_state
+					    }
+						AND = {
+								mil_power = 35
+                                has_country_modifier = huge_state	
+					    }
+						AND = {
+								mil_power = 30
+                                has_country_modifier = continental_state
+					    }
+						AND = {
+								mil_power = 25
+                                has_country_modifier = world_state
+					    }
+					}
+			}
+			owner = { manpower_percentage = 0.2 }
+			
+		}
+		owner = {
+		         add_manpower = -3
+				 if = {
+				        limit = { has_country_modifier = tiny_state }
+						add_mil_power = -60
+				 }
+		         if = {
+				        limit = { has_country_modifier = small_state }
+						add_mil_power = -50
+				 }
+				 if = {
+				        limit = { has_country_modifier = medium_state }
+						add_mil_power = -45
+				 }
+				 if = {
+				        limit = { has_country_modifier = large_state }
+						add_mil_power = -40
+				 }
+				 if = {
+				        limit = { has_country_modifier = huge_state }
+						add_mil_power = -35
+				 }
+		         if = {
+				        limit = { has_country_modifier = continental_state }
+						add_mil_power = -30
+				 }
+				 if = {
+				        limit = { has_country_modifier = world_state }
+						add_mil_power = -25
+				 }
+		}
+		set_province_flag = cu_cultural_expelling_timer
+		add_province_modifier = {
+		       name = cu_cultural_expelling
+			   duration = -1
+		}
+		hidden_effect = {
+		     random_list = {
+			       40 = {  }
+				   60 = { set_province_flag = emmigration_on }
+			 }
+		}
+		custom_tooltip = core.5.ct
+		ai_chance = {
+		        factor = 20
+		}
+	}
+	
+	option = {
+		name = "core.5.d1" #Exit
+		ai_chance = {
+		        factor = 10
+		}
+		
+	}
+}
+
+###Change Province Culture - Education Complete
+province_event = {
+    id = core.51
+	title = "core.51.t"
+	desc = "core.51.d"
+	picture = RELIGIOUS_TURMOIL_eventPicture
+	
+	trigger = {
+          has_province_modifier = cu_cultural_education
+          had_province_flag = {
+		          flag = cu_cultural_education_timer
+				  days = 3650
+		  }		 		  
+	}
+	
+	mean_time_to_happen = {
+	      months = 12
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		      clr_province_flag = cu_cultural_education_timer
+		      if = {
+			        limit = {  
+					        NOT = { check_variable = { which = culture_ap value = 0 } } #Initialize
+					}
+					set_variable = { which = culture_ap value = 0 }
+			  }
+		      set_variable = { which = culture_apg value = 1 } #Base Value
+			  set_variable = { which = culture_aplm value = 0.8 } #Literacy Modifier
+			  set_variable = { which = culture_apdm value = 0 } #Development Modifier
+			  set_variable = { which = culture_apem value = 1 } #Idea&Effect Modifier
+			  set_variable = { which = culture_temp value = 0 } #Used below
+			  
+			  set_variable = { which = culture_app value = 1 } #Culture Acceptance Ratio
+			  
+			  #Development Modifier ( = 1 + dev / 20 )
+			  export_to_variable = {
+			        which = culture_apdm
+					value = development
+			  }
+			  divide_variable = { which = culture_apdm value = 20 }
+			  change_variable = { which = culture_apdm value = 1 }
+			  
+			  multiply_variable = { which = culture_apg which = culture_apdm }
+			  
+			  #Literacy Modifier( = 0.2 + 0.8/Literacy + Building Modifier )
+			  
+			  divide_variable = { which = culture_aplm which = literacy }
+			  change_variable = { which = culture_aplm value = 0.2 }
+			  
+			  if = {
+			         limit = {
+					       has_building = university
+					 }
+					 change_variable = { which = culture_aplm value = 0.2 }
+			  }
+			  
+			  if = {
+			         limit = {
+					       has_building = public_school
+					 }
+					 change_variable = { which = culture_aplm value = 0.2 }
+			  }
+			  
+			  multiply_variable = { which = culture_apg which = culture_aplm }
+			  
+			  #Cultural Conversion Time Modifier
+			  export_to_variable = {
+					        which = culture_temp
+							value = modifier:mercantilism_cost
+							who = owner
+			  }
+			  change_variable = { which = culture_temp value = 1 }
+			  if = {
+			       limit = {
+				         NOT = { check_variable = { which = culture_temp value = 0.1 } }
+				   }
+				   set_variable = { which= culture_temp value = 0.1 }
+			  }
+			  divide_variable = { which = culture_apem which = culture_temp }
+			  multiply_variable = { which = culture_apg which = culture_apdm }
+			  
+			  change_variable = { which = culture_ap which = culture_apg }
+			  
+			  set_province_flag = cu_culture_gcheck
+		}
+	}
+	
+	option = { #Continue
+	      name = "core.51.a"
+		  trigger = {
+		           NOT = { check_variable = { which = culture_app value = 1 } }
+				   OR = {
+			            has_building = university
+				        has_building = public_school
+				        has_province_modifier = cu_church_school
+			       }
+				   OR = {
+                        owner = {
+								adm_power = 60   
+                                has_country_modifier = tiny_state
+					    }
+						owner = {
+								adm_power = 50   
+                                has_country_modifier = small_state
+					    }
+						owner = {
+								adm_power = 45  
+                                has_country_modifier = medium_state
+					    }
+				        owner = {
+								adm_power = 40
+                                has_country_modifier = large_state
+					    }
+						owner = {
+								adm_power = 35
+                                has_country_modifier = huge_state	
+					    }
+						owner = {
+								adm_power = 30
+                                has_country_modifier = continental_state
+					    }
+						owner = {
+								adm_power = 25
+                                has_country_modifier = world_state
+					    }
+			}
+			OR = {
+			       AND = {
+						   NOT = { development = 5 }
+						   owner = { treasury = 20 }
+				   }
+			       AND = {
+				           development = 5
+						   NOT = { development = 10 }
+						   owner = { treasury = 30 }
+				   }
+				   AND = {
+				           development = 10
+						   NOT = { development = 15 }
+						   owner = { treasury = 40 }
+				   }
+				   AND = {
+				           development = 15
+						   NOT = { development = 20 }
+						   owner = { treasury = 50 }
+				   }
+				   AND = {
+				           development = 20
+						   NOT = { development = 25 }
+						   owner = { treasury = 60 }
+				   }
+				   AND = {
+				           development = 25
+						   NOT = { development = 30 }
+						   owner = { treasury = 70 }
+				   }
+				   AND = {
+				           development = 30
+						   NOT = { development = 35 }
+						   owner = { treasury = 80 }
+				   }
+				   AND = {
+				           development = 35
+						   NOT = { development = 40 }
+						   owner = { treasury = 90 }
+				   }
+				   AND = {
+				           development = 40
+						   owner = { treasury = 100 }
+				   }
+			}
+		  }
+		  custom_tooltip = cu_add_cultural_acceptance_tt
+		  if = {
+			       limit = { 
+				         owner = { has_country_modifier = tiny_state }
+				   }
+				   owner = { add_adm_power = -60 }
+		}
+        if = {
+			       limit = { 
+				         owner = { has_country_modifier = small_state }
+				   }
+				   owner = { add_adm_power = -50 }
+		}
+        if = {
+			       limit = { 
+				         owner = { has_country_modifier = medium_state }
+				   }
+				   owner = { add_adm_power = -45 }
+		}	
+        if = {
+			       limit = { 
+				         owner = { has_country_modifier = large_state }
+				   }
+				   owner = { add_adm_power = -40 }
+		}
+        if = {
+			       limit = { 
+				         owner = { has_country_modifier = huge_state }
+				   }
+				   owner = { add_adm_power = -35 }
+		}
+        if = {
+			       limit = { 
+				         owner = { has_country_modifier = continental_state }
+				   }
+				   owner = { add_adm_power = -30 }
+		}
+        if = {
+			       limit = { 
+				         owner = { has_country_modifier = world_state }
+				   }
+				   owner = { add_adm_power = -25 }
+		}
+		if = {
+			       limit = { 
+				         NOT = { development = 5 }
+				   }
+				   owner = { add_treasury = -20 }
+		}
+		if = {
+			       limit = { 
+				         NOT = { development = 10 }
+						 development = 5
+				   }
+				   owner = { add_treasury = -30 }
+		}
+		if = {
+			       limit = { 
+				         NOT = { development = 15 }
+						 development = 10
+				   }
+				   owner = { add_treasury = -40 }
+		}
+		if = {
+			       limit = { 
+				         NOT = { development = 20 }
+						 development = 15
+				   }
+				   owner = { add_treasury = -50 }
+		}
+		if = {
+			       limit = { 
+				         NOT = { development = 25 }
+						 development = 20
+				   }
+				   owner = { add_treasury = -60 }
+		}
+		if = {
+			       limit = { 
+				         NOT = { development = 30 }
+						 development = 25
+				   }
+				   owner = { add_treasury = -70 }
+		}
+		if = {
+			       limit = { 
+				         NOT = { development = 35 }
+						 development = 30
+				   }
+				   owner = { add_treasury = -80 }
+		}
+		if = {
+			       limit = { 
+				         NOT = { development = 40 }
+						 development = 35
+				   }
+				   owner = { add_treasury = -90 }
+		}
+		if = {
+			       limit = { 
+						 development = 40
+				   }
+				   owner = { add_treasury = -100 }
+		}
+		  custom_tooltip = core.5.at
+		  set_province_flag = cu_cultural_education_timer 
+		  
+		  ai_chance = {
+		        factor = 50
+		}
+	}
+	
+	option = { #Stop here
+	      name = "core.51.b"
+		  remove_province_modifier = cu_cultural_education
+		  custom_tooltip = cu_add_cultural_acceptance_tt
+		 
+		 ai_chance = {
+		        factor = 50
+		}
+	}
+	
+}
+
+###Change Province Culture - Migration Complete
+province_event = {
+    id = core.52
+	title = "core.52.t"
+	desc = "core.52.d"
+	picture = RELIGIOUS_TURMOIL_eventPicture
+	
+	trigger = {
+          has_province_modifier = cu_cultural_immigration
+          had_province_flag = {
+		          flag = cu_cultural_immigration_timer
+				  days = 730
+		  }		 		  
+	}
+	
+	mean_time_to_happen = {
+	      months = 6
+	}
+	
+	immediate = {
+	    hidden_effect = {
+		      clr_province_flag = cu_cultural_immigration_timer
+			  if = {
+			        limit = {  
+					        NOT = { check_variable = { which = culture_ap value = 0 } } #Initialize
+					}
+					set_variable = { which = culture_ap value = 0 }
+			  }
+		      set_variable = { which = culture_apg value = 2 } #Base Value
+			  set_variable = { which = culture_aplm value = 0.8 } #Literacy Modifier
+			  set_variable = { which = culture_apem value = 1 } #Idea&Effect Modifier
+			  set_variable = { which = culture_temp value = 0 } #Used below
+			  
+			  set_variable = { which = culture_app value = 1 } #Culture Acceptance Ratio
+			  
+			  #Literacy Modifier( = 0.2 + 0.8/Literacy )
+			  
+			  divide_variable = { which = culture_aplm which = literacy }
+			  change_variable = { which = culture_aplm value = 0.2 }
+			  
+			  multiply_variable = { which = culture_apg which = culture_aplm }
+			  
+			  #Cultural Conversion Time Modifier
+			  export_to_variable = {
+					        which = culture_temp
+							value = modifier:mercantilism_cost
+							who = owner
+			  }
+			  change_variable = { which = culture_temp value = 1 }
+			  if = {
+			       limit = {
+				         NOT = { check_variable = { which = culture_temp value = 0.1 } }
+				   }
+				    set_variable = { which= culture_temp value = 0.1 }
+			  }
+			  divide_variable = { which = culture_apem which = culture_temp }
+			  multiply_variable = { which = culture_apg which = culture_apdm }
+			  
+			  change_variable = { which = culture_ap which = culture_apg }
+			  
+			  if = {
+			     limit = { check_variable = { which = culture_ap which = p_dev } }
+				 set_province_flag = culture_ap100
+			  }
+			  
+			  set_province_flag = cu_culture_gcheck
+		}
+	}
+	
+	option = { #Continue
+	         name = "core.52.a"
+			 trigger = {
+			         NOT = { check_variable = { which = culture_app value = 1 } }
+					 owner = {
+			      treasury = 80
+			      any_owned_province = {
+				        has_owner_culture = yes
+						OR = {
+						      continent = ROOT
+							  AND = {
+							       has_port = yes
+								   ROOT = { has_port = yes }
+							  }
+						}
+				        base_tax = 5
+						base_production = 5
+						base_manpower = 5
+						NOT = { has_province_modifier = forced_emmigration }
+				  }
+			}
+            OR = {
+                        owner = {
+								dip_power = 60   
+                                has_country_modifier = tiny_state
+					    }
+						owner = {
+								dip_power = 50   
+                                has_country_modifier = small_state
+					    }
+						owner = {
+								dip_power = 45  
+                                has_country_modifier = medium_state
+					    }
+				        owner = {
+								dip_power = 40
+                                has_country_modifier = large_state
+					    }
+						owner = {
+								dip_power = 35
+                                has_country_modifier = huge_state	
+					    }
+						owner = {
+								dip_power = 30
+                                has_country_modifier = continental_state
+					    }
+						owner = {
+								dip_power = 25
+                                has_country_modifier = world_state
+					    }
+			}
+			 }
+			 
+			 if = {
+			        limit = {
+					      check_variable = { which = cu_tax_inc value = 2 }
+					}
+					cu_add_base_tax_2 = yes
+					else = {
+					      if = {
+						         limit = { check_variable = { which = cu_tax_inc value = 1 } }
+								 cu_add_base_tax_1 = yes
+						  }
+					}
+			 }
+			 if = {
+			        limit = {
+					      check_variable = { which = cu_pro_inc value = 2 }
+					}
+					cu_add_base_production_2 = yes
+					else = {
+					      if = {
+						         limit = { check_variable = { which = cu_pro_inc value = 1 } }
+								 cu_add_base_production_1 = yes
+						  }
+					}
+			 }
+			 if = {
+			        limit = {
+					      check_variable = { which = cu_man_inc value = 2 }
+					}
+					cu_add_base_manpower_2 = yes
+					else = {
+					      if = {
+						         limit = { check_variable = { which = cu_man_inc value = 1 } }
+								 cu_add_base_manpower_1 = yes
+						  }
+					}
+			 }
+			 
+			 add_unrest = 5
+			 custom_tooltip = cu_add_cultural_acceptance_tt
+			 hidden_effect = {
+			       set_variable = { which = cu_tax_inc value = 0 }
+				   set_variable = { which = cu_pro_inc value = 0 }
+				   set_variable = { which = cu_man_inc value = 0 }
+			 }
+			 hidden_effect = {
+				 set_variable = { which = cu_tax_inc value = 0 }
+				 set_variable = { which = cu_pro_inc value = 0 }
+				 set_variable = { which = cu_pro_inc value = 0 }
+			}
+			 owner = {
+		         add_treasury = -80
+				 if = {
+				        limit = { has_country_modifier = tiny_state }
+						add_dip_power = -60
+				 }
+		         if = {
+				        limit = { has_country_modifier = small_state }
+						add_dip_power = -50
+				 }
+				 if = {
+				        limit = { has_country_modifier = medium_state }
+						add_dip_power = -45
+				 }
+				 if = {
+				        limit = { has_country_modifier = large_state }
+						add_dip_power = -40
+				 }
+				 if = {
+				        limit = { has_country_modifier = huge_state }
+						add_dip_power = -35
+				 }
+		         if = {
+				        limit = { has_country_modifier = continental_state }
+						add_dip_power = -30
+				 }
+				 if = {
+				        limit = { has_country_modifier = world_state }
+						add_dip_power = -25
+				 }
+				 
+				 random_owned_province = {
+				       limit = {
+					           has_owner_culture = yes
+						   OR = {
+						      continent = ROOT
+							  AND = {
+							       has_port = yes
+								   ROOT = { has_port = yes }
+							  }
+						  }
+				          base_tax = 5
+						  base_production = 5
+						  base_manpower = 5
+						  NOT = { has_province_modifier = forced_emmigration }
+					   }
+					   random_list = {
+					         25 = { 
+							        cu_reduce_base_tax_1 = yes 
+							        hidden_effect = {
+									        ROOT = { change_variable = { which = cu_tax_inc value = 1 } }		
+									}
+							 }
+							 25 = { 
+							        cu_reduce_base_production_1 = yes 
+									hidden_effect = {
+									        ROOT = { change_variable = { which = cu_pro_inc value = 1 } }
+									}
+							}
+							 50 = { 
+							        cu_reduce_base_manpower_1 = yes 
+									hidden_effect = {
+									       ROOT = { change_variable = { which = cu_pro_inc value = 1 } }
+									}
+							 }
+					   }
+					   random_list = {
+					         25 = { 
+							        cu_reduce_base_tax_1 = yes 
+							        hidden_effect = {
+									        ROOT = { change_variable = { which = cu_tax_inc value = 1 } }		
+									}
+							 }
+							 25 = { 
+							        cu_reduce_base_production_1 = yes 
+									hidden_effect = {
+									        ROOT = { change_variable = { which = cu_pro_inc value = 1 } }
+									}
+							}
+							 50 = { 
+							        cu_reduce_base_manpower_1 = yes 
+									hidden_effect = {
+									       ROOT = { change_variable = { which = cu_pro_inc value = 1 } }
+									}
+							 }
+					   }
+				 }
+		     }
+			 set_province_flag = cu_cultural_immigration_timer
+			 custom_tooltip = core.5.bt 
+			 ai_chance = {
+		        factor = 50
+		     }
+	}
+	option = { #Stop
+	         name = "core.52.b"
+			 if = {
+			        limit = {
+					      check_variable = { which = cu_tax_inc value = 2 }
+					}
+					cu_add_base_tax_2 = yes
+					else = {
+					      if = {
+						         limit = { check_variable = { which = cu_tax_inc value = 1 } }
+								 cu_add_base_tax_1 = yes
+						  }
+					}
+			 }
+			 if = {
+			        limit = {
+					      check_variable = { which = cu_pro_inc value = 2 }
+					}
+					cu_add_base_production_2 = yes
+					else = {
+					      if = {
+						         limit = { check_variable = { which = cu_pro_inc value = 1 } }
+								 cu_add_base_production_1 = yes
+						  }
+					}
+			 }
+			 if = {
+			        limit = {
+					      check_variable = { which = cu_man_inc value = 2 }
+					}
+					cu_add_base_manpower_2 = yes
+					else = {
+					      if = {
+						         limit = { check_variable = { which = cu_man_inc value = 1 } }
+								 cu_add_base_manpower_1 = yes
+						  }
+					}
+			 }
+			 remove_province_modifier = cu_cultural_immigration
+			 add_unrest = 5
+			 hidden_effect = {
+			       set_variable = { which = cu_tax_inc value = 0 }
+				   set_variable = { which = cu_pro_inc value = 0 }
+				   set_variable = { which = cu_man_inc value = 0 }
+			 }
+			 custom_tooltip = cu_add_cultural_acceptance_tt
+			 
+			 ai_chance = {
+		        factor = 50
+		}
+	}
+}
+
+###Change Province Culture - Expelling Complete
+province_event = {
+    id = core.53
+	title = "core.53.t"
+	desc = "core.53.d"
+	picture = RELIGIOUS_TURMOIL_eventPicture
+	
+	trigger = {
+        has_province_modifier = cu_cultural_expelling
+        had_province_flag = {
+		    flag = cu_cultural_expelling_timer
+			days = 365
+		}		 		  
+	}
+	
+	mean_time_to_happen = {
+	      months = 2
+	}
+	
+	immediate = {
+	    hidden_effect = {
+			   set_province_flag = cu_culture_gcheck
+			   clr_province_flag = cu_cultural_expelling_timer
+		}
+	}
+	
+	option = { #Continue
+	      name = "core.53.a"
+		  
+		  trigger = {
+		          NOT = { check_variable = { which = culture_app value = 1 } }
+				  base_tax = 2
+			  base_production = 2
+			  base_manpower = 2
+			  development = 5
+			  OR = {
+                        owner = {
+								mil_power = 60   
+                                has_country_modifier = tiny_state
+					    }
+						owner = {
+								mil_power = 50   
+                                has_country_modifier = small_state
+					    }
+						owner = {
+								mil_power = 45  
+                                has_country_modifier = medium_state
+					    }
+				        owner = {
+								mil_power = 40
+                                has_country_modifier = large_state
+					    }
+						owner = {
+								mil_power = 35
+                                has_country_modifier = huge_state	
+					    }
+						owner = {
+								mil_power = 30
+                                has_country_modifier = continental_state
+					    }
+						owner = {
+								mil_power = 25
+                                has_country_modifier = world_state
+					    }
+			}
+			owner = { manpower_percentage = 0.2 }
+		  }
+		  
+		  set_province_flag = cu_cultural_expelling_timer
+		  
+		  random_list = {
+		         30 = { cu_reduce_base_tax_1 = yes }
+				 30 = { cu_reduce_base_production_1 = yes }
+				 40 = { cu_reduce_base_manpower_1 = yes }
+		  }
+		  if = {
+		         limit = {
+				      base_tax = 2
+					  base_production = 2
+					  base_manpower = 2
+				 }
+				 random_list = {
+		            30 = { cu_reduce_base_tax_1 = yes }
+				    30 = { cu_reduce_base_production_1 = yes }
+				    40 = { cu_reduce_base_manpower_1 = yes }
+		         }
+				 else = {
+				       if = {
+					          limit = { base_manpower = 2 }
+							  cu_reduce_base_manpower_1 = yes
+							  else = {
+							         if = {
+									       limit = {
+										          base_tax = 2
+										   }
+										   cu_reduce_base_tax_1 = yes
+										   else = {
+										          cu_reduce_base_production_1 = yes
+										   }
+									 }
+							  }
+					   }
+				 }
+		  }
+		  
+		  custom_tooltip = cu_add_cultural_acceptance_tt
+		  
+		  owner = {
+		         add_manpower = -3
+				 if = {
+				        limit = { has_country_modifier = tiny_state }
+						add_mil_power = -60
+				 }
+		         if = {
+				        limit = { has_country_modifier = small_state }
+						add_mil_power = -50
+				 }
+				 if = {
+				        limit = { has_country_modifier = medium_state }
+						add_mil_power = -45
+				 }
+				 if = {
+				        limit = { has_country_modifier = large_state }
+						add_mil_power = -40
+				 }
+				 if = {
+				        limit = { has_country_modifier = huge_state }
+						add_mil_power = -35
+				 }
+		         if = {
+				        limit = { has_country_modifier = continental_state }
+						add_mil_power = -30
+				 }
+				 if = {
+				        limit = { has_country_modifier = world_state }
+						add_mil_power = -25
+				 }
+		}
+		 custom_tooltip = core.5.ct 
+		  ai_chance = {
+		        factor = 50
+		}
+	}
+	
+	option = { #Stop
+	      name = "core.52.b"
+		  random_list = {
+		         30 = { cu_reduce_base_tax_1 = yes }
+				 30 = { cu_reduce_base_production_1 = yes }
+				 40 = { cu_reduce_base_manpower_1 = yes }
+		  }
+		  if = {
+		         limit = {
+				      base_tax = 2
+					  base_production = 2
+					  base_manpower = 2
+				 }
+				 random_list = {
+		            30 = { cu_reduce_base_tax_1 = yes }
+				    30 = { cu_reduce_base_production_1 = yes }
+				    40 = { cu_reduce_base_manpower_1 = yes }
+		         }
+				 else = {
+				       if = {
+					          limit = { base_manpower = 2 }
+							  cu_reduce_base_manpower_1 = yes
+							  else = {
+							         if = {
+									       limit = {
+										          base_tax = 2
+										   }
+										   cu_reduce_base_tax_1 = yes
+										   else = {
+										          cu_reduce_base_production_1 = yes
+										   }
+									 }
+							  }
+					   }
+				 }
+		  }
+		  remove_province_modifier = cu_cultural_expelling
+		  add_unrest = 8
+		  custom_tooltip = cu_add_cultural_acceptance_tt
+		  
+		  ai_chance = {
+		        factor = 50
+		}
+	}
+}
+
+###Added province core event
+province_event = {
+    id = core.6
+	title = "core.6.t"
+	desc = "core.6.d"
+	picture = RELIGIOUS_TURMOIL_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	option = {
+	    name = "core.6.a"
+		add_core = owner
+	}
+}
+
+province_event = {
+	id = core.7
+	title = "core.7.t"
+	desc = "core.7.d"
+	picture = GOOD_WITH_MONARCH_eventPicture
+	hidden = yes
+	
+	trigger = {
+		#owner = { has_country_flag = cu_core_event_auto }
+		#for compatibility, use cu_core_event_auto for do nothing
+	    has_province_flag = cu_newly_conquered_province
+		NOT = { has_province_modifier = cu_local_autonomy_administration }
+		owner = {
+			NOT = { has_country_flag = cu_core_event_fired }
+			OR = {
+				AND = {
+					has_country_flag = cabinet_auto_integration
+					OR = {
+						AND = {
+							has_country_flag = cabinet_5_adm
+							adm_power = 20
+						}
+						AND = {
+							has_country_flag = cabinet_5_dip
+							dip_power = 20
+						}
+						AND = {
+							has_country_flag = cabinet_5_mil
+							mil_power = 20
+							manpower_percentage = 0.1
+							manpower = 1
+						}
+					}
+				}
+				has_country_flag = cu_core_event_auto
+			}
+		}
+		is_core = owner		
+	}
+	
+	mean_time_to_happen = {
+		months = 1
+	
+	}
+
+    immediate = {
+	    hidden_effect = {
+		    owner = {
+			    set_country_flag = cu_core_event_fired
+			}		
+		    if = {
+				limit = { owner = { has_country_flag = cu_core_event_auto } }
+				add_province_modifier = {
+					name = cu_local_autonomy_administration
+					duration = -1
+				}
+			}
+			else = {
+				owner = {
+					export_to_variable = {
+						which = cu_power_pac
+						value = development
+						who = ROOT
+					}
+					multiply_variable = { which = cu_power_pac value = 7 }
+					if = {
+						limit = { check_variable = { which = cu_power_pac value = 300 } }
+						set_variable = { which = cu_power_pac which = 300 }
+					}
+					cu_calc_power_cost_pac = yes
+				}
+				if = {
+					limit = { owner = { has_country_flag = cabinet_5_adm } }
+					owner = { cu_subtract_adm_power_pac = yes }
+					add_province_modifier = {
+						name = cu_civilian_integration
+						duration = 3650
+					}
+					custom_tooltip = core.1.at
+					hidden_effect = {
+						set_variable = { which = cu_var1 value = 20 }
+						cu_add_cultural_acceptance = yes
+					}
+					custom_tooltip = cu_add_cultural_acceptance_20tt
+				}
+				else_if = {
+					limit = { owner = { has_country_flag = cabinet_5_dip } }
+					owner = { cu_subtract_dip_power_pac = yes }
+					add_local_autonomy = 10
+					add_nationalism = -3
+					add_province_modifier = {
+						name = cu_diplomatic_integration
+						duration = 3650
+					}
+					custom_tooltip = core.1.et
+				}
+				else = {
+					owner = { add_manpower = -1 }
+					owner = { cu_subtract_mil_power_pac = yes }
+					add_province_modifier = {
+						name = cu_military_integration
+						duration = 3650
+					}
+					custom_tooltip = core.1.bt
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = "core.7.c"	
+		owner = { clr_country_flag = cu_core_event_fired }
+		clr_province_flag = cu_newly_conquered_province	
+		ai_chance = {
+		    factor = 0
+		}
+	}	
+}
+

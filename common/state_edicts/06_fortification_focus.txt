@@ -9,7 +9,7 @@ edict_fortification_focus = {
 	
 	modifier = {
         local_defensiveness = 0.25
-		local_development_cost = 0.1
+		local_development_cost = 0.15
 	}
 	
 	color = { 255 69 0  }

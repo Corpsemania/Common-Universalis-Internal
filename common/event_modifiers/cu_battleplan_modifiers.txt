@@ -2,7 +2,7 @@
 
 #Grand Offensive
 cu_bp_go_m = {
-    land_morale = 0.20
+    land_morale = 0.25
 	shock_damage = 0.25
 	fire_damage = 0.25
 }

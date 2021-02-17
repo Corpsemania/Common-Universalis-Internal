@@ -8,11 +8,12 @@ religion = confucianism
 capital = "Wenzhou"
 trade_goods = chinaware
 hre = no
-base_tax = 4 
+base_tax = 7 
 
-base_production = 4
-base_manpower = 3
+base_production = 8
+base_manpower = 25
 is_city = yes
+set_province_flag = cu_neednt_dev_initialize
 add_core = WUU
 discovered_by = chinese
 discovered_by = indian

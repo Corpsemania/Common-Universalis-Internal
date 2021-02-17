@@ -15,8 +15,6 @@
  state.61.a: "What we feel now shall strike you in turn."
  cu_assistance_given: "Financial Assitance Given"
  cu_assistance_denied: "Financial Assitance Denied"
- cu_change_cash_t: "Gains §G[Root.cu_cash.GetValue]§! Ducats."
- cu_change_cash_nt: "Loses §R[Root.cu_cash.GetValue]§! Ducats."
  cu_ask_for_tribute_title: "Request Tributary"
  cu_ask_for_tribute_tooltip: "Request target country to become our tributary state.\n§GThis action allows Celestial Empire to expand tributary sphere oversea."
  cu_ask_for_tribute_desc: "Suggest target country to become our tributary state"

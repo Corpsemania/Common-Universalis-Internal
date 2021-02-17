@@ -13,7 +13,7 @@ entrepot = {
     type = coastal
     province_modifiers = {
         province_trade_power_value = 10
-        local_development_cost = -0.05
+        local_development_cost = -0.1
         local_institution_spread = 0.05
 		local_state_maintenance_modifier = 0.20
     }
@@ -30,10 +30,10 @@ world_port = {
         province_trade_power_value = 25
         local_institution_spread = 0.1
 		local_state_maintenance_modifier = 0.4
-		local_development_cost = -0.075
+		local_development_cost = -0.2
     }
     state_modifiers = {
-        local_development_cost = -0.025
+        local_development_cost = -0.1
         local_sailors_modifier = 1
 		local_institution_spread = 0.05
         allowed_num_of_buildings = 1
@@ -60,7 +60,7 @@ market_town = {
     type = inland
     province_modifiers = {
         province_trade_power_value = 10
-        local_development_cost = -0.05
+        local_development_cost = -0.1
 		local_institution_spread = 0.05
 		local_state_maintenance_modifier = 0.20
     }
@@ -74,10 +74,10 @@ world_trade_center = {
         province_trade_power_value = 25
         local_institution_spread = 0.1
 		local_state_maintenance_modifier = 0.4
-		local_development_cost = -0.075
+		local_development_cost = -0.2
     }
     state_modifiers = {
-        local_development_cost = -0.025
+        local_development_cost = -0.1
 		local_institution_spread = 0.05
         local_manpower_modifier = 0.33
         allowed_num_of_buildings = 1

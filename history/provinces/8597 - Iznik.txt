@@ -2,7 +2,7 @@
 
 owner = TUR
 controller = TUR
-culture = turkish
+culture = greek
 religion = sunni
 capital = "Iznik"
 trade_goods = grain

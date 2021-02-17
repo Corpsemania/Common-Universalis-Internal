@@ -962,7 +962,7 @@ country_event = {
 				        factor = 1.5
 						OR = {						      
 							  has_reform =  revolutionary_empire_reform
-							  government = tribe
+							  government = tribal
 						}
 				   }
 		   }
@@ -1094,7 +1094,7 @@ country_event = {
 	}
 	immediate = {
 		remove_country_modifier = reorganizing_government
-		set_country_flag = reorganizing_government_flag	
+		clr_country_flag = reorganizing_government_flag	
 	}
 	option = {
 		name = "tulip.6.a" #Good
@@ -1322,7 +1322,7 @@ country_event = {
 		name = "tulip.9.a" #...What?
         cu_change_stability_point_n75 = yes  
 		add_estate_influence_modifier = {
-			estate = estate_goverment
+			estate = estate_government
 			desc = EST_VAL_MILITARY_COUP_FAIL
 			influence = -10
 			duration = 7300

@@ -1,12 +1,11 @@
 reichsreform = {
 	empire = hre
-	member = {
-		development_cost = -0.05
-		technology_cost = -0.05
+	potential = {
+		NOT = { has_dlc = "Emperor" }
 	}
-	emperor = {
-		development_cost = -0.05
-		technology_cost = -0.05
+	province = {
+		local_build_cost = -0.05
+		local_development_cost = -0.10
 	}
 	on_effect = {
 		imperial_ban_allowed = yes
@@ -14,48 +13,69 @@ reichsreform = {
 	off_effect = {
 		imperial_ban_allowed = no
 	}
+	gui_container = nodlc
 }
 
 reichsregiment = {
 	empire = hre
-	member = {
-		global_unrest = -2
+	potential = {
+		NOT = { has_dlc = "Emperor" }
+	}
+	province = {
+		local_unrest = -2
 	}
 	emperor = {
 		diplomatic_reputation = 1
 		diplomats = 1
 	}
+	required_reform = reichsreform
+	gui_container = nodlc
 }
 
 hofgericht = { 
 	empire = hre
-	member = {
-		legitimacy = 0.5
-                core_creation = -0.10
+	potential = {
+		NOT = { has_dlc = "Emperor" }
 	}
 	emperor = {
-		legitimacy = 0.5
 		core_creation = -0.10
+		legitimacy = 0.5
 	}
+	member = {
+		legitimacy = 0.5	
+	}
+	required_reform = reichsregiment
+	gui_container = nodlc
 }
 
 gemeinerpfennig = {
 	empire = hre
+	potential = {
+		NOT = { has_dlc = "Emperor" }
+	}
 	member = {
 		diplomatic_reputation = 1
 	}
-	emperor = {
-		global_tax_income = 20
+	emperor_per_prince = {
+		global_tax_income = 0.5
 	}
+	required_reform = hofgericht
+	gui_container = nodlc
 }
 
 landfriede = {
 	empire = hre
+	potential = {
+		NOT = { has_dlc = "Emperor" }
+	}
 	member = {
 		technology_cost = -0.05
 	}
 	emperor = {
 		prestige = 0.5
+	}
+	province = {
+		local_institution_spread = 0.1
 	}
 	on_effect = {
 		internal_hre_cb = no
@@ -63,49 +83,49 @@ landfriede = {
 	off_effect = {
 		internal_hre_cb = yes
 	}
+	required_reform = gemeinerpfennig
+	gui_container = nodlc
 }
 
 erbkaisertum = {
 	empire = hre
-	member = {
-		legitimacy = 0.5
+	potential = {
+		NOT = { has_dlc = "Emperor" }
 	}
 	emperor = {
 		imperial_authority = 0.25
 	}
 	on_effect = {
-	    set_global_flag = privilegia_de_non_appelando_cu
 		if = {
 			limit = {
 				hre_religion_locked = no
 				hre_religion_treaty = no
 			}
 			set_hre_religion_treaty = yes
-		}	
+		}
 		hre_inheritable = yes
 	}
 	off_effect = {
-		clr_global_flag = privilegia_de_non_appelando_cu
 		hre_inheritable = no
 	}
+	required_reform = landfriede
+	gui_container = nodlc
 }
 
 privilegia_de_non_appelando = {
 	empire = hre
 	war = yes			#this may cause a war, so special AI check needed, to not lose many.
-	
+	potential = {
+		NOT = { has_dlc = "Emperor" }
+	}
 	member = {
-                global_manpower_modifier = -0.50
-                land_forcelimit_modifier  = -0.50
-                naval_forcelimit_modifier = -0.50	
+		stability_cost_modifier = -0.10
 	}
 	emperor = {
 		imperial_authority = 0.25
-                vassal_income = -0.15
-                vassal_forcelimit_bonus = -0.35
 	}
 	on_effect = {
-	    
+	
 		emperor = {
 			country_event = { id = 9073 tooltip = vassalize_empire2 }
 		}
@@ -121,16 +141,20 @@ privilegia_de_non_appelando = {
 			}
 		}
 	}
-    off_effect = {
-	}	
+	required_reform = erbkaisertum
+	gui_container = nodlc
 }
 
 renovatio = {
 	empire = hre
+	potential = {
+		NOT = { has_dlc = "Emperor" }
+	}
 	on_effect = {
 		emperor = {
 			country_event = { id = 9075 tooltip = renovatio_effect }
-			
 		}
 	}
+	required_reform = privilegia_de_non_appelando
+	gui_container = nodlc
 }

@@ -188,7 +188,30 @@ spriteTypes = {
 		name = "GFX_subject_dominion_icon"
 		texturefile = "gfx//interface//subject_dominion_icon.dds"
 	}		
-	
+	spriteType = {
+		name = "GFX_icon_frenchsubject"
+		texturefile = "gfx//interface//icon_frenchsubject.dds"
+	}
+	spriteType = {
+		name = "GFX_icon_diplomacy_leadfrench"
+		texturefile = "gfx//interface//icon_diplomacy_leadfrench.dds"
+	}
+	spriteType = {
+		name = "GFX_icon_diplomacy_amfrench"
+		texturefile = "gfx//interface//icon_diplomacy_amfrench.dds"
+	}
+	spriteType = {
+		name = "GFX_icon_protectorate"
+		texturefile = "gfx//interface//icon_protectorate.dds"
+	}
+	spriteType = {
+		name = "GFX_diplomacy_leadprotectorate"
+		texturefile = "gfx//interface//icon_diplomacy_leadprotectorate.dds"
+	}
+	spriteType = {
+		name = "GFX_diplomacy_amprotectorate"
+		texturefile = "gfx//interface//icon_diplomacy_amprotectorate.dds"
+	}
 	spriteType = {
 		name = "GFX_napoleonic_subject_icon"
 		texturefile = "gfx//interface//napoleonic_subject_icon.dds"
@@ -793,6 +816,16 @@ spriteTypes = {
 		name = "GFX_promote_investments_button_small"
 		texturefile = "gfx//interface//promote_investments_button_small.dds"
 	}		
+	
+	spriteType = {
+		name = "GFX_allow_settlement_growth_button_icon"
+		texturefile = "gfx/interface/allow_settlement_growth_small.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_block_settlement_growth_button_icon"
+		texturefile = "gfx/interface/block_settlement_growth_small.dds"
+	}
 
 	spriteType = {
 		name = "GFX_subjects_extension_bg"

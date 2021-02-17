@@ -8,10 +8,11 @@ religion = confucianism
 capital = "Tieling"
 trade_goods = grain
 hre = no
-base_tax = 5 
-base_production = 5
-base_manpower = 2
+base_tax = 1 
+base_production = 1
+base_manpower = 1
 is_city = yes
+set_province_flag = cu_neednt_dev_initialize
 
 
 discovered_by = chinese

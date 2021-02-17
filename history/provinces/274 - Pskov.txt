@@ -1,0 +1,39 @@
+#274 - Pskov
+
+owner = PSK
+controller = PSK
+culture = novgorodian
+religion = orthodox
+hre = no
+base_tax = 5
+base_production = 5
+trade_goods = livestock
+base_manpower = 4
+capital = "Pskov"
+is_city = yes
+fort_15th = yes
+add_core = PSK
+discovered_by = KAZ
+discovered_by = CRI
+discovered_by = GOL
+discovered_by = AST
+discovered_by = QAS
+discovered_by = western
+discovered_by = eastern
+extra_cost = 8
+center_of_trade = 1
+
+
+1470.1.1 = { unrest = 5 } # Struggles between the boyars and smerds
+1490.1.1 = { unrest = 0 } 
+1510.1.13 = {
+	owner = RUS
+	controller = RUS
+	add_core = RUS
+	remove_core = PSK
+} # Vasili III put an end to the Pskov republic, still remained a strategic fortress
+1598.1.7 = { unrest = 8 } # "Time of troubles"
+1613.3.3 = { unrest = 0 } # Order returned, Romanov dynasty
+1650.1.1 = { unrest = 5 } # Peasant uprising in Pskov
+1651.1.1 = { unrest = 0 }
+1672.1.1 = { base_tax = 7 base_production = 7 } # Tax revenues increased

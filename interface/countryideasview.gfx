@@ -42,6 +42,13 @@ spriteTypes = {
 	}
 	
 	spriteType = {
+		name = "GFX_country_ideas_view_bg_huge"
+		texturefile = "gfx//interface//country_ideas_view_bg_huge.dds"
+		loadType = "INGAME"
+		transparencecheck = yes	
+	}
+	
+	spriteType = {
 		name = "GFX_idea_view_nextunlock"
 		texturefile = "gfx//interface//country_idea_view_nextunlock.dds"
 		loadType = "INGAME"

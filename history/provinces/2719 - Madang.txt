@@ -1,0 +1,16 @@
+#2719 - Madang
+
+culture = papuan
+religion = animism
+capital = "Madang"
+trade_goods = unknown
+hre = no
+base_tax = 1 
+base_production = 1
+base_manpower = 1
+native_size = 40
+native_ferocity = 5
+native_hostileness = 6
+
+1526.1.1 = { discovered_by = POR } # Don Jorge de Mneses
+1770.2.27 = { discovered_by = GBR } # William Dampier

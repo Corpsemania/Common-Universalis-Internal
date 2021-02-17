@@ -1,0 +1,66 @@
+music = {
+	name = "Viva la Vida"
+	file = "VivalaVida.ogg"
+}
+
+music = {
+	name = "Yu Sui Jiang Nan"
+	file = "yusuijiangnan.ogg"
+}
+
+music = {
+	name = "Star Sky"
+	file = "starsky.ogg"
+}
+music = {
+	name = "Starvation"
+	file = "starvation.ogg"
+}
+music = {
+	name = "Flight Of The SilverBird"
+	file = "FlightOfTheSilverBird.ogg"
+}
+music = {
+	name = "Ta Gu"
+	file = "tagu.ogg"
+}
+music = {
+	name = "Voyage Voyage"
+	file = "voyagevoyage.ogg"
+}
+music = {
+	name = "Ocean Princess"
+	file = "oceanprincess.ogg"
+}
+music = {
+	name = "Chart To Blue Hell"
+	file = "ChartToBlueHell.ogg"
+}
+music = {
+	name = "Unbeliever"
+	file = "unbeliever.ogg"
+}
+music = {
+	name = "Stand Alone"
+	file = "standalone.ogg"
+}
+music = {
+	name = "Europa"
+	file = "europa.ogg"
+}
+music = {
+	name = "Friedrich The Great"
+	file = "prussianegg.ogg"
+}
+music = {
+	name = "Victory"
+	file = "victory.ogg"
+}
+music = {
+	name = "Fairy Tale"
+	file = "fairytale.ogg"
+}
+music = {
+	name = "Fairy Tale(Slow Ver.)"
+	file = "fairytaleslow.ogg"
+}

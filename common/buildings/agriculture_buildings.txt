@@ -1,7 +1,7 @@
 mill = {
 	cost = 100
 	time = 12
-	trigger = {
+	build_trigger = {
                 OR = {
 		            has_terrain = farmlands
 					has_terrain = grasslands
@@ -44,7 +44,7 @@ mill = {
 		 }
     }
 	ai_will_do = {
-		factor = 15
+		factor = 50
 		modifier = {
 			factor = 2
 			NOT = { base_manpower = 4 }
@@ -87,7 +87,7 @@ farm_estate = {
 	cost = 350
 	time = 36
 	make_obsolete = mill
-	trigger = {
+	build_trigger = {
 				OR = {
 					base_manpower = 12
 					has_building = farm_estate
@@ -134,7 +134,7 @@ farm_estate = {
 	onmap = yes
 	
 	ai_will_do = {
-		factor = 50
+		factor = 150
 		modifier = {
 			factor = 3
 			NOT = { base_manpower = 15 }
@@ -144,6 +144,10 @@ farm_estate = {
 			factor = 0.5
 			NOT = { check_variable = { which = r_ac value = 0 } }
 		}	
+		modifier = {
+			factor = 5
+			has_building = mill
+		}
 		modifier = {
 			factor = 1.5
 			development = 20

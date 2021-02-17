@@ -1,0 +1,22 @@
+government = republic
+add_government_reform = signoria_reform
+government_rank = 1
+mercantilism = 25
+primary_culture = romagnan
+religion = catholic
+technology_group = western
+capital = 4730
+fixed_capital = 4730 # Cannot move capital away from this province & no power cost to move to it
+set_estate_privilege = estate_church_papal_emissary
+
+
+1443.1.1 = {
+	monarch = {
+		name = "Annibale"
+		dynasty = "Bentivoglio"
+		birth_date = 1415.8.1
+		adm = 3
+		dip = 2
+		mil = 2
+	}
+}

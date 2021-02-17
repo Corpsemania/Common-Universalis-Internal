@@ -111,15 +111,8 @@ guiTypes = {
 	##### WINDOW FOR LAND UNITS #####
 	windowType = {
 		name = "window_for_land_units"
-		backGround=""
 		position = { x=0 y = 0}	
 		size = { x= 200 y = 40}
-		moveable = 0
-		dontRender = ""
-		horizontalBorder= ""
-		verticalBorder= ""
-		fullscreen = no
-		
 		checkboxType = {
 			name = "build_button"
 			position = { x = -35 y = -2 }
@@ -163,7 +156,27 @@ guiTypes = {
 		
 		instantTextBoxType = {
 			name = "amount"
-			position = { x = 45 y = 22 }
+			position = { x = 80 y = 22 }
+			font = "vic_18"
+			borderSize = {x = 0 y = 0}
+			text = ""
+			maxWidth = 164
+			maxHeight = 32
+			format = left
+			allwaystransparent = yes
+		}
+		
+		
+		iconType =
+		{
+			name ="icon_sailors"
+			spriteType = "GFX_icon_sailors"
+			position = { x= 120 y = 18 }
+		}
+		
+		instantTextBoxType = {
+			name = "sailors"		
+			position = { x = 150 y = 22 }
 			font = "vic_18"
 			borderSize = {x = 0 y = 0}
 			text = ""
@@ -1215,7 +1228,66 @@ guiTypes = {
 			spriteType = "GFX_building_upgrade_icon"
 		}
 		
-		
+		#iconType = {
+		#	name = "naval_defense_banner"
+		#	position = { x = 240 y = 291 }
+		#	spriteType = "GFX_banner_right_2"
+		#}
+
+		#instantTextBoxType={
+		#	name = "title_naval_defense"
+		#	position = {x = 284 y = 300 }
+		#	font = "vic_18"
+		#	borderSize = {x = 0 y = 0}
+		#	maxWidth = 160
+		#	maxHeight = 18
+		#	text = "COASTAL_DEF"
+		#}
+
+		#iconType ={
+		#	name ="naval_defense_icon"
+		#	spriteType = "GFX_macro_buildings_category_strip"
+		#	position = { x = 255 y = 294}
+		#	frame = 9
+		#}
+
+		#checkboxType = {
+		#	name = "build_coastal_defence"
+		#	position = { x = 268 y = 322 }
+		#	quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
+		#}
+
+		#instantTextBoxType={
+		#	name = "coastal_defence_cost"
+		#	position = {x = 268 y = 372 }
+		#	font = "vic_18"
+		#	borderSize = {x = 0 y = 0}
+		#	maxWidth = 128
+		#	maxHeight = 18
+		#	text = "2000¤"
+		#}
+
+		#checkboxType = {
+		#	name = "build_naval_battery"
+		#	position = { x = 320 y = 322 }
+		#	quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
+		#}
+
+		#instantTextBoxType={
+		#	name = "naval_battery_cost"
+		#	position = {x = 320 y = 372 }
+		#	font = "vic_18"
+		#	borderSize = {x = 0 y = 0}
+		#	maxWidth = 128
+		#	maxHeight = 18
+		#	text = "2000¤"
+		#}
+
+		#iconType = {
+		#	name = "coastal_defence_to_naval_battery_arrow"
+		#	position = { x = 312 y = 332 }
+		#	spriteType = "GFX_building_upgrade_icon"
+		#}
 		
 		
 		iconType = {
@@ -1248,7 +1320,7 @@ guiTypes = {
 			name ="manufactory_icon"
 			spriteType = "GFX_macro_buildings_category_strip"
 			position = { x = 15 y = 391}
-			frame = 1
+			frame = 0
 		}			
 		
 		checkboxType = {
@@ -1763,28 +1835,6 @@ guiTypes = {
 			allwaystransparent = yes
 		}
 
-		#instantTextBoxType = {
-		#	name = "improvement_value_text"
-		#	position = { x = 342 y = 4 }
-		#	textureFile = ""
-		#	font = "vic_18"
-		#	text = "+0.00¤"
-		#	maxWidth = 50
-		#	maxHeight = 18
-		#	format = center
-		#	fixedsize = yes
-		#	allwaystransparent = yes
-		#}
-
-		iconType = {
-			name = "estate_icon"
-			spriteType = "GFX_estates_icons"
-			position = { x = 156 y = 1 }
-			scale = 0.55
-			Orientation = "UPPER_LEFT"
-			#allwaystransparent = yes
-		}
-
 		iconType = {
 			name = "tradegood_icon"
 			spriteType = "GFX_resource_icon_small"
@@ -2039,26 +2089,23 @@ guiTypes = {
 	windowType = {
 		name = "build_content_entry"
 		backGround=""
-		position = { x=0 y = 0}	
-		size = { x=300 y = 0}
+		position = { x=0 y= 0}	
+		size = { x=380 y=100 }
 		moveable = 0
 		dontRender = ""
 		horizontalBorder= ""
 		verticalBorder= ""
 		fullscreen = no
 				
-		windowType = {
-			name = "window_to_fill"
-			backGround=""
-			position = { x=40 y = 0}	
-			size = { x=1 y = 1 }
-			moveable = 0
-			dontRender = ""
-			horizontalBorder= ""
-			verticalBorder= ""
-			fullscreen = no
-			
-		}
+		listboxType = {
+				name ="list_to_fill"
+				position = { x=40 y = 0 }
+				backGround=""
+				size = { x= 380 y = 600 }
+				horizontal = 0
+				spacing = 0
+				scrollbartype = "standardlistbox_slider"
+			}
 	}
 		
 	

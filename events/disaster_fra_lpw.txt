@@ -16,7 +16,7 @@ country_event = {
 		tag = FRA
 		OR = {
 			exists = BUR
-			exists = BRG
+			exists = BGD
 		}
 		NOT = {
 			any_known_country = {
@@ -65,7 +65,7 @@ country_event = {
 		}
 		modifier = {
 			factor = 0.95
-			exists = BRG
+			exists = BGD
 		}
 	}
 	
@@ -83,7 +83,7 @@ country_event = {
 					OR = {
 						is_subject_of_type = french_vassal
 						tag = BUR
-						tag = BRG
+						tag = BGD
 						tag = BRI
 						tag = PAL
 						tag = LOR
@@ -96,7 +96,7 @@ country_event = {
 					create_alliance = BUR
 				}
 				else = {
-					create_alliance = BRG
+					create_alliance = BGD
 				}
 				if = { limit = { is_subject_of_type = french_vassal } set_country_flag = lpw_fra_vassal }
 			}
@@ -134,7 +134,7 @@ country_event = {
 				}
 				else = {
 					declare_war_with_cb = {
-						who = BRG
+						who = BGD
 						casus_belli = cb_forced_break_alliance 
 					}
 				}
@@ -208,7 +208,7 @@ country_event = {#PRO SUPPORT
 			BUR = {
 				add_manpower = 5
 			}
-			BRG = {
+			BGD = {
 				add_manpower = 5
 			}
 		}

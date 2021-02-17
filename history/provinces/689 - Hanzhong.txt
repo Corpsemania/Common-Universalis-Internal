@@ -3,15 +3,16 @@
 owner = MNG
 controller = MNG
 add_core = MNG
-culture = xibei
+culture = sichuanese
 religion = confucianism
 capital = "Hanzhong"
 trade_goods = cloth
 hre = no
-base_tax = 4
-base_production = 4
-base_manpower = 4
+base_tax = 2
+base_production = 1
+base_manpower = 5
 is_city = yes
+set_province_flag = cu_neednt_dev_initialize
 add_core = CSH
 add_core = QIN
 

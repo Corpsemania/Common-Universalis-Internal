@@ -16,7 +16,7 @@ prohibit_use_of_local_languages = {
 	}
 	
 	modifier = {
-		culture_conversion_cost = -0.1
+		mercantilism_cost = -0.1
 		core_creation = -0.05
 	}
 	

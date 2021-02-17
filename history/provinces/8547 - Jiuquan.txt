@@ -12,6 +12,7 @@ base_tax = 1
 base_production = 1
 base_manpower = 1
 is_city = yes
+set_province_flag = cu_neednt_dev_initialize
 add_core = CSH
 add_core = OIR
 fort_15th = yes #the Nine Garrisons

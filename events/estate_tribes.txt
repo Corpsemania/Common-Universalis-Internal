@@ -417,7 +417,7 @@ country_event = {
 				}
 			}
 		}
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_estate_influence_modifier = {
 			estate = estate_nomadic_tribes
 			desc = EST_VAL_TRIBES_STABILIY_BOOSTED

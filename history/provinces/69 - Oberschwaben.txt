@@ -1,0 +1,29 @@
+# 69 - Oberschwaben (incl. Lindau, Biberach, Überlingen, Ravensberg, and many of the other Free cities of Schwaben)
+culture = swabian
+owner = RVA
+controller = RVA
+add_core = RVA
+capital = "Ravensburg"
+religion = catholic
+trade_goods = cloth
+base_tax = 5
+base_production = 5
+base_manpower = 1
+is_city = yes
+hre = yes
+
+
+
+discovered_by = eastern
+discovered_by = western
+discovered_by = muslim
+discovered_by = ottoman
+
+
+1803.2.25 = { owner = BAV controller = BAV } #Mediatization - Bavarian Exclave
+1806.7.12 = { hre = no } # The Holy Roman Empire is dissolved
+1810.1.1 = {
+	owner = WUR
+	controller = WUR
+	add_core = WUR
+}

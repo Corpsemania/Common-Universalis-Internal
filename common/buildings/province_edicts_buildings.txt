@@ -1,13 +1,13 @@
 highlight = {
 	cost = 0.1
 	time = 0
-	trigger = {		
+	build_trigger = {		
 		owner = { ai = no }
 		NOT = { has_province_modifier = cu_province_highlight }
 		is_territory = no		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {	    
 		add_province_modifier = {
@@ -32,13 +32,13 @@ highlight = {
 remove_highlight = {
 	cost = 0.1
 	time = 0
-	trigger = {		
+	build_trigger = {		
 		owner = { ai = no }
 		has_province_modifier = cu_province_highlight
 		is_territory = no		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {	    
 		remove_province_modifier = cu_province_highlight 
@@ -60,7 +60,7 @@ remove_highlight = {
 move_capital_b = {
 	cost = 0.1
 	time = 0
-	trigger = {	
+	build_trigger = {	
 		owner = { 
 			ai = no 
 			adm_power = 200 
@@ -71,11 +71,13 @@ move_capital_b = {
 		is_territory = no		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
-	on_built = {	    
-		add_adm_power = -200
-		set_capital = ROOT 
+	on_built = {	
+		owner = {
+			add_adm_power = -200
+			set_capital = ROOT 
+		}    
 		hidden_effect = { 
 			if = {
 				limit = { has_province_modifier = second_capital }
@@ -103,7 +105,7 @@ move_capital_b = {
 second_capital_b = {
 	cost = 0.1
 	time = 0
-	trigger = {
+	build_trigger = {
 		owner = { 
 			ai = no 
 			NOT = { has_country_flag = has_a_second_capital } 
@@ -111,7 +113,7 @@ second_capital_b = {
 		is_capital = no		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {	    
 		add_province_modifier = {
@@ -146,7 +148,7 @@ second_capital_b = {
 remove_second_capital = {
 	cost = 0.1
 	time = 0
-	trigger = {
+	build_trigger = {
 		owner = { 
 			ai = no 
 			has_country_flag = has_a_second_capital
@@ -154,7 +156,7 @@ remove_second_capital = {
 		has_province_flag = second_capital_f		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {	    
 		clr_province_flag = second_capital_f
@@ -186,14 +188,14 @@ remove_second_capital = {
 administration_way = {
 	cost = 0.1
 	time = 1
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }		
 		has_province_modifier = cu_local_autonomy_administration			
 		is_core = owner 
 		owner = { adm_power = 10 }
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		hidden_effect = {
@@ -262,14 +264,14 @@ administration_way = {
 diplomatic_way = {
 	cost = 0.1
 	time = 1
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }		
 		has_province_modifier = cu_local_autonomy_administration			
 		is_core = owner 
 		owner = { dip_power = 10 }
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		hidden_effect = {
@@ -338,14 +340,14 @@ diplomatic_way = {
 military_way = {
 	cost = 0.1
 	time = 1
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }		
 		has_province_modifier = cu_local_autonomy_administration			
 		is_core = owner 
 		owner = { mil_power = 10 }
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		hidden_effect = {
@@ -420,13 +422,13 @@ military_way = {
 drainage = {
 	cost = 0.1
 	time = 1
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		improve_drainage_trigger = yes
 		NOT = { has_province_modifier = cu_improve_drainage }		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		if = {
@@ -456,13 +458,13 @@ drainage = {
 sanitation = {
 	cost = 0.1
 	time = 1
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		improve_sanitation_trigger = yes 
 	    NOT = { has_province_modifier = cu_improve_sanitation }		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		if = {
@@ -492,14 +494,14 @@ sanitation = {
 reclaim_wasteland = {
 	cost = 0.1
 	time = 1
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		reclaim_wasteland_trigger = yes
 		NOT = { has_province_modifier = ti_military_cultivation }
 	    NOT = { has_province_modifier = ti_mc_done } 		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		if = {
@@ -544,7 +546,7 @@ reclaim_wasteland = {
 import_food = {
 	cost = 0.1
 	time = 0
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		development = 20
 		cu_not_terr_trigger = yes
@@ -557,7 +559,7 @@ import_food = {
 		} 		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {	    
 		add_province_modifier = {
@@ -598,12 +600,12 @@ import_food = {
 c_import_food = {
 	cost = 0.1
 	time = 0
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		has_province_modifier = import_food		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {	    
 		remove_province_modifier = import_food 
@@ -636,7 +638,7 @@ c_import_food = {
 terrain_improvement = {
 	cost = 0.1
 	time = 1
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		OR = {
 			AND = {
@@ -745,7 +747,7 @@ terrain_improvement = {
 		}	
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		if = {
@@ -880,9 +882,9 @@ terrain_improvement = {
 cultural_assimilation = {
 	cost = 0.1
 	time = 1
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
-		NOT = { has_province_modifier = cu_cultural_assimilation }
+		NOT = { has_province_modifier = cu_cultural_assimilation_booster }
 		check_variable = { which = p_ca value = 70 }
 		has_owner_culture = no
 		is_core = owner
@@ -893,7 +895,7 @@ cultural_assimilation = {
 		}		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		if = {
@@ -925,13 +927,12 @@ cultural_assimilation = {
 				}
 			}			
 			add_province_modifier = {
-				name = cu_cultural_assimilation
+				name = cu_cultural_assimilation_booster
 				duration = -1
 			}			
-			set_province_flag = cu_display_mode
-			hidden_effect = {
-				cu_cultural_assimilation_growth = yes
-			} 
+#			hidden_effect = {
+#				cu_cultural_assimilation_growth = yes
+#			} 
 		}
 		hidden_effect = {
 			province_event = { id = terra.112 }	
@@ -951,15 +952,15 @@ cultural_assimilation = {
 c_cultural_assimilation = {
 	cost = 0.1
 	time = 1
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
-		has_province_modifier = cu_cultural_assimilation		
+		has_province_modifier = cu_cultural_assimilation_booster		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
-		remove_province_modifier = cu_cultural_assimilation		
+		remove_province_modifier = cu_cultural_assimilation_booster		
 		hidden_effect = {
 			owner = {
 				set_variable = { which = cu_power value = 0 }
@@ -984,7 +985,7 @@ c_cultural_assimilation = {
 inspection_tour = {
 	cost = 0.1
 	time = 0
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		NOT = { owner = { has_country_modifier = inspection_tour } }
 		is_core = owner
@@ -1004,7 +1005,7 @@ inspection_tour = {
 		}		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		if = {
@@ -1058,7 +1059,7 @@ inspection_tour = {
 benign_neglect_b = {
 	cost = 0.1
 	time = 1
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		NOT = { has_province_modifier = cu_benign_neglect }
 		is_core = owner
@@ -1069,7 +1070,7 @@ benign_neglect_b = {
 		}		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		if = {
@@ -1122,7 +1123,7 @@ benign_neglect_b = {
 language_education = {
 	cost = 0.1
 	time = 1
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		NOT = { has_province_modifier = cu_language_education }
 		NOT = { has_owner_culture = yes }
@@ -1139,7 +1140,7 @@ language_education = {
 		}		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		owner = {
@@ -1176,7 +1177,7 @@ language_education = {
 immigration = {
 	cost = 0.1
 	time = 1
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		NOT = { development = 15 }
 		has_owner_culture = no
@@ -1202,7 +1203,7 @@ immigration = {
 		} 		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		if = {
@@ -1226,13 +1227,13 @@ immigration = {
 				name = cu_immigration
 				duration = -1
 			}
-			hidden_effect = {
-				if = {
-					limit = { NOT = { check_variable = { which = p_as value = 0.01 } } }
-					set_variable = { which = p_as value = 0 }
-					cu_check_cultural_assimilation = yes
-				}	
-			}
+#			hidden_effect = {
+#				if = {
+#					limit = { NOT = { check_variable = { which = p_as value = 0.01 } } }
+#					set_variable = { which = p_as value = 0 }
+#					cu_check_cultural_assimilation = yes
+#				}	
+#			}
 		}
 		hidden_effect = {
 			province_event = { id = terra.112 }	
@@ -1252,12 +1253,12 @@ immigration = {
 c_immigration = {
 	cost = 0.1
 	time = 1
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		has_province_modifier = cu_immigration		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		remove_province_modifier = cu_immigration
@@ -1284,7 +1285,7 @@ c_immigration = {
 art_patronage = {
 	cost = 0.1
 	time = 1
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		is_core = owner
 		cu_not_terr_trigger = yes
@@ -1296,7 +1297,7 @@ art_patronage = {
         NOT = { has_province_modifier = cu_art_patronage }		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		if = {
@@ -1358,7 +1359,7 @@ art_patronage = {
 art_festival = {
 	cost = 0.1
 	time = 1
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		check_variable = { which = art_power value = 10 }
 		NOT = { has_province_modifier = cu_art_festival }
@@ -1368,7 +1369,7 @@ art_festival = {
 		}		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		if = {
@@ -1450,7 +1451,7 @@ art_festival = {
 minor_culture = {
 	cost = 0.1
 	time = 0
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		owner = {
 			NOT = { has_country_modifier = cu_minor_culture_understanding }
@@ -1467,7 +1468,7 @@ minor_culture = {
 		}		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		owner = {
@@ -1512,7 +1513,7 @@ minor_culture = {
 art_dest = {
 	cost = 0.1
 	time = 0
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		check_variable = { which = cu_art_slot value = 1 }
 		NOT = { has_province_flag = art_transfer_dest }
@@ -1520,7 +1521,7 @@ art_dest = {
 		controlled_by = owner		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {		
 		hidden_effect = {
@@ -1550,13 +1551,13 @@ art_dest = {
 c_art_dest = {
 	cost = 0.1
 	time = 0
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		has_province_flag = art_transfer_dest
 		NOT = { owner = { has_country_flag = art_transfer_ing } }		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		clr_province_flag = art_transfer_dest
@@ -1578,7 +1579,7 @@ c_art_dest = {
 change_goods_minaral = {
 	cost = 0.1
 	time = 0
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		NOT = { has_province_flag = cu_change_minaral_flag }
 		NOT = { has_province_flag = cu_no_minaral_flag }
@@ -1599,7 +1600,7 @@ change_goods_minaral = {
 		}		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		if = {
@@ -1645,7 +1646,7 @@ change_goods_minaral = {
 claime_center = {
 	cost = 0.1
 	time = 0
-	trigger = {		
+	build_trigger = {		
 		owner = {
 			ai = no
 			dip_power = 20
@@ -1654,7 +1655,7 @@ claime_center = {
 		NOT = { has_province_modifier = claimed_center_of_trade }		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		if = {
@@ -1693,7 +1694,7 @@ claime_center = {
 upgrade_center = {
 	cost = 0.1
 	time = 0
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		is_core = owner
 		OR = {
@@ -1731,7 +1732,7 @@ upgrade_center = {
 		}	
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		if = {
@@ -1790,7 +1791,7 @@ upgrade_center = {
 theatre = {
 	cost = 0.1
 	time = 1
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		development = 10
 		owner = {
@@ -1801,7 +1802,7 @@ theatre = {
 		NOT = { check_variable = { which = cu_theatre value = 1 } }		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		if = {
@@ -1847,7 +1848,7 @@ theatre = {
 salon = {
 	cost = 0.1
 	time = 1
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		NOT = { check_variable = { which = cu_salon value = 1 } }
 		development = 15
@@ -1863,7 +1864,7 @@ salon = {
 		}		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		if = {
@@ -1908,7 +1909,7 @@ salon = {
 museum = {
 	cost = 0.1
 	time = 1
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		OR = {
 			AND = {
@@ -1962,7 +1963,7 @@ museum = {
 		}
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		if = {
@@ -2061,7 +2062,7 @@ museum = {
 change_goods = {
 	cost = 0.1
 	time = 0
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }	
 		NOT = { has_province_flag = cu_change_planting_flag }
 		OR = {
@@ -2097,7 +2098,7 @@ change_goods = {
 		}		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {		
 		province_event = { id = terra.102 }
@@ -2119,7 +2120,7 @@ change_goods = {
 change_goods_industry = {
 	cost = 0.1
 	time = 0
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		NOT = { trade_goods = cloth }
 		NOT = { trade_goods = paper }
@@ -2137,7 +2138,7 @@ change_goods_industry = {
 		}		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {		
 		province_event = { id = terra.110 }
@@ -2159,7 +2160,7 @@ change_goods_industry = {
 art_transfer_gw = {
 	cost = 0.1
 	time = 1
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		check_variable = { which = cu_art_piece2 value = 1 }
 		NOT = { has_province_flag = art_transfer_dest } #Can't be the destination
@@ -2180,7 +2181,7 @@ art_transfer_gw = {
 		}		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		if = {
@@ -2237,7 +2238,7 @@ art_transfer_gw = {
 art_transfer_mp = {
 	cost = 0.1
 	time = 1
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		check_variable = { which = cu_art_piece1 value = 1 }
 		NOT = { has_province_flag = art_transfer_dest } #Can't be the destination
@@ -2258,7 +2259,7 @@ art_transfer_mp = {
 		}		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		if = {
@@ -2315,7 +2316,7 @@ art_transfer_mp = {
 art_transfer_nw = {
 	cost = 0.1
 	time = 1
-	trigger = {
+	build_trigger = {
 		owner = { ai = no }
 		check_variable = { which = cu_art_piece0 value = 1 }
 		NOT = { has_province_flag = art_transfer_dest } #Can't be the destination
@@ -2336,7 +2337,7 @@ art_transfer_nw = {
 		}		
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {
 		if = {
@@ -2392,13 +2393,14 @@ art_transfer_nw = {
 
 
 c_literacy_5 = {
-	cost = 999999
-	time = 1
-	trigger = {		
-		check_variable = { which = literacy value = 5 }		
+	cost = 99999
+	time = 100000
+	build_trigger = {		
+		check_variable = { which = literacy value = 5 }	
+		owner = { ai = no }	
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {				 	     
 	}
@@ -2414,13 +2416,14 @@ c_literacy_5 = {
 }
 
 c_literacy_10 = {
-	cost = 999999
-	time = 1
-	trigger = {		
-		check_variable = { which = literacy value = 10 }		
+	cost = 99999
+	time = 100000
+	build_trigger = {		
+		check_variable = { which = literacy value = 10 }	
+		owner = { ai = no }	
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {				 	     
 	}
@@ -2436,13 +2439,14 @@ c_literacy_10 = {
 }
 
 c_literacy_20 = {
-	cost = 999999
-	time = 1
-	trigger = {		
+	cost = 99999
+	time = 100000
+	build_trigger = {		
 		check_variable = { which = literacy value = 20 }		
+		owner = { ai = no }
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {				 	     
 	}
@@ -2458,13 +2462,14 @@ c_literacy_20 = {
 }
 
 c_literacy_40 = {
-	cost = 999999
-	time = 1
-	trigger = {		
+	cost = 99999
+	time = 100000
+	build_trigger = {		
 		check_variable = { which = literacy value = 40 }		
+		owner = { ai = no }
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {				 	     
 	}
@@ -2480,9 +2485,9 @@ c_literacy_40 = {
 }
 
 c_terrain = {
-	cost = 999999
-	time = 1
-	trigger = {		
+	cost = 99999
+	time = 100000
+	build_trigger = {		
 		OR = {
 			has_terrain = farmlands			
 			has_province_modifier = ti_woods_done
@@ -2498,10 +2503,11 @@ c_terrain = {
 			has_province_modifier = ti_marsh
 			has_province_modifier = ti_irragation
 			has_province_modifier = ti_terrace
-        }	
+		}	
+		owner = { ai = no }
 	}
 	modifier = {		
-		allowed_num_of_buildings = 1
+		allowed_num_of_buildings = 5
 	}
 	on_built = {				 	     
 	}

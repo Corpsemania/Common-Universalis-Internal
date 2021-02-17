@@ -2,7 +2,7 @@
 
 owner = BPI
 controller = BPI
-culture = mazandarani
+culture = gilaki
 religion = sunni
 capital = "Rasht"
 trade_goods = grain

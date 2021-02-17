@@ -12,7 +12,7 @@ chinese_ideas = {
 	
 	trigger = {
 		culture_group = east_asian #Chinese
-        NOT = { tag= KHT }
+        NOT = { tag = KHT }
         NOT = { has_country_flag = australia_song }
 		NOT = { is_colonial_nation = yes } #Colonial nations get colonial ideas instead.
 	}
@@ -471,7 +471,7 @@ mindanao_ideas = {
 horde_ideas = {
 	start = {
 		leader_land_shock = 1
-		cav_to_inf_ratio = 0.20
+		army_tradition_decay = -0.02
 	}
 	
 	bonus = {
@@ -480,11 +480,12 @@ horde_ideas = {
 	
 	trigger = {
 		has_reform =  steppe_horde
-                               OR = { 
-                                 culture_group = south_turkic                                       
-                                 culture_group = tartar                                  
-                                 culture_group = altaic                                 
-                              }
+		OR = { 
+			cu_south_turkic_group = yes                                     
+			culture_group = tartar                                  
+			culture_group = altaic    
+			tag = NOG                             
+		}
 	}
 	free = yes
 	
@@ -524,7 +525,7 @@ settled_horde_ideas11 = {
 	trigger = {
 		has_country_flag = settled_steppe_horde 
                                OR = { 
-                                 culture_group = south_slavic                                       
+                                 cu_south_slavic_group = yes #Only use for making old codes stable                                       
                                                                         
                                  culture_group = romanan                                       
                                  culture_group = byzantine                                       
@@ -715,8 +716,8 @@ settled_horde_ideas15 = {
 	trigger = {
 		has_country_flag = settled_steppe_horde 
                                OR = { 
-                                 culture_group = iranian                                       
-                                 culture_group = south_turkic
+                                 cu_iranian_group = yes                                       
+                                 cu_south_turkic_group = yes
                                  primary_culture  = kirgiz 
                                  primary_culture  = azerbaijani                   
                               }
@@ -806,7 +807,7 @@ settled_horde_ideas21 = {
 	trigger = {
 		has_country_flag = settled_steppe_horde 
                                OR = { 
-                                 culture_group = south_slavic                                       
+                                 cu_south_slavic_group = yes #Only use for making old codes stable                                       
                                                                         
                                  culture_group = romanan                                       
                                  culture_group = byzantine                                       
@@ -1001,8 +1002,8 @@ settled_horde_ideas25 = {
 	trigger = {
 		has_country_flag = settled_steppe_horde 
                                OR = { 
-                                 culture_group = iranian                                       
-                                 culture_group = south_turkic
+                                 cu_iranian_group = yes                                       
+                                 cu_south_turkic_group = yes
                                  primary_culture  = kirgiz 
                                  primary_culture  = azerbaijani                   
                               }
@@ -1094,7 +1095,7 @@ settled_horde_idea31 = {
 	trigger = {
 		has_country_flag = settled_steppe_horde 
                                OR = { 
-                                 culture_group = south_slavic                                       
+                                 cu_south_slavic_group = yes #Only use for making old codes stable                                       
                                                                         
                                  culture_group = romanan                                       
                                  culture_group = byzantine                                       
@@ -1273,8 +1274,8 @@ settled_horde_ideas35 = {
 	trigger = {
 		has_country_flag = settled_steppe_horde 
                                OR = { 
-                                 culture_group = iranian                                       
-                                 culture_group = south_turkic
+                                 cu_iranian_group = yes                                       
+                                 cu_south_turkic_group = yes
                                  primary_culture  = kirgiz 
                                  primary_culture  = azerbaijani                                 
                               }
@@ -1359,7 +1360,7 @@ settled_horde_idea41 = {
 	trigger = {
 		has_country_flag = settled_steppe_horde 
                                OR = { 
-                                 culture_group = south_slavic                                       
+                                 cu_south_slavic_group = yes #Only use for making old codes stable                                       
                                                                         
                                  culture_group = romanan                                       
                                  culture_group = byzantine                                       
@@ -1538,8 +1539,8 @@ settled_horde_ideas45 = {
 	trigger = {
 		has_country_flag = settled_steppe_horde 
                                OR = { 
-                                 culture_group = iranian                                       
-                                 culture_group = south_turkic
+                                 cu_iranian_group = yes                                       
+                                 cu_south_turkic_group = yes
                                  primary_culture  = kirgiz 
                                  primary_culture  = azerbaijani                                 
                               }
@@ -1624,7 +1625,7 @@ settled_horde_idea51 = {
 	trigger = {
 		has_country_flag = settled_steppe_horde 
                                OR = { 
-                                 culture_group = south_slavic                                       
+                                 cu_south_slavic_group = yes #Only use for making old codes stable                                       
                                                                         
                                  culture_group = romanan                                       
                                  culture_group = byzantine                                       
@@ -1803,8 +1804,8 @@ settled_horde_ideas55 = {
 	trigger = {
 		has_country_flag = settled_steppe_horde 
                                OR = { 
-                                 culture_group = iranian                                       
-                                 culture_group = south_turkic
+                                 cu_iranian_group = yes                                       
+                                 cu_south_turkic_group = yes
                                  primary_culture  = kirgiz 
                                  primary_culture  = azerbaijani                                          
                               }
@@ -1888,7 +1889,7 @@ settled_horde_idea61 = {
 	trigger = {
 		has_country_flag = settled_steppe_horde 
                                OR = { 
-                                 culture_group = south_slavic                                       
+                                 cu_south_slavic_group = yes #Only use for making old codes stable                                       
                                                                         
                                  culture_group = romanan                                       
                                  culture_group = byzantine                                       
@@ -2067,8 +2068,8 @@ settled_horde_ideas65 = {
 	trigger = {
 		has_country_flag = settled_steppe_horde 
                                OR = { 
-                                 culture_group = iranian                                       
-                                 culture_group = south_turkic
+                                 cu_iranian_group = yes                                       
+                                 cu_south_turkic_group = yes
                                  primary_culture  = kirgiz 
                                  primary_culture  = azerbaijani                                        
                               }
@@ -2149,7 +2150,7 @@ theocracy_ideas = {
 	}
 	
 	bonus = {
-		culture_conversion_cost = -0.1
+		mercantilism_cost = -0.1
 	}
 	
 	trigger = {
@@ -2287,7 +2288,7 @@ german_ideas = {
 	}
 	
 	trigger = {
-		culture_group = germanic
+		cu_germanic_group = yes
 	}
 	free = yes        #will be added at load.
 	
@@ -2367,7 +2368,7 @@ malayan_ideas = {
 	
 	trigger = {
 		religion_group = muslim
-		culture_group = malay
+		cu_malay_group = yes
 	}
 	free = yes
 	
@@ -2628,7 +2629,7 @@ sumatran_ideas = {
 		privateer_efficiency = 0.15
 	}
 	center_of_scholarship = {
-		advisor_cost = -0.1
+		state_governing_cost = -0.1
 	}
 	merchants_of_the_indian_ocean = {
 		merchants = 1
@@ -2670,7 +2671,7 @@ sumatran_ideas = {
 		build_cost = -0.05
 	}
 	evenk_mongolian_deel = {
-		possible_mercenaries = 0.25
+		mercenary_manpower = 0.25
 		merc_maintenance_modifier = -0.1
 	}
 	evenk_love_of_the_forest = {
@@ -2779,7 +2780,7 @@ TIB_ideas = {
 	}
 	
 	bonus = {
-		advisor_cost = -0.10
+		state_governing_cost = -0.10
 	}
 	
 	trigger = {
@@ -2993,7 +2994,7 @@ caucasus_ideas = {
 	}
 	alan_mercenaries = {
 		mercenary_cost = -0.1
-		possible_mercenaries = 0.25
+		mercenary_manpower = 0.25
 	}
 	caucasus_hit_and_run = {
 		leader_land_manuever = 1		
@@ -3341,7 +3342,7 @@ somali_ideas = {
 		light_ship_power = 0.1
 	}
 	somali_perso_arab_influx = {
-		advisor_cost = -0.1
+		state_governing_cost = -0.1
 	}
 }
 
@@ -3488,7 +3489,7 @@ greek_ideas = {
 		infantry_power = 0.1
 	}
 	greek_phanariotes = {
-		advisor_cost = -0.1
+		state_governing_cost = -0.1
 	}
 	greek_strengthen_control_over_the_trade_routes = {
 		trade_efficiency = 0.1
@@ -3733,7 +3734,7 @@ congolese_minor_ideas = {
 		infantry_cost = -0.1
 	}
 	congolese_minor_aggressive_migrations = {
-		culture_conversion_cost = -0.1
+		mercantilism_cost = -0.1
 	}
 	congolese_minor_subordinate_chiefs = {
 		global_unrest = -1
@@ -3817,7 +3818,7 @@ luzon_ideas = {
 		navy_tradition_decay = -0.01
 	}
 	luzon_a_safe_haven = {
-		advisor_cost = -0.1
+		state_governing_cost = -0.1
 	}
 	luzon_expand_the_sugar_production = {
 		production_efficiency = 0.1
@@ -3945,7 +3946,7 @@ deccani_muslim_ideas = {
 		production_efficiency = 0.1
 	}
 	dec_marathi_habshi_state = {
-		advisor_cost = -0.1
+		state_governing_cost = -0.1
 	}
 }
 
@@ -4052,7 +4053,7 @@ malabari_ideas = {
 		#Same as South Indian
 	}
 	malabari_cultural_melting_pot = {
-		advisor_cost = -0.1
+		state_governing_cost = -0.1
 	}
 	malabari_kerala_school = {
 		technology_cost = -0.05
@@ -4093,16 +4094,18 @@ MJZ_ideas = {
 	free = yes
 	
 	sons_of_the_mountain = {
-		land_attrition = -0.15
+		land_attrition = -0.10
+		hostile_attrition = 1
 	}	
 	jurchen_foreign_service = {
-		leader_land_shock = 1
+		shock_damage = 0.1
 	}
 	the_jurchen_banners = {
 		infantry_power = 0.1
+		cavalry_power = 0.05
 	}
 	jurchen_border_skirmishes = {
-		manpower_recovery_speed = 0.1
+		manpower_recovery_speed = 0.15
 	}
 	jurchen_many_wives = {
 		heir_chance = 0.5

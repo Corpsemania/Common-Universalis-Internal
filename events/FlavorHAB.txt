@@ -410,7 +410,7 @@ country_event = {
 		ai_chance = {
 			factor = 0
 		}
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		76 = { add_base_tax = -2 }
 	}
 	option = {		# Stop the Archbishop's Purge
@@ -605,7 +605,7 @@ country_event = {
 	}
 	option = {		# No Change
 		name = "flavor_hab.EVTOPTB3216"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_innovativeness_small_effect = yes
 	}
 }
@@ -640,7 +640,7 @@ country_event = {
 	}
 	option = {		# Let the Nobility run these modane things
 		name = "flavor_hab.EVTOPTB3328"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -722,7 +722,7 @@ country_event = {
 		ai_chance = {
 			factor = 0
 		}
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		every_owned_province = {
 			limit = {
 				OR = {
@@ -1188,7 +1188,7 @@ country_event = {
 
 	option = {		# A true wonder!
 		name = "flavor_hab.EVTOPTA6"
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		add_prestige = 10
 	}
 }
@@ -1680,7 +1680,7 @@ country_event = {
 	option = {# Discourage the Settlements
 		name = flavor_hab.10.b
 		ai_chance = { factor = 20 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -1808,7 +1808,7 @@ country_event = {
 	}
 	option = {# Let us be conservative.
 		name = flavor_hab.14.b
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -1871,7 +1871,7 @@ country_event = {
 	
 	option = {# That is great to hear, we must not keep him from his work.
 		name = flavor_hab.16.b
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 

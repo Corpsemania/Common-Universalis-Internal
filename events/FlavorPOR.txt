@@ -80,7 +80,7 @@ country_event = {
 	option = {		# The King is tricked
 		name = "flavor_por.EVTOPTA3267"
 		ai_chance = { factor = 75 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 	option = {		# The Duke survives and assists the King
 		name = "flavor_por.EVTOPTB3267"
@@ -395,7 +395,7 @@ country_event = {
 	option = {		# Denounce the Agreement
 		name = "flavor_por.EVTOPTB3275"
 		ai_chance = { factor = 25 }
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		if = {
 			limit = {
 				exists = GBR

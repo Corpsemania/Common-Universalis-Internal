@@ -32,15 +32,62 @@ spriteTypes = {
 	}
 
 	spriteType = {
-		name = "GFX_monarchism_icon"
+		name = "GFX_monarchists"
 		texturefile = "gfx/interface/monarchism_icon_strip.dds"
 		noOfFrames = 2
 	}
 
 	spriteType = {
-		name = "GFX_republic_icon"
+		name = "GFX_statists"
 		texturefile = "gfx/interface/republic_icon_strip.dds"
 		noOfFrames = 2
+	}
+	
+	spriteType = {
+		name = "GFX_icon_revolutionary_zeal"
+		texturefile = "gfx/interface/ideas_EU4/icon_revolutionary_zeal.dds"
+	}		
+	
+	spriteType = {
+		name = "GFX_icon_max_revolutionary_zeal"
+		texturefile = "gfx/interface/ideas_EU4/icon_max_revolutionary_zeal.dds"
+	}
+
+	spriteType = {
+		name = "GFX_government_revolution_icon"
+		texturefile = "gfx/interface/revolution/embrace_revolution_101x101.dds"
+	}
+
+	spriteType = {
+		name = "GFX_government_revolution_icon_medium"
+		texturefile = "gfx/interface/revolution/embrace_revolution_64x64.dds"
+	}
+
+	spriteType = {
+		name = "GFX_government_revolution_bar_frame"
+		texturefile = "gfx//interface/mamluk_mechanic_bar_frame.dds"
+		loadType = "INGAME"
+		transparencecheck = yes
+	}
+
+	progressbartype = {
+		name = "GFX_government_revolution_bad_bar"
+		color = { 1.0 0.0 0.0 }
+		colortwo = { 1.0 1.0 1.0 }
+		textureFile1 = "gfx\\interface\\provinceView_progressbar_w92_h11_red.dds"
+		textureFile2 = "gfx\\interface\\provinceView_progressbar_w92_h11_black.dds"
+		size = { x = 84 y = 17 }
+		effectFile = "gfx/FX/progress.lua"
+	}
+
+	progressbartype = {
+		name = "GFX_government_revolution_good_bar"
+		color = { 1.0 0.0 0.0 }
+		colortwo = { 1.0 1.0 1.0 }
+		textureFile1 = "gfx\\interface\\provinceView_progressbar_w92_h11_green.dds"
+		textureFile2 = "gfx\\interface\\provinceView_progressbar_w92_h11_black.dds"
+		size = { x = 84 y = 17 }
+		effectFile = "gfx/FX/progress.lua"
 	}
 
 	spriteType = {
@@ -116,7 +163,7 @@ spriteTypes = {
 
 	spriteType = {
 		name = "GFX_choose_rivals_bg"
-		texturefile = "gfx//interface//choose_rivals_bg.dds"
+		texturefile = "gfx//interface/rivals/choose_rivals_bg.dds"
 		loadType = "INGAME"
 		transparencecheck = yes
 	}
@@ -146,6 +193,11 @@ spriteTypes = {
 	spriteType = {
 		name = "GFX_revolution_target"
 		texturefile = "gfx//interface//revolution_target.dds"
+	}
+	
+	spriteType = {
+		name = "GFX_claim_revolution_target"
+		texturefile = "gfx//interface//revolution//steal_revolution_icon.dds"
 	}
 
 	spriteType = {

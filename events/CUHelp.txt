@@ -41,15 +41,19 @@ country_event = {
 		name = "help.60.a" #Road and Distance
 		country_event = { id = help.610 }
 	}
-
 	option = {
-		name = "help.60.b" #Estate
-		country_event = { id = help.620 }
+		name = "help.60.state" #States&Territories
+		country_event = { id = help.640 }
 	}
+	
 
 	option = {
 		name = "help.60.st" #Stability
 		country_event = { id = help.900 }
+	}
+	option = {
+		name = "help.60.b" #Estate
+		country_event = { id = help.620 }
 	}
 
 	option = {
@@ -490,121 +494,123 @@ country_event = {
 
 ###Others 1
 country_event = {
-        id = help.500
+    id = help.500
 	title = "help.50.t"
 	desc = "help.50.d"
 	picture = BIG_BOOK_eventPicture
 	
 	is_triggered_only = yes
 
-        option = {
+    option = {
 		name = "help.50.a" #Horde
-                country_event = { id = help.510 }
+        country_event = { id = help.510 }
 	}
 
-        option = {
+    option = {
 		name = "help.50.b" #China
-                country_event = { id = help.520 }
+    	country_event = { id = help.520 }
 	}
 
-        option = {
+    option = {
 		name = "help.50.b1" #Election
-                country_event = { id = help.525 }
+        country_event = { id = help.525 }
 	}
 
-        option = {
+    option = {
 		name = "help.50.c" #Colonization
-                country_event = { id = help.530 }
+        country_event = { id = help.530 }
 	}
 
-        option = {
+    option = {
 		name = "help.50.e" #Scenerios
-                country_event = { id = help.550 }
+        country_event = { id = help.550 }
 	}
 
-        option = {
+
+    option = {
 		name = "help.50.d1" #Donate money!
-                add_treasury = -5
-                hidden_effect = {
-                    random_list = {
-			94 = { country_event = { id = help.501 } }
-			1 = { country_event = { id = help.540 } }
-                        1 = { country_event = { id = help.541 } }
-                        1 = { country_event = { id = help.542 } }
-                        1 = { country_event = { id = help.543 } }
-                        1 = { country_event = { id = help.544 } }
-                        1 = { country_event = { id = help.545 } }
-		    }
-                }
+        add_treasury = -5
+        hidden_effect = {
+			random_list = {
+				94 = { country_event = { id = help.501 } }
+				1 = { country_event = { id = help.540 } }
+				1 = { country_event = { id = help.541 } }
+				1 = { country_event = { id = help.542 } }
+				1 = { country_event = { id = help.543 } }
+				1 = { country_event = { id = help.544 } }
+				1 = { country_event = { id = help.545 } }
+			}
+        }
 	}
 
-        option = {
+    option = {
 		name = "help.main" #Return to main page
-                country_event = { id = help.000 }
+        country_event = { id = help.000 }
 	}
 
-        option = {
+    option = {
 		name = "help.exit" #Exit
 	}
 }
 
 ###Others 1(copy)
 country_event = {
-        id = help.501
+    id = help.501
 	title = "help.50.t"
 	desc = "help.50.d"
 	picture = BIG_BOOK_eventPicture
 	
 	is_triggered_only = yes
 
-        option = {
+	option = {
 		name = "help.50.a" #Horde
-                country_event = { id = help.510 }
+        country_event = { id = help.510 }
 	}
 
-        option = {
+    option = {
 		name = "help.50.b" #China
-                country_event = { id = help.520 }
+    	country_event = { id = help.520 }
 	}
 
-        option = {
+    option = {
 		name = "help.50.b1" #Election
-                country_event = { id = help.525 }
+        country_event = { id = help.525 }
 	}
 
-        option = {
+    option = {
 		name = "help.50.c" #Colonization
-                country_event = { id = help.530 }
+        country_event = { id = help.530 }
 	}
 
-        option = {
+    option = {
 		name = "help.50.e" #Scenerios
-                country_event = { id = help.550 }
+        country_event = { id = help.550 }
 	}
 
-        option = {
+	
+
+    option = {
 		name = "help.50.d1" #Donate money!
-                add_treasury = -5
-                hidden_effect = {
-                    random_list = {
-			93 = { country_event = { id = help.500 } }
-			1 = { country_event = { id = help.540 } }
-                        1 = { country_event = { id = help.541 } }
-                        1 = { country_event = { id = help.542 } }
-                        1 = { country_event = { id = help.543 } }
-                        1 = { country_event = { id = help.544 } }
-                        1 = { country_event = { id = help.545 } }
-                        1 = { country_event = { id = help.546 } }
-		    }
-                }
+        add_treasury = -5
+        hidden_effect = {
+			random_list = {
+				94 = { country_event = { id = help.501 } }
+				1 = { country_event = { id = help.540 } }
+				1 = { country_event = { id = help.541 } }
+				1 = { country_event = { id = help.542 } }
+				1 = { country_event = { id = help.543 } }
+				1 = { country_event = { id = help.544 } }
+				1 = { country_event = { id = help.545 } }
+			}
+        }
 	}
 
-        option = {
+    option = {
 		name = "help.main" #Return to main page
-                country_event = { id = help.000 }
+        country_event = { id = help.000 }
 	}
 
-        option = {
+    option = {
 		name = "help.exit" #Exit
 	}
 }
@@ -1132,25 +1138,44 @@ country_event = {
 
 ###Estate Page 2
 country_event = {
-        id = help.621
+    id = help.621
 	title = "help.621.t"
 	desc = "help.621.d"
 	picture = BIG_BOOK_eventPicture
 	
 	is_triggered_only = yes
 
-	    option = {
+	option = {
 		name = "help.prev" #Previous
-                country_event = { id = help.620 }
+        country_event = { id = help.620 }
 	}
 
 
-        option = {
+    option = {
 		name = "help.main" #Return to main page
-                country_event = { id = help.000 }
+        country_event = { id = help.000 }
 	}
 
-        option = {
+    option = {
+		name = "help.exit" #Exit
+	}
+}
+
+###State Page 1
+country_event = {
+	id = help.640
+	title = "help.64.t"
+	desc = "help.64.d"
+	picture = BIG_BOOK_eventPicture
+
+	is_triggered_only = yes
+
+	option = {
+		name = "help.main" #Return to main page
+		country_event = { id = help.000 }
+	}
+
+	option = {
 		name = "help.exit" #Exit
 	}
 }

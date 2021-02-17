@@ -74,10 +74,9 @@ country_event = {
 	desc = "the_forge.1.d"
 	picture = GREAT_BUILDING_eventPicture
 	trigger = {
-		any_country = {
-			has_country_flag = the_war_of_roads_atk
-			NOT = { war_score = -100 }
-		}
+		has_country_flag = the_war_of_roads_atk
+		NOT = { war_score = -100 }
+		war_with = FRA
 	}
 	
 	option = {              

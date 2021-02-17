@@ -58,7 +58,7 @@ country_event = {
 	}
 	
 	option = {
-	    name = "cabinet.0.PAC" #PAC settings
+	    name = "cabinet.0.AutoIntrgration" #Old PAC settings
 		hidden_effect = {
 		    country_event = { id = cabinet.5 }
 		}
@@ -1713,125 +1713,99 @@ country_event = {#PAC settings
     is_triggered_only = yes
 	immediate = {
 		if = {
-			limit = { has_country_flag = cabinet_auto_PAC }
-			custom_tooltip = cabinet_autopac_yes
+			limit = { has_country_flag = cabinet_auto_integration }
+			custom_tooltip = cabinet_5_enable
 		}
 		else_if = {
-			limit = { has_country_flag = cabinet_NO_supress_PAC }
-			custom_tooltip = cabinet_autopac_no_supress
-		}
-		if = {
-			limit = { has_country_flag = cabinet_NO_PAC_on_making_core }
-			custom_tooltip = cabinet_autopac_no_pac_on_making_core
+			limit = { has_country_flag = cu_core_event_auto }
+			custom_tooltip = cabinet_5_no_disturb
 		}
 		else = {
-			custom_tooltip = cabinet_autopac_on_making_core
+			custom_tooltip = cabinet_5_disable
 		}
 		if = {
-			limit = { has_country_flag = cabinet_auto_PAC_3 }
-			custom_tooltip = cabinet_autopac_3
+			limit = { has_country_flag = cabinet_5_adm }
+			custom_tooltip = cabinet_5_adm
 		}
 		else_if = {
-			limit = { has_country_flag = cabinet_auto_PAC_2 }
-			custom_tooltip = cabinet_autopac_2
+			limit = { has_country_flag = cabinet_5_dip }
+			custom_tooltip = cabinet_5_dip
 		}
-		else = {
-			custom_tooltip = cabinet_autopac_1
+		else_if = {
+			limit = { has_country_flag = cabinet_5_mil }
+			custom_tooltip = cabinet_5_mil
 		}
 	}
-	option = {
+	option = {#Stop
 	    name = "cabinet.5.stop"
 		trigger = {
-			has_country_flag = cabinet_auto_PAC
+			has_country_flag = cabinet_auto_integration
 		}
 		hidden_effect = {
-			clr_country_flag = cabinet_auto_PAC
+			clr_country_flag = cabinet_auto_integration
 		    country_event = { id = cabinet.0 }
 		}
 	}
-	option = {
+	option = {#Start
 	    name = "cabinet.5.start"
 		trigger = {
-			NOT = { has_country_flag = cabinet_auto_PAC }
-		}
-		hidden_effect = {
-			set_country_flag = cabinet_auto_PAC
-		    country_event = { id = cabinet.0 }
-		}
-	}
-	option = {
-	    name = "cabinet.5.ignore_core"
-		trigger = {
-			NOT = { has_country_flag = cabinet_NO_PAC_on_making_core }
-		}
-		hidden_effect = {
-			set_country_flag = cabinet_NO_PAC_on_making_core
-		    country_event = { id = cabinet.0 }
-		}
-	}
-	option = {
-	    name = "cabinet.5.stop_ignore_core"
-		trigger = {
-			has_country_flag = cabinet_NO_PAC_on_making_core
-		}
-		hidden_effect = {
-			clr_country_flag = cabinet_NO_PAC_on_making_core
-		    country_event = { id = cabinet.0 }
-		}
-	}
-	option = {
-	    name = "cabinet.5.stop_supress"
-		trigger = {
-			NOT = { has_country_flag = cabinet_NO_supress_PAC }
-		}
-		hidden_effect = {
-			set_country_flag = cabinet_NO_supress_PAC
-		    country_event = { id = cabinet.0 }
-		}
-	}
-	option = {
-	    name = "cabinet.5.start_supress"
-		trigger = {
-			has_country_flag = cabinet_NO_supress_PAC
-		}
-		hidden_effect = {
-			clr_country_flag = cabinet_NO_supress_PAC
-		    country_event = { id = cabinet.0 }
-		}
-	}
-	option = {
-	    name = "cabinet.5.1"
-		trigger = {
-			OR = { 
-				has_country_flag = cabinet_auto_PAC_2 
-				has_country_flag = cabinet_auto_PAC_3 
+			NOT = { has_country_flag = cabinet_auto_integration }
+			OR = {
+				has_country_flag = cabinet_5_adm
+				has_country_flag = cabinet_5_dip
+				has_country_flag = cabinet_5_mil
 			}
 		}
 		hidden_effect = {
-			clr_country_flag = cabinet_auto_PAC_3
-			clr_country_flag = cabinet_auto_PAC_2
+			set_country_flag = cabinet_auto_integration
+			clr_country_flag = cu_core_event_auto
 		    country_event = { id = cabinet.0 }
 		}
 	}
-	option = {
-	    name = "cabinet.5.2"
+	option = {#Adm
+	    name = "cabinet_5_adm"
 		trigger = {
-			NOT = { has_country_flag = cabinet_auto_PAC_2 }
+			NOT = { has_country_flag = cabinet_5_adm }
 		}
 		hidden_effect = {
-			clr_country_flag = cabinet_auto_PAC_3
-			set_country_flag = cabinet_auto_PAC_2
+			set_country_flag = cabinet_5_adm
+			clr_country_flag = cabinet_5_dip
+			clr_country_flag = cabinet_5_mil
 		    country_event = { id = cabinet.0 }
 		}
 	}
-	option = {
-	    name = "cabinet.5.3"
+	option = {#Dip
+	    name = "cabinet_5_dip"
 		trigger = {
-			NOT = { has_country_flag = cabinet_auto_PAC_3 }
+			NOT = { has_country_flag = cabinet_5_dip }
 		}
 		hidden_effect = {
-			clr_country_flag = cabinet_auto_PAC_2
-			set_country_flag = cabinet_auto_PAC_3
+			set_country_flag = cabinet_5_dip
+			clr_country_flag = cabinet_5_adm
+			clr_country_flag = cabinet_5_mil
+		    country_event = { id = cabinet.0 }
+		}
+	}
+	option = {#Mil
+	    name = "cabinet_5_mil"
+		trigger = {
+			NOT = { has_country_flag = cabinet_5_mil }
+		}
+		hidden_effect = {
+			set_country_flag = cabinet_5_mil
+			clr_country_flag = cabinet_5_dip
+			clr_country_flag = cabinet_5_adm
+		    country_event = { id = cabinet.0 }
+		}
+	}
+	option = {#Leave it be
+	    name = "cabinet_5_no_disturb"
+		trigger = {
+			NOT = { has_country_flag = cu_core_event_auto }
+		}
+		hidden_effect = {
+			set_country_flag = cu_core_event_auto
+			clr_country_flag = cabinet_auto_integration
 		    country_event = { id = cabinet.0 }
 		}
 	}
@@ -1858,13 +1832,13 @@ country_event = { #Stability Panel
 	is_triggered_only = yes
 	immediate = {
 	    hidden_effect = {
-		      set_variable = { which = cu_stc_modifier value = 0 }
-			  export_to_variable = {
-			         which = cu_stc_modifier
-					 value = modifier:stability_cost_modifier
-			  }
-			  multiply_variable = { which = cu_stc_modifier value = 100 }
-			  change_variable = { which = cu_stc_modifier value = 100 }
+		    set_variable = { which = cu_stc_modifier value = 0 }
+			export_to_variable = {
+			    which = cu_stc_modifier
+				value = modifier:stability_cost_modifier
+			}
+			multiply_variable = { which = cu_stc_modifier value = 100 }
+			change_variable = { which = cu_stc_modifier value = 100 }
 		}
 	}
 	option = { #Improve Stability
@@ -1885,11 +1859,11 @@ country_event = { #Stability Panel
 		}
 		custom_tooltip = cu_stability_effort_tt
 		if = {
-		         limit = { has_country_flag = cu_stab_panel_open }
-				 clr_country_flag = cu_stab_panel_open
+		    limit = { has_country_flag = cu_stab_panel_open }
+			clr_country_flag = cu_stab_panel_open
 		}
 	    else = {
-				 clr_country_flag = cabinet_panel_open
+			clr_country_flag = cabinet_panel_open
 		}
 	}
 	option = { #Improve Stability(Unavailable)
@@ -1899,16 +1873,15 @@ country_event = { #Stability Panel
 				NOT = { adm_power = 150 }
 				has_country_modifier = cu_stability_effort
 			}
-		    
 		}
 
 		custom_tooltip = cabinet.6.ant
 		if = {
-		         limit = { has_country_flag = cu_stab_panel_open }
-				 clr_country_flag = cu_stab_panel_open
+		    limit = { has_country_flag = cu_stab_panel_open }
+			clr_country_flag = cu_stab_panel_open
 		}
 	    else = {
-				 clr_country_flag = cabinet_panel_open
+			clr_country_flag = cabinet_panel_open
 		}
 	}
 	option = { #Declare Martial Law
@@ -1931,11 +1904,11 @@ country_event = { #Stability Panel
 			clr_country_flag = cu_stability_fixed
 		}
 		if = {
-		         limit = { has_country_flag = cu_stab_panel_open }
-				 clr_country_flag = cu_stab_panel_open
+		    limit = { has_country_flag = cu_stab_panel_open }
+			clr_country_flag = cu_stab_panel_open
 		}
 	    else = {
-				 clr_country_flag = cabinet_panel_open
+			clr_country_flag = cabinet_panel_open
 		}
 	}
 	option = { #Declare Martial Law
@@ -1947,11 +1920,11 @@ country_event = { #Stability Panel
 		}
 		custom_tooltip = cabinet.6.bnt
 		if = {
-		         limit = { has_country_flag = cu_stab_panel_open }
-				 clr_country_flag = cu_stab_panel_open
+		    limit = { has_country_flag = cu_stab_panel_open }
+			clr_country_flag = cu_stab_panel_open
 		}
 	    else = {
-				 clr_country_flag = cabinet_panel_open
+			clr_country_flag = cabinet_panel_open
 		}
 	}
 	option = {
@@ -1965,13 +1938,13 @@ country_event = { #Stability Panel
 		}
 	}
 	option = {
-	       name = "cu.exit" #Exit
-		   if = {
-		         limit = { has_country_flag = cu_stab_panel_open }
-				 clr_country_flag = cu_stab_panel_open
-		   }
-		   else = {
-				 clr_country_flag = cabinet_panel_open
-		   }
+	    name = "cu.exit" #Exit
+		if = {
+		    limit = { has_country_flag = cu_stab_panel_open }
+			clr_country_flag = cu_stab_panel_open
+		}
+		else = {
+			clr_country_flag = cabinet_panel_open
+		}
 	}
 }

@@ -10,7 +10,7 @@ country_decisions = {
 				is_playing_custom_nation = no
 			}
 			NOT = { exists = MSA }
-			culture_group = malay
+			cu_malay_group = yes
 			NOT = { government = steppe_horde }
 			is_colonial_nation = no
 			OR = {

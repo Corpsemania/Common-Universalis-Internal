@@ -1,0 +1,51 @@
+# 98 Utrecht - Principal cities: Utrecht
+
+owner = UTR
+controller = UTR 
+capital = "Utrecht"
+is_city = yes
+culture = dutch
+religion = catholic
+hre = yes
+base_tax = 5
+base_production = 5
+trade_goods = cloth
+base_manpower = 2
+add_core = UTR
+fort_15th = yes
+discovered_by = eastern
+discovered_by = western
+discovered_by = muslim
+discovered_by = ottoman
+
+
+1515.1.5 = { add_core = HAB } # Charles V ascends to the throne
+1528.6.21 = { owner = SPA controller = SPA add_core = SPA remove_core = HAB } # Charles V annexes Utrecht
+1549.11.4 = { owner = NED controller = NED add_core = NED remove_core = SPA }
+1559.5.12 = { unrest = 3 } # New bishoprics in the Lowlands create an outrage
+1565.1.1 = { unrest = 5 } # Letters of Segovia, Philip I orders the harsh persecution of Calvinists
+1566.4.5 = { unrest = 3 } # 'Eedverbond der Edelen', Margaretha of Parma promises leniency
+1567.9.10 = { unrest = 4 } # Counts of Egmont & Hoorne arrested
+1568.6.5 = { unrest = 6 } # Counts of Egmont & Hoorne beheaded
+1569.1.1 = { unrest = 12 } # The Duke of Alba reforms the taxation system ('tiende penning')
+1570.1.1 = { unrest = 20 } # The Duke of Alba reforms the penal system, 'Blood Council' (Bloedraad) established
+1572.1.1 = { religion = reformed }
+1572.6.10 = { unrest = 0 revolt = { type = nationalist_rebels size = 2 } controller = REB } # Rebels rise up in large parts of the Netherlands
+1579.1.23 = { revolt = {} controller = NED } # Union of Utrecht
+1583.1.1 = { fort_15th = no fort_16th = yes } #the siege of Utrecht was fairly major in the 80yw, but not after
+1648.10.24 = { hre = no } # The Peace of Westphalia
+1672.5.25 = { controller = FRA } # France blitzes through the Lowlands in the Franco-Dutch War and even takes Utrecht!
+1678.8.10 = { controller = NED } # Peace of Nijmegen (France-Netherlands)
+1681.1.1 = { base_tax = 10 
+base_production = 10 } # Protestants expelled from France
+1785.12.1 = { unrest = 7 } # Unrest in Utrecht
+1786.1.1 = { revolt = { type = revolutionary_rebels size = 2 } controller = REB } # 'The Patriots' take control of Utrecht
+1786.9.13 = { revolt = {} controller = NED } # With the help of 20,000 Prussians, the Dutch government regains control
+1810.7.10 = {	owner = FRA
+	controller = FRA
+	add_core = FRA
+} # Annexed by France
+1813.11.30 = {	owner = NED
+	controller = NED
+	remove_core = FRA
+} # William returns to the Netherlands

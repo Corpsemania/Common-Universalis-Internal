@@ -18,7 +18,7 @@ cu_notre_dome = {
 }
 
 cu_hagia_sophia = {
-     war_exhaustion_cost = -0.1
+     tolerance_own = 0.25
 	 picture = "cu_hagia_sophia"
 }
 
@@ -29,14 +29,14 @@ cu_piazza_san_marco = {
 
 cu_forbidden_palace = {
      stability_cost_modifier = -0.1
-	 advisor_cost = -0.05
+	 state_governing_cost = -0.05
 	 picture = "cu_forbidden_palace"
 }
 
 taj_mahal_local = {
         local_tax_modifier = 0.25
 	local_unrest = -5
-        local_development_cost = -0.20
+        local_development_cost = -0.25
         province_trade_power_value = 10
 	picture = "cu_taj_mahal"
 }
@@ -64,7 +64,7 @@ cu_umayyad_mosque = {
 
 cu_machu_picchu = {
    local_build_cost = -0.1
-   local_development_cost = -0.1
+   local_development_cost = -0.15
    local_friendly_movement_speed = 0.1
    local_hostile_movement_speed = 0.1
    picture = "cu_machu_picchu"
@@ -83,3 +83,10 @@ cu_borobudur_temple = {
     prestige = 0.25    
     picture = "cu_borobudur_temple"
 }
+
+cu_london_tower = {
+    harsh_treatment_cost = -0.1
+    local_defensiveness = 0.05
+    picture = "cu_london_tower"
+}
+

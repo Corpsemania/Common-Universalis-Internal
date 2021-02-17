@@ -63,7 +63,7 @@ por_african_ambitions = {
 		}
 	
 		effect = {
-			create_explorer = 60
+			create_explorer = { tradition = 60 }
 			add_dip_power = 60
 		}
 	}
@@ -247,7 +247,7 @@ por_brazilian_ambitions = {
 		
 		provinces_to_highlight = {
 			colonial_region = colonial_brazil
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 			has_discovered = ROOT
 		}
 		
@@ -286,7 +286,7 @@ por_brazilian_ambitions = {
 		
 		provinces_to_highlight = {
 			colonial_region = colonial_brazil
-			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+			NOT = { cu_hold_by_country_or_non_sovereign_subject_trigger = { target = ROOT } }
 			has_discovered = ROOT
 		}
 		

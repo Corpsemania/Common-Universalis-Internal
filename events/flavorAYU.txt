@@ -34,7 +34,7 @@ country_event = {
 	}
 	option = {
 		name = "flavor_ayu.EVTOPTB1" #Ignore the reform ideas
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -63,7 +63,7 @@ country_event = {
 	}
 	option = {
 		name = "flavor_ayu.EVTOPTB2" #Ignore the reform ideas
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -145,7 +145,7 @@ country_event = {
 	}
 	option = {
 		name = "flavor_ayu.EVTOPTB3" #Ignore the reform ideas
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 	}
 }
 
@@ -247,7 +247,7 @@ country_event = {
 	
 	option = {
 		name = "flavor_ayu.EVTOPTA5" #It is the beginning of a new era!
-		add_stability_or_adm_power = yes
+		cu_change_stability_point_p50 = yes
 		random_owned_province = {
 			limit = {
 				has_province_flag = AYU_foundation_flag1
