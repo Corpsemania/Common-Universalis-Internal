@@ -148,7 +148,7 @@
  city_of_light: "La Ville-Lumière"
  city_of_light_desc: "For centuries Paris has been the sole political, economical and cultural capital of France, to the extent that some foreigners describe France as nothing but vast countryside surrounding one metropolis. Truly they have a point, but France cannot stay in that way forever. Other cities like Marseille and Bordeaux are catching up, and more and more metropolises will appear in France and in the world. To be the pride of modern France Paris should be something greater, not just a metropolitan capital of a country, but a cosmopolitan centre of the world.\nCapital Art Power Modifier: §G+25.0%§!"
  infrastructure_focus: "Infrastructure Network"
- infrastructure_focus_desc: "Great empires are built on roads and harbors. For our armies to be fast-responding and far-reaching, we will build massive infrastructure network covering all our domains.\n Road buildings provide additional §G15%§! supply limit bonus and lower terrain requirements to construct more advanced roads."
+ infrastructure_focus_desc: "Great empires are built on roads and harbors. For our armies to be fast-responding and far-reaching, we will build massive infrastructure network covering all our domains.\n- Maximum Road Level penalty from bad terrain reduced by §G1§! in provinces with less than §Y4%§! Maximum Road Level."
  quantity_ideas_5_mod: "Improved infrastructure"
  desc_quantity_ideas_5_mod: "Lower terrain requirement to construct more advanced road buildings in this province."
  defensive_mentality_2: "Military Governors"

@@ -1,44 +1,32 @@
-road_1 = {
+#This is actually road upgrade.
+
+cu_build_road = {
 	cost = 120
-	time = 24
+	time = 12
+	build_trigger = {
+                check_variable = { which = cu_road_level_allowed which = cu_road_level }
+				NOT = { check_variable = { which = cu_road_level value = 4 } }
+	}
 	modifier = {
-		local_development_cost = -0.15
-        province_trade_power_value = 2
-		allowed_num_of_buildings = 2
-		local_friendly_movement_speed = 0.15
-		local_hostile_movement_speed = 0.1
-        supply_limit_modifier = 0.2
-		local_state_maintenance_modifier = -0.05
-		global_tax_income = -1.8
+		local_development_cost = -0.025
+        province_trade_power_value = 0.25
+		allowed_num_of_buildings = 1
+		local_friendly_movement_speed = 0.025
+		local_hostile_movement_speed = 0.025
+        supply_limit_modifier = 0.025
+		local_state_maintenance_modifier = -0.025
+		global_tax_income = -0.25
 	}
 	on_built = {
 	     #custom_tooltip = cu_building_bca_5
 	     hidden_effect = {
 		     set_variable = { which = cu_var1 value = 5 }
 		     cu_add_cultural_acceptance = yes
-			 cu_prov_trigger_dist_calc = yes
-			 province_event = { id = ideagroups.4894  }
-			 
+			 province_event = { id = cuglobal.96  }
 		 }
 	     
 	}
 	
-	on_destroyed = {
-	     #custom_tooltip = cu_building_dca_n7
-	     hidden_effect = {
-		     set_variable = { which = cu_var1 value = -7 }
-		     cu_add_cultural_acceptance = yes
-			 cu_prov_trigger_dist_calc = yes
-			 remove_province_modifier = quantity_ideas_5_mod
-		 }
-	}
-	
-	on_obsolete = {
-         hidden_effect = {
-		     set_variable = { which = cu_var1 value = -5 }
-		     cu_add_cultural_acceptance = yes
-		 }
-    }
 	ai_will_do = {
 		factor = 400
 		modifier = {
@@ -105,64 +93,33 @@ road_1 = {
 	}
 }
 
-road_2 = {
-	cost = 300
-	time = 36
+cu_build_paved_road = {
+	cost = 250
+	time = 24
 	build_trigger = {
-                OR = {
-		            has_terrain = farmlands
-					has_terrain = grasslands
-					has_terrain = woods
-					has_terrain = drylands
-					has_province_modifier = ti_marsh_done 
-					has_province_modifier = holland_polders
-					has_province_modifier = ti_irragation_done
-					has_province_modifier = ti_terrace_done
-					has_province_modifier = ti_jungle_done
-					has_province_modifier = ti_forest_done
-					has_province_modifier = quantity_ideas_5_mod
-					has_building = road_2
-                }
+                check_variable = { which = cu_road_level_allowed which = cu_road_level }
+				check_variable = { which = cu_road_level value = 4 }
+				NOT = { check_variable = { which = cu_road_level value = 9 } }
 	}
-    make_obsolete = road_1
 	modifier = {
-		local_development_cost = -0.33
-        province_trade_power_value = 3.5
-		allowed_num_of_buildings = 3
-		local_friendly_movement_speed = 0.3
-		local_hostile_movement_speed = 0.2
-        supply_limit_modifier = 0.35
-		local_autonomy = -0.03
-		local_state_maintenance_modifier = -0.125
-		global_tax_income = -4.5
+		local_development_cost = -0.05
+        province_trade_power_value = 0.5
+		allowed_num_of_buildings = 2
+		local_friendly_movement_speed = 0.5
+		local_hostile_movement_speed = 0.5
+        supply_limit_modifier = 0.05
+		local_state_maintenance_modifier = -0.05
+		global_tax_income = -0.5
 	}
 	on_built = {
 	     #custom_tooltip = cu_building_bca_7
 	     hidden_effect = {
 		     set_variable = { which = cu_var1 value = 7 }
 		     cu_add_cultural_acceptance = yes
-			 cu_prov_trigger_dist_calc = yes
-			 province_event = { id = ideagroups.4894  }
+			 province_event = { id = cuglobal.96  }
 		 }
 	     
 	}
-	
-	on_destroyed = {
-	     #custom_tooltip = cu_building_dca_n10
-	     hidden_effect = {
-		     set_variable = { which = cu_var1 value = -10 }
-		     cu_add_cultural_acceptance = yes
-			 cu_prov_trigger_dist_calc = yes
-			 remove_province_modifier = quantity_ideas_5_mod
-		 }
-	}
-	
-	on_obsolete = {
-         hidden_effect = {
-		     set_variable = { which = cu_var1 value = -7 }
-		     cu_add_cultural_acceptance = yes
-		 }
-    }
 	ai_will_do = {
 		factor = 800
 		modifier = {
@@ -219,67 +176,32 @@ road_2 = {
 	}
 }
 
-road_3 = {
-	cost = 800
+cu_build_railroad = {
+	cost = 1000
 	time = 60
 	build_trigger = {
-		OR = {
-			has_terrain = farmlands
-			has_terrain = grasslands
-			has_terrain = woods
-			has_terrain = drylands
-			has_province_modifier = ti_marsh_done 
-			has_province_modifier = holland_polders
-			has_province_modifier = ti_irragation_done
-			has_province_modifier = ti_terrace_done
-			has_province_modifier = ti_jungle_done
-			has_province_modifier = ti_forest_done
-			AND = {
-				has_province_modifier = quantity_ideas_5_mod
-				OR = {
-						has_terrain = hills
-						has_terrain = desert
-						has_terrain = savannah
-						has_terrain = steppe
-						has_terrain = coastline
-						has_terrain = coastal_desert
-						has_terrain = highlands
-				}					   
-			}
-			has_building = road_3
-		}
+                check_variable = { which = cu_road_level_allowed which = cu_road_level }
+				check_variable = { which = cu_road_level value = 9 }
+				NOT = { check_variable = { which = cu_road_level value = 10 } }
 	}
-        make_obsolete = road_2
 	modifier = {
-		local_development_cost = -0.5
-        province_trade_power_value = 5
-		allowed_num_of_buildings = 4
-		local_friendly_movement_speed = 0.8
-		local_hostile_movement_speed = 0.4
-        supply_limit_modifier = 0.5
-		local_autonomy = -0.06
-		local_state_maintenance_modifier = -0.25
-		global_tax_income = -12
+		local_development_cost = -0.1
+        province_trade_power_value = 1
+		allowed_num_of_buildings = 3
+		local_friendly_movement_speed = 0.1
+		local_hostile_movement_speed = 0.1
+        supply_limit_modifier = 0.1
+		local_state_maintenance_modifier = -0.1
+		global_tax_income = -8.5
 	}
 	on_built = {
 	     #custom_tooltip = cu_building_bca_10
 	     hidden_effect = {
 		     set_variable = { which = cu_var1 value = 10 }
 		     cu_add_cultural_acceptance = yes
-			 cu_prov_trigger_dist_calc = yes
-			 province_event = { id = ideagroups.4894  }
+			 province_event = { id = cuglobal.96  }
 		 }
 	     
-	}
-	
-	on_destroyed = {
-	     #custom_tooltip = cu_building_dca_n15
-	     hidden_effect = {
-		     set_variable = { which = cu_var1 value = -15 }
-		     cu_add_cultural_acceptance = yes
-			 cu_prov_trigger_dist_calc = yes
-			 remove_province_modifier = quantity_ideas_5_mod
-		 }
 	}
 	ai_will_do = {
 		factor = 1000

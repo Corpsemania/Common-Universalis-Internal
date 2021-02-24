@@ -526,6 +526,7 @@ cu_upgrade_ship_check_tech = {
 		}
 		clr_country_flag = cu_dip_tech_to_advance
 		add_dip_tech = 1 #Moved to cu_upgrade_ship
+		cu_calc_allowed_road_level_country = yes #Update Countrywide Road Level Allowed
 		cu_calc_dip_tech_cost = yes
 		if = { #Update display
 				limit = { ai = no }

@@ -22,6 +22,7 @@ technology = {
 	native_great_trail = yes
 	native_ceremonial_fire_pit = yes
 	#manufactory = yes
+	development_efficiency = 0.9
 }
 
 technology = {
@@ -96,6 +97,7 @@ technology = {
 	production_efficiency	=	0.05
     mill = yes	
 	may_support_rebels = yes
+	development_efficiency = 0.1
 }
 
 technology = {
@@ -303,7 +305,7 @@ technology = { #Rotherham Plough
 	year = 2775
 	
 	#Rotherham Plough
-	development_efficiency = 0.1
+	development_efficiency = 0.05
 }
 
 technology = { #Rights of Man
@@ -346,7 +348,7 @@ technology = { #Public welfare
 	year = 2850
 	
 	
-	development_efficiency = 0.10
+	development_efficiency = 0.05
 }
 
 technology = { # Industrial capitalism

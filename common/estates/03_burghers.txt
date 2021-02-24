@@ -117,35 +117,6 @@ estate_burghers =
 			NOT = { religion_group = christian } #Diversify a bit more.
 		}
 	}
-	
-	# For province assignment
-	ai_grant_province = {
-		factor = 0
-	}	
-	
-	# Does the AI want to give any extra territory beyond the minimum?
-	ai_territory_modifier = {
-		trigger = {
-			government = monarchy
-			technology_group = western
-			num_of_cities = 10
-		}	
-		value = 10
-	}	
-	ai_territory_modifier = {
-		trigger = {
-			has_idea_group = trade_ideas
-			num_of_cities = 10
-		}	
-		value = 5			
-	}
-	ai_territory_modifier = {
-		trigger = {
-			has_idea_group = plutocracy_ideas
-			num_of_cities = 10
-		}	
-		value = 5		
-	}		
 
 	privileges = {
 	}

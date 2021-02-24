@@ -20,3 +20,45 @@ connect_to_capital_far_0 = {
 	picture = "min_autonomy"
 }
 
+
+################Road Level(Display)
+
+road_1_mod = {
+    province_trade_power_value = 0.001
+}
+
+road_2_mod = {
+    province_trade_power_value = 0.001
+}
+
+road_3_mod = {
+    province_trade_power_value = 0.001
+}
+
+road_4_mod = {
+    province_trade_power_value = 0.001
+}
+
+road_5_mod = {
+    province_trade_power_value = 0.001
+}
+
+road_6_mod = {
+    province_trade_power_value = 0.001
+}
+
+road_7_mod = {
+    province_trade_power_value = 0.001
+}
+
+road_8_mod = {
+    province_trade_power_value = 0.001
+}
+
+road_9_mod = {
+    province_trade_power_value = 0.001
+}
+
+road_10_mod = {
+    province_trade_power_value = 0.001
+}

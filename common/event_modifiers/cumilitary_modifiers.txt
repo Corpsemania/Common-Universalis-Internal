@@ -209,7 +209,7 @@ quality_inf_reform_1_mod_dis = {
 	global_regiment_cost = 0.05
 }
 quality_inf_reform_2_mod_dis = {
-	land_morale = 0.75
+	land_morale = 0.075
 	discipline = 0.035
 	global_regiment_cost = 0.1
 }

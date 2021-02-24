@@ -171,11 +171,7 @@ cu_calc_province_dist = {
         if = {
 	            limit = {
 				        NOT = { has_province_modifier = connect_to_capital }
-						OR = {
-						    has_building = road_1
-							has_building = road_2
-							has_building = road_3
-						}
+						check_variable = { which = cu_road_level value = 1 }
 						OR = {
 						      any_neighbor_province = { #Land Connection
 							         owner = {

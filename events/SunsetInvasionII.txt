@@ -33,7 +33,7 @@ country_event = {
         hidden = yes
 
 	immediate = {
-                
+            hidden_effect = {    
                 #Pre Setup(Allow cavalry&artillery use for Aztec,Inca and Iroquis
                 AZT = { change_technology_group = high_american }
                 CSU = { change_technology_group = high_american }
@@ -1093,9 +1093,10 @@ country_event = {
 
                 #Other American Nations Setup Over
                 country_event = { id = sun.010}
+			}
 	}
 	option = {
-	name = "EVT_HIDDEN"
+		name = "EVT_HIDDEN"
 	}
 }
 

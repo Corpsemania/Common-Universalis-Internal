@@ -1561,18 +1561,68 @@ spriteTypes = {
 		loadType = "INGAME"
 	}
 	spriteType = {
+		name = "GFX_cu_build_road"
+		texturefile = "gfx//interface//buildings//cu_build_road.tga"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_cu_build_paved_road"
+		texturefile = "gfx//interface//buildings//cu_build_paved_road.tga"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_cu_build_railroad"
+		texturefile = "gfx//interface//buildings//cu_build_railroad.tga"
+		loadType = "INGAME"
+	}
+	spriteType = {
 		name = "GFX_road_1"
-		texturefile = "gfx//interface//buildings//latin_road_1.tga"
+		texturefile = "gfx//interface//buildings//cu_road_1.tga"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_road_2"
-		texturefile = "gfx//interface//buildings//latin_road_2.tga"
+		texturefile = "gfx//interface//buildings//cu_road_2.tga"
 		loadType = "INGAME"
 	}
 	spriteType = {
 		name = "GFX_road_3"
-		texturefile = "gfx//interface//buildings//latin_road_3.tga"
+		texturefile = "gfx//interface//buildings//cu_road_3.tga"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_road_4"
+		texturefile = "gfx//interface//buildings//cu_road_4.tga"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_road_5"
+		texturefile = "gfx//interface//buildings//cu_road_5.tga"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_road_6"
+		texturefile = "gfx//interface//buildings//cu_road_6.tga"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_road_7"
+		texturefile = "gfx//interface//buildings//cu_road_7.tga"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_road_8"
+		texturefile = "gfx//interface//buildings//cu_road_8.tga"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_road_9"
+		texturefile = "gfx//interface//buildings//cu_road_9.tga"
+		loadType = "INGAME"
+	}
+	spriteType = {
+		name = "GFX_road_10"
+		texturefile = "gfx//interface//buildings//cu_road_10.tga"
 		loadType = "INGAME"
 	}
 	spriteType = {

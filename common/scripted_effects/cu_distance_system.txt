@@ -158,105 +158,27 @@ set_base_travel_time = {
     }
 }
 
+calc_province_passing_speed = {
+	set_variable = { which = p_passing_speed value = 1 }
+	if = {	limit = { has_building = road_1 } change_variable = { which = p_passing_speed value = 0.1 } }
+	else_if = {	limit = { has_building = road_2  } change_variable = { which = p_passing_speed value = 0.2 } }
+	else_if = {	limit = { has_building = road_3  } change_variable = { which = p_passing_speed value = 0.3 } }
+	else_if = {	limit = { has_building = road_4  } change_variable = { which = p_passing_speed value = 0.4 } }
+	else_if = {	limit = { has_building = road_5  } change_variable = { which = p_passing_speed value = 0.6 } }
+	else_if = {	limit = { has_building = road_6  } change_variable = { which = p_passing_speed value = 0.8 } }
+	else_if = {	limit = { has_building = road_7  } change_variable = { which = p_passing_speed value = 1.0 } }
+	else_if = {	limit = { has_building = road_8  } change_variable = { which = p_passing_speed value = 1.2 } }
+	else_if = {	limit = { has_building = road_9  } change_variable = { which = p_passing_speed value = 1.4 } }
+	else_if = {	limit = { has_building = road_10 } change_variable = { which = p_passing_speed value = 2.0 } }
+	divide_variable = { which = cu_var3 which = p_passing_speed }
+}
+
 calc_local_travel_time = {
     set_variable = { which = p_ltime value = p_ltime_base }
-    
-    set_variable = { which = time_reduced value = 0 }
-    
-    if = {
-        limit = {
-            has_building = road_0
-        }
-        if = {
-            limit = {
-                has_province_flag = easy_access_terrain
-            }
-            set_variable = { which = time_reduced value = 0.25 }
-        }
-        if = {
-            limit = {
-                has_province_flag = challenging_access_terrain
-            }
-            set_variable = { which = time_reduced value = 0.5 }
-        }
-        if = {
-            limit = {
-                has_province_flag = cannot_access_terrain
-            }
-            set_variable = { which = time_reduced value = 1.5 }
-        }
-    }
-    if = {
-        limit = {
-            has_building = road_1 
-        }
-        set_variable = { which = time_reduced value = 0 }
-        if = {
-            limit = {
-                has_province_flag = easy_access_terrain
-            }
-            set_variable = { which = time_reduced value = 0.5 }
-        }
-        if = {
-            limit = {
-                has_province_flag = challenging_access_terrain
-            }
-            set_variable = { which = time_reduced value = 1 }
-        }
-        if = {
-            limit = {
-                has_province_flag = cannot_access_terrain
-            }
-            set_variable = { which = time_reduced value = 2 }
-        }
-    }
-    if = {
-        limit = {
-            has_building = road_2
-        }
-        if = {
-            limit = {
-                has_province_flag = easy_access_terrain
-            }
-            set_variable = { which = time_reduced value = 0.75 }
-        }
-        if = {
-            limit = {
-                has_province_flag = challenging_access_terrain
-            }
-            set_variable = { which = time_reduced value = 1.5 }
-        }
-        if = {
-            limit = {
-                has_province_flag = cannot_access_terrain
-            }
-            set_variable = { which = time_reduced value = 3 }
-        }
-    }
-    if = {
-        limit = {
-            has_building = road_3
-        }
-        if = {
-            limit = {
-                has_province_flag = easy_access_terrain
-            }
-            set_variable = { which = time_reduced value = 1.5 }
-        }
-        if = {
-            limit = {
-                has_province_flag = challenging_access_terrain
-            }
-            set_variable = { which = time_reduced value = 2.5 }
-        }
-        if = {
-            limit = {
-                has_province_flag = cannot_access_terrain
-            }
-            set_variable = { which = time_reduced value = 4.5 }
-        }
-    }
-    subtract_variable = { which = p_ltime which = time_reduced }
+	set_variable = { which = time_reduced which = p_ltime }
+    calc_province_passing_speed = yes
+	divide_variable = { which = p_ltime which = p_passing_speed }
+    subtract_variable = { which = time_reduced which = p_ltime }
     change_variable = { which = p_ctime which = p_ltime }
 }
 

@@ -84,6 +84,7 @@ country_event = {
 		else = { country_event = { id = govstart.256 } }
 		cu_calc_country_absolute_dist = yes
 		cu_calc_total_stability_growth = yes
+		cu_calc_allowed_road_level_country = yes
 		#Set initial absolutism
 		add_absolutism = 10
     }

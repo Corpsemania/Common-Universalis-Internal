@@ -61,3 +61,16 @@ country_event = {
 		}
 	}
 }
+province_event = {
+	id = cutest.04
+	title = "EVT_HIDDEN"
+	desc = "cuglobal.96.d"
+	picture = COLONIZATION_eventPicture
+	#fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = "EVT_HIDDEN"
+		owner = { cu_calc_allowed_road_level_country = yes }
+		cu_improve_road_effect = yes
+	}
+}

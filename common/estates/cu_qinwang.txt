@@ -31,10 +31,6 @@ estate_qinwang =
 		}
 	}
 	
-	# If true, province can be granted to estate
-	province_trigger = {
-		always = yes
-	}	
 	
 	
 	# Estate cancels out the following multiplicative local autonomy effects:

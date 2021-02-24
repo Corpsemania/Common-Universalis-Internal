@@ -1,340 +1,363 @@
 ### Public ###
+#Population of a province is stored as p_pop, where 1 unit means 1k population
+#Without modifiers, 20k population equals 1 development, but further modifiers can greatly increase development per pop
 
-#Country Scope
-#cu_calc_countrywide_pop_efficiency[]: Calculate Commerce Efficiency, Production Efficiency, etc.
-cu_calc_countrywide_pop_efficiency = {
-
-      #Calculate Production Efficiency
-	  
-	  if = {  #Save old value
-	         limit = { check_variable = { which = pro_e value = 1 } }
-			 set_variable = { which = cu_var2 which = pro_e }
-	  }
-	  else = {
-	         set_variable = { which = cu_var2 value = 1 }
-	  }
-	  set_variable = { which = pro_e value = 1 }
-	  set_variable = { which = cu_var1 value = 0 }
-	  export_to_variable = {
-	         which = cu_var1
-			 value = adm_tech
-	  }
-	  multiply_variable = { which = cu_var1 value = 0.02 }
-	  change_variable = { which = pro_e which = cu_var1 }
-	  subtract_variable = { which = cu_var2 which = pro_e }
-	  multiply_variable = { which = cu_var2 value = -1 }
-	  if = {
-            limit = {
-			         check_variable = { which = cu_var2 value = 0.01 }
-			} 	  
-	  }
-	  
-	  set_variable = { which = cu_var1 value = 0 }
-      set_variable = { which = com_e value = 1 }
-	  export_to_variable = {
-	         which = cu_var1
-			 value = dip_tech
-	  }
-	  multiply_variable = { which = cu_var1 value = 0.02 }
-	  change_variable = { which = com_e which = cu_var1 }
-	  
-	  set_variable = { which = agr_e value = 1 }
-	  
-	  set_variable = { which = cu_var1 value = 0 }
-	  if = {
-	        limit = { adm_tech = 32 }
-			change_variable = { which = cu_var1 value = 0.6 }
-	  }
-	  else_if = {
-	        limit = { adm_tech = 30 }
-			change_variable = { which = cu_var1 value = 0.55 }
-	  }
-	  else_if = {
-	        limit = { adm_tech = 28 }
-			change_variable = { which = cu_var1 value = 0.5 }
-	  }
-	  else_if = {
-	        limit = { adm_tech = 25 }
-			change_variable = { which = cu_var1 value = 0.4 }
-	  }
-	  else_if = {
-	        limit = { adm_tech = 21 }
-			change_variable = { which = cu_var1 value = 0.3 }
-	  }
-	  else_if = {
-	        limit = { adm_tech = 17 }
-			change_variable = { which = cu_var1 value = 0.2 }
-	  }
-	  else_if = {
-	        limit = { adm_tech = 13 }
-			change_variable = { which = cu_var1 value = 0.1 }
-	  }
-	  else_if = {
-	        limit = { adm_tech = 9 }
-			change_variable = { which = cu_var1 value = 0.05 }
-	  }
-	  change_variable = { which = agr_e which = cu_var1 }
+#Country Scope - Calculate countrywide population agriculture capacity modifier
+cu_calc_pop_acm_c = {
+	set_variable = { which = pop_acm value = 0.9 }
+	if = {
+		limit = { adm_tech = 32 }
+		change_variable = { which = pop_acm value = 0.6 }
+	}
+	else_if = {
+		limit = { adm_tech = 28 }
+		change_variable = { which = pop_acm value = 0.5 }
+	}
+	else_if = {
+		limit = { adm_tech = 25 }
+		change_variable = { which = pop_acm value = 0.45 }
+	}
+	else_if = {
+		limit = { adm_tech = 23 }
+		change_variable = { which = pop_acm value = 0.4 }
+	}
+	else_if = {
+		limit = { adm_tech = 21 }
+		change_variable = { which = pop_acm value = 0.35 }
+	}
+	else_if = {
+		limit = { adm_tech = 19 }
+		change_variable = { which = pop_acm value = 0.3 }
+	}
+	else_if = {
+		limit = { adm_tech = 17 }
+		change_variable = { which = pop_acm value = 0.25 }
+	}
+	else_if = {
+		limit = { adm_tech = 13 }
+		change_variable = { which = pop_acm value = 0.2 }
+	}
+	else_if = {
+		limit = { adm_tech = 9 }
+		change_variable = { which = pop_acm value = 0.15 }
+	}
+	else_if = {
+		limit = { adm_tech = 3 }
+		change_variable = { which = pop_acm value = 0.1 }
+	}
+	every_owned_province = {
+		cu_calc_pop_acm = yes
+	}
 }
 
-#cu_initialize_pop[] #Set initial province population and assign special pops.
-cu_initialize_pop = {
-      if = {
-	         limit = { NOT = { check_variable = { which = literacy value = 1 } } }
-			 set_variable = { which = literacy value = 1 } 
-	  }
-      set_variable = { which = pop value = 0 } #Total Pop
-	  set_variable = { which = pop_com value = 0 } #Commercial Pop
-	  set_variable = { which = pop_pro value = 0 } #Production Pop
-	  set_variable = { which = pop_agr value = 0 } #Agricultural Pop
-	  set_variable = { which = pop_lit value = 0 } #Literate Pop
-	  
-	  #Special Pop List
-	  #set_variable = { which = pop_sch value = 0 } #Scholar Pop(Literate)
-	  #set_variable = { which = pop_gov value = 0 } #Bureaucrat Pop(Literate)
-	  #set_variable = { which = pop_off value = 0 } #Officer Pop(Literate)
-	  #set_variable = { which = pop_pri value = 0 } #Priest Pop(Literate)
-	  #set_variable = { which = pop_nob value = 0 } #Noble Pop
-	  #set_variable = { which = pop_sol value = 0 } #Soldier Pop
-	  
-	  #Unemployed
-	  set_variable = { which = pop_r value = 0 } #Unemployed Pop(Literate)
-	  set_variable = { which = cu_var1 value = 0 }
-	  set_variable = { which = cu_var2 value = 0 }
-	  set_variable = { which = cu_var3 value = 0 }
-	  export_to_variable = {
-	         which = cu_var1
-			 value = base_tax
-	  }
-	  
-	  export_to_variable = {
-	         which = cu_var2
-			 value = base_production
-	  }
-	  
-	  export_to_variable = {
-	         which = cu_var3
-			 value = base_manpower
-	  }
-	  cu_calc_countrywide_pop_efficiency = yes
-	  multiply_variable = { which = cu_var1 value = 10 }
-	  divide_variable = { which = cu_var1 which = com_e }
-	  set_variable = { which = pop_com which = cu_var1 }
-	  multiply_variable = { which = cu_var2 value = 10 }
-	  divide_variable = { which = cu_var2 which = pro_e }
-	  set_variable = { which = pop_pro which = cu_var2 }
-	  multiply_variable = { which = cu_var3 value = 10000 }
-	  divide_variable = { which = cu_var3 which = agr_e }
-	  set_variable = { which = pop_agr which = cu_var2 }
-	  change_variable = { which = pop which = pop_com }
-	  change_variable = { which = pop which = pop_pro }
-	  change_variable = { which = pop which = pop_agr }
-	  
-	  #Literate Pop
-	  set_variable = { which = pop_lit which = pop }
-	  multiply_variable = { which = pop_lit which = literacy }
-	  
-	  #Special Pops
-	  
-	  #Priest&Scholar
-	  set_variable = { which = pop_sch value = 0 } #It is the percentage now, will be multiplied by pop_lit later.
-	  set_variable = { which = pop_pri value = 0.03 }
-	  if = {
-	        limit = { has_building = temple }
-			change_variable = { which = pop_pri value = 0.01 }
-			if = {
-			      limit = { has_province_modifier = cu_church_school }
-				  change_variable = { which = pop_sch value = 0.01 }
-			}
-	  }
-	  else_if = {
-	        limit = { has_building = cathedral }
-			change_variable = { which = pop_pri value = 0.02 }
-			if = {
-			      limit = { has_province_modifier = cu_church_school }
-				  change_variable = { which = pop_sch value = 0.01 }
-			}
-	  }
-	  if = {
-	        limit = { has_building = university }
-			change_variable = { which = pop_sch value = 0.02 }
-			if = {
-			       limit = { has_province_modifier = cu_burghers_university }
-				   change_variable = { which = pop_sch value = 0.02 }
-			}
-			else_if = {
-			       limit = { has_province_modifier = cu_public_university }
-				   change_variable = { which = pop_sch value = 0.04 }
-			}
-			if = {
-			      limit = { has_province_modifier = cu_national_college }
-				  change_variable = { which = pop_sch value = 0.03 }
-			}
-	  }
-	  if = {
-	        limit = { has_building = public_school }
-			change_variable = { which = pop_sch value = 0.01 }
-			if = {
-			       limit = { has_province_modifier = cu_burghers_school }
-				   change_variable = { which = pop_sch value = 0.01 }
-			}
-			else_if = {
-			       limit = { has_province_modifier = cu_public_school }
-				   change_variable = { which = pop_sch value = 0.02 }
-			}
-	  }
-	  multiply_variable = { which = pop_sch which = pop_lit }
-	  multiply_variable = { which = pop_pri which = pop_lit }
-	  
-	  #Noble&Bureaucrat
-	  set_variable = { which = pop_nob value = 0.03 }
-	  set_variable = { which = pop_gov value = 0.03 }
-	  
-	  if = {
-	        limit = { has_estate = estate_nobles }
-			change_variable = { which = pop_nob value = 0.02 }
-	  }
-	  else_if = {
-	        limit = { has_estate = estate_burghers }
-			change_variable = { which = pop_gov value = 0.01 }
-	  }
-	  if = {
-	        limit = { has_building = courthouse }
-			change_variable = { which = pop_gov value = 0.02 }
-	  }
-	  else_if = {
-	        limit = { has_building = town_hall }
-			change_variable = { which = pop_gov value = 0.04 }
-	  }
-	  if = {
-	        limit = { is_capital = yes }
-			change_variable = { which = pop_nob value = 0.03 }
-			change_variable = { which = pop_gov value = 0.03 }
-	  }
-	  
-	  multiply_variable = { which = pop_nob which = pop }
-	  multiply_variable = { which = pop_gov which = pop_lit }
-	  
-	  #Officer&Soldier
-	  set_variable = { which = pop_off value = 0.01 }
-	  set_variable = { which = pop_sol value = 0.00 }
-	  if = {
-	        limit = { has_building = barracks }
-			change_variable = { which = pop_off value = 0.01 }
-			change_variable = { which = pop_sol value = 0.01 }
-	  }
-	  else_if = {
-	        limit = { has_building = training_fields }
-			change_variable = { which = pop_off value = 0.02 }
-			change_variable = { which = pop_sol value = 0.02 }
-	  }
-	  if = {
-	        limit = { has_building = regimental_camp }
-			change_variable = { which = pop_off value = 0.01 }
-			change_variable = { which = pop_sol value = 0.01 }
-	  }
-	  else_if = {
-	        limit = { has_building = conscription_center }
-			change_variable = { which = pop_off value = 0.02 }
-			change_variable = { which = pop_sol value = 0.02 }
-	  }
-	  
-	  multiply_variable = { which = pop_off which = pop_lit }
-	  multiply_variable = { which = pop_sol which = pop }
-	  
-	  set_variable = { which = cu_var1 which = pop_gov }
-	  change_variable = { which = cu_var1 which = pop_sch }
-	  change_variable = { which = cu_var1 which = pop_pri }
-	  change_variable = { which = cu_var1 which = pop_off }
-	  change_variable = { which = pop_lit which = cu_var1 }
-	  change_variable = { which = cu_var1 which = pop_nob }
-	  change_variable = { which = cu_var1 which = pop_sol }
-	  change_variable = { which = pop which = cu_var1 }
-	  
-	  set_variable = { which = cu_var1 value = 0 }
-	  set_variable = { which = cu_var2 value = 0 }
-	  set_variable = { which = cu_var3 value = 0 }
-	  
-}
-
-#Country Scope
-#cu_calc_country_pop_growth_modifier[] - Calculate country-wide pop growth modifier so that province does not need to calc this multiple times.
-cu_calc_country_pop_growth_modifier = {
-      set_country_flag = cu_country_pop_growth_modifier_set
-      set_variable = { which = pop_gm value = 1 }
-	  set_variable = { which = gdev_m value = 0 }
-	  export_to_variable = {
-			which = gdev_m
-			value = modifier:development_cost
-	  }
-	  if = {
-			limit = { adm_tech = 27 }
-		    subtract_variable = { which = gdev_m value = 0.15 }
-	  }
-	  else_if = {
-			limit = { adm_tech = 23 }
-		    subtract_variable = { which = gdev_m value = 0.10 }
-	  }
-	  else_if = {
-			limit = { adm_tech = 17 }
-		    subtract_variable = { which = gdev_m value = 0.05 }
-	  }
-	  change_variable = { which = pop_gm which = gdev_m }
-	  if = {
-			limit = { 
-				    owner = { aristocracy_ideas = 6 } 
-			}
-			change_variable = { which = pop_gm value = 0.10 }
-	  }
-}
-
-#Province Scope
-#cu_calc_pop_growth_modifier[] - Calculate province pop growth modifier
-cu_calc_pop_growth_modifier = {
-      if = {
-	        limit = { owner = { NOT = { has_country_flag = cu_country_pop_growth_modifier_set } } }
-			owner = { cu_calc_country_pop_growth_modifier = yes }
-	  }
-      set_variable = { which = pop_gm which = owner }
-	  set_variable = { which = ucdev_m value = 0 }
-	  export_to_variable = {
-			which = ucdev_m
-			value = modifier:local_development_cost
-	  }
-	  change_variable = { which = pop_gm which = ucdev_m }
-	  if = {
-			limit = { 
-						owner = { expansion_ideas = 2 } 
-						NOT = { development = 15 }		   
-			}
-			change_variable = { which = ucdev_m value = -0.10 }
-	  }
-}
-
-#Province Scope
-#cu_calc_food[] - Calculate Province Food
-cu_calc_food = {
-      set_variable = { which = p_dev value = 0 } #Province Development
-	  set_variable = { which = food_sup value = 0 } #Food Supply
-	  set_variable = { which = food_m value = 1 } #Food Supply Modifier
-	  set_variable = { which = food_con value = 0 } #Food Consumption
-	  set_variable = { which = food_sur value = 0 } #Food Surplus
-	  set_variable = { which = food_im value = 0 } #Food Impact Modifier
-}
-
-#Province Scope
-#cu_do_pop_growth[] - Yearly Pop Growth,triggered by global event trigger
-cu_do_pop_growth = {
-      if = {
-	        limit = {
-			        OR = {
-					      NOT = { check_variable = { which = pop value = 0 } }
-						  check_variable = { which = pop value = 100000 } #Maximum pop of a province, 100m, large enough to be impossible
+#Province Scope - Calculate population agriculture capacity modifier
+cu_calc_pop_acm = {
+	set_variable = { which = pop_acm which = owner }
+	
+	#Modifier Sector
+	
+					#Terrain and Climate
+					if = {
+					        limit = {
+						            has_terrain = farmlands
+						    } 
+					        change_variable = { which = pop_acm value = 0.05 }
 					}
-			}
-			set_variable = { which = pop value = 1 }
-	  }
-	  
-	  #Calculate Population Growth Modifier
-	  cu_calc_pop_growth_modifier = yes
-	  
+					else_if = {
+					        limit = {
+						            has_terrain = grasslands
+						    } 
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = pop_acm value = 0.05 }
+							}
+					}
+					else_if = {
+					        limit = {
+						            has_terrain = woods
+						    } 
+					        change_variable = { which = pop_acm value = -0.03 }
+							if = { 
+							        limit = { has_province_modifier = ti_woods_done }
+									change_variable = { which = pop_acm value = 0.07 }
+							}
+					}
+					
+					else_if = {
+					        limit = {
+						            has_terrain = forest
+						    } 
+					        change_variable = { which = pop_acm value = -0.05 }
+							if = { 
+							        limit = { has_province_modifier = ti_forest_done }
+							        change_variable = { which = pop_acm value = 0.07 }
+							}
+					}
+					else_if = {
+					        limit = {
+						            has_terrain = hills
+						    } 
+					        change_variable = { which = pop_acm value = -0.08 }
+							if = { 
+							      limit = { has_province_modifier = ti_terrace_done }
+							      change_variable = { which = pop_acm value = 0.10 }
+							}
+					}
+					else_if = {
+					        limit = {
+						            has_terrain = coastline
+						    } 
+					        change_variable = { which = pop_acm value = -0.05 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = pop_acm value = 0.08 }
+							}
+					}
+					else_if = {
+					        limit = {
+						            has_terrain = drylands
+						    } 
+					        change_variable = { which = pop_acm value = -0.15 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = pop_acm value = 0.15 }
+							}
+					}
+					else_if = {
+					        limit = {
+						            has_terrain = highlands
+						    } 
+					        change_variable = { which = pop_acm value = -0.15 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = pop_acm value = 0.1 }
+							}
+					}
+					else_if = {
+					        limit = {
+						            has_terrain = savannah
+						    } 
+					        change_variable = { which = pop_acm value = -0.1 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = pop_acm value = 0.1 }
+							}
+					}
+					else_if = {
+					        limit = {
+						            has_terrain = jungle
+						    } 
+					        change_variable = { which = pop_acm value = -0.1 }
+							if = { 
+							      limit = { has_province_modifier = ti_jungle_done }
+							      change_variable = { which = pop_acm value = 0.1 }
+							}
+					}
+					
+					else_if = {
+					        limit = {
+						            has_terrain = desert
+						    } 
+					        change_variable = { which = pop_acm value = -0.2 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = pop_acm value = 0.1 }
+							}
+					}
+					
+					else_if = {
+					        limit = {
+						            has_terrain = coastal_desert
+						    } 
+					        change_variable = { which = pop_acm value = -0.2 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = pop_acm value = 0.1 }
+							}
+					}
+					
+					else_if = {
+					        limit = {
+						            has_terrain = steppe
+						    } 
+					        change_variable = { which = pop_acm value = -0.1 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = pop_acm value = 0.1 }
+							}
+					}
+					
+					
+					
+					else_if = {
+					        limit = {
+						            has_terrain = mountain
+						    } 
+					        change_variable = { which = pop_acm value = -0.2 }
+							if = { 
+							      limit = { has_province_modifier = ti_terrace_done }
+							      change_variable = { which = pop_acm value = 0.15 }
+							}
+					}
+					
+					else_if = {
+					        limit = {
+						            has_terrain = glacier
+						    } 
+					        change_variable = { which = pop_acm value = -0.3 }
+					}
+					
+					else_if = {
+					        limit = {
+						            has_terrain = impassable_mountains
+						    } 
+					        change_variable = { which = pop_acm value = -0.3 }
+					}
+					
+					
+					
+					else_if = {
+					        limit = {
+						            has_terrain = marsh
+						    } 
+					        change_variable = { which = pop_acm value = -0.15 }
+							if = { 
+							        limit = { 
+									          OR = {
+											        has_province_modifier = ti_marsh_done
+       												has_province_modifier = holland_polders	  
+											  }
+									}
+							        change_variable = { which = pop_acm value = 0.15 }
+							}
+					}
+					#Goods
+					if = {
+					        limit = {
+						            trade_goods = grain
+						    } 
+					        change_variable = { which = pop_acm value = 0.05 }
+					}
+					
+					else_if = {
+					        limit = {
+						            trade_goods = fish
+						    } 
+					        change_variable = { which = pop_acm value = 0.05 }
+					}
+					
+					
+					
+					#Climate
+					if = {
+					        limit = {
+							       has_climate = arctic
+							}
+					        change_variable = { which = pop_acm value = -0.15 }
+					}
+					else_if = {
+					        limit = {
+							       has_climate = tropical
+							}
+					        change_variable = { which = pop_acm value = -0.1 }
+					}
+					if = {
+					        limit = {
+							       has_climate = arid
+							}
+					        change_variable = { which = pop_acm value = -0.1 }
+							if = { 
+							      limit = { has_province_modifier = ti_irragation_done }
+							      change_variable = { which = pop_acm value = 0.1 }
+							}
+					}
+					if = {
+					        limit = {
+							       owner = { has_country_modifier = ice_age }
+							}
+					        change_variable = { which = pop_acm value = -0.1 }
+					}
+					if = {
+					        limit = {
+							       new_world_i = 100
+							}
+					        change_variable = { which = pop_acm value = 0.05 }
+					}
+					#Terrain and Climate End
+	
+					#Buildings
+					if = {
+					        limit = {
+							       has_building = mill
+							}
+					        change_variable = { which = pop_acm value = 0.1 }
+							
+					}
+					else_if = {
+					        limit = {
+							       has_building = farm_estate
+							}
+							change_variable = { which = pop_acm value = 0.2 }
+							
+					}
+	
+					#Buildings End
+
+	
+					#Other Modifiers
+					if = {
+					      limit = { has_state_edict = edict_agriculture_focus }
+						  change_variable = { which = pop_acm value = 0.05 }
+					}
+					
+					if = {
+					        limit = {
+							      has_global_flag = ice_age_grain_price
+							}
+							change_variable = { which = pop_acm value = -0.05 }
+					}
+					
+					#Other Modifiers End
+	#Sector End
+	
+	if = {
+		limit = { NOT = { check_variable = { which = pop_acm value = 0.1 } } }
+		set_variable = { which = pop_acm value = 0.1 }
+	}
+	
+}
+
+#Game Scope - Set historical population data
+cu_set_historical_pop = {
+	1816 = { #Beijing, around 700k population
+		set_variable = { which = p_pop value = 700 }
+		set_province_flag = cu_historical_p_data
+	}
+}
+
+#Province Scope - Initialize province population data, do "cu_calc_pop_acm_c = yes" before using this
+cu_initialize_pop = {
+	if = {
+		limit = { is_empty = yes }
+		set_variable = { which = p_pop value = 0 } #Wasteland
+		set_province_flag = cu_p_pop_initialized
+	}
+	else_if = {
+		limit = { has_province_flag = cu_historical_p_data } #Population is already set by historical data, no need to initialize
+		set_province_flag = cu_p_pop_initialized
+	}
+	else = { #No historical data, set population from province development
+		set_variable = { which = p_pop value = 1 } #Minimal population of each province is 1k
+		
+		#Agriculture Population
+		export_to_variable = {
+			which = cu_var1
+			value = base_manpower
+		}
+		subtract_variable = { which = cu_var1 value = 1 } #The first development of each type is free, due to limitation of game engine.
+		multiply_variable = { which = cu_var1 value = 20 }
+		divide_variable = { which = cu_var1 which = pop_acm }
+		change_variable = { which = p_pop which = cu_var1 }
+	}
+	
 }

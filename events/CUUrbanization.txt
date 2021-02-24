@@ -658,38 +658,26 @@ province_event = {
 					
 					
 					#Buildings
-					
 					if = {
-					        limit = {
-					            has_building = road_1		        
-							}
-					        change_variable = { which = uc_m value = 0.2 }
-							if = {
-								limit = { owner = { economic_ideas = 5 } }
-								change_variable = { which = uc_m value = 0.04 }
-							}
+						limit = { check_variable = { which = cu_road_level value = 10 } }
+						set_variable = { which = cu_var1 value = 1 }
 					}
 					else_if = {
-					        limit = {
-					            has_building = road_2		        
-							}
-					        change_variable = { which = uc_m value = 0.4 }
-							if = {
-								limit = { owner = { economic_ideas = 5 } }
-								change_variable = { which = uc_m value = 0.08 }
-							}
+						limit = { check_variable = { which = cu_road_level value = 5 } }
+						set_variable = { which = cu_var1 which = cu_road_level }
+						multiply_variable = { which = cu_var1 value = 0.1 }
+						subtract_variable = { which = cu_var1 value = 0.1 }
+						
 					}
-					else_if = {
-					        limit = {
-					            has_building = road_3		        
-							}
-					        change_variable = { which = uc_m value = 0.7 }
-							if = {
-								limit = { owner = { economic_ideas = 5 } }
-								change_variable = { which = uc_m value = 0.14 }
-							}
+					else = {
+						set_variable = { which = cu_var1 which = cu_road_level }
+						multiply_variable = { which = cu_var1 value = 0.05 }
 					}
-					
+					if = {
+							limit = { owner = { economic_ideas = 5 } }
+							multiply_variable = { which = cu_var1 value = 1.2 }
+					}
+					change_variable = { which = uc_m which = cu_var1 }
 					
 					#Ideas
 					if = {
@@ -939,7 +927,7 @@ province_event = {
 					}
 					if = {
 						  limit = {
-								owner = { economic_ideas = 5 }
+								owner = { economic_ideas = 7 }
 						  }
 						  change_variable = { which = merc_gm value = 0.1 }
 						  change_variable = { which = indu_gm value = 0.1 }
@@ -1777,37 +1765,26 @@ province_event = {
 					
 					
 					#Buildings
-					
 					if = {
-					        limit = {
-					            has_building = road_1		        
-							}
-					        change_variable = { which = uc_m value = 0.2 }
-							if = {
-								limit = { owner = { economic_ideas = 5 } }
-								change_variable = { which = uc_m value = 0.04 }
-							}
+						limit = { check_variable = { which = cu_road_level value = 10 } }
+						set_variable = { which = cu_var1 value = 1 }
 					}
 					else_if = {
-					        limit = {
-					            has_building = road_2		        
-							}
-					        change_variable = { which = uc_m value = 0.4 }
-							if = {
-								limit = { owner = { economic_ideas = 5 } }
-								change_variable = { which = uc_m value = 0.08 }
-							}
+						limit = { check_variable = { which = cu_road_level value = 5 } }
+						set_variable = { which = cu_var1 which = cu_road_level }
+						multiply_variable = { which = cu_var1 value = 0.1 }
+						subtract_variable = { which = cu_var1 value = 0.1 }
+						
 					}
-					else_if = {
-					        limit = {
-					            has_building = road_3		        
-							}
-					        change_variable = { which = uc_m value = 0.7 }
-							if = {
-								limit = { owner = { economic_ideas = 5 } }
-								change_variable = { which = uc_m value = 0.14 }
-							}
+					else = {
+						set_variable = { which = cu_var1 which = cu_road_level }
+						multiply_variable = { which = cu_var1 value = 0.05 }
 					}
+					if = {
+							limit = { owner = { economic_ideas = 5 } }
+							multiply_variable = { which = cu_var1 value = 1.2 }
+					}
+					change_variable = { which = uc_m which = cu_var1 }
 					
 					#Ideas
 					if = {
@@ -2020,6 +1997,13 @@ province_event = {
 						         owner = { has_country_modifier = trade_limitation }
 						  }
 							change_variable = { which = merc_gm value = -0.3 }
+					}
+					if = {
+						  limit = {
+								owner = { economic_ideas = 7 }
+						  }
+						  change_variable = { which = merc_gm value = 0.1 }
+						  change_variable = { which = indu_gm value = 0.1 }
 					}
 					if = {
 					      limit = {  

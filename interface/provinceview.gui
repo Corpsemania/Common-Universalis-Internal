@@ -5577,13 +5577,13 @@ guiTypes = {
 		}			
 
 		checkboxType = {
-			name = "build_road_3"
+			name = "build_cu_build_railroad"
 			position = { x = 320 y = 32 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 		
 		instantTextBoxType={
-			name = "road_3_cost"
+			name = "cu_build_railroad_cost"
 			position = {x = 320 y = 82 }
 			font = "vic_18"
 			borderSize = {x = 0 y = 0}
@@ -5593,13 +5593,13 @@ guiTypes = {
 		}
 
 		checkboxType = {
-			name = "build_road_2"
+			name = "build_cu_build_paved_road"
 			position = { x = 268 y = 32 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 
 		instantTextBoxType={
-			name = "road_2_cost"
+			name = "cu_build_paved_road_cost"
 			position = {x = 268 y = 82 }
 			font = "vic_18"
 			borderSize = {x = 0 y = 0}
@@ -5615,13 +5615,13 @@ guiTypes = {
 		}
 
 		checkboxType = {
-			name = "build_road_1"
+			name = "build_cu_build_road"
 			position = { x = 216 y = 32 }
 			quadTextureSprite = "GFX_courthouse_muslimgfx" #Placeholder, real sprite is decided by game (based on button name).
 		}
 
 		instantTextBoxType={
-			name = "road_1_cost"
+			name = "cu_build_road_cost"
 			position = {x = 216 y = 82 }
 			font = "vic_18"
 			borderSize = {x = 0 y = 0}

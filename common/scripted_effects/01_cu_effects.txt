@@ -114,6 +114,7 @@ cu_country_census = {
 		set_country_flag = cu_stability_fixed
 		cu_calc_total_stability_growth = yes
 		clr_country_flag = cu_stability_fixed
+		cu_calc_allowed_road_level_country = yes
 }
 
 #cu_change_stability[cu_var1]
@@ -530,8 +531,50 @@ cu_province_initialization = {
 	#1444 Start
     if = {
 		limit = { has_global_flag = start_1444 }
+		
 		if = {
 			limit = { is_empty = no }
+			
+			#Initialize Road
+			set_variable = { which = cu_road_level value = 0 }
+			if = {
+				limit = { development = 15 }
+				change_variable = { which = cu_road_level value = 2 }
+			}
+			else_if = {
+				limit = { development = 6 }
+				change_variable = { which = cu_road_level value = 1 }
+			}
+			if = { #Remnants of Ancient Roman Road
+				limit = {
+					OR = {
+						area = provence_area
+						area = home_counties_area
+						area = thrace_area
+						region = italy_region
+					}
+					development = 15
+				}
+				change_variable = { which = cu_road_level value = 1 }
+			}
+			else_if = { #Ancient Chinese Road
+				limit = {
+					OR = {
+						region = south_china_region
+						region = xinan_region
+						region = north_china_region
+					}
+					OR = {
+						fort_level = 2
+						province_has_center_of_trade_of_level = 1
+						development = 15
+					}
+				}
+				change_variable = { which = cu_road_level value = 1 }
+			}
+			cu_update_road_level = yes
+			#Road Complete
+			
 			if = {
 				limit = { culture_group = dutch_g }
 				change_variable = { which = literacy value = 3 }
@@ -755,6 +798,50 @@ cu_province_initialization = {
                             set_variable = { which = literacy value = 1 } #Literacy
 					        if = {
 							  limit = { is_empty = no }
+							  
+							  #Initialize Road
+			set_variable = { which = cu_road_level value = 0 }
+			if = {
+				limit = { development = 18 }
+				change_variable = { which = cu_road_level value = 3 }
+			}
+			else_if = {
+				limit = { development = 12 }
+				change_variable = { which = cu_road_level value = 2 }
+			}
+			else_if = {
+				limit = { development = 6 }
+				change_variable = { which = cu_road_level value = 1 }
+			}
+			if = { #Remnants of Ancient Roman Road
+				limit = {
+					OR = {
+						area = provence_area
+						area = home_counties_area
+						area = thrace_area
+						region = italy_region
+					}
+					development = 15
+				}
+				change_variable = { which = cu_road_level value = 1 }
+			}
+			else_if = { #Ancient Chinese Road
+				limit = {
+					OR = {
+						region = south_china_region
+						region = xinan_region
+						region = north_china_region
+					}
+					OR = {
+						fort_level = 2
+						province_has_center_of_trade_of_level = 1
+						development = 15
+					}
+				}
+				change_variable = { which = cu_road_level value = 1 }
+			}
+			cu_update_road_level = yes
+			#Road Complete
 							  if = {
 							        limit = { culture_group = dutch_g }
 									change_variable = { which = literacy value = 4 }
@@ -958,6 +1045,53 @@ cu_province_initialization = {
                             set_variable = { which = literacy value = 1 } #Literacy
 					        if = {
 							  limit = { is_empty = no }
+							  
+								#Initialize Road
+								set_variable = { which = cu_road_level value = 0 }
+								if = {
+									limit = { development = 15 }
+									change_variable = { which = cu_road_level value = 3 }
+								}
+								else_if = {
+									limit = { development = 10 }
+									change_variable = { which = cu_road_level value = 2 }
+								}
+								else_if = {
+									limit = { development = 6 }
+									change_variable = { which = cu_road_level value = 1 }
+								}
+								if = { #Remnants of Ancient Roman Road
+									limit = {
+										OR = {
+											area = provence_area
+											area = home_counties_area
+											area = thrace_area
+											region = italy_region
+										}
+										development = 15
+										NOT = { check_variable = { which = cu_road_level value = 3 } }
+									}
+									change_variable = { which = cu_road_level value = 1 }
+								}
+								else_if = { #Ancient Chinese Road
+									limit = {
+										OR = {
+											region = south_china_region
+											region = xinan_region
+											region = north_china_region
+										}
+										OR = {
+											fort_level = 2
+											province_has_center_of_trade_of_level = 1
+											development = 15
+										}
+										NOT = { check_variable = { which = cu_road_level value = 3 } }
+									}
+									change_variable = { which = cu_road_level value = 1 }
+								}
+								cu_update_road_level = yes
+								#Road Complete
+							  
 							  if = {
 							        limit = { culture_group = dutch_g }
 									change_variable = { which = literacy value = 6 }
@@ -1159,6 +1293,57 @@ cu_province_initialization = {
                             set_variable = { which = literacy value = 1 } #Literacy
 					        if = {
 							  limit = { is_empty = no }
+							  
+							  #Initialize Road
+								set_variable = { which = cu_road_level value = 0 }
+								if = {
+									limit = { development = 18 }
+									change_variable = { which = cu_road_level value = 4 }
+								}
+								else_if = {
+									limit = { development = 10 }
+									change_variable = { which = cu_road_level value = 3 }
+								}
+								else_if = {
+									limit = { development = 8 }
+									change_variable = { which = cu_road_level value = 2 }
+								}
+								else_if = {
+									limit = { development = 6 }
+									change_variable = { which = cu_road_level value = 1 }
+								}
+								if = { #Remnants of Ancient Roman Road
+									limit = {
+										OR = {
+											area = provence_area
+											area = home_counties_area
+											area = thrace_area
+											region = italy_region
+										}
+										development = 15
+										NOT = { check_variable = { which = cu_road_level value = 3 } }
+									}
+									change_variable = { which = cu_road_level value = 1 }
+								}
+								else_if = { #Ancient Chinese Road
+									limit = {
+										OR = {
+											region = south_china_region
+											region = xinan_region
+											region = north_china_region
+										}
+										OR = {
+											fort_level = 2
+											province_has_center_of_trade_of_level = 1
+											development = 15
+										}
+										NOT = { check_variable = { which = cu_road_level value = 3 } }
+									}
+									change_variable = { which = cu_road_level value = 1 }
+								}
+								cu_update_road_level = yes
+								#Road Complete
+								
 							  if = {
 							        limit = { culture_group = dutch_g }
 									change_variable = { which = literacy value = 9 }
@@ -1361,6 +1546,60 @@ cu_province_initialization = {
                             set_variable = { which = literacy value = 1 } #Literacy
 					        if = {
 							  limit = { is_empty = no }
+							  
+							  #Initialize Road
+								set_variable = { which = cu_road_level value = 0 }
+								if = {
+									limit = { development = 22 }
+									change_variable = { which = cu_road_level value = 5 }
+								}
+								else_if = {
+									limit = { development = 16 }
+									change_variable = { which = cu_road_level value = 4 }
+								}
+								else_if = {
+									limit = { development = 10 }
+									change_variable = { which = cu_road_level value = 3 }
+								}
+								else_if = {
+									limit = { development = 8 }
+									change_variable = { which = cu_road_level value = 2 }
+								}
+								else_if = {
+									limit = { development = 6 }
+									change_variable = { which = cu_road_level value = 1 }
+								}
+								if = { #Remnants of Ancient Roman Road
+									limit = {
+										OR = {
+											area = provence_area
+											area = home_counties_area
+											area = thrace_area
+											region = italy_region
+										}
+										development = 15
+										NOT = { check_variable = { which = cu_road_level value = 3 } }
+									}
+									change_variable = { which = cu_road_level value = 1 }
+								}
+								else_if = { #Ancient Chinese Road
+									limit = {
+										OR = {
+											region = south_china_region
+											region = xinan_region
+											region = north_china_region
+										}
+										OR = {
+											fort_level = 2
+											province_has_center_of_trade_of_level = 1
+											development = 15
+										}
+										NOT = { check_variable = { which = cu_road_level value = 3 } }
+									}
+									change_variable = { which = cu_road_level value = 1 }
+								}
+								cu_update_road_level = yes
+								#Road Complete
 							  if = {
 							        limit = { culture_group = dutch_g }
 									change_variable = { which = literacy value = 14 }
@@ -1563,6 +1802,59 @@ cu_province_initialization = {
                             set_variable = { which = literacy value = 1 } #Literacy
 					        if = {
 							  limit = { is_empty = no }
+							  #Initialize Road
+								set_variable = { which = cu_road_level value = 0 }
+								if = {
+									limit = { development = 22 }
+									change_variable = { which = cu_road_level value = 5 }
+								}
+								else_if = {
+									limit = { development = 16 }
+									change_variable = { which = cu_road_level value = 4 }
+								}
+								else_if = {
+									limit = { development = 10 }
+									change_variable = { which = cu_road_level value = 3 }
+								}
+								else_if = {
+									limit = { development = 8 }
+									change_variable = { which = cu_road_level value = 2 }
+								}
+								else_if = {
+									limit = { development = 6 }
+									change_variable = { which = cu_road_level value = 1 }
+								}
+								if = { #Remnants of Ancient Roman Road
+									limit = {
+										OR = {
+											area = provence_area
+											area = home_counties_area
+											area = thrace_area
+											region = italy_region
+										}
+										development = 15
+										NOT = { check_variable = { which = cu_road_level value = 3 } }
+									}
+									change_variable = { which = cu_road_level value = 1 }
+								}
+								else_if = { #Ancient Chinese Road
+									limit = {
+										OR = {
+											region = south_china_region
+											region = xinan_region
+											region = north_china_region
+										}
+										OR = {
+											fort_level = 2
+											province_has_center_of_trade_of_level = 1
+											development = 15
+										}
+										NOT = { check_variable = { which = cu_road_level value = 3 } }
+									}
+									change_variable = { which = cu_road_level value = 1 }
+								}
+								cu_update_road_level = yes
+								#Road Complete
 							  if = {
 							        limit = { culture_group = dutch_g }
 									change_variable = { which = literacy value = 18 }
@@ -1765,6 +2057,70 @@ cu_province_initialization = {
                             set_variable = { which = literacy value = 1 } #Literacy
 					        if = {
 							  limit = { is_empty = no }
+							  #Initialize Road
+								set_variable = { which = cu_road_level value = 0 }
+								if = {
+									limit = { development = 23 }
+									change_variable = { which = cu_road_level value = 6 }
+								}
+								else_if = {
+									limit = { development = 19 }
+									change_variable = { which = cu_road_level value = 5 }
+								}
+								else_if = {
+									limit = { development = 14 }
+									change_variable = { which = cu_road_level value = 4 }
+								}
+								else_if = {
+									limit = { development = 10 }
+									change_variable = { which = cu_road_level value = 3 }
+								}
+								else_if = {
+									limit = { development = 8 }
+									change_variable = { which = cu_road_level value = 2 }
+								}
+								else_if = {
+									limit = { development = 6 }
+									change_variable = { which = cu_road_level value = 1 }
+								}
+								if = { #Remnants of Ancient Roman Road
+									limit = {
+										OR = {
+											area = provence_area
+											area = home_counties_area
+											area = thrace_area
+											region = italy_region
+										}
+										development = 15
+										NOT = { check_variable = { which = cu_road_level value = 3 } }
+									}
+									change_variable = { which = cu_road_level value = 1 }
+								}
+								else_if = { #Ancient Chinese Road
+									limit = {
+										OR = {
+											region = south_china_region
+											region = xinan_region
+											region = north_china_region
+										}
+										OR = {
+											fort_level = 2
+											province_has_center_of_trade_of_level = 1
+											development = 15
+										}
+										NOT = { check_variable = { which = cu_road_level value = 3 } }
+									}
+									change_variable = { which = cu_road_level value = 1 }
+								}
+								else_if = { #The first railroad
+									limit = {
+										is_year = 1815
+										area = home_counties_area
+									}
+									set_variable = { which = cu_road_level value = 10 }
+								}
+								cu_update_road_level = yes
+								#Road Complete
 							  if = {
 							        limit = { culture_group = dutch_g }
 									change_variable = { which = literacy value = 24 }
@@ -4414,10 +4770,19 @@ cu_calc_government_power_cost_modifier = {
 cu_calc_distance_power_cost_modifier = {
 	set_variable = { which = p_dist_tc which = ROOT }
 	set_variable = { which = cu_var3 value = 0.05 }
-	if = {	limit = { ROOT = { has_building = road_1 } } change_variable = { which = cu_var3 value = -0.005 } }
-	else_if = {	limit = { ROOT = { has_building = road_2 } } change_variable = { which = cu_var3 value = -0.01 } }
-	else_if = {	limit = { ROOT = { has_building = road_3 } } change_variable = { which = cu_var3 value = -0.02 } }
-	if = { limit = { ROOT = { has_province_modifier = connect_to_capital } } change_variable = { which = cu_var3 value = -0.02 } }
+	set_variable = { which = p_passing_speed value = 1 }
+	if = {	limit = { ROOT = { has_building = road_1 } } change_variable = { which = p_passing_speed value = 0.1 } }
+	else_if = {	limit = { ROOT = { has_building = road_2 } } change_variable = { which = p_passing_speed value = 0.2 } }
+	else_if = {	limit = { ROOT = { has_building = road_3 } } change_variable = { which = p_passing_speed value = 0.3 } }
+	else_if = {	limit = { ROOT = { has_building = road_4 } } change_variable = { which = p_passing_speed value = 0.4 } }
+	else_if = {	limit = { ROOT = { has_building = road_5 } } change_variable = { which = p_passing_speed value = 0.6 } }
+	else_if = {	limit = { ROOT = { has_building = road_6 } } change_variable = { which = p_passing_speed value = 0.8 } }
+	else_if = {	limit = { ROOT = { has_building = road_7 } } change_variable = { which = p_passing_speed value = 1.0 } }
+	else_if = {	limit = { ROOT = { has_building = road_8 } } change_variable = { which = p_passing_speed value = 1.2 } }
+	else_if = {	limit = { ROOT = { has_building = road_9 } } change_variable = { which = p_passing_speed value = 1.4 } }
+	else_if = {	limit = { ROOT = { has_building = road_10 } } change_variable = { which = p_passing_speed value = 2.0 } }
+	divide_variable = { which = cu_var3 which = p_passing_speed }
+	if = { limit = { ROOT = { has_province_modifier = connect_to_capital } } change_variable = { which = cu_var3 value = -0.01 } }
 	else_if = { limit = { ROOT = { has_province_modifier = connect_to_capital_oversea } } change_variable = { which = cu_var3 value = -0.01 } }
 	multiply_variable = { which = cu_var3 which = p_dist_tc }
 	change_variable = { which = cu_var1 which = cu_var3 }
@@ -5370,4 +5735,441 @@ cu_do_prov_loot = {
 	}
 }
 
+#Road Effects
+
+cu_update_road_level = {
+	set_province_flag = cu_road_calculating
+	if = {
+		limit = { check_variable = { which = cu_road_level which = cu_road_level_allowed } }
+		set_variable = { which = cu_road_level which = cu_road_level_allowed }
+	}
+	remove_building = road_1
+	remove_building = road_2
+	remove_building = road_3
+	remove_building = road_4
+	remove_building = road_5
+	remove_building = road_6
+	remove_building = road_7
+	remove_building = road_8
+	remove_building = road_9
+	remove_building = road_10
+	if = {
+		limit = { check_variable = { which = cu_road_level value = 10 } }
+		add_building = road_10
+	}
+	else_if = {
+		limit = { check_variable = { which = cu_road_level value = 9 } }
+		add_building = road_9
+	}
+	else_if = {
+		limit = { check_variable = { which = cu_road_level value = 8 } }
+		add_building = road_8
+	}
+	else_if = {
+		limit = { check_variable = { which = cu_road_level value = 7 } }
+		add_building = road_7
+	}
+	else_if = {
+		limit = { check_variable = { which = cu_road_level value = 6 } }
+		add_building = road_6
+	}
+	else_if = {
+		limit = { check_variable = { which = cu_road_level value = 5 } }
+		add_building = road_5
+	}
+	else_if = {
+		limit = { check_variable = { which = cu_road_level value = 4 } }
+		add_building = road_4
+	}
+	else_if = {
+		limit = { check_variable = { which = cu_road_level value = 3 } }
+		add_building = road_3
+	}
+	else_if = {
+		limit = { check_variable = { which = cu_road_level value = 2 } }
+		add_building = road_2
+	}
+	else_if = {
+		limit = { check_variable = { which = cu_road_level value = 1 } }
+		add_building = road_1
+	}
+	clr_province_flag = cu_road_calculating
+}
+
+cu_calc_allowed_road_level = {
+	set_variable = { which = cu_road_level_allowed_c which = owner }
+	set_variable = { which = cu_road_level_allowed value = 0 }
+	#Terrain Modifier
+	if = {
+		limit = {
+			OR = {
+				  has_terrain = woods
+				  has_terrain = forest
+				  
+			}
+		}
+		change_variable = { which = cu_road_level_allowed value = -1 }
+		if = {
+			limit = {
+				OR = {
+					has_province_modifier = ti_woods_done
+					has_province_modifier = ti_forest_done
+				}
+			}
+			change_variable = { which = cu_road_level_allowed value = 1 }
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				  has_terrain = hills
+				  has_terrain = highlands
+				  has_terrain = marsh
+				  
+			}
+		}
+		change_variable = { which = cu_road_level_allowed value = -2 }
+		if = {
+			limit = {
+				OR = {
+					has_province_modifier = ti_marsh_done
+       				has_province_modifier = holland_polders	
+				}
+			}
+			change_variable = { which = cu_road_level_allowed value = 2 }
+		}
+		else_if = {
+			limit = {
+					has_province_modifier = ti_terrace_done
+			}
+			change_variable = { which = cu_road_level_allowed value = 1 }
+		}
+	}
+	else_if = {
+	    limit = {
+			OR = {
+				  has_terrain = jungle
+				  has_terrain = desert
+				  has_terrain = coastal_desert
+				  has_terrain = mountain
+				  has_terrain = glacier
+				  
+			}
+		}
+		change_variable = { which = cu_road_level_allowed value = -3 }
+		if = {
+			limit = {
+				OR = {
+					has_province_modifier = ti_irragation_done
+					has_province_modifier = ti_terrace_done
+				}
+			}
+			change_variable = { which = cu_road_level_allowed value = 1 }
+		}
+		else_if = {
+			limit = {
+			    has_province_modifier = ti_jungle_done
+			}
+			change_variable = { which = cu_road_level_allowed value = 2 }
+		}
+	}
+	else_if = {
+	    limit = {
+			OR = {
+				  has_terrain = jungle
+				  has_terrain = desert
+				  has_terrain = coastal_desert
+				  has_terrain = mountain
+				  has_terrain = glacier
+				  
+			}
+		}
+		change_variable = { which = cu_road_level_allowed value = -2 }
+		if = {
+			limit = {
+				OR = {
+					has_province_modifier = ti_irragation_done
+					has_province_modifier = ti_terrace_done
+				}
+			}
+			change_variable = { which = cu_road_level_allowed value = 1 }
+		}
+		else_if = {
+			limit = {
+			    has_province_modifier = ti_jungle_done
+			}
+			change_variable = { which = cu_road_level_allowed value = 2 }
+		}
+	}
+	change_variable = { which = cu_road_level_allowed which = cu_road_level_allowed_c }
+	#Strategic Ideas
+	if = {
+		limit = {
+			owner = { quantity_ideas = 5 }
+			NOT = { check_variable = { which = cu_road_level_allowed value = 4 } }
+			NOT = { check_variable = { which = cu_road_level_allowed which = cu_road_level_allowed_c } }
+		}
+		change_variable = { which = cu_road_level_allowed value = 1 }
+	}
+	if = {
+		limit = { NOT = { check_variable = { which = cu_road_level_allowed value = 0 } } }
+		set_variable = { which = cu_road_level_allowed value = 0 }
+	}
+	else_if = {
+		limit = { check_variable = { which = cu_road_level_allowed value = 10 } }
+		set_variable = { which = cu_road_level_allowed value = 10 }
+	}
+	#If road level is above permitted level, degrade road to permitted level.
+	if = {
+		limit = { NOT = { check_variable = { which = cu_road_level_allowed which = cu_road_level } } }
+		set_variable = { which = cu_road_level which = cu_road_level_allowed  }
+		cu_update_road_level = yes
+	}
+}
+
+cu_calc_allowed_road_level_country = {
+	if = {
+		limit = { dip_tech = 34 }
+		set_variable = { which = cu_road_level_allowed_c value = 12 }
+	}
+	else_if = {
+		limit = { dip_tech = 32 }
+		set_variable = { which = cu_road_level_allowed_c value = 11 }
+	}
+	else_if = {
+		limit = { dip_tech = 30 }
+		set_variable = { which = cu_road_level_allowed_c value = 10 }
+	}
+	else_if = {
+		limit = { dip_tech = 26 }
+		set_variable = { which = cu_road_level_allowed_c value = 9 }
+	}
+	else_if = {
+		limit = { dip_tech = 22 }
+		set_variable = { which = cu_road_level_allowed_c value = 8 }
+	}
+	else_if = {
+		limit = { dip_tech = 18 }
+		set_variable = { which = cu_road_level_allowed_c value = 7 }
+	}
+	else_if = {
+		limit = { dip_tech = 14 }
+		set_variable = { which = cu_road_level_allowed_c value = 6 }
+	}
+	else_if = {
+		limit = { dip_tech = 10 }
+		set_variable = { which = cu_road_level_allowed_c value = 5 }
+	}
+	else_if = {
+		limit = { dip_tech = 6 }
+		set_variable = { which = cu_road_level_allowed_c value = 4 }
+	}
+	else_if = {
+		limit = { dip_tech = 3 }
+		set_variable = { which = cu_road_level_allowed_c value = 3 }
+	}
+	else_if = {
+		limit = { dip_tech = 2 }
+		set_variable = { which = cu_road_level_allowed_c value = 2 }
+	}
+	else_if = {
+		limit = { dip_tech = 1 }
+		set_variable = { which = cu_road_level_allowed_c value = 1 }
+	}
+	else = {
+		set_variable = { which = cu_road_level_allowed_c value = 0 }
+	}
+	every_owned_province = {
+		cu_calc_allowed_road_level = yes
+	}
+}
+
+cu_improve_road_effect = {
+		set_province_flag = cu_road_calculating
+		if = {
+				  limit = { NOT = { check_variable = { which = cu_road_level value = 0 } } } #In case of bug
+				  set_variable = { which = cu_road_level value = 0 }
+	    }
+		change_variable = { which = cu_road_level value = 1 }
+		if = {
+			 limit = { check_variable = { which = cu_road_level value = 10 } }
+			 remove_building = road_9
+			 add_building = road_10
+			 set_variable = { which = cu_road_level value = 10 }
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 9 } }
+			 remove_building = road_8
+			 add_building = road_9
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 8 } }
+			 remove_building = road_7
+			 add_building = road_8
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 7 } }
+			 remove_building = road_6
+			 add_building = road_7
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 6 } }
+			 remove_building = road_5
+			 add_building = road_6
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 5 } }
+			 remove_building = road_4
+			 add_building = road_5
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 4 } }
+			 remove_building = road_3
+			 add_building = road_4
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 3 } }
+			 remove_building = road_2
+			 add_building = road_3
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 2 } }
+			 remove_building = road_1
+			 add_building = road_2
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 1 } }
+			 add_building = road_1
+		}
+		
+	    cu_prov_trigger_dist_calc = yes
+		clr_province_flag = cu_road_calculating
+}
+
+cu_degrade_road_effect = {
+		
+		set_province_flag = cu_road_calculating #Prevent from triggering road degrade event
+		if = {
+				  limit = { NOT = { check_variable = { which = cu_road_level value = 0 } } } #In case of bug
+				  set_variable = { which = cu_road_level value = 0 }
+	    }
+		subtract_variable = { which = cu_road_level value = 1 }
+		if = {
+			 limit = { check_variable = { which = cu_road_level value = 9 } }
+			 remove_building = road_10
+			 add_building = road_9
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 8 } }
+			 remove_building = road_9
+			 add_building = road_8
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 7 } }
+			 remove_building = road_8
+			 add_building = road_7
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 6 } }
+			 remove_building = road_7
+			 add_building = road_6
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 5 } }
+			 remove_building = road_6
+			 add_building = road_5
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 4 } }
+			 remove_building = road_5
+			 add_building = road_4
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 3 } }
+			 remove_building = road_4
+			 add_building = road_3
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 2 } }
+			 remove_building = road_3
+			 add_building = road_2
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 1 } }
+			 remove_building = road_2
+			 add_building = road_1
+		}
+		else_if = {
+		     limit = { check_variable = { which = cu_road_level value = 0 } }
+		     remove_building = road_1
+		}
+		else = {
+			set_variable = { which = cu_road_level value = 0 }
+		}
+	    cu_prov_trigger_dist_calc = yes
+		clr_province_flag = cu_road_calculating
+}
+
+
+cu_degrade_road_effect_fast = { #Does not trigger distance calculation to greatly reduce calculation, mostly used by ai event
+		set_province_flag = cu_road_calculating
+		if = {
+				  limit = { NOT = { check_variable = { which = cu_road_level value = 0 } } } #In case of bug
+				  set_variable = { which = cu_road_level value = 0 }
+	    }
+		subtract_variable = { which = cu_road_level value = 1 }
+		if = {
+			 limit = { check_variable = { which = cu_road_level value = 9 } }
+			 remove_building = road_10
+			 add_building = road_9
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 8 } }
+			 remove_building = road_9
+			 add_building = road_8
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 7 } }
+			 remove_building = road_8
+			 add_building = road_7
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 6 } }
+			 remove_building = road_7
+			 add_building = road_6
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 5 } }
+			 remove_building = road_6
+			 add_building = road_5
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 4 } }
+			 remove_building = road_5
+			 add_building = road_4
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 3 } }
+			 remove_building = road_4
+			 add_building = road_3
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 2 } }
+			 remove_building = road_3
+			 add_building = road_2
+		}
+		else_if = {
+			 limit = { check_variable = { which = cu_road_level value = 1 } }
+			 remove_building = road_2
+			 add_building = road_1
+		}
+		else_if = {
+		     limit = { check_variable = { which = cu_road_level value = 0 } }
+		     remove_building = road_1
+		}
+		else = {
+			set_variable = { which = cu_road_level value = 0 }
+		}
+		clr_province_flag = cu_road_calculating
+}
 								  											  

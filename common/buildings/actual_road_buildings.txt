@@ -1,0 +1,469 @@
+#This is actually road buildings in game.
+
+
+#Mud Road(Lv 1-4)
+
+road_1 = {
+	cost = 50
+	time = 9999
+	build_trigger = {
+			OR = {
+				AND = {
+					check_variable = { which = cu_road_level value = 1 } #So can never be built manually
+					NOT = { check_variable = { which = cu_road_level value = 2 } }
+				}
+				has_building = road_1
+			}
+	}
+	modifier = {
+		local_development_cost = -0.025
+        province_trade_power_value = 0.25
+		allowed_num_of_buildings = 1
+		local_friendly_movement_speed = 0.025
+		local_hostile_movement_speed = 0.025
+        supply_limit_modifier = 0.025
+		local_state_maintenance_modifier = -0.025
+		global_tax_income = -0.25
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n7
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -7 }
+		     cu_add_cultural_acceptance = yes
+			 if = {
+				limit = { NOT = { has_province_flag = cu_road_calculating } }
+				province_event = { id = cuglobal.961  }
+			 }
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -5 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+road_2 = {
+	cost = 100
+	time = 9999
+	build_trigger = {
+                OR = {
+				AND = {
+					check_variable = { which = cu_road_level value = 2 } #So can never be built manually
+					NOT = { check_variable = { which = cu_road_level value = 3 } }
+				}
+				has_building = road_2
+			}
+	}
+	modifier = {
+		local_development_cost = -0.05
+        province_trade_power_value = 0.5
+		allowed_num_of_buildings = 1
+		local_friendly_movement_speed = 0.05
+		local_hostile_movement_speed = 0.05
+        supply_limit_modifier = 0.05
+		local_state_maintenance_modifier = -0.05
+		global_tax_income = -0.5
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n7
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -7 }
+		     cu_add_cultural_acceptance = yes
+			 if = {
+				limit = { NOT = { has_province_flag = cu_road_calculating } }
+				province_event = { id = cuglobal.961  }
+			 }
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -5 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+road_3 = {
+	cost = 100
+	time = 9999
+	build_trigger = {
+            OR = {
+				AND = {
+					check_variable = { which = cu_road_level value = 3 } #So can never be built manually
+					NOT = { check_variable = { which = cu_road_level value = 4 } }
+				}
+				has_building = road_3
+			}
+	}
+	modifier = {
+		local_development_cost = -0.75
+        province_trade_power_value = 0.75
+		allowed_num_of_buildings = 1
+		local_friendly_movement_speed = 0.075
+		local_hostile_movement_speed = 0.075
+        supply_limit_modifier = 0.075
+		local_state_maintenance_modifier = -0.075
+		global_tax_income = -0.75
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n7
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -7 }
+		     cu_add_cultural_acceptance = yes
+			 if = {
+				limit = { NOT = { has_province_flag = cu_road_calculating } }
+				province_event = { id = cuglobal.961  }
+			 }
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -5 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+
+
+road_4 = {
+	cost = 150
+	time = 9999
+	build_trigger = {
+                OR = {
+				AND = {
+					check_variable = { which = cu_road_level value = 4 } #So can never be built manually
+					NOT = { check_variable = { which = cu_road_level value = 5 } }
+				}
+				has_building = road_4
+			}
+	}
+	modifier = {
+		local_development_cost = -0.1
+        province_trade_power_value = 1
+		allowed_num_of_buildings = 1
+		local_friendly_movement_speed = 0.1
+		local_hostile_movement_speed = 0.1
+        supply_limit_modifier = 0.1
+		local_state_maintenance_modifier = -0.1
+		global_tax_income = -1
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n7
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -7 }
+		     cu_add_cultural_acceptance = yes
+			 if = {
+				limit = { NOT = { has_province_flag = cu_road_calculating } }
+				province_event = { id = cuglobal.961  }
+			 }
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -5 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+#Paved Road (Lv 5-9)
+
+road_5 = {
+	cost = 200
+	time = 9999
+	build_trigger = {
+                OR = {
+				AND = {
+					check_variable = { which = cu_road_level value = 5 } #So can never be built manually
+					NOT = { check_variable = { which = cu_road_level value = 6 } }
+				}
+				has_building = road_5
+			}
+	}
+	modifier = {
+		local_development_cost = -0.15
+        province_trade_power_value = 1.5
+		allowed_num_of_buildings = 2
+		local_friendly_movement_speed = 0.15
+		local_hostile_movement_speed = 0.15
+        supply_limit_modifier = 0.15
+		local_state_maintenance_modifier = -0.15
+		global_tax_income = -1.5
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n7
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -7 }
+		     cu_add_cultural_acceptance = yes
+			 if = {
+				limit = { NOT = { has_province_flag = cu_road_calculating } }
+				province_event = { id = cuglobal.961  }
+			 }
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -5 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+road_6 = {
+	cost = 200
+	time = 9999
+	build_trigger = {
+                OR = {
+				AND = {
+					check_variable = { which = cu_road_level value = 6 } #So can never be built manually
+					NOT = { check_variable = { which = cu_road_level value = 7 } }
+				}
+				has_building = road_6
+			}
+	}
+	modifier = {
+		local_development_cost = -0.2
+        province_trade_power_value = 2
+		allowed_num_of_buildings = 2
+		local_friendly_movement_speed = 0.2
+		local_hostile_movement_speed = 0.2
+        supply_limit_modifier = 0.2
+		local_state_maintenance_modifier = -0.2
+		global_tax_income = -2
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n7
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -7 }
+		     cu_add_cultural_acceptance = yes
+			 if = {
+				limit = { NOT = { has_province_flag = cu_road_calculating } }
+				province_event = { id = cuglobal.961  }
+			 }
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -5 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+road_7 = {
+	cost = 250
+	time = 9999
+	build_trigger = {
+                OR = {
+				AND = {
+					check_variable = { which = cu_road_level value = 7 } #So can never be built manually
+					NOT = { check_variable = { which = cu_road_level value = 8 } }
+				}
+				has_building = road_7
+			}
+	}
+	modifier = {
+		local_development_cost = -0.25
+        province_trade_power_value = 2.5
+		allowed_num_of_buildings = 2
+		local_friendly_movement_speed = 0.25
+		local_hostile_movement_speed = 0.25
+        supply_limit_modifier = 0.25
+		local_state_maintenance_modifier = -0.25
+		global_tax_income = -2.5
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n7
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -7 }
+		     cu_add_cultural_acceptance = yes
+			 if = {
+				limit = { NOT = { has_province_flag = cu_road_calculating } }
+				province_event = { id = cuglobal.961  }
+			 }
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -5 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+road_8 = {
+	cost = 300
+	time = 9999
+	build_trigger = {
+            OR = {
+				AND = {
+					check_variable = { which = cu_road_level value = 8 } #So can never be built manually
+					NOT = { check_variable = { which = cu_road_level value = 9 } }
+				}
+				has_building = road_8
+			}
+	}
+	modifier = {
+		local_development_cost = -0.3
+        province_trade_power_value = 3
+		allowed_num_of_buildings = 2
+		local_friendly_movement_speed = 0.3
+		local_hostile_movement_speed = 0.3
+        supply_limit_modifier = 0.3
+		local_state_maintenance_modifier = -0.3
+		global_tax_income = -3
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n7
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -7 }
+		     cu_add_cultural_acceptance = yes
+			 if = {
+				limit = { NOT = { has_province_flag = cu_road_calculating } }
+				province_event = { id = cuglobal.961  }
+			 }
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -5 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+
+
+road_9 = {
+	cost = 350
+	time = 9999
+	build_trigger = {
+            OR = {
+				AND = {
+					check_variable = { which = cu_road_level value = 9 } #So can never be built manually
+					NOT = { check_variable = { which = cu_road_level value = 10 } }
+				}
+				has_building = road_9
+			}
+	}
+	modifier = {
+		local_development_cost = -0.4
+        province_trade_power_value = 4
+		allowed_num_of_buildings = 3
+		local_friendly_movement_speed = 0.4
+		local_hostile_movement_speed = 0.4
+        supply_limit_modifier = 0.4
+		local_state_maintenance_modifier = -0.4
+		global_tax_income = -3.5
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n7
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -7 }
+		     cu_add_cultural_acceptance = yes
+			 if = {
+				limit = { NOT = { has_province_flag = cu_road_calculating } }
+				province_event = { id = cuglobal.961  }
+			 }
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -5 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 0
+	}
+}
+
+#Railroad (Lv 10)
+
+road_10 = {
+	cost = 350
+	time = 9999
+	build_trigger = {
+            OR = {
+				check_variable = { which = cu_road_level value = 10 } #So can never be built manually
+				has_building = road_10
+			}
+	}
+	modifier = {
+		local_development_cost = -0.5
+        province_trade_power_value = 5
+		allowed_num_of_buildings = 3
+		local_friendly_movement_speed = 0.5
+		local_hostile_movement_speed = 0.5
+        supply_limit_modifier = 0.5
+		local_state_maintenance_modifier = -0.5
+		global_tax_income = -12
+	}
+	
+	on_destroyed = {
+	     #custom_tooltip = cu_building_dca_n7
+	     hidden_effect = {
+		     set_variable = { which = cu_var1 value = -7 }
+		     cu_add_cultural_acceptance = yes
+			 if = {
+				limit = { NOT = { has_province_flag = cu_road_calculating } }
+				province_event = { id = cuglobal.961  }
+			 }
+		 }
+	}
+	
+	on_obsolete = {
+         hidden_effect = {
+		     set_variable = { which = cu_var1 value = -5 }
+		     cu_add_cultural_acceptance = yes
+		 }
+    }
+	ai_will_do = {
+		factor = 0
+	}
+}

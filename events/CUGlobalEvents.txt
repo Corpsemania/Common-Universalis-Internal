@@ -1075,3 +1075,34 @@ country_event = {
 		}
 	}
 }
+
+#Upgrade Road
+province_event = {
+	id = cuglobal.96
+	title = "EVT_HIDDEN"
+	desc = "cuglobal.96.d"
+	picture = CITY_VIEW_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	option = {
+		name = "EVT_HIDDEN"
+		remove_building = cu_build_road
+		remove_building = cu_build_paved_road
+		remove_building = cu_build_railroad
+	    cu_improve_road_effect = yes
+	}
+}
+
+#Degrade Road
+province_event = {
+	id = cuglobal.961
+	title = "EVT_HIDDEN"
+	desc = "cuglobal.96.d"
+	picture = CITY_VIEW_eventPicture
+	hidden = yes
+	is_triggered_only = yes
+	option = {
+		name = "EVT_HIDDEN"
+	    cu_degrade_road_effect = yes
+	}
+}
