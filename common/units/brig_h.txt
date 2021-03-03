@@ -5,7 +5,7 @@ trigger = {
 }
 hull_size = 22
 base_cannons = 4
-sail_speed = 5.5
+sail_speed = 5
 
 trade_power = 3.8
 
