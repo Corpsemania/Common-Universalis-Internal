@@ -42,7 +42,7 @@ cu_country_census = {
         every_owned_province = {
 	          limit = { is_colony = no }
 			  
-			  cu_calc_province_population = yes
+			  cu_calc_pop_c_disp = yes
 			  set_variable = { which = p_dev value = 0 }
 			  export_to_variable = {
 			        which = p_dev

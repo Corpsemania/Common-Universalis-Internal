@@ -1111,63 +1111,25 @@ province_event = {
 	hidden = yes
 	trigger = {
 		owner = { NOT = { has_country_modifier = cu_ai_building_pause } }
-		OR = {
-			AND = {
-				has_building = road_1
-				OR = {
-		            has_terrain = farmlands
-					has_terrain = grasslands
-					has_terrain = woods
-					has_terrain = drylands
-					has_province_modifier = ti_marsh_done 
-					has_province_modifier = holland_polders
-					has_province_modifier = ti_irragation_done
-					has_province_modifier = ti_terrace_done
-					has_province_modifier = ti_jungle_done
-					has_province_modifier = ti_forest_done
-					has_province_modifier = quantity_ideas_5_mod
-					has_building = road_2
-				}
-				owner = {
-					dip_tech = 16
-					treasury = 400
-				}
-			}
-			AND = {
-				has_building = road_2
-				OR = {
-					has_terrain = farmlands
-					has_terrain = grasslands
-					has_terrain = woods
-					has_terrain = drylands
-					has_province_modifier = ti_marsh_done 
-					has_province_modifier = holland_polders
-					has_province_modifier = ti_irragation_done
-					has_province_modifier = ti_terrace_done
-					has_province_modifier = ti_jungle_done
-					has_province_modifier = ti_forest_done
-					AND = {
-						has_province_modifier = quantity_ideas_5_mod
-						OR = {
-								has_terrain = hills
-								has_terrain = desert
-								has_terrain = savannah
-								has_terrain = steppe
-								has_terrain = coastline
-								has_terrain = coastal_desert
-								has_terrain = highlands
-						}					   
-					}
-					has_building = road_3
-				}
-				owner = {
-					dip_tech = 30
-					treasury = 1000
-				}
-			}
-		}
+		NOT = { check_variable = { which = cu_road_level which = cu_road_level_allowed } }
 		owner = {
 			cu_ai_buff_trigger = yes
+			OR = {
+				AND = { 
+					check_variable = { which = cu_road_level value = 9 }
+					treasury = 1100
+				}
+				AND = { 
+					check_variable = { which = cu_road_level value = 4 }
+					NOT = { check_variable = { which = cu_road_level value = 5 } }
+					treasury = 300
+				}
+				AND = { 
+					check_variable = { which = cu_road_level value = 4 }
+					NOT = { check_variable = { which = cu_road_level value = 5 } }
+					treasury = 150
+				}
+			}
 		}
 	}
 	mean_time_to_happen = {
@@ -1176,90 +1138,24 @@ province_event = {
 	option = {
 		name = "EVT_HIDDEN"
 		if = {
-			limit = {
-				AND = {
-					has_building = road_1
-					OR = {
-						has_terrain = farmlands
-						has_terrain = grasslands
-						has_terrain = woods
-						has_terrain = drylands
-						has_province_modifier = ti_marsh_done 
-						has_province_modifier = holland_polders
-						has_province_modifier = ti_irragation_done
-						has_province_modifier = ti_terrace_done
-						has_province_modifier = ti_jungle_done
-						has_province_modifier = ti_forest_done
-						has_province_modifier = quantity_ideas_5_mod
-						has_building = road_2
-					}
-					owner = {
-						dip_tech = 16
-						treasury = 500
-					}
-				}
-			}
-			add_building_construction = {
-				building = road_2
-				speed = 0.5
-				cost = 0
-			}
-			owner = { 
-				add_treasury = -200 
-				add_country_modifier = {
-					name = cu_ai_building_pause 
-					duration = 365
-				}
-			}
-			
+			limit = { check_variable = { which = cu_road_level value = 9 } }
+			owner = { add_treasury = -1000 }
+			set_variable = { which = cu_var1 value = 10 }
+		    cu_add_cultural_acceptance = yes
+			province_event = { id = cuglobal.96  }
 		}
-		if = {
-			limit = {
-				AND = {
-					has_building = road_2
-					OR = {
-						has_terrain = farmlands
-						has_terrain = grasslands
-						has_terrain = woods
-						has_terrain = drylands
-						has_province_modifier = ti_marsh_done 
-						has_province_modifier = holland_polders
-						has_province_modifier = ti_irragation_done
-						has_province_modifier = ti_terrace_done
-						has_province_modifier = ti_jungle_done
-						has_province_modifier = ti_forest_done
-						AND = {
-							has_province_modifier = quantity_ideas_5_mod
-							OR = {
-									has_terrain = hills
-									has_terrain = desert
-									has_terrain = savannah
-									has_terrain = steppe
-									has_terrain = coastline
-									has_terrain = coastal_desert
-									has_terrain = highlands
-							}					   
-						}
-						has_building = road_3
-					}
-					owner = {
-						dip_tech = 30
-						treasury = 1000
-					}
-				}
-			}
-			add_building_construction = {
-				building = road_3
-				speed = 0.5
-				cost = 0
-			}
-			owner = { 
-				add_treasury = -500
-				add_country_modifier = {
-					name = cu_ai_building_pause 
-					duration = 365
-				}
-			}
+		else_if = {
+			limit = { check_variable = { which = cu_road_level value = 4 } }
+			owner = { add_treasury = -250 }
+			set_variable = { which = cu_var1 value = 7 }
+		    cu_add_cultural_acceptance = yes
+			province_event = { id = cuglobal.96  }
+		}
+		else = {
+			owner = { add_treasury = -120 }
+			set_variable = { which = cu_var1 value = 7 }
+		    cu_add_cultural_acceptance = yes
+			province_event = { id = cuglobal.96  }
 		}
 	}
 }

@@ -28,11 +28,11 @@ cu_sqrt = {
 
 
 ###############################CU RANDOM NUMBER ALGORITHM##########################
-#Use "cu_random_number = yes" to create a random number between 0-100 as cu_rd in any scope
+#Use "cu_random_number = yes" to create a random integer number between 0-100 as cu_rd in any scope
 #cu_rd can be modified to any other value
 #cu_rd1 is the random seed saved as variable of province 1, and changes every time cu_rd is read. Do not change it manually.
 #cu_rd2 is a temperal variable used to generate new cu_rd, we don't use cu_var1 here for modder's convenience
-#cu_rd does not change via save&load, thus discourage players to use S&L to avoid bad incident
+#cu_rd does not change via save&load, thus discourage players to use S&L to avoid bad incidents
 
 #Used by province 1
 cu_initialize_random_number = {
@@ -40,8 +40,10 @@ cu_initialize_random_number = {
 	set_variable = { which = cu_var1 value = 0 }
 	while = {
 		limit = { NOT = { check_variable = { which = cu_var1 value = 2 } } }
+		change_variable = { which = cu_var1 value = 1 }
 		multiply_variable = { which = cu_rd value = 10 }
 		random_list = {
+		    10 = { }
 			10 = { change_variable = { which = cu_rd value = 1 } }
 			10 = { change_variable = { which = cu_rd value = 2 } }
 			10 = { change_variable = { which = cu_rd value = 3 } }
@@ -53,7 +55,7 @@ cu_initialize_random_number = {
 			10 = { change_variable = { which = cu_rd value = 9 } }
 		}
 	}
-	set_variable = { which = cu_rd1 value = cu_rd }
+	set_variable = { which = cu_rd1 which = cu_rd }
 }
 
 #new seed = (  ( cu_year - 1400 ) * old seed + 50 ) Mod 100 
@@ -76,7 +78,7 @@ cu_change_random_number = {
 			subtract_variable = { which = cu_rd1 value = 100 } #Prevent potential overflow
 		}
 		#In case of bugs
-		while = {
+		if = {
 			limit = { NOT = { check_variable = { which = cu_rd1 value = 0 } } }
 			set_variable = { which = cu_rd1 value = 0 }
 		}

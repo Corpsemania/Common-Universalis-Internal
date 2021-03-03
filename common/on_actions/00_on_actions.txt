@@ -322,6 +322,7 @@ on_startup = {
 				cu_calc_allowed_road_level_country = yes
 		}
         
+		cu_set_historical_pop = yes 
 		
 	    
 		every_province = {
@@ -674,6 +675,7 @@ on_startup = {
 				#country_event = { id = urban.971 } #Average Literacy
 				country_event = { id = urban.97 } #Literacy
 				country_event = { id = urban.99 } #Urbanization
+				country_event = { id = custart.43 } #Population Setup
                 country_event = { id = cugovernment.1 }	#Government Capacity
 				if = {
 				      limit = { ai = no }

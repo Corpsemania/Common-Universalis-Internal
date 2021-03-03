@@ -10,7 +10,7 @@
 
 #cu_calc_province_population[]: Calculate Province Population ( Rather roughly now, will be improved when the population mechanic is included)
 cu_calc_province_population = {
-        set_variable = { which = p_pop value = 0 }
+        #set_variable = { which = p_pop value = 0 }
 		set_variable = { which = p_comm value = 0 }
 		set_variable = { which = p_prod value = 0 }
 		set_variable = { which = p_agri value = 0 }
@@ -26,20 +26,6 @@ cu_calc_province_population = {
 		       which = p_agri
 			   value = base_manpower
 		}
-		multiply_variable = { which = p_agri value = 1.25 }
-		change_variable = { which = p_pop which = p_comm }
-		change_variable = { which = p_pop which = p_prod }
-		change_variable = { which = p_pop which = p_agri }
-		set_variable = { which = cu_var3 which = p_pop }
-		change_variable = { which = cu_var3 value = 25 }
-		multiply_variable = { which = p_pop which = cu_var3 }
-		multiply_variable = { which = p_pop value = 0.4 }
-		#Just a temperal fix before population system is done
-		if = {
-		      limit = { superregion = china_superregion }
-			  multiply_variable = { which = p_pop value = 2 }
-		}
-		
 }
 
 #cu_change_cabinet_adm[cu_var1]: Change Cabinet Administrative Power( Valid Range: -1999 - 1999 )

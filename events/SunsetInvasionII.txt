@@ -231,9 +231,9 @@ country_event = {
                             transport = 484
                             create_general = { tradition = 100 }
                             create_general = { tradition = 80 }
-                            create_conquistador = 100
-                            create_explorer = 100
-                            create_explorer = 60
+                            create_conquistador = { tradition = 100 }
+                            create_explorer = { tradition = 100 }
+                            create_explorer = { tradition = 60 }
                             add_army_tradition = 47.9
                             add_navy_tradition = 23.1
                             every_province = {
@@ -475,9 +475,9 @@ country_event = {
 			    transport = 481
                             create_general = { tradition = 100 }
                             create_general = { tradition = 80 }
-                            create_conquistador = 100
-                            create_explorer = 100
-                            create_explorer = 60
+                            create_conquistador = { tradition = 100 }
+                            create_explorer = { tradition = 100 }
+                            create_explorer = { tradition = 60 }
                             add_army_tradition = 47.9
                             add_navy_tradition = 23.1
                             every_province = {
@@ -710,9 +710,9 @@ country_event = {
                             transport = 763
                             create_general = { tradition = 100 }
                             create_general = { tradition = 80 }
-                            create_conquistador = 80
-                            create_explorer = 100
-                            create_explorer = 60
+                            create_conquistador = { tradition = 80 }
+                            create_explorer = { tradition = 100 }
+                            create_explorer = { tradition = 60 }
                             add_army_tradition = 34.8
                             add_navy_tradition = 27.2
                             every_province = {
@@ -887,8 +887,8 @@ country_event = {
                             add_treasury = 500
                             add_manpower = 0.5
                             create_general = { tradition = 100 }
-                            create_conquistador = 100
-                            create_explorer = 100
+                            create_conquistador = { tradition = 100 }
+                            create_explorer = { tradition = 100 }
                             add_army_tradition = 42.3
                             add_navy_tradition = 14.7
                             infantry = 960

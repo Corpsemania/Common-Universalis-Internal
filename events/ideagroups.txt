@@ -8493,9 +8493,11 @@ country_event = {
 	desc = "EVT_HIDDEN"
 	picture = LIBERUM_VETO_eventPicture
 	hidden = yes
+	is_triggered_only = yes
 	trigger = {
 		NOT = { has_country_flag = road_building_bonus_applied }
 		quantity_ideas = 5
+		has_global_flag = test_version
 	}
 	mean_time_to_happen = {
 	    months = 1
@@ -8510,6 +8512,13 @@ country_event = {
 					has_building = road_1
 					has_building = road_2
 					has_building = road_3
+					has_building = road_4
+					has_building = road_5
+					has_building = road_6
+					has_building = road_7
+					has_building = road_8
+					has_building = road_9
+					has_building = road_10
 				}
 			}
 			add_province_modifier = {

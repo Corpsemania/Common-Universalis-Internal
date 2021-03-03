@@ -307,7 +307,7 @@ agrarian_ideas = {
 		#Unlocks Benign Neglect Edict
 	}
 	agr_free_resettlement = {
-		expel_minorities_cost = -0.20 #Migration Time
+		expel_minorities_cost = -0.20 #Population Migration Time
 		colonist_placement_chance = 0.025
 	}
 	agr_agrarian_idyll = {
@@ -470,7 +470,7 @@ influence_ideas = {
     
     dev_family_ties = {
 	    heir_chance = 0.25
-		#Additional ways to increase estate loyalty
+		#Additional estate interaction to increase estate loyalty
 	}	
 	dev_autonomous_rule = {
 	    global_trade_goods_size_modifier = 0.1
@@ -480,7 +480,7 @@ influence_ideas = {
 	}
 	dev_domistic_rulership = {
         autonomy_change_time = -0.25
-		#-0.2% OGC per autonomy percentage
+		#-0.2% GC cost per 1% autonomy(-20% when province has 100% autonomy)
 	}
 	dev_dominion_act = {
 		liberty_desire_from_subject_development = -0.25
@@ -490,7 +490,7 @@ influence_ideas = {
 	}
 	dev_confederacy = {
 	    global_autonomy = -0.03
-		#Unlocks Confederacy Government Form.
+		#Unlocks Confederacy Government Type.
 	}	
 	
 	ai_will_do = {
@@ -808,7 +808,7 @@ trade_ideas = {
 	new_caravansary = {
 		global_own_trade_power = 0.10
 		#Province Commerce Growth Modifier: +25%
-		#May claim COT
+		#May claim new Center of Trade if province has higher commerce than current COT
 	}
 	crossroad_of_the_world = {
 		embracement_cost = -0.20
@@ -864,7 +864,7 @@ maritime_ideas = {
 	informal_empire = {
 		ship_power_propagation = 0.1
 		embargo_efficiency = 0.25
-		#Additional merchants from the size of your trade fleet
+		#Additional merchants(up to +4) from the size of your trade fleet
 	}
 	ai_will_do = {
 		factor = 0.41
@@ -1261,8 +1261,8 @@ quantity_ideas = {
 		#No requirement of road and harbor buildings
 	}
 	branch_interoperation = {
-	    reserves_organisation = 0.20
-	    cavalry_flanking = 0.20
+	    reserves_organisation = 0.15
+	    cavalry_flanking = 0.25
 		backrow_artillery_damage = 0.10
 	}
 

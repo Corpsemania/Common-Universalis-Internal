@@ -108,7 +108,7 @@ road_3 = {
 			}
 	}
 	modifier = {
-		local_development_cost = -0.75
+		local_development_cost = -0.075
         province_trade_power_value = 0.75
 		allowed_num_of_buildings = 1
 		local_friendly_movement_speed = 0.075
@@ -204,7 +204,7 @@ road_5 = {
 			}
 	}
 	modifier = {
-		local_development_cost = -0.15
+		local_development_cost = -0.125
         province_trade_power_value = 1.5
 		allowed_num_of_buildings = 2
 		local_friendly_movement_speed = 0.15
@@ -250,7 +250,7 @@ road_6 = {
 			}
 	}
 	modifier = {
-		local_development_cost = -0.2
+		local_development_cost = -0.15
         province_trade_power_value = 2
 		allowed_num_of_buildings = 2
 		local_friendly_movement_speed = 0.2
@@ -296,7 +296,7 @@ road_7 = {
 			}
 	}
 	modifier = {
-		local_development_cost = -0.25
+		local_development_cost = -0.175
         province_trade_power_value = 2.5
 		allowed_num_of_buildings = 2
 		local_friendly_movement_speed = 0.25
@@ -342,7 +342,7 @@ road_8 = {
 			}
 	}
 	modifier = {
-		local_development_cost = -0.3
+		local_development_cost = -0.2
         province_trade_power_value = 3
 		allowed_num_of_buildings = 2
 		local_friendly_movement_speed = 0.3
@@ -390,7 +390,7 @@ road_9 = {
 			}
 	}
 	modifier = {
-		local_development_cost = -0.4
+		local_development_cost = -0.225
         province_trade_power_value = 4
 		allowed_num_of_buildings = 3
 		local_friendly_movement_speed = 0.4
@@ -435,7 +435,7 @@ road_10 = {
 			}
 	}
 	modifier = {
-		local_development_cost = -0.5
+		local_development_cost = -0.25
         province_trade_power_value = 5
 		allowed_num_of_buildings = 3
 		local_friendly_movement_speed = 0.5

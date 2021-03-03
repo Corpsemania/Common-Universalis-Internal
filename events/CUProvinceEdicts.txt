@@ -3877,6 +3877,23 @@ province_event = {
 	picture = CITY_DEVELOPMENT_eventPicture
 	is_triggered_only = yes
 	option = { 
+	    name = "urban.52.c" #Show Population Details
+		hidden_effect = {
+		    owner = {
+				set_variable = { which = p_pop_gm value = 0 }
+				export_to_variable = {
+					which = p_pop_gm
+					value = modifier:manpower_recovery_speed
+				}
+				change_variable = { which = p_pop_gm value = 1 }
+				cu_calc_pop_acm_c = yes
+				cu_calc_pop_ucm_c = yes
+			}
+			cu_calc_pop = yes
+			province_event = { id = urban.524 }
+		}
+	}
+	option = { 
 	    name = "urban.52.a" #Show Economy Details
 		hidden_effect = {
 			province_event = { id = urban.521 }
@@ -3965,6 +3982,30 @@ province_event = {
 	    name = "urban.return"
 		hidden_effect = {
 			province_event = { id = urban.522 }
+		}
+	}
+	option = { 
+	    name = "urban.main"
+		hidden_effect = {
+			province_event = { id = urban.50 }
+		}
+	}
+	option = { 
+	    name = "urban.exit"
+	}
+}
+
+#City Census - Population
+province_event = {
+    id = urban.524
+	title = "urban.524.t"
+	desc = "urban.524.d"
+	picture = CITY_DEVELOPMENT_eventPicture
+	is_triggered_only = yes
+	option = { 
+	    name = "urban.return"
+		hidden_effect = {
+			province_event = { id = urban.52 }
 		}
 	}
 	option = { 

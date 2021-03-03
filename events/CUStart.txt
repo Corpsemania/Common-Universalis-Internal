@@ -96,12 +96,61 @@ country_event = {
 	desc = "EVT_WEL_DESC"
 	picture = ADVISOR_eventPicture
 	is_triggered_only = yes
-	
-	mean_time_to_happen = {
-	    months = 1
-	}
 
 	option = {
 		name = "EVT_WEL_OPTI"
+	}
+}
+
+#Initialize Population
+country_event = {
+	id = custart.43
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = ADVISOR_eventPicture
+	is_triggered_only = yes
+	hidden = yes
+
+
+	option = {
+		name = "EVT_HIDDEN"
+		cu_calc_pop_acm_c = yes
+		cu_calc_pop_ucm_c = yes
+		every_owned_province = {
+				province_event = { id = custart.44 }
+		}
+		country_event = { id = custart.45 }
+	}
+}
+
+#Initialize Population
+province_event = {
+	id = custart.44
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = ADVISOR_eventPicture
+	is_triggered_only = yes
+	hidden = yes
+
+
+	option = {
+		name = "EVT_HIDDEN"
+		cu_initialize_pop = yes
+	}
+}
+
+#Initialize Population
+country_event = {
+	id = custart.45
+	title = "EVT_HIDDEN"
+	desc = "EVT_HIDDEN"
+	picture = ADVISOR_eventPicture
+	is_triggered_only = yes
+	hidden = yes
+
+
+	option = {
+		name = "EVT_HIDDEN"
+		cu_calc_pop_c = yes
 	}
 }

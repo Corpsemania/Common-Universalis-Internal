@@ -8495,7 +8495,7 @@ country_event = {
 	}
 	option = {
 		name = "EVTOPTB862"
-		create_conquistador = 25
+		create_conquistador = { tradition = 25 }
 	}
 	option = {
 		name = "personality_options.862.a"
@@ -8505,7 +8505,7 @@ country_event = {
 		ai_chance = {
 			factor = 100
 		}
-		create_conquistador = 25
+		create_conquistador = { tradition = 25 }
 		add_country_modifier = {
 			name = "colonial_enthusiasm"
 			duration = 1825
@@ -9606,7 +9606,7 @@ country_event = {
 			limit = { has_port = yes }
 			heavy_ship = ROOT
 		}
-		create_explorer = 20
+		create_explorer = { tradition = 20 }
 	}
 	option = {
 		name = "personality_options.881.a"
@@ -9617,7 +9617,7 @@ country_event = {
 			limit = { has_port = yes }
 			heavy_ship = ROOT
 		}
-		create_explorer = 50
+		create_explorer = { tradition = 50 }
 	}
 }
 

@@ -502,3 +502,56 @@ defined_text = {
 	}
 }
 
+defined_text = {
+	name = p_pop_g_tt
+	random = no
+	
+	text = {
+		localisation_key = p_pop_g_ptt
+		trigger = {
+			check_variable = { which = p_pop_g value = 0 }
+		}
+	}
+	text = {
+		localisation_key = p_pop_g_ntt
+		trigger = {
+			NOT = { check_variable = { which = p_pop_g value = 0 } }
+		}
+	}
+}
+
+defined_text = {
+	name = p_pop_new_tt
+	random = no
+	
+	text = {
+		localisation_key = p_pop_new_ptt
+		trigger = {
+			check_variable = { which = p_pop_new value = 0 }
+		}
+	}
+	text = {
+		localisation_key = p_pop_new_ntt
+		trigger = {
+			NOT = { check_variable = { which = p_pop_new value = 0 } }
+		}
+	}
+}
+
+defined_text = {
+	name = p_pop_g_food_tt
+	random = no
+	
+	text = {
+		localisation_key = p_pop_g_food_ptt
+		trigger = {
+			check_variable = { which = p_pop_g_food value = 0 }
+		}
+	}
+	text = {
+		localisation_key = p_pop_g_food_ntt
+		trigger = {
+			NOT = { check_variable = { which = p_pop_g_food value = 0 } }
+		}
+	}
+}

@@ -110,6 +110,7 @@ country_event = {
 		
 		
 		#
+		cu_calc_pop_c = yes #Population Calculation
 		country_event = { id = urban.97 } #Literacy Calculation
 		country_event = { id = urban.99 } #Urbanization Calculation
 		country_event = { id = cugovernment.1 } #Government Capacity Calculation
@@ -224,6 +225,7 @@ country_event = {
 			set_variable = { which = s_dev value = 0 }
 			cu_export_s_dev = yes
 			cu_gov_effect = yes
+			cu_calc_pop_c = yes #Population Calculation
 			country_event = { id = urban.97 } #Literacy Calculation
 			country_event = { id = urban.99 } #Urbanization Calculation
 			country_event = { id = cugovernment.1 } #Government Capacity Calculation
@@ -760,6 +762,13 @@ country_event = {
 								has_building = road_1
 								has_building = road_2
 								has_building = road_3
+								has_building = road_4
+								has_building = road_5
+								has_building = road_6
+								has_building = road_7
+								has_building = road_8
+								has_building = road_9
+								has_building = road_10
 							}
 							OR = {
 								any_neighbor_province = { #Land Connection

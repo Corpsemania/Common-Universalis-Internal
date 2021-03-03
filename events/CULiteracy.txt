@@ -80,10 +80,10 @@ province_event = {
 		divide_variable = { which = lit_ga value = 500 }
 		subtract_variable = { which = lit_bg which = lit_ga }
 		
-		#export_to_variable = {
-		   #which = lit_dg
-			#value = devastation #Value is not available
-		#}
+		export_to_variable = {
+		   which = lit_dg
+			value = trigger_value:devastation
+		}
 		
 		#divide_variable = { which = lit_dg value = 1000 }
 		#subtract_variable = { which = lit_bg which = lit_dg }
@@ -332,7 +332,7 @@ province_event = {
 			set_variable = { which = literacy value = 100 }
 		}
 		if = {  #Never less than 0.25%
-			limit = { NOT = { check_variable = { which = literacy value = 0.1 } } }
+			limit = { NOT = { check_variable = { which = literacy value = 0.25 } } }
 			set_variable = { which = literacy value = 0.25 }
 		}
 		if = {
@@ -624,10 +624,10 @@ province_event = {
 		divide_variable = { which = lit_ga value = 500 }
 		subtract_variable = { which = lit_bg which = lit_ga }
 		
-		#export_to_variable = {
-		   #which = lit_dg
-			#value = devastation #Value is not available
-		#}
+		export_to_variable = {
+		    which = lit_dg
+			value = trigger_value:devastation #Value is not available
+		}
 
 		#divide_variable = { which = lit_dg value = 1000 }
 		#subtract_variable = { which = lit_bg which = lit_dg }

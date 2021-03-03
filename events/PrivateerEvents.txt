@@ -318,7 +318,7 @@ country_event = {
 					}
 				}
 			}
-			create_explorer = 5
+			create_explorer = { tradition = 5 }
 		}
 	}
 

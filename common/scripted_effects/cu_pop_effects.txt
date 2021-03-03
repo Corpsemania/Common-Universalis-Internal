@@ -1,6 +1,6 @@
 ### Public ###
 #Population of a province is stored as p_pop, where 1 unit means 1k population
-#Without modifiers, 20k population equals 1 development, but further modifiers can greatly increase development per pop
+#Without modifiers, 10k population equals 1 development, but further modifiers can greatly increase development per pop
 
 #Country Scope - Calculate countrywide population agriculture capacity modifier
 cu_calc_pop_acm_c = {
@@ -44,9 +44,6 @@ cu_calc_pop_acm_c = {
 	else_if = {
 		limit = { adm_tech = 3 }
 		change_variable = { which = pop_acm value = 0.1 }
-	}
-	every_owned_province = {
-		cu_calc_pop_acm = yes
 	}
 }
 
@@ -324,8 +321,132 @@ cu_calc_pop_acm = {
 		limit = { NOT = { check_variable = { which = pop_acm value = 0.1 } } }
 		set_variable = { which = pop_acm value = 0.1 }
 	}
+	set_variable = { which = pop_acm_d which = pop_acm }
+	multiply_variable = { which = pop_acm_d value = 100 }
+}
+
+#Province Scope - Calculate population agriculture capacity
+cu_calc_p_ac = {
+	set_variable = { which = pop_ac which = p_pop }
+	#Unfinished
+}
+
+#Country Scope - Calculate countrywide population urbanization capacity modifier
+cu_calc_pop_ucm_c = {
+	set_variable = { which = pop_ucm_c value = 1 }
+	#every_owned_province = {
+		#cu_calc_pop_ucm = yes
+	#}
+}
+
+#Province Scope - Calculate province population urbanization capacity modifier
+cu_calc_pop_ucm = {
+	set_variable = { which = pop_ucm_c which = owner }
+	set_variable = { which = pop_ucm which = literacy }
+	multiply_variable = { which = pop_ucm value = 0.01 }
+	change_variable = { which = pop_ucm which = pop_ucm_c }
+	set_variable = { which = pop_ucm_d which = pop_ucm }
+	if = {
+		limit = { NOT = { check_variable = { which = pop_ucm value = 1 } } }
+		set_variable = { which = pop_ucm value = 1 }
+	}
+	multiply_variable = { which = pop_ucm_d value = 100 }
+}
+
+#Province Scope - Calculate population urbanization capacity(pop_uc)
+#pop_uc = (literate population / 20 + unliterate population / 100)*pop_ucm
+cu_calc_p_uc = {
+	set_variable = { which = pop_uc value = 0 }
+	set_variable = { which = p_pop_lit which = p_pop } #Literate Population
+	multiply_variable = { which = p_pop_lit which = literacy }
+	divide_variable = { which = p_pop_lit value = 100 }
+	set_variable = { which = p_pop_unl which = p_pop } #Unliterate Population
+	subtract_variable = { which = p_pop_unl which = p_pop_lit }
+	#Unfinished
+}
+
+#Province Scope - Calculate food
+#1 agriculture produce 2 food(p_food), 10k population consume 1 food(p_food_c)(without any modifiers)
+#food surplus rate(p_food_s) = p_food/p_food_c - 1
+cu_calc_p_food = {
+	set_variable = { which = p_food value = 0 }
+	export_to_variable = {
+			which = p_food
+			value = base_manpower
+	}
+	multiply_variable = { which = p_food value = 2 }
+	set_variable = { which = p_food_c which = p_pop }
+	multiply_variable = { which = p_food_c value = 0.1 }
+	set_variable = { which = p_food_s which = p_food }
+	divide_variable = { which = p_food_s which = p_food_c }
+	subtract_variable = { which = p_food_s value = 1 }
 	
 }
+
+#Province Scope - Calculate population growth rate(0-100%, for display reason)
+#if p_food_s is positive, then population growth rate(p_pop_g) =  prosperity * 0.01 - devastation * 0.05 + p_food_s * 0.1 
+#if p_food_s is negative, then population growth rate(p_pop_g, negative) = prosperity * 0.01 - devastation * 0.05 + p_food_s * 0.2
+#if p_pop_g is positive, it is further multiplied by countrywide growth modifier(p_pop_gm)
+cu_calc_p_pop_g = {
+	set_variable = { which = p_pop_g_pros value = 0 }
+	export_to_variable = {
+		which = p_pop_g_pros
+		value = trigger_value:prosperity
+	}
+	multiply_variable = { which = p_pop_g_pros value = 0.01 }
+	set_variable = { which = p_pop_g_deva value = 0 }
+	export_to_variable = {
+		which = p_pop_g_deva
+		value = trigger_value:devastation
+	}
+	multiply_variable = { which = p_pop_g_deva value = 0.05 }
+	if = {
+		limit = { check_variable = { which = p_food_s value = 0 } }
+		set_variable = { which = p_pop_g_food which = p_food_s }
+		multiply_variable = { which = p_pop_g_food value = 10 }
+	}
+	else = {
+		set_variable = { which = p_pop_g_food which = p_food_s }
+		multiply_variable = { which = p_pop_g_food value = 20 }
+		change_variable = { which = p_pop_g_food value = 1 }
+	}
+	set_variable = { which = p_pop_g value = 0 }
+	change_variable = { which = p_pop_g which = p_pop_g_pros }
+	subtract_variable = { which = p_pop_g which = p_pop_g_deva }
+	change_variable = { which = p_pop_g which = p_pop_g_food }
+	if = {
+		limit = { check_variable = { which = p_pop_g value = 0 } }
+		set_variable = { which = p_pop_gm which = owner }
+		if = {
+			limit = { NOT = { check_variable = { which = p_pop_gm value = 0.8 } } }
+			set_variable = { which = p_pop_gm value = 0.8 }
+		}
+		multiply_variable = { which = p_pop_g which = p_pop_gm }
+	}
+	else = {
+		set_variable = { which = p_pop_gm value = 1 }
+	}
+	
+}
+
+#Province Scope - Yearly Natural Population Growth
+cu_do_p_pop_g = {
+	set_variable = { which = p_pop_new which = p_pop }
+	multiply_variable = { which = p_pop_new which = p_pop_g }
+	divide_variable = { which = p_pop_new value = 100 }
+	change_variable = { which = p_pop which = p_pop_new }
+}
+
+#Province Scope - AI Natural Population Growth every 5 years
+cu_do_p_pop_g_ai = {
+	set_variable = { which = p_pop_new which = p_pop }
+	multiply_variable = { which = p_pop_new which = p_pop_g }
+	multiply_variable = { which = p_pop_new value = 0.05 }
+	change_variable = { which = p_pop which = p_pop_new }
+	multiply_variable = { which = p_pop_new value = 0.2 } #For correct display
+}
+
+#Executive Functions
 
 #Game Scope - Set historical population data
 cu_set_historical_pop = {
@@ -335,8 +456,9 @@ cu_set_historical_pop = {
 	}
 }
 
-#Province Scope - Initialize province population data, do "cu_calc_pop_acm_c = yes" before using this
+#Province Scope - Initialize province population data, do "cu_calc_pop_acm_c = yes" and "cu_calc_pop_ucm_c = yes" in country scope before using this
 cu_initialize_pop = {
+	
 	if = {
 		limit = { is_empty = yes }
 		set_variable = { which = p_pop value = 0 } #Wasteland
@@ -348,16 +470,99 @@ cu_initialize_pop = {
 	}
 	else = { #No historical data, set population from province development
 		set_variable = { which = p_pop value = 1 } #Minimal population of each province is 1k
-		
+		cu_calc_pop_acm = yes
+		cu_calc_pop_ucm = yes
+		#set_variable = { which = pop_acm value = 1 }
+		#set_variable = { which = pop_acm_d value = 100 }
+		#set_variable = { which = pop_ucm value = 1 }
+		#set_variable = { which = pop_ucm_d value = 100 }
 		#Agriculture Population
 		export_to_variable = {
 			which = cu_var1
 			value = base_manpower
 		}
 		subtract_variable = { which = cu_var1 value = 1 } #The first development of each type is free, due to limitation of game engine.
-		multiply_variable = { which = cu_var1 value = 20 }
-		divide_variable = { which = cu_var1 which = pop_acm }
+		multiply_variable = { which = cu_var1 value = 10 }
+		#divide_variable = { which = cu_var1 which = pop_acm }
 		change_variable = { which = p_pop which = cu_var1 }
+		
+		#Urbanization Population
+		export_to_variable = {
+			which = cu_var1
+			value = base_tax
+		}
+		export_to_variable = {
+			which = cu_var2
+			value = base_production
+		}
+		change_variable = { which = cu_var1 which = cu_var2 }
+		subtract_variable = { which = cu_var1 value = 2 } #The first development of each type is free, due to limitation of game engine.
+		multiply_variable = { which = cu_var1 value = 10 }
+		#divide_variable = { which = cu_var1 which = pop_ucm }
+		change_variable = { which = p_pop which = cu_var1 }
+		set_province_flag = cu_p_pop_initialized
+	}
+	
+}
+
+
+#Province Scope - Yearly Province Pop Calculation
+cu_calc_pop = {
+	cu_calc_p_food = yes
+	cu_calc_p_pop_g = yes
+	cu_calc_pop_acm = yes
+	cu_calc_pop_ucm = yes
+	cu_calc_p_uc = yes
+}
+
+#Country Scope - Yearly Countrywide Pop Calculation(AI is 5 year)
+
+cu_calc_pop_c = {
+	set_variable = { which = p_pop_gm value = 0 }
+	export_to_variable = {
+		which = p_pop_gm
+		value = modifier:manpower_recovery_speed
+	}
+	change_variable = { which = p_pop_gm value = 1 }
+	cu_calc_pop_acm_c = yes
+	cu_calc_pop_ucm_c = yes
+	if = {
+		limit = { ai = no }
+		every_owned_province = {
+			cu_calc_p_food = yes
+			cu_calc_p_pop_g = yes
+			cu_do_p_pop_g = yes
+			cu_calc_pop_acm = yes
+			cu_calc_pop_ucm = yes
+			cu_calc_p_uc = yes
+		}
+	}
+	else = {
+		every_owned_province = {
+			cu_calc_p_food = yes
+			cu_calc_p_pop_g = yes
+			cu_do_p_pop_g_ai = yes
+			cu_calc_pop_acm = yes
+			cu_calc_pop_ucm = yes
+			cu_calc_p_uc = yes
+		}
+	}
+	
+}
+
+#Country Scope - Yearly Countrywide Pop Calculation(For display, no actual growth)
+
+cu_calc_pop_c_disp = {
+	set_variable = { which = p_pop_gm value = 0 }
+	export_to_variable = {
+		which = p_pop_gm
+		value = modifier:manpower_recovery_speed
+	}
+	change_variable = { which = p_pop_gm value = 1 }
+	cu_calc_pop_acm_c = yes
+	cu_calc_pop_ucm_c = yes
+	every_owned_province = {
+		cu_calc_pop = yes
 	}
 	
 }

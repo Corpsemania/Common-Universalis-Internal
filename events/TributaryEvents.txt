@@ -774,6 +774,20 @@ country_event = {
 		FROM = {
 			while = {
 				limit = {
+					check_variable = { which = money_to_give value = 100 }
+				}
+				subtract_variable = { which = money_to_give value = 100 }
+				ROOT = { add_treasury = 100 }
+			}
+			while = {
+				limit = {
+					check_variable = { which = money_to_give value = 10 }
+				}
+				subtract_variable = { which = money_to_give value = 10 }
+				ROOT = { add_treasury = 10 }
+			}
+			while = {
+				limit = {
 					check_variable = { which = money_to_give value = 1 }
 				}
 				subtract_variable = { which = money_to_give value = 1 }

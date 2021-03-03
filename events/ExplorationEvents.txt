@@ -509,7 +509,7 @@ province_event = {
 	option = {
 		name = exploration_events.14.a
 		FROM = {
-			create_explorer = -5
+			create_explorer = { tradition = 20 }
 		}
 	}
 	option = {

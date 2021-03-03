@@ -7,7 +7,7 @@ country_event = {
 	is_triggered_only = yes
 	option = {
 		name = "cuestate.1000_title"
-		country_event = { id = cuestate.1000 }
+		country_event = { id = cuestate.1001 }
 	}
 	option = {
 		name = "cuestate.101_title"
@@ -46,7 +46,7 @@ country_event = {
 
 
 country_event = {#Government
-	id = cuestate.1000
+	id = cuestate.1001
 	title = "cuestate.1000_title"
 	desc = "cuestate.1000_desc"
 	picture = COURT_eventPicture
