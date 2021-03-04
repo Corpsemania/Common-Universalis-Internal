@@ -75,6 +75,10 @@ on_startup = {
 			set_variable = { which = ai_counter value = 0 } 
 			cu_initial_year = yes
 			cu_initialize_random_number = yes #Generate initial random seed
+			
+			#Initialize Regional Dev Data
+			set_variable = { which = fra_dev value = 0 } #Total france development
+			
 		}
 		coordinate_setup = yes
 		every_country = {
@@ -322,10 +326,35 @@ on_startup = {
 				cu_calc_allowed_road_level_country = yes
 		}
         
-		cu_set_historical_pop = yes 
-		
-	    
 		every_province = {
+			
+			#Dev Calculation
+			if = {
+					limit = { 
+						region = france_region 
+					}
+					export_to_variable = {
+						which = p_dev
+						value = development
+					}
+					PREV = { 
+						set_variable = { which = p_dev which = PREV } 
+						change_variable = { which = fra_dev which = p_dev }
+					}
+			}
+			else_if = {
+					limit = { 
+						superregion = china_region 
+					}
+					export_to_variable = {
+						which = p_dev
+						value = development
+					}
+					PREV = { 
+						set_variable = { which = p_dev which = PREV } 
+						change_variable = { which = chi_dev which = p_dev }
+					}
+			}
 			add_permanent_province_modifier = {
 				name = connect_to_capital_far_0
 				duration = -1
@@ -428,6 +457,9 @@ on_startup = {
 				limit = { is_year = 1567 }
 				change_variable = { which = wokou_strength value = -5 }
 			}
+			
+			#Set province historical pop data
+			cu_set_historical_pop = yes
 		}
 		#Some provinces have starting art buildings and start with art piece
 		183 = { #Paris - Notre Dome

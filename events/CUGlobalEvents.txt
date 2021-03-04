@@ -810,6 +810,13 @@ country_event = {
 								has_building = road_1
 								has_building = road_2
 								has_building = road_3
+								has_building = road_4
+								has_building = road_5
+								has_building = road_6
+								has_building = road_7
+								has_building = road_8
+								has_building = road_9
+								has_building = road_10
 							}
 							OR = {
 								any_neighbor_province = { #Land Connection

@@ -446,13 +446,81 @@ cu_do_p_pop_g_ai = {
 	multiply_variable = { which = p_pop_new value = 0.2 } #For correct display
 }
 
-#Executive Functions
 
 #Game Scope - Set historical population data
 cu_set_historical_pop = {
+	cu_set_regional_historical_pop = yes
+	cu_set_province_historical_pop = yes 
+	cu_divide_regional_historical_pop = yes 
+}
+
+cu_set_regional_historical_pop = { #Set historical pop for a region
+	#France - 13500k pop
+	set_variable = { which = fra_pop value = 13500 } #total pop
+	
+	#China - 64000k pop
+	set_variable = { which = chi_pop value = 64000 } #total pop
+}
+cu_set_province_historical_pop = { #Set historical pop for a specific province
+	#Provincial Pop Data
 	1816 = { #Beijing, around 700k population
 		set_variable = { which = p_pop value = 700 }
 		set_province_flag = cu_historical_p_data
+		set_variable = { which = chi_pop which = p_pop }
+		export_to_variable = {
+				which = chi_dev
+				value = development
+		}
+		PREV = {
+			subtract_variable = { which = chi_pop which = PREV } #Remove the pop already set for regional pop data
+			subtract_variable = { which = chi_dev which = PREV }
+		}
+	}
+	
+	183 = { #Ile-de-France, estimated to 3 times pop of the city of paris(140k)
+		set_variable = { which = p_pop value = 420 }
+		set_province_flag = cu_historical_p_data
+		set_variable = { which = fra_pop which = p_pop }
+		export_to_variable = {
+				which = fra_dev
+				value = development
+		}
+		PREV = {
+			subtract_variable = { which = fra_pop which = PREV } #Remove the pop already set for regional pop data
+			subtract_variable = { which = fra_dev which = PREV }
+		}
+	}
+}
+
+#Divide regional Pop Data between provinces at the ratio of province development/total development, excluding province already set above
+#Regional total development is set in on_action
+cu_divide_regional_historical_pop = {	
+	#Apply regional pop data
+	every_province = {
+		if = { #France
+			limit = { region = france_region }
+			export_to_variable = {
+				which = cu_var1
+				value = development
+			}
+			set_variable = { which = fra_pop which = PREV }
+			divide_variable = { which = cu_var1 which = fra_dev }
+			multiply_variable = { which = cu_var1 which = fra_pop }
+			set_variable = { which = p_pop which = cu_var1 }
+			set_province_flag = cu_historical_p_data
+		}
+		else_if = { #China
+			limit = { superregion = china_superregion }
+			export_to_variable = {
+				which = cu_var1
+				value = development
+			}
+			set_variable = { which = chi_pop which = PREV }
+			divide_variable = { which = cu_var1 which = chi_dev }
+			multiply_variable = { which = cu_var1 which = chi_pop }
+			set_variable = { which = p_pop which = cu_var1 }
+			set_province_flag = cu_historical_p_data
+		}
 	}
 }
 

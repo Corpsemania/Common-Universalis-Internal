@@ -385,26 +385,6 @@ ai_militarist = {
 			factor = 0
 			check_variable = { which = go value = 130 } #Not enough GC
 	 	}
-        modifier = {
-			factor = 2.5
-			OR = {
-				has_reform = chinese_revolter
-				has_reform = zhuhou
-				AND = {
-					OR = {
-						has_reform =  celestial_empire
-						has_reform =  celestial_empire_2
-						has_reform =  celestial_empire_3
-					}
-					any_known_country = {
-						OR = {
-							has_reform = chinese_revolter
-							has_reform = zhuhou
-						}
-					}
-				}
-			}
-		}
 	}
 	icon = 4
 }
